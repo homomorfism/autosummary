@@ -1,62 +1,58 @@
-"""Схема структурированного конспекта (выход суммаризатора).
+"""Schema of the structured summary (the summarizer's output).
 
-Ключевое требование проекта — заземление: каждое утверждение помечено
-источником (`slide` / `transcript` / `both`). Это нужно эксперименту Э1
-(coverage / faithfulness) и доказательству «сайт > преза»: доля утверждений с
-источником `transcript` = факты, которых не было на слайдах.
+The key project requirement is grounding: every statement is tagged with a
+source (`slide` / `transcript` / `both`). This is needed for experiment E1
+(coverage / faithfulness) and to prove "site > deck": the share of statements
+with source `transcript` = facts that were not on the slides.
 """
 
 from __future__ import annotations
 
-from enum import Enum
+from enum import StrEnum
 
 from pydantic import BaseModel, Field
 
 
-class Source(str, Enum):
-    """Откуда взято утверждение."""
+class Source(StrEnum):
+    """Where the statement comes from."""
 
-    slide = "slide"            # есть на слайде
-    transcript = "transcript"  # сказано устно, на слайде нет
-    both = "both"              # и на слайде, и в речи
+    slide = "slide"  # present on a slide
+    transcript = "transcript"  # said aloud, not on a slide
+    both = "both"  # both on a slide and in speech
 
 
 class Point(BaseModel):
-    claim: str = Field(description="Одно атомарное утверждение конспекта.")
-    source: Source = Field(description="Источник утверждения.")
-    slide_number: int | None = Field(
-        default=None, description="Номер слайда, если утверждение опирается на слайд."
-    )
+    claim: str = Field(description="A single atomic statement of the summary.")
+    source: Source = Field(description="Source of the statement.")
+    slide_number: int | None = Field(default=None, description="Slide number, if the statement relies on a slide.")
     timestamp: float | None = Field(
         default=None,
-        description="Таймкод (секунды от начала) в транскрипте, если применимо.",
+        description="Timestamp (seconds from the start) in the transcript, if applicable.",
     )
 
 
 class Section(BaseModel):
-    heading: str = Field(description="Заголовок смыслового раздела лекции.")
-    points: list[Point] = Field(description="Утверждения раздела.")
+    heading: str = Field(description="Heading of a thematic section of the lecture.")
+    points: list[Point] = Field(description="Statements of the section.")
 
 
 class KeyTerm(BaseModel):
-    term: str = Field(description="Технический термин.")
-    definition: str = Field(description="Краткое определение по материалам лекции.")
-    source: Source = Field(description="Источник определения.")
+    term: str = Field(description="Technical term.")
+    definition: str = Field(description="Short definition based on the lecture material.")
+    source: Source = Field(description="Source of the definition.")
 
 
 class SummaryConcept(BaseModel):
-    """Полный структурированный конспект лекции."""
+    """Full structured summary of the lecture."""
 
-    title: str = Field(description="Название лекции/темы.")
-    overview: str = Field(description="Резюме в 2–4 предложения.")
-    sections: list[Section] = Field(description="Разделы конспекта по порядку лекции.")
-    key_terms: list[KeyTerm] = Field(
-        description="Ключевые термины с определениями."
-    )
+    title: str = Field(description="Title of the lecture/topic.")
+    overview: str = Field(description="A 2-4 sentence summary.")
+    sections: list[Section] = Field(description="Summary sections in lecture order.")
+    key_terms: list[KeyTerm] = Field(description="Key terms with definitions.")
     transcript_only_notes: list[str] = Field(
         default_factory=list,
         description=(
-            "Важные устные ремарки лектора, которых НЕТ на слайдах "
-            "(примеры, оговорки, акценты «это будет на экзамене»)."
+            "Important spoken remarks by the lecturer that are NOT on the slides "
+            '(examples, caveats, emphases like "this will be on the exam").'
         ),
     )

@@ -1,8 +1,8 @@
-"""Подготовка аудио для STT.
+"""Audio preparation for STT.
 
-И Google STT, и whisper.cpp ждут на вход 16 кГц моно PCM WAV. Видео лекции
-(`.mp4`) к этому приводит ffmpeg. Логика вынесена сюда, чтобы оба адаптера
-готовили аудио одинаково (иначе WER в Э2 будет несравним).
+Both Google STT and whisper.cpp expect 16 kHz mono PCM WAV input. ffmpeg
+converts the lecture video (`.mp4`) to this. The logic lives here so both
+adapters prepare audio identically (otherwise WER in E2 would be incomparable).
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-#: целевые параметры — требование Google STT (LINEAR16) и нативный формат whisper.cpp
+#: target parameters — required by Google STT (LINEAR16) and the native whisper.cpp format
 TARGET_SAMPLE_RATE = 16_000
 TARGET_CHANNELS = 1
 
@@ -23,18 +23,18 @@ def _require_ffmpeg() -> str:
     ffmpeg = shutil.which("ffmpeg")
     if not ffmpeg:
         raise RuntimeError(
-            "ffmpeg не найден в PATH. Установите его (brew install ffmpeg) — "
-            "он нужен для извлечения аудиодорожки из видео."
+            "ffmpeg not found in PATH. Install it (brew install ffmpeg) — "
+            "it is needed to extract the audio track from the video."
         )
     return ffmpeg
 
 
 def ensure_wav16k(media_path: str | Path, out_dir: str | Path | None = None) -> Path:
-    """Привести любой медиафайл к 16 кГц моно WAV.
+    """Convert any media file to 16 kHz mono WAV.
 
-    Если на вход уже подан подходящий `.wav`, он конвертируется всё равно —
-    так мы гарантируем нужные частоту/каналы независимо от исходного WAV.
-    Возвращает путь к готовому WAV.
+    If a suitable `.wav` is already provided, it is converted anyway — this way
+    we guarantee the required sample rate/channels regardless of the source WAV.
+    Returns the path to the resulting WAV.
     """
     media_path = Path(media_path)
     if not media_path.exists():
@@ -47,30 +47,36 @@ def ensure_wav16k(media_path: str | Path, out_dir: str | Path | None = None) -> 
     ffmpeg = _require_ffmpeg()
     cmd = [
         ffmpeg,
-        "-y",                       # перезаписать
-        "-i", str(media_path),
-        "-vn",                      # выбросить видео
-        "-ac", str(TARGET_CHANNELS),
-        "-ar", str(TARGET_SAMPLE_RATE),
-        "-c:a", "pcm_s16le",        # LINEAR16
+        "-y",  # overwrite
+        "-i",
+        str(media_path),
+        "-vn",  # drop video
+        "-ac",
+        str(TARGET_CHANNELS),
+        "-ar",
+        str(TARGET_SAMPLE_RATE),
+        "-c:a",
+        "pcm_s16le",  # LINEAR16
         str(out_path),
     ]
     proc = subprocess.run(cmd, capture_output=True, text=True)
     if proc.returncode != 0:
-        raise RuntimeError(f"ffmpeg завершился с ошибкой:\n{proc.stderr[-2000:]}")
+        raise RuntimeError(f"ffmpeg failed with an error:\n{proc.stderr[-2000:]}")
     return out_path
 
 
 def probe_duration(media_path: str | Path) -> float | None:
-    """Длительность медиа в секундах через ffprobe (для метрик latency/$ в Э2)."""
+    """Media duration in seconds via ffprobe (for latency/$ metrics in E2)."""
     ffprobe = shutil.which("ffprobe")
     if not ffprobe:
         return None
     proc = subprocess.run(
         [
             ffprobe,
-            "-v", "quiet",
-            "-print_format", "json",
+            "-v",
+            "quiet",
+            "-print_format",
+            "json",
             "-show_format",
             str(media_path),
         ],

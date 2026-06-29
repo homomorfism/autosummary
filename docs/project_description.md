@@ -1,87 +1,87 @@
-# Описание проекта
+# Project Description
 
-## Autosummary лекций — AI-конспект с проверкой понимания
+## Autosummary for lectures — an AI summary with comprehension checks
 
-**Junior ML Contest 2026 · AI Talent Hub, ИТМО**
+**Junior ML Contest 2026 · AI Talent Hub, ITMO**
 
 | | |
 |---|---|
-| **Автор** | [ФИО] |
-| **Трек** | Выпускная работа (ВКР) |
-| **Программа** | «Искусственный интеллект» / «Управление ИИ-продуктами» |
-| **Репозиторий** | https://github.com/homomorfism/autosummary |
-| **Демо** | [url работающего веб-конспекта] |
+| **Author** | [Full name] |
+| **Track** | Graduation thesis |
+| **Program** | "Artificial Intelligence" / "AI Product Management" |
+| **Repository** | https://github.com/homomorfism/autosummary |
+| **Demo** | [URL of the live web summary] |
 
-> Курсивом в квадратных скобках — плейсхолдеры: подставьте свои данные и итоговые числа после прогона экспериментов.
+> Italics in square brackets are placeholders: fill in your own data and final numbers after running the experiments.
 
 ---
 
-## 1. Проблема и целевая аудитория
+## 1. Problem and target audience
 
-Студент посмотрел лекцию, но не может оценить, действительно ли он её понял. Слайды теряют устные пояснения лектора (примеры, оговорки, акценты «это будет на экзамене»), а полная видеозапись — слишком долгая для повторения. Целевая аудитория — студенты технических направлений, готовящиеся к экзаменам и пересдачам.
+A student watches a lecture but cannot tell whether they truly understood it. Slides lose the lecturer's spoken explanations (examples, caveats, the "this will be on the exam" emphasis), while a full video recording is too long to review. The target audience is students in technical fields preparing for exams and retakes.
 
-**Продуктовая миссия — democratize education:** студенты со всего мира загружают и шерят материалы своих курсов и могут изучать лекции других вузов.
+**Product mission — democratize education:** students from all over the world upload and share their course materials and can study lectures from other universities.
 
-## 2. Задача системы
+## 2. What the system does
 
-На вход — видеозапись лекции и презентация. На выходе — веб-конспект (HTML по URL), который объединяет распознанную речь и слайды, а затем проверяет понимание набором адаптивных «tricky questions». Конвейер решает несколько подзадач:
+The input is a lecture video recording and a presentation. The output is a web summary (HTML at a URL) that combines recognized speech with slides and then checks comprehension with a set of adaptive "tricky questions." The pipeline solves several subtasks:
 
-- распознавание речи (STT) с поддержкой сменных провайдеров;
-- выравнивание слайдов и транскрипта по таймкодам;
-- мультиисточниковая генерация конспекта (слайды + речь) с заземлением на источники;
-- генерация и адаптивный отбор вопросов по уровню сложности.
+- speech recognition (STT) with support for swappable providers;
+- alignment of slides and transcript by timecodes;
+- multi-source summary generation (slides + speech) grounded in the sources;
+- generation and adaptive selection of questions by difficulty level.
 
-## 3. Данные
+## 3. Data
 
-Реальные лекции собственного курса (15 студентов в группе — источник откликов для психометрики). Для каждой лекции: видео, PDF-презентация, сгенерированный конспект.
+Real lectures from our own course (15 students in the group — a source of responses for psychometrics). For each lecture: video, PDF presentation, and a generated summary.
 
-**Золотой срез:** 10 минут аудио, размеченных вручную в эталонный транскрипт — для оценки STT и калибровки автоматического судьи. Разметка минимальна по объёму и не требует внешнего датасета; слайды и транскрипт сами выступают слабыми эталонами для большинства метрик.
+**Golden set:** 10 minutes of audio manually annotated into a reference transcript — for evaluating STT and calibrating the automatic judge. The annotation effort is minimal and requires no external dataset; the slides and transcript themselves serve as weak references for most metrics.
 
-## 4. Архитектура и методы
+## 4. Architecture and methods
 
-**Конвейер:** `video → STT (сменный провайдер) → выравнивание слайд↔транскрипт по эмбеддингам → мультиисточниковая суммаризация (LLM) → генерация вопросов → веб-приложение`.
+**Pipeline:** `video → STT (swappable provider) → slide↔transcript alignment by embeddings → multi-source summarization (LLM) → question generation → web app`.
 
-**Абстракция STT-провайдера** позволяет переключаться между Google STT (облако) и whisper.cpp (локально, приватно, бесплатно) — компромисс «качество / стоимость / приватность» выбирается под сценарий. Сервис контейнеризован (Docker), сборка и проверки автоматизированы (CI).
+**The STT provider abstraction** allows switching between Google STT (cloud) and whisper.cpp (local, private, free) — the "quality / cost / privacy" trade-off is chosen per scenario. The service is containerized (Docker), with automated builds and checks (CI).
 
-## 5. Эксперименты и метрики (Data Science)
+## 5. Experiments and metrics (Data Science)
 
-Ядро работы — три измеримых эксперимента. Все метрики считаются автоматически; ручная разметка ограничена 10-минутным золотым срезом.
+The core of the work is three measurable experiments. All metrics are computed automatically; manual annotation is limited to the 10-minute golden set.
 
-| Эксперимент | Что измеряем | Метрики |
+| Experiment | What we measure | Metrics |
 |---|---|---|
-| **Э1. Claim-level оценка конспекта** | Единый движок `entails(claim, set)`: декомпозиция слайдов / транскрипта / конспекта на атомарные факты, затем retrieve (эмбеддинги, top-k) + confirm (NLI / LLM-судья). | Coverage (recall), Faithfulness (precision), F1 |
-| **Э2. Бенчмарк STT-провайдеров** | Сравнение Google STT vs whisper.cpp. TER считается без разметки — термины берутся со слайдов и ищутся fuzzy-матчем в транскрипте; WER — на золотом срезе. | WER ↓, TER ↓, latency, $/час |
-| **Э3. Психометрика вопросов** | Отклики 15 студентов превращаются в данные теории тестирования; плохие вопросы автоматически ретайрятся и перегенерируются под целевую сложность. | Difficulty (p-value), Discrimination (point-biserial) |
+| **E1. Claim-level summary evaluation** | A single `entails(claim, set)` engine: decomposition of slides / transcript / summary into atomic facts, then retrieve (embeddings, top-k) + confirm (NLI / LLM judge). | Coverage (recall), Faithfulness (precision), F1 |
+| **E2. STT provider benchmark** | Comparison of Google STT vs whisper.cpp. TER is computed without annotation — terms are taken from the slides and matched against the transcript via fuzzy matching; WER is measured on the golden set. | WER ↓, TER ↓, latency, $/hour |
+| **E3. Question psychometrics** | Responses from 15 students are turned into test-theory data; bad questions are automatically retired and regenerated to hit a target difficulty. | Difficulty (p-value), Discrimination (point-biserial) |
 
-**Ключевая идея Э1:** coverage и faithfulness — это один и тот же движок entailment, в котором меняются местами «источник истины» и «проверяемый текст». Так одна функция даёт обе оси качества конспекта и позволяет численно доказать, что веб-конспект богаче презентации: измеряется доля *transcript-only* фактов (произнесённых, но отсутствующих на слайдах), которые сохранил веб-конспект. Слайды покрывают их 0% по определению.
+**Key idea of E1:** coverage and faithfulness are the same entailment engine, with the "source of truth" and the "text under test" swapped. This way a single function yields both axes of summary quality and lets us numerically prove that the web summary is richer than the presentation: we measure the share of *transcript-only* facts (spoken but absent from the slides) that the web summary preserves. By definition, the slides cover them 0%.
 
-**Шаблон результатов бенчмарка STT** (заполнить после прогона):
+**STT benchmark results template** (fill in after the run):
 
-| Провайдер | WER ↓ | TER ↓ | Стоимость | Локальный |
+| Provider | WER ↓ | TER ↓ | Cost | Local |
 |---|---|---|---|---|
-| Google STT | [—] | [—] | [$/час] | нет |
-| whisper.cpp (large) | [—] | [—] | 0 (локально) | да |
+| Google STT | [—] | [—] | [$/hour] | no |
+| whisper.cpp (large) | [—] | [—] | 0 (local) | yes |
 
-## 6. Результаты (заполнить по итогам)
+## 6. Results (to be filled in)
 
-- Качество конспекта: coverage = *[—]*%, faithfulness = *[—]*%; доля сохранённых transcript-only фактов = *[—]*%.
-- Согласованность LLM-судьи с ручной разметкой на золотом срезе (agreement) = *[—]*%.
-- STT: лучший провайдер по WER/TER — *[—]*; компромисс качество/стоимость описан в таблице выше.
-- Психометрика: из *[N]* сгенерированных вопросов отбраковано *[—]* по difficulty/discrimination, перегенерировано *[—]*.
-- Продуктовый фидбэк: *[N]* студентов протестировали веб-конспект; ключевые отзывы — *[кратко]*.
+- Summary quality: coverage = *[—]*%, faithfulness = *[—]*%; share of preserved transcript-only facts = *[—]*%.
+- Agreement of the LLM judge with manual annotation on the golden set = *[—]*%.
+- STT: best provider by WER/TER — *[—]*; the quality/cost trade-off is described in the table above.
+- Psychometrics: out of *[N]* generated questions, *[—]* were rejected by difficulty/discrimination and *[—]* were regenerated.
+- Product feedback: *[N]* students tested the web summary; key takeaways — *[briefly]*.
 
-## 7. Соответствие критериям конкурса
+## 7. Alignment with the contest criteria
 
-| Критерий | Как закрывается в проекте |
+| Criterion | How the project addresses it |
 |---|---|
-| **Разработка и инженерия** | Конвейер video→STT→выравнивание→суммаризация→вопросы как сервис; абстракция сменных STT-провайдеров; Docker, CI, структурированная кодовая база. |
-| **Data Science** | Три эксперимента с метриками и валидацией: claim-level оценка (coverage/faithfulness), бенчмарк STT (WER/TER), психометрика вопросов (difficulty/discrimination) с замкнутой петлёй перегенерации. |
-| **Применение ИИ** | STT, мультиисточниковая LLM-суммаризация, NLI / LLM-as-judge для заземления, генерация вопросов; опционально агентный слой-тьютор. |
-| **Продуктовое мышление** | Чёткая проблема и ЦА, работающий MVP (веб-конспект по URL), миссия democratize education с шерингом материалов, фидбэк от реальной группы. |
-| **Мотивация** | Проект — собственная ВКР по ML; цели в AI/ML и EdTech согласованы с проектной магистратурой AI Talent Hub (раскрывается в мотивационном письме). |
+| **Development and engineering** | A video→STT→alignment→summarization→questions pipeline delivered as a service; abstraction over swappable STT providers; Docker, CI, a structured codebase. |
+| **Data Science** | Three experiments with metrics and validation: claim-level evaluation (coverage/faithfulness), STT benchmark (WER/TER), question psychometrics (difficulty/discrimination) with a closed regeneration loop. |
+| **Applying AI** | STT, multi-source LLM summarization, NLI / LLM-as-judge for grounding, question generation; optionally an agentic tutor layer. |
+| **Product thinking** | A clear problem and target audience, a working MVP (web summary at a URL), the democratize-education mission with material sharing, and feedback from a real group. |
+| **Motivation** | The project is my own ML graduation thesis; goals in AI/ML and EdTech align with the AI Talent Hub project-based master's program (detailed in the motivation letter). |
 
-## 8. Стек и дальнейшая работа
+## 8. Stack and future work
 
-**Стек:** Python, Google STT / whisper.cpp, LLM (суммаризация и судья), sentence-эмбеддинги, NLI-модель, HTML/JS веб-приложение, Docker, CI.
+**Stack:** Python, Google STT / whisper.cpp, LLM (summarization and judge), sentence embeddings, an NLI model, an HTML/JS web app, Docker, CI.
 
-**Дальнейшая работа:** агентный тьютор с адаптивным планом повторения; self-supervised оценка выравнивания слайд↔транскрипт (DTW + монотонность); кросс-вузовская кластеризация курсов по эмбеддингам.
+**Future work:** an agentic tutor with an adaptive review plan; self-supervised evaluation of slide↔transcript alignment (DTW + monotonicity); cross-university clustering of courses by embeddings.

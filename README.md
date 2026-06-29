@@ -1,91 +1,91 @@
-# Autosummary лекций
+# Lecture Autosummary
 
-> Загрузи видео лекции и презентацию — получи интерактивный веб-конспект и проверь, действительно ли ты понял материал.
+> Upload a lecture video and slides — get an interactive web summary and check whether you actually understood the material.
 
-AI-сервис, который из записи лекции и слайдов собирает структурированный конспект (HTML по URL) и проверяет понимание набором адаптивных вопросов. Проект для [Junior ML Contest 2026](https://ai.itmo.ru/junior_ml_contest) (AI Talent Hub, ИТМО), трек «выпускная работа».
+An AI service that turns a lecture recording and slides into a structured summary (HTML served by URL) and checks comprehension with a set of adaptive questions. Built for [Junior ML Contest 2026](https://ai.itmo.ru/junior_ml_contest) (AI Talent Hub, ITMO), graduation thesis track.
 
 ---
 
-## Что он делает
+## What it does
 
-- **Распознаёт речь** лектора со сменными STT-провайдерами (Google STT в облаке или whisper.cpp локально).
-- **Выравнивает** слайды и транскрипт по таймкодам.
-- **Генерирует конспект** из двух источников сразу — слайдов и устной речи — с заземлением каждого утверждения на источник.
-- **Проверяет понимание**: набор «tricky questions», которые автоматически отбраковываются и перегенерируются по психометрике.
+- **Recognizes the lecturer's speech** with swappable STT providers (Google STT in the cloud or whisper.cpp locally).
+- **Aligns** slides and transcript by timecodes.
+- **Generates a summary** from two sources at once — slides and spoken speech — grounding every statement on its source.
+- **Checks comprehension**: a set of "tricky questions" that are automatically discarded and regenerated based on psychometrics.
 
-Главная идея: устная речь лектора содержит то, чего нет на слайдах (примеры, оговорки, акценты). Веб-конспект сохраняет эту информацию — и проект численно это доказывает.
+The core idea: a lecturer's spoken speech contains things that aren't on the slides (examples, caveats, emphasis). The web summary preserves this information — and the project proves it numerically.
 
-## Архитектура
+## Architecture
 
 ```
-video ──► STT (Google / whisper.cpp) ──► транскрипт
+video ──► STT (Google / whisper.cpp) ──► transcript
                                               │
-PDF слайды ──► текст слайдов ──────────┐      │
+PDF slides ──► slide text ─────────────┐      │
                                        ▼      ▼
-                            выравнивание слайд ↔ транскрипт
+                            slide ↔ transcript alignment
                                        │
                                        ▼
-                        мультиисточниковая суммаризация (LLM)
+                        multi-source summarization (LLM)
                                        │
                           ┌────────────┴────────────┐
                           ▼                          ▼
-                    веб-конспект (HTML)      генерация вопросов
+                    web summary (HTML)        question generation
                                                      │
-                                          адаптивный отбор (психометрика)
+                                          adaptive selection (psychometrics)
 ```
 
-## Метрики качества
+## Quality metrics
 
-Проект не просто генерирует текст, а измеряет его качество:
+The project doesn't just generate text — it measures its quality:
 
-| Метрика | Что показывает |
+| Metric | What it shows |
 |---|---|
-| **Coverage** (recall) | какая доля фактов из слайдов и речи попала в конспект |
-| **Faithfulness** (precision) | какая доля утверждений конспекта заземлена на источник (нет галлюцинаций) |
-| **transcript-only retained** | доля устных фактов (отсутствующих на слайдах), сохранённых в конспекте |
-| **WER / TER** | качество распознавания речи и технических терминов по провайдерам |
-| **Difficulty / Discrimination** | психометрика вопросов: сложность и способность отделять понявших от непонявших |
+| **Coverage** (recall) | what share of facts from the slides and speech made it into the summary |
+| **Faithfulness** (precision) | what share of summary statements are grounded on a source (no hallucinations) |
+| **transcript-only retained** | share of spoken facts (absent from the slides) preserved in the summary |
+| **WER / TER** | speech and technical-term recognition quality across providers |
+| **Difficulty / Discrimination** | question psychometrics: difficulty and ability to separate those who understood from those who didn't |
 
-> Coverage и faithfulness считает один и тот же движок `entails(claim, set)` — меняются местами «источник истины» и «проверяемый текст».
+> Coverage and faithfulness are computed by the same `entails(claim, set)` engine — the "source of truth" and the "text under check" simply swap places.
 
-## Стек
+## Stack
 
-Python · Google Cloud STT / whisper.cpp · LLM (суммаризация и judge) · sentence-эмбеддинги · NLI-модель · HTML/JS · Docker · CI
+Python · Google Cloud STT / whisper.cpp · LLM (summarization and judge) · sentence embeddings · NLI model · HTML/JS · Docker · CI
 
-## Установка
+## Installation
 
 ```bash
 git clone https://github.com/homomorfism/autosummary.git
 cd [repo]
 
-# зависимости
+# dependencies
 pip install -r requirements.txt
 
-# (опционально) локальный STT
-# собрать whisper.cpp по инструкции из их репозитория
+# (optional) local STT
+# build whisper.cpp following the instructions in their repository
 
-# конфигурация
+# configuration
 cp .env.example .env
-# заполнить ключи: GOOGLE_STT_KEY, LLM_API_KEY, выбор провайдера STT_PROVIDER=...
+# fill in the keys: GOOGLE_STT_KEY, LLM_API_KEY, choose the STT provider STT_PROVIDER=...
 ```
 
-Или через Docker:
+Or via Docker:
 
 ```bash
 docker compose up --build
 ```
 
-## Использование
+## Usage
 
 ```bash
-# собрать конспект из видео и презентации
+# build a summary from video and slides
 python -m app.run --video lecture.mp4 --slides slides.pdf --provider whisper_cpp
 
-# поднять веб-приложение
-python -m app.web   # конспект будет доступен по http://localhost:8000/[id]
+# launch the web app
+python -m app.web   # the summary will be available at http://localhost:8000/[id]
 ```
 
-## Воспроизведение экспериментов
+## Reproducing the experiments
 
 ```bash
 python -m experiments.e1_claim_eval   --lecture data/lectures/L01   # coverage / faithfulness / F1
@@ -93,22 +93,22 @@ python -m experiments.e2_stt_bench    --golden data/golden_10min     # WER / TER
 python -m experiments.e3_psychometrics --responses data/responses.csv # difficulty / discrimination
 ```
 
-## Структура репозитория
+## Repository structure
 
 ```
-app/            пайплайн и веб-приложение
-  stt/          провайдеры STT (общий интерфейс + адаптеры)
-  align/        выравнивание слайд ↔ транскрипт
-  summarize/    мультиисточниковая суммаризация
-  questions/    генерация и отбор вопросов
-  web/          HTML-конспект
-experiments/    Э1 / Э2 / Э3 — скрипты и метрики
-eval/           движок entails() и метрики
-data/           лекции, золотой срез, отклики студентов (не коммитить приватное)
+app/            pipeline and web app
+  stt/          STT providers (shared interface + adapters)
+  align/        slide ↔ transcript alignment
+  summarize/    multi-source summarization
+  questions/    question generation and selection
+  web/          HTML summary
+experiments/    E1 / E2 / E3 — scripts and metrics
+eval/           entails() engine and metrics
+data/           lectures, golden set, student responses (don't commit private data)
 ```
 
-## Статус и дальнейшая работа
+## Status and further work
 
-Текущий статус — см. [`TODO.md`](./TODO.md). Полное описание для конкурса — [`project_description.md`](./docs/project_description.md).
+For the current status, see [`TODO.md`](./TODO.md). The full contest write-up is in [`project_description.md`](./docs/project_description.md).
 
-В планах: агентный тьютор с адаптивным планом повторения; self-supervised оценка выравнивания (DTW + монотонность); кросс-вузовская кластеризация курсов по эмбеддингам.
+Planned: an agentic tutor with an adaptive review schedule; self-supervised alignment scoring (DTW + monotonicity); cross-university course clustering by embeddings.

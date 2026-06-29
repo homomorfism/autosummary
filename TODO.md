@@ -1,104 +1,104 @@
-# TODO — Autosummary лекций
+# TODO — Lecture Autosummary
 
-Задачи по проекту, сгруппированные по направлениям. Отметка `[P0]` — критично для подачи, `[P1]` — важно, `[P2]` — улучшение / дальнейшая работа.
+Project tasks, grouped by area. The `[P0]` tag means critical for submission, `[P1]` means important, `[P2]` means an improvement / further work.
 
-Статус: `[x]` — сделано, `[~]` — частично, `[ ]` — не начато.
+Status: `[x]` — done, `[~]` — partial, `[ ]` — not started.
 
-> Дедлайны конкурса: 2-я волна — приём проектов до **1 июля**, 3-я волна — до **20 июля**. Минимум для подачи: пайплайн + Э1 + Э3.
-
----
-
-## 0. Подача на конкурс (организационное)
-
-- [ ] `[P0]` Подать заявку на участие → форма загрузки придёт на почту
-- [ ] `[P0]` Зарегистрироваться в [ЛК абитуриента](https://abitlk.itmo.ru/), выбрать программу
-- [ ] `[P0]` Выбрать волну (2-я до 01.07 / 3-я до 20.07) и зафиксировать дедлайн
-- [ ] `[P0]` Подготовить пакет: CV, мотивационное письмо, ссылка на репозиторий, описание проекта (PDF), презентация
-- [ ] `[P1]` Сделать презентацию по [шаблону](https://docs.google.com/presentation/d/1cH42eNBEUKBulLkOK8Nd6UDPbKQ70JWkZ7yRAJQ2SM8/edit) (5 мин питч + 7 мин вопросов)
-- [ ] `[P1]` Записаться на защиту, прогнать питч на таймере
-- [ ] `[P0]` После победы — загрузить сертификат в 4-й раздел Конкурса портфолио
+> Contest deadlines: 2nd wave — projects accepted until **July 1**, 3rd wave — until **July 20**. Minimum for submission: pipeline + E1 + E3.
 
 ---
 
-## 1. Пайплайн и инженерия
+## 0. Contest submission (organizational)
 
-- [~] `[P0]` Сквозной конвейер: `video → STT → выравнивание → суммаризация → вопросы → webapp` — частично: `video → STT → суммаризация` работает (`python -m app.run`); выравнивание / вопросы / webapp ещё нет
-- [x] `[P0]` Абстракция STT-провайдера (общий интерфейс для Google STT и whisper.cpp) — `app/stt/base.py` (`STTProvider`, единый `Transcript`)
-- [x] `[P0]` Адаптер Google STT (облако) — `app/stt/google_stt.py` (long_running_recognize + загрузка в GCS), проверен на 10-мин срезе
-- [x] `[P0]` Адаптер whisper.cpp (локальный запуск) — `app/stt/whisper_cpp.py` (anti-hallucination флаги + VAD), сборка `build-nocoreml`
-- [x] `[P0]` Модуль суммаризации: вход — транскрипт + текст слайдов, выход — структурированный конспект — `app/summarize/` (Claude + structured outputs, заземление на источник)
-- [ ] `[P0]` Веб-приложение: рендер конспекта по URL + блок вопросов
-- [ ] `[P1]` Dockerfile + docker-compose для всего сервиса
-- [ ] `[P1]` CI (линт, прогон тестов, сборка образа)
-- [x] `[P1]` Конфигурация через .env / config (ключи API, выбор провайдера) — `app/config.py` + `.env.example`
-- [ ] `[P2]` Загрузка и шеринг материалов между пользователями (democratize education)
+- [ ] `[P0]` Submit the application to participate → the upload form will arrive by email
+- [ ] `[P0]` Register in the [applicant portal](https://abitlk.itmo.ru/), choose a program
+- [ ] `[P0]` Choose a wave (2nd until 07/01 / 3rd until 07/20) and lock in the deadline
+- [ ] `[P0]` Prepare the package: CV, motivation letter, repository link, project description (PDF), slides
+- [ ] `[P1]` Build slides from the [template](https://docs.google.com/presentation/d/1cH42eNBEUKBulLkOK8Nd6UDPbKQ70JWkZ7yRAJQ2SM8/edit) (5 min pitch + 7 min Q&A)
+- [ ] `[P1]` Sign up for the defense, rehearse the pitch on a timer
+- [ ] `[P0]` After winning — upload the certificate to section 4 of the portfolio Contest
 
 ---
 
-## 2. Данные и золотой срез
+## 1. Pipeline and engineering
 
-- [x] `[P0]` Собрать 3–5 лекций своего курса: видео + PDF презентации — 9 лекций в `data/deep-learning-and-computer-vision/`
-- [x] `[P0]` Извлечь текст и буллеты из PDF слайдов — `app/slides.py` (текст по слайдам, `SlideDeck`)
-- [~] `[P0]` Золотой срез: вручную разметить 10 минут аудио в эталонный транскрипт — 10-мин срез lecture-01 + транскрипты обоих провайдеров готовы (`data/gcloud/_test_course/lecture-01/`, GCS); осталась ручная разметка эталона
-- [ ] `[P1]` На золотом срезе вручную разметить ~10 пар «факт ↔ есть в конспекте» для калибровки судьи
-- [ ] `[P2]` Скрипт дедупликации близких фактов (кластеризация по эмбеддингам)
-
----
-
-## 3. Эксперимент Э1 — Claim-level оценка конспекта `[P0]`
-
-- [ ] `[P0]` Декомпозиция текста на атомарные факты (слайды / транскрипт / конспект) через LLM
-- [ ] `[P0]` Единая функция `entails(claim, claim_set)`: retrieve (top-k эмбеддинги) + confirm (NLI / LLM-судья)
-- [ ] `[P0]` Метрика **Coverage** (recall): доля фактов источника, попавших в конспект
-- [ ] `[P0]` Метрика **Faithfulness** (precision): доля фактов конспекта, заземлённых на источник
-- [ ] `[P0]` Свести в **F1** конспекта
-- [ ] `[P0]` Метрика transcript-only: доля устных фактов (нет на слайдах), сохранённых в веб-конспекте → доказательство «сайт > преза»
-- [ ] `[P1]` Проверить agreement LLM-судьи с ручной разметкой на золотом срезе
-- [ ] `[P2]` Дедупликация фактов перед подсчётом, чтобы повторы не раздували знаменатель
+- [~] `[P0]` End-to-end pipeline: `video → STT → alignment → summarization → questions → webapp` — partial: `video → STT → summarization` works (`python -m app.run`); alignment / questions / webapp not yet
+- [x] `[P0]` STT provider abstraction (shared interface for Google STT and whisper.cpp) — `app/stt/base.py` (`STTProvider`, unified `Transcript`)
+- [x] `[P0]` Google STT adapter (cloud) — `app/stt/google_stt.py` (long_running_recognize + upload to GCS), verified on the 10-min set
+- [x] `[P0]` whisper.cpp adapter (local run) — `app/stt/whisper_cpp.py` (anti-hallucination flags + VAD), `build-nocoreml` build
+- [x] `[P0]` Summarization module: input — transcript + slide text, output — structured summary — `app/summarize/` (Claude + structured outputs, grounded on the source)
+- [ ] `[P0]` Web app: render the summary by URL + question block
+- [ ] `[P1]` Dockerfile + docker-compose for the whole service
+- [ ] `[P1]` CI (lint, run tests, build image)
+- [x] `[P1]` Configuration via .env / config (API keys, provider choice) — `app/config.py` + `.env.example`
+- [ ] `[P2]` Upload and share materials between users (democratize education)
 
 ---
 
-## 4. Эксперимент Э2 — Бенчмарк STT-провайдеров `[P1]`
+## 2. Data and golden set
 
-- [ ] `[P1]` **TER** без разметки: извлечь термины со слайдов → fuzzy-поиск в транскрипте → доля распознанных
-- [ ] `[P1]` **WER** на золотом срезе для каждого провайдера
-- [ ] `[P1]` Замерить latency и стоимость ($/час) каждого провайдера
-- [ ] `[P1]` Итоговая таблица: Провайдер × {WER, TER, latency, $/час, локальность}
-- [ ] `[P2]` Постобработка терминов (словарь со слайдов) и замер прироста качества
-
----
-
-## 5. Эксперимент Э3 — Психометрика вопросов `[P0]`
-
-- [ ] `[P0]` Генерация вопросов по конспекту (с вариантами/эталонным ответом)
-- [ ] `[P0]` Собрать отклики 15 студентов группы (кто на какой вопрос ответил верно)
-- [ ] `[P0]` **Difficulty** (p-value) по каждому вопросу
-- [ ] `[P0]` **Discrimination** (point-biserial correlation) по каждому вопросу
-- [ ] `[P0]` Правило отбраковки: вопросы вне целевого диапазона сложности → ретайр
-- [ ] `[P1]` Адаптивная перегенерация: замена плохих вопросов под целевую сложность (замкнутая петля)
-- [ ] `[P1]` Явная оговорка про размер выборки (n=15): методология важнее стат-значимости
+- [x] `[P0]` Collect 3–5 lectures from your own course: video + PDF slides — 9 lectures in `data/deep-learning-and-computer-vision/`
+- [x] `[P0]` Extract text and bullets from the PDF slides — `app/slides.py` (text per slide, `SlideDeck`)
+- [~] `[P0]` Golden set: manually transcribe 10 minutes of audio into a reference transcript — 10-min set of lecture-01 + transcripts from both providers ready (`data/gcloud/_test_course/lecture-01/`, GCS); the manual reference annotation remains
+- [ ] `[P1]` On the golden set, manually label ~10 "fact ↔ present in summary" pairs to calibrate the judge
+- [ ] `[P2]` Deduplication script for near-duplicate facts (clustering by embeddings)
 
 ---
 
-## 6. Выравнивание слайд↔транскрипт `[P2]`
+## 3. Experiment E1 — Claim-level summary evaluation `[P0]`
 
-- [ ] `[P2]` Эмбеддинги текста слайда и окон транскрипта → выравнивание по косинусной близости
-- [ ] `[P2]` Прокси-метрика без разметки: попадание ключевых слов слайда в окно + монотонность таймкодов
-- [ ] `[P2]` Сравнить чистые эмбеддинги vs эмбеддинги + DTW (ограничение монотонности)
+- [ ] `[P0]` Decompose text into atomic facts (slides / transcript / summary) via LLM
+- [ ] `[P0]` Unified `entails(claim, claim_set)` function: retrieve (top-k embeddings) + confirm (NLI / LLM judge)
+- [ ] `[P0]` **Coverage** metric (recall): share of source facts that made it into the summary
+- [ ] `[P0]` **Faithfulness** metric (precision): share of summary facts grounded on the source
+- [ ] `[P0]` Combine into the summary **F1**
+- [ ] `[P0]` transcript-only metric: share of spoken facts (not on the slides) preserved in the web summary → proof that "site > slides"
+- [ ] `[P1]` Check the LLM judge's agreement with the manual labels on the golden set
+- [ ] `[P2]` Deduplicate facts before counting so repeats don't inflate the denominator
 
 ---
 
-## 7. Документы и презентация
+## 4. Experiment E2 — STT provider benchmark `[P1]`
 
-- [ ] `[P0]` Описание проекта (PDF, ≤3 стр.) — заполнить числами после Э1/Э3
-- [ ] `[P0]` README репозитория с инструкцией запуска
+- [ ] `[P1]` **TER** without labels: extract terms from the slides → fuzzy search in the transcript → share recognized
+- [ ] `[P1]` **WER** on the golden set for each provider
+- [ ] `[P1]` Measure latency and cost ($/hour) for each provider
+- [ ] `[P1]` Final table: Provider × {WER, TER, latency, $/hour, locality}
+- [ ] `[P2]` Term post-processing (dictionary from the slides) and measure the quality gain
+
+---
+
+## 5. Experiment E3 — Question psychometrics `[P0]`
+
+- [ ] `[P0]` Generate questions from the summary (with options / reference answer)
+- [ ] `[P0]` Collect responses from 15 students in the group (who answered which question correctly)
+- [ ] `[P0]` **Difficulty** (p-value) for each question
+- [ ] `[P0]` **Discrimination** (point-biserial correlation) for each question
+- [ ] `[P0]` Rejection rule: questions outside the target difficulty range → retire
+- [ ] `[P1]` Adaptive regeneration: replace bad questions to hit the target difficulty (closed loop)
+- [ ] `[P1]` Explicit caveat about sample size (n=15): methodology matters more than statistical significance
+
+---
+
+## 6. Slide ↔ transcript alignment `[P2]`
+
+- [ ] `[P2]` Embeddings of slide text and transcript windows → alignment by cosine similarity
+- [ ] `[P2]` Proxy metric without labels: slide keywords landing in the window + timecode monotonicity
+- [ ] `[P2]` Compare plain embeddings vs embeddings + DTW (monotonicity constraint)
+
+---
+
+## 7. Documents and slides
+
+- [ ] `[P0]` Project description (PDF, ≤3 pages) — fill in with numbers after E1/E3
+- [ ] `[P0]` Repository README with run instructions
 - [ ] `[P1]` CV (PDF)
-- [ ] `[P1]` Мотивационное письмо (почему AI/ML, почему AI Talent Hub)
-- [ ] `[P1]` Слайды для защиты
-- [ ] `[P1]` Записать короткое демо-видео работы веб-конспекта
+- [ ] `[P1]` Motivation letter (why AI/ML, why AI Talent Hub)
+- [ ] `[P1]` Defense slides
+- [ ] `[P1]` Record a short demo video of the web summary in action
 
 ---
 
-## Минимальный объём под дедлайн (если время поджимает)
+## Minimum scope for the deadline (if time is tight)
 
-Для убедительной подачи достаточно: **рабочий пайплайн (раздел 1)** + **Э1 (coverage/faithfulness)** + **Э3 (психометрика)**. Э2 и выравнивание можно обозначить в описании как «выполнено частично / дальнейшая работа».
+For a convincing submission it's enough to have: **a working pipeline (section 1)** + **E1 (coverage/faithfulness)** + **E3 (psychometrics)**. E2 and alignment can be flagged in the description as "partially done / further work".

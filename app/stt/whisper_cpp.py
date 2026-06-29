@@ -1,16 +1,16 @@
-"""Адаптер whisper.cpp — локальное распознавание речи.
+"""whisper.cpp adapter — local speech recognition.
 
-Запускает бинарь `whisper-cli` как подпроцесс с anti-hallucination флагами
-(подобраны под лекции: длинная монотонная речь склонна к зацикливанию декодера)
-и парсит JSON-вывод в общий `Transcript`.
+Runs the `whisper-cli` binary as a subprocess with anti-hallucination flags
+(tuned for lectures: long monotonous speech tends to make the decoder loop) and
+parses the JSON output into the common `Transcript`.
 
-Anti-hallucination флаги:
-- `-tpi 0.1`  — temperature increment (ниже дефолтного 0.2 / whisper 0.4)
+Anti-hallucination flags:
+- `-tpi 0.1`  — temperature increment (below the default 0.2 / whisper 0.4)
 - `-bs 5`     — beam size
-- `-et 2.8`   — entropy threshold (выше дефолтного 2.4: быстрее режет вырожденный вывод)
-- `-mc 64`    — короткое окно контекста уменьшает циклы повторов
-- `--vad`     — VAD-префильтр выкидывает тишину до декодирования
-- модель large-v3-turbo
+- `-et 2.8`   — entropy threshold (above the default 2.4: cuts degenerate output faster)
+- `-mc 64`    — a short context window reduces repetition loops
+- `--vad`     — the VAD prefilter drops silence before decoding
+- the large-v3-turbo model
 """
 
 from __future__ import annotations
@@ -21,10 +21,10 @@ import tempfile
 import time
 from pathlib import Path
 
-from .audio import ensure_wav16k, probe_duration
-from .base import Segment, STTProvider, Transcript, Word
+from app.stt.audio import ensure_wav16k, probe_duration
+from app.stt.base import Segment, STTProvider, Transcript, Word
 
-# --- дефолтные пути и параметры (переопределяются через конфиг/конструктор) ---
+# --- default paths and parameters (overridden via config/constructor) ---
 
 DEFAULT_WHISPER_CLI = Path("/Users/shamilarslanov/whisper.cpp/build/bin/whisper-cli")
 DEFAULT_WHISPER_MODEL = Path("/Users/shamilarslanov/whisper-models/ggml-large-v3-turbo.bin")
@@ -37,7 +37,7 @@ TEMP_INC = 0.1
 ENTROPY_THOLD = 2.8
 MAX_CONTEXT = 64
 
-# направляет язык и тему — снижает галлюцинации на технических терминах
+# steers the language and topic — reduces hallucinations on technical terms
 DEFAULT_INITIAL_PROMPT = (
     "The following is a university lecture on machine learning, deep learning "
     "and computer vision. It uses technical terms such as gradient descent, "
@@ -46,7 +46,7 @@ DEFAULT_INITIAL_PROMPT = (
 
 
 class WhisperCppProvider(STTProvider):
-    """Локальный STT через whisper.cpp (приватно, бесплатно, без облака)."""
+    """Local STT via whisper.cpp (private, free, no cloud)."""
 
     name = "whisper_cpp"
 
@@ -82,18 +82,17 @@ class WhisperCppProvider(STTProvider):
     def _check_paths(self) -> None:
         if not self.cli_path.exists():
             raise FileNotFoundError(
-                f"whisper-cli не найден: {self.cli_path}. Соберите whisper.cpp "
-                "и/или укажите путь через WHISPER_CLI."
+                f"whisper-cli not found: {self.cli_path}. Build whisper.cpp and/or specify the path via WHISPER_CLI."
             )
         if not self.model_path.exists():
             raise FileNotFoundError(
-                f"Модель whisper не найдена: {self.model_path}. Скачайте "
-                "ggml-large-v3-turbo.bin или укажите путь через WHISPER_MODEL."
+                f"whisper model not found: {self.model_path}. Download "
+                "ggml-large-v3-turbo.bin or specify the path via WHISPER_MODEL."
             )
         if self.vad_model_path and not self.vad_model_path.exists():
             raise FileNotFoundError(
-                f"VAD-модель не найдена: {self.vad_model_path}. "
-                "Скачайте ggml-silero-*.bin или отключите VAD (vad_model_path=None)."
+                f"VAD model not found: {self.vad_model_path}. "
+                "Download ggml-silero-*.bin or disable VAD (vad_model_path=None)."
             )
 
     def transcribe(self, media_path: str | Path) -> Transcript:
@@ -107,20 +106,30 @@ class WhisperCppProvider(STTProvider):
 
             cmd: list[str] = [
                 str(self.cli_path),
-                "-m", str(self.model_path),
-                "-f", str(wav),
-                "-l", self.language,
+                "-m",
+                str(self.model_path),
+                "-f",
+                str(wav),
+                "-l",
+                self.language,
                 # anti-hallucination
-                "-bs", str(self.beam_size),
-                "-bo", str(self.best_of),
-                "-tpi", str(self.temperature_inc),
-                "-et", str(self.entropy_thold),
-                "-mc", str(self.max_context),
+                "-bs",
+                str(self.beam_size),
+                "-bo",
+                str(self.best_of),
+                "-tpi",
+                str(self.temperature_inc),
+                "-et",
+                str(self.entropy_thold),
+                "-mc",
+                str(self.max_context),
                 # initial prompt
-                "--prompt", self.initial_prompt,
-                # вывод
-                "-of", str(stem),
-                "-oj",   # JSON с таймкодами и вероятностями токенов
+                "--prompt",
+                self.initial_prompt,
+                # output
+                "-of",
+                str(stem),
+                "-oj",  # JSON with timestamps and token probabilities
             ]
             if self.vad_model_path:
                 cmd += ["--vad", "--vad-model", str(self.vad_model_path)]
@@ -131,15 +140,11 @@ class WhisperCppProvider(STTProvider):
             proc = subprocess.run(cmd, capture_output=True, text=True)
             elapsed = time.monotonic() - t0
             if proc.returncode != 0:
-                raise RuntimeError(
-                    f"whisper-cli завершился с ошибкой:\n{proc.stderr[-2000:]}"
-                )
+                raise RuntimeError(f"whisper-cli failed with an error:\n{proc.stderr[-2000:]}")
 
             json_path = Path(f"{stem}.json")
             if not json_path.exists():
-                raise RuntimeError(
-                    "whisper-cli не создал JSON-вывод; проверьте версию бинаря."
-                )
+                raise RuntimeError("whisper-cli did not produce JSON output; check the binary version.")
             data = json.loads(json_path.read_text(encoding="utf-8"))
 
         return self._parse(data, duration=duration, elapsed=elapsed)
@@ -148,7 +153,7 @@ class WhisperCppProvider(STTProvider):
 
     @staticmethod
     def _ts(value) -> float | None:
-        """whisper.cpp JSON отдаёт offsets в миллисекундах -> секунды."""
+        """whisper.cpp JSON returns offsets in milliseconds -> seconds."""
         if value is None:
             return None
         try:
@@ -164,7 +169,7 @@ class WhisperCppProvider(STTProvider):
             words: list[Word] = []
             for tok in seg.get("tokens", []):
                 tok_text = (tok.get("text") or "").strip()
-                # whisper токены спец-маркеры вида [_BEG_] пропускаем
+                # skip whisper special-marker tokens like [_BEG_]
                 if not tok_text or tok_text.startswith("[_"):
                     continue
                 t_off = tok.get("offsets", {})

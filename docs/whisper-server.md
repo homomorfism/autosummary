@@ -1,11 +1,11 @@
-# Локальный whisper.cpp: CLI и сервер
+# Local whisper.cpp: CLI and server
 
-В проекте локальный STT работает через адаптер `WhisperCppProvider`, который
-вызывает **`whisper-cli`** как подпроцесс (см. `app/stt/whisper_cpp.py`). Ниже —
-команды и для CLI, и для HTTP-сервера `whisper-server` (если хочется крутить
-распознавание как сервис).
+In this project, local STT runs through the `WhisperCppProvider` adapter, which
+calls **`whisper-cli`** as a subprocess (see `app/stt/whisper_cpp.py`). Below are
+the commands for both the CLI and the `whisper-server` HTTP server (if you want to
+run recognition as a service).
 
-Пути на этой машине (уже собрано и скачано):
+Paths on this machine (already built and downloaded):
 
 ```
 WHISPER_CLI    = /Users/shamilarslanov/whisper.cpp/build/bin/whisper-cli
@@ -16,21 +16,21 @@ VAD_MODEL      = /Users/shamilarslanov/whisper-models/ggml-silero-v6.2.0.bin
 
 ---
 
-## 0. Подготовка аудио (16 кГц моно WAV)
+## 0. Audio preparation (16 kHz mono WAV)
 
-И CLI, и сервер ждут 16 кГц моно PCM WAV. Из видео лекции:
+Both the CLI and the server expect 16 kHz mono PCM WAV. From a lecture video:
 
 ```bash
 ffmpeg -y -i lecture.mp4 -vn -ac 1 -ar 16000 -c:a pcm_s16le lecture.16k.wav
 ```
 
-(В пайплайне это делает `app/stt/audio.py` автоматически.)
+(In the pipeline, `app/stt/audio.py` does this automatically.)
 
 ---
 
-## 1. CLI — разовое распознавание
+## 1. CLI — one-off recognition
 
-Команда с anti-hallucination флагами (как в адаптере):
+The command with anti-hallucination flags (as in the adapter):
 
 ```bash
 /Users/shamilarslanov/whisper.cpp/build/bin/whisper-cli \
@@ -47,21 +47,21 @@ ffmpeg -y -i lecture.mp4 -vn -ac 1 -ar 16000 -c:a pcm_s16le lecture.16k.wav
   -osrt -otxt -oj
 ```
 
-Создаст `lecture_out.srt`, `lecture_out.txt`, `lecture_out.json`. Адаптер
-использует JSON (`-oj`) и парсит таймкоды/вероятности токенов.
+This creates `lecture_out.srt`, `lecture_out.txt`, and `lecture_out.json`. The adapter
+uses the JSON (`-oj`) and parses the timecodes and token probabilities.
 
-Флаги:
+Flags:
 - `-bs 5` beam size, `-bo 5` best-of
-- `-tpi 0.1` temperature increment (ниже дефолта 0.2 / whisper 0.4)
-- `-et 2.8` entropy threshold (выше дефолта 2.4 — быстрее режет вырожденный вывод)
-- `-mc 64` max context (короткое окно — меньше циклов повторов)
-- `--vad` + `--vad-model` — выкидывает тишину до декодирования
+- `-tpi 0.1` temperature increment (below the default 0.2 / whisper 0.4)
+- `-et 2.8` entropy threshold (above the default 2.4 — cuts off degenerate output faster)
+- `-mc 64` max context (a short window — fewer repetition loops)
+- `--vad` + `--vad-model` — drops silence before decoding
 
 ---
 
-## 2. HTTP-сервер `whisper-server`
+## 2. The `whisper-server` HTTP server
 
-Поднять сервер с моделью в памяти (распознаёт по HTTP, удобно для сервиса):
+Start the server with the model held in memory (recognizes over HTTP, convenient for a service):
 
 ```bash
 /Users/shamilarslanov/whisper.cpp/build/bin/whisper-server \
@@ -74,15 +74,15 @@ ffmpeg -y -i lecture.mp4 -vn -ac 1 -ar 16000 -c:a pcm_s16le lecture.16k.wav
   --convert
 ```
 
-- `--host` / `--port` — адрес сервера
-- `--convert` — сервер сам конвертирует вход в 16 кГц WAV через ffmpeg (можно
-  слать mp3/mp4/исходный wav)
-- `-t N` — число потоков (по умолчанию по числу ядер)
+- `--host` / `--port` — the server address
+- `--convert` — the server itself converts the input to 16 kHz WAV via ffmpeg (you can
+  send mp3/mp4/raw wav)
+- `-t N` — number of threads (defaults to the number of cores)
 
-Сервер слушает на `http://127.0.0.1:8080`. Веб-морда — открой этот адрес в
-браузере.
+The server listens on `http://127.0.0.1:8080`. For the web UI, open this address in
+a browser.
 
-### Распознать файл (HTTP)
+### Recognize a file (HTTP)
 
 ```bash
 curl http://127.0.0.1:8080/inference \
@@ -92,10 +92,10 @@ curl http://127.0.0.1:8080/inference \
   -F response_format=json
 ```
 
-`response_format` принимает `json`, `text`, `srt`, `verbose_json`, `vtt`.
-Эндпоинт совместим с форматом OpenAI Whisper (`/inference` ≈ `/v1/audio/transcriptions`).
+`response_format` accepts `json`, `text`, `srt`, `verbose_json`, `vtt`.
+The endpoint is compatible with the OpenAI Whisper format (`/inference` ≈ `/v1/audio/transcriptions`).
 
-### Сменить модель на лету
+### Swap the model on the fly
 
 ```bash
 curl http://127.0.0.1:8080/load \
@@ -105,13 +105,13 @@ curl http://127.0.0.1:8080/load \
 
 ---
 
-## 3. Полезное
+## 3. Useful notes
 
-- Список всех флагов: `whisper-cli --help` и `whisper-server --help`.
-- Скачать другую модель: `bash /Users/shamilarslanov/whisper-models/download-ggml-model.sh large-v3-turbo`.
-- Если меняешь пути/модель — пропиши их в `.env` (`WHISPER_CLI`, `WHISPER_MODEL`,
-  `WHISPER_VAD_MODEL`); адаптер подхватит из конфига.
+- List all flags: `whisper-cli --help` and `whisper-server --help`.
+- Download a different model: `bash /Users/shamilarslanov/whisper-models/download-ggml-model.sh large-v3-turbo`.
+- If you change the paths/model, set them in `.env` (`WHISPER_CLI`, `WHISPER_MODEL`,
+  `WHISPER_VAD_MODEL`); the adapter will pick them up from the config.
 
-> Сейчас адаптер ходит в `whisper-cli` (проще и без поднятого сервиса). Если
-> нужен именно сетевой режим через `whisper-server`, адаптер легко расширить
-> HTTP-вызовом `/inference` — структура `Transcript` от этого не меняется.
+> Right now the adapter calls `whisper-cli` (simpler, no running service). If you
+> specifically need network mode through `whisper-server`, the adapter is easy to extend
+> with an HTTP call to `/inference` — the `Transcript` structure does not change because of it.

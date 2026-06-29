@@ -1,13 +1,13 @@
-"""STT-провайдеры: общий интерфейс + фабрика выбора адаптера.
+"""STT providers: a common interface + a factory for selecting an adapter.
 
-    from app.stt import get_stt_provider
-    provider = get_stt_provider("whisper_cpp")   # или "google_stt"
-    transcript = provider.transcribe("lecture.mp4")
+from app.stt import get_stt_provider
+provider = get_stt_provider("whisper_cpp")   # or "google_stt"
+transcript = provider.transcribe("lecture.mp4")
 """
 
 from __future__ import annotations
 
-from .base import Segment, STTProvider, Transcript, Word
+from app.stt.base import Segment, STTProvider, Transcript, Word
 
 __all__ = [
     "STTProvider",
@@ -24,17 +24,17 @@ def available_providers() -> list[str]:
 
 
 def get_stt_provider(name: str | None = None, **overrides) -> STTProvider:
-    """Вернуть адаптер STT по имени.
+    """Return an STT adapter by name.
 
-    `name=None` -> берётся `STT_PROVIDER` из конфигурации. Любой параметр
-    конструктора адаптера можно переопределить через `overrides`.
+    `name=None` -> `STT_PROVIDER` is taken from the configuration. Any adapter
+    constructor parameter can be overridden via `overrides`.
     """
-    from .. import config
+    from app import config
 
     name = (name or config.STT_PROVIDER or "whisper_cpp").lower()
 
     if name in ("whisper_cpp", "whisper", "local"):
-        from .whisper_cpp import WhisperCppProvider
+        from app.stt.whisper_cpp import WhisperCppProvider
 
         kwargs = dict(
             cli_path=config.WHISPER_CLI,
@@ -46,7 +46,7 @@ def get_stt_provider(name: str | None = None, **overrides) -> STTProvider:
         return WhisperCppProvider(**kwargs)
 
     if name in ("google_stt", "google", "cloud"):
-        from .google_stt import GoogleSTTProvider
+        from app.stt.google_stt import GoogleSTTProvider
 
         kwargs = dict(
             bucket=config.GOOGLE_STT_BUCKET,
@@ -57,7 +57,4 @@ def get_stt_provider(name: str | None = None, **overrides) -> STTProvider:
         kwargs.update(overrides)
         return GoogleSTTProvider(**kwargs)
 
-    raise ValueError(
-        f"Неизвестный STT-провайдер: {name!r}. "
-        f"Доступны: {', '.join(available_providers())}."
-    )
+    raise ValueError(f"Unknown STT provider: {name!r}. Available: {', '.join(available_providers())}.")

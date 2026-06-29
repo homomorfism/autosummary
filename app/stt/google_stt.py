@@ -1,13 +1,13 @@
-"""Адаптер Google Cloud Speech-to-Text — облачное распознавание речи.
+"""Google Cloud Speech-to-Text adapter — cloud speech recognition.
 
-Лекции длятся десятки минут, поэтому синхронный `recognize` (лимит ~1 мин) не
-годится. Используем асинхронный `long_running_recognize`, который требует, чтобы
-аудио лежало в Google Cloud Storage. Поэтому пайплайн такой:
+Lectures last tens of minutes, so the synchronous `recognize` (~1 min limit) is
+not suitable. We use the asynchronous `long_running_recognize`, which requires
+the audio to reside in Google Cloud Storage. Hence the pipeline is:
 
-    видео ──ffmpeg──► 16k WAV ──upload──► gs://bucket/... ──► long_running_recognize
+    video ──ffmpeg──► 16k WAV ──upload──► gs://bucket/... ──► long_running_recognize
 
-Требуется аутентификация ADC (`gcloud auth application-default login`) и
-включённые API: speech.googleapis.com, storage.googleapis.com.
+Requires ADC authentication (`gcloud auth application-default login`) and the
+APIs enabled: speech.googleapis.com, storage.googleapis.com.
 """
 
 from __future__ import annotations
@@ -16,15 +16,15 @@ import time
 import uuid
 from pathlib import Path
 
-from .audio import ensure_wav16k, probe_duration
-from .base import Segment, STTProvider, Transcript, Word
+from app.stt.audio import ensure_wav16k, probe_duration
+from app.stt.base import Segment, STTProvider, Transcript, Word
 
-# импорты google кладём внутрь методов, чтобы пакет импортировался даже без
-# установленных облачных SDK (нужно для локального whisper-only сценария)
+# google imports are placed inside the methods so the package imports even
+# without the cloud SDKs installed (needed for the local whisper-only scenario)
 
 
 class GoogleSTTProvider(STTProvider):
-    """Облачный STT через Google Cloud Speech-to-Text v1 (long running)."""
+    """Cloud STT via Google Cloud Speech-to-Text v1 (long running)."""
 
     name = "google_stt"
 
@@ -42,8 +42,8 @@ class GoogleSTTProvider(STTProvider):
     ) -> None:
         if not bucket:
             raise ValueError(
-                "Не задан GCS-бакет. Укажите GOOGLE_STT_BUCKET в .env или "
-                "передайте bucket=... — long_running_recognize читает аудио из GCS."
+                "No GCS bucket set. Specify GOOGLE_STT_BUCKET in .env or "
+                "pass bucket=... — long_running_recognize reads audio from GCS."
             )
         self.bucket = bucket
         self.project = project
@@ -56,8 +56,8 @@ class GoogleSTTProvider(STTProvider):
 
     # ------------------------------------------------------------------
 
-    def _upload(self, wav_path: Path) -> tuple[str, "object"]:
-        """Загрузить WAV в GCS, вернуть (gs_uri, blob) для последующей уборки."""
+    def _upload(self, wav_path: Path) -> tuple[str, object]:
+        """Upload the WAV to GCS, return (gs_uri, blob) for later cleanup."""
         from google.cloud import storage
 
         client = storage.Client(project=self.project)
@@ -94,7 +94,7 @@ class GoogleSTTProvider(STTProvider):
             response = operation.result(timeout=self.timeout)
             elapsed = time.monotonic() - t0
         finally:
-            # GCS-объект больше не нужен — не копим мусор и расходы на хранение
+            # the GCS object is no longer needed — avoid accumulating junk and storage costs
             try:
                 blob.delete()
             except Exception:
@@ -106,7 +106,7 @@ class GoogleSTTProvider(STTProvider):
 
     @staticmethod
     def _ts(duration_obj) -> float | None:
-        """google.protobuf.Duration -> секунды (float)."""
+        """google.protobuf.Duration -> seconds (float)."""
         if duration_obj is None:
             return None
         try:

@@ -1,13 +1,13 @@
-"""Мультиисточниковая суммаризация: транскрипт + слайды → структурированный конспект.
+"""Multi-source summarization: transcript + slides -> a structured summary.
 
-    from app.summarize import summarize
-    concept = summarize(transcript, slide_deck)
+from app.summarize import summarize
+concept = summarize(transcript, slide_deck)
 """
 
 from __future__ import annotations
 
-from .schema import KeyTerm, Point, Section, Source, SummaryConcept
-from .summarizer import Summarizer, summarize
+from app.summarize.schema import KeyTerm, Point, Section, Source, SummaryConcept
+from app.summarize.summarizer import Summarizer, summarize
 
 __all__ = [
     "summarize",
