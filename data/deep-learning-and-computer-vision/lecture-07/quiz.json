@@ -1,0 +1,130 @@
+{
+  "title": "Vision Transformers and Object Detection",
+  "questions": [
+    {
+      "question": "Why is the Vision Transformer (ViT) forced to use relatively large patches for high-resolution images?",
+      "options": [
+        {
+          "text": "Small patches increase token count, causing high complexity in self-attention.",
+          "is_correct": true,
+          "explanation": "Correct. The conspect explains that ViT's self-attention has quadratic complexity in the number of patches. Small patches would drastically increase the number of tokens, making computation infeasible."
+        },
+        {
+          "text": "Small patches make the model prone to overfitting on fine textures.",
+          "is_correct": false,
+          "explanation": "Incorrect. The conspect does not mention overfitting as the reason. The limitation is purely computational, due to the quadratic blow-up of the attention matrix."
+        },
+        {
+          "text": "Positional encodings are only effective for large patch sizes.",
+          "is_correct": false,
+          "explanation": "Incorrect. ViT uses standard absolute positional encodings, which work for any sequence length. The conspect even notes that 2D encodings brought no benefit over simple sequence-like encodings, regardless of patch size."
+        },
+        {
+          "text": "The patch embedding projection requires a fixed large input size.",
+          "is_correct": false,
+          "explanation": "Incorrect. The linear projection that creates patch embeddings can be applied to any patch size; it is not restricted to large patches. The limitation comes from the attention mechanism, not the embedding step."
+        }
+      ]
+    },
+    {
+      "question": "Why is Generalized IoU (GIoU) preferred over standard IoU for bounding box regression during training?",
+      "options": [
+        {
+          "text": "GIoU provides gradients even for non-overlapping boxes.",
+          "is_correct": true,
+          "explanation": "Correct. As stated in the conspect, when predicted and ground-truth boxes do not overlap, standard IoU is zero and its gradient vanishes, halting learning. GIoU extends the metric so that it yields meaningful gradients even for disjoint boxes."
+        },
+        {
+          "text": "GIoU is computationally cheaper than standard IoU.",
+          "is_correct": false,
+          "explanation": "Incorrect. The conspect does not claim that GIoU is cheaper; in fact, it is a more complex computation that includes the standard IoU but adds a penalty for non-overlap."
+        },
+        {
+          "text": "GIoU directly maximizes classification accuracy alongside box localization.",
+          "is_correct": false,
+          "explanation": "Incorrect. GIoU is a bounding box loss; classification accuracy is handled separately by the cross-entropy loss. There is no direct coupling between the box loss and classification accuracy."
+        },
+        {
+          "text": "GIoU eliminates the need for bipartite matching in object detection.",
+          "is_correct": false,
+          "explanation": "Incorrect. Bipartite matching is an assignment problem required when comparing a fixed set of predictions to an unordered set of ground-truth objects. Replacing IoU with GIoU does not remove the need for matching."
+        }
+      ]
+    },
+    {
+      "question": "Why is bipartite matching necessary when training an object detector that outputs a fixed number of prediction slots?",
+      "options": [
+        {
+          "text": "Because ground-truth objects are unordered, requiring optimal assignment to fixed prediction slots.",
+          "is_correct": true,
+          "explanation": "Correct. The conspect explains that objects have no natural order, and the network produces a fixed number of predictions. Hence, we must solve an assignment problem to match predictions to ground-truth objects."
+        },
+        {
+          "text": "Because the network must predict exactly one bounding box per slot, regardless of object presence.",
+          "is_correct": false,
+          "explanation": "Incorrect. While slots do predict bounding boxes and a 'no object' class, the need for bipartite matching stems from the unordered nature of objects, not from the constraint of one box per slot."
+        },
+        {
+          "text": "Because the Intersection over Union (IoU) loss is non-differentiable for disjoint boxes.",
+          "is_correct": false,
+          "explanation": "Incorrect. The non-differentiability of IoU motivates the use of GIoU, but it is not the reason for requiring a matching step. Even with a differentiable loss, we still need to assign predictions to ground truth."
+        },
+        {
+          "text": "Because the Hungarian algorithm provides the fastest way to compute the training loss.",
+          "is_correct": false,
+          "explanation": "Incorrect. The Hungarian algorithm is used to solve the matching efficiently, but the fundamental reason for matching is the unordered nature of objects, not the choice of algorithm."
+        }
+      ]
+    },
+    {
+      "question": "What enables DETR to avoid using non-maximum suppression (NMS) for duplicate removal?",
+      "options": [
+        {
+          "text": "Decoder self-attention among object queries causes them to specialize and avoid duplicates.",
+          "is_correct": true,
+          "explanation": "Correct. The conspect notes that because object queries interact via self-attention in the decoder, they naturally avoid predicting the same object multiple times, making NMS unnecessary."
+        },
+        {
+          "text": "The bipartite matching loss penalizes duplicate predictions during training.",
+          "is_correct": false,
+          "explanation": "Incorrect. While the matching loss ensures each ground-truth object is assigned to exactly one query, it does not directly penalize duplicate predictions. The self-attention among queries is what prevents duplicates."
+        },
+        {
+          "text": "The Transformer encoder aggregates global context, making duplicate detections inherently unlikely.",
+          "is_correct": false,
+          "explanation": "Incorrect. Although the encoder provides global context, the key mechanism that avoids duplicates is the self-attention in the decoder, which allows different queries to negotiate their assignments."
+        },
+        {
+          "text": "The feed-forward network predicts a confidence score that is thresholded to eliminate duplicates.",
+          "is_correct": false,
+          "explanation": "Incorrect. Confidence thresholding can remove low-confidence detections, but it does not prevent two high-confidence queries from predicting the same object. NMS would still be needed if duplicates occurred."
+        }
+      ]
+    },
+    {
+      "question": "How does deformable attention in Deformable DETR reduce computational complexity compared to standard self-attention?",
+      "options": [
+        {
+          "text": "It samples a few learned points per reference, achieving linear complexity.",
+          "is_correct": true,
+          "explanation": "Correct. The conspect states that deformable attention attends only to a small, fixed number of learned sampling points around each reference location, reducing complexity from O(N^2) to linear in the number of tokens."
+        },
+        {
+          "text": "It restricts attention to non-overlapping windows, similar to the Swin Transformer.",
+          "is_correct": false,
+          "explanation": "Incorrect. This describes the window-based attention of Swin Transformer, not deformable attention. Deformable attention uses learned offsets to sample points, not fixed non-overlapping windows."
+        },
+        {
+          "text": "It uses a low-rank approximation of the attention matrix to reduce computations.",
+          "is_correct": false,
+          "explanation": "Incorrect. The conspect does not mention any low-rank approximation in Deformable DETR. The efficiency gain comes from sampling a small set of points, not from approximating the full attention matrix."
+        },
+        {
+          "text": "It applies attention only within a single feature map, avoiding multi-scale processing.",
+          "is_correct": false,
+          "explanation": "Incorrect. Deformable DETR explicitly uses multi-scale feature maps, and deformable attention is applied across these scales. Restricting to a single scale would reduce detection accuracy."
+        }
+      ]
+    }
+  ]
+}

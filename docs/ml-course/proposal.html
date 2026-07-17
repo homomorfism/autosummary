@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture Autosummary — Project Proposal</title>
+</head>
+<body>
+<style>
+  :root {
+    --page: #f6f6f2;
+    --surface: #fcfcfb;
+    --ink: #171814;
+    --ink-2: #52514e;
+    --muted: #898781;
+    --hairline: #e2e1da;
+    --border: rgba(11,11,11,0.10);
+    --slide: #2a78d6;          /* source: slide */
+    --both: #1baf7a;           /* source: both */
+    --speech: #eda100;         /* source: speech — the thesis color */
+    --speech-ink: #8a5d00;
+    --slide-wash: rgba(42,120,214,0.10);
+    --both-wash: rgba(27,175,122,0.12);
+    --speech-wash: rgba(237,161,0,0.14);
+    --grid: #e2e1da;
+    --bar-neutral: #b5b3aa;
+    --t1:#86b6ef; --t2:#5598e7; --t3:#2a78d6; --t4:#1c5cab; --t5:#184f95; --t6:#0d366b;
+    --shadow: 0 1px 2px rgba(20,20,15,0.05), 0 8px 24px -12px rgba(20,20,15,0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #0f0f0e;
+      --surface: #1a1a19;
+      --ink: #f4f4ef;
+      --ink-2: #c3c2b7;
+      --muted: #8f8d86;
+      --hairline: #2c2c2a;
+      --border: rgba(255,255,255,0.10);
+      --slide: #3987e5;
+      --both: #199e70;
+      --speech: #c98500;
+      --speech-ink: #e8b23c;
+      --slide-wash: rgba(57,135,229,0.16);
+      --both-wash: rgba(25,158,112,0.16);
+      --speech-wash: rgba(201,133,0,0.18);
+      --grid: #2c2c2a;
+      --bar-neutral: #5b5a54;
+      --t1:#cde2fb; --t2:#9ec5f4; --t3:#6da7ec; --t4:#3987e5; --t5:#256abf; --t6:#184f95;
+      --shadow: none;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--slide); outline-offset: 2px; border-radius: 2px; }
+
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--page) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav-inner {
+    display: flex; align-items: center; gap: 20px;
+    height: 52px; max-width: 960px; margin: 0 auto; padding: 0 24px;
+    overflow-x: auto;
+  }
+  .nav-title { font-weight: 700; font-size: 13.5px; letter-spacing: -0.01em; white-space: nowrap; }
+  .nav-links { display: flex; gap: 4px; margin-left: auto; }
+  .nav-links a {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11.5px; text-decoration: none; color: var(--ink-2);
+    padding: 5px 9px; border-radius: 5px; white-space: nowrap;
+  }
+  .nav-links a:hover { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--hairline); }
+
+  /* ---------- hero ---------- */
+  header.hero { padding: 56px 0 44px; border-bottom: 1px solid var(--hairline); }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11.5px; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--speech-ink); font-weight: 600;
+  }
+  h1 {
+    font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    font-size: clamp(34px, 5.4vw, 52px);
+    line-height: 1.04; letter-spacing: -0.025em; font-weight: 800;
+    margin: 14px 0 10px; text-wrap: balance;
+  }
+  .dek {
+    font-size: clamp(18px, 2.4vw, 22px); color: var(--ink); max-width: 30em;
+    margin: 0 0 10px; text-wrap: balance; font-weight: 600; letter-spacing: -0.01em;
+  }
+  .subdek { font-size: 15px; color: var(--ink-2); max-width: 42em; margin: 0 0 20px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: var(--muted); }
+  .meta-row strong { color: var(--ink-2); font-weight: 600; }
+  .meta-row a { color: var(--ink-2); text-decoration-color: var(--hairline); text-underline-offset: 3px; }
+
+  /* hero diagram */
+  .flow {
+    margin-top: 36px;
+    display: grid; grid-template-columns: minmax(180px, 0.8fr) auto minmax(280px, 1.3fr);
+    gap: 18px; align-items: stretch;
+  }
+  .stream-stack { display: flex; flex-direction: column; gap: 12px; }
+  .stream {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; box-shadow: var(--shadow); flex: 1;
+  }
+  .stream-label {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 7px; color: var(--ink-2); font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .swatch { width: 9px; height: 9px; border-radius: 2.5px; flex: none; }
+  .slide-lines { display: flex; flex-direction: column; gap: 5px; }
+  .slide-lines i { display: block; height: 5px; border-radius: 2.5px; background: var(--slide); opacity: 0.75; }
+  .wave { display: flex; align-items: center; gap: 3px; height: 34px; }
+  .wave i { display: block; width: 4px; border-radius: 2px; background: var(--speech); }
+  .flow-arrow {
+    align-self: center; color: var(--muted);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .flow-arrow .mono { font-size: 10px; letter-spacing: 0.06em; }
+  .summary-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .claim { display: flex; align-items: baseline; gap: 10px; padding: 9px 0; font-size: 13.5px; }
+  .claim + .claim { border-top: 1px solid var(--hairline); }
+  .chip {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+    padding: 2px 7px; border-radius: 99px; flex: none; text-transform: uppercase;
+  }
+  .chip.slide { background: var(--slide-wash); color: var(--slide); }
+  .chip.both { background: var(--both-wash); color: var(--both); }
+  .chip.speech { background: var(--speech-wash); color: var(--speech-ink); }
+  .claim .note { color: var(--muted); font-size: 11.5px; display: block; margin-top: 2px; }
+  @media (max-width: 720px) {
+    .flow { grid-template-columns: 1fr; }
+    .flow-arrow { flex-direction: row; transform: rotate(90deg); height: 24px; }
+  }
+
+  /* talk map */
+  .talkmap { padding: 20px 0 4px; }
+  .talkmap .k {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; display: block; margin-bottom: 10px;
+  }
+  .tl-bar { display: flex; height: 26px; border-radius: 6px; overflow: visible; gap: 2px; }
+  .tl-bar .seg { position: relative; border-radius: 3px; min-width: 0; cursor: default; }
+  .tl-bar .seg:hover { filter: brightness(1.12); }
+  .tl-bar .seg .tip {
+    position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+    background: var(--ink); color: var(--page); font-size: 11.5px; padding: 5px 10px;
+    border-radius: 6px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.12s;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; z-index: 5;
+  }
+  .tl-bar .seg:hover .tip, .tl-bar .seg:focus-visible .tip { opacity: 1; }
+  .tl-axis { display: flex; justify-content: space-between; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 10.5px; color: var(--muted); margin-top: 7px; font-variant-numeric: tabular-nums; }
+
+  /* ---------- sections ---------- */
+  section { padding: 44px 0 8px; }
+  .part-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; flex-wrap: wrap; }
+  .part-num {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+    color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  h2 {
+    font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    font-size: clamp(22px, 3.2vw, 28px); letter-spacing: -0.02em; font-weight: 750;
+    margin: 0; text-wrap: balance;
+  }
+  p, li { color: var(--ink-2); max-width: 46em; }
+  p strong, li strong { color: var(--ink); }
+  section > .lede { font-size: 16px; margin-top: 10px; }
+  .footline { font-size: 13px; color: var(--muted); max-width: none; }
+
+  /* cards */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 18px 0; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .card h4 { margin: 0 0 5px; font-size: 14.5px; letter-spacing: -0.005em; }
+  .card p { font-size: 13px; margin: 0; }
+  .card .k {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; display: block; margin-bottom: 7px;
+  }
+
+  /* hypothesis callout */
+  .hypothesis {
+    background: var(--speech-wash); border: 1px solid color-mix(in srgb, var(--speech) 35%, transparent);
+    border-radius: 10px; padding: 18px 20px; margin: 18px 0;
+  }
+  .hypothesis .k {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--speech-ink); font-weight: 700; display: block; margin-bottom: 7px;
+  }
+  .hypothesis p { margin: 0; font-size: 16px; color: var(--ink); max-width: 40em; }
+
+  /* pipeline */
+  .pipeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 18px 0; counter-reset: stage; }
+  .stage {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 15px 13px; box-shadow: var(--shadow); position: relative; counter-increment: stage;
+  }
+  .stage::before {
+    content: counter(stage);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11px; font-weight: 700; color: var(--slide);
+    background: var(--slide-wash); border-radius: 6px;
+    width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
+  }
+  .stage h4 { margin: 0 0 4px; font-size: 13.5px; }
+  .stage p { font-size: 12px; margin: 0; line-height: 1.45; }
+
+  /* tables */
+  .table-scroll { overflow-x: auto; margin: 16px 0; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); box-shadow: var(--shadow); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th {
+    text-align: left; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; padding: 11px 16px 7px; border-bottom: 1px solid var(--hairline);
+    white-space: nowrap;
+  }
+  td { padding: 10px 16px; border-bottom: 1px solid var(--hairline); color: var(--ink-2); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+
+  /* target tiles */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 18px 0; }
+  .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px 16px; box-shadow: var(--shadow); }
+  .tile .k { font-size: 12px; color: var(--ink-2); font-weight: 600; display: block; margin-bottom: 3px; }
+  .tile .v { font-size: 27px; font-weight: 750; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .tile .meter { margin-top: 11px; height: 5px; border-radius: 3px; background: var(--grid); position: relative; overflow: hidden; }
+  .tile .meter i { position: absolute; inset: 0 auto 0 0; border-radius: 3px; background: var(--slide); }
+  .tile.thesis .meter i { background: var(--speech); }
+  .tile .sub { font-size: 10.5px; color: var(--muted); margin-top: 6px; font-family: ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.03em; }
+  .tile.thesis { border-color: color-mix(in srgb, var(--speech) 40%, transparent); }
+
+  /* ---------- charts ---------- */
+  .fig {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 22px 18px; margin: 18px 0; box-shadow: var(--shadow);
+  }
+  .fig-title { font-size: 14px; font-weight: 700; margin: 0 0 2px; color: var(--ink); }
+  .fig-sub { font-size: 12px; color: var(--muted); margin: 0 0 16px; }
+
+  .costbar { display: grid; grid-template-columns: 110px 1fr; gap: 10px 14px; align-items: center; }
+  .costbar .lbl { font-size: 13px; color: var(--ink-2); text-align: right; }
+  .costbar .track { position: relative; height: 26px; margin-right: 200px; }
+  @media (max-width: 720px) {
+    .costbar { grid-template-columns: 1fr; gap: 2px 0; }
+    .costbar .lbl { text-align: left; }
+    .costbar .track { margin-right: 120px; margin-bottom: 12px; }
+    .costbar .val small { display: none; }
+  }
+  .costbar .bar { position: absolute; inset: 3px auto 3px 0; border-radius: 0 4px 4px 0; }
+  .costbar .bar.manual { background: var(--bar-neutral); }
+  .costbar .bar.service { background: var(--slide); }
+  .costbar .val {
+    position: absolute; left: calc(100% + 9px); top: 50%; transform: translateY(-50%);
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .costbar .val small { font-weight: 500; color: var(--muted); }
+
+  .hero-number { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+  .hero-number .big {
+    flex: 1 1 260px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 22px; box-shadow: var(--shadow);
+  }
+  .hero-number .big .v {
+    font-size: clamp(34px, 5.4vw, 46px); font-weight: 800; letter-spacing: -0.03em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-number .big .v small { font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: -0.01em; }
+  .hero-number .big .k { font-size: 12.5px; color: var(--ink-2); font-weight: 600; margin-top: 8px; display: block; }
+  .hero-number .big .d { font-size: 11.5px; color: var(--muted); margin-top: 3px; display: block; }
+  .hero-number .big.accent { background: var(--speech-wash); border-color: color-mix(in srgb, var(--speech) 35%, transparent); }
+
+  .calc { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0 4px; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; color: var(--ink-2); }
+  .calc b { background: var(--surface); border: 1px solid var(--border); border-radius: 7px; padding: 5px 10px; font-weight: 600; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .calc span { color: var(--muted); }
+
+  .formula {
+    margin-top: 16px; padding: 13px 16px;
+    background: var(--page); border: 1px solid var(--hairline); border-radius: 8px;
+    overflow-x: auto;
+  }
+  .formula .k {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; display: block; margin-bottom: 8px;
+  }
+  .formula .eq {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 14px; color: var(--ink); white-space: nowrap;
+    font-variant-numeric: tabular-nums; line-height: 1.5;
+  }
+  .formula .eq + .eq { margin-top: 10px; }
+  .formula .eq.cont { padding-left: 58px; margin-top: 8px; }
+  .formula .eq .op { color: var(--muted); padding: 0 1px; }
+  .formula .eq b { font-weight: 700; color: var(--speech-ink); }
+  .formula sub { font-size: 9.5px; }
+  .formula .net { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--hairline); }
+  .grp { display: inline-flex; flex-direction: column; align-items: center; vertical-align: top; }
+  .grp .lab {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 9.5px; color: var(--muted); margin-top: 4px; letter-spacing: 0.05em;
+    text-transform: uppercase; font-weight: 600;
+  }
+  .assump {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 4px 18px; margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--hairline);
+  }
+  .assump span {
+    font-size: 11.5px; color: var(--ink-2); white-space: nowrap;
+    font-variant-numeric: tabular-nums; overflow: hidden; text-overflow: ellipsis;
+  }
+  .assump b {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 10.5px; font-weight: 700; color: var(--ink); margin-right: 5px;
+  }
+  .assump i { font-style: normal; color: var(--ink); font-weight: 600; }
+
+  .close-line {
+    font-size: clamp(17px, 2.4vw, 21px); font-weight: 650; letter-spacing: -0.01em;
+    color: var(--ink); max-width: 32em; text-wrap: balance; margin: 22px 0 0;
+  }
+  footer { border-top: 1px solid var(--hairline); margin-top: 56px; padding: 24px 0 44px; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  footer a { color: var(--ink-2); text-decoration-color: var(--hairline); text-underline-offset: 3px; }
+  .divider { border: none; border-top: 1px solid var(--hairline); margin: 40px 0 0; }
+</style>
+
+<nav aria-label="Sections">
+  <div class="nav-inner">
+    <span class="nav-title">Lecture Autosummary</span>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#ml">ML &amp; validation</a>
+      <a href="#dataset">Dataset</a>
+      <a href="#business">Business</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">7-minute project pitch · July 2026</span>
+    <h1>Lecture Autosummary</h1>
+    <p class="dek">Half of what your lecturer says never reaches the slides — and it’s exactly what exams test.</p>
+    <p class="subdek">A recording + a slide deck in; a source-grounded summary and a psychometrically filtered quiz out. The spoken layer of the course, preserved and verified.</p>
+    <div class="meta-row">
+      <span><strong>Author</strong> Shamil Arslanov</span>
+      <span><strong>Repository</strong> <a href="https://github.com/homomorfism/autosummary">github.com/homomorfism/autosummary</a></span>
+    </div>
+
+    <div class="flow" aria-label="Two input streams fuse into a grounded summary">
+      <div class="stream-stack">
+        <div class="stream">
+          <span class="stream-label"><i class="swatch" style="background:var(--slide)"></i>Slides — compact, persistent</span>
+          <div class="slide-lines" aria-hidden="true">
+            <i style="width:82%"></i><i style="width:64%"></i><i style="width:74%"></i><i style="width:48%"></i>
+          </div>
+        </div>
+        <div class="stream">
+          <span class="stream-label"><i class="swatch" style="background:var(--speech)"></i>Speech — examples, caveats, emphasis</span>
+          <div class="wave" aria-hidden="true">
+            <i style="height:30%"></i><i style="height:55%"></i><i style="height:85%"></i><i style="height:60%"></i><i style="height:95%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:35%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:40%"></i><i style="height:65%"></i><i style="height:25%"></i><i style="height:75%"></i><i style="height:50%"></i><i style="height:88%"></i><i style="height:38%"></i>
+          </div>
+        </div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">
+        <span class="mono">STT · align · summarize</span>
+        <svg width="26" height="14" viewBox="0 0 26 14" fill="none"><path d="M1 7h22m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="summary-card">
+        <span class="stream-label">Grounded summary — every claim carries its source</span>
+        <div class="claim"><span class="chip slide">slide</span><span>Batch norm normalizes activations per mini-batch.</span></div>
+        <div class="claim"><span class="chip both">both</span><span>Convolutions share weights across spatial positions.</span></div>
+        <div class="claim"><span class="chip speech">speech</span><span>“In practice, tune the LR schedule first — it matters more than the optimizer choice.”
+          <span class="note">Spoken only. Never reaches the slides — and it’s what this project preserves.</span></span></div>
+      </div>
+    </div>
+
+    <div class="talkmap">
+      <span class="k">Talk map · 7:00 · hover for beats</span>
+      <div class="tl-bar" role="img" aria-label="Timeline: Hook 1 minute, Problem and solution 1.5 minutes, ML formulation and validation 1.5 minutes, Dataset and experiments 1 minute, Business case 1.5 minutes, Roadmap 0.5 minutes">
+        <div class="seg" style="flex:1;background:var(--t1)" tabindex="0"><span class="tip">Hook · 1:00</span></div>
+        <div class="seg" style="flex:1.5;background:var(--t2)" tabindex="0"><span class="tip">Problem &amp; solution · 1:30</span></div>
+        <div class="seg" style="flex:1.5;background:var(--t3)" tabindex="0"><span class="tip">ML &amp; validation · 1:30</span></div>
+        <div class="seg" style="flex:1;background:var(--t4)" tabindex="0"><span class="tip">Dataset &amp; experiments · 1:00</span></div>
+        <div class="seg" style="flex:1.5;background:var(--t5)" tabindex="0"><span class="tip">Business case · 1:30</span></div>
+        <div class="seg" style="flex:0.5;background:var(--t6)" tabindex="0"><span class="tip">Roadmap &amp; close · 0:30</span></div>
+      </div>
+      <div class="tl-axis"><span>0:00</span><span>1:45</span><span>3:30</span><span>5:15</span><span>7:00</span></div>
+    </div>
+  </header>
+
+  <section id="problem">
+    <div class="part-head"><span class="part-num">1:00–2:30</span><h2>Problem &amp; solution</h2></div>
+    <p class="lede">Lectures carry two information streams. Slides persist; speech — the worked examples, caveats, and emphasis — is lost the moment the recording goes unwatched. The service takes <span class="mono">lecture.mp4</span> + <span class="mono">slides.pdf</span> and gives the student a URL:</p>
+    <div class="card-grid">
+      <div class="card">
+        <span class="k">Deliverable 1</span>
+        <h4>Interactive web summary</h4>
+        <p>Fuses both sources; every statement links to its origin — slide N or timestamp T.</p>
+      </div>
+      <div class="card">
+        <span class="k">Deliverable 2</span>
+        <h4>Adaptive comprehension check</h4>
+        <p>Generated questions, kept only if real response data proves they measure understanding.</p>
+      </div>
+    </div>
+    <div class="hypothesis">
+      <span class="k">Core hypothesis — verified numerically</span>
+      <p>A meaningful share of lecture content exists <strong>only in speech</strong>, and can be preserved by multi-source summarization.</p>
+    </div>
+    <hr class="divider">
+  </section>
+
+  <section id="ml">
+    <div class="part-head"><span class="part-num">2:30–4:00</span><h2>ML formulation &amp; validation</h2></div>
+    <div class="pipeline">
+      <div class="stage">
+        <h4>Speech-to-text</h4>
+        <p>Minimize WER and technical-term error rate (TER). Swappable: whisper.cpp (local) vs Google STT (cloud).</p>
+      </div>
+      <div class="stage">
+        <h4>Slide–transcript alignment</h4>
+        <p>Monotone sequence alignment of transcript spans to slides, over timecodes + semantic similarity.</p>
+      </div>
+      <div class="stage">
+        <h4>Grounded summarization</h4>
+        <p>Maximize coverage of source facts; every claim must be entailed by a source (faithfulness constraint).</p>
+      </div>
+      <div class="stage">
+        <h4>Questions + psychometrics</h4>
+        <p>Estimate difficulty &amp; discrimination from real responses; retire and regenerate failing items.</p>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <span class="k">Faithfulness</span>
+        <div class="v">≥ 0.90</div>
+        <div class="meter"><i style="width:90%"></i></div>
+        <span class="sub">hallucination control</span>
+      </div>
+      <div class="tile">
+        <span class="k">Coverage</span>
+        <div class="v">≥ 0.70</div>
+        <div class="meter"><i style="width:70%"></i></div>
+        <span class="sub">of atomic source claims</span>
+      </div>
+      <div class="tile thesis">
+        <span class="k">Transcript-only retained</span>
+        <div class="v">≥ 0.50</div>
+        <div class="meter"><i style="width:50%"></i></div>
+        <span class="sub">the thesis metric</span>
+      </div>
+      <div class="tile">
+        <span class="k">Discrimination</span>
+        <div class="v">≥ 0.30</div>
+        <div class="meter"><i style="width:30%"></i></div>
+        <span class="sub">r_pb, retained items</span>
+      </div>
+    </div>
+    <p class="footline">One <span class="mono">entails(claim, source)</span> engine — claim decomposition + NLI — run in both directions gives coverage <em>and</em> faithfulness. WER/TER benchmarked per provider on a golden annotated set. All numbers reproduce from raw data via experiments E1–E3.</p>
+    <hr class="divider">
+  </section>
+
+  <section id="dataset">
+    <div class="part-head"><span class="part-num">4:00–5:00</span><h2>Dataset &amp; experiments</h2></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Dataset</th><th>Origin</th><th>Feeds</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">data/lectures/</td><td>Recorded deep-learning &amp; computer-vision lectures</td><td>E1 · coverage / faithfulness</td></tr>
+          <tr><td class="mono">data/golden_10min</td><td>10 min of audio with a manually verified transcript incl. technical terms</td><td>E2 · WER / TER / latency / cost</td></tr>
+          <tr><td class="mono">data/responses.csv</td><td>Anonymized quiz responses from a pilot group</td><td>E3 · difficulty / discrimination</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footline">Real recordings — disfluent speech, domain terms, speech-only content — not synthetic. Responses anonymized; private lecture data stays out of the repo; the pipeline extends to openly licensed corpora.</p>
+    <hr class="divider">
+  </section>
+
+  <section id="business">
+    <div class="part-head"><span class="part-num">5:00–6:30</span><h2>Business case</h2></div>
+    <div class="fig">
+      <p class="fig-title">Cost per lecture: manual vs with the service</p>
+      <p class="fig-sub">Cost-substitution model · USD per 90-minute lecture · university department, 20 courses × 24 lectures × 2 semesters</p>
+      <div class="costbar">
+        <span class="lbl">Manual (today)</span>
+        <div class="track"><div class="bar manual" style="width:100%"><span class="val">$25.00 <small>= 1 h × $25</small></span></div></div>
+        <span class="lbl">With service</span>
+        <div class="track"><div class="bar service" style="width:33%"><span class="val">$8.25 <small>= 0.25 h × $25 + $2 compute</small></span></div></div>
+      </div>
+      <div class="calc">
+        <b>$16.75 saved / lecture</b><span>≈ 67% reduction</span><span>·</span>
+        <b>960 lectures / yr</b>
+      </div>
+      <div class="formula">
+        <span class="k">Business effect — cost-substitution formula (A1–A7 = stated assumptions)</span>
+        <div class="eq">S<sub>year</sub> <span class="op">=</span> <span class="grp"><span>A5·A6·A7</span><span class="lab">lectures / yr</span></span> <span class="op">×</span> [ <span class="grp"><span>(A1 − A3)·A2</span><span class="lab">labor saved</span></span> <span class="op">−</span> <span class="grp"><span>A4</span><span class="lab">compute</span></span> ]</div>
+        <div class="eq cont"><span class="op">=</span> 24·20·2 <span class="op">×</span> [ (1 − 0.25)·$25 − $2 ]</div>
+        <div class="eq cont"><span class="op">=</span> 960 <span class="op">×</span> $16.75 <span class="op">≈</span> <b>$16,000 / yr gross per department</b></div>
+        <div class="eq net">Net <span class="op">=</span> N<sub>dept</sub>·S<sub>year</sub> − C<sub>ops</sub> <span class="op">·</span> ops ≈ $20–25k/deployment <span class="op">→</span> break-even at <b>≈ 1.5 departments</b></div>
+        <div class="assump">
+          <span><b>A1</b> manual summary + quiz <i>1 h</i>/lecture</span>
+          <span><b>A2</b> loaded TA/instructor cost <i>$25/h</i></span>
+          <span><b>A3</b> review time with service <i>0.25 h</i></span>
+          <span><b>A4</b> compute (STT + LLM + eval) <i>≈ $2</i></span>
+          <span><b>A5</b> lectures per course <i>24</i>/semester</span>
+          <span><b>A6</b> courses in department <i>20</i></span>
+          <span><b>A7</b> semesters per year <i>2</i></span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-number">
+      <div class="big accent">
+        <div class="v">≈ $16,000<small> / year</small></div>
+        <span class="k">Annual gross saving per department</span>
+        <span class="d">960 lectures × $16.75 saved</span>
+      </div>
+      <div class="big">
+        <div class="v">≈ $48,000<small> / year</small></div>
+        <span class="k">Gross at three departments — ops costs are shared</span>
+        <span class="d">ops (hosting + ~0.2 FTE ≈ $20–25k/yr) are per deployment · break-even at ~1.5 departments</span>
+      </div>
+    </div>
+    <p class="footline"><strong>Sensitivity:</strong> A1 = 1 manual hour is a conservative floor — at 2–4 hours (summary <em>plus</em> a vetted quiz), gross rises to $40k–88k/yr. The completeness upside — speech-only content manual notes drop — is not priced in at all.</p>
+    <hr class="divider">
+  </section>
+
+  <section id="roadmap">
+    <div class="part-head"><span class="part-num">6:30–7:00</span><h2>Roadmap &amp; close</h2></div>
+    <div class="card-grid">
+      <div class="card"><h4>Agentic tutor</h4><p>Adaptive review schedule driven by each student’s quiz history.</p></div>
+      <div class="card"><h4>Self-supervised alignment scoring</h4><p>Learn slide↔speech alignment quality without manual labels.</p></div>
+      <div class="card"><h4>Cross-university clustering</h4><p>Group equivalent courses to share summaries and question pools.</p></div>
+    </div>
+    <p class="close-line">The speech layer of every course is thrown away today. We keep it — and prove the student understood it.</p>
+  </section>
+
+  <footer>
+    <span>Lecture Autosummary · Final Project Pitch · July 2026</span>
+    <span><a href="https://github.com/homomorfism/autosummary">github.com/homomorfism/autosummary</a></span>
+  </footer>
+</div>
+
+</body>
+</html>

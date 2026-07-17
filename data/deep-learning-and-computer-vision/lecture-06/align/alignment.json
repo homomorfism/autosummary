@@ -1,0 +1,2673 @@
+{
+  "settings": {
+    "stt_provider": "whisper_cpp",
+    "backend": "embeddings",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "window_s": 60.0,
+    "stride_s": 60.0,
+    "keywords_per_slide": 10
+  },
+  "n_slide_pages": 82,
+  "units": [
+    {
+      "pages": [
+        1,
+        1
+      ],
+      "title": "ATTENTION AND TRANSFORMERS"
+    },
+    {
+      "pages": [
+        2,
+        2
+      ],
+      "title": "LSTM AND GRU"
+    },
+    {
+      "pages": [
+        3,
+        3
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        4,
+        4
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        5,
+        5
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        6,
+        6
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        7,
+        7
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        8,
+        8
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        9,
+        9
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        10,
+        10
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        11,
+        11
+      ],
+      "title": "GRU"
+    },
+    {
+      "pages": [
+        12,
+        12
+      ],
+      "title": "GRU"
+    },
+    {
+      "pages": [
+        13,
+        13
+      ],
+      "title": "GRU"
+    },
+    {
+      "pages": [
+        14,
+        14
+      ],
+      "title": "WHAT IS ATTENTION?"
+    },
+    {
+      "pages": [
+        15,
+        15
+      ],
+      "title": "ATTENTION"
+    },
+    {
+      "pages": [
+        16,
+        16
+      ],
+      "title": "ATTENTION"
+    },
+    {
+      "pages": [
+        17,
+        17
+      ],
+      "title": "ATTENTION"
+    },
+    {
+      "pages": [
+        18,
+        18
+      ],
+      "title": "ATTENTION"
+    },
+    {
+      "pages": [
+        19,
+        19
+      ],
+      "title": "FOVEAL GLIMPSES"
+    },
+    {
+      "pages": [
+        20,
+        21
+      ],
+      "title": "RECURRENT VISUAL ATTENTION"
+    },
+    {
+      "pages": [
+        22,
+        22
+      ],
+      "title": "RECURRENT VISUAL ATTENTION"
+    },
+    {
+      "pages": [
+        23,
+        23
+      ],
+      "title": "RECURRENT VISUAL ATTENTION"
+    },
+    {
+      "pages": [
+        24,
+        25
+      ],
+      "title": "RECURRENT VISUAL ATTENTION"
+    },
+    {
+      "pages": [
+        26,
+        26
+      ],
+      "title": "RECURRENT VISUAL ATTENTION"
+    },
+    {
+      "pages": [
+        27,
+        27
+      ],
+      "title": "RECURRENT VISUAL ATTENTION"
+    },
+    {
+      "pages": [
+        28,
+        28
+      ],
+      "title": "RECURRENT VISUAL ATTENTION"
+    },
+    {
+      "pages": [
+        29,
+        29
+      ],
+      "title": "ENCODER-DECODER AND ATTENTION"
+    },
+    {
+      "pages": [
+        30,
+        30
+      ],
+      "title": "MACHINE TRANSLATION"
+    },
+    {
+      "pages": [
+        31,
+        31
+      ],
+      "title": "ENCODER-DECODER ARCHITECTURES"
+    },
+    {
+      "pages": [
+        32,
+        32
+      ],
+      "title": "ENCODER-DECODER ARCHITECTURES"
+    },
+    {
+      "pages": [
+        33,
+        33
+      ],
+      "title": "ATTENTION IN NEURAL NETWORKS"
+    },
+    {
+      "pages": [
+        34,
+        34
+      ],
+      "title": "ATTENTION IN NEURAL NETWORKS"
+    },
+    {
+      "pages": [
+        35,
+        35
+      ],
+      "title": "ATTENTION IN NEURAL NETWORKS"
+    },
+    {
+      "pages": [
+        36,
+        36
+      ],
+      "title": "ATTENTION IN NEURAL NETWORKS"
+    },
+    {
+      "pages": [
+        37,
+        37
+      ],
+      "title": "ATTENTION IN NEURAL NETWORKS"
+    },
+    {
+      "pages": [
+        38,
+        38
+      ],
+      "title": "ATTENTION IN NEURAL NETWORKS"
+    },
+    {
+      "pages": [
+        39,
+        39
+      ],
+      "title": "GOOGLE TRANSLATE"
+    },
+    {
+      "pages": [
+        40,
+        40
+      ],
+      "title": "GOOGLE TRANSLATE"
+    },
+    {
+      "pages": [
+        41,
+        41
+      ],
+      "title": "GOOGLE TRANSLATE"
+    },
+    {
+      "pages": [
+        42,
+        42
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        43,
+        43
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        44,
+        44
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        45,
+        45
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        46,
+        46
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        47,
+        47
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        48,
+        48
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        49,
+        49
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        50,
+        50
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        51,
+        51
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        52,
+        52
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        53,
+        53
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        54,
+        54
+      ],
+      "title": "SHOW, ATTEND, AND TELL"
+    },
+    {
+      "pages": [
+        55,
+        55
+      ],
+      "title": "TRANSFORMERS ARE ALL YOU NEED"
+    },
+    {
+      "pages": [
+        56,
+        56
+      ],
+      "title": "TRANSFORMER"
+    },
+    {
+      "pages": [
+        57,
+        57
+      ],
+      "title": "TRANSFORMER"
+    },
+    {
+      "pages": [
+        58,
+        58
+      ],
+      "title": "TRANSFORMER"
+    },
+    {
+      "pages": [
+        59,
+        59
+      ],
+      "title": "TRANSFORMER"
+    },
+    {
+      "pages": [
+        60,
+        60
+      ],
+      "title": "TRANSFORMER"
+    },
+    {
+      "pages": [
+        61,
+        61
+      ],
+      "title": "TRANSFORMER"
+    },
+    {
+      "pages": [
+        62,
+        62
+      ],
+      "title": "SELF-ATTENTION"
+    },
+    {
+      "pages": [
+        63,
+        63
+      ],
+      "title": "SELF-ATTENTION"
+    },
+    {
+      "pages": [
+        64,
+        64
+      ],
+      "title": "SELF-ATTENTION"
+    },
+    {
+      "pages": [
+        65,
+        65
+      ],
+      "title": "SELF-ATTENTION"
+    },
+    {
+      "pages": [
+        66,
+        66
+      ],
+      "title": "SELF-ATTENTION"
+    },
+    {
+      "pages": [
+        67,
+        67
+      ],
+      "title": "SELF-ATTENTION"
+    },
+    {
+      "pages": [
+        68,
+        68
+      ],
+      "title": "SELF-ATTENTION"
+    },
+    {
+      "pages": [
+        69,
+        69
+      ],
+      "title": "SELF-ATTENTION"
+    },
+    {
+      "pages": [
+        70,
+        70
+      ],
+      "title": "THE DECODER SIDE"
+    },
+    {
+      "pages": [
+        71,
+        71
+      ],
+      "title": "THE DECODER SIDE"
+    },
+    {
+      "pages": [
+        72,
+        72
+      ],
+      "title": "TOKENIZATION"
+    },
+    {
+      "pages": [
+        73,
+        73
+      ],
+      "title": "TOKENIZATION"
+    },
+    {
+      "pages": [
+        74,
+        74
+      ],
+      "title": "TOKENIZATION"
+    },
+    {
+      "pages": [
+        75,
+        75
+      ],
+      "title": "TOKENIZATION"
+    },
+    {
+      "pages": [
+        76,
+        76
+      ],
+      "title": "POSITIONAL ENCODING"
+    },
+    {
+      "pages": [
+        77,
+        77
+      ],
+      "title": "POSITIONAL ENCODING"
+    },
+    {
+      "pages": [
+        78,
+        78
+      ],
+      "title": "POSITIONAL ENCODING"
+    },
+    {
+      "pages": [
+        79,
+        79
+      ],
+      "title": "TRANSFORMER RESULTS"
+    },
+    {
+      "pages": [
+        80,
+        80
+      ],
+      "title": "TRANSFORMER RESULTS"
+    },
+    {
+      "pages": [
+        81,
+        81
+      ],
+      "title": "TRANSFORMER RESULTS"
+    },
+    {
+      "pages": [
+        82,
+        82
+      ],
+      "title": "THANK YOU!"
+    }
+  ],
+  "windows": [
+    {
+      "start": 0.0,
+      "end": 60.0
+    },
+    {
+      "start": 60.0,
+      "end": 120.0
+    },
+    {
+      "start": 120.0,
+      "end": 180.0
+    },
+    {
+      "start": 180.0,
+      "end": 240.0
+    },
+    {
+      "start": 240.0,
+      "end": 300.0
+    },
+    {
+      "start": 300.0,
+      "end": 360.0
+    },
+    {
+      "start": 360.0,
+      "end": 420.0
+    },
+    {
+      "start": 420.0,
+      "end": 480.0
+    },
+    {
+      "start": 480.0,
+      "end": 540.0
+    },
+    {
+      "start": 540.0,
+      "end": 600.0
+    },
+    {
+      "start": 600.0,
+      "end": 660.0
+    },
+    {
+      "start": 660.0,
+      "end": 720.0
+    },
+    {
+      "start": 720.0,
+      "end": 780.0
+    },
+    {
+      "start": 780.0,
+      "end": 840.0
+    },
+    {
+      "start": 840.0,
+      "end": 900.0
+    },
+    {
+      "start": 900.0,
+      "end": 960.0
+    },
+    {
+      "start": 960.0,
+      "end": 1020.0
+    },
+    {
+      "start": 1020.0,
+      "end": 1080.0
+    },
+    {
+      "start": 1080.0,
+      "end": 1140.0
+    },
+    {
+      "start": 1140.0,
+      "end": 1200.0
+    },
+    {
+      "start": 1200.0,
+      "end": 1260.0
+    },
+    {
+      "start": 1260.0,
+      "end": 1320.0
+    },
+    {
+      "start": 1320.0,
+      "end": 1380.0
+    },
+    {
+      "start": 1380.0,
+      "end": 1440.0
+    },
+    {
+      "start": 1440.0,
+      "end": 1500.0
+    },
+    {
+      "start": 1500.0,
+      "end": 1560.0
+    },
+    {
+      "start": 1560.0,
+      "end": 1620.0
+    },
+    {
+      "start": 1620.0,
+      "end": 1680.0
+    },
+    {
+      "start": 1680.0,
+      "end": 1740.0
+    },
+    {
+      "start": 1740.0,
+      "end": 1800.0
+    },
+    {
+      "start": 1800.0,
+      "end": 1860.0
+    },
+    {
+      "start": 1860.0,
+      "end": 1920.0
+    },
+    {
+      "start": 1920.0,
+      "end": 1980.0
+    },
+    {
+      "start": 1980.0,
+      "end": 2040.0
+    },
+    {
+      "start": 2040.0,
+      "end": 2100.0
+    },
+    {
+      "start": 2100.0,
+      "end": 2160.0
+    },
+    {
+      "start": 2160.0,
+      "end": 2220.0
+    },
+    {
+      "start": 2220.0,
+      "end": 2280.0
+    },
+    {
+      "start": 2280.0,
+      "end": 2340.0
+    },
+    {
+      "start": 2340.0,
+      "end": 2400.0
+    },
+    {
+      "start": 2400.0,
+      "end": 2460.0
+    },
+    {
+      "start": 2460.0,
+      "end": 2520.0
+    },
+    {
+      "start": 2520.0,
+      "end": 2580.0
+    },
+    {
+      "start": 2580.0,
+      "end": 2640.0
+    },
+    {
+      "start": 2640.0,
+      "end": 2700.0
+    },
+    {
+      "start": 2700.0,
+      "end": 2760.0
+    },
+    {
+      "start": 2760.0,
+      "end": 2820.0
+    },
+    {
+      "start": 2820.0,
+      "end": 2880.0
+    },
+    {
+      "start": 2880.0,
+      "end": 2940.0
+    },
+    {
+      "start": 2940.0,
+      "end": 3000.0
+    },
+    {
+      "start": 3000.0,
+      "end": 3060.0
+    },
+    {
+      "start": 3060.0,
+      "end": 3120.0
+    },
+    {
+      "start": 3120.0,
+      "end": 3180.0
+    },
+    {
+      "start": 3180.0,
+      "end": 3240.0
+    },
+    {
+      "start": 3240.0,
+      "end": 3300.0
+    },
+    {
+      "start": 3300.0,
+      "end": 3360.0
+    },
+    {
+      "start": 3360.0,
+      "end": 3420.0
+    },
+    {
+      "start": 3420.0,
+      "end": 3480.0
+    },
+    {
+      "start": 3480.0,
+      "end": 3540.0
+    },
+    {
+      "start": 3540.0,
+      "end": 3600.0
+    },
+    {
+      "start": 3600.0,
+      "end": 3660.0
+    },
+    {
+      "start": 3660.0,
+      "end": 3720.0
+    },
+    {
+      "start": 3720.0,
+      "end": 3780.0
+    },
+    {
+      "start": 3780.0,
+      "end": 3840.0
+    },
+    {
+      "start": 3840.0,
+      "end": 3900.0
+    },
+    {
+      "start": 3900.0,
+      "end": 3960.0
+    },
+    {
+      "start": 3960.0,
+      "end": 4020.0
+    },
+    {
+      "start": 4020.0,
+      "end": 4080.0
+    },
+    {
+      "start": 4080.0,
+      "end": 4140.0
+    },
+    {
+      "start": 4140.0,
+      "end": 4200.0
+    },
+    {
+      "start": 4200.0,
+      "end": 4260.0
+    },
+    {
+      "start": 4260.0,
+      "end": 4320.0
+    },
+    {
+      "start": 4320.0,
+      "end": 4380.0
+    },
+    {
+      "start": 4380.0,
+      "end": 4440.0
+    },
+    {
+      "start": 4440.0,
+      "end": 4500.0
+    },
+    {
+      "start": 4500.0,
+      "end": 4560.0
+    },
+    {
+      "start": 4560.0,
+      "end": 4620.0
+    },
+    {
+      "start": 4620.0,
+      "end": 4680.0
+    },
+    {
+      "start": 4680.0,
+      "end": 4740.0
+    },
+    {
+      "start": 4740.0,
+      "end": 4800.0
+    },
+    {
+      "start": 4800.0,
+      "end": 4860.0
+    },
+    {
+      "start": 4860.0,
+      "end": 4920.0
+    },
+    {
+      "start": 4920.0,
+      "end": 4980.0
+    },
+    {
+      "start": 4980.0,
+      "end": 5040.0
+    },
+    {
+      "start": 5040.0,
+      "end": 5100.0
+    },
+    {
+      "start": 5100.0,
+      "end": 5160.0
+    },
+    {
+      "start": 5160.0,
+      "end": 5220.0
+    },
+    {
+      "start": 5220.0,
+      "end": 5280.0
+    },
+    {
+      "start": 5820.0,
+      "end": 5880.0
+    },
+    {
+      "start": 6360.0,
+      "end": 6420.0
+    },
+    {
+      "start": 6420.0,
+      "end": 6480.0
+    },
+    {
+      "start": 6480.0,
+      "end": 6540.0
+    },
+    {
+      "start": 6540.0,
+      "end": 6600.0
+    },
+    {
+      "start": 6600.0,
+      "end": 6660.0
+    },
+    {
+      "start": 6660.0,
+      "end": 6720.0
+    },
+    {
+      "start": 6720.0,
+      "end": 6780.0
+    },
+    {
+      "start": 6780.0,
+      "end": 6840.0
+    },
+    {
+      "start": 6840.0,
+      "end": 6900.0
+    },
+    {
+      "start": 6900.0,
+      "end": 6960.0
+    },
+    {
+      "start": 6960.0,
+      "end": 7020.0
+    },
+    {
+      "start": 7020.0,
+      "end": 7080.0
+    },
+    {
+      "start": 7080.0,
+      "end": 7140.0
+    },
+    {
+      "start": 7140.0,
+      "end": 7200.0
+    },
+    {
+      "start": 7200.0,
+      "end": 7260.0
+    },
+    {
+      "start": 7260.0,
+      "end": 7320.0
+    },
+    {
+      "start": 7320.0,
+      "end": 7380.0
+    },
+    {
+      "start": 7380.0,
+      "end": 7440.0
+    },
+    {
+      "start": 7440.0,
+      "end": 7500.0
+    },
+    {
+      "start": 7500.0,
+      "end": 7560.0
+    },
+    {
+      "start": 7560.0,
+      "end": 7620.0
+    },
+    {
+      "start": 7620.0,
+      "end": 7680.0
+    },
+    {
+      "start": 7680.0,
+      "end": 7740.0
+    },
+    {
+      "start": 7740.0,
+      "end": 7800.0
+    },
+    {
+      "start": 7800.0,
+      "end": 7860.0
+    },
+    {
+      "start": 7860.0,
+      "end": 7920.0
+    },
+    {
+      "start": 7920.0,
+      "end": 7980.0
+    },
+    {
+      "start": 7980.0,
+      "end": 8040.0
+    },
+    {
+      "start": 8040.0,
+      "end": 8100.0
+    },
+    {
+      "start": 8100.0,
+      "end": 8160.0
+    },
+    {
+      "start": 8160.0,
+      "end": 8220.0
+    },
+    {
+      "start": 8220.0,
+      "end": 8280.0
+    },
+    {
+      "start": 8280.0,
+      "end": 8340.0
+    },
+    {
+      "start": 8340.0,
+      "end": 8400.0
+    },
+    {
+      "start": 8400.0,
+      "end": 8460.0
+    },
+    {
+      "start": 8460.0,
+      "end": 8520.0
+    },
+    {
+      "start": 8520.0,
+      "end": 8580.0
+    },
+    {
+      "start": 8580.0,
+      "end": 8640.0
+    },
+    {
+      "start": 8640.0,
+      "end": 8700.0
+    },
+    {
+      "start": 8700.0,
+      "end": 8760.0
+    },
+    {
+      "start": 8760.0,
+      "end": 8820.0
+    },
+    {
+      "start": 8820.0,
+      "end": 8880.0
+    },
+    {
+      "start": 8880.0,
+      "end": 8940.0
+    },
+    {
+      "start": 8940.0,
+      "end": 9000.0
+    },
+    {
+      "start": 9000.0,
+      "end": 9060.0
+    },
+    {
+      "start": 9060.0,
+      "end": 9120.0
+    },
+    {
+      "start": 9120.0,
+      "end": 9180.0
+    },
+    {
+      "start": 9180.0,
+      "end": 9240.0
+    },
+    {
+      "start": 9240.0,
+      "end": 9300.0
+    },
+    {
+      "start": 9300.0,
+      "end": 9360.0
+    },
+    {
+      "start": 9360.0,
+      "end": 9420.0
+    },
+    {
+      "start": 9420.0,
+      "end": 9480.0
+    },
+    {
+      "start": 9480.0,
+      "end": 9540.0
+    },
+    {
+      "start": 9540.0,
+      "end": 9600.0
+    },
+    {
+      "start": 9600.0,
+      "end": 9660.0
+    },
+    {
+      "start": 9660.0,
+      "end": 9720.0
+    },
+    {
+      "start": 9720.0,
+      "end": 9780.0
+    },
+    {
+      "start": 9780.0,
+      "end": 9840.0
+    },
+    {
+      "start": 9840.0,
+      "end": 9900.0
+    },
+    {
+      "start": 9900.0,
+      "end": 9960.0
+    },
+    {
+      "start": 9960.0,
+      "end": 10020.0
+    },
+    {
+      "start": 10020.0,
+      "end": 10080.0
+    },
+    {
+      "start": 10080.0,
+      "end": 10140.0
+    },
+    {
+      "start": 10140.0,
+      "end": 10200.0
+    },
+    {
+      "start": 10200.0,
+      "end": 10260.0
+    },
+    {
+      "start": 10260.0,
+      "end": 10320.0
+    },
+    {
+      "start": 10320.0,
+      "end": 10380.0
+    },
+    {
+      "start": 10380.0,
+      "end": 10440.0
+    },
+    {
+      "start": 10440.0,
+      "end": 10500.0
+    },
+    {
+      "start": 10500.0,
+      "end": 10560.0
+    },
+    {
+      "start": 10560.0,
+      "end": 10620.0
+    },
+    {
+      "start": 10620.0,
+      "end": 10680.0
+    },
+    {
+      "start": 10680.0,
+      "end": 10740.0
+    },
+    {
+      "start": 10740.0,
+      "end": 10800.0
+    },
+    {
+      "start": 10800.0,
+      "end": 10860.0
+    },
+    {
+      "start": 10860.0,
+      "end": 10920.0
+    },
+    {
+      "start": 10920.0,
+      "end": 10980.0
+    },
+    {
+      "start": 10980.0,
+      "end": 11040.0
+    },
+    {
+      "start": 11040.0,
+      "end": 11100.0
+    },
+    {
+      "start": 11100.0,
+      "end": 11160.0
+    },
+    {
+      "start": 11160.0,
+      "end": 11220.0
+    },
+    {
+      "start": 11220.0,
+      "end": 11280.0
+    },
+    {
+      "start": 11280.0,
+      "end": 11340.0
+    },
+    {
+      "start": 11340.0,
+      "end": 11400.0
+    },
+    {
+      "start": 11400.0,
+      "end": 11460.0
+    },
+    {
+      "start": 11460.0,
+      "end": 11520.0
+    },
+    {
+      "start": 11520.0,
+      "end": 11534.09
+    }
+  ],
+  "assignments": {
+    "uniform": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      5,
+      5,
+      5,
+      6,
+      6,
+      7,
+      7,
+      8,
+      8,
+      9,
+      9,
+      10,
+      10,
+      10,
+      11,
+      11,
+      12,
+      12,
+      13,
+      13,
+      14,
+      14,
+      15,
+      15,
+      15,
+      16,
+      16,
+      17,
+      17,
+      18,
+      18,
+      19,
+      19,
+      20,
+      20,
+      20,
+      21,
+      21,
+      22,
+      22,
+      23,
+      23,
+      24,
+      24,
+      25,
+      25,
+      25,
+      26,
+      26,
+      27,
+      27,
+      28,
+      28,
+      29,
+      29,
+      30,
+      30,
+      30,
+      31,
+      31,
+      32,
+      32,
+      33,
+      33,
+      34,
+      34,
+      35,
+      35,
+      35,
+      36,
+      36,
+      37,
+      37,
+      38,
+      38,
+      39,
+      39,
+      40,
+      40,
+      40,
+      41,
+      41,
+      42,
+      42,
+      43,
+      43,
+      44,
+      44,
+      45,
+      45,
+      45,
+      46,
+      46,
+      47,
+      47,
+      48,
+      48,
+      49,
+      49,
+      50,
+      50,
+      50,
+      51,
+      51,
+      52,
+      52,
+      53,
+      53,
+      54,
+      54,
+      55,
+      55,
+      55,
+      56,
+      56,
+      57,
+      57,
+      58,
+      58,
+      59,
+      59,
+      60,
+      60,
+      60,
+      61,
+      61,
+      62,
+      62,
+      63,
+      63,
+      64,
+      64,
+      65,
+      65,
+      65,
+      66,
+      66,
+      67,
+      67,
+      68,
+      68,
+      69,
+      69,
+      70,
+      70,
+      70,
+      71,
+      71,
+      72,
+      72,
+      73,
+      73,
+      74,
+      74,
+      75,
+      75,
+      75,
+      76,
+      76,
+      77,
+      77,
+      78,
+      78,
+      79,
+      79
+    ],
+    "plain": [
+      55,
+      2,
+      23,
+      20,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      2,
+      6,
+      64,
+      5,
+      5,
+      5,
+      11,
+      5,
+      11,
+      5,
+      5,
+      11,
+      5,
+      4,
+      6,
+      2,
+      2,
+      9,
+      6,
+      9,
+      21,
+      6,
+      5,
+      11,
+      9,
+      11,
+      2,
+      2,
+      2,
+      2,
+      5,
+      2,
+      17,
+      33,
+      33,
+      33,
+      15,
+      15,
+      15,
+      59,
+      17,
+      17,
+      65,
+      18,
+      19,
+      26,
+      29,
+      29,
+      9,
+      29,
+      2,
+      34,
+      73,
+      68,
+      2,
+      68,
+      67,
+      62,
+      11,
+      67,
+      37,
+      33,
+      73,
+      68,
+      77,
+      38,
+      34,
+      64,
+      68,
+      35,
+      27,
+      37,
+      29,
+      29,
+      68,
+      64,
+      58,
+      53,
+      52,
+      52,
+      55,
+      73,
+      37,
+      58,
+      36,
+      69,
+      73,
+      68,
+      73,
+      68,
+      67,
+      73,
+      73,
+      68,
+      62,
+      60,
+      60,
+      60,
+      60,
+      60,
+      61,
+      60,
+      61,
+      60,
+      62,
+      61,
+      61,
+      61,
+      61,
+      61,
+      64,
+      11,
+      61,
+      61,
+      75,
+      2,
+      73,
+      9,
+      77,
+      61,
+      73,
+      61,
+      64,
+      19,
+      73,
+      73,
+      60,
+      61,
+      64,
+      65,
+      61,
+      65,
+      65,
+      64,
+      67,
+      67,
+      76,
+      67,
+      67,
+      67,
+      68,
+      61,
+      61,
+      55,
+      61,
+      64,
+      64,
+      73,
+      69,
+      72,
+      29,
+      69,
+      72,
+      72,
+      72,
+      73,
+      73,
+      74,
+      75,
+      75,
+      74,
+      75,
+      75,
+      73,
+      55,
+      66
+    ],
+    "dtw": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      6,
+      7,
+      9,
+      9,
+      9,
+      9,
+      10,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      14,
+      14,
+      14,
+      14,
+      15,
+      15,
+      15,
+      17,
+      17,
+      17,
+      18,
+      18,
+      19,
+      26,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      29,
+      30,
+      30,
+      31,
+      32,
+      32,
+      34,
+      35,
+      35,
+      35,
+      36,
+      36,
+      36,
+      36,
+      44,
+      44,
+      44,
+      44,
+      52,
+      52,
+      55,
+      55,
+      55,
+      55,
+      55,
+      57,
+      57,
+      57,
+      57,
+      57,
+      57,
+      57,
+      57,
+      57,
+      59,
+      60,
+      60,
+      60,
+      60,
+      60,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      61,
+      64,
+      64,
+      64,
+      64,
+      64,
+      64,
+      67,
+      67,
+      67,
+      67,
+      67,
+      67,
+      68,
+      68,
+      68,
+      68,
+      68,
+      68,
+      68,
+      69,
+      69,
+      69,
+      69,
+      69,
+      72,
+      72,
+      72,
+      73,
+      73,
+      74,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      78,
+      79
+    ]
+  },
+  "keywords": [
+    [
+      "june",
+      "mahal",
+      "france",
+      "public",
+      "five",
+      "democratic",
+      "national",
+      "committee",
+      "watergate",
+      "two"
+    ],
+    [
+      "gru",
+      "lstm"
+    ],
+    [
+      "vanishing",
+      "multiply",
+      "𝑊every",
+      "makes",
+      "impossible",
+      "gradients",
+      "time",
+      "term",
+      "long",
+      "memory"
+    ],
+    [
+      "shortcut",
+      "memory",
+      "idea",
+      "lstm",
+      "seen",
+      "provide",
+      "construct",
+      "unit",
+      "controls",
+      "explicitly"
+    ],
+    [
+      "state",
+      "cell",
+      "gate",
+      "lstm",
+      "c𝑡is",
+      "h𝑡is",
+      "whether",
+      "change",
+      "c𝑡to",
+      "vanilla"
+    ],
+    [
+      "cell",
+      "state",
+      "gate",
+      "forget",
+      "tanh",
+      "output",
+      "lstm",
+      "𝑊𝑥𝑐x𝑡",
+      "𝑊ℎ𝑐h𝑡",
+      "able"
+    ],
+    [
+      "schmidhuber",
+      "lstm",
+      "hochreiter",
+      "completely",
+      "modern",
+      "gers",
+      "unavailable",
+      "gates",
+      "depend",
+      "developed"
+    ],
+    [
+      "course",
+      "peepholes",
+      "add",
+      "weight",
+      "matrices",
+      "lstm"
+    ],
+    [
+      "remove",
+      "add",
+      "lstm",
+      "𝑊𝑝𝑖c𝑡",
+      "𝑊𝑝𝑓c𝑡",
+      "𝑊𝑝𝑜c𝑡",
+      "kind",
+      "peephole",
+      "activation",
+      "etc"
+    ],
+    [
+      "lstm",
+      "odyssey",
+      "greff",
+      "shows",
+      "particular",
+      "significantly",
+      "brings",
+      "search",
+      "experimental",
+      "comparison"
+    ],
+    [
+      "gru",
+      "gated",
+      "units",
+      "implements",
+      "developed",
+      "cho",
+      "simpler",
+      "constant",
+      "error",
+      "carousel"
+    ],
+    [
+      "fewer",
+      "gate",
+      "𝑊𝑥𝑢x𝑡",
+      "𝑊ℎ𝑢h𝑡",
+      "𝑊𝑥𝑟x𝑡",
+      "𝑊ℎ𝑟h𝑡",
+      "𝑊𝑥ℎ",
+      "𝑊ℎℎ",
+      "update",
+      "reset"
+    ],
+    [
+      "józefowicz",
+      "zaremba",
+      "evolutionary",
+      "approach",
+      "identified",
+      "three",
+      "sutskever",
+      "huge",
+      "experimental",
+      "comparison"
+    ],
+    [
+      "attention"
+    ],
+    [
+      "mean",
+      "attention",
+      "retina",
+      "pay",
+      "care",
+      "rest",
+      "pretty",
+      "question",
+      "luria",
+      "cognitive"
+    ],
+    [
+      "reality",
+      "mostly",
+      "interaction",
+      "knudsen",
+      "working",
+      "memory",
+      "attention"
+    ],
+    [
+      "implement",
+      "anns",
+      "especially",
+      "conscious",
+      "unconscious",
+      "moment",
+      "fovea",
+      "small",
+      "simons",
+      "chabris"
+    ],
+    [
+      "eyes",
+      "doesn",
+      "help",
+      "either",
+      "saccades",
+      "always",
+      "work",
+      "attention"
+    ],
+    [
+      "glimpses",
+      "sequence",
+      "foveal",
+      "might",
+      "consciously",
+      "larochelle",
+      "hinton",
+      "learn",
+      "understand",
+      "positions"
+    ],
+    [
+      "glimpse",
+      "location",
+      "visual",
+      "recurrent",
+      "really",
+      "happened",
+      "mnih",
+      "𝑡the",
+      "funciton",
+      "𝑓𝑔makes"
+    ],
+    [
+      "get",
+      "lot",
+      "ideas",
+      "together",
+      "formal",
+      "observation",
+      "reward",
+      "𝑟𝑡that",
+      "end",
+      "correct"
+    ],
+    [
+      "policy",
+      "need",
+      "reinforcement",
+      "learning",
+      "stochastic",
+      "history",
+      "𝜋is",
+      "optimize",
+      "details",
+      "optimizing"
+    ],
+    [
+      "walking",
+      "around",
+      "picture",
+      "results",
+      "visual",
+      "recurrent",
+      "attention"
+    ],
+    [
+      "deep",
+      "approximations",
+      "definitely",
+      "point",
+      "made",
+      "trained",
+      "differently",
+      "used",
+      "variational",
+      "won"
+    ],
+    [
+      "recognizing",
+      "interestingly",
+      "addition",
+      "numbers",
+      "differently",
+      "two",
+      "works",
+      "visual",
+      "recurrent",
+      "attention"
+    ],
+    [
+      "visual",
+      "recurrent",
+      "gregor",
+      "draw",
+      "generation",
+      "development",
+      "autoencoder",
+      "image",
+      "step",
+      "variation"
+    ],
+    [
+      "decoder",
+      "encoder",
+      "attention"
+    ],
+    [
+      "translation",
+      "sequence",
+      "models",
+      "problem",
+      "rnns",
+      "word",
+      "machine",
+      "excellent",
+      "test",
+      "natural"
+    ],
+    [
+      "architectures",
+      "decoder",
+      "encoder",
+      "decode",
+      "sutskever",
+      "cho",
+      "encode",
+      "back",
+      "first"
+    ],
+    [
+      "long",
+      "work",
+      "ish",
+      "individual",
+      "sentences",
+      "compress",
+      "everything",
+      "even",
+      "problem",
+      "single"
+    ],
+    [
+      "solution",
+      "special",
+      "direct",
+      "plus",
+      "bahdanau",
+      "train",
+      "application",
+      "bidirectional",
+      "important",
+      "given"
+    ],
+    [
+      "luong",
+      "2015a",
+      "2015b",
+      "jean",
+      "contexts",
+      "estimates",
+      "relevance",
+      "attention",
+      "bidirectional",
+      "rnn"
+    ],
+    [
+      "𝑒𝑡𝑗",
+      "simple",
+      "compute",
+      "𝛼𝑡𝑗and",
+      "weigh",
+      "𝛼𝑡𝑗",
+      "𝛼𝑡𝑗ℎ𝑗",
+      "context",
+      "softmax",
+      "networks"
+    ],
+    [
+      "visualize",
+      "looking",
+      "network",
+      "networks",
+      "neural",
+      "attention"
+    ],
+    [
+      "order",
+      "better",
+      "word",
+      "much",
+      "networks",
+      "get",
+      "neural",
+      "attention"
+    ],
+    [
+      "unusual",
+      "grammar",
+      "foreign",
+      "application",
+      "language",
+      "vinyals",
+      "one",
+      "networks",
+      "neural",
+      "attention"
+    ],
+    [
+      "google",
+      "translate",
+      "machine",
+      "translation",
+      "decoder",
+      "encoder",
+      "deeper",
+      "basic",
+      "system",
+      "bridging"
+    ],
+    [
+      "google",
+      "machine",
+      "translation",
+      "stacked",
+      "stop",
+      "beyond",
+      "residual",
+      "connections",
+      "working",
+      "resnet"
+    ],
+    [
+      "google",
+      "machine",
+      "translation",
+      "bottom",
+      "system",
+      "bridging",
+      "gap",
+      "human",
+      "bidirectional",
+      "translate"
+    ],
+    [
+      "tell",
+      "show",
+      "generate",
+      "subtitles",
+      "vinyals",
+      "back",
+      "try",
+      "images",
+      "work",
+      "first"
+    ],
+    [
+      "image",
+      "straightforward",
+      "objective",
+      "𝐼is",
+      "𝑆is",
+      "description",
+      "decompose",
+      "extract",
+      "features",
+      "function"
+    ],
+    [
+      "reasonable",
+      "good",
+      "attend",
+      "tell",
+      "show"
+    ],
+    [
+      "attend",
+      "tell",
+      "show"
+    ],
+    [
+      "soft",
+      "annotation",
+      "𝑖a𝑖",
+      "attention",
+      "create",
+      "hard",
+      "weights",
+      "attend",
+      "tell",
+      "show"
+    ],
+    [
+      "log",
+      "sample",
+      "maximizing",
+      "bound",
+      "derivatives",
+      "𝑠𝑡with",
+      "𝛼𝑖and",
+      "approximate",
+      "expectation",
+      "trained"
+    ],
+    [
+      "attend",
+      "tell",
+      "show",
+      "fails",
+      "often",
+      "good",
+      "try",
+      "see"
+    ],
+    [
+      "examples",
+      "hard",
+      "attend",
+      "tell",
+      "show",
+      "attention"
+    ],
+    [
+      "soft",
+      "examples",
+      "attend",
+      "tell",
+      "show",
+      "attention"
+    ],
+    [
+      "examples",
+      "hard",
+      "attend",
+      "tell",
+      "show",
+      "attention"
+    ],
+    [
+      "soft",
+      "examples",
+      "attend",
+      "tell",
+      "show",
+      "attention"
+    ],
+    [
+      "examples",
+      "hard",
+      "attend",
+      "tell",
+      "show",
+      "attention"
+    ],
+    [
+      "soft",
+      "examples",
+      "attend",
+      "tell",
+      "show",
+      "attention"
+    ],
+    [
+      "transformers",
+      "need"
+    ],
+    [
+      "turned",
+      "vaswani",
+      "main",
+      "fruitful",
+      "various",
+      "seq2seq",
+      "problems",
+      "primary",
+      "motivation",
+      "avoid"
+    ],
+    [
+      "general",
+      "flowchart",
+      "detail",
+      "transformer"
+    ],
+    [
+      "essence",
+      "architecture",
+      "decoder",
+      "transformer",
+      "encoder"
+    ],
+    [
+      "layer",
+      "consists",
+      "followed",
+      "applied",
+      "independently",
+      "block",
+      "feedforward",
+      "position",
+      "transformer",
+      "input"
+    ],
+    [
+      "parallel",
+      "represented",
+      "feedforward",
+      "everything",
+      "words",
+      "vectors",
+      "transformer",
+      "layer"
+    ],
+    [
+      "detailed",
+      "overall",
+      "picture",
+      "transformer",
+      "self",
+      "attention"
+    ],
+    [
+      "self",
+      "information",
+      "understand",
+      "begin",
+      "retrieval",
+      "attention"
+    ],
+    [
+      "latent",
+      "space",
+      "documents",
+      "query",
+      "different",
+      "find",
+      "represented",
+      "queries",
+      "encoder",
+      "share"
+    ],
+    [
+      "keys",
+      "dimension",
+      "matrix",
+      "vectors",
+      "queries",
+      "weight",
+      "multiplying",
+      "usually",
+      "query",
+      "documents"
+    ],
+    [
+      "softmax",
+      "scores",
+      "𝑞q𝑖𝐾",
+      "𝐿are",
+      "values",
+      "computing",
+      "products",
+      "rescale",
+      "𝑖v𝑗",
+      "dividing"
+    ],
+    [
+      "self",
+      "structure",
+      "overall",
+      "attention",
+      "layer"
+    ],
+    [
+      "head",
+      "single",
+      "self",
+      "attention",
+      "combine",
+      "computation",
+      "z𝑖into",
+      "formula",
+      "𝑞𝑄𝐾",
+      "full"
+    ],
+    [
+      "heads",
+      "add",
+      "self",
+      "𝐻parallel",
+      "𝐿output",
+      "concatenate",
+      "𝑍concat",
+      "ℝ𝐻𝑣",
+      "𝑑to",
+      "𝑍concat𝑊𝑂"
+    ],
+    [
+      "multi",
+      "head",
+      "yet",
+      "done",
+      "important",
+      "part",
+      "attention",
+      "self"
+    ],
+    [
+      "decoder",
+      "means",
+      "masked",
+      "future",
+      "attention",
+      "tokens",
+      "self",
+      "types",
+      "autoregressively",
+      "peek"
+    ],
+    [
+      "vectors",
+      "number",
+      "queries",
+      "decoder",
+      "use",
+      "already",
+      "encoder",
+      "retrieval",
+      "output",
+      "tokens"
+    ],
+    [
+      "text",
+      "byte",
+      "huffman",
+      "coding",
+      "split",
+      "begin",
+      "building",
+      "cat",
+      "mat",
+      "rat"
+    ],
+    [
+      "symbols",
+      "count",
+      "pairs",
+      "split",
+      "cat",
+      "mat",
+      "rat",
+      "eats",
+      "pet",
+      "tokenization"
+    ],
+    [
+      "take",
+      "frequent",
+      "symbol",
+      "added",
+      "ezs",
+      "pair",
+      "encode",
+      "single",
+      "vocabulary",
+      "pet"
+    ],
+    [
+      "new",
+      "case",
+      "replace",
+      "reach",
+      "choose",
+      "frequent",
+      "another",
+      "symbol",
+      "say",
+      "ezs"
+    ],
+    [
+      "input",
+      "sequence",
+      "positional",
+      "token",
+      "tokens",
+      "transformer",
+      "every",
+      "directly",
+      "regard",
+      "great"
+    ],
+    [
+      "could",
+      "positional",
+      "increasing",
+      "token",
+      "position",
+      "number",
+      "encoding",
+      "sequence",
+      "use",
+      "reflect"
+    ],
+    [
+      "pos",
+      "periodic",
+      "100002𝑖",
+      "positional",
+      "digit",
+      "forms",
+      "periods",
+      "continuous",
+      "sine",
+      "waves"
+    ],
+    [
+      "transformer",
+      "participate",
+      "processing",
+      "trains",
+      "result",
+      "words",
+      "current",
+      "word",
+      "results",
+      "weights"
+    ],
+    [
+      "computationally",
+      "second",
+      "reduces",
+      "path",
+      "lengths",
+      "potentially",
+      "adds",
+      "interpretability",
+      "third",
+      "important"
+    ],
+    [
+      "100x",
+      "faster",
+      "trains",
+      "better",
+      "works",
+      "results",
+      "transformer"
+    ],
+    [
+      "thank",
+      "attention"
+    ]
+  ],
+  "metrics": {
+    "uniform": {
+      "keyword_hit_rate": 0.1767,
+      "slide_coverage": 1.0,
+      "monotonicity": 1.0,
+      "kendall_tau_b": 0.9964
+    },
+    "plain": {
+      "keyword_hit_rate": 0.4414,
+      "slide_coverage": 0.525,
+      "monotonicity": 0.6229,
+      "kendall_tau_b": 0.5761
+    },
+    "dtw": {
+      "keyword_hit_rate": 0.4727,
+      "slide_coverage": 0.475,
+      "monotonicity": 1.0,
+      "kendall_tau_b": 0.9726
+    },
+    "plain_vs_dtw": {
+      "windows_differing": 0.5909,
+      "mean_unit_distance": 9.375
+    }
+  }
+}

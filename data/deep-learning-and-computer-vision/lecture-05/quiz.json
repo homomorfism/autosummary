@@ -1,0 +1,130 @@
+{
+  "title": "Self-Check Quiz: Convolutional Architectures and Beyond",
+  "questions": [
+    {
+      "question": "What is the main advantage of weight reuse in convolutional neural networks?",
+      "options": [
+        {
+          "text": "It dramatically reduces the number of parameters while enabling massive parallelism.",
+          "is_correct": true,
+          "explanation": "The conspect states: 'The defining advantage of convolutional neural networks is weight reuse: the same filters are applied across the entire input and over all intermediate feature tensors, dramatically reducing the number of parameters while enabling massive parallelism.' Thus, weight reuse simultaneously cuts parameter count and allows parallel computation."
+        },
+        {
+          "text": "It enables each neuron to process a different part of the input, increasing model capacity.",
+          "is_correct": false,
+          "explanation": "This confuses weight reuse with a fully connected approach where each neuron has its own weights. In CNNs, the same filter is reused across all spatial locations, so neurons do not each process different parts with independent weights."
+        },
+        {
+          "text": "It eliminates the need for handcrafted filters by using max pooling.",
+          "is_correct": false,
+          "explanation": "Weight reuse is unrelated to handcrafted filters; the conspect discusses classical handcrafted filters separately. Moreover, max pooling is a downsampling operation, not a replacement for filter design."
+        },
+        {
+          "text": "It allows the network to adapt its filter sizes dynamically during training.",
+          "is_correct": false,
+          "explanation": "Filter sizes are fixed architectural choices; they do not change dynamically. Weight reuse means the same fixed filter is applied everywhere, not that the filter's dimensions adapt."
+        }
+      ]
+    },
+    {
+      "question": "What is the primary purpose of label smoothing as introduced in Inception v3?",
+      "options": [
+        {
+          "text": "It prevents overconfident predictions and improves generalization.",
+          "is_correct": true,
+          "explanation": "According to the conspect, label smoothing replaces the hard one‑hot target with a soft target, encouraging logits not to grow without bound. This avoids overconfidence and overfitting, thereby improving generalization."
+        },
+        {
+          "text": "It encourages logits to grow without bound for better class separation.",
+          "is_correct": false,
+          "explanation": "This describes the effect of using hard one‑hot targets without smoothing. Label smoothing specifically counteracts unbounded logit growth to prevent overconfidence."
+        },
+        {
+          "text": "It adds noise to the labels to make the training task harder.",
+          "is_correct": false,
+          "explanation": "While label smoothing modifies targets, its goal is regularization by smoothing, not merely adding noise to increase difficulty. The uniform distribution is used as a prior, not random noise."
+        },
+        {
+          "text": "It uses a separate network to predict label distributions.",
+          "is_correct": false,
+          "explanation": "Label smoothing does not involve an additional network; it simply replaces the hard target with a convex combination of the true label and a prior (e.g., uniform)."
+        }
+      ]
+    },
+    {
+      "question": "How does the skip connection in a ResNet unit help mitigate the vanishing gradient problem?",
+      "options": [
+        {
+          "text": "It provides a direct gradient path to earlier layers.",
+          "is_correct": true,
+          "explanation": "The residual unit computes y = F(x) + x. The derivative ∂y/∂x = 1 + ∂F/∂x ensures that even if ∂F/∂x becomes small, the identity term guarantees a gradient of at least 1, allowing flow to earlier layers."
+        },
+        {
+          "text": "It reduces the number of parameters by using 1x1 convolutions.",
+          "is_correct": false,
+          "explanation": "This describes bottleneck layers or certain Inception variants, not the core mechanism of ResNet skip connections. ResNet’s identity path is about gradient flow, not parameter reduction."
+        },
+        {
+          "text": "It normalizes the activations within each mini-batch.",
+          "is_correct": false,
+          "explanation": "Batch normalization is a separate technique. While often used with ResNets, the skip connection itself does not perform normalization; it simply adds the input to the output."
+        },
+        {
+          "text": "It splits the input into multiple groups for parallel processing.",
+          "is_correct": false,
+          "explanation": "Group convolutions (e.g., in ResNeXt) split channels, but the basic ResNet skip connection does not split anything; it directly adds the input tensor element‑wise."
+        }
+      ]
+    },
+    {
+      "question": "What does gradient clipping do to handle exploding gradients in RNNs?",
+      "options": [
+        {
+          "text": "It rescales the gradient vector to limit its norm when it exceeds a threshold.",
+          "is_correct": true,
+          "explanation": "The conspect states: '…if the gradient norm exceeds a threshold … the gradient vector is rescaled so that its norm equals the threshold.' This keeps the update from growing too large while preserving the direction."
+        },
+        {
+          "text": "It randomly drops a fraction of gradient elements to reduce explosion risk.",
+          "is_correct": false,
+          "explanation": "Gradient clipping does not randomly drop elements; it uniformly scales the entire vector. Dropping elements is more akin to dropout, which regularizes neural networks, not clipping."
+        },
+        {
+          "text": "It automatically reduces the learning rate when gradients become large.",
+          "is_correct": false,
+          "explanation": "Learning rate decay or adaptive optimizers (e.g., RMSProp) adjust the learning rate globally or per parameter, but gradient clipping directly modifies the gradient vector itself."
+        },
+        {
+          "text": "It applies a fixed scaling factor to all gradients after backpropagation.",
+          "is_correct": false,
+          "explanation": "Clipping scales only when the norm exceeds a threshold and scales it to the threshold value, not by a constant factor. If gradients are small, no scaling is applied."
+        }
+      ]
+    },
+    {
+      "question": "How does the constant error carousel in an LSTM help preserve gradients over long sequences?",
+      "options": [
+        {
+          "text": "It provides a path where the gradient can flow unchanged across time steps.",
+          "is_correct": true,
+          "explanation": "When the forget gate is fully open, the cell state update becomes c_t = c_{t-1} + i_t ⊙ c'_t, leading to ∂c_t/∂c_{t-1} = 1. This identity derivative allows gradients to propagate without vanishing."
+        },
+        {
+          "text": "It uses a reset gate to control the flow of gradients into the cell.",
+          "is_correct": false,
+          "explanation": "The reset gate belongs to the GRU, not the LSTM. The constant error carousel in LSTM relies on the forget and input gates to maintain an uninterrupted gradient path."
+        },
+        {
+          "text": "It initializes the cell state with large values to prevent decay.",
+          "is_correct": false,
+          "explanation": "Initializing cell state with large values does not guarantee gradient flow. The LSTM architecture explicitly provides a multiplicative path with derivative 1, independent of initialization."
+        },
+        {
+          "text": "It applies layer normalization to the cell state before each update.",
+          "is_correct": false,
+          "explanation": "Layer normalization is a separate technique to stabilize activations; it does not create the constant error carousel. The carousel is a structural property of the gating equations, not an external normalization."
+        }
+      ]
+    }
+  ]
+}

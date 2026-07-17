@@ -1,0 +1,130 @@
+{
+  "title": "Intro to Machine Learning",
+  "questions": [
+    {
+      "question": "What lesson about artificial intelligence does the conspect draw from the ancient Greek myth of Talos?",
+      "options": [
+        {
+          "text": "The myth suggests building mechanical automata was beyond ancient technology.",
+          "is_correct": false,
+          "explanation": "The conspect mentions that Greeks could build projectile weapons, but the myth's automaton Talos was a bronze giant, so building automata was imaginable. The lesson is about the reversal of difficulty, not technological limitation."
+        },
+        {
+          "text": "Speech synthesis turned out to be harder than speech recognition.",
+          "is_correct": false,
+          "explanation": "The conspect says the opposite: speech synthesis is far easier than speech recognition, contradicting the myth of the golem that could understand but not speak."
+        },
+        {
+          "text": "Automatically recognizing ships proved harder than throwing projectiles.",
+          "is_correct": true,
+          "explanation": "The conspect explicitly notes that while Talos could throw rocks (projectile weapons existed), automatically recognizing an enemy ship—a computer vision problem—proved far harder for humanity. This illustrates how the difficulty of tasks reversed in reality."
+        },
+        {
+          "text": "The myth shows that AI was conceived only in modern times.",
+          "is_correct": false,
+          "explanation": "The conspect states that the idea of creating intelligence is ancient, with examples from Greek myth, so AI was conceived long ago."
+        }
+      ]
+    },
+    {
+      "question": "Why did the Turing test remain a challenging benchmark for AI for many decades while other benchmarks were dismissed after being solved?",
+      "options": [
+        {
+          "text": "Because it requires a computer to stay in character during long conversations.",
+          "is_correct": false,
+          "explanation": "While staying in character is part of passing the test, the fundamental challenge is the open-ended nature of natural language itself, not merely consistency."
+        },
+        {
+          "text": "Because it relies on free-form natural language, which requires broad knowledge.",
+          "is_correct": true,
+          "explanation": "The conspect states the Turing test survived because it hinges on free-form natural language, which forces the system to understand a vast range of knowledge and the physical world."
+        },
+        {
+          "text": "Because it was proposed by Alan Turing, giving it historical prestige.",
+          "is_correct": false,
+          "explanation": "The test's longevity is due to its inherent difficulty, not the prestige of its creator."
+        },
+        {
+          "text": "Because it uses probability theory to assess indistinguishability.",
+          "is_correct": false,
+          "explanation": "Probability theory is used to formalize the test's criterion, but that is not why it remained difficult; the difficulty comes from the demands of natural language."
+        }
+      ]
+    },
+    {
+      "question": "According to Mitchell's definition, what must a computer program do to be considered to learn?",
+      "options": [
+        {
+          "text": "It must use neural networks and deep learning to improve its performance.",
+          "is_correct": false,
+          "explanation": "The definition does not specify the method; learning can occur through various algorithms, not just neural networks."
+        },
+        {
+          "text": "It must get better at a task with experience, as gauged by a metric.",
+          "is_correct": true,
+          "explanation": "Mitchell's definition states that a program learns if its performance on a task improves with experience as measured by some performance measure. Option B captures this core idea."
+        },
+        {
+          "text": "It must generalize to new, unseen examples without overfitting.",
+          "is_correct": false,
+          "explanation": "Generalization is a goal of learning but is not part of the definition itself; the definition only requires performance improvement with experience."
+        },
+        {
+          "text": "It must minimize a predefined loss function on the training data.",
+          "is_correct": false,
+          "explanation": "Minimizing a loss function is a common training objective but not the definition of learning; learning is defined by improved performance, which loss minimization may help achieve."
+        }
+      ]
+    },
+    {
+      "question": "What probability distribution is modelled in supervised learning, according to the conspect?",
+      "options": [
+        {
+          "text": "The joint probability distribution of both inputs and outputs, p(x,y).",
+          "is_correct": false,
+          "explanation": "The joint distribution models both inputs and outputs together, but supervised learning focuses on predicting the output from input, not modelling their joint probability."
+        },
+        {
+          "text": "The conditional distribution of the output given the input, p(y|x).",
+          "is_correct": true,
+          "explanation": "The conspect explicitly states that mathematically we aim to learn the conditional distribution p(y | x) in supervised learning."
+        },
+        {
+          "text": "The marginal probability distribution of the input data, p(x).",
+          "is_correct": false,
+          "explanation": "The marginal distribution p(x) models the input data alone and is more relevant to unsupervised learning or generative modelling."
+        },
+        {
+          "text": "The posterior probability distribution of parameters given data, p(θ|D).",
+          "is_correct": false,
+          "explanation": "The posterior distribution p(θ|D) is a Bayesian concept for parameter estimation, not the distribution modelled in supervised learning."
+        }
+      ]
+    },
+    {
+      "question": "What is the primary computational advantage of using a conjugate prior in Bayesian inference?",
+      "options": [
+        {
+          "text": "It always leads to a uniform posterior distribution.",
+          "is_correct": false,
+          "explanation": "A conjugate prior does not necessarily lead to a uniform posterior; the posterior stays in the same family, which could be Beta, Dirichlet, etc., not necessarily uniform."
+        },
+        {
+          "text": "It allows updating hyperparameters instead of computing new integrals.",
+          "is_correct": true,
+          "explanation": "The conspect explains that with a conjugate prior, the posterior belongs to the same distribution family as the prior, so we can update hyperparameters directly without performing new integrals."
+        },
+        {
+          "text": "It eliminates the need for a prior altogether.",
+          "is_correct": false,
+          "explanation": "Bayesian inference always requires a prior; conjugate priors are a specific type of prior, not a replacement for having one."
+        },
+        {
+          "text": "It guarantees that the maximum likelihood estimate equals the MAP estimate.",
+          "is_correct": false,
+          "explanation": "Conjugate priors do not force ML and MAP estimates to be equal; MAP incorporates the prior, while ML does not."
+        }
+      ]
+    }
+  ]
+}

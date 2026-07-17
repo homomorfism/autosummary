@@ -1,0 +1,130 @@
+{
+  "title": "Linear Models and Intro to Deep Learning",
+  "questions": [
+    {
+      "question": "What is the key difference between maximum likelihood (ML) and maximum a posteriori (MAP) estimation?",
+      "options": [
+        {
+          "text": "MAP uses a prior over parameters, while ML does not.",
+          "is_correct": true,
+          "explanation": "MAP explicitly incorporates a prior distribution p(θ) to combine prior knowledge with the data, whereas ML maximizes only the likelihood p(D|θ) and effectively assumes a uniform prior."
+        },
+        {
+          "text": "MAP is used only for classification tasks, while ML is for regression.",
+          "is_correct": false,
+          "explanation": "Both ML and MAP can be applied to any modeling problem (regression or classification); the distinction is not task-specific but lies in whether a prior is used."
+        },
+        {
+          "text": "MAP requires computing the model evidence, while ML ignores it.",
+          "is_correct": false,
+          "explanation": "Neither ML nor MAP requires the evidence term p(D); MAP uses the prior and likelihood product, while ML uses only the likelihood. The evidence is needed for the full posterior predictive distribution."
+        },
+        {
+          "text": "MAP always yields more accurate predictions than ML.",
+          "is_correct": false,
+          "explanation": "MAP can outperform ML when the prior is informative, but it is not universally better—it may bias results if the prior is misspecified. ML is a special case of MAP with a flat prior."
+        }
+      ]
+    },
+    {
+      "question": "Using L2 weight decay (ridge regression) in a linear model corresponds to assuming which prior on the weights?",
+      "options": [
+        {
+          "text": "A Gaussian prior centered at zero",
+          "is_correct": true,
+          "explanation": "The L2 penalty term λ||w||² in the objective is exactly the negative log of a Gaussian prior with zero mean and precision proportional to λ, making the MAP solution equivalent to ridge regression."
+        },
+        {
+          "text": "A Laplace prior centered at zero",
+          "is_correct": false,
+          "explanation": "A Laplace prior leads to an L1 penalty (LASSO), not L2. The choice of prior governs the type of regularization."
+        },
+        {
+          "text": "A uniform prior over a bounded interval",
+          "is_correct": false,
+          "explanation": "A uniform prior does not penalize large weights and would correspond to no regularization (maximum likelihood) within the interval."
+        },
+        {
+          "text": "No prior (pure maximum likelihood)",
+          "is_correct": false,
+          "explanation": "Omitting the prior corresponds to maximum likelihood estimation, which has no regularization term. Ridge regression explicitly includes a prior that shrinks weights toward zero."
+        }
+      ]
+    },
+    {
+      "question": "What loss function does binary logistic regression minimize when using maximum likelihood?",
+      "options": [
+        {
+          "text": "The squared error loss",
+          "is_correct": false,
+          "explanation": "Squared error is derived from a Gaussian noise assumption and is typical for linear regression, not for classification with binary targets."
+        },
+        {
+          "text": "The cross-entropy loss",
+          "is_correct": true,
+          "explanation": "Maximizing the Bernoulli likelihood leads directly to the cross-entropy error −∑[t ln y + (1−t) ln(1−y)], which measures the divergence between predicted probabilities and true labels."
+        },
+        {
+          "text": "The hinge loss function",
+          "is_correct": false,
+          "explanation": "Hinge loss is used in support vector machines, not in logistic regression. It does not arise from a probabilistic likelihood."
+        },
+        {
+          "text": "The exponential loss function",
+          "is_correct": false,
+          "explanation": "Exponential loss is used in boosting algorithms like AdaBoost; it is not the negative log-likelihood for logistic regression."
+        }
+      ]
+    },
+    {
+      "question": "Why is gradient descent the standard method for training logistic regression models?",
+      "options": [
+        {
+          "text": "There is no closed-form solution for this problem",
+          "is_correct": true,
+          "explanation": "The negative log-likelihood of logistic regression does not have an analytical minimizer; the normal equations derived from the derivative are nonlinear in w, so iterative optimization like gradient descent is required."
+        },
+        {
+          "text": "The closed-form solution is numerically unstable",
+          "is_correct": false,
+          "explanation": "No closed-form solution exists at all, not even an unstable one. The likelihood equations are transcendental and must be solved iteratively."
+        },
+        {
+          "text": "Gradient descent guarantees finding the global minimum",
+          "is_correct": false,
+          "explanation": "Gradient descent is a local optimization method and provides no guarantee of global optimality, especially in non-convex problems. Logistic regression loss is convex, but the algorithm itself does not guarantee global convergence from any starting point."
+        },
+        {
+          "text": "It is faster than solving the normal equations directly",
+          "is_correct": false,
+          "explanation": "There are no normal equations for logistic regression in the sense of a linear system; the gradient descent update is the only practical approach, not a faster alternative to a nonexistent analytical solution."
+        }
+      ]
+    },
+    {
+      "question": "Why is a nonlinear activation function essential in a feedforward neural network with multiple layers?",
+      "options": [
+        {
+          "text": "Without nonlinearity, the entire network reduces to a linear model",
+          "is_correct": true,
+          "explanation": "A composition of linear functions remains linear; without a nonlinear activation between layers, the network can only represent linear mappings, negating the benefit of depth."
+        },
+        {
+          "text": "It speeds up the convergence of gradient descent",
+          "is_correct": false,
+          "explanation": "Nonlinearities can sometimes slow down convergence (e.g., saturating functions) and are not chosen primarily for convergence speed; their role is to enable complex function approximation."
+        },
+        {
+          "text": "It prevents the model from overfitting the training data",
+          "is_correct": false,
+          "explanation": "Nonlinearity increases model capacity, which can actually lead to overfitting; regularization techniques, not activation functions, are used to control overfitting."
+        },
+        {
+          "text": "It encourages the weights to be sparse",
+          "is_correct": false,
+          "explanation": "Sparsity is typically induced by specific regularizers (e.g., L1 penalty) or architectures; activation functions like ReLU can produce sparse activations but do not directly regularize weights toward sparsity."
+        }
+      ]
+    }
+  ]
+}

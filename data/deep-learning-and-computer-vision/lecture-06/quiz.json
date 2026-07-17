@@ -1,0 +1,130 @@
+{
+  "title": "Attention and Transformers",
+  "questions": [
+    {
+      "question": "Why does the LSTM's cell state update help prevent vanishing gradients for long-term dependencies?",
+      "options": [
+        {
+          "text": "The cell state update can have a derivative of 1 when the forget gate is fully open.",
+          "is_correct": true,
+          "explanation": "Correct – When the forget gate is fully open (f_t=1), the cell state update reduces to c_t = c_{t-1} + i_t * c'_t, so the gradient ∂c_t/∂c_{t-1} = 1, allowing gradients to flow unchanged. This is the constant error carousel, which prevents vanishing gradients."
+        },
+        {
+          "text": "Sigmoid gates inherently prevent gradients from shrinking exponentially.",
+          "is_correct": false,
+          "explanation": "Incorrect – Sigmoid gates can actually cause vanishing gradients when they saturate near 0 or 1; they do not inherently prevent vanishing gradients. The constant error carousel is what mitigates the problem."
+        },
+        {
+          "text": "Peephole connections allow gradients to bypass the recurrent weight matrices.",
+          "is_correct": false,
+          "explanation": "Incorrect – Peephole connections allow gates to see the cell state directly, but they do not provide a direct gradient highway. The constant error carousel is the key mechanism."
+        },
+        {
+          "text": "The hidden state is recomputed from the cell state at every step.",
+          "is_correct": false,
+          "explanation": "Incorrect – The hidden state h_t depends on o_t and tanh(c_t), which can still lead to vanishing gradients. The cell state c_t itself provides the direct gradient path."
+        }
+      ]
+    },
+    {
+      "question": "Why is it essential to scale the dot products by 1/√d in the Transformer's self-attention?",
+      "options": [
+        {
+          "text": "To prevent the softmax from saturating and causing vanishing gradients.",
+          "is_correct": true,
+          "explanation": "Correct – Without scaling, dot products grow with d, causing the softmax to become close to a one-hot vector, which leads to vanishing gradients. The scaling factor keeps dot products at a manageable scale, preserving gradient flow."
+        },
+        {
+          "text": "To ensure that the attention weights sum to the sequence length.",
+          "is_correct": false,
+          "explanation": "Incorrect – Softmax always ensures that attention weights sum to 1, regardless of scaling."
+        },
+        {
+          "text": "To normalize the value vectors before computing the weighted sum.",
+          "is_correct": false,
+          "explanation": "Incorrect – The scaling factor is applied to the dot product (QK^T/√d), not to the values V."
+        },
+        {
+          "text": "To reduce the number of parameters in the attention computation.",
+          "is_correct": false,
+          "explanation": "Incorrect – The scaling factor does not affect the number of parameters; it is a simple multiplicative constant."
+        }
+      ]
+    },
+    {
+      "question": "What is the main role of the softmax operation in the Bahdanau attention mechanism?",
+      "options": [
+        {
+          "text": "It normalizes scores so the context is a convex combination of states.",
+          "is_correct": true,
+          "explanation": "Correct – Softmax ensures the attention weights α_{tj} are non-negative and sum to 1, so the context vector c_t = Σ α_{tj} h_j is a convex combination of encoder hidden states, maintaining a fixed-size representation regardless of input length."
+        },
+        {
+          "text": "It ensures the decoder selects a single most relevant encoder state each step.",
+          "is_correct": false,
+          "explanation": "Incorrect – Soft attention uses a weighted sum of all encoder states, not a hard selection of one."
+        },
+        {
+          "text": "It makes the attention mechanism differentiable for backpropagation.",
+          "is_correct": false,
+          "explanation": "Incorrect – While softmax is differentiable, its primary purpose in attention is to produce normalized weights; without it, the model could still learn but would lack the interpretation of a probability distribution."
+        },
+        {
+          "text": "It prevents the decoder from attending to the same position repeatedly.",
+          "is_correct": false,
+          "explanation": "Incorrect – The softmax does not prevent repeated attention; it simply allows attending to multiple positions simultaneously."
+        }
+      ]
+    },
+    {
+      "question": "Why does the Transformer decoder use a causal mask during training?",
+      "options": [
+        {
+          "text": "To prevent the decoder from using future tokens during parallel training.",
+          "is_correct": true,
+          "explanation": "Correct – The causal mask sets attention weights for future positions to -∞, ensuring each token can only attend to previous tokens. This allows training on the entire target sequence at once while preserving the autoregressive property."
+        },
+        {
+          "text": "To allow the decoder to generate all tokens simultaneously during inference.",
+          "is_correct": false,
+          "explanation": "Incorrect – During inference, generation is still sequential; the mask enables parallelization during training, not inference."
+        },
+        {
+          "text": "To reduce the computational cost of the attention mechanism.",
+          "is_correct": false,
+          "explanation": "Incorrect – The mask does not reduce computation; the full attention matrix is still computed before masking."
+        },
+        {
+          "text": "To force the decoder to learn a monotonic alignment with the encoder.",
+          "is_correct": false,
+          "explanation": "Incorrect – The mask enforces autoregressive generation, not a monotonic alignment with the encoder; encoder-decoder attention has no such mask."
+        }
+      ]
+    },
+    {
+      "question": "What is the main advantage of using Byte-Pair Encoding (BPE) for tokenization in Transformers?",
+      "options": [
+        {
+          "text": "It balances vocabulary size and sequence length using subword units.",
+          "is_correct": true,
+          "explanation": "Correct – BPE strikes a balance: words are too coarse (vocabulary explodes) and characters too fine (sequences become excessively long). Frequent subword units coalesce into single tokens, keeping vocabulary manageable and sequences efficient."
+        },
+        {
+          "text": "It allows the model to represent every word as a single token, simplifying generation.",
+          "is_correct": false,
+          "explanation": "Incorrect – BPE breaks many words into multiple subword tokens; it does not guarantee single-token representation for every word."
+        },
+        {
+          "text": "It reduces the number of attention heads needed for long sequences.",
+          "is_correct": false,
+          "explanation": "Incorrect – BPE affects tokenization, not the architecture's attention heads."
+        },
+        {
+          "text": "It avoids out-of-vocabulary issues by splitting all words into characters.",
+          "is_correct": false,
+          "explanation": "Incorrect – BPE uses subword units, not individual characters. It handles rare words by splitting them into frequent subwords, not single characters."
+        }
+      ]
+    }
+  ]
+}

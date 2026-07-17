@@ -1,0 +1,130 @@
+{
+  "title": "Convolutional Neural Networks",
+  "questions": [
+    {
+      "question": "Why can't the human brain perform gradient descent for learning, according to the lecture?",
+      "options": [
+        {
+          "text": "Biological neurons cannot store adjustable weights.",
+          "is_correct": false,
+          "explanation": "The lecture does not state that neurons cannot store weights; the issue is that a neuron can compute only one function (forward), whereas gradient descent requires a backward pass."
+        },
+        {
+          "text": "Neurons can only compute forward, not the backward pass.",
+          "is_correct": true,
+          "explanation": "The lecture explicitly explains that a biological neuron can compute only the forward function, while gradient descent requires every node to compute both forward and backward, making it impossible for the brain."
+        },
+        {
+          "text": "The brain lacks a well-defined loss function to minimize.",
+          "is_correct": false,
+          "explanation": "Although the brain may not minimize a scalar loss, this is not the reason given; the lecture focuses on the computational limitation of lacking a backward pass."
+        },
+        {
+          "text": "Feedback connections in the brain are too slow for gradient descent.",
+          "is_correct": false,
+          "explanation": "The lecture does not mention speed; it states that feedback connections exist but do not implement the precise gradient-based credit assignment required."
+        }
+      ]
+    },
+    {
+      "question": "What is the essential property that defines a convolutional layer?",
+      "options": [
+        {
+          "text": "It uses a small network applied to non-overlapping tiles.",
+          "is_correct": false,
+          "explanation": "Convolutional layers typically use overlapping tiles; non-overlapping windows are characteristic of pooling, not convolutions."
+        },
+        {
+          "text": "It applies the same transformation to every input tile.",
+          "is_correct": true,
+          "explanation": "Weight sharing – applying exactly the same weights to every tile – is the core idea behind convolutional layers, as emphasized when introducing the 'small network applied to every window' with shared weights."
+        },
+        {
+          "text": "It connects each neuron to all neurons in the previous layer.",
+          "is_correct": false,
+          "explanation": "This describes a fully connected layer, not a convolutional layer. Convolutional layers have local connectivity and shared weights."
+        },
+        {
+          "text": "It uses max pooling to reduce spatial dimensions.",
+          "is_correct": false,
+          "explanation": "Max pooling is a separate operation often used after convolution, but it is not a defining property of a convolutional layer itself."
+        }
+      ]
+    },
+    {
+      "question": "Why is max pooling generally preferred over average pooling in convolutional networks for vision?",
+      "options": [
+        {
+          "text": "Max pooling is computationally cheaper than average pooling.",
+          "is_correct": false,
+          "explanation": "Both are computationally cheap; the preference is not based on cost."
+        },
+        {
+          "text": "Most vision features are presence detectors, so max pooling works best.",
+          "is_correct": true,
+          "explanation": "The lecture states that features in vision act as presence detectors (e.g., 'is something present?'), and max pooling naturally preserves the highest activation, making it more suitable than averaging."
+        },
+        {
+          "text": "Average pooling introduces trainable parameters, while max pooling does not.",
+          "is_correct": false,
+          "explanation": "Neither max nor average pooling has trainable parameters; both are fixed deterministic operations."
+        },
+        {
+          "text": "Max pooling reduces spatial dimensions more aggressively than average pooling.",
+          "is_correct": false,
+          "explanation": "Both reduce dimensions by the same factor given the same window size and stride; there is no difference in aggressiveness."
+        }
+      ]
+    },
+    {
+      "question": "What is the primary motivation for including pooling layers in a CNN, according to the lecture?",
+      "options": [
+        {
+          "text": "To introduce non-linearity between convolutional layers.",
+          "is_correct": false,
+          "explanation": "Non-linearity is provided by activation functions like ReLU, not by pooling. Pooling is used for geometric reduction."
+        },
+        {
+          "text": "To reduce spatial dimensions, increasing the receptive field.",
+          "is_correct": true,
+          "explanation": "The lecture explains that stacking only convolutions grows the receptive field additively; pooling quickly reduces spatial size so that later convolutions effectively see a larger area."
+        },
+        {
+          "text": "To increase the number of feature maps without adding parameters.",
+          "is_correct": false,
+          "explanation": "Pooling operates on each feature map independently and does not change the number of feature maps."
+        },
+        {
+          "text": "To regularize the network by adding noise to the feature maps.",
+          "is_correct": false,
+          "explanation": "Pooling is deterministic and not intended as noise injection; regularization techniques like dropout serve that purpose."
+        }
+      ]
+    },
+    {
+      "question": "Why do modern CNN architectures often prefer strided convolutions over separate pooling layers?",
+      "options": [
+        {
+          "text": "Strided convolutions introduce non-linearity, which pooling lacks.",
+          "is_correct": false,
+          "explanation": "Both strided convolutions and pooling can be followed by non-linearities; the key advantage is not about introducing non-linearity."
+        },
+        {
+          "text": "Strided convolutions keep gradient flow intact, unlike pooling.",
+          "is_correct": true,
+          "explanation": "The lecture states that pooling can cut off computational paths and distort gradient flow, while a strided convolution preserves a fully differentiable operation."
+        },
+        {
+          "text": "Strided convolutions have fewer parameters than pooling layers.",
+          "is_correct": false,
+          "explanation": "Pooling layers have no parameters, so strided convolutions actually have more parameters."
+        },
+        {
+          "text": "Strided convolutions increase the receptive field more rapidly than pooling.",
+          "is_correct": false,
+          "explanation": "Both reduce geometry in a similar manner; the main benefit is the preservation of gradient paths, not a faster enlargement of the receptive field."
+        }
+      ]
+    }
+  ]
+}

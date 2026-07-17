@@ -1,0 +1,3582 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "chunk_words": 2000,
+    "top_k": 16,
+    "limit": null,
+    "max_chunks": null
+  },
+  "slides": [
+    {
+      "text": "Recurrent neural networks suffer from vanishing gradients because the weight matrix \\(W\\) is multiplied at each time step, making it impossible to retain long-term memory.",
+      "salience": "core"
+    },
+    {
+      "text": "The basic idea for a solution to vanishing gradients had already appeared in ResNet: provide a “constant error carousel”, a shortcut for the gradients.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The constant error carousel idea led to a more complex recurrent unit that explicitly controls memory: Long Short-Term Memory (LSTM).",
+      "salience": "core"
+    },
+    {
+      "text": "LSTM was introduced by Hochreiter & Schmidhuber in 1995 and 1997.",
+      "salience": "aside"
+    },
+    {
+      "text": "The modern form of LSTM was introduced by Gers & Schmidhuber in 2000.",
+      "salience": "aside"
+    },
+    {
+      "text": "The LSTM cell maintains a cell state \\(c_t\\) and a hidden state \\(h_t\\).",
+      "salience": "core"
+    },
+    {
+      "text": "Three gates—input, forget, and output—regulate information flow in the LSTM cell.",
+      "salience": "core"
+    },
+    {
+      "text": "The candidate cell state is \\(c'_t = \\tanh(W_{xc} x_t + W_{hc} h_{t-1} + b_{c'})\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The input gate is \\(i_t = \\sigma(W_{xi} x_t + W_{hi} h_{t-1} + b_i)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The forget gate is \\(f_t = \\sigma(W_{xf} x_t + W_{hf} h_{t-1} + b_f)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The output gate is \\(o_t = \\sigma(W_{xo} x_t + W_{ho} h_{t-1} + b_o)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The cell state is \\(c_t = f_t \\odot c_{t-1} + i_t \\odot c'_t\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The hidden state (block output) is \\(h_t = o_t \\odot \\tanh(c_t)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "If the forget gate is fully open (\\(f_t = 1\\)), then the cell state becomes \\(c_t = c_{t-1} + i_t \\odot c'_t\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Consequently, when \\(f_t = 1\\), the gradient \\(\\frac{\\partial c_t}{\\partial c_{t-1}} = 1\\), allowing gradients to flow unchanged.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One problem with the basic LSTM is that the gates only see the hidden state \\(h_{t-1} = o_{t-1} \\odot \\tanh(c_{t-1})\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "If the output gate is closed, the LSTM’s behavior becomes independent of the cell state.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This problem is remedied by adding peephole connections, which are extra weight matrices that give the gates direct access to \\(c_{t-1}\\).",
+      "salience": "core"
+    },
+    {
+      "text": "With peephole connections, the input gate becomes \\(i_t = \\sigma(W_{xi} x_t + W_{hi} h_{t-1} + W_{pi} c_{t-1} + b_i)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "With peephole connections, the forget gate becomes \\(f_t = \\sigma(W_{xf} x_t + W_{hf} h_{t-1} + W_{pf} c_{t-1} + b_f)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "With peephole connections, the output gate becomes \\(o_t = \\sigma(W_{xo} x_t + W_{ho} h_{t-1} + W_{po} c_{t-1} + b_o)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "A huge number of LSTM variations exist—any gate can be removed, peepholes can be added or omitted, activation functions altered, etc.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Greff et al. (2015) experimentally compared many LSTM variants and found that some significantly simpler architectures with one fewer gate performed nearly as well as vanilla LSTM.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Gated Recurrent Units (GRU) were introduced by Cho et al. in 2014.",
+      "salience": "aside"
+    },
+    {
+      "text": "GRU implements the constant error carousel but with a simpler design than LSTM.",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU merges cell state and hidden state into a single vector \\(h_t\\).",
+      "salience": "core"
+    },
+    {
+      "text": "GRU uses only two gates: update gate and reset gate.",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU update gate is \\(u_t = \\sigma(W_{xu} x_t + W_{hu} h_{t-1} + b_u)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU reset gate is \\(r_t = \\sigma(W_{xr} x_t + W_{hr} h_{t-1} + b_r)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU candidate state is \\(h'_t = \\tanh(W_{xh'} x_t + W_{hh'} (r_t \\odot h_{t-1}))\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU state update is \\(h_t = (1 - u_t) \\odot h'_t + u_t \\odot h_{t-1}\\).",
+      "salience": "core"
+    },
+    {
+      "text": "GRU has 6 weight matrices, while basic LSTM has 8 and LSTM with peepholes has 11.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GRU has fewer parameters than LSTM.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GRU is only slightly worse in performance than LSTM.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a fixed computational budget, one can use more GRU units than LSTM units and obtain better networks.",
+      "salience": "core"
+    },
+    {
+      "text": "Józefowicz et al. (2015) conducted a huge experimental comparison of GRU variations with an evolutionary approach and identified three particularly interesting architectures.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Attention is in large part the interaction with working memory (Knudsen, 2007).",
+      "salience": "core"
+    },
+    {
+      "text": "In human vision, the fovea is very small, so we only perceive a tiny high-resolution patch at any moment.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The human eyes move in rapid saccades, sequentially fixating on different parts of the scene.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The process of saccades can be both conscious and unconscious.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Invisible Gorilla experiment (Simons & Chabris, 1999) is a famous illustration of attention: observers concentrating on a ball-passing task completely miss a person in a gorilla suit walking through the frame.",
+      "salience": "aside"
+    },
+    {
+      "text": "A neural network might benefit from consciously deciding “what to look at”.",
+      "salience": "core"
+    },
+    {
+      "text": "One of the first works on foveal glimpses was by Larochelle & Hinton (2010), which modelled the positions of saccades and learned a sequence of glimpses.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The idea of foveal glimpses was fully realized in “Recurrent Models of Visual Attention” by Mnih et al. in 2014.",
+      "salience": "core"
+    },
+    {
+      "text": "In Recurrent Models of Visual Attention, at each time step, the network receives a glimpse \\(g_t\\) computed as \\(g_t = f_g(x_t, l_{t-1}; \\theta_g)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The network updates its hidden state via \\(h_t = f_h(h_{t-1}, g_t; \\theta_h)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The network outputs a new location \\(l_t\\) sampled from \\(p(\\cdot \\mid f_l(h_t; \\theta_l))\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The network outputs an action \\(a_t\\) sampled from \\(p(\\cdot \\mid f_a(h_t; \\theta_a))\\).",
+      "salience": "core"
+    },
+    {
+      "text": "A reward \\(r_t\\) is received after the action, with the goal of correct final classification.",
+      "salience": "core"
+    },
+    {
+      "text": "The model defines a stochastic policy \\(\\pi((l_t,a_t)\\mid s_{1:t};\\theta)\\) implemented by an RNN.",
+      "salience": "core"
+    },
+    {
+      "text": "The objective is to maximize the expected total reward \\(J(\\theta) = \\mathbb{E}_{p(s_{1:T};\\theta)}[R] = \\mathbb{E}_{p(s_{1:T};\\theta)}\\!\\left[\\sum_{t=1}^T r_t\\right]\\).",
+      "salience": "core"
+    },
+    {
+      "text": "This is a reinforcement learning problem, which can be optimized using the REINFORCE algorithm and other policy gradient methods.",
+      "salience": "core"
+    },
+    {
+      "text": "The figures in the original paper show attention trajectories walking around an image, focusing on the relevant object.",
+      "salience": "aside"
+    },
+    {
+      "text": "Ba et al. (2015) extended the recurrent visual attention approach to deep models trained with variational approximations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Gregor et al. (2015) proposed DRAW, a recurrent attention-based variational autoencoder for image generation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Machine translation is a canonical sequence-to-sequence problem.",
+      "salience": "core"
+    },
+    {
+      "text": "An RNN language model factors a sequence \\(X = (x_1,\\dots,x_T)\\) as \\(p(X) = p(x_1) p(x_2 \\mid x_1) \\cdots p(x_T \\mid x_{<T})\\).",
+      "salience": "core"
+    },
+    {
+      "text": "For translation, one can use an encoder-decoder architecture (Sutskever et al., 2014; Cho et al., 2014).",
+      "salience": "core"
+    },
+    {
+      "text": "In an encoder-decoder architecture, an RNN encoder compresses the source sentence into a fixed-size vector.",
+      "salience": "core"
+    },
+    {
+      "text": "An RNN decoder generates the target sentence from that fixed-size vector.",
+      "salience": "core"
+    },
+    {
+      "text": "The critical limitation of the encoder-decoder architecture is that everything must be squeezed through a single fixed-size vector, causing performance degradation on long sequences.",
+      "salience": "core"
+    },
+    {
+      "text": "The solution to the fixed-size bottleneck is to let the decoder attend to all encoder hidden states, weighted by relevance.",
+      "salience": "core"
+    },
+    {
+      "text": "Bahdanau et al. (2014) combined a bidirectional LSTM encoder with an attention mechanism.",
+      "salience": "core"
+    },
+    {
+      "text": "In soft attention (Luong et al., 2015a,b; Jean et al., 2015), the attention score \\(e_{tj}\\) is computed as a function \\(a(z_{t-1}, j)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The attention weights \\(\\alpha_{tj}\\) are obtained by applying softmax to the scores: \\(\\alpha_{tj} = \\operatorname{softmax}(e_{tj})\\).",
+      "salience": "core"
+    },
+    {
+      "text": "c_t = \\sum_j \\alpha_{tj} h_j",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder state is updated as z_t = f(s_{t-1}, y_{t-1}, c_t)",
+      "salience": "core"
+    },
+    {
+      "text": "Visualisations of the attention weights show clear word alignments",
+      "salience": "supporting"
+    },
+    {
+      "text": "Visualisations of the attention weights show much better target word order",
+      "salience": "supporting"
+    },
+    {
+      "text": "Vinyals et al. (2015) applied the same attention idea to parsing",
+      "salience": "supporting"
+    },
+    {
+      "text": "Vinyals et al. (2015) treated parsing as \"Grammar as a Foreign Language\"",
+      "salience": "supporting"
+    },
+    {
+      "text": "Wu et al. (2016) scaled the architecture to very deep stacks: 8 encoder layers and 8 decoder layers of LSTMs",
+      "salience": "core"
+    },
+    {
+      "text": "The paper by Wu et al. (2016) is titled \"Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation\"",
+      "salience": "supporting"
+    },
+    {
+      "text": "Stacked LSTMs stop working beyond 4–5 layers",
+      "salience": "core"
+    },
+    {
+      "text": "The authors added residual connections to the stacked LSTMs",
+      "salience": "supporting"
+    },
+    {
+      "text": "Residual connections are like ResNet",
+      "salience": "supporting"
+    },
+    {
+      "text": "The bottom layer of the encoder is bidirectional",
+      "salience": "supporting"
+    },
+    {
+      "text": "This system powered Google Translate for several years",
+      "salience": "supporting"
+    },
+    {
+      "text": "Show and Tell (Vinyals et al., 2015) used a CNN to extract a fixed image feature vector",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM decoder generated a caption word by word",
+      "salience": "core"
+    },
+    {
+      "text": "The model maximised \\sum_{(I,S)} \\log p(S \\mid I; \\theta)",
+      "salience": "core"
+    },
+    {
+      "text": "Show and Tell worked reasonably well",
+      "salience": "supporting"
+    },
+    {
+      "text": "Show and Tell lacked fine-grained alignment",
+      "salience": "supporting"
+    },
+    {
+      "text": "Show, Attend and Tell (Xu et al., 2015) introduced spatial attention over CNN feature vectors {a_i}",
+      "salience": "core"
+    },
+    {
+      "text": "At each step, a context vector is formed as \\phi(\\{a_i\\},\\{\\alpha_{t,i}\\}) = \\sum_{i=1}^L \\alpha_{t,i} a_i",
+      "salience": "core"
+    },
+    {
+      "text": "Two variants of attention were studied",
+      "salience": "supporting"
+    },
+    {
+      "text": "Soft attention is a deterministic weighted sum",
+      "salience": "core"
+    },
+    {
+      "text": "Soft attention is differentiable and trained end-to-end",
+      "salience": "core"
+    },
+    {
+      "text": "Hard attention is stochastic",
+      "salience": "core"
+    },
+    {
+      "text": "Hard attention is trained by maximising a variational lower bound",
+      "salience": "core"
+    },
+    {
+      "text": "L_s = \\sum_s p(s \\mid a) \\log p(y \\mid s, a)",
+      "salience": "core"
+    },
+    {
+      "text": "L_s \\leq \\log \\sum_s p(s \\mid a) p(y \\mid s, a)",
+      "salience": "core"
+    },
+    {
+      "text": "The right-hand side equals \\log p(y \\mid a)",
+      "salience": "supporting"
+    },
+    {
+      "text": "The gradient is \\frac{\\partial L_s}{\\partial W} = \\sum_s p(s \\mid a) \\!\\left[ \\frac{\\partial \\log p(y \\mid s, a)}{\\partial W} + \\log p(y \\mid s, a) \\frac{\\partial \\log p(s \\mid a)}{\\partial W} \\right]",
+      "salience": "core"
+    },
+    {
+      "text": "The expectation is approximated by sampling s from the attention distribution \\alpha_i",
+      "salience": "supporting"
+    },
+    {
+      "text": "Figures demonstrate generated captions with both hard and soft attention",
+      "salience": "supporting"
+    },
+    {
+      "text": "Figures highlight the attended regions",
+      "salience": "supporting"
+    },
+    {
+      "text": "Failures can be analysed by inspecting attention",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Transformer (Vaswani et al., 2017) abandons recurrence entirely",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer uses only attention",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer architecture follows the encoder-decoder pattern",
+      "salience": "core"
+    },
+    {
+      "text": "Each encoder block consists of a self-attention layer followed by a position-wise feedforward network",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder adds masked self-attention",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder adds encoder-decoder attention",
+      "salience": "core"
+    },
+    {
+      "text": "Because all tokens are processed in parallel, training is orders of magnitude faster than with RNNs",
+      "salience": "supporting"
+    },
+    {
+      "text": "Self-attention is inspired by information retrieval",
+      "salience": "supporting"
+    },
+    {
+      "text": "An input sequence of vectors X in R^{d × L} is transformed into queries Q = W_Q X",
+      "salience": "core"
+    },
+    {
+      "text": "Keys K = W_K X",
+      "salience": "core"
+    },
+    {
+      "text": "Values V = W_V X",
+      "salience": "core"
+    },
+    {
+      "text": "W_Q and W_K are in R^{q × d}",
+      "salience": "supporting"
+    },
+    {
+      "text": "W_V is in R^{v × d}",
+      "salience": "supporting"
+    },
+    {
+      "text": "Usually v = q",
+      "salience": "supporting"
+    },
+    {
+      "text": "The attention scores are scaled dot-products: Attention(Q,K,V) = softmax(\\frac{1}{\\sqrt{q}} Q K^T) V",
+      "salience": "core"
+    },
+    {
+      "text": "Scaling by 1/\\sqrt{q} prevents extremely small gradients",
+      "salience": "supporting"
+    },
+    {
+      "text": "The output is an L × v matrix",
+      "salience": "supporting"
+    },
+    {
+      "text": "A single attention head only captures one type of relationship",
+      "salience": "core"
+    },
+    {
+      "text": "To enrich the representation, the Transformer uses multi-head attention",
+      "salience": "core"
+    },
+    {
+      "text": "Multi-head attention uses H different sets of weight matrices",
+      "salience": "core"
+    },
+    {
+      "text": "The H sets produce H independent outputs Z^1,...,Z^H",
+      "salience": "core"
+    },
+    {
+      "text": "The outputs are concatenated into Z_concat in R^{L × Hv}",
+      "salience": "core"
+    },
+    {
+      "text": "The concatenated output is projected back to dimension d: Z = (Z_concat W_O)^T",
+      "salience": "core"
+    },
+    {
+      "text": "W_O is in R^{Hv × d}",
+      "salience": "supporting"
+    },
+    {
+      "text": "Multi-head attention allows the layer to mix information from different representation subspaces",
+      "salience": "supporting"
+    },
+    {
+      "text": "The decoder generates tokens autoregressively",
+      "salience": "supporting"
+    },
+    {
+      "text": "The decoder must not attend to future positions",
+      "salience": "core"
+    },
+    {
+      "text": "Masked self-attention sets the pre-softmax values for future tokens to -∞",
+      "salience": "core"
+    },
+    {
+      "text": "Setting pre-softmax values to -∞ forces their attention weights to zero",
+      "salience": "supporting"
+    },
+    {
+      "text": "Encoder-decoder attention uses the same attention mechanism",
+      "salience": "core"
+    },
+    {
+      "text": "In encoder-decoder attention, queries come from the previous decoder layer",
+      "salience": "core"
+    },
+    {
+      "text": "Queries are the partially generated output",
+      "salience": "supporting"
+    },
+    {
+      "text": "In encoder-decoder attention, keys and values come from the encoder's final layer",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder performs \"retrieval\" over the encoder's output, conditioned on the tokens already produced",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers use subword tokenization",
+      "salience": "core"
+    },
+    {
+      "text": "The most common subword tokenization is Byte-Pair Encoding (BPE)",
+      "salience": "core"
+    },
+    {
+      "text": "BPE starts from vocabulary counts: {cat:10, pet:12, mat:5, rat:8, eats:4}",
+      "salience": "supporting"
+    },
+    {
+      "text": "The text is split into characters: {c:10, a:27, t:39, p:12, e:16, m:5, r:8, s:4}",
+      "salience": "supporting"
+    },
+    {
+      "text": "Character pairs are counted: {ca:10, at:27, pe:12, et:12, ma:5, ra:8, ea:4, ts:4}",
+      "salience": "supporting"
+    },
+    {
+      "text": "The most frequent pair \"at\" (frequency 27) is replaced by a new symbol Z",
+      "salience": "core"
+    },
+    {
+      "text": "After replacement, the vocabulary becomes {cZ:10, pet:12, mZ:5, rZ:8, eZs:4}",
+      "salience": "supporting"
+    },
+    {
+      "text": "The process is repeated (next replacing \"pe\" or \"et\" with Y) until the desired vocabulary size is reached",
+      "salience": "core"
+    },
+    {
+      "text": "BPE efficiently handles rare words by encoding frequent subword units",
+      "salience": "core"
+    },
+    {
+      "text": "Self-attention is completely invariant to token order",
+      "salience": "core"
+    },
+    {
+      "text": "To inject sequence information, the Transformer adds positional encodings to the input embeddings",
+      "salience": "core"
+    },
+    {
+      "text": "Positional encodings use sine and cosine functions of different frequencies",
+      "salience": "core"
+    },
+    {
+      "text": "PE(pos, 2i) = sin(pos / 10000^{2i/d})",
+      "salience": "core"
+    },
+    {
+      "text": "PE(pos, 2i+1) = cos(pos / 10000^{2i/d})",
+      "salience": "core"
+    },
+    {
+      "text": "pos is the token position",
+      "salience": "supporting"
+    },
+    {
+      "text": "d is the embedding dimension",
+      "salience": "supporting"
+    },
+    {
+      "text": "This positional encoding scheme allows the model to extrapolate to longer sequences than seen during training",
+      "salience": "supporting"
+    },
+    {
+      "text": "Relative distances can be inferred from phase differences",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Transformer trains 100× faster than comparable recurrent models",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer achieves superior translation quality",
+      "salience": "core"
+    },
+    {
+      "text": "Self-attention drastically shortens the path length between any two positions",
+      "salience": "core"
+    },
+    {
+      "text": "This facilitates long-range dependencies",
+      "salience": "supporting"
+    },
+    {
+      "text": "The attention weights offer a degree of interpretability",
+      "salience": "supporting"
+    },
+    {
+      "text": "One can visualise which tokens the model is attending to at each layer",
+      "salience": "supporting"
+    },
+    {
+      "text": "Figures show example attention weight matrices, revealing syntactic and semantic relations",
+      "salience": "supporting"
+    }
+  ],
+  "transcript": [
+    {
+      "text": "Transformers transformed deep learning a decade ago.",
+      "salience": "core"
+    },
+    {
+      "text": "The main problems of recurrent networks are exactly the same as the problems of deep networks in general, like convolutional networks.",
+      "salience": "core"
+    },
+    {
+      "text": "The problem is signal saturation.",
+      "salience": "core"
+    },
+    {
+      "text": "As you go through layers, signal is lost when some layers saturate.",
+      "salience": "core"
+    },
+    {
+      "text": "Especially as gradients flow back, signal is lost when some layers saturate.",
+      "salience": "core"
+    },
+    {
+      "text": "When a layer stops training, its derivatives become zero.",
+      "salience": "core"
+    },
+    {
+      "text": "Multiplying by zero prevents anything below from training.",
+      "salience": "core"
+    },
+    {
+      "text": "An RNN is in effect a very deep network.",
+      "salience": "core"
+    },
+    {
+      "text": "When processing an input, activations pass through as many trainable neural layers as there are elements in the sequence.",
+      "salience": "core"
+    },
+    {
+      "text": "Any recurrent network is, by default, as deep as the input sequence.",
+      "salience": "core"
+    },
+    {
+      "text": "Usually the input sequence is very deep.",
+      "salience": "core"
+    },
+    {
+      "text": "When people speak of \"deep\" RNNs, they mean several layers of recurrent processing.",
+      "salience": "core"
+    },
+    {
+      "text": "Even a single-layer RNN is a very deep network in the computational graph.",
+      "salience": "core"
+    },
+    {
+      "text": "The vanishing-gradient problem is essentially the same as signal saturation.",
+      "salience": "core"
+    },
+    {
+      "text": "As you go backward with gradients, you keep multiplying by the same weight matrix $W$.",
+      "salience": "core"
+    },
+    {
+      "text": "All cells share $W$, which makes the vanishing-gradient problem worse.",
+      "salience": "core"
+    },
+    {
+      "text": "If $W$ has spectral radius less than 1, repeatedly multiplying by a number less than 1 shrinks the gradients to zero.",
+      "salience": "core"
+    },
+    {
+      "text": "You will not notice the vanishing-gradient problem from the loss curve.",
+      "salience": "core"
+    },
+    {
+      "text": "Exploding gradients cause obvious numerical overflows and breakdowns.",
+      "salience": "core"
+    },
+    {
+      "text": "Vanishing gradients do not cause obvious breakdowns.",
+      "salience": "core"
+    },
+    {
+      "text": "Even if gradients become exactly zero after a few steps back from the loss, $W$ still trains because it participates in the last cells.",
+      "salience": "core"
+    },
+    {
+      "text": "The weight gradients look fine.",
+      "salience": "core"
+    },
+    {
+      "text": "But the network is now making decisions based only on the last few elements of the sequence.",
+      "salience": "core"
+    },
+    {
+      "text": "It cannot carry $x_1$ to influence the output at step $t$.",
+      "salience": "core"
+    },
+    {
+      "text": "The network loses long-term memory.",
+      "salience": "core"
+    },
+    {
+      "text": "The solution to the vanishing-gradient problem in RNNs is to add residual connections.",
+      "salience": "core"
+    },
+    {
+      "text": "Recurrent networks pioneered the use of residual connections because they do not work without it.",
+      "salience": "core"
+    },
+    {
+      "text": "The idea of residual connections in RNNs originated in Jürgen Schmidhuber's group in the 1990s.",
+      "salience": "core"
+    },
+    {
+      "text": "The idea was later applied to deep feed-forward networks around 2015.",
+      "salience": "core"
+    },
+    {
+      "text": "The key is a highway for gradients that avoids direct multiplication by weight matrices that could vanish.",
+      "salience": "core"
+    },
+    {
+      "text": "This leads to the Long Short-Term Memory (LSTM).",
+      "salience": "core"
+    },
+    {
+      "text": "In an LSTM cell, the hidden state is artificially split into two parts.",
+      "salience": "core"
+    },
+    {
+      "text": "One part, $C$, is the long-term memory.",
+      "salience": "core"
+    },
+    {
+      "text": "The long-term memory stays on the highway.",
+      "salience": "core"
+    },
+    {
+      "text": "We read from and write to $C$.",
+      "salience": "core"
+    },
+    {
+      "text": "$C$ is not repeatedly multiplied by weight matrices.",
+      "salience": "core"
+    },
+    {
+      "text": "$C$ is like the residual path around layers.",
+      "salience": "core"
+    },
+    {
+      "text": "The other part, $h_t$, is the ordinary hidden state that participates in the cell's operations.",
+      "salience": "core"
+    },
+    {
+      "text": "The cell outputs the next $C$ and $h$.",
+      "salience": "core"
+    },
+    {
+      "text": "Input $x_t$ also enters the LSTM cell.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM is built from gates.",
+      "salience": "core"
+    },
+    {
+      "text": "Gates are a concept now common in many architectures.",
+      "salience": "core"
+    },
+    {
+      "text": "A gate takes two inputs $x$ and $y$.",
+      "salience": "core"
+    },
+    {
+      "text": "The gate multiplies each input by a weight matrix.",
+      "salience": "core"
+    },
+    {
+      "text": "The gate adds the results (plus a bias).",
+      "salience": "core"
+    },
+    {
+      "text": "The gate passes the sum through an activation function $f$.",
+      "salience": "core"
+    },
+    {
+      "text": "The output is $f(W_x x + W_y y)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The bias is not drawn in diagrams.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The first gate in the LSTM is the forget gate.",
+      "salience": "core"
+    },
+    {
+      "text": "The forget gate receives $h$ with weight matrix $W_{hf}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The forget gate receives $x$ with weight matrix $W_{xf}$.",
+      "salience": "core"
+    },
+    {
+      "text": "You multiply $C_t$ by the output of the forget gate, component-wise.",
+      "salience": "core"
+    },
+    {
+      "text": "The output vector is called $F_t$.",
+      "salience": "core"
+    },
+    {
+      "text": "The forget gate takes a linear combination of $H$ and $X$.",
+      "salience": "core"
+    },
+    {
+      "text": "The forget gate passes the linear combination through the logistic sigmoid $\\sigma$.",
+      "salience": "core"
+    },
+    {
+      "text": "The sigmoid produces a vector of values strictly between 0 and 1.",
+      "salience": "core"
+    },
+    {
+      "text": "Multiplying component-wise by the memory cell gives the intuition of erasing things from memory.",
+      "salience": "core"
+    },
+    {
+      "text": "If the forget gate output is close to 1, the cell is retained.",
+      "salience": "core"
+    },
+    {
+      "text": "If the forget gate output is close to 0, the cell is erased.",
+      "salience": "core"
+    },
+    {
+      "text": "Gating works by a small part of the network producing a control vector that controls other parts, not additional data.",
+      "salience": "core"
+    },
+    {
+      "text": "The meaning of $F_t$ is which memory cells to erase.",
+      "salience": "core"
+    },
+    {
+      "text": "You cannot use real logic gates because they are piecewise constant and gradients wouldn't flow.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A continuous approximation works.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The candidate cell state $\\tilde{C}_t$ produces the new numbers to write to memory.",
+      "salience": "core"
+    },
+    {
+      "text": "The candidate cell state is computed from the same inputs $H$ and $X$.",
+      "salience": "core"
+    },
+    {
+      "text": "The candidate cell state uses its own weight matrices.",
+      "salience": "core"
+    },
+    {
+      "text": "The candidate cell state uses a hyperbolic tangent (tanh) activation, not a sigmoid.",
+      "salience": "core"
+    },
+    {
+      "text": "The tanh is not set in stone and can be modified.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The input gate is another sigmoid gate.",
+      "salience": "core"
+    },
+    {
+      "text": "The input gate decides which parts of $\\tilde{C}_t$ to write into memory.",
+      "salience": "core"
+    },
+    {
+      "text": "To write, you multiply $\\tilde{C}_t$ component-wise by the input gate's output, and add the result to memory.",
+      "salience": "core"
+    },
+    {
+      "text": "Writing to memory means addition.",
+      "salience": "core"
+    },
+    {
+      "text": "After erasing by multiplying $C_t$ by something near zero, adding the gated candidate writes the new value into that cell.",
+      "salience": "core"
+    },
+    {
+      "text": "The only remaining part is to define $H$ for the next step.",
+      "salience": "core"
+    },
+    {
+      "text": "$H$ is produced from the long-term memory $C_t$.",
+      "salience": "core"
+    },
+    {
+      "text": "$H$ is essentially a copy of $C_t$, but passed through a hyperbolic tangent.",
+      "salience": "core"
+    },
+    {
+      "text": "An output gate with a sigmoid controls which parts of $C_t$ are read into $H_t$.",
+      "salience": "core"
+    },
+    {
+      "text": "This control is via component-wise multiplication.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM cell is a program for memory manipulation.",
+      "salience": "core"
+    },
+    {
+      "text": "In the LSTM, you can erase, write, and decide what to write.",
+      "salience": "core"
+    },
+    {
+      "text": "The candidate cell state enables deciding what to write.",
+      "salience": "core"
+    },
+    {
+      "text": "The beauty of the LSTM is the straight highway for gradients to flow through.",
+      "salience": "core"
+    },
+    {
+      "text": "The highway is interrupted only when memory is intentionally erased.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM has many weights: eight matrices.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Half of the eight matrices are of size $d \\times d$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Half of the eight matrices are of size $d \\times d'$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "$d$ is the size of $h$ and $c$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "$d$ is typically at least 256, sometimes up to 1000.",
+      "salience": "supporting"
+    },
+    {
+      "text": "$d'$ is the input representation size.",
+      "salience": "supporting"
+    },
+    {
+      "text": "These large weight matrices made LSTMs difficult to train initially.",
+      "salience": "core"
+    },
+    {
+      "text": "Despite training difficulty, LSTMs performed well on toy problems.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM was extremely successful.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM dates from around 1995-2000.",
+      "salience": "core"
+    },
+    {
+      "text": "The version with all these gates appeared in Schmidhuber's group by 2000.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM just works.",
+      "salience": "core"
+    },
+    {
+      "text": "Even today, when building a recurrent network, you will use LSTMs.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM is the most important recurrent construction.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM provides that uninterrupted gradient highway.",
+      "salience": "core"
+    },
+    {
+      "text": "Training huge LSTMs became feasible only around 2015.",
+      "salience": "core"
+    },
+    {
+      "text": "Since then, big LSTMs have been the standard for large recurrent networks.",
+      "salience": "core"
+    },
+    {
+      "text": "AlphaStar, the StarCraft-playing network, used LSTMs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The LSTM architecture was the first successful attempt at memory manipulation.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM was introduced 25 years ago.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM still stands unsurpassed.",
+      "salience": "core"
+    },
+    {
+      "text": "Many attempts have been made to improve the LSTM.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM cell in its modern form (2000) contains a forget gate, input gate, candidate cell state, and output gate.",
+      "salience": "core"
+    },
+    {
+      "text": "One early modification added peepholes.",
+      "salience": "core"
+    },
+    {
+      "text": "Originally, the gates had no access to the memory state $C$.",
+      "salience": "core"
+    },
+    {
+      "text": "Without access, one could not see what was being erased.",
+      "salience": "core"
+    },
+    {
+      "text": "Peephole connections provided extra inputs from $C$.",
+      "salience": "core"
+    },
+    {
+      "text": "Peephole connections increased the number of weight matrices.",
+      "salience": "core"
+    },
+    {
+      "text": "Later efforts tried to simplify the LSTM by removing some gates.",
+      "salience": "core"
+    },
+    {
+      "text": "The paper \"LSTM: A Search Space Odyssey\" found that on some problems an entire gate could be removed with little effect.",
+      "salience": "core"
+    },
+    {
+      "text": "The broader goal remained to achieve a memory highway for gradient flow while making the cell more efficient.",
+      "salience": "core"
+    },
+    {
+      "text": "This led to the Gated Recurrent Unit (GRU).",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU was developed in 2014.",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU is similar to the LSTM.",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU uses far fewer matrices than the LSTM.",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU does not separate the cell state $C$ and hidden state $H$.",
+      "salience": "core"
+    },
+    {
+      "text": "In the GRU, there is only one hidden state.",
+      "salience": "core"
+    },
+    {
+      "text": "Instead of separately erasing and writing, the GRU uses an update gate $U$.",
+      "salience": "core"
+    },
+    {
+      "text": "The update gate $U$ uses a sigmoid ($\\sigma$) output.",
+      "salience": "core"
+    },
+    {
+      "text": "The update gate forms a convex combination: the new state is $U \\cdot H_{\\text{old}} + (1-U) \\cdot H'$.",
+      "salience": "core"
+    },
+    {
+      "text": "$H'$ is the candidate state.",
+      "salience": "core"
+    },
+    {
+      "text": "This merges erasing and writing into a single gate.",
+      "salience": "core"
+    },
+    {
+      "text": "This saves weight matrices.",
+      "salience": "core"
+    },
+    {
+      "text": "In place of the output gate, the GRU has a reset gate.",
+      "salience": "core"
+    },
+    {
+      "text": "The reset gate selects which parts of the memory feed into the candidate state $H'$.",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU uses only six weight matrices instead of eight (or eleven with peepholes).",
+      "salience": "core"
+    },
+    {
+      "text": "The GRU appears to do the same job more efficiently than the LSTM.",
+      "salience": "core"
+    },
+    {
+      "text": "In 2015-2016, GRUs were widely adopted in natural language processing.",
+      "salience": "core"
+    },
+    {
+      "text": "For reasons that remain theoretically unclear, the field later switched back to LSTMs.",
+      "salience": "core"
+    },
+    {
+      "text": "Recent large-scale recurrent models, like AlphaStar (around 2020), are more likely to be LSTMs.",
+      "salience": "core"
+    },
+    {
+      "text": "Schmidhuber's original construction seems empirically better.",
+      "salience": "core"
+    },
+    {
+      "text": "The decision between LSTM and GRU is based on practical performance.",
+      "salience": "core"
+    },
+    {
+      "text": "Why the LSTM architecture is superior is unknown.",
+      "salience": "core"
+    },
+    {
+      "text": "The longevity of the LSTM is remarkable.",
+      "salience": "core"
+    },
+    {
+      "text": "Throughout deep learning history, neural architecture search and massive compute have yielded improvements (e.g., EfficientNet, Swish).",
+      "salience": "core"
+    },
+    {
+      "text": "Analogous efforts on recurrent cells have not produced a lasting replacement.",
+      "salience": "core"
+    },
+    {
+      "text": "Google published a paper introducing a cell with only four weight matrices.",
+      "salience": "core"
+    },
+    {
+      "text": "This cell is similar to a GRU but even more efficient.",
+      "salience": "core"
+    },
+    {
+      "text": "These cells are virtually unused.",
+      "salience": "core"
+    },
+    {
+      "text": "They likely work well on the test datasets where they were developed.",
+      "salience": "core"
+    },
+    {
+      "text": "They do not generalize.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM remains the best general-purpose recurrent unit.",
+      "salience": "core"
+    },
+    {
+      "text": "The classic LSTM benchmark from Hochreiter and Schmidhuber provides an input with two channels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One channel is a stream of random numbers between 0 and 1.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The other channel is a stream of zeros with exactly two ones, acting as markers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The task is to output the sum of the two random numbers that correspond to the marked positions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This is an ideal toy test for memory.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The network must store the first marked value and later add the second.",
+      "salience": "supporting"
+    },
+    {
+      "text": "LSTMs and GRUs both handle the benchmark problem well.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because the problem is simple, GRUs excel.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A simple linear RNN fails to learn the benchmark.",
+      "salience": "supporting"
+    },
+    {
+      "text": "On the classic LSTM benchmark, an LSTM eventually starts learning but has not fully trained after 600 iterations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "On the classic LSTM benchmark, a GRU learns much faster and from an earlier point.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Plots like this once convinced the community that GRUs were superior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This benchmark is a very easy problem.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A more efficient cell wins on easy tasks but likely does not scale to truly hard ones.",
+      "salience": "core"
+    },
+    {
+      "text": "In the summing problem, when the LSTM sees a marker, the write gate spikes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This writes a large value to the cell.",
+      "salience": "supporting"
+    },
+    {
+      "text": "At other times, the LSTM writes little.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The cell state jumps to the correct sum.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The running guess tracks the true sum exactly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Straightforward recurrent networks without gating cannot solve the summing problem.",
+      "salience": "core"
+    },
+    {
+      "text": "They lack the long-term memory to recall a number from many steps ago and add it to the current input.",
+      "salience": "core"
+    },
+    {
+      "text": "That is the core idea behind all gated recurrent cells.",
+      "salience": "core"
+    },
+    {
+      "text": "It is remarkably unclear how attention is supposed to function.",
+      "salience": "core"
+    },
+    {
+      "text": "Our brain seems to work very differently in this regard from the artificial neural networks seen so far.",
+      "salience": "core"
+    },
+    {
+      "text": "When looking at an image, the visual cortex processes images somewhat like convolutional networks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The visual cortex extracts local features, then combines them into global, semantically richer features.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When looking at an image, your field of vision is much wider than the object of focus.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If something happens outside the focus while concentrating, you will likely miss it.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This happens even though it is still in your field of view.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Mapping this attentional behavior to standard neural networks is strange.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A convolution over an image extracts features from every part of the image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "These features are then combined into more global representations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A convolutional network cannot simply miss a cat in an image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Humans can miss a cat in an image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The difference is an attention mechanism.",
+      "salience": "core"
+    },
+    {
+      "text": "Alexander Luria was a neuropsychologist.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Alexander Luria was a prominent international figure in the 1930s and 1940s.",
+      "salience": "aside"
+    },
+    {
+      "text": "Alexander Luria posited that the three main pillars of neuropsychology are attention, memory, and cognition.",
+      "salience": "core"
+    },
+    {
+      "text": "Since Luria, we have come to understand that in the brain attention operates largely through memory.",
+      "salience": "core"
+    },
+    {
+      "text": "There is a very short-term working memory that stores just a few recent items.",
+      "salience": "core"
+    },
+    {
+      "text": "Even a person not paying attention can usually recite the last few words they heard.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A person not paying attention cannot recite words from thirty seconds earlier.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Working memory acts as a buffer into which most recent events go.",
+      "salience": "core"
+    },
+    {
+      "text": "A filter selects which parts of the buffer are important for further processing.",
+      "salience": "core"
+    },
+    {
+      "text": "Information gets lost at the filter step.",
+      "salience": "supporting"
+    },
+    {
+      "text": "While focused on counting passes in the basketball video, many viewers completely miss a person in a gorilla suit walking through the scene.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Even when looking directly at something, you may not process it.",
+      "salience": "core"
+    },
+    {
+      "text": "Our visual system does not process the entire field of view in high resolution.",
+      "salience": "core"
+    },
+    {
+      "text": "Only a small central region, the fovea, provides sharp detail.",
+      "salience": "core"
+    },
+    {
+      "text": "Peripheral vision is blurry.",
+      "salience": "core"
+    },
+    {
+      "text": "We do not notice the blurriness of peripheral vision because our gaze constantly shifts in saccadic motions.",
+      "salience": "core"
+    },
+    {
+      "text": "Gaze shifts sample different snippets.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain assembles the snippets into a coherent picture.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The original motivation for incorporating attention mechanisms into deep learning was to emulate the selective processing of the human visual system.",
+      "salience": "core"
+    },
+    {
+      "text": "This emulation simulates the blurriness of peripheral vision to focus on salient parts.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Our eyes evolved under metabolic and structural constraints.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The original motivation for attention was to save weights and input size, making processing more efficient.",
+      "salience": "core"
+    },
+    {
+      "text": "If you look at a few small snippets of a large image, you use only the pixels from those parts.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With attention, the rest of the image can be blurrier, meaning fewer pixels are used.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By using fewer pixels, the input size becomes much smaller.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With three glimpses, each on a small part, the total input size is much smaller.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In addition to recognizing from blurred images, you also need to choose where to look (the glimpse positions).",
+      "salience": "core"
+    },
+    {
+      "text": "The glimpse positions form a sequence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The next glimpse can depend on what was seen in the previous one.",
+      "salience": "core"
+    },
+    {
+      "text": "Early models of attention were recurrent.",
+      "salience": "core"
+    },
+    {
+      "text": "This gave rise to the field of recurrent visual attention.",
+      "salience": "core"
+    },
+    {
+      "text": "Recurrent visual attention is now outdated.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The goal of recurrent visual attention was to walk around a relatively big picture, choose where to look while blurring the rest.",
+      "salience": "core"
+    },
+    {
+      "text": "This approach enabled more accurate and efficient processing with a recurrent mechanism for selecting glimpses.",
+      "salience": "core"
+    },
+    {
+      "text": "Machine translation is a problem well-suited for recurrent encoder-decoder architectures.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In a recurrent encoder-decoder for machine translation, the encoder reads the input and produces a hidden state.",
+      "salience": "core"
+    },
+    {
+      "text": "The last hidden state gives an intermediate representation vector z of the input sentence.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder takes z and decodes it into the output sequence.",
+      "salience": "core"
+    },
+    {
+      "text": "In practice, the decoder has a hidden state h' and z is the input to every decoder cell.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When LSTM/GRU architectures were applied to machine translation, they encountered an unsolvable scalability problem.",
+      "salience": "core"
+    },
+    {
+      "text": "This architecture achieved state-of-the-art around 2014.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The architecture works well for short sentences like \"hello world\".",
+      "salience": "supporting"
+    },
+    {
+      "text": "The problem is the dimension of the intermediate representation Z.",
+      "salience": "core"
+    },
+    {
+      "text": "You cannot find a good dimension for Z: it is either too small or too big.",
+      "salience": "core"
+    },
+    {
+      "text": "If Z is too small, training converges easily, but it cannot pack enough meaning.",
+      "salience": "core"
+    },
+    {
+      "text": "With a small Z, the model works for short sentences but fails on longer sentences.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If Z is made longer, training becomes harder.",
+      "salience": "core"
+    },
+    {
+      "text": "A very long Z means the hidden states and decoder inputs become longer, leading to quadratically more weights.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With very long Z, you lack sufficient data and compute to train the model.",
+      "salience": "supporting"
+    },
+    {
+      "text": "So you can either have a small Z with good training but no scalability, or a large Z with impossible training.",
+      "salience": "core"
+    },
+    {
+      "text": "Plotting quality against sequence length shows very good quality for short sentences, then a sharp drop.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One would want quality to drop gracefully and still work for longer sequences.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Attention mechanisms for encoder-decoder recurrent networks were introduced to fix this scalability problem.",
+      "salience": "core"
+    },
+    {
+      "text": "The concept of attention for encoder-decoder architectures remains important today.",
+      "salience": "core"
+    },
+    {
+      "text": "The problem with Z is that it is only one vector for the entire input.",
+      "salience": "core"
+    },
+    {
+      "text": "In transformers, there is also not a single vector for the whole sequence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When translating specific words, the corresponding source word should be more important at that step than other input words.",
+      "salience": "core"
+    },
+    {
+      "text": "A single vector has no way to express dynamic importance; you must cram everything into one vector.",
+      "salience": "core"
+    },
+    {
+      "text": "The first step to fix this is to remove the assumption that everything must be in a single vector.",
+      "salience": "core"
+    },
+    {
+      "text": "In an encoder-decoder with attention, the encoder processes the input and produces a vector for each input token.",
+      "salience": "core"
+    },
+    {
+      "text": "The encoder can be a bidirectional recurrent network.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To get the vector for each token, you take the two hidden states (forward and backward) and push them through a feedforward layer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "You cannot simply concatenate all token vectors and feed them to the decoder; that would cause the \"Z too long\" problem.",
+      "salience": "core"
+    },
+    {
+      "text": "At each step of the decoder, you want a single vector of a manageable size.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention mechanism combines the token vectors into a single vector for the decoder.",
+      "salience": "core"
+    },
+    {
+      "text": "At decoder step t, indicated by decoder hidden state h'_t, a small attention network is used.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention network receives an encoder output z_i and the current decoder hidden state h'_t.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention network outputs a score a_i that indicates the importance of that input token at that decoding step.",
+      "salience": "core"
+    },
+    {
+      "text": "A score a_i is computed for every encoder output z_i.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The scores are converted into a probability distribution via softmax, giving coefficients α_i.",
+      "salience": "core"
+    },
+    {
+      "text": "The softmax output is a convex combination that sums to 1.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The resulting context vector U_t (or Z_t) is the input for the decoder at time step t.",
+      "salience": "core"
+    },
+    {
+      "text": "The context vector is a linear combination of all encoder token representations.",
+      "salience": "core"
+    },
+    {
+      "text": "The weights of the linear combination are determined by a separate attention network.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention weights express which source tokens are being translated at the current step.",
+      "salience": "core"
+    },
+    {
+      "text": "For example, when producing the third word, attention should focus on the source word \"world\", giving it a high weight.",
+      "salience": "supporting"
+    },
+    {
+      "text": "There is no explicit training signal for the attention mechanism.",
+      "salience": "core"
+    },
+    {
+      "text": "The training dataset consists only of sentence pairs (e.g., English–Russian translations).",
+      "salience": "supporting"
+    },
+    {
+      "text": "We never label which source token corresponds to which target token.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The attention network is a small component, about 2% of the total weights.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The attention network is trained end-to-end from the translation objective.",
+      "salience": "core"
+    },
+    {
+      "text": "This small attention component drives the results, accounting for the difference between red and purple performance curves.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The attention network learns to find the correct tokens and produce the appropriate weights just from the overall loss.",
+      "salience": "core"
+    },
+    {
+      "text": "A general principle in deep learning is that if you structurally give the network the capacity to do a desired job, even without separate supervision for that sub-component, it often learns to do it correctly by optimizing the overall task.",
+      "salience": "core"
+    },
+    {
+      "text": "In late 2014, Bahdanau et al. introduced this attention mechanism for encoder-decoder architectures.",
+      "salience": "core"
+    },
+    {
+      "text": "The mechanism indeed trained to align words.",
+      "salience": "core"
+    },
+    {
+      "text": "Attention weights are easy to interpret.",
+      "salience": "core"
+    },
+    {
+      "text": "In French-to-English translation, the attention alignment matrix is mostly diagonal when word order matches.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The alignment matrix shows off-diagonal weights where languages differ in word order.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For example, French \"la destruction\" becomes English \"destruction\" with high attention on both French source words.",
+      "salience": "supporting"
+    },
+    {
+      "text": "French \"arme chimique\" becomes English \"chemical weapons\" with swapped order, and the attention weights reflect this.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A simple recurrent network with attention can learn to reverse an input sequence by attending to the reverse diagonal.",
+      "salience": "core"
+    },
+    {
+      "text": "Without attention, the network would need to memorize the whole sequence in a fixed-size context vector, which fails for long sequences.",
+      "salience": "core"
+    },
+    {
+      "text": "A network can learn to sort numbers: at each step, the attention weights focus on the current t-th smallest value.",
+      "salience": "core"
+    },
+    {
+      "text": "Attention enables handling outputs with complex structure, such as syntax trees, by linearizing them as strings and treating the problem as a translation.",
+      "salience": "core"
+    },
+    {
+      "text": "In 2016, a Google paper described their neural machine translation system that worked in this same way (encoder-decoder with attention).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Google's earlier translation system was an encoder-decoder with attention.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After Google switched to this architecture around 2015–2016, Google Translate became much better.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Before 2016, Google Translate was ineffective for translating research papers from Russian to English; fixing its output took more time than translating from scratch.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In 2015–2016, a phase transition occurred where it became more efficient to use Google Translate and then fix mistakes than to translate manually.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This was when machine translation started doing useful work.",
+      "salience": "supporting"
+    },
+    {
+      "text": "You can have an encoder-decoder where input and output have different modalities and different networks.",
+      "salience": "core"
+    },
+    {
+      "text": "The image captioning problem in 2015 used an encoder-decoder with a GoogLeNet encoder and an LSTM decoder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adding attention made the image captioning system much better.",
+      "salience": "core"
+    },
+    {
+      "text": "Attention can highlight specific parts of the input even when the input is not text or a sequence.",
+      "salience": "core"
+    },
+    {
+      "text": "With a picture, we take a CNN and stop it early to retain spatial geometry instead of compressing into a single feature vector.",
+      "salience": "core"
+    },
+    {
+      "text": "For a 256×256 input, we might stop at a 14×14 feature map, giving 196 feature vectors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "An attention network learns coefficients to combine these 196 feature vectors.",
+      "salience": "core"
+    },
+    {
+      "text": "This attention mechanism is interpretable: you can see where the network is looking as it generates each word.",
+      "salience": "core"
+    },
+    {
+      "text": "When generating \"a woman is throwing a frisbee in the park\", the attention focuses on the people for \"woman\", on the throwing action for \"throwing\", on the frisbee for \"frisbee\", and on the background for \"park\".",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers appeared in 2017.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The paper \"Attention Is All You Need\" introduced the transformer in 2017.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The authors of the paper \"Attention Is All You Need\" likely did not fully realize the impact of their work.",
+      "salience": "aside"
+    },
+    {
+      "text": "The paper \"Attention Is All You Need\" was not very ambitious.",
+      "salience": "aside"
+    },
+    {
+      "text": "The paper \"Attention Is All You Need\" proposed a different, more efficient way of doing roughly the same thing with similar results.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Since the paper's publication, the whole field of machine learning switched to transformers.",
+      "salience": "core"
+    },
+    {
+      "text": "Much of the rest of this class will build on transformers.",
+      "salience": "aside"
+    },
+    {
+      "text": "Two key qualities of transformers emerged after the original experiments: extreme generality and exceptional scalability.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers proved extremely general.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers are very good at noticing internal correlations within complicated data.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers work on sequences of vectors regardless of where those vectors come from — text, images, etc.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers are exceptionally scalable.",
+      "salience": "core"
+    },
+    {
+      "text": "You can scale transformers up, add more parameters, and performance keeps improving without saturating.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Modern large language models have gone from tens of millions to hundreds of billions to now trillions of parameters.",
+      "salience": "supporting"
+    },
+    {
+      "text": "As large language models scale up, their performance keeps improving.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This kind of unbounded scaling had never happened before transformers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "LSTMs couldn't be scaled the same way — either complexity grew too fast or they saturated.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The basic structure of the transformer is very similar to the recurrent encoder-decoder with attention discussed earlier.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The main new element in transformers is the self-attention mechanism.",
+      "salience": "core"
+    },
+    {
+      "text": "The original transformer is an encoder-decoder architecture for machine translation.",
+      "salience": "core"
+    },
+    {
+      "text": "The encoder consists of six identical layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The decoder also has six identical layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The encoder receives text in one language.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The decoder produces text in another language.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The input to the transformer encoder is not raw tokens but continuous vectors called embeddings.",
+      "salience": "core"
+    },
+    {
+      "text": "In NLP, it was common to convert one-hot representations of words or tokens into continuous vectors called embeddings.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It is standard practice to convert a large vocabulary of discrete items into dense vectors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The embeddings in the transformer are a matrix of vectors trained along with the rest of the network.",
+      "salience": "core"
+    },
+    {
+      "text": "For every input token, a vector is looked up from the embedding matrix and placed instead of the token.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After the embedding layer, the input sequence becomes a sequence of vectors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The entire transformer simply rewrites sequences of vectors into sequences of vectors.",
+      "salience": "core"
+    },
+    {
+      "text": "Every encoder layer takes a sequence of vectors as input and produces a sequence of the same size.",
+      "salience": "core"
+    },
+    {
+      "text": "The representations are rewritten multiple times (six times in the original transformer).",
+      "salience": "supporting"
+    },
+    {
+      "text": "By the top encoder layer, the vector for each token is a semantically rich representation of that token in the context of all other tokens.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder is an autoregressive language model.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder produces output tokens one by one, taking as input the history of what it has already written and outputting the next token.",
+      "salience": "supporting"
+    },
+    {
+      "text": "You must run the transformer decoder as many times as there are tokens to produce.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Speculative decoding and similar techniques work around this sequential restriction, but by default the decoder is autoregressive.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The encoder output is used in the decoder at every layer on every step.",
+      "salience": "core"
+    },
+    {
+      "text": "Inside an encoder layer: a self-attention layer, then layer normalization, then a feed-forward (fully connected) layer, then another layer normalization.",
+      "salience": "core"
+    },
+    {
+      "text": "A residual connection goes around the self-attention and meets the layer normalization.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Layer normalization is a normalization technique applied across the outputs of the current layer, unlike batch normalization which normalizes across the mini-batch.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers are large and often only one instance fits in memory, making batch normalization impractical.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Layer normalization is used to average out gradients, keep the loss landscape smooth, and control the absolute values of outputs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The feed-forward layer in a transformer is very important and accounts for a large fraction of the total weights.",
+      "salience": "core"
+    },
+    {
+      "text": "The feed-forward layer mixes the features within each vector separately.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The decoder layer contains self-attention (masked), a feed-forward layer, and layer norms, plus one extra encoder-decoder attention layer.",
+      "salience": "core"
+    },
+    {
+      "text": "The encoder output vectors go into the encoder-decoder attention layer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After the decoder, a linear layer followed by a softmax produces probabilities for the next token.",
+      "salience": "core"
+    },
+    {
+      "text": "The softmax at the end is essentially logistic regression.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Self-attention is motivated by neural information retrieval.",
+      "salience": "core"
+    },
+    {
+      "text": "In neural information retrieval, queries and documents are processed by separate encoders to produce vectors in a common latent space.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The encoders can be different, but they map both queries and documents to the same space.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The retrieval system is trained so that the representations of relevant documents are close to the representation of the query.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The similarity between a query and a document can be measured by the dot product of their vectors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After training, retrieval becomes a nearest-neighbor search in this latent space.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Self-attention applies this query-document idea to the same set of vectors, which serve as both queries and documents.",
+      "salience": "core"
+    },
+    {
+      "text": "Every transformer layer receives a sequence of vectors as input: $x_1, x_2, \\dots, x_n$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To create a query, the vector $x_1$ is multiplied by a matrix $W^Q$ to obtain the first query vector $q_1$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To create keys, all vectors $x_i$ are multiplied by $W^K$ to get key vectors $k_1, k_2, \\dots, k_n$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The central idea is that queries and keys live in the same latent space, so similarity is measured with a dot product.",
+      "salience": "core"
+    },
+    {
+      "text": "This similarity becomes the attention score.",
+      "salience": "supporting"
+    },
+    {
+      "text": "From $x_1$'s query and all keys, affinities are computed as $a_{1i} = q_1 \\cdot k_i$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The affinities are rescaled by $1/\\sqrt{d}$ and softmax is applied to obtain attention weights $\\alpha_{1i}$ that sum to 1.",
+      "salience": "supporting"
+    },
+    {
+      "text": "All $x_i$ are multiplied by a third matrix $W^V$ to produce value vectors $v_i$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The output for the first position is $z_1 = \\sum_i \\alpha_{1i} v_i$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This process is repeated for each position $j$: compute $q_j$, use the same keys and softmax to get $\\alpha_{ji}$, then $z_j = \\sum_i \\alpha_{ji} v_i$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In practice, self-attention is computed in matrix form.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The matrices of queries, keys, and values are computed as $Q = X W^Q$, $K = X W^K$, $V = X W^V$.",
+      "salience": "core"
+    },
+    {
+      "text": "Dimensionally, $X \\in \\mathbb{R}^{n \\times D}$, $W^Q, W^K \\in \\mathbb{R}^{D \\times d}$, and $W^V \\in \\mathbb{R}^{D \\times d'}$ with $d'$ typically equal to $d$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The matrix of all dot products is $Q K^T$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The attention weights are $\\operatorname{softmax}\\!\\left(\\frac{1}{\\sqrt{d}} Q K^T\\right)$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The output is $Z = \\operatorname{softmax}\\!\\left(\\frac{1}{\\sqrt{d}} Q K^T\\right) V$.",
+      "salience": "core"
+    },
+    {
+      "text": "The formula $Z = \\operatorname{softmax}\\!\\left(\\frac{1}{\\sqrt{d}} Q K^T\\right) V$ is the main attention formula from the paper \"Attention Is All You Need\".",
+      "salience": "core"
+    },
+    {
+      "text": "The raw affinities are dot products between vectors of length $d$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If query and key entries are considered random with zero mean and unit variance, each dot product is a sum of $d$ such products.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The expected magnitude of such a sum after $d$ steps is on the order of $\\sqrt{d}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Without rescaling, these large values push the softmax into regions of extreme saturation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Dividing by $\\sqrt{d}$ keeps the logits at a moderate scale.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If $d$ is 64, then adding 64 numbers gives a sum on the order of $\\pm 8$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A logit of $\\pm 8$ makes the softmax output nearly a one-hot vector, which is too peaked.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The rescaling by $\\sqrt{d}$ brings the variance back to roughly one, smoothing the softmax.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The main computational problem of transformers is that the attention matrix is $n \\times n$, giving quadratic complexity in the input sequence length.",
+      "salience": "core"
+    },
+    {
+      "text": "This quadratic complexity limits scaling without computational tricks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A few years ago, large language models boasted context sizes of 128,000 or 512,000 tokens.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Now there are million-token context windows.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A million-token context is not trivial — the complexity grows with $10^6$ squared, not linearly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "You must invent tricks to handle large contexts, and a whole subfield addresses this.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Claude Opus has a separate model with a one-million-token context that is more expensive and complicated than the standard smaller-context Opus.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Geometrically, self-attention projects each input vector from a large space down to a smaller space in two different ways to obtain queries and keys.",
+      "salience": "core"
+    },
+    {
+      "text": "Mathematically, self-attention uses a low-dimensional projection for queries and another same-dimensional projection for keys — two views of the vector set.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A third projection, possibly of a different dimension, gives the values.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This constitutes one attention head.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In practice, a transformer uses several attention heads, each with its own $W_Q$, $W_K$, $W_V$ matrices.",
+      "salience": "core"
+    },
+    {
+      "text": "Each attention head produces its own output and captures different aspects of the input.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In self-attention, every query looks at every input token, including itself. This all-pairs property is crucial.",
+      "salience": "core"
+    },
+    {
+      "text": "In a recurrent network, information flows step-by-step through intermediate states.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Even with an LSTM’s memory cell and constant error carousel, a lot can change along the path.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A transformer can jump directly from any token to any other in one step, seeing the entire sequence at once.",
+      "salience": "core"
+    },
+    {
+      "text": "This all-pairs property is a major advantage, but it comes at the cost of quadratic complexity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Recurrent networks are linear in input length, while transformers are quadratic — a huge difference.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers gain the ability to notice relations regardless of distance.",
+      "salience": "core"
+    },
+    {
+      "text": "The use of value vectors in self-attention is fundamentally an efficiency choice that enables multi-head attention.",
+      "salience": "core"
+    },
+    {
+      "text": "If the value length were equal to the input dimension, concatenating multiple heads would be inefficient and require too many weights.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The outputs of multiple attention heads are concatenated and then multiplied by a feedforward weight matrix to produce the final output of the same size as the input.",
+      "salience": "core"
+    },
+    {
+      "text": "The reason for this combination is to allow stacking identical layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The intermediate representations in multi-head attention are substantially larger than the input.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If the input $X$ is of size $D \\times L$ and each head outputs a matrix of size $d \\times L$ (with $d$ smaller than $D$), then concatenating all heads yields a matrix of size $(H \\cdot d) \\times L$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The concatenated matrix is multiplied by a feedforward weight matrix to mix the features, producing the final $Z$ of size $D \\times L$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The first intuition for multi-head attention is to provide variety: different heads can learn different projections, giving more expressive power.",
+      "salience": "core"
+    },
+    {
+      "text": "The second intuition is efficiency: if each head's output dimension equaled the model dimension, the concatenated matrix would be too large to train.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Each attention head is a copy of the same operation with independent weight matrices.",
+      "salience": "core"
+    },
+    {
+      "text": "All attention heads are processed in parallel.",
+      "salience": "core"
+    },
+    {
+      "text": "The output of the multi-head attention is the matrix $Z$.",
+      "salience": "core"
+    },
+    {
+      "text": "The described self-attention mechanism fully describes the self-attention layer of the encoder.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder introduces masked self-attention.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder introduces encoder-decoder attention.",
+      "salience": "core"
+    },
+    {
+      "text": "At inference time, masked self-attention is regular self-attention applied to the current prefix.",
+      "salience": "core"
+    },
+    {
+      "text": "Masking in self-attention is only relevant during training, for efficiency.",
+      "salience": "supporting"
+    },
+    {
+      "text": "During training, instead of running the decoder separately for each target token, we run it once on the whole sequence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A causal mask prevents the model from cheating during training.",
+      "salience": "core"
+    },
+    {
+      "text": "In masked self-attention, for a token at position $t$, all attention weights to positions $\\ge t$ are zeroed out.",
+      "salience": "core"
+    },
+    {
+      "text": "Thus, token $t$ can only attend to positions $1$ through $t-1$.",
+      "salience": "core"
+    },
+    {
+      "text": "Masked self-attention is an implementation trick that preserves causality while allowing one-pass training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Encoder-decoder attention is how the decoder conditions on the encoder outputs.",
+      "salience": "core"
+    },
+    {
+      "text": "Encoder-decoder attention requires no real modification to the self-attention mechanism.",
+      "salience": "core"
+    },
+    {
+      "text": "In encoder-decoder attention, the self-attention picture stays the same; we simply incorporate the encoder's $Z$ outputs without changing the structure.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In encoder-decoder attention, the queries come from the decoder input $X$ by multiplying by $W_Q$.",
+      "salience": "core"
+    },
+    {
+      "text": "The keys and values come from the encoder representations by multiplying by $W_K$ and $W_V$.",
+      "salience": "core"
+    },
+    {
+      "text": "Unlike self-attention, in encoder-decoder attention $Q$, $K$, $V$ are not all produced from the same $X$.",
+      "salience": "core"
+    },
+    {
+      "text": "$Q$ comes from the decoder input, and $K$ and $V$ come from the conditioning signal (encoder outputs).",
+      "salience": "core"
+    },
+    {
+      "text": "In encoder-decoder attention, the attention matrix is not necessarily square because the number of queries and keys can differ.",
+      "salience": "core"
+    },
+    {
+      "text": "The number of keys must match the number of values, but the number of queries can be different.",
+      "salience": "core"
+    },
+    {
+      "text": "It is a common idea in transformers that queries come from one source while keys and values come from another.",
+      "salience": "core"
+    },
+    {
+      "text": "This approach of queries from one source and keys/values from another dates back to the original Transformer decoder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In a designed single-layer, single-head self-attention that outputs the matching key, the attention matrix points to the correct spot.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The attention weight matrix need not select a single token.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention matrix often resembles a permutation matrix, encoding pairwise relationships.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It is possible to have an attention matrix where queries attend uniformly to all tokens.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One token can attend to every token in the sequence (widely distributed attention).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Intuitively, a token is a word, but using words as tokens fails because there are too many words.",
+      "salience": "core"
+    },
+    {
+      "text": "Lemmatizing everything would lose grammatical information.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Typos would explode the vocabulary if using words as tokens.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Character-level tokenization gives a vocabulary of a few hundred symbols.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Character-level tokenization makes sequences too long.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A context limit of a million tokens is very different for word tokens versus character tokens.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We need a tokenization method in between word-level and character-level.",
+      "salience": "core"
+    },
+    {
+      "text": "Byte-pair encoding (BPE) is the standard tokenization solution.",
+      "salience": "core"
+    },
+    {
+      "text": "BPE is unrelated to learning.",
+      "salience": "aside"
+    },
+    {
+      "text": "BPE is essentially Huffman coding from information theory.",
+      "salience": "aside"
+    },
+    {
+      "text": "BPE starts from a character vocabulary.",
+      "salience": "core"
+    },
+    {
+      "text": "BPE adds a new token by merging the most frequent consecutive pair of characters (or tokens) that actually appears.",
+      "salience": "core"
+    },
+    {
+      "text": "The merged pair becomes a new symbol.",
+      "salience": "core"
+    },
+    {
+      "text": "In BPE, all occurrences of that pair are replaced with the new token.",
+      "salience": "core"
+    },
+    {
+      "text": "In BPE, the individual characters remain in the vocabulary because they occur elsewhere.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Replacing occurrences of the merged pair reduces the length of token sequences.",
+      "salience": "core"
+    },
+    {
+      "text": "This adds one token optimally (with respect to frequency).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The BPE process is repeated: recompute pair frequencies, merge the most frequent new pair.",
+      "salience": "core"
+    },
+    {
+      "text": "Iterating BPE yields a compact, efficient vocabulary that balances sequence length and dictionary size.",
+      "salience": "core"
+    },
+    {
+      "text": "BPE algorithm simply replaces pairs of tokens with a new token repeatedly.",
+      "salience": "core"
+    },
+    {
+      "text": "BPE can be stopped at any time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With a vocabulary capacity of 100,000, you run BPE until reaching that size.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A vocabulary capacity of 100,000 is too many for character-level and too few for word-level.",
+      "salience": "supporting"
+    },
+    {
+      "text": "BPE first finds common word parts like \"-ed\" (past tense verb ending) and \"-tion\" (noun ending).",
+      "salience": "supporting"
+    },
+    {
+      "text": "In BPE, common words become single tokens.",
+      "salience": "core"
+    },
+    {
+      "text": "In BPE, uncommon words become multiple tokens.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers' ability to attend from any token to any token in one step is their greatest strength.",
+      "salience": "core"
+    },
+    {
+      "text": "A drawback of transformers is that they lose word order.",
+      "salience": "core"
+    },
+    {
+      "text": "In recurrent networks, adjacent tokens are one step apart, and far tokens require many steps.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers' attention matrix does not inherently care about adjacency.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers are indifferent to word order.",
+      "salience": "core"
+    },
+    {
+      "text": "To fix the loss of word order, positional encodings are added to the token embeddings.",
+      "salience": "core"
+    },
+    {
+      "text": "Positional encodings encode where each token is in the sequence.",
+      "salience": "core"
+    },
+    {
+      "text": "One-hot representation of position is possible but not desirable for positional encodings.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Ideally, positional encodings should support arithmetic so that the difference between encodings depends only on distance.",
+      "salience": "core"
+    },
+    {
+      "text": "If $e_1, e_2, \\ldots$ represent positions, we want $e_i - e_j$ to be similar to $e_{i+k} - e_{j+k}$.",
+      "salience": "core"
+    },
+    {
+      "text": "For positions a fixed distance apart, the difference between their positional encodings should be constant across the sequence.",
+      "salience": "core"
+    },
+    {
+      "text": "The original transformer used sinusoidal positional encodings.",
+      "salience": "core"
+    },
+    {
+      "text": "The sinusoidal approach is based on a positional counting system, like binary numbers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In binary numbers, the last digit oscillates 0,1,0,1; the next digit oscillates 0011 with twice the period, and so on.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A soft version of this uses sine waves of different frequencies in the encoding.",
+      "salience": "core"
+    },
+    {
+      "text": "The frequencies start high and reduce, creating a positional system with desired properties.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The current popular approach for positional encoding is RoPE (rotary positional encodings).",
+      "salience": "core"
+    },
+    {
+      "text": "In RoPE, the vector $x$ is split into 2D chunks (pairs of numbers).",
+      "salience": "core"
+    },
+    {
+      "text": "Each 2D chunk is rotated by different angles.",
+      "salience": "core"
+    },
+    {
+      "text": "The rotation uses a rotation matrix with $\\cos(k\\theta)$ and $\\sin(k\\theta)$ entries.",
+      "salience": "core"
+    },
+    {
+      "text": "Positions are encoded as multiples of a base angle $\\theta$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Rotating by $k\\theta$ and then $L\\theta$ is equivalent to rotating by $(k+L)\\theta$, giving perfect arithmetic.",
+      "salience": "core"
+    },
+    {
+      "text": "In sinusoidal positional encoding, the dot product between two vectors depends only on the offset $i-j$.",
+      "salience": "core"
+    },
+    {
+      "text": "Rotary encodings produce a dot product matrix with a diagonal structure where each diagonal has constant positional distance.",
+      "salience": "core"
+    },
+    {
+      "text": "The $\\sqrt{d}$ scaling in attention is necessary because without scaling, dot products grow large.",
+      "salience": "core"
+    },
+    {
+      "text": "Without scaling, after softmax the distribution approaches one-hot, losing entropy.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers transformed deep learning about ten years ago.",
+      "salience": "supporting"
+    },
+    {
+      "text": "LSTM splits the hidden state into a long-term memory $C_t$ and a regular hidden state $h_t$.",
+      "salience": "core"
+    },
+    {
+      "text": "$C_t$ stays on the highway.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The LSTM cell manipulates $C_t$ through gates.",
+      "salience": "core"
+    },
+    {
+      "text": "A gate is a linear combination of inputs followed by an activation function.",
+      "salience": "core"
+    },
+    {
+      "text": "The forget gate uses a logistic sigmoid to output numbers between 0 and 1.",
+      "salience": "core"
+    },
+    {
+      "text": "The forget gate multiplies $C_t$ component-wise to erase selected elements.",
+      "salience": "core"
+    },
+    {
+      "text": "The candidate cell state $\\tilde{C}_t$ is produced from the same inputs via a linear layer with $\\tanh$ activation.",
+      "salience": "core"
+    },
+    {
+      "text": "$\\tilde{C}_t$ generates new values to write into memory.",
+      "salience": "core"
+    },
+    {
+      "text": "The input gate uses a sigmoid to decide which parts of $\\tilde{C}_t$ are written into memory by addition.",
+      "salience": "core"
+    },
+    {
+      "text": "The output gate uses a sigmoid to gate which parts of the updated $C_t$ pass through a $\\tanh$ to produce $h_t$.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM provides a clear, interpretable program: you can delete from memory, write to it, and read from it.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM has remained remarkably successful since its final form in 2000.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The basic LSTM has eight weight matrices.",
+      "salience": "supporting"
+    },
+    {
+      "text": "LSTM is expensive to train due to many weight matrices.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With modern compute, large LSTMs are practical.",
+      "salience": "supporting"
+    },
+    {
+      "text": "AlphaStar used LSTMs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Attention is a fundamental cognitive function.",
+      "salience": "core"
+    },
+    {
+      "text": "Biologically, the visual system uses a foveal spotlight and saccadic movements to build an image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Early recurrent visual attention models saved computation by glimpsing small parts of an image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Those visual attention models are now outdated.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The key development was applying attention to encoder-decoder architectures for sequence tasks like machine translation.",
+      "salience": "core"
+    },
+    {
+      "text": "In a basic encoder-decoder model, the encoder compresses the whole input sequence into a single fixed-size vector $z$.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder uses $z$ to generate the output.",
+      "salience": "core"
+    },
+    {
+      "text": "This basic approach fails for long sequences.",
+      "salience": "core"
+    },
+    {
+      "text": "If $z$ is too small, it cannot capture enough information.",
+      "salience": "core"
+    },
+    {
+      "text": "If $z$ is too large, the number of weights grows quadratically, making training infeasible.",
+      "salience": "core"
+    },
+    {
+      "text": "The solution is attention: the decoder attends to different parts of the input at each step instead of using a single vector.",
+      "salience": "core"
+    },
+    {
+      "text": "In the attention-based encoder-decoder model, the encoder processes the input bidirectionally and produces a sequence of context vectors $z_1, z_2, \\dots, z_n$, one per input token.",
+      "salience": "core"
+    },
+    {
+      "text": "At each decoding step $t$, an attention network takes the current decoder hidden state $h'_t$ and each $z_i$ and computes a score $a_i$.",
+      "salience": "core"
+    },
+    {
+      "text": "The score $a_i$ is often computed via a small feedforward network.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The scores are normalized by softmax to produce a convex combination $U_t = \\sum_i \\alpha_i z_i$.",
+      "salience": "core"
+    },
+    {
+      "text": "$U_t$ becomes the input to the decoder at step $t$.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention mechanism is not trained with explicit alignment labels.",
+      "salience": "core"
+    },
+    {
+      "text": "The whole model is trained end-to-end on sentence pairs.",
+      "salience": "core"
+    },
+    {
+      "text": "The model learns to align words correctly (e.g., high attention on the source word being translated).",
+      "salience": "core"
+    },
+    {
+      "text": "Giving the network the structural ability to solve a task without direct supervision often succeeds.",
+      "salience": "core"
+    },
+    {
+      "text": "The introduction of attention around 2014-2015 dramatically improved neural machine translation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By 2016, Google Translate switched to attention-based architectures and became practically useful.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers were introduced in 2017 with the paper \"Attention is All You Need\".",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers were originally proposed as a more efficient alternative to recurrent models.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers proved extraordinarily general and scalable.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers can be scaled to trillions of parameters and continue to improve.",
+      "salience": "core"
+    },
+    {
+      "text": "This scaling property had never been seen before.",
+      "salience": "supporting"
+    }
+  ],
+  "summary": [
+    {
+      "text": "Recurrent neural networks suffer from vanishing gradients.",
+      "salience": "core"
+    },
+    {
+      "text": "In recurrent neural networks, the same weight matrix W is multiplied at every time step.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If the spectral radius of W is less than 1, gradients decay to zero.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Exploding gradients cause obvious numerical overflows.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Vanishing gradients are silent.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With vanishing gradients, the loss may still decrease because W trains on the last few steps.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With vanishing gradients, the network loses long-term memory.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With vanishing gradients, the network can no longer base predictions on early parts of a sequence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A solution to vanishing gradients is to create a constant error carousel.",
+      "salience": "core"
+    },
+    {
+      "text": "The constant error carousel is a highway where the gradient can flow unchanged without being repeatedly multiplied by weight matrices.",
+      "salience": "core"
+    },
+    {
+      "text": "The constant error carousel was inspired by ResNet-style residual connections.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The constant error carousel insight was pioneered in Jürgen Schmidhuber’s group in the mid-1990s.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The LSTM was introduced in Hochreiter & Schmidhuber (1995) and Gers & Schmidhuber (2000).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The LSTM cell maintains a cell state c_t.",
+      "salience": "core"
+    },
+    {
+      "text": "The cell state c_t lives on the gradient highway.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM cell maintains a hidden state h_t.",
+      "salience": "core"
+    },
+    {
+      "text": "The hidden state h_t participates in the cell's operations.",
+      "salience": "core"
+    },
+    {
+      "text": "Information flow in the LSTM is controlled by three gates: input, forget, and output.",
+      "salience": "core"
+    },
+    {
+      "text": "Each gate is a small sub-network.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Each gate outputs a vector of values in (0,1) via the logistic sigmoid.",
+      "salience": "core"
+    },
+    {
+      "text": "Each gate multiplies other vectors component-wise to erase, write, or read from memory.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM has a clear, interpretable program that allows deleting selected parts of memory, adding new values, and deciding what to expose to the output.",
+      "salience": "core"
+    },
+    {
+      "text": "The candidate cell state c'_t is computed as c'_t = tanh(W_{xc} x_t + W_{hc} h_{t-1} + b_{c'}).",
+      "salience": "core"
+    },
+    {
+      "text": "The input gate i_t is computed as i_t = σ(W_{xi} x_t + W_{hi} h_{t-1} + b_i).",
+      "salience": "core"
+    },
+    {
+      "text": "The forget gate f_t is computed as f_t = σ(W_{xf} x_t + W_{hf} h_{t-1} + b_f).",
+      "salience": "core"
+    },
+    {
+      "text": "The output gate o_t is computed as o_t = σ(W_{xo} x_t + W_{ho} h_{t-1} + b_o).",
+      "salience": "core"
+    },
+    {
+      "text": "The cell state update is c_t = f_t ⊙ c_{t-1} + i_t ⊙ c'_t.",
+      "salience": "core"
+    },
+    {
+      "text": "The block output is h_t = o_t ⊙ tanh(c_t).",
+      "salience": "core"
+    },
+    {
+      "text": "If the forget gate f_t is fully open (f_t = 1), c_t = c_{t-1} + i_t ⊙ c'_t.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If f_t = 1, then the partial derivative ∂c_t/∂c_{t-1} = 1.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This allows gradients to flow unchanged, i.e., the constant error carousel property.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the basic LSTM, the gates only see the hidden state h_{t-1} = o_{t-1} ⊙ tanh(c_{t-1}).",
+      "salience": "supporting"
+    },
+    {
+      "text": "If the output gate is closed in the LSTM, the LSTM's behaviour becomes independent of the cell state.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Peephole connections give the gates direct access to c_{t-1}.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Peephole connections add extra weight matrices W_{pi}, W_{pf}, W_{po} to the gate equations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The input gate with peephole is computed as i_t = σ(W_{xi} x_t + W_{hi} h_{t-1} + W_{pi} c_{t-1} + b_i).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The forget gate with peephole is computed as f_t = σ(W_{xf} x_t + W_{hf} h_{t-1} + W_{pf} c_{t-1} + b_f).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The output gate with peephole is computed as o_t = σ(W_{xo} x_t + W_{ho} h_{t-1} + W_{po} c_{t-1} + b_o).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The basic LSTM uses 8 weight matrices.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The basic LSTM weight matrices consist of four pairs of size d×d and d×d'.",
+      "salience": "supporting"
+    },
+    {
+      "text": "d is typically 256–1000.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Peephole connections add three more weight matrices.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The LSTM is memory-heavy.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The LSTM is extremely effective.",
+      "salience": "core"
+    },
+    {
+      "text": "The LSTM has remained the most important recurrent cell since its final form in 2000.",
+      "salience": "core"
+    },
+    {
+      "text": "LSTMs are the standard in recent large-scale systems such as AlphaStar.",
+      "salience": "supporting"
+    },
+    {
+      "text": "As of the lecture date, no alternative recurrent cell consistently outperforms the LSTM in general.",
+      "salience": "core"
+    },
+    {
+      "text": "A classic toy task from Hochreiter and Schmidhuber demonstrates why gated cells are necessary.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The input has two channels: one fills a stream of random numbers, the other contains zeros except for exactly two \"marker\" ones.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The goal is to output the sum of the two random numbers that coincided with the markers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A plain RNN fails completely on this task because it cannot store the first marked number long enough to add it to the second.",
+      "salience": "supporting"
+    },
+    {
+      "text": "An LSTM learns to open its write gate exactly on the markers, store the relevant number in the cell state, and later recall it.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The running prediction of the LSTM tracks the true sum perfectly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Gated cells are the only way to achieve this kind of long-range memory.",
+      "salience": "core"
+    },
+    {
+      "text": "Many attempts have been made to simplify the LSTM while keeping the constant error carousel.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Gated Recurrent Units (GRU) were introduced by Cho et al. (2014).",
+      "salience": "core"
+    },
+    {
+      "text": "GRU merges the cell state and hidden state into a single vector h_t.",
+      "salience": "core"
+    },
+    {
+      "text": "GRU uses only two gates: update gate u_t and reset gate r_t.",
+      "salience": "core"
+    },
+    {
+      "text": "The update gate in GRU is computed as u_t = σ(W_{xu} x_t + W_{hu} h_{t-1} + b_u).",
+      "salience": "core"
+    },
+    {
+      "text": "The reset gate in GRU is computed as r_t = σ(W_{xr} x_t + W_{hr} h_{t-1} + b_r).",
+      "salience": "core"
+    },
+    {
+      "text": "The candidate state in GRU is computed as h'_t = tanh(W_{xh'} x_t + W_{hh'} (r_t ⊙ h_{t-1})).",
+      "salience": "core"
+    },
+    {
+      "text": "The new hidden state in GRU is h_t = (1 - u_t) ⊙ h'_t + u_t ⊙ h_{t-1}.",
+      "salience": "core"
+    },
+    {
+      "text": "In GRU, erasing and writing are combined into a single convex combination driven by the update gate u_t.",
+      "salience": "core"
+    },
+    {
+      "text": "The reset gate r_t determines which parts of the old memory feed into the candidate state h'_t.",
+      "salience": "core"
+    },
+    {
+      "text": "GRU uses 6 weight matrices.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GRU is substantially cheaper than an LSTM.",
+      "salience": "core"
+    },
+    {
+      "text": "For a fixed computational budget, GRU allows more units than LSTM.",
+      "salience": "core"
+    },
+    {
+      "text": "In 2015–2016, GRUs were widely adopted in NLP.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The simple summing benchmark is solved faster by a GRU than by an LSTM.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The field later reverted to using LSTMs, e.g., AlphaStar uses LSTM.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Why the LSTM remains empirically superior on hard, large-scale tasks is not fully understood.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The superiority of LSTM illustrates that neural architecture search has not found a recurrent cell that genuinely outscores the 25-year-old LSTM across a wide range of problems.",
+      "salience": "core"
+    },
+    {
+      "text": "Greff et al. (2015) showed that some drastically simplified LSTM variants perform nearly as well as the LSTM.",
+      "salience": "supporting"
+    },
+    {
+      "text": "None of the simplified variants displace the LSTM as the default robust choice.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Attention is, in large part, an interaction with working memory (Knudsen, 2007).",
+      "salience": "core"
+    },
+    {
+      "text": "In human vision, the fovea is tiny.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We only see a small, sharp snippet at any instant.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The eyes move in rapid saccades, sequentially fixating on different parts of the scene.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain stitches together a composite picture from these fixations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This process can be both conscious and unconscious.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Invisible Gorilla experiment (Simons & Chabris, 1999) is a dramatic demonstration.",
+      "salience": "aside"
+    },
+    {
+      "text": "In the Invisible Gorilla experiment, observers concentrating on counting basketball passes completely missed a person in a gorilla suit walking through the frame.",
+      "salience": "aside"
+    },
+    {
+      "text": "Even when looking directly at something, you may not process it if your attention is elsewhere.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Alexander Luria emphasised the triad of attention, memory, and cognition.",
+      "salience": "aside"
+    },
+    {
+      "text": "Working memory acts as a very short-term buffer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Attention acts as a filter that selects which items are passed on for deeper processing.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Selective, limited-bandwidth processing inspired early attempts to model attention in neural networks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A neural network might also benefit from deciding what to look at.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The original motivation for attention in neural networks was efficiency, not primarily biological plausibility.",
+      "salience": "core"
+    },
+    {
+      "text": "For a large image, processing the whole thing is expensive.",
+      "salience": "supporting"
+    },
+    {
+      "text": "You can instead take a few small glimpses, using only the pixels from those parts and ignoring or blurring the rest.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This drastically reduces the input size and thus the number of parameters and computations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Early work by Larochelle & Hinton (2010) modelled saccades as a sequence of glimpses, learning where to look next.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The idea was fully realised in \"Recurrent Models of Visual Attention\" (Mnih et al., 2014).",
+      "salience": "supporting"
+    },
+    {
+      "text": "In this model, at each step a recurrent network receives a glimpse g_t derived from the current observation and previous location.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The network updates its hidden state h_t and outputs a new location l_t and action a_t.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The glimpse is computed as g_t = f_g(x_t, l_{t-1}; θ_g).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The hidden state update is h_t = f_h(h_{t-1}, g_t; θ_h).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The location is sampled from l_t ∼ p(⋅ | f_l(h_t; θ_l)).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The action is sampled from a_t ∼ p(⋅ | f_a(h_t; θ_a)).",
+      "salience": "supporting"
+    },
+    {
+      "text": "A reward r_t is received after the action.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The objective is correct final classification.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This defines a stochastic policy π((l_t,a_t) | s_{1:t}; θ) implemented by an RNN.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The goal is to maximise expected total reward J(θ) = E[\\sum_{t=1}^T r_t].",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because the choice of location is non-differentiable, reinforcement learning (REINFORCE) is used.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Subsequent work extended this to deep variational models (Ba et al., 2015) and image generation with DRAW (Gregor et al., 2015).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Recurrent visual attention is now largely outdated.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It introduced the key idea of using a recurrent mechanism to choose where to look, which later became central in encoder-decoder architectures.",
+      "salience": "core"
+    },
+    {
+      "text": "Machine translation is the canonical sequence-to-sequence problem.",
+      "salience": "core"
+    },
+    {
+      "text": "A recurrent language model factors a sequence X as p(X) = p(x_1) p(x_2 | x_1) … p(x_T | x_{<T}).",
+      "salience": "core"
+    },
+    {
+      "text": "In an encoder-decoder for translation, an encoder RNN compresses the source sentence into a single fixed-size vector z.",
+      "salience": "core"
+    },
+    {
+      "text": "A decoder RNN generates the target sentence conditioned on z (Sutskever et al., 2014; Cho et al., 2014).",
+      "salience": "core"
+    },
+    {
+      "text": "The critical limitation is the bottleneck: everything must be squeezed through one vector.",
+      "salience": "core"
+    },
+    {
+      "text": "Plotting translation quality against source sentence length reveals a sharp drop after short sentences.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Performance is excellent for short sentences, then drops catastrophically.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The cause is that a vector of manageable size cannot hold all the necessary information for long sentences.",
+      "salience": "core"
+    },
+    {
+      "text": "Making the vector larger explodes the number of weights, making training infeasible.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The solution is to let the decoder attend to all encoder hidden states, weighted by relevance, instead of relying on a single summary vector.",
+      "salience": "core"
+    },
+    {
+      "text": "The encoder still processes the input (bidirectionally) and produces a sequence of representations h_1, …, h_n, one per source token.",
+      "salience": "core"
+    },
+    {
+      "text": "At each decoding step t, an attention network computes a score e_{tj} = a(z_{t-1}, h_j).",
+      "salience": "core"
+    },
+    {
+      "text": "The attention weights are α_{tj} = softmax(e_{tj}).",
+      "salience": "core"
+    },
+    {
+      "text": "The context vector is c_t = Σ_j α_{tj} h_j.",
+      "salience": "core"
+    },
+    {
+      "text": "The context vector c_t is a convex combination of all encoder outputs.",
+      "salience": "core"
+    },
+    {
+      "text": "The context vector c_t is fed to the decoder: z_t = f(s_{t-1}, y_{t-1}, c_t).",
+      "salience": "core"
+    },
+    {
+      "text": "The network is never given explicit word-alignment labels.",
+      "salience": "core"
+    },
+    {
+      "text": "Attention weights are learned purely from the translation loss.",
+      "salience": "core"
+    },
+    {
+      "text": "They reliably discover which source tokens correspond to which target tokens (e.g., \"world\" → \"mir\").",
+      "salience": "core"
+    },
+    {
+      "text": "The attention mechanism accounts for about 2% of the total parameters but is what separates usable translation from the cliff.",
+      "salience": "core"
+    },
+    {
+      "text": "Visualising α matrices yields interpretable patterns: mostly diagonal for similar word order, off-diagonal for syntactic differences, reverse diagonals for reversal tasks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Wu et al. (2016) scaled the encoder-decoder with attention to 8 encoder and 8 decoder layers of LSTMs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "They added residual connections to make training deeper layers feasible.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The bottom encoder layer was bidirectional.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This system powered Google Translate for several years.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Around 2015–2016, it produced a phase transition: post-editing machine translation became faster than translating from scratch.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The architecture can be used across modalities, e.g., CNN encoder + LSTM decoder for image captioning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "\"Show and Tell\" (Vinyals et al., 2015) simply fed a fixed image feature vector to an LSTM decoder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "\"Show, Attend, and Tell\" (Xu et al., 2015) introduced spatial attention over CNN feature vectors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The CNN is stopped early, retaining a 14×14 grid of vectors a_i that preserve spatial layout.",
+      "salience": "supporting"
+    },
+    {
+      "text": "At each decoding step a context vector is formed as a weighted sum φ({a_i},{α_{t,i}}) = Σ_i α_{t,i} a_i.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Two attention variants were studied: soft attention and hard attention.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Soft attention is a deterministic, differentiable convex combination, trained end-to-end.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Hard attention is stochastic sampling from the attention distribution, trained by maximising a variational lower bound.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The variational lower bound is L_s = Σ_s p(s | a) log p(y | s, a) ≤ log p(y | a).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The gradient of hard attention is ∂L_s/∂W = Σ_s p(s | a)[ ∂log p(y | s, a)/∂W + log p(y | s, a) ∂log p(s | a)/∂W ].",
+      "salience": "supporting"
+    },
+    {
+      "text": "Hard attention is approximated by sampling \\(s\\) from the attention distribution \\(\\alpha_i\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Attention maps are interpretable.",
+      "salience": "core"
+    },
+    {
+      "text": "For the caption “a woman is throwing a frisbee in the park,” the model focuses on people for “woman,” on the throwing motion for “throwing,” on the disc for “frisbee,” and on the background for “park.”",
+      "salience": "supporting"
+    },
+    {
+      "text": "Visual debugging using attention maps helps diagnose failures directly from the attention.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Transformer (Vaswani et al., 2017) stands as arguably the single most important architecture in modern deep learning.",
+      "salience": "core"
+    },
+    {
+      "text": "The original Transformer paper was presented as a more efficient way to do sequence-to-sequence modeling.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Transformer proved to be remarkably general, effectively discovering internal correlations in sequences of vectors regardless of their origin (text, images, etc.).",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer proved to be highly scalable, with performance continuing to improve as parameters and data increase from millions to trillions of parameters, without saturating.",
+      "salience": "core"
+    },
+    {
+      "text": "LSTMs never achieved such scalability; they either became untrainable or saturated much earlier.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Transformer abandons recurrence entirely and processes all tokens in parallel.",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer encoder consists of a stack of identical layers.",
+      "salience": "core"
+    },
+    {
+      "text": "Each encoder layer contains a multi-head self-attention sublayer followed by a position-wise feedforward network.",
+      "salience": "core"
+    },
+    {
+      "text": "Residual connections and layer normalization surround each sublayer in the encoder.",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer decoder follows the same pattern as the encoder but adds masked self-attention and encoder-decoder attention.",
+      "salience": "core"
+    },
+    {
+      "text": "Input tokens are first converted to dense vectors by a learnable embedding layer.",
+      "salience": "core"
+    },
+    {
+      "text": "Positional encodings are added to the input embeddings to inject sequence order.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder is autoregressive: it generates output tokens one by one.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder conditions on both its own previously generated tokens and the final encoder representations.",
+      "salience": "core"
+    },
+    {
+      "text": "The decoder uses a linear + softmax head to produce next-token probabilities.",
+      "salience": "core"
+    },
+    {
+      "text": "Self-attention is directly inspired by neural information retrieval.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In neural information retrieval, queries and documents are embedded into a common latent space so that relevant pairs have high dot-product similarity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Self-attention treats every position in a set of vectors as both a query and a document.",
+      "salience": "core"
+    },
+    {
+      "text": "Given an input sequence \\(X \\in \\mathbb{R}^{D \\times L}\\), the model computes queries \\(Q = W_Q X\\), keys \\(K = W_K X\\), and values \\(V = W_V X\\), with weight matrices \\(W_Q, W_K \\in \\mathbb{R}^{d \\times D}\\) and \\(W_V \\in \\mathbb{R}^{d_v \\times D}\\) (typically \\(d_v = d\\)).",
+      "salience": "core"
+    },
+    {
+      "text": "The attention function is \\(\\operatorname{Attention}(Q, K, V) = \\operatorname{softmax}\\!\\left( \\frac{1}{\\sqrt{d}} Q K^{\\top} \\right) V\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The matrix \\(QK^\\top\\) contains the dot-product similarities between every query–key pair.",
+      "salience": "core"
+    },
+    {
+      "text": "Scaling by \\(1/\\sqrt{d}\\) is critical: if query and key entries behave like i.i.d. variables with zero mean and unit variance, a dot product’s expected magnitude is on the order of \\(\\sqrt{d}\\).",
+      "salience": "core"
+    },
+    {
+      "text": "Without scaling by \\(1/\\sqrt{d}\\), the large values push the softmax into a nearly one‑hot regime (extreme saturation).",
+      "salience": "core"
+    },
+    {
+      "text": "Dividing by \\(\\sqrt{d}\\) keeps the logits at a moderate scale and the softmax smooth, enabling stable gradient flow.",
+      "salience": "core"
+    },
+    {
+      "text": "In the Transformer, every position attends to every other position in a single operation.",
+      "salience": "core"
+    },
+    {
+      "text": "In a recurrent network, information must travel step‑by‑step; in the Transformer a token can directly draw on any other token, regardless of distance.",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer eliminates the sequential bottleneck but brings quadratic complexity in the sequence length \\(L\\) because the attention matrix is \\(L \\times L\\).",
+      "salience": "core"
+    },
+    {
+      "text": "Handling very long contexts (millions of tokens) requires specialized tricks to keep computation feasible.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A single attention head captures one type of relationship.",
+      "salience": "core"
+    },
+    {
+      "text": "Multi‑head attention uses \\(H\\) independent heads, each with its own weight matrices \\(W_Q^{(i)}, W_K^{(i)}, W_V^{(i)}\\), producing outputs \\(Z^1,\\dots,Z^H\\) of size \\(d_v \\times L\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The head outputs are concatenated into a \\((H d_v) \\times L\\) matrix and linearly projected back to the model dimension \\(D\\) via \\(Z = \\bigl(Z_{\\text{concat}} W_O\\bigr)^{\\top}\\) with \\(W_O \\in \\mathbb{R}^{H d_v \\times D}\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The design separates the dimension of each head (\\(d_v\\)) from the model dimension \\(D\\), keeping the total number of parameters manageable.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If each head’s value dimension were as large as \\(D\\), the concatenated representation would be infeasibly large.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The multi‑head architecture gives the model a richer expressive capacity while staying practical.",
+      "salience": "core"
+    },
+    {
+      "text": "Because the decoder generates tokens autoregressively, it must not see future positions.",
+      "salience": "core"
+    },
+    {
+      "text": "Masked self‑attention achieves this during training: for every position \\(t\\), attention weights towards positions \\(\\ge t\\) are set to \\(-\\infty\\) before the softmax, forcing them to zero.",
+      "salience": "core"
+    },
+    {
+      "text": "Masked self‑attention allows training the decoder on the whole target sequence in one forward pass while preserving causality.",
+      "salience": "core"
+    },
+    {
+      "text": "Encoder‑decoder attention uses the decoder’s queries (from the partially generated output) but takes keys and values from the final encoder output.",
+      "salience": "core"
+    },
+    {
+      "text": "The mechanism of encoder‑decoder attention is structurally identical to self-attention: the decoder queries retrieve information from the encoder’s representations.",
+      "salience": "core"
+    },
+    {
+      "text": "The dimensions of queries and keys/values in encoder‑decoder attention need not match—the number of keys equals the encoder sequence length, while the number of queries equals the decoder prefix length.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers work with subword tokens.",
+      "salience": "core"
+    },
+    {
+      "text": "Using whole words leads to an unmanageably large vocabulary; using characters would make sequences far too long.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Byte‑Pair Encoding (BPE) is a data‑compression algorithm that builds a vocabulary by iteratively merging the most frequent pair of consecutive symbols.",
+      "salience": "core"
+    },
+    {
+      "text": "BPE repeatedly counts adjacent pairs of tokens in the corpus, merges the most frequent pair into a new token, and replaces every occurrence of that pair with the new token.",
+      "salience": "core"
+    },
+    {
+      "text": "For example, given words {cat:10, pet:12, mat:5, rat:8, eats:4}, splitting into characters yields the pair “at” with 27 occurrences; merging “at” into a new symbol \\(Z\\) produces {cZ:10, pet:12, mZ:5, rZ:8, eZs:4}.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The BPE merging process continues until the desired vocabulary size is reached.",
+      "salience": "core"
+    },
+    {
+      "text": "In language, early BPE merges capture common morphemes like “‑ed” and “‑tion”; very common words become single tokens, while rare words are split into subword pieces.",
+      "salience": "supporting"
+    },
+    {
+      "text": "BPE is unrelated to gradient‑based learning; it is pure data compression that yields highly efficient tokenization.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Self‑attention is completely invariant to token order—it treats the sequence as a set.",
+      "salience": "core"
+    },
+    {
+      "text": "To inject position information, the Transformer adds positional encodings to the input embeddings.",
+      "salience": "core"
+    },
+    {
+      "text": "The original Transformer used sinusoidal positional encodings: \\(PE_{(pos, 2i)} = \\sin(pos/10000^{2i/d})\\), \\(PE_{(pos, 2i+1)} = \\cos(pos/10000^{2i/d})\\).",
+      "salience": "core"
+    },
+    {
+      "text": "This design ensures that the dot product of two sinusoidal positional encodings depends only on the offset \\(pos_1 - pos_2\\), enabling the model to easily recover relative distances.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Rotary Positional Encoding (RoPE) is a more recent and widely adopted alternative.",
+      "salience": "core"
+    },
+    {
+      "text": "RoPE breaks each token vector into pairs of coordinates and rotates each pair by an angle that is a multiple of the position index and a base frequency.",
+      "salience": "core"
+    },
+    {
+      "text": "In RoPE, if the pair \\((x_{2i}, x_{2i+1})\\) is rotated by \\(\\begin{pmatrix} \\cos(k\\theta) & -\\sin(k\\theta) \\\\ \\sin(k\\theta) & \\cos(k\\theta) \\end{pmatrix}\\), then rotating by \\(k\\theta\\) and later by \\(l\\theta\\) yields rotation by \\((k+l)\\theta\\), giving a clean algebraic property and smooth, distance‑dependent similarity.",
+      "salience": "core"
+    },
+    {
+      "text": "RoPE is now the default positional encoding in most large language models.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Transformer trains roughly 100× faster than comparable recurrent models and achieves superior translation quality.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because any token can directly attend to any other, long‑range dependencies are handled much better in Transformers than in RNNs.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention weights themselves provide a window into what the model learns—one can visualise which tokens are attended to at each layer, revealing syntactic and semantic patterns.",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer’s scalability and generality have made it the foundation of virtually all subsequent advances in language and multimodal modeling.",
+      "salience": "core"
+    }
+  ]
+}

@@ -1,0 +1,2040 @@
+{
+  "settings": {
+    "stt_provider": "whisper_cpp",
+    "backend": "embeddings",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "window_s": 60.0,
+    "stride_s": 60.0,
+    "keywords_per_slide": 10
+  },
+  "n_slide_pages": 83,
+  "units": [
+    {
+      "pages": [
+        1,
+        1
+      ],
+      "title": "CONVOLUTIONAL ARCHITECTURES AND BEYOND"
+    },
+    {
+      "pages": [
+        2,
+        2
+      ],
+      "title": "IMPORTANT CONVOLUTIONAL ARCHI-"
+    },
+    {
+      "pages": [
+        3,
+        3
+      ],
+      "title": "THE ZOO"
+    },
+    {
+      "pages": [
+        4,
+        5
+      ],
+      "title": "(KRIZHEVSKY, SUTSKEVER, HINTON, 2012): ALEXNET"
+    },
+    {
+      "pages": [
+        6,
+        6
+      ],
+      "title": "VGG"
+    },
+    {
+      "pages": [
+        7,
+        7
+      ],
+      "title": "VGG"
+    },
+    {
+      "pages": [
+        8,
+        8
+      ],
+      "title": "INCEPTION"
+    },
+    {
+      "pages": [
+        9,
+        9
+      ],
+      "title": "INCEPTION"
+    },
+    {
+      "pages": [
+        10,
+        10
+      ],
+      "title": "INCEPTION"
+    },
+    {
+      "pages": [
+        11,
+        11
+      ],
+      "title": "INCEPTION"
+    },
+    {
+      "pages": [
+        12,
+        12
+      ],
+      "title": "RESNET"
+    },
+    {
+      "pages": [
+        13,
+        13
+      ],
+      "title": "RESNET"
+    },
+    {
+      "pages": [
+        14,
+        14
+      ],
+      "title": "RESNET: VARIATIONS"
+    },
+    {
+      "pages": [
+        15,
+        17
+      ],
+      "title": "REVOLUTION OF DEPTH (KAIMING HE)"
+    },
+    {
+      "pages": [
+        18,
+        18
+      ],
+      "title": "RESNEXT"
+    },
+    {
+      "pages": [
+        19,
+        19
+      ],
+      "title": "RESNEXT"
+    },
+    {
+      "pages": [
+        20,
+        20
+      ],
+      "title": "INCEPTION V4 AND INCEPTION RESNET"
+    },
+    {
+      "pages": [
+        21,
+        21
+      ],
+      "title": "INCEPTION V4 AND INCEPTION RESNET"
+    },
+    {
+      "pages": [
+        22,
+        22
+      ],
+      "title": "INCEPTION V4 AND INCEPTION RESNET"
+    },
+    {
+      "pages": [
+        23,
+        23
+      ],
+      "title": "INCEPTION V4 AND INCEPTION RESNET"
+    },
+    {
+      "pages": [
+        24,
+        24
+      ],
+      "title": "INCEPTION V4 AND INCEPTION RESNET"
+    },
+    {
+      "pages": [
+        25,
+        25
+      ],
+      "title": "INCEPTION V4 AND INCEPTION RESNET"
+    },
+    {
+      "pages": [
+        26,
+        26
+      ],
+      "title": "INCEPTION V4 AND INCEPTION RESNET"
+    },
+    {
+      "pages": [
+        27,
+        27
+      ],
+      "title": "INCEPTION V4 AND INCEPTION RESNET"
+    },
+    {
+      "pages": [
+        28,
+        28
+      ],
+      "title": "SQUEEZENET"
+    },
+    {
+      "pages": [
+        29,
+        29
+      ],
+      "title": "SQUEEZENET"
+    },
+    {
+      "pages": [
+        30,
+        30
+      ],
+      "title": "SQUEEZENET"
+    },
+    {
+      "pages": [
+        31,
+        31
+      ],
+      "title": "SQUEEZENET"
+    },
+    {
+      "pages": [
+        32,
+        32
+      ],
+      "title": "MOBILENET"
+    },
+    {
+      "pages": [
+        33,
+        33
+      ],
+      "title": "MOBILENET"
+    },
+    {
+      "pages": [
+        34,
+        34
+      ],
+      "title": "MOBILENET"
+    },
+    {
+      "pages": [
+        35,
+        35
+      ],
+      "title": "EFFICIENTNET"
+    },
+    {
+      "pages": [
+        36,
+        36
+      ],
+      "title": "EFFICIENTNET"
+    },
+    {
+      "pages": [
+        37,
+        38
+      ],
+      "title": "BATCH NORMALIZATION"
+    },
+    {
+      "pages": [
+        39,
+        39
+      ],
+      "title": "BATCH NORMALIZATION"
+    },
+    {
+      "pages": [
+        40,
+        40
+      ],
+      "title": "BATCH NORMALIZATION"
+    },
+    {
+      "pages": [
+        41,
+        41
+      ],
+      "title": "BATCH NORMALIZATION"
+    },
+    {
+      "pages": [
+        42,
+        42
+      ],
+      "title": "BATCH NORMALIZATION"
+    },
+    {
+      "pages": [
+        43,
+        43
+      ],
+      "title": "BATCH NORMALIZATION"
+    },
+    {
+      "pages": [
+        44,
+        44
+      ],
+      "title": "BATCH NORMALIZATION"
+    },
+    {
+      "pages": [
+        45,
+        45
+      ],
+      "title": "WHAT BN ACTUALLY DOES"
+    },
+    {
+      "pages": [
+        46,
+        46
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        47,
+        47
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        48,
+        48
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        49,
+        49
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        50,
+        50
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        51,
+        51
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        52,
+        52
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        53,
+        53
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        54,
+        54
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        55,
+        55
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        56,
+        56
+      ],
+      "title": "VARIANTS"
+    },
+    {
+      "pages": [
+        57,
+        57
+      ],
+      "title": "WORKING WITH SEQUENCES"
+    },
+    {
+      "pages": [
+        58,
+        58
+      ],
+      "title": "SEQUENCES"
+    },
+    {
+      "pages": [
+        59,
+        59
+      ],
+      "title": "SEQUENCES"
+    },
+    {
+      "pages": [
+        60,
+        60
+      ],
+      "title": "SEQUENCES"
+    },
+    {
+      "pages": [
+        61,
+        61
+      ],
+      "title": "SEQUENCES"
+    },
+    {
+      "pages": [
+        62,
+        62
+      ],
+      "title": "RECURRENT NEURAL NETWORKS"
+    },
+    {
+      "pages": [
+        63,
+        63
+      ],
+      "title": "SIMPLE RNN"
+    },
+    {
+      "pages": [
+        64,
+        64
+      ],
+      "title": "SIMPLE RNN"
+    },
+    {
+      "pages": [
+        65,
+        65
+      ],
+      "title": "EXPLODING GRADIENTS"
+    },
+    {
+      "pages": [
+        66,
+        66
+      ],
+      "title": "EXPLODING GRADIENTS"
+    },
+    {
+      "pages": [
+        67,
+        67
+      ],
+      "title": "EXPLODING GRADIENTS"
+    },
+    {
+      "pages": [
+        68,
+        68
+      ],
+      "title": "EXPLODING GRADIENTS"
+    },
+    {
+      "pages": [
+        69,
+        69
+      ],
+      "title": "BIDIRECTIONAL RNN"
+    },
+    {
+      "pages": [
+        70,
+        70
+      ],
+      "title": "BIDIRECTIONAL RNN"
+    },
+    {
+      "pages": [
+        71,
+        71
+      ],
+      "title": "LSTM AND GRU"
+    },
+    {
+      "pages": [
+        72,
+        72
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        73,
+        73
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        74,
+        74
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        75,
+        75
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        76,
+        76
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        77,
+        77
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        78,
+        78
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        79,
+        79
+      ],
+      "title": "LSTM"
+    },
+    {
+      "pages": [
+        80,
+        80
+      ],
+      "title": "GRU"
+    },
+    {
+      "pages": [
+        81,
+        81
+      ],
+      "title": "GRU"
+    },
+    {
+      "pages": [
+        82,
+        82
+      ],
+      "title": "GRU"
+    },
+    {
+      "pages": [
+        83,
+        83
+      ],
+      "title": "THANK YOU!"
+    }
+  ],
+  "windows": [
+    {
+      "start": 0.0,
+      "end": 60.0
+    },
+    {
+      "start": 60.0,
+      "end": 120.0
+    },
+    {
+      "start": 120.0,
+      "end": 180.0
+    },
+    {
+      "start": 180.0,
+      "end": 240.0
+    },
+    {
+      "start": 240.0,
+      "end": 300.0
+    },
+    {
+      "start": 300.0,
+      "end": 360.0
+    },
+    {
+      "start": 360.0,
+      "end": 420.0
+    },
+    {
+      "start": 420.0,
+      "end": 480.0
+    },
+    {
+      "start": 480.0,
+      "end": 540.0
+    },
+    {
+      "start": 540.0,
+      "end": 600.0
+    },
+    {
+      "start": 600.0,
+      "end": 660.0
+    },
+    {
+      "start": 660.0,
+      "end": 720.0
+    },
+    {
+      "start": 720.0,
+      "end": 780.0
+    },
+    {
+      "start": 780.0,
+      "end": 840.0
+    },
+    {
+      "start": 840.0,
+      "end": 900.0
+    },
+    {
+      "start": 900.0,
+      "end": 960.0
+    },
+    {
+      "start": 960.0,
+      "end": 1020.0
+    },
+    {
+      "start": 1020.0,
+      "end": 1080.0
+    },
+    {
+      "start": 1080.0,
+      "end": 1140.0
+    },
+    {
+      "start": 1140.0,
+      "end": 1200.0
+    },
+    {
+      "start": 1200.0,
+      "end": 1260.0
+    },
+    {
+      "start": 1260.0,
+      "end": 1320.0
+    },
+    {
+      "start": 1320.0,
+      "end": 1380.0
+    },
+    {
+      "start": 1380.0,
+      "end": 1440.0
+    },
+    {
+      "start": 1440.0,
+      "end": 1500.0
+    },
+    {
+      "start": 1500.0,
+      "end": 1560.0
+    },
+    {
+      "start": 1560.0,
+      "end": 1620.0
+    },
+    {
+      "start": 1620.0,
+      "end": 1680.0
+    },
+    {
+      "start": 1680.0,
+      "end": 1740.0
+    },
+    {
+      "start": 1740.0,
+      "end": 1800.0
+    },
+    {
+      "start": 1800.0,
+      "end": 1860.0
+    },
+    {
+      "start": 1860.0,
+      "end": 1920.0
+    },
+    {
+      "start": 1920.0,
+      "end": 1980.0
+    },
+    {
+      "start": 1980.0,
+      "end": 2040.0
+    },
+    {
+      "start": 2040.0,
+      "end": 2100.0
+    },
+    {
+      "start": 2100.0,
+      "end": 2160.0
+    },
+    {
+      "start": 2160.0,
+      "end": 2220.0
+    },
+    {
+      "start": 2220.0,
+      "end": 2280.0
+    },
+    {
+      "start": 2280.0,
+      "end": 2340.0
+    },
+    {
+      "start": 2340.0,
+      "end": 2400.0
+    },
+    {
+      "start": 2400.0,
+      "end": 2460.0
+    },
+    {
+      "start": 2460.0,
+      "end": 2520.0
+    },
+    {
+      "start": 2520.0,
+      "end": 2580.0
+    },
+    {
+      "start": 2580.0,
+      "end": 2640.0
+    },
+    {
+      "start": 2640.0,
+      "end": 2700.0
+    },
+    {
+      "start": 2700.0,
+      "end": 2760.0
+    },
+    {
+      "start": 2760.0,
+      "end": 2820.0
+    },
+    {
+      "start": 2820.0,
+      "end": 2880.0
+    },
+    {
+      "start": 2880.0,
+      "end": 2940.0
+    },
+    {
+      "start": 2940.0,
+      "end": 3000.0
+    },
+    {
+      "start": 3000.0,
+      "end": 3060.0
+    },
+    {
+      "start": 3060.0,
+      "end": 3120.0
+    },
+    {
+      "start": 3120.0,
+      "end": 3180.0
+    },
+    {
+      "start": 3180.0,
+      "end": 3240.0
+    },
+    {
+      "start": 3240.0,
+      "end": 3300.0
+    },
+    {
+      "start": 3300.0,
+      "end": 3360.0
+    },
+    {
+      "start": 3360.0,
+      "end": 3420.0
+    },
+    {
+      "start": 3420.0,
+      "end": 3480.0
+    },
+    {
+      "start": 3480.0,
+      "end": 3540.0
+    },
+    {
+      "start": 3540.0,
+      "end": 3600.0
+    },
+    {
+      "start": 3600.0,
+      "end": 3660.0
+    },
+    {
+      "start": 3660.0,
+      "end": 3720.0
+    },
+    {
+      "start": 3720.0,
+      "end": 3780.0
+    },
+    {
+      "start": 3780.0,
+      "end": 3840.0
+    },
+    {
+      "start": 3840.0,
+      "end": 3900.0
+    },
+    {
+      "start": 3900.0,
+      "end": 3960.0
+    },
+    {
+      "start": 3960.0,
+      "end": 4020.0
+    },
+    {
+      "start": 4020.0,
+      "end": 4080.0
+    },
+    {
+      "start": 4080.0,
+      "end": 4140.0
+    },
+    {
+      "start": 4140.0,
+      "end": 4200.0
+    },
+    {
+      "start": 4200.0,
+      "end": 4260.0
+    },
+    {
+      "start": 4260.0,
+      "end": 4320.0
+    },
+    {
+      "start": 4320.0,
+      "end": 4380.0
+    },
+    {
+      "start": 4380.0,
+      "end": 4440.0
+    },
+    {
+      "start": 4440.0,
+      "end": 4500.0
+    },
+    {
+      "start": 4500.0,
+      "end": 4560.0
+    },
+    {
+      "start": 4560.0,
+      "end": 4620.0
+    },
+    {
+      "start": 4620.0,
+      "end": 4680.0
+    },
+    {
+      "start": 4680.0,
+      "end": 4740.0
+    },
+    {
+      "start": 4740.0,
+      "end": 4800.0
+    },
+    {
+      "start": 4800.0,
+      "end": 4860.0
+    },
+    {
+      "start": 4860.0,
+      "end": 4920.0
+    },
+    {
+      "start": 4920.0,
+      "end": 4980.0
+    },
+    {
+      "start": 4980.0,
+      "end": 5040.0
+    },
+    {
+      "start": 5040.0,
+      "end": 5100.0
+    },
+    {
+      "start": 5100.0,
+      "end": 5160.0
+    },
+    {
+      "start": 5160.0,
+      "end": 5220.0
+    },
+    {
+      "start": 5220.0,
+      "end": 5280.0
+    },
+    {
+      "start": 5280.0,
+      "end": 5340.0
+    },
+    {
+      "start": 5340.0,
+      "end": 5400.0
+    },
+    {
+      "start": 5400.0,
+      "end": 5460.0
+    },
+    {
+      "start": 5460.0,
+      "end": 5520.0
+    },
+    {
+      "start": 5520.0,
+      "end": 5580.0
+    },
+    {
+      "start": 5580.0,
+      "end": 5640.0
+    },
+    {
+      "start": 5640.0,
+      "end": 5700.0
+    },
+    {
+      "start": 5700.0,
+      "end": 5754.32
+    }
+  ],
+  "assignments": {
+    "uniform": [
+      0,
+      0,
+      1,
+      2,
+      3,
+      4,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      9,
+      10,
+      11,
+      12,
+      13,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      23,
+      24,
+      25,
+      26,
+      27,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      37,
+      38,
+      39,
+      40,
+      41,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      51,
+      52,
+      53,
+      54,
+      55,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      65,
+      66,
+      67,
+      68,
+      69,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      74,
+      75,
+      76,
+      77,
+      78
+    ],
+    "plain": [
+      1,
+      1,
+      2,
+      15,
+      62,
+      11,
+      11,
+      62,
+      29,
+      11,
+      31,
+      2,
+      1,
+      15,
+      41,
+      32,
+      56,
+      15,
+      4,
+      6,
+      6,
+      6,
+      10,
+      10,
+      20,
+      20,
+      14,
+      24,
+      41,
+      56,
+      56,
+      28,
+      56,
+      56,
+      56,
+      24,
+      56,
+      56,
+      24,
+      56,
+      56,
+      56,
+      14,
+      11,
+      23,
+      20,
+      20,
+      6,
+      23,
+      29,
+      31,
+      6,
+      6,
+      56,
+      11,
+      32,
+      44,
+      45,
+      41,
+      55,
+      55,
+      56,
+      56,
+      56,
+      52,
+      56,
+      55,
+      54,
+      55,
+      55,
+      55,
+      55,
+      55,
+      55,
+      56,
+      64,
+      55,
+      56,
+      55,
+      55,
+      55,
+      10,
+      56,
+      56,
+      41,
+      56,
+      55,
+      36,
+      67,
+      67,
+      62,
+      62,
+      62,
+      62,
+      55,
+      56
+    ],
+    "dtw": [
+      1,
+      1,
+      2,
+      2,
+      8,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      14,
+      24,
+      41,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      60,
+      60,
+      62,
+      62,
+      62,
+      62,
+      62,
+      67,
+      78
+    ]
+  },
+  "keywords": [
+    [
+      "june",
+      "first",
+      "tabulating",
+      "york",
+      "maker",
+      "start",
+      "times",
+      "woman",
+      "space",
+      "new"
+    ],
+    [
+      "archi",
+      "tectures",
+      "important",
+      "convolutional"
+    ],
+    [
+      "standard",
+      "models",
+      "based",
+      "zoo",
+      "cnn",
+      "accompanied",
+      "code",
+      "pretrained",
+      "datasets",
+      "ideas"
+    ],
+    [
+      "krizhevsky",
+      "hinton",
+      "sutskever",
+      "alexnet"
+    ],
+    [
+      "vgg",
+      "convolutions",
+      "oxford",
+      "geometry",
+      "compositions",
+      "reduces",
+      "deeper",
+      "visual",
+      "represent",
+      "large"
+    ],
+    [
+      "vgg",
+      "recognition",
+      "competition",
+      "ilsvrc",
+      "nvidia",
+      "optimizing",
+      "gpus",
+      "especially",
+      "imagenet",
+      "visual"
+    ],
+    [
+      "additional",
+      "network",
+      "idea",
+      "inception",
+      "googlenet",
+      "terms",
+      "even",
+      "classifiers",
+      "objective",
+      "use"
+    ],
+    [
+      "𝑛convolutions",
+      "inception",
+      "replaced",
+      "szegedy"
+    ],
+    [
+      "inception",
+      "banks",
+      "wide",
+      "rmsprop",
+      "factorized",
+      "filter",
+      "became",
+      "rather",
+      "paper",
+      "introduced"
+    ],
+    [
+      "softmax",
+      "label",
+      "smoothing",
+      "regular",
+      "classifier",
+      "hard",
+      "arguments",
+      "grow",
+      "overfit",
+      "certain"
+    ],
+    [
+      "layer",
+      "residual",
+      "next",
+      "function",
+      "differences",
+      "residues",
+      "flow",
+      "obstacle",
+      "implemented",
+      "looks"
+    ],
+    [
+      "combination",
+      "gate",
+      "networks",
+      "allowed",
+      "highway",
+      "jürgen",
+      "way",
+      "𝐶is",
+      "carry",
+      "𝑇is"
+    ],
+    [
+      "variations",
+      "resnet"
+    ],
+    [
+      "revolution",
+      "depth",
+      "kaiming"
+    ],
+    [
+      "resnext",
+      "units",
+      "xie",
+      "merge",
+      "divided",
+      "gets",
+      "replace",
+      "split",
+      "transform",
+      "block"
+    ],
+    [
+      "parallelization",
+      "yield",
+      "specialization",
+      "resnext",
+      "already",
+      "kind",
+      "results",
+      "similar",
+      "alexnet",
+      "group"
+    ],
+    [
+      "inception",
+      "resnet",
+      "classic",
+      "everything",
+      "simplify",
+      "stem",
+      "paper",
+      "szegedy",
+      "introduced",
+      "standardize"
+    ],
+    [
+      "inception",
+      "second",
+      "basic",
+      "three",
+      "blocks",
+      "resnet"
+    ],
+    [
+      "inception",
+      "special",
+      "reduction",
+      "reduce",
+      "dimensions",
+      "blocks",
+      "resnet"
+    ],
+    [
+      "inception",
+      "resnet",
+      "adds",
+      "connections",
+      "residual",
+      "blocks"
+    ],
+    [
+      "inception",
+      "pooling",
+      "still",
+      "reduction",
+      "blocks",
+      "resnet"
+    ],
+    [
+      "inception",
+      "resnet",
+      "top",
+      "bottom",
+      "result",
+      "even",
+      "simpler",
+      "architecture",
+      "become"
+    ],
+    [
+      "inception",
+      "resnet"
+    ],
+    [
+      "inception",
+      "works",
+      "quite",
+      "well",
+      "resnet"
+    ],
+    [
+      "squeezenet",
+      "reduce",
+      "number",
+      "iandola",
+      "filters",
+      "delay",
+      "downsampling",
+      "late",
+      "size",
+      "maps"
+    ],
+    [
+      "layer",
+      "fire",
+      "module",
+      "squeeze",
+      "expand",
+      "convolutional",
+      "squeezenet"
+    ],
+    [
+      "squeezenet",
+      "general",
+      "architecture"
+    ],
+    [
+      "50x",
+      "get",
+      "fewer",
+      "alexnet",
+      "squeezenet",
+      "parameters"
+    ],
+    [
+      "convolution",
+      "depthwise",
+      "mobilenet",
+      "howard",
+      "mobile",
+      "devices",
+      "separable",
+      "decompose",
+      "filter",
+      "channel"
+    ],
+    [
+      "structure",
+      "overall",
+      "complex",
+      "mobilenet",
+      "fewer",
+      "architecture",
+      "deep",
+      "layer",
+      "weights"
+    ],
+    [
+      "save",
+      "lot",
+      "price",
+      "small",
+      "decrease",
+      "quality",
+      "see",
+      "mobilenet",
+      "parameters"
+    ],
+    [
+      "efficientnet",
+      "tan",
+      "design",
+      "art",
+      "fraction",
+      "cost",
+      "search",
+      "architecture",
+      "neural",
+      "state"
+    ],
+    [
+      "scaling",
+      "efficientnet",
+      "kinds",
+      "models",
+      "different"
+    ],
+    [
+      "outputs",
+      "train",
+      "layer",
+      "changes",
+      "means",
+      "scratch",
+      "expect",
+      "moreover",
+      "neurons",
+      "might"
+    ],
+    [
+      "characteristic",
+      "example",
+      "distributions",
+      "note",
+      "different",
+      "normalization",
+      "batch"
+    ],
+    [
+      "simply",
+      "layer",
+      "could",
+      "whiten",
+      "bias",
+      "𝑏to",
+      "biases",
+      "work",
+      "consider",
+      "adds"
+    ],
+    [
+      "norm",
+      "normalization",
+      "𝑋is",
+      "required",
+      "compute",
+      "cov",
+      "definitely",
+      "won",
+      "note",
+      "entire"
+    ],
+    [
+      "batch",
+      "normalization",
+      "current",
+      "mini",
+      "get",
+      "component",
+      "hence",
+      "statistics",
+      "however",
+      "nonlinearities"
+    ],
+    [
+      "fix",
+      "allow",
+      "flexibility",
+      "nothing",
+      "introduce",
+      "𝛾𝑘and",
+      "𝛽𝑘are",
+      "variables",
+      "trained",
+      "batchnorm"
+    ],
+    [
+      "final",
+      "scheme",
+      "normalization",
+      "batch"
+    ],
+    [
+      "helps",
+      "actually",
+      "original",
+      "turned",
+      "effectiveness",
+      "regularization",
+      "unnecessary",
+      "reasons",
+      "smooths",
+      "reducing"
+    ],
+    [
+      "normalization",
+      "training",
+      "recurrent",
+      "batch",
+      "essentially",
+      "cool",
+      "story",
+      "goes",
+      "laurent",
+      "help"
+    ],
+    [
+      "methods",
+      "operations",
+      "general",
+      "use",
+      "variants"
+    ],
+    [
+      "differ",
+      "applied",
+      "set",
+      "operations",
+      "dimensions",
+      "variants"
+    ],
+    [
+      "batch",
+      "often",
+      "images",
+      "mini",
+      "used",
+      "norm",
+      "variants"
+    ],
+    [
+      "layer",
+      "mostly",
+      "transformers",
+      "spatial",
+      "outputs",
+      "vectors",
+      "particular",
+      "channels",
+      "dimensions",
+      "used"
+    ],
+    [
+      "instance",
+      "drop",
+      "adain",
+      "style",
+      "spatial",
+      "transfer",
+      "dimensions",
+      "channels",
+      "used",
+      "norm"
+    ],
+    [
+      "groups",
+      "split",
+      "group",
+      "channels",
+      "norm",
+      "variants"
+    ],
+    [
+      "standardization",
+      "weight",
+      "activations",
+      "backpropagation",
+      "bit",
+      "standardize",
+      "rather",
+      "separately",
+      "channel",
+      "transfer"
+    ],
+    [
+      "summary",
+      "variants"
+    ],
+    [
+      "science",
+      "huang",
+      "always",
+      "general",
+      "big",
+      "variants"
+    ],
+    [
+      "really",
+      "big",
+      "variants"
+    ],
+    [
+      "working",
+      "sequences"
+    ],
+    [
+      "sequences",
+      "financial",
+      "series",
+      "language",
+      "sound",
+      "kinds",
+      "sequence",
+      "problems",
+      "time",
+      "based"
+    ],
+    [
+      "apply",
+      "sliding",
+      "window",
+      "sequence",
+      "try",
+      "use",
+      "based",
+      "sequences",
+      "neural",
+      "network"
+    ],
+    [
+      "backprop",
+      "doesn",
+      "graph",
+      "cycles",
+      "better",
+      "update",
+      "computational",
+      "hidden",
+      "whole",
+      "sequences"
+    ],
+    [
+      "lots",
+      "unroll",
+      "back",
+      "practical",
+      "issues",
+      "shared",
+      "really",
+      "course",
+      "sequences",
+      "problem"
+    ],
+    [
+      "recurrent",
+      "neural",
+      "networks"
+    ],
+    [
+      "simple",
+      "rnn"
+    ],
+    [
+      "gradients",
+      "𝑓is",
+      "nonlinearity",
+      "ℎis",
+      "simple",
+      "𝑊s𝑡",
+      "𝑈x𝑡",
+      "𝑉s𝑡",
+      "two",
+      "problems"
+    ],
+    [
+      "grows",
+      "decreases",
+      "exponentially",
+      "explodes",
+      "multiply",
+      "exploding",
+      "gradient",
+      "norm",
+      "gradients"
+    ],
+    [
+      "sgd",
+      "bound",
+      "optimizers",
+      "gradients",
+      "versions",
+      "either",
+      "value",
+      "clipnorm",
+      "clipvalue",
+      "simply"
+    ],
+    [
+      "pascanu",
+      "nice",
+      "pictures",
+      "exploding",
+      "gradients"
+    ],
+    [
+      "explains",
+      "gaps",
+      "come",
+      "bifurcation",
+      "points",
+      "rnns",
+      "exploding",
+      "gradients"
+    ],
+    [
+      "context",
+      "directions",
+      "bidirectional",
+      "sometimes",
+      "need",
+      "rnn"
+    ],
+    [
+      "generalizes",
+      "sort",
+      "constructions",
+      "bidirectional",
+      "𝑊s𝑡",
+      "𝑈x𝑡",
+      "𝑉s𝑡",
+      "course",
+      "rnn",
+      "formally"
+    ],
+    [
+      "gru",
+      "lstm"
+    ],
+    [
+      "𝑊every",
+      "impossible",
+      "vanishing",
+      "multiply",
+      "long",
+      "term",
+      "memory",
+      "time",
+      "makes",
+      "gradients"
+    ],
+    [
+      "shortcut",
+      "memory",
+      "idea",
+      "lstm",
+      "seen",
+      "construct",
+      "controls",
+      "explicitly",
+      "short",
+      "basic"
+    ],
+    [
+      "state",
+      "cell",
+      "gate",
+      "lstm",
+      "c𝑡is",
+      "h𝑡is",
+      "whether",
+      "c𝑡to",
+      "vanilla",
+      "forget"
+    ],
+    [
+      "cell",
+      "state",
+      "gate",
+      "forget",
+      "tanh",
+      "output",
+      "lstm",
+      "𝑊𝑥𝑐x𝑡",
+      "𝑊ℎ𝑐h𝑡",
+      "flexible"
+    ],
+    [
+      "lstm",
+      "schmidhuber",
+      "hochreiter",
+      "completely",
+      "modern",
+      "form",
+      "gers",
+      "unavailable",
+      "gates",
+      "behaviour"
+    ],
+    [
+      "matrices",
+      "peepholes",
+      "course",
+      "add",
+      "weight",
+      "lstm"
+    ],
+    [
+      "remove",
+      "add",
+      "lstm",
+      "𝑊𝑝𝑖c𝑡",
+      "𝑊𝑝𝑓c𝑡",
+      "𝑊𝑝𝑜c𝑡",
+      "basically",
+      "peephole",
+      "functions",
+      "etc"
+    ],
+    [
+      "lstm",
+      "odyssey",
+      "greff",
+      "significantly",
+      "less",
+      "lose",
+      "brings",
+      "search",
+      "space",
+      "shows"
+    ],
+    [
+      "gru",
+      "gated",
+      "cho",
+      "implements",
+      "developed",
+      "units",
+      "error",
+      "carousel",
+      "simpler",
+      "constant"
+    ],
+    [
+      "fewer",
+      "gate",
+      "𝑊𝑥𝑢x𝑡",
+      "𝑊ℎ𝑢h𝑡",
+      "𝑊𝑥𝑟x𝑡",
+      "𝑊ℎ𝑟h𝑡",
+      "𝑊𝑥ℎ",
+      "𝑊ℎℎ",
+      "reset",
+      "distinction"
+    ],
+    [
+      "józefowicz",
+      "zaremba",
+      "evolutionary",
+      "identified",
+      "interesting",
+      "sutskever",
+      "experimental",
+      "comparison",
+      "approach",
+      "huge"
+    ],
+    [
+      "thank",
+      "attention"
+    ]
+  ],
+  "metrics": {
+    "uniform": {
+      "keyword_hit_rate": 0.0727,
+      "slide_coverage": 1.0,
+      "monotonicity": 1.0,
+      "kendall_tau_b": 0.9981
+    },
+    "plain": {
+      "keyword_hit_rate": 0.396,
+      "slide_coverage": 0.3291,
+      "monotonicity": 0.6842,
+      "kendall_tau_b": 0.4276
+    },
+    "dtw": {
+      "keyword_hit_rate": 0.281,
+      "slide_coverage": 0.1519,
+      "monotonicity": 1.0,
+      "kendall_tau_b": 0.7672
+    },
+    "plain_vs_dtw": {
+      "windows_differing": 0.6562,
+      "mean_unit_distance": 11.5208
+    }
+  }
+}

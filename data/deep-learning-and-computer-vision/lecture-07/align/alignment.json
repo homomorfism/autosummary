@@ -1,0 +1,1834 @@
+{
+  "settings": {
+    "stt_provider": "whisper_cpp",
+    "backend": "embeddings",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "window_s": 60.0,
+    "stride_s": 60.0,
+    "keywords_per_slide": 10
+  },
+  "n_slide_pages": 62,
+  "units": [
+    {
+      "pages": [
+        1,
+        2
+      ],
+      "title": "VISION TRANSFORMERS AND OBJECT DETECTION"
+    },
+    {
+      "pages": [
+        3,
+        3
+      ],
+      "title": "VISUAL BERT"
+    },
+    {
+      "pages": [
+        4,
+        4
+      ],
+      "title": "VISUAL BERT"
+    },
+    {
+      "pages": [
+        5,
+        5
+      ],
+      "title": "VISUAL TRANSFORMER (VIT)"
+    },
+    {
+      "pages": [
+        6,
+        6
+      ],
+      "title": "VISUAL TRANSFORMER (VIT)"
+    },
+    {
+      "pages": [
+        7,
+        7
+      ],
+      "title": "VISUAL TRANSFORMER (VIT)"
+    },
+    {
+      "pages": [
+        8,
+        8
+      ],
+      "title": "VISUAL TRANSFORMER (VIT)"
+    },
+    {
+      "pages": [
+        9,
+        9
+      ],
+      "title": "SWIN TRANSFORMERS"
+    },
+    {
+      "pages": [
+        10,
+        10
+      ],
+      "title": "SWIN TRANSFORMERS"
+    },
+    {
+      "pages": [
+        11,
+        11
+      ],
+      "title": "SWIN TRANSFORMERS"
+    },
+    {
+      "pages": [
+        12,
+        12
+      ],
+      "title": "SWIN TRANSFORMERS"
+    },
+    {
+      "pages": [
+        13,
+        13
+      ],
+      "title": "PERCEIVER"
+    },
+    {
+      "pages": [
+        14,
+        14
+      ],
+      "title": "PERCEIVER"
+    },
+    {
+      "pages": [
+        15,
+        15
+      ],
+      "title": "PERCEIVER"
+    },
+    {
+      "pages": [
+        16,
+        16
+      ],
+      "title": "PERCEIVER"
+    },
+    {
+      "pages": [
+        17,
+        17
+      ],
+      "title": "PERCEIVER"
+    },
+    {
+      "pages": [
+        18,
+        18
+      ],
+      "title": "OBJECT DETECTION"
+    },
+    {
+      "pages": [
+        19,
+        19
+      ],
+      "title": "PROBLEM SETTING"
+    },
+    {
+      "pages": [
+        20,
+        20
+      ],
+      "title": "R-CNN"
+    },
+    {
+      "pages": [
+        21,
+        22
+      ],
+      "title": "R-CNN"
+    },
+    {
+      "pages": [
+        23,
+        23
+      ],
+      "title": "R-CNN"
+    },
+    {
+      "pages": [
+        24,
+        24
+      ],
+      "title": "FAST R-CNN"
+    },
+    {
+      "pages": [
+        25,
+        25
+      ],
+      "title": "FAST R-CNN"
+    },
+    {
+      "pages": [
+        26,
+        26
+      ],
+      "title": "FAST R-CNN"
+    },
+    {
+      "pages": [
+        27,
+        27
+      ],
+      "title": "FASTER R-CNN"
+    },
+    {
+      "pages": [
+        28,
+        28
+      ],
+      "title": "FASTER R-CNN"
+    },
+    {
+      "pages": [
+        29,
+        29
+      ],
+      "title": "FASTER R-CNN"
+    },
+    {
+      "pages": [
+        30,
+        30
+      ],
+      "title": "YOLO"
+    },
+    {
+      "pages": [
+        31,
+        31
+      ],
+      "title": "YOLO"
+    },
+    {
+      "pages": [
+        32,
+        32
+      ],
+      "title": "YOLO"
+    },
+    {
+      "pages": [
+        33,
+        33
+      ],
+      "title": "YOLO"
+    },
+    {
+      "pages": [
+        34,
+        34
+      ],
+      "title": "YOLO"
+    },
+    {
+      "pages": [
+        35,
+        35
+      ],
+      "title": "FROM HAND-CRAFTED PIPELINES TO SET PREDICTION"
+    },
+    {
+      "pages": [
+        36,
+        36
+      ],
+      "title": "OBJECT DETECTION"
+    },
+    {
+      "pages": [
+        37,
+        37
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        38,
+        38
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        39,
+        39
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        40,
+        40
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        41,
+        41
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        42,
+        42
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        43,
+        43
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        44,
+        44
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        45,
+        45
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        46,
+        46
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        47,
+        47
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        48,
+        48
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        49,
+        49
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        50,
+        50
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        51,
+        51
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        52,
+        52
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        53,
+        53
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        54,
+        54
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        55,
+        55
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        56,
+        56
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        57,
+        57
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        58,
+        58
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        59,
+        59
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        60,
+        60
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        61,
+        61
+      ],
+      "title": "DETR AND ITS EXTENSIONS"
+    },
+    {
+      "pages": [
+        62,
+        62
+      ],
+      "title": "THANK YOU!"
+    }
+  ],
+  "windows": [
+    {
+      "start": 0.0,
+      "end": 60.0
+    },
+    {
+      "start": 60.0,
+      "end": 120.0
+    },
+    {
+      "start": 120.0,
+      "end": 180.0
+    },
+    {
+      "start": 180.0,
+      "end": 240.0
+    },
+    {
+      "start": 240.0,
+      "end": 300.0
+    },
+    {
+      "start": 300.0,
+      "end": 360.0
+    },
+    {
+      "start": 360.0,
+      "end": 420.0
+    },
+    {
+      "start": 420.0,
+      "end": 480.0
+    },
+    {
+      "start": 480.0,
+      "end": 540.0
+    },
+    {
+      "start": 540.0,
+      "end": 600.0
+    },
+    {
+      "start": 600.0,
+      "end": 660.0
+    },
+    {
+      "start": 660.0,
+      "end": 720.0
+    },
+    {
+      "start": 720.0,
+      "end": 780.0
+    },
+    {
+      "start": 780.0,
+      "end": 840.0
+    },
+    {
+      "start": 840.0,
+      "end": 900.0
+    },
+    {
+      "start": 900.0,
+      "end": 960.0
+    },
+    {
+      "start": 960.0,
+      "end": 1020.0
+    },
+    {
+      "start": 1020.0,
+      "end": 1080.0
+    },
+    {
+      "start": 1080.0,
+      "end": 1140.0
+    },
+    {
+      "start": 1140.0,
+      "end": 1200.0
+    },
+    {
+      "start": 1200.0,
+      "end": 1260.0
+    },
+    {
+      "start": 1260.0,
+      "end": 1320.0
+    },
+    {
+      "start": 1320.0,
+      "end": 1380.0
+    },
+    {
+      "start": 1380.0,
+      "end": 1440.0
+    },
+    {
+      "start": 1440.0,
+      "end": 1500.0
+    },
+    {
+      "start": 1500.0,
+      "end": 1560.0
+    },
+    {
+      "start": 1560.0,
+      "end": 1620.0
+    },
+    {
+      "start": 1620.0,
+      "end": 1680.0
+    },
+    {
+      "start": 1680.0,
+      "end": 1740.0
+    },
+    {
+      "start": 1740.0,
+      "end": 1800.0
+    },
+    {
+      "start": 1800.0,
+      "end": 1860.0
+    },
+    {
+      "start": 1860.0,
+      "end": 1920.0
+    },
+    {
+      "start": 1920.0,
+      "end": 1980.0
+    },
+    {
+      "start": 1980.0,
+      "end": 2040.0
+    },
+    {
+      "start": 2040.0,
+      "end": 2100.0
+    },
+    {
+      "start": 2100.0,
+      "end": 2160.0
+    },
+    {
+      "start": 2160.0,
+      "end": 2220.0
+    },
+    {
+      "start": 2220.0,
+      "end": 2280.0
+    },
+    {
+      "start": 2280.0,
+      "end": 2340.0
+    },
+    {
+      "start": 2340.0,
+      "end": 2400.0
+    },
+    {
+      "start": 2400.0,
+      "end": 2460.0
+    },
+    {
+      "start": 2460.0,
+      "end": 2520.0
+    },
+    {
+      "start": 2520.0,
+      "end": 2580.0
+    },
+    {
+      "start": 2580.0,
+      "end": 2640.0
+    },
+    {
+      "start": 2640.0,
+      "end": 2700.0
+    },
+    {
+      "start": 2700.0,
+      "end": 2760.0
+    },
+    {
+      "start": 2760.0,
+      "end": 2820.0
+    },
+    {
+      "start": 2820.0,
+      "end": 2880.0
+    },
+    {
+      "start": 2880.0,
+      "end": 2940.0
+    },
+    {
+      "start": 2940.0,
+      "end": 3000.0
+    },
+    {
+      "start": 3000.0,
+      "end": 3060.0
+    },
+    {
+      "start": 3060.0,
+      "end": 3120.0
+    },
+    {
+      "start": 3120.0,
+      "end": 3180.0
+    },
+    {
+      "start": 3180.0,
+      "end": 3240.0
+    },
+    {
+      "start": 3240.0,
+      "end": 3300.0
+    },
+    {
+      "start": 3300.0,
+      "end": 3360.0
+    },
+    {
+      "start": 3360.0,
+      "end": 3420.0
+    },
+    {
+      "start": 3420.0,
+      "end": 3480.0
+    },
+    {
+      "start": 3480.0,
+      "end": 3540.0
+    },
+    {
+      "start": 3540.0,
+      "end": 3600.0
+    },
+    {
+      "start": 3600.0,
+      "end": 3660.0
+    },
+    {
+      "start": 3660.0,
+      "end": 3720.0
+    },
+    {
+      "start": 3720.0,
+      "end": 3780.0
+    },
+    {
+      "start": 3780.0,
+      "end": 3840.0
+    },
+    {
+      "start": 3840.0,
+      "end": 3900.0
+    },
+    {
+      "start": 3900.0,
+      "end": 3960.0
+    },
+    {
+      "start": 3960.0,
+      "end": 4020.0
+    },
+    {
+      "start": 4020.0,
+      "end": 4080.0
+    },
+    {
+      "start": 4080.0,
+      "end": 4140.0
+    },
+    {
+      "start": 4140.0,
+      "end": 4200.0
+    },
+    {
+      "start": 4200.0,
+      "end": 4260.0
+    },
+    {
+      "start": 4260.0,
+      "end": 4320.0
+    },
+    {
+      "start": 4320.0,
+      "end": 4380.0
+    },
+    {
+      "start": 4380.0,
+      "end": 4440.0
+    },
+    {
+      "start": 4440.0,
+      "end": 4500.0
+    },
+    {
+      "start": 4500.0,
+      "end": 4560.0
+    },
+    {
+      "start": 4560.0,
+      "end": 4620.0
+    },
+    {
+      "start": 4620.0,
+      "end": 4680.0
+    },
+    {
+      "start": 4680.0,
+      "end": 4740.0
+    },
+    {
+      "start": 4740.0,
+      "end": 4800.0
+    },
+    {
+      "start": 4800.0,
+      "end": 4860.0
+    },
+    {
+      "start": 4860.0,
+      "end": 4920.0
+    },
+    {
+      "start": 4920.0,
+      "end": 4980.0
+    },
+    {
+      "start": 4980.0,
+      "end": 5040.0
+    },
+    {
+      "start": 5040.0,
+      "end": 5100.0
+    },
+    {
+      "start": 5100.0,
+      "end": 5160.0
+    },
+    {
+      "start": 5160.0,
+      "end": 5220.0
+    },
+    {
+      "start": 5220.0,
+      "end": 5280.0
+    },
+    {
+      "start": 5280.0,
+      "end": 5340.0
+    },
+    {
+      "start": 5340.0,
+      "end": 5400.0
+    },
+    {
+      "start": 5400.0,
+      "end": 5460.0
+    },
+    {
+      "start": 5460.0,
+      "end": 5520.0
+    },
+    {
+      "start": 5520.0,
+      "end": 5580.0
+    },
+    {
+      "start": 5580.0,
+      "end": 5640.0
+    },
+    {
+      "start": 5640.0,
+      "end": 5700.0
+    },
+    {
+      "start": 5700.0,
+      "end": 5760.0
+    },
+    {
+      "start": 5760.0,
+      "end": 5820.0
+    },
+    {
+      "start": 5820.0,
+      "end": 5880.0
+    },
+    {
+      "start": 5880.0,
+      "end": 5940.0
+    },
+    {
+      "start": 5940.0,
+      "end": 6000.0
+    },
+    {
+      "start": 6000.0,
+      "end": 6014.69
+    }
+  ],
+  "assignments": {
+    "uniform": [
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      3,
+      4,
+      4,
+      5,
+      5,
+      6,
+      7,
+      7,
+      8,
+      8,
+      9,
+      10,
+      10,
+      11,
+      11,
+      12,
+      13,
+      13,
+      14,
+      14,
+      15,
+      16,
+      16,
+      17,
+      17,
+      18,
+      19,
+      19,
+      20,
+      20,
+      21,
+      21,
+      22,
+      23,
+      23,
+      24,
+      24,
+      25,
+      26,
+      26,
+      27,
+      27,
+      28,
+      29,
+      29,
+      30,
+      30,
+      31,
+      32,
+      32,
+      33,
+      33,
+      34,
+      35,
+      35,
+      36,
+      36,
+      37,
+      38,
+      38,
+      39,
+      39,
+      40,
+      40,
+      41,
+      42,
+      42,
+      43,
+      43,
+      44,
+      45,
+      45,
+      46,
+      46,
+      47,
+      48,
+      48,
+      49,
+      49,
+      50,
+      51,
+      51,
+      52,
+      52,
+      53,
+      54,
+      54,
+      55,
+      55,
+      56,
+      57,
+      57,
+      58,
+      58,
+      59
+    ],
+    "plain": [
+      17,
+      17,
+      17,
+      3,
+      1,
+      1,
+      4,
+      6,
+      6,
+      7,
+      4,
+      4,
+      39,
+      7,
+      4,
+      4,
+      17,
+      38,
+      4,
+      7,
+      4,
+      7,
+      35,
+      17,
+      17,
+      28,
+      28,
+      17,
+      17,
+      28,
+      28,
+      17,
+      27,
+      36,
+      28,
+      46,
+      36,
+      36,
+      28,
+      46,
+      27,
+      39,
+      36,
+      36,
+      36,
+      36,
+      46,
+      28,
+      27,
+      46,
+      28,
+      46,
+      18,
+      18,
+      28,
+      17,
+      32,
+      32,
+      18,
+      32,
+      21,
+      24,
+      22,
+      20,
+      20,
+      4,
+      24,
+      24,
+      24,
+      21,
+      32,
+      39,
+      27,
+      31,
+      39,
+      17,
+      31,
+      39,
+      18,
+      17,
+      17,
+      52,
+      32,
+      17,
+      33,
+      34,
+      1,
+      35,
+      35,
+      50,
+      39,
+      17,
+      39,
+      38,
+      39,
+      39,
+      53,
+      41,
+      32,
+      32,
+      59
+    ],
+    "dtw": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      7,
+      9,
+      17,
+      17,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      33,
+      33,
+      34,
+      34,
+      35,
+      35,
+      35,
+      39,
+      39,
+      39,
+      39,
+      39,
+      39,
+      53,
+      53,
+      55,
+      56,
+      59
+    ]
+  },
+  "keywords": [
+    [
+      "june",
+      "goal",
+      "pluto",
+      "space",
+      "moves",
+      "charon",
+      "sergey",
+      "nikolenko",
+      "harbour",
+      "university"
+    ],
+    [
+      "bert",
+      "images",
+      "visual",
+      "sequences",
+      "model",
+      "captions",
+      "jointly",
+      "pretrained",
+      "system",
+      "embed"
+    ],
+    [
+      "caption",
+      "image",
+      "sentence",
+      "distinguish",
+      "whether",
+      "given",
+      "matches",
+      "sample",
+      "show",
+      "words"
+    ],
+    [
+      "vit",
+      "transformer",
+      "based",
+      "successful",
+      "straighforward",
+      "text",
+      "tokens",
+      "dosovitsky",
+      "modification",
+      "vision"
+    ],
+    [
+      "patches",
+      "𝑊image",
+      "𝐶channels",
+      "𝐶becomes",
+      "fit",
+      "cut",
+      "sequence",
+      "number",
+      "vit",
+      "input"
+    ],
+    [
+      "embeddings",
+      "like",
+      "bert",
+      "transformer",
+      "replacing",
+      "mask",
+      "embedding",
+      "turned",
+      "via",
+      "simple"
+    ],
+    [
+      "encodings",
+      "vit",
+      "positional",
+      "transformer",
+      "information",
+      "interestingly",
+      "original",
+      "though",
+      "experimented",
+      "difference"
+    ],
+    [
+      "swin",
+      "shifted",
+      "similar",
+      "hierarchical",
+      "fashion",
+      "windows",
+      "liu",
+      "vit",
+      "transformers",
+      "transformer"
+    ],
+    [
+      "patches",
+      "self",
+      "image",
+      "attention",
+      "processes",
+      "scales",
+      "computing",
+      "shift",
+      "layers",
+      "providing"
+    ],
+    [
+      "swin",
+      "goes",
+      "reducing",
+      "backbones",
+      "larger",
+      "resolutions",
+      "segmentation",
+      "geometry",
+      "classical",
+      "scale"
+    ],
+    [
+      "swin",
+      "transformer",
+      "iteration",
+      "scaled",
+      "billion",
+      "allowed",
+      "improving",
+      "state",
+      "art",
+      "board"
+    ],
+    [
+      "quadratic",
+      "perceiver",
+      "queries",
+      "deepmind",
+      "2021a",
+      "purpose",
+      "numerous",
+      "modalities",
+      "avoid",
+      "latent"
+    ],
+    [
+      "clouds",
+      "modality",
+      "encoders",
+      "point",
+      "audio",
+      "video",
+      "specific",
+      "change",
+      "trained",
+      "images"
+    ],
+    [
+      "maps",
+      "individual",
+      "pixels",
+      "perceiver",
+      "attention"
+    ],
+    [
+      "tasks",
+      "outputs",
+      "dense",
+      "like",
+      "perceiver",
+      "2021b",
+      "next",
+      "version",
+      "concentrates",
+      "various"
+    ],
+    [
+      "output",
+      "perceiver",
+      "constructed",
+      "automatically",
+      "combining",
+      "describe",
+      "properties",
+      "coordinates",
+      "actual",
+      "vectors"
+    ],
+    [
+      "detection",
+      "object"
+    ],
+    [
+      "problem",
+      "classification",
+      "objects",
+      "setting",
+      "already",
+      "discussed",
+      "architectures",
+      "computer",
+      "enough",
+      "recognize"
+    ],
+    [
+      "cnn",
+      "convnet",
+      "external",
+      "imagenet",
+      "fine",
+      "tuned",
+      "necessary",
+      "dataset",
+      "classify",
+      "girshick"
+    ],
+    [
+      "visualizing",
+      "shows",
+      "activation",
+      "neuron",
+      "regions",
+      "high",
+      "result",
+      "layer",
+      "image",
+      "cnn"
+    ],
+    [
+      "regression",
+      "cnn",
+      "localize",
+      "last",
+      "pooling",
+      "excellent",
+      "won",
+      "ilsvrc2013",
+      "plus",
+      "linear"
+    ],
+    [
+      "cnn",
+      "train",
+      "svm",
+      "regressors",
+      "need",
+      "features",
+      "box",
+      "many",
+      "steps",
+      "first"
+    ],
+    [
+      "error",
+      "cnn",
+      "fast",
+      "region",
+      "loss",
+      "hence",
+      "roi",
+      "interest",
+      "collects",
+      "orders"
+    ],
+    [
+      "candidates",
+      "come",
+      "help",
+      "themselves",
+      "turned",
+      "still",
+      "much",
+      "fast",
+      "selective",
+      "search"
+    ],
+    [
+      "network",
+      "faster",
+      "cnn",
+      "choose",
+      "turns",
+      "embedded",
+      "ren",
+      "proposal",
+      "bottleneck",
+      "separate"
+    ],
+    [
+      "evaluates",
+      "possibility",
+      "predefined",
+      "individual",
+      "set",
+      "faster",
+      "anchor",
+      "boxes",
+      "cnn"
+    ],
+    [
+      "pascal",
+      "voc",
+      "detector",
+      "evaluation",
+      "metrics",
+      "relevant",
+      "best",
+      "still",
+      "time",
+      "good"
+    ],
+    [
+      "look",
+      "yolo",
+      "redmon",
+      "themselves",
+      "pass",
+      "single",
+      "bounding",
+      "objects",
+      "boxes"
+    ],
+    [
+      "obj",
+      "bbox",
+      "split",
+      "𝑆grid",
+      "probabilities",
+      "simply",
+      "class𝑖",
+      "tensor",
+      "size",
+      "consists"
+    ],
+    [
+      "yolo",
+      "architecture"
+    ],
+    [
+      "end",
+      "𝟙obj",
+      "iff",
+      "𝑗th",
+      "predictor",
+      "𝑖is",
+      "responsible",
+      "predicting",
+      "really",
+      "cell"
+    ],
+    [
+      "faster",
+      "slightly",
+      "worse",
+      "get",
+      "results",
+      "much",
+      "yolo",
+      "box",
+      "cnn"
+    ],
+    [
+      "nms",
+      "set",
+      "detectors",
+      "non",
+      "hand",
+      "end",
+      "anchors",
+      "prediction",
+      "transformer",
+      "cnn"
+    ],
+    [
+      "transformers",
+      "detection",
+      "object"
+    ],
+    [
+      "set",
+      "based",
+      "detection",
+      "transformer",
+      "detr",
+      "adaptation",
+      "gives",
+      "unique",
+      "carion",
+      "direct"
+    ],
+    [
+      "output",
+      "encoder",
+      "small",
+      "features",
+      "positional",
+      "detr",
+      "object",
+      "traditional",
+      "anything",
+      "flattens"
+    ],
+    [
+      "𝑙match",
+      "𝑙box",
+      "loss",
+      "matching",
+      "function",
+      "since",
+      "𝑁must",
+      "find",
+      "permutation",
+      "arg"
+    ],
+    [
+      "able",
+      "distribute",
+      "instances",
+      "results",
+      "across",
+      "heads",
+      "detr",
+      "good",
+      "object",
+      "attention"
+    ],
+    [
+      "boundaries",
+      "decoder",
+      "object",
+      "attention",
+      "likely",
+      "separates",
+      "figure",
+      "localized",
+      "instances",
+      "global"
+    ],
+    [
+      "well",
+      "deformable",
+      "detr",
+      "works",
+      "complexity",
+      "makes",
+      "difficult",
+      "zhu",
+      "quadratic",
+      "multi"
+    ],
+    [
+      "general",
+      "architecture",
+      "extensions",
+      "detr"
+    ],
+    [
+      "queries",
+      "spatial",
+      "detr",
+      "boxes",
+      "essentially",
+      "flexible",
+      "globally",
+      "depend",
+      "without",
+      "trains"
+    ],
+    [
+      "layer",
+      "anchor",
+      "detr",
+      "dynamic",
+      "return",
+      "gradually",
+      "refined",
+      "dab",
+      "specific",
+      "semantics"
+    ],
+    [
+      "attention",
+      "width",
+      "height",
+      "modulate",
+      "cross",
+      "becomes",
+      "better",
+      "helps",
+      "speed",
+      "used"
+    ],
+    [
+      "overview",
+      "extensions",
+      "detr"
+    ],
+    [
+      "weights",
+      "spatial",
+      "detr",
+      "attention",
+      "smca",
+      "spatially",
+      "modulated",
+      "gao",
+      "modulates",
+      "priors"
+    ],
+    [
+      "another",
+      "training",
+      "optimal",
+      "lead",
+      "completely",
+      "unstable",
+      "especially",
+      "objective",
+      "reconstruction",
+      "noisy"
+    ],
+    [
+      "offset",
+      "anchors",
+      "prediction",
+      "detr",
+      "improves",
+      "due",
+      "instability",
+      "serve",
+      "located",
+      "closer"
+    ],
+    [
+      "detr",
+      "improved",
+      "zhang",
+      "structure",
+      "less",
+      "denoising",
+      "modification",
+      "dino",
+      "basic",
+      "anchor"
+    ],
+    [
+      "anchors",
+      "bad",
+      "negative",
+      "mitigate",
+      "inputs",
+      "noise",
+      "rejected",
+      "needs",
+      "improve",
+      "learning"
+    ],
+    [
+      "queries",
+      "mixed",
+      "selection",
+      "initialized",
+      "content",
+      "remain",
+      "independent",
+      "proposals",
+      "query",
+      "encoder"
+    ],
+    [
+      "updated",
+      "step",
+      "auxiliary",
+      "current",
+      "layer",
+      "loss",
+      "based",
+      "boxes",
+      "lookahead",
+      "depends"
+    ],
+    [
+      "results",
+      "left",
+      "resnet",
+      "backbone",
+      "fast",
+      "good",
+      "training",
+      "extensions",
+      "detr"
+    ],
+    [
+      "jia",
+      "interesting",
+      "copy",
+      "masks",
+      "groups",
+      "simple",
+      "positive",
+      "additional",
+      "separate",
+      "deformable"
+    ],
+    [
+      "detr",
+      "else",
+      "fix",
+      "dai",
+      "unsupervised",
+      "supervised",
+      "take",
+      "ask",
+      "reconstruct",
+      "needed"
+    ],
+    [
+      "objects",
+      "detreg",
+      "bar",
+      "crops",
+      "found",
+      "algorithms",
+      "pseudo",
+      "instead",
+      "regions",
+      "possibly"
+    ],
+    [
+      "zong",
+      "models",
+      "new",
+      "auxiliary",
+      "positive",
+      "several",
+      "heads",
+      "examples",
+      "detr",
+      "adds"
+    ],
+    [
+      "graph",
+      "resnet",
+      "backbone",
+      "extensions",
+      "detr"
+    ],
+    [
+      "survey",
+      "shehzadi",
+      "overview",
+      "old",
+      "extensions",
+      "detr"
+    ],
+    [
+      "thank",
+      "attention"
+    ]
+  ],
+  "metrics": {
+    "uniform": {
+      "keyword_hit_rate": 0.1418,
+      "slide_coverage": 1.0,
+      "monotonicity": 1.0,
+      "kendall_tau_b": 0.9959
+    },
+    "plain": {
+      "keyword_hit_rate": 0.4016,
+      "slide_coverage": 0.45,
+      "monotonicity": 0.62,
+      "kendall_tau_b": 0.3697
+    },
+    "dtw": {
+      "keyword_hit_rate": 0.3667,
+      "slide_coverage": 0.25,
+      "monotonicity": 1.0,
+      "kendall_tau_b": 0.9002
+    },
+    "plain_vs_dtw": {
+      "windows_differing": 0.6535,
+      "mean_unit_distance": 7.8614
+    }
+  }
+}

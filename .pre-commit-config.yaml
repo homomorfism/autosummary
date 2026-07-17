@@ -1,0 +1,15 @@
+# Secret scanning before every commit.
+# Install once: uv run pre-commit install
+# Run manually over everything: uv run pre-commit run --all-files
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+  # rev is kept in sync with the ruff version in uv.lock
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.20
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format

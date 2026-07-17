@@ -1,0 +1,130 @@
+{
+  "title": "Generative Adversarial Networks",
+  "questions": [
+    {
+      "question": "Under the taxonomy of generative models presented in the lecture, GANs are classified as which type of density model?",
+      "options": [
+        {
+          "text": "Explicit density model with tractable density",
+          "is_correct": false,
+          "explanation": "The conspect describes explicit tractable models like autoregressive and flow-based models, not GANs. GANs are implicit."
+        },
+        {
+          "text": "Explicit density model with approximate density",
+          "is_correct": false,
+          "explanation": "Explicit approximate models include VAEs, which approximate the density with a simpler distribution. GANs do not approximate p(x); they are implicit."
+        },
+        {
+          "text": "Implicit density model",
+          "is_correct": true,
+          "explanation": "The lecture states: 'Implicit density models do not supply a formula for p(x); they are pure samplers. The most prominent member is the Generative Adversarial Network (GAN).'"
+        },
+        {
+          "text": "Autoregressive density model",
+          "is_correct": false,
+          "explanation": "Autoregressive models are explicit tractable, a separate category from GANs."
+        }
+      ]
+    },
+    {
+      "question": "Why is the original GAN generator loss 𝔼[log(1−D(G(z)))] problematic in practice, and what replacement is commonly used?",
+      "options": [
+        {
+          "text": "It leads to mode collapse because the generator ignores certain modes; the fix is to add a reconstruction loss.",
+          "is_correct": false,
+          "explanation": "Mode collapse is a separate issue where the generator produces limited variety, not directly caused by the saturating gradient of the original loss."
+        },
+        {
+          "text": "Its gradient saturates when the discriminator is confident, providing no learning signal; instead, the generator maximizes 𝔼[log D(G(z))].",
+          "is_correct": true,
+          "explanation": "The lecture explains: 'Minimising 𝔼[log(1−D(G(z)))] uses a sigmoid... When the discriminator is confident and correct... its gradient saturates... Solution: flip the loss. Instead... maximise the probability of it being wrong: −𝔼[log D(G(z))].'"
+        },
+        {
+          "text": "It causes the discriminator to overfit to real data; the solution is to use label smoothing.",
+          "is_correct": false,
+          "explanation": "The discriminator overfitting is not the problem stated; the problem is gradient saturation. Label smoothing is not mentioned in this context."
+        },
+        {
+          "text": "It makes training unstable because the loss is non-convex; the replacement is the least-squares loss from LSGAN.",
+          "is_correct": false,
+          "explanation": "LSGAN uses a quadratic loss to avoid saturation, but the immediate practical fix to the original GAN loss is to maximize log D(G(z)), not to switch to least squares."
+        }
+      ]
+    },
+    {
+      "question": "What does a linear walk between two latent vectors in the generator's input space typically demonstrate?",
+      "options": [
+        {
+          "text": "That the discriminator's loss value correlates strongly with the quality of generated samples",
+          "is_correct": false,
+          "explanation": "The correlation of loss with sample quality is a feature of WGAN, not what a linear walk primarily shows."
+        },
+        {
+          "text": "That the generator has learned a smooth manifold rather than memorizing training points",
+          "is_correct": true,
+          "explanation": "The conspect says: 'A more convincing test is a linear walk... If the generator has learned a smooth manifold, every interpolated z should decode to a plausible image. If it simply memorised a few training points, interpolated images will be nonsensical blurs.'"
+        },
+        {
+          "text": "That the generator can produce images at arbitrarily high resolutions without additional training",
+          "is_correct": false,
+          "explanation": "ProGAN trains progressively to increase resolution, but the linear walk does not test resolution capability."
+        },
+        {
+          "text": "That the generator and discriminator have reached a global optimum of the minimax game",
+          "is_correct": false,
+          "explanation": "The minimax game rarely reaches a global optimum, and the linear walk is an empirical test of smoothness, not global optimality."
+        }
+      ]
+    },
+    {
+      "question": "Why does the KL divergence often fail to provide useful gradients when training high-dimensional image generators, and what distance does the Wasserstein GAN use instead?",
+      "options": [
+        {
+          "text": "KL divergence is zero when distributions are disjoint; WGAN uses the Jensen-Shannon divergence.",
+          "is_correct": false,
+          "explanation": "KL divergence becomes infinite, not zero. WGAN uses the Earth Mover distance, not Jensen-Shannon (which is the original GAN's divergence)."
+        },
+        {
+          "text": "KL divergence is infinite when the distributions' supports are disjoint; WGAN uses the Earth Mover distance.",
+          "is_correct": true,
+          "explanation": "The lecture explains: 'In image generation, both... distributions... are concentrated on low-dimensional manifolds... Their supports are almost disjoint... The KL divergence then becomes infinite and provides no useful gradient... The Earth Mover (Wasserstein-1) distance is designed precisely for this situation.'"
+        },
+        {
+          "text": "KL divergence is only defined for discrete distributions; WGAN uses a continuous relaxation.",
+          "is_correct": false,
+          "explanation": "KL divergence is well-defined for continuous distributions; the issue is disjoint supports, not continuity."
+        },
+        {
+          "text": "KL divergence requires an invertible generator; instead, WGAN uses a critic network to approximate the divergence.",
+          "is_correct": false,
+          "explanation": "Invertible generators are characteristic of flow-based models, not a requirement for KL divergence. WGAN uses a critic to estimate the Wasserstein distance, not because KL requires invertibility."
+        }
+      ]
+    },
+    {
+      "question": "What is the key modification that InfoGAN makes to the standard GAN framework to learn disentangled representations?",
+      "options": [
+        {
+          "text": "It adds an auxiliary classifier to the discriminator that predicts the class labels.",
+          "is_correct": false,
+          "explanation": "This is characteristic of AC-GAN, not InfoGAN. InfoGAN does not add a classifier; it adds a network Q to approximate the posterior of the latent code to maximize mutual information."
+        },
+        {
+          "text": "It maximizes mutual information between a subset of the latent variables and the generator's output.",
+          "is_correct": true,
+          "explanation": "The conspect states: 'InfoGAN therefore maximises the mutual information I(c, G(z,c)), using a variational lower bound... Example on MNIST: c1 discrete 10-way code learns digits without supervised labels.'"
+        },
+        {
+          "text": "It uses a variational autoencoder as the generator to enforce a structured latent space.",
+          "is_correct": false,
+          "explanation": "InfoGAN does not replace the generator with a VAE; it keeps the adversarial setup and adds an information-theoretic objective."
+        },
+        {
+          "text": "It conditions the generator on additional labels provided during training, making it a conditional GAN.",
+          "is_correct": false,
+          "explanation": "InfoGAN's latent code c is part of the input, but it is not provided as labels; it is unstructured noise that the model learns to disentangle without supervision."
+        }
+      ]
+    }
+  ]
+}

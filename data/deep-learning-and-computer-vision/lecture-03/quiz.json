@@ -1,0 +1,130 @@
+{
+  "title": "Gradient Descent and General DL Remarks",
+  "questions": [
+    {
+      "question": "Which of the following is true about the ReLU activation function?",
+      "options": [
+        {
+          "text": "ReLU saturates for both negative and positive inputs, stopping learning.",
+          "is_correct": false,
+          "explanation": "ReLU's derivative is 1 for positive inputs, so no saturation occurs there; learning continues. The conspect states it does not saturate on the positive side."
+        },
+        {
+          "text": "ReLU saturates only for negative inputs, where its gradient is zero.",
+          "is_correct": true,
+          "explanation": "As per the conspect, on the negative side ReLU produces exact zeros and the derivative is zero—hence saturation. On the positive side the gradient is 1, so no saturation."
+        },
+        {
+          "text": "ReLU saturates only for positive inputs, due to large activations.",
+          "is_correct": false,
+          "explanation": "Positive inputs have gradient 1, not zero; saturation (vanishing gradient) occurs only on the negative side."
+        },
+        {
+          "text": "ReLU never saturates, because its derivative is non-zero almost everywhere.",
+          "is_correct": false,
+          "explanation": "The derivative is exactly zero for all negative inputs, meaning gradient flow stops—this is saturation. The conspect explicitly notes this negative-side saturation."
+        }
+      ]
+    },
+    {
+      "question": "Why is forward‑mode automatic differentiation impractical for training large neural networks?",
+      "options": [
+        {
+          "text": "It stores all intermediate values, making memory usage prohibitive.",
+          "is_correct": false,
+          "explanation": "Storing intermediate values is typical for backprop, not a unique flaw of forward‑mode. The real issue is the number of passes, as the conspect explains."
+        },
+        {
+          "text": "It requires a separate forward pass for each network parameter.",
+          "is_correct": true,
+          "explanation": "With millions of parameters, forward‑mode would need a separate graph traversal per parameter (or store partials at every node), making it computationally prohibitive. The conspect highlights this as the core scalability problem."
+        },
+        {
+          "text": "It cannot handle non‑linear activation functions like ReLU or sigmoid.",
+          "is_correct": false,
+          "explanation": "Forward‑mode can differentiate through non‑linearities using the chain rule; the conspect gives an example with elementary operations. The limitation is computational, not expressive."
+        },
+        {
+          "text": "Its gradient estimates are biased and do not guarantee convergence.",
+          "is_correct": false,
+          "explanation": "Forward‑mode gives exact derivatives when applied to the computational graph, not stochastic estimates. The impracticality stems from the number of passes, not bias."
+        }
+      ]
+    },
+    {
+      "question": "What does SGD with a constant learning rate achieve on a convex loss function?",
+      "options": [
+        {
+          "text": "It converges exactly to the global minimum after many iterations.",
+          "is_correct": false,
+          "explanation": "With constant step size, the variance term in the convergence bound prevents exact convergence; SGD settles into a ball around the optimum, as derived in the conspect."
+        },
+        {
+          "text": "It oscillates around the minimum but eventually settles at the exact point.",
+          "is_correct": false,
+          "explanation": "The conspect's bound shows the error tends to G²h/2, meaning it never reaches the exact point; it remains in a neighborhood proportional to the step size."
+        },
+        {
+          "text": "It converges to a ball around the optimum, with radius proportional to the step size.",
+          "is_correct": true,
+          "explanation": "The conspect states that with constant step size h, the bound tends to G²h/2, implying convergence to an uncertainty ball whose radius is proportional to h."
+        },
+        {
+          "text": "It diverges because the stochastic noise accumulates and dominates.",
+          "is_correct": false,
+          "explanation": "Although noise causes a ball, the bound shows convergence (in expectation) to a neighborhood; divergence is not guaranteed under the stated assumptions."
+        }
+      ]
+    },
+    {
+      "question": "Why does standard momentum help in optimizing ill‑conditioned quadratics like x² + ρ y² (ρ ≪ 1)?",
+      "options": [
+        {
+          "text": "It adaptively scales the learning rate, increasing it along the shallow dimension.",
+          "is_correct": false,
+          "explanation": "Adaptive scaling is characteristic of methods like Adam, not momentum. The conspect describes momentum as smoothing updates without per‑parameter learing rate adaptation."
+        },
+        {
+          "text": "It dampens oscillations along the steep axis and accelerates along the shallow one.",
+          "is_correct": true,
+          "explanation": "As per the conspect, momentum keeps velocity, stabilising orthogonal oscillations and accumulating speed in consistently pointed directions—exactly dampening the steep direction and accelerating the shallow one."
+        },
+        {
+          "text": "It normalizes gradient updates using the exponential moving average of squares.",
+          "is_correct": false,
+          "explanation": "This describes RMSprop/Adam; momentum uses an EMA of the gradient itself, not its square. The conspect distinguishes these mechanisms."
+        },
+        {
+          "text": "It computes the gradient at a lookahead point to anticipate the curvature.",
+          "is_correct": false,
+          "explanation": "That is Nesterov momentum; standard momentum does not use a lookahead step. The conspect introduces Nesterov separately."
+        }
+      ]
+    },
+    {
+      "question": "What is the primary advantage of Adam over standard SGD with momentum?",
+      "options": [
+        {
+          "text": "It incorporates Nesterov momentum for accelerated convergence.",
+          "is_correct": false,
+          "explanation": "Nadam incorporates Nesterov, not Adam. The conspect states Adam uses classical momentum (EMA of gradients) combined with adaptive scaling."
+        },
+        {
+          "text": "It maintains per‑parameter learning rates based on gradient history.",
+          "is_correct": true,
+          "explanation": "Adam keeps a running average of squared gradients (v_t), giving each parameter an individual effective learning rate. The conspect highlights this as the key improvement over fixed‑momentum SGD."
+        },
+        {
+          "text": "It guarantees convergence even on non‑convex loss functions.",
+          "is_correct": false,
+          "explanation": "Adam's original convergence proof contained a mistake; it does not offer a rigorous guarantee. The conspect notes the AMSGrad correction but also that practical Adam lacks such guarantees."
+        },
+        {
+          "text": "It automatically finds an optimal learning rate schedule without tuning.",
+          "is_correct": false,
+          "explanation": "Adam still requires a global learning rate hyperparameter η; it does not automatically determine an optimal schedule. The conspect mentions default settings work well but tuning may still be needed."
+        }
+      ]
+    }
+  ]
+}

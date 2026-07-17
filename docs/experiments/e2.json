@@ -1,0 +1,179 @@
+{
+  "settings": {
+    "google_usd_min": 0.024,
+    "gpu_usd_hr": 0.35
+  },
+  "lectures": [
+    {
+      "lecture": "lecture-01",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 12570.238563,
+          "latency_sec": 1235.13,
+          "rtf": 0.09825827837791053
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 12570.238563,
+          "latency_sec": 1742.57,
+          "rtf": 0.1386266450924158
+        }
+      }
+    },
+    {
+      "lecture": "lecture-02",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 11949.058313,
+          "latency_sec": 1239.1,
+          "rtf": 0.10369854824893765
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 11949.058313,
+          "latency_sec": 1651.1,
+          "rtf": 0.138178252775257
+        }
+      }
+    },
+    {
+      "lecture": "lecture-03",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 11711.077,
+          "latency_sec": 1438.57,
+          "rtf": 0.12283840333386929
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 11711.077,
+          "latency_sec": 1611.93,
+          "rtf": 0.13764148250412836
+        }
+      }
+    },
+    {
+      "lecture": "lecture-04",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 5299.258063,
+          "latency_sec": 723.62,
+          "rtf": 0.13655119101528457
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 5299.258063,
+          "latency_sec": 792.54,
+          "rtf": 0.14955678522878532
+        }
+      }
+    },
+    {
+      "lecture": "lecture-05",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 5754.32275,
+          "latency_sec": 797.21,
+          "rtf": 0.1385410646283266
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 5754.32275,
+          "latency_sec": 839.26,
+          "rtf": 0.1458486144177436
+        }
+      }
+    },
+    {
+      "lecture": "lecture-06",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 11534.0945,
+          "latency_sec": 1587.2,
+          "rtf": 0.1376094152861328
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 11534.0945,
+          "latency_sec": 1634.98,
+          "rtf": 0.1417519164595019
+        }
+      }
+    },
+    {
+      "lecture": "lecture-07",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 6014.693,
+          "latency_sec": 811.95,
+          "rtf": 0.13499442116164534
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 6014.693,
+          "latency_sec": 853.92,
+          "rtf": 0.14197233341751606
+        }
+      }
+    },
+    {
+      "lecture": "lecture-08",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 6168.589938,
+          "latency_sec": 793.63,
+          "rtf": 0.1286566310902023
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 6168.589938,
+          "latency_sec": 849.23,
+          "rtf": 0.13767003618907112
+        }
+      }
+    },
+    {
+      "lecture": "lecture-09",
+      "providers": {
+        "whisper_cpp": {
+          "model": "ggml-large-v3-turbo.bin",
+          "audio_duration_sec": 5750.514688,
+          "latency_sec": 812.78,
+          "rtf": 0.14134039196458095
+        },
+        "google_stt": {
+          "model": "latest_long",
+          "audio_duration_sec": 5750.514688,
+          "latency_sec": 824.28,
+          "rtf": 0.1433402129586909
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "whisper_cpp": {
+      "lectures": 9,
+      "audio_hours": 21.31995744861111,
+      "rtf": 0.12298322961207564,
+      "usd_per_audio_hour": 0.04304413036422647,
+      "cost_basis": "RTF x $0.35/GPU-h (vast.ai)",
+      "local": true
+    },
+    "google_stt": {
+      "lectures": 9,
+      "audio_hours": 21.31995744861111,
+      "rtf": 0.14071075092214377,
+      "usd_per_audio_hour": 1.44,
+      "cost_basis": "API @ $0.024/min",
+      "local": false
+    }
+  }
+}

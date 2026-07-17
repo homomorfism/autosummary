@@ -1,0 +1,5146 @@
+{
+  "text": "Okay. Hello, everyone. We are continuing our discussions of deep learning and this time I am in a very noisy and not really comfortable place, but I hope that the combination of modern deep learning based noise removal techniques will work. And I hope you will hear me fine. I hope the recording will be fine. So, in any case, we stopped last time at stochastic gradient descent algorithms, right? So, basically what we discussed on the previous lecture was that, you know, a neural network is a big composition of little things, is a huge computational graph. And then, there are two different kinds of inputs for the neural network. There is the actual input, which acts like a picture. Today we will be switching to pictures, mostly. And then there are the weights, right? And yesterday, not yesterday, but two days ago, we discussed that the output of this whole computational graph would be the loss function, right? Loss function of x, y, and w, and there is also the correct answer that comes in probably at the end somewhere. And then what we actually do is we compute the overall loss function L, w, which is like the sum or the average of the small losses, of the losses on every step along the way. And then we do gradient descent, right? I'm starting with the recap because you told me that some people might do it. So then we update the weights with something like this, but not really. So we use something like this, but really we use something much more involved and complicated like, for example, the A-demovers. And that's how deep learning works in general. There still are a few general remarks that I want to make and that I will probably have to postpone, definitely not today, so I will have to postpone them probably to the beginning of next week. I still want to discuss weight initialization, which is a pretty interesting and nice topic in itself. And also I want to discuss normalization layers. You probably have heard of batch norm, batch normalization. There are several different flavors of normalization layers and what exactly they do and why they are necessary is also, in my opinion, a pretty interesting topic. But today we actually start talking about not in general what happens with the loss function still being a black box, but what happens inside this black box, right? So today we start talking about architectures of neural networks. The word architecture, in this case, basically means what's in here, what is the structure of this computational graph, and we already kind of know that it can be any directed acyclic graph, anything would work, and the only requirement is that first there are no cycles, right, so you need to be able to traverse the graph in topological order in one direction and then in the opposite direction, but also what we need to do is, what we need to be able to do is to do the elementary computations, the forward propagation and the backward propagation inside every one of these nodes, so the general picture is like this, you have elementary nodes, they constitute a graph, and you do one pass of forward propagation, one pass of web propagation, and you have your gradient, then all of these algorithms that we discussed last time, you can. So, this is the general picture, and immediately we can start just thinking about how this graph might be organized. For example, you could do it, and usually people do it, in a layered architecture, so there are layers, right? Onions have layers, and ogres have layers, famously, and what a layer means is that as you go left to right through this architecture, as you go along the computational graph, the neurons, let's say, let's call them neurons for now, the perceptrons or whatever, like the components of this layer, talk mostly to the components of the next layer, and then those components talk to the components of the next layer, right, and so on until the end. So layers are kind of these sequential slices of the computational graph, and I'm deliberately not really trying to make it formal or anything because in reality, it's a murky concept, right? So, yes, sometimes a layer indeed is characterized exactly like this, but sometimes you would have something like a skip connection, for example. So, we will see in our class, we will see networks where there are connections that go around the layers. We will definitely see around the layers from layer 1 to layer 3, and we will definitely see connections that go around a given layer and just not touch it. That would be the residual connection, and we will definitely talk about those. They are one of the most important ideas here. But anyway, the notion of layers is useful, and the first, the easiest, the most straightforward class of architectures are the feed-forward, or, well, okay, feed-forward is a more general term, but let's say fully connected networks. Fully connected networks. I don't want to make a big topic of them because there is really nothing to say. So in a fully connected network, you have layers. Every layer is a set of perceptrons, and this time it works exactly like you would expect. So the perceptrons inside a layer don't talk to each other. They talk, they receive inputs from the previous layer, and then they send outputs to all neurons of the next layer. That's what it means in this case to be fully connected. It's not a fully connected graph. But it's a fully connected bipartite graph between every pair of layers. And then probably it all comes together in a single or at least a smaller amount of perceptrons on the other end, and that gives you the output Y or whatever you want. Okay, so fully connected networks, they were important. Fully connected layers are still important. You will see a fully connected layer inside the transformer, for example, when we get the transformers. But today we start discussing a more interesting kind of architecture, a slightly more involved kind of architecture, and that is convolutional neural networks. So what are convolutional neural networks? What is the basic idea? Well, this is one of the last times, I think, in class. Maybe there will be one more time, but that's it. One of the last times in class when I will actually go back to the biological motivation of everything that's happening. So we discussed how artificial neural networks were inspired by the human brain or by the animal brain, and we discussed how the principle of connectionism actually works. But, oh, and by the way, I think we didn't discuss it, so let me just take a very quick detour here. Let me give you a very, very short remark. We discussed gradient descent in neural networks, and all artificial neural networks today are trained with gradient descent in one way or the other, so the difference is not in the basic principle, the difference is in the form of the loss function, the form of the training set, maybe definitely the architecture, etc., etc., but not in the basic principle of this solving an optimization problem, right? You have a loss function, you have a way to compute its gradients, and then you use these gradients to optimize. Well, here is a funny thing. The brain, the human brain, cannot work this way at all, and that is kind of obvious when you look at the biological structure that we discussed. So even without actually understanding how it works, even without actually knowing what the mechanism is, you can definitely say it's not gradient descent. Why? Because, as we discussed, the biological neuron, this little guy, has a lot of dendrites coming out of here, right? And the little guy also has a single axon that is the output of the biological neuron, right? And that's it. So a biological neuron can compute only one function. And to have gradient descent, you need every node in your network to compute at least two different functions. You need to be able to go forward, but you also need to be able to go backward, right? And I told you how to implement your own node in the computational graph in PyTorch. What you would actually have to do is you would have to implement two procedures, f-prop, forward propagation, and b-prop, backward propagation, what the function actually does when it goes, when you compute it, what are its derivatives, how the gradients should be recomputed as you do back propagation. Well, here is the thing. The biological neurons, the neurons in our heads cannot do that. They only have one output. So what this actually means, and this is an even deeper point than it might seem. So, okay, they cannot do gradient descent, so they have to do something else. And also what it means is that this something else that they do also has to somehow send the signal back from the end, from the point where the loss function is actually computed. I mean, I don't think it ever is explicitly computed in our brains, but somehow, at least theoretically, it's there. So between the end goal and whether we achieved it or not, you need to have a connection from there, from the end of the chain to every neuron up there, right? So you need to have loops in the human brain. In the biological brain, you absolutely have to have connections that go from here or back here, back there and everything. You have to have a lot of feedback in the brain in order to train. And the brain does have feedback, right? So here is where the analogy totally and completely ends. So we discussed that one neuron is actually a pretty good model of what's happening in the brain. One perceptron is a pretty good model of the biological neuron, especially with real activations. We discussed that, yes, our brain also works on the principle of connectionism, that is, a huge composition of simple functions can give you something very complicated. But, it cannot run on gradient descent, definitely. And the architecture cannot be similar at all. So, the brain also has layers, we'll see it just now, but between every two layers, there are feedback connections that go back. And from later layers, there are feedback connections that go all the way back. I mean, it's a mess. We don't really understand in detail what the brain's architecture is. We understand it generally in terms of, well, this is the visual cortex, and here are the layers in the visual cortex, but the actual fine structure is very, very difficult, of course. Okay, so with that remark out of the way, let's go back to these guys. These guys are Hubel and Weasel, Thorsten Weasel, and I forget the name of Hubel, who got their Nobel Prize for studying the visual cortex. And convolutional networks are partly motivated by the visual cortex. That's why I'm talking about this. But again, there will be a point where the analogy just will have to stop. I'll tell you when it happens. But first, let's begin with the bio. So back in the, I think, 1960s, 1970s, they made their famous studies of the visual cortex. And as it quite often happens in biology and in sciences like this, their actual truly novel thing that they did was having a new device. So what their advantage was compared to everybody who was before that was that they could actually make such tiny electrodes that you could attach the electrode to a single neuron and read off the activation of a single neuron on a live brain. Right? So before that, all the people could do was, you know, hope that some guy would get in the motorcycle accident and then have a stroke. And then the stroke will give you some interesting information about which part of the brain does what. But these guys, they could actually, well, okay, this is not my favorite part, but they could take a cat. If you look closely, there is a very well, fixated cat over here. And then they would actually slice open the head of the cat, of course, on painkillers. And then they would be able to attach electrodes to individual neurons and see what the individual neurons in the cat's brain actually respond to. And what they did, so what they found was that, okay, so it had been known that the visual cortex is back here in the occipital lobe, in mammals, in us and in cats. It's actually a very bad decision of nature. It's a very fragile thing that makes absolutely no sense because your eyes are in front over here. And then there is this optical nerve, this big fat pile of connections that goes all the way through your skull backwards. And, of course, it would be easier to just have the visual cortex in front, but I think the evolutionary explanation is that back when we were very far from mammals, we would have the proto-eyes up here on top of the head. And then somehow the eyes went over here and the part of the brain that processes it went over there. I have no idea why. Anyway, it is known that the visual cortex is here, the part that processes visual input, and it's easy to find like the first layer of the cortex. It's easy to see that, okay, here is where the optical nerve attaches, so these neurons take the immediate inputs from the eyes. And if you actually look at what a single neuron activates for, what a single neuron is doing on this first layer of the visual cortex, you will see that, first of all, it cannot, of course, see the whole picture. It has only that many inputs, and it has a small receptive field, as it is called. It looks at a relatively small part of the general picture, and in this small part, it recognizes something really, really simple. So on this slide, you see a sample neuron that recognizes vertical lines. So if it sees a bright vertical line in its field of vision, great, it's activated a lot, and even if you still have just a single line, but you start to rotate it, the activation dies out and basically goes to zero. And then what would you expect next? Well, you would definitely expect that then you would have layer two, the second layer that would feed off the outputs of the first layer. So it would somehow combine these simple shapes into something more complicated. Like if you had one neuron that recognizes vertical lines, another neuron that recognizes horizontal lines, boom, you put an end. You have a neuron that gets an end across them, and now you have a neuron that recognizes across in its receptive field and its visual field of vision. And Hebel and Weasel did this, and they also studied the second layer. So they discovered neurons like I just said. But then they somehow didn't go any further, and they started doing other things. And actually, that was a pretty wise decision because, again, the brain is very, very complicated. And if you look at some simplified representation of the visual cortex, you will actually see that there are layers from V1 to V4, then V5, V6, et cetera, et cetera, and, yes, there are layers, but it's not an artificial neural network. The actual structure is much more complicated. There is all sorts of feedback that goes back. There are all sorts of connections, and, yeah, I keep showing this picture for the last 10 years or so, and I suppose that since the last 10 years, it has become much more complicated. So this is from some survey, and this picture was called the most important neural pathways in the early layers of the visual cortex. So you can actually see that, yeah, there is a very well-defined first layer. Yes, the optical nerve does come in somewhere, so the first layer is easier. The second layer is also kind of clear, and then it's just a mess. Then it's like a lot of different components that do different things, so they are all interconnected with each other. Anyway, when people saw that, when they saw how small geometric shapes gradually go up layer by layer, and we didn't have a clear picture of what happens next at that point, but clearly at some point, the picture would go to something like face recognition, right? So some very complicated computer vision problems would be solved in our human brain very quickly. So people, of course, try to imitate stuff like this in computers. And actually, convolutions and convolutional networks are a very old idea. They date back at least to this very interesting architecture called the neocognitron by a Japanese researcher named Kunihiko Fukushima. He did it in the late 1970s, and I actually, if you're interested in the history of deep learning, I actually recommend you to read these papers. It's like, it's a two-page paper. It's very short, and you can definitely read it. There's nothing too complicated in there, and when you read it, you see that in 1979, he had a deep neural network, several layers. It was a convolutional network, and it had real low activations, these hinge activations that we discussed last time and that I told you only came into common practice in 2011 or 2012. But the thing he didn't have, the thing he didn't have in 1979 was learning. So there was a big composition of simple things, and they were convolutions, but they were not trainable convolutions. They were just some fixed filters that he would apply across the image. Anyway, whatever. So in a modern form, convolutional networks appeared in Jan LeCun's group. That's the main claim to fame by Jan LeCun. He developed convolutional networks for many, many years, for several decades. And in the late 1980s, they appeared already certainly in their modern form. They had training, they had convolutions and everything. And let me just walk you through a few images that will show how convolutional networks work. And it's such a brilliant idea that it's... Well, okay, it's just a brilliant idea. It's a very brilliant idea of what I would call structural regularization. You'll see what I mean. So first of all, let's have a picture like this one. And let's assume that I want to process this picture. So what do I mean by processing? Well, maybe I want to solve some computer vision task. Maybe I want to, for example, find the little boy's head on this image. So that would be object detection. We'll discuss object detection later. So where is the boy's head on this image? And the main observation, the main idea, the main assumption that is behind CNNs, that is behind convolutional neural networks, is that, well, if I'm looking for something, for some feature on an image, then it's the exact same function applied all across the image. So if I have a black box that looks at a small window and says, well, that's a boy's head, or no, that's not a boy's head, then it will be the exact same black box that I'm supposed to apply across this whole big picture, and just the output will be different. So here it will say yes, and over here it will say no. But the function is the same. The inputs are different, so the outputs, of course, are also different. So the idea of convolutional neural networks is this. Let's take a picture, or any input is just easier to, more clear to reason about pictures, but take any input, break it into small windows like this. Usually they are overlapping, like shown here. Then, for every tile like this one, apply a small neural network. So, now this small neural network is a model that we need to train, it will have weights, we will do gradient descent, etc., etc., but it will be small. It will be applied only to this little tile, a few pixels across, that we split the picture into, right? And the big gain here, the profit, is that now I take the exact same small neural network and I apply it to every single tile across the input. So I take this tile, I apply the neural network, I get this, let's say, output vector. Usually you would want to extract not one feature, but several features. So usually the output is several numbers. And then I take the next tile, I apply, I get some more. And so when I actually do that, get back to the board, when I actually do that, what I get as a result, so here is my input picture, right? I break it into windows, like I showed. And then I take each window, okay, yeah, okay, let them be overlapping, whatever. I take each window, I put it through my small neural network, and let me draw it horizontally, I get this vector of features, right? Then I take the next window over here, I put it through the exact same neural network, and I get a different vector of features that goes here. Okay, now this will be a massive picture, but anyway, as I take each one of these windows, I get a vector of features, and then these vectors of features themselves also have this geometric structure, right? So there is a top right window, there is a bottom left window, and the bottom left window will give me this bottom left vector of features and so on, right? So as the output of this procedure, I will get a three-dimensional tensor, right? I will still have some width, some height, and now I will also have a meaningful depth. So actually, the input also usually has depth, for example, because these days, for the last few decades, pictures are usually in color. So even on the first step, if you have a color image, you have depth three at the input, right? In general, what you get at the output of a convolutional layer is a 3D tensor, if you start with a 2D input in structure, like a picture, and then you can do the same thing, right? So again, you take its pixels, you take this structure over here, and you tile it with windows, with small tiles, and then you take this small sub tensor, this small window out of here, and you pass it through another small neural network, and you get another vector of features. And again, you repeat this, this was the top left vector of features, but then you get another tensor, and so on and so forth. I'm sorry, I'm not in a convenient place to draw a nice picture, but I hope you understand what's going on. So on every step, we tile the image into tiles like this one. It doesn't have to be the original image. You can chain these layers one after the other because always you are working with like three-dimensional arrays, which in deep learning are confusingly called tensors, but what can you do? So you're working with three-dimensional tensors, and you just convert one 3D tensor to another as you go with this procedure. And then you can have like a whole sequence of these convolutional layers. So before we proceed, one more thing about this. In classical convolutional neural networks and in many architectures that we will see today, there is another type of layers. Like there is a convolutional layer. That's the one that we just discussed. And then there is also what is called the pooling layer. And let me maybe first give you the motivation for it. And then the actual layer is actually pretty simple. So the motivation is this. Let's again try to look at what the neurons do. So this is our original image. And it has lots and lots of pixels, right? It has big width, big height. Then I slice it into very small tiles. So, of course, in my picture, they're not small, but in practice, they're small tiles. So I have this tile of, let's say, three by three pixels. And it's a color image, so it has depth three too. So it has a small height, a small width, and then it goes through the neural network, and then we get our vector of features. So this vector of features, this one, depends only on this small three by three tile, right? So if you look at it in the other direction, you can say that for this feature, this feature has a receptive field, it's called in this part of science, receptive field, has a receptive field of three by three pixels. So it only looks at a very small, very local part of the image, right? So what happens next? Suppose that I cover this whole image with three by three windows like this, and then as a result, I will have a 3D tensor like this, and then I do another convolution. I do another three by three convolution over here, okay? So I cut off, I cut out another three by three by something. Now the depth is probably more than three, but anyway, I cut out another three by three by D tensor, and I put it through a small neural network and so on. I get a feature over here. What is its receptive field? Well, it looks at these features inside this parallelepiped, right? At the features inside this small part of the tensor. And these features in turn are looking at more pixels than before, right? So if I had a three by three over here and another three by three over here, which goes to one here, so now this guy corresponds to this, and this guy corresponds to a window over here, right? So overall, this pixel over here would look at a five by five window in the original pixels, right? That's my point. So if you do a three by three, and then the results of your three by three you compose in another three by three, then you collect information from a five by five window originally, right? But five by five is also a pretty small window. So like how many layers would you need to have neurons that look at the whole picture? On every three by three convolutional layer, you just add two to the width, and you don't multiply by two, you just add two to the width, and add two to the height of this receptor field, right? So if I want to process a 256 by 256 image, I would need like 130 layers. That doesn't make any sense. I don't want to have that many layers. So in the original convolutional networks, you would somehow need to solve this problem. That is, you would need to reduce the geometry, and this is an important way of looking at it. We will talk about reducing the geometry a lot in this class. But you want to reduce the geometry quicker than by just tiling everything and hoping that, you know, convolutions will do it by themselves. So in the original neural networks, in the original CNNs, they had, and you can still see it today in some architectures, they had this idea of a pooling layer. So let's suppose that I had a convolutional layer, I expected some features, and then I can say, well, you know, there are too many. The width and height are too big, I want to reduce the geometry. How could I reduce the geometry? Well, I could just slice it into small windows, this time no overlaps, that's the whole point, no overlaps, usually it's two by two windows, but of course you can say it whatever you want, and just replace in every two by two window, out of four features leave only one, according to some rule, right? And there are two commonly used rules, I think anything else just reduces basically to one of these two in effect, so there is max pooling, where you take the maximum of the feature values in this small window, and there is average pooling, where you average them. I don't think I've ever seen anything else in practice, and usually it's max pooling, so usually it's max pooling, why? Because it kind of makes sense for feature extraction. So, okay, so the real answer is because it works better usually, but the justification is that it urges convolutional layers to actually extract more meaningful features. So if you, for example, so let's look at this picture and let's say, okay, so I want to like have a black box, have a feature extractor that says, is there a little boy's head in this tile? And so when I run it on this tile, I get a one, right? But when I run it, say, on this tile or on this tile, I get basically a zero, even if it's like perfectly understands everything. So then let's suppose that I have this bigger tile that combines the small tiles over here that glues them together like pooling does. And then I ask, well, what is the proper composition? What is the proper combination of features that will answer the question, is there a little boy's hat in this tile? And that would be the max, right? If I average, I get some pretty low average because most tiles don't have a little boy's hat, right? And only one tile would have the little boy's hat and the rest wouldn't. But meaningful features like something is there, they obey the max law, right? And less meaningful but sometimes also useful features like how green it is, this feature would obey the average law, right? If I have a big tile which is half green and half blue, I would probably want to say that it's half green. It's not fully green. But for features corresponding to objects or whatever shapes, max is usually the way to go. Anyway, that's just a rambling justification of why max pooling. All right. And so now when you combine convolutional and pooling layers, you can start reducing the geometry really, really quickly because every pooling layer cuts the width and the half by two. Let's assume it's two by two pooling. It's almost always two by two pooling. So every pooling layer cuts the width by two, cuts the height by two. So you get twice, you get four times fewer pixels, four times fewer numbers. And then you can do another convolution, blah, blah, blah, and so on. So at this point, what I want to do is I want to actually discuss how you would define a convolution, like what it actually is, and then we will just work through an example where, I apologize, then we would just work through an example where we would see the beauty of convolutions, where we would actually realize why convolutions save so much, why they are such a great way to process large inputs. So, what exactly could this neural network be? Well, the word convolution doesn't really mean anything specific, it just means that I tile the input with small tiles, and I apply my transformation to every tile separately. So, this is what the word convolution means. It doesn't tell you what exactly this transformation should be. But usually when people talk about convolutional layers, they mean the simplest neural network possible. The simplest neural network possible, that is just one fully connected layer. So, it looks like this. I have my input, now let me do it in full generality. So, I have a three-dimensional input. It has some width capital W, some height capital H, some depth D. And I cut out a subset, a tile, which has width small W and height small H and still depth D. So, this is also important. I always cut through all the features. I take all the features, all the depth. So, then I take this guy and basically I say, well, okay, here I have like a D times W times H tensor, right? I have this three-dimensional matrix of three-dimensional array of numbers, right? But when I go inside this neural network, I don't care about the structure of this array. I just lose it. I just say, okay, so I have this many numbers. You can actually visualize it as flattening it to a single vector of size dWh, and then I just apply a matrix of weights to it. I have some matrix of weights. So the output will be a vector of size, let's say, d'. And this vector of size d' is just w times this d'. So the matrix w, how many weights does a convolutional layer have? the matrix w uh has is supposed to have like um uh it's supposed to be well okay so just to make it more convenient let's say um it's z times w so w uh would be like dwh times d prime okay um so it would be dwh times d prime uh and um and then and and then yes i lost my train of thought a little um dwh times d prime yeah and then uh the beauty of convolutional networks is that now when i take another window over here i also have an input of the same size and i reuse the exact same matrix w right so uh these many weights are needed to process the whole image i don't uh i don't have a different w for a different window i have the same double i reuse the weights so these many weights are needed to process the whole d times big w times big h input and as as you can notice the number of weights doesn't depend on the size of the input it only depends on the size of the window so when i have a convolutional layer it's very easy for me to say oh okay so my my input image is now twice larger but let's just run the convolution across the larger image i don't care uh i only care about the size of the window uh and of course formally and like in reality what you have here is a matrix of of these dimensions but it would be very very inconvenient if if we humans had to think of of this matrices as you know some huge number times d prime and then this huge number we would have to memorize and think of oh okay so that was like three by three by 32 how many is that oh this this should be the size of course that's very inconvenient so in in practice if you for example set up a convolutional layer in pytorch um it wouldn't be a 2d matrix uh the convolutional the convolution would be defined by a four-dimensional tensor so your tensor of weights would have size d times w times h times d prime and what would actually happen is your input is a three-dimensional tensor which is supposed to match the first uh three dimensions of w and that means that your output is is a vector of this dimension okay uh so in practice you would define like four-dimensional tensors when you when you set up convolutional layers and by the way while we are at this while while we are defining this note that uh it is absolutely positively uh it absolutely positively uh doesn't matter uh that the input is specifically uh a picture that specifically is like a 3d tensor with some width some height and some depth uh you can surely have convolutional networks for other kinds of inputs for example uh at some point now of course nobody does this but at some point uh you could there were cnn's designed for text processing and what is text text is a sequence right it's a sequence of tokens and um every token gets represented in by some vector uh so it's a sequence of vectors right it's a it's a 1d object one-dimensional object that produces a two-dimensional input tensor and sure enough you can have one-dimensional convolutions no problem at all you just just your windows are now sliding windows like this you take like three uh neighboring vectors your small input is like this it's um well it's d times l length of the window and then you multiply it by the matrix w which now is a three-dimensional tensor d times l times d prime and you get the result which is a vector of size t prime almost no difference at all just all all dimensions uh change by one and that's or you can go in the other direction you can say well but what if i have let's say a video i have a video which means that i have a sequence of images so now my input is like d times w times h times let's say t for time right if this is a video so now there are there is a sequence of images and every image is a w times h times d tensor and of course you can multiply it by a five-dimensional tensor w which is t times w times h times t times d prime that's it right so um you can apply the same idea of cutting stuff into small tiles and processing each tile separately you can apply it to anything it just so happens that it was especially productive for uh images and basically all of the examples in our class since it's a computer vision class of course all of the examples in our class will be uh will be images okay so um okay okay so with this let's maybe look at a specific example um let's look at a specific example of a convolutional network yeah this one uh and i just want to go through this network layer by layer it's some classical leonet architecture from i don't know 2001 or something uh it's very small it has very small input not very powerful but i want to to go through this architecture to count the weights to get a feeling of what convolutional networks look like and we will see like what's the whole point of convolutional networks when we discuss how many weights they have so um so let's look at this slide what do we have here we have the input which is a 32 by 32 picture and it's a black and white picture well a gray scaly picture so it has depth one so our input and let me switch from from the picture to the board for a little bit so our input uh is a tensor of size 1 times 32 times 32 okay then a convolutional layer happens and this picture doesn't show you the weights doesn't show you the layers themselves it shows you the intermediate results the tensors that result from every layer so now it says that after the first layer you have 28 by 28 tensor uh with six feature maps when people say feature maps it's the same as channels the same as depth so basically it says that it's a 28 by 28 by 6 tensor okay six different features uh so we started with a 32 by 32 by one then something happened a convolutional layer happened and now we have a tensor of size uh 6 by 28 by 28 so the question to you how large do you think was the convolution what was the size of the window if we went from 32 by 32 pixels to 28 by 28 pixels why would why would the geometry be reduced why would the convolutional network actually have less pixels at the output so i'm covering the input by overlapping tiles all possible tiles how many tiles are possible okay so this this is our first remark here so i have this input which is like a 32 by 32 pixel image of course i won't draw the full 32 and then i start covering it by tiles of some kind of size right let's say three by three tiles but how many tiles will fit not 32 by 32 right so you see uh for every tile uh every tile is defined by its center pixel let's say right so this center pixel corresponds to this three by three window usually it's odd there are very few even convolutions so i i will i'm safe uh talking about the center pixel so there is a center pixel corresponding to the three by three tile this center pixel corresponds to the three by three and so on but there is no tile that will correspond to this pixel right uh it doesn't fit so in effect uh how many if i had a three by three convolution the output if i just do the tiling if i just use all possible tiles not use any special tricks here the tiling would be would would not be able to use these pixels and also wouldn't be able to use these pixels right so it would cut off one pixel on top one pixel on bottom one on the left one on the right so if i did a three by three convolution and i had like a w times h image at the input i would go to something like w minus two times h minus two right because i would need to cut off two pixels on the sides well in here we go to w minus four and h minus four so how how big was the window yeah exactly so uh i mean of course it's not guaranteed there could have been tricks etc but the most plausible version of how this convolution what this convolution looks like judging by that picture and it's true in fact it's true uh is that it was we were covering the input by five by five tiles and then uh so what what is the size of the weight matrix here um yeah i didn't tell you that sorry uh i i'm when i talk about the weight matrix i of course simplify a little bit because in addition to the weight matrix there is also the intercept so in fact of course this output is like z w plus some constant so there there is an additional d prime weights which is also a weight right which is also which are also trained but let's forget about that it doesn't matter for us now let's just count the weights and the matrices themselves so what would be the matrix size over here the matrix size would be as we discussed uh there d times w times h times d prime right so here we have a convolutional weight matrix weight tensor of size one times five times five and we have six features at the output times six right so five five by five is 25 25 times six 150 right so over here in this layer we have 150 weights trainable weights that we will need to learn by gradient descent well there you have it that's that's that's the first point that i want to make with this example uh the convolutional idea the idea of sliding a window over the input saves a huge amount of weights so suppose that i wanted to have a fully connected layer over here suppose that i just wanted to have a single weight matrix that takes this guy's input and outputs this then how many weights would i have what what what kind of matrix would it be a fully connected uh first layer would be like 32 times 32 times 6 times 28 times 28 right so it would be a matrix of size input times output input size times output size if i didn't have this convolutional structure um and i still for some unfathomable reason would would want to to have this kind of output the matrix would have this kind of size so uh of course i cannot do this in my head but like 32 squared is about a thousand so this is like you know five million or something you can count if you want but this is like several million weights and the convolutional idea reduced this five million weights down to 150 so that this is the the power of convolutions the main power of convolutions they save a lot of weights and that's why i always say that what convolutions actually are they are an excellent technique of structural regularization we discussed uh last some previous lectures that regularization is when you um regularization is when you compress uh could compress the weights magnum smaller uh or reduce like reduce the set from which the weights are taken right but in this case it's even more straightforward like structural regularization means all right so i have five million weights and you could like if you think of it from a proper view view it from a proper angle you will see that you can actually think of a convolutional layer also as a transformation of this guy to this guy but when i do this transformation i say oh okay so i want this thousand of weights to be equal to each other and i just said this constraint that i always process every window be it over here or over here or over here i process it in the exact same way with the exact same weights that so that structural regularization when you impose constraints like this way it should be equal to each other this way it should just disappear to zero or something so so um so this is the power of convolutions and let's um so let's finish the the exercise that there are still a couple of points that i want to make here so after the first convolutional layer there is a pooling layer subsampling is the same as pooling layers so the pooling layer is obviously has two by two windows right so we go from 28 by 28 to 14 by 14 a question to you how many weights does this pooling layer have i had the 28 by 28 by 6 input i have 14 by 14 by 6 output which means that okay let's assume it's max pooling i don't remember which it was actually but i take a two by two window and in every two by two window across every feature i take the max of these four numbers um how many weights is that how many trainable weights so the pooling transformation takes the input uh cuts it into tiles and for every tile uh you take the numbers that are parts of your input and you leave only the max of these numbers like you take a two by two window every two by two window becomes just its maximum how many trainable weights are in transformation like this no all right not talking to me today anyway uh how many weights are in this transformation of course none of course there are no weights it's a deterministic function there is nothing to train i just take the max right so the uh the uh the pooling layers don't have weights and there is no no point for for them to have weights there is nothing to train i just do a specific fixed thing uh so okay so let me draw this uh next i have a pooling layer uh a pooling layer goes to 6 by 14 by 14 uh the pooling layer has no weights and then i have another convolutional layer uh right let's check i have another convolutional layer that goes down to 10 by 10 so um sorry check 10 by 10 by how many 10 by 10 by 16 so my next knowledge layer goes makes it like this um 16 by 10 by 10 so i i put depth first here but you don't have to you can put it wherever you want um so how many weights are here well again we reduce the width and the height by uh four so it's a five by five convolution but now we need to transfer uh translate six features into 16 features so like six by five by five by 16 okay that's more weights right so we know six by five by five is 150 and 150 times 16 uh 150 times four is six so six times four is 2400 weights right i i suppose that's correct uh 2400 weights over here okay then another pooling uh this part i remember and then we get uh wait for it there will be a little bit more interesting stuff here so now i have like 16 by 5 by 5 and at this point i say oh okay so now i have a 5 by 5 tensor with depth 16 so if i keep doing 5 by 5 convolutions it means that now there are no tiles really like the whole tensor is a single tile i don't have to cut it any longer which means that uh okay in the picture they call it a convolutional layer but now it really doesn't matter you could call it a convolutional layer or you could call it a fully connected layer you just take the whole input and you convert it to okay how many features so next you go to 120 features then 84 features and then finally the output of 10 so um you go to 120 then another fully connected layer you go to 84 and another fully connected layer maybe a softmax layer um you go to 10 so how many weights are here well in this fully connected layer i have 16 times 5 times 5 times 120 right so i compress the whole input down to the to a vector and i just lose all the geometry i don't care about the geometry anymore these are just global features numbers about the the the input image and but i still need to, you know, do stuff with them. I still need to toss them around a little to do some linear combinations of them to actually extract the signal that I want, not just reasonable signal, but signal that I want to actually get to the classes, for example, that I want to recognize. So, in classical conversational networks, after you go through all of these layers, after you downsample and downsample and downsample, at the end, you have a couple of fully connected layers usually. Sometimes it's called the head of the network, and sometimes our networks will have multiple heads that do different things, but for now, let's just say that I do need to have some kind of a classification head at the end with a couple of fully connected layers. And interestingly, it turns out that this classification head holds the vast majority of all the weights. You see? So over here, we have like, what, 400 times 120. We have 48,000 weights over here. And here we have 120 times 84, which is, I don't know, about 10k more, right? So out of the total 60,000 weights in this network, about 60,000, about 57,000, 58,000 lie in the classification head. And only 2,500 weights are in the convolutional layers. But the convolutional layers are doing the most important job. They are the Fisher extractors. And so how does it actually work during training? Well, remember how we discussed backpropagation. So if you have a single input going into several different places, then in the graph, then when you go back to the backpropagation here, your update, your gradient will be by the chain rule, the sum of, not the gradient, the partial derivative at this node will be by the chain rule, the sum across all of the paths. And in the convolutional network, every weight over here, every weight in this convolution, in this matrix, occurs in the computational graph, is input into the computational graph many, many, many, many times. So I don't think I can draw a computational graph for it here, but basically like this, you have this input, right? In the input, every pixel is a value, let's say, and now let's suppose that this weight like WI gets multiplied by the value of middle right pixel in the 3x3 window, which means that when we process this window, I will multiply it by this pixel and then add up and everything. When I process this window, I will multiply it by this pixel and then add up and everything. So the same weight, the same input to the computational graph will occur many, many, many times. It will occur in the processing of every single tile by the nature of convolutional networks. And that's why, by the way, ReLU activations are such a good fit here, because this means that we don't mind sparsity. Sparsity is bad if you have little signal, if you don't have enough signal, if you don't want to lose anything. But sparsity is great if you have an abundance of signal, if you have a lot of computational paths. Now, sparsity just saves you time. It doesn't really hurt you. It doesn't really hurt training. It just says that, oh, okay, so like in the processing of this window doesn't matter right now. So this guy will be a zero, and this part of the graph will not matter. But the processing of this window will still matter. So this weight will still get a meaningful update. So usually when you have the same weight occurring in many, many different places, it's a good idea to add some sparsity, and ReLU provides this kind of sparsity. Okay, so what have we discussed so far? We discussed the basic idea of convolutional networks, how you slide across the input. We discussed how the receptive field grows with time, that it grows not fast enough, and that's why you want to have pooling from time to time, pooling layers. We discussed that you can apply convolutions to inputs of other dimensions, to inputs of other different nature, it doesn't matter. As long as you can tile it with something, you can do a convolutional net. And we also went through a specific example. Well, before we close, I honestly think I need to go pretty soon, but before we close, let me just tell you a couple more practical tricks about how convolutions actually work, because you will need them in practice, and you will need them to understand what goes next. So trick number one, let's go back to this input tensor. This time I will not be drawing the depth, so let me just draw it as a two-dimensional grid, so a grid like this, and what am I doing with it? I'm tiling it by, let's say, 3x3 windows or whatever. I'm tiling it by 3x3 windows, and as we just discussed, every time that I apply a 3x3 convolution, not every pixel can be the center of a 3x3 window, right? So we just discussed that when I apply convolutions just by overlapping everything and fitting as many tiles as I can, well, I can't fit as many tiles as there were pixels. And sometimes that's really inconvenient. So sometimes what you really want is you want to preserve the shape of your tensor. So if you had D times W times H as input, then after a convolutional layer, you would have a D times W minus K times H minus K. And I don't want this minus Ks. I want to have a tensor of the exact same shape. It will be, for example, I want to have like a dozen such convolutional layers in a row. I want to repeat this. I want to stack the same layers, and I don't want to change the dimensions. Well, when that happens, what you actually want to do is you want to use so-called padding. Padding just means that suppose that I need to have this pixel also be the center of a 3x3 window. So I draw a window, a 3x3 window around this pixel, and I notice that it goes outside of the image, right? Well, why don't we just play that, let's say, with zeros? Just say that these pixels are zeros. That's it. And now that would be zero padding. And now we are done, we can preserve the size. So that's just a stupid practical trick to pad the image with something in order to be able to hit more windows. And so there are two common ways to do padding. One is pad with zeros and the other is, let's say, I want to have a window like this. So when you pad with zeros, there can be a strange effect. Like you could have like a border around your image of some not really plausible features because these features take lots of zeros on the side, right? So if you want to avoid that, you may want to have like mirror padding. You may want to just take these guys from here and just copy them, like do a mirror image of your image over there. That's also a valid way to do padding. Often people do that. But the whole point is to be able to fit more tiles, to be able to make any pixel in the input the center of a tile. And one more trick is this. So as I said, if you just keep tiling your tensors with all possible tiles, you will not be reducing the geometry fast enough. You will have to resort to things like pooling layers. You will have to reduce your geometry artificial. Well, there is a different way. Okay, very simple. What if I just take not every pixel as the center of a tile, but what if I take like every second pixel as the center like this? So I have like the green window, the green 3x3 window over here, the light blue over here, the red one over here, and the dark blue one over here. So at this point, I have four times fewer tiles, right? I have cut my number of tiles in half across the width and in half across the height. So now when I get to the output from this, I will have a tensor of size approximately W over 2 and H over 2, right? Depending on the padding, there may be some plus or minus ones, but more or less like this. So it's exactly the geometric effect that we often want. We reduce the geometry by a factor of 2, right? On the other hand, notice how I'm not losing anything. Like every pixel is still covered. It's just covered not as many times. So before, if I tile everything, then like this pixel is part of this window and this window and this window and this window and this window and many different windows. Over here, well, now the maximum number of windows is 4 and usually it's less. Like this guy will only be covered by two windows, two tiles, but still every pixel is covered, right? So we are not missing anything, we are not losing any information. The network is still perfectly able to get everything and process everything. So this is a reasonable way to reduce geometry 2 and when it happens, it's called a stride. Stride, so for example, this would be stride 2, like if you don't do anything, it will be stride 1 if you just tile with every possible tile. So to summarize what we've discussed today, when you do a convolutional layer, what do you define? Well, you define the shape of the tensor, like d times w times h times d prime, right? And d is the depth of the input, d prime is the depth of the output. You define the padding if you want to pad the input with zeros or something else. And you also define the stride. And for, I mean, nobody actually uses it, but formally, of course, the stride is a two-dimensional thing because it's two numbers, because nothing prevents you from going like every second pixel across the x-coordinate and every third pixel across the y-coordinate, right? It doesn't have to be that equal. So formally, it's two different numbers. Of course, most usually they're the same, but the stride defines how you tile. Rating also defines how you tile and what do you add to the, what do you add? And the convolution, the convolutional tensor, the size of the tensor defines how many features you get. Okay. Okay. Okay. Well, I think, actually, actually, I think I want to stop at this point. So, I, unfortunately, I have to go. Are there any, okay, question, are there any downsides to doing this, to doing the strides? Well, again, every pixel now participates in the processing fewer times. So, maybe you don't want as much sparsity or something. But actually, the general trend of how convolutional networks developed was, as time went by, we did pooling less and less often. So, pooling actually has some undesirable properties. Pooling cuts off lots of computational paths as well, and pooling kind of distorts the gradients. I won't go into details, but basically, there are bad side effects of pooling. And when we get to modern architectures, you will see that, starting from things like Inception ResNet and some more involved architectures, you will see that they reduce the geometry, of course, but they reduce it with, not exactly with a stride, but they reduce it with like a complex subnetwork that basically, at some point, does strided convolution, that at some point does something like this, and then also does something else. But we'll get there when we get there. Okay, guys, it's been a pleasure talking to you today. Sorry that this lecture is a little bit messy, but I hope that I'll get settled by next week, and we will continue. Thanks a lot, and bye-bye.",
+  "segments": [
+    {
+      "text": "Okay. Hello, everyone. We are continuing our discussions of deep learning and this time I am in a very noisy and not really comfortable place, but I hope that the combination of modern deep learning based noise removal techniques will work.",
+      "start": 0.61,
+      "end": 21.7,
+      "words": []
+    },
+    {
+      "text": "And I hope you will hear me fine. I hope the recording will be fine. So, in any case, we stopped last time at stochastic gradient descent algorithms, right?",
+      "start": 21.7,
+      "end": 39.1,
+      "words": []
+    },
+    {
+      "text": "So, basically what we discussed on the previous lecture was that, you know, a neural network is a big composition of little things, is a huge computational graph.",
+      "start": 39.1,
+      "end": 55.48,
+      "words": []
+    },
+    {
+      "text": "And then, there are two different kinds of inputs for the neural network. There is the actual input, which acts like a picture. Today we will be switching to pictures, mostly.",
+      "start": 55.48,
+      "end": 80.35,
+      "words": []
+    },
+    {
+      "text": "And then there are the weights, right? And yesterday, not yesterday, but two days ago, we discussed that",
+      "start": 80.35,
+      "end": 90.93,
+      "words": []
+    },
+    {
+      "text": "the output of this whole computational graph would be the loss function, right? Loss function of x, y, and w,",
+      "start": 90.93,
+      "end": 104.41,
+      "words": []
+    },
+    {
+      "text": "and there is also the correct answer that comes in probably at the end somewhere. And then what we",
+      "start": 104.41,
+      "end": 115.06,
+      "words": []
+    },
+    {
+      "text": "actually do is we compute the overall loss function L, w, which is like the sum or the average",
+      "start": 115.06,
+      "end": 125.3,
+      "words": []
+    },
+    {
+      "text": "of the small losses, of the losses on every step along the way. And then we do gradient descent, right?",
+      "start": 125.3,
+      "end": 138.08,
+      "words": []
+    },
+    {
+      "text": "I'm starting with the recap because you told me that some people might do it. So then we update the weights",
+      "start": 138.08,
+      "end": 148.22,
+      "words": []
+    },
+    {
+      "text": "with something like this, but not really. So we use something like this, but really we use something",
+      "start": 148.22,
+      "end": 159.46,
+      "words": []
+    },
+    {
+      "text": "much more involved and complicated like, for example, the A-demovers. And that's how deep learning works",
+      "start": 159.46,
+      "end": 173.98,
+      "words": []
+    },
+    {
+      "text": "in general. There still are a few general remarks that I want to make and that I will probably have",
+      "start": 173.98,
+      "end": 182.02,
+      "words": []
+    },
+    {
+      "text": "to postpone, definitely not today, so I will have to postpone them probably to the beginning of next week.",
+      "start": 182.02,
+      "end": 190.99,
+      "words": []
+    },
+    {
+      "text": "I still want to discuss weight initialization, which is a pretty interesting and nice topic in itself.",
+      "start": 191.96,
+      "end": 201.6,
+      "words": []
+    },
+    {
+      "text": "And also I want to discuss normalization layers. You probably have heard of batch norm, batch normalization.",
+      "start": 201.6,
+      "end": 215.21,
+      "words": []
+    },
+    {
+      "text": "There are several different flavors of normalization layers and what exactly they do and why they are",
+      "start": 215.21,
+      "end": 222.68,
+      "words": []
+    },
+    {
+      "text": "necessary is also, in my opinion, a pretty interesting topic. But today we actually start talking about not",
+      "start": 222.68,
+      "end": 236.61,
+      "words": []
+    },
+    {
+      "text": "in general what happens with the loss function still being a black box, but what happens inside",
+      "start": 236.61,
+      "end": 247.39,
+      "words": []
+    },
+    {
+      "text": "this black box, right? So today we start talking about architectures of neural networks.",
+      "start": 247.39,
+      "end": 253.74,
+      "words": []
+    },
+    {
+      "text": "The word architecture, in this case, basically means what's in here, what is the structure",
+      "start": 255.19,
+      "end": 268.15,
+      "words": []
+    },
+    {
+      "text": "of this computational graph, and we already kind of know that it can be any directed acyclic",
+      "start": 268.15,
+      "end": 278.5,
+      "words": []
+    },
+    {
+      "text": "graph, anything would work, and the only requirement is that first there are no cycles, right, so",
+      "start": 278.5,
+      "end": 287.52,
+      "words": []
+    },
+    {
+      "text": "you need to be able to traverse the graph in topological order in one direction and then",
+      "start": 287.52,
+      "end": 293.29,
+      "words": []
+    },
+    {
+      "text": "in the opposite direction, but also what we need to do is, what we need to be able to do",
+      "start": 293.29,
+      "end": 298.33,
+      "words": []
+    },
+    {
+      "text": "is to do the elementary computations, the forward propagation and the backward propagation inside",
+      "start": 298.33,
+      "end": 308.13,
+      "words": []
+    },
+    {
+      "text": "every one of these nodes, so the general picture is like this, you have elementary nodes,",
+      "start": 308.13,
+      "end": 319.8,
+      "words": []
+    },
+    {
+      "text": "they constitute a graph, and you do one pass of forward propagation, one pass of web propagation,",
+      "start": 320.2,
+      "end": 327.05,
+      "words": []
+    },
+    {
+      "text": "and you have your gradient, then all of these algorithms that we discussed last time, you can.",
+      "start": 327.05,
+      "end": 335.95,
+      "words": []
+    },
+    {
+      "text": "So, this is the general picture, and immediately we can start just thinking about how this graph might be organized.",
+      "start": 335.95,
+      "end": 351.37,
+      "words": []
+    },
+    {
+      "text": "For example, you could do it, and usually people do it, in a layered architecture, so there are layers, right?",
+      "start": 351.37,
+      "end": 362.03,
+      "words": []
+    },
+    {
+      "text": "Onions have layers, and ogres have layers, famously, and what a layer means is that as you go left to right through this architecture,",
+      "start": 362.03,
+      "end": 377.67,
+      "words": []
+    },
+    {
+      "text": "as you go along the computational graph, the neurons, let's say, let's call them neurons for now, the perceptrons or whatever,",
+      "start": 377.67,
+      "end": 388.6,
+      "words": []
+    },
+    {
+      "text": "like the components of this layer, talk mostly to the components of the next layer,",
+      "start": 388.92,
+      "end": 395.49,
+      "words": []
+    },
+    {
+      "text": "and then those components talk to the components of the next layer, right, and so on until the end.",
+      "start": 396.21,
+      "end": 403.85,
+      "words": []
+    },
+    {
+      "text": "So layers are kind of these sequential slices of the computational graph,",
+      "start": 403.85,
+      "end": 412.97,
+      "words": []
+    },
+    {
+      "text": "and I'm deliberately not really trying to make it formal or anything because in reality, it's a murky concept, right?",
+      "start": 413.17,
+      "end": 421.44,
+      "words": []
+    },
+    {
+      "text": "So, yes, sometimes a layer indeed is characterized exactly like this,",
+      "start": 421.56,
+      "end": 426.87,
+      "words": []
+    },
+    {
+      "text": "but sometimes you would have something like a skip connection, for example.",
+      "start": 427.81,
+      "end": 432.61,
+      "words": []
+    },
+    {
+      "text": "So, we will see in our class, we will see networks where there are connections that go around the layers.",
+      "start": 433.17,
+      "end": 441.41,
+      "words": []
+    },
+    {
+      "text": "We will definitely see around the layers from layer 1 to layer 3,",
+      "start": 441.85,
+      "end": 445.39,
+      "words": []
+    },
+    {
+      "text": "and we will definitely see connections that go around a given layer and just not touch it.",
+      "start": 445.67,
+      "end": 451.99,
+      "words": []
+    },
+    {
+      "text": "That would be the residual connection, and we will definitely talk about those.",
+      "start": 451.99,
+      "end": 458.22,
+      "words": []
+    },
+    {
+      "text": "They are one of the most important ideas here.",
+      "start": 458.32,
+      "end": 460.32,
+      "words": []
+    },
+    {
+      "text": "But anyway, the notion of layers is useful,",
+      "start": 461.77,
+      "end": 465.93,
+      "words": []
+    },
+    {
+      "text": "and the first, the easiest, the most straightforward class of architectures are the feed-forward,",
+      "start": 466.51,
+      "end": 474.12,
+      "words": []
+    },
+    {
+      "text": "or, well, okay, feed-forward is a more general term, but let's say fully connected networks.",
+      "start": 475.01,
+      "end": 481.48,
+      "words": []
+    },
+    {
+      "text": "Fully connected networks.",
+      "start": 482.71,
+      "end": 485.27,
+      "words": []
+    },
+    {
+      "text": "I don't want to make a big topic of them because there is really nothing to say.",
+      "start": 486.53,
+      "end": 492.23,
+      "words": []
+    },
+    {
+      "text": "So in a fully connected network, you have layers.",
+      "start": 492.23,
+      "end": 495.99,
+      "words": []
+    },
+    {
+      "text": "Every layer is a set of perceptrons, and this time it works exactly like you would expect.",
+      "start": 497.64,
+      "end": 503.9,
+      "words": []
+    },
+    {
+      "text": "So the perceptrons inside a layer don't talk to each other.",
+      "start": 504.32,
+      "end": 508.22,
+      "words": []
+    },
+    {
+      "text": "They talk, they receive inputs from the previous layer,",
+      "start": 508.82,
+      "end": 511.64,
+      "words": []
+    },
+    {
+      "text": "and then they send outputs to all neurons of the next layer.",
+      "start": 511.81,
+      "end": 516.77,
+      "words": []
+    },
+    {
+      "text": "That's what it means in this case to be fully connected.",
+      "start": 517.13,
+      "end": 520.31,
+      "words": []
+    },
+    {
+      "text": "It's not a fully connected graph.",
+      "start": 521.45,
+      "end": 525.43,
+      "words": []
+    },
+    {
+      "text": "But it's a fully connected bipartite graph between every pair of layers.",
+      "start": 525.69,
+      "end": 533.85,
+      "words": []
+    },
+    {
+      "text": "And then probably it all comes together in a single or at least a smaller amount of perceptrons on the other end,",
+      "start": 533.85,
+      "end": 544.96,
+      "words": []
+    },
+    {
+      "text": "and that gives you the output Y or whatever you want.",
+      "start": 545.14,
+      "end": 550.37,
+      "words": []
+    },
+    {
+      "text": "Okay, so fully connected networks, they were important.",
+      "start": 551.51,
+      "end": 556.59,
+      "words": []
+    },
+    {
+      "text": "Fully connected layers are still important.",
+      "start": 557.01,
+      "end": 559.74,
+      "words": []
+    },
+    {
+      "text": "You will see a fully connected layer inside the transformer, for example, when we get the transformers.",
+      "start": 560.06,
+      "end": 566.04,
+      "words": []
+    },
+    {
+      "text": "But today we start discussing a more interesting kind of architecture,",
+      "start": 567.12,
+      "end": 573.93,
+      "words": []
+    },
+    {
+      "text": "a slightly more involved kind of architecture, and that is convolutional neural networks.",
+      "start": 575.15,
+      "end": 580.42,
+      "words": []
+    },
+    {
+      "text": "So what are convolutional neural networks?",
+      "start": 581.11,
+      "end": 584.13,
+      "words": []
+    },
+    {
+      "text": "What is the basic idea?",
+      "start": 584.37,
+      "end": 587.4,
+      "words": []
+    },
+    {
+      "text": "Well, this is one of the last times, I think, in class.",
+      "start": 587.4,
+      "end": 593.82,
+      "words": []
+    },
+    {
+      "text": "Maybe there will be one more time, but that's it.",
+      "start": 593.96,
+      "end": 596.96,
+      "words": []
+    },
+    {
+      "text": "One of the last times in class when I will actually go back to the biological motivation of everything that's happening.",
+      "start": 597.14,
+      "end": 605.49,
+      "words": []
+    },
+    {
+      "text": "So we discussed how artificial neural networks were inspired",
+      "start": 606.13,
+      "end": 618.81,
+      "words": []
+    },
+    {
+      "text": "by the human brain or by the animal brain,",
+      "start": 618.81,
+      "end": 621.68,
+      "words": []
+    },
+    {
+      "text": "and we discussed how the principle of connectionism actually works.",
+      "start": 621.96,
+      "end": 627.45,
+      "words": []
+    },
+    {
+      "text": "But, oh, and by the way, I think we didn't discuss it,",
+      "start": 628.29,
+      "end": 631.19,
+      "words": []
+    },
+    {
+      "text": "so let me just take a very quick detour here.",
+      "start": 631.25,
+      "end": 635.65,
+      "words": []
+    },
+    {
+      "text": "Let me give you a very, very short remark.",
+      "start": 635.97,
+      "end": 638.21,
+      "words": []
+    },
+    {
+      "text": "We discussed gradient descent in neural networks,",
+      "start": 639.11,
+      "end": 643.94,
+      "words": []
+    },
+    {
+      "text": "and all artificial neural networks today are trained with gradient descent",
+      "start": 643.94,
+      "end": 649.86,
+      "words": []
+    },
+    {
+      "text": "in one way or the other, so the difference is not in the basic principle,",
+      "start": 649.86,
+      "end": 654.72,
+      "words": []
+    },
+    {
+      "text": "the difference is in the form of the loss function,",
+      "start": 654.82,
+      "end": 658.68,
+      "words": []
+    },
+    {
+      "text": "the form of the training set, maybe definitely the architecture, etc., etc.,",
+      "start": 658.84,
+      "end": 663.12,
+      "words": []
+    },
+    {
+      "text": "but not in the basic principle of this solving an optimization problem, right?",
+      "start": 663.12,
+      "end": 670.38,
+      "words": []
+    },
+    {
+      "text": "You have a loss function, you have a way to compute its gradients,",
+      "start": 670.38,
+      "end": 676.5,
+      "words": []
+    },
+    {
+      "text": "and then you use these gradients to optimize.",
+      "start": 676.66,
+      "end": 679.14,
+      "words": []
+    },
+    {
+      "text": "Well, here is a funny thing.",
+      "start": 679.4,
+      "end": 682.33,
+      "words": []
+    },
+    {
+      "text": "The brain, the human brain, cannot work this way at all,",
+      "start": 683.23,
+      "end": 688.08,
+      "words": []
+    },
+    {
+      "text": "and that is kind of obvious when you look at the biological structure that we discussed.",
+      "start": 688.89,
+      "end": 694.09,
+      "words": []
+    },
+    {
+      "text": "So even without actually understanding how it works,",
+      "start": 694.35,
+      "end": 698.03,
+      "words": []
+    },
+    {
+      "text": "even without actually knowing what the mechanism is,",
+      "start": 698.03,
+      "end": 701.81,
+      "words": []
+    },
+    {
+      "text": "you can definitely say it's not gradient descent.",
+      "start": 702.21,
+      "end": 704.61,
+      "words": []
+    },
+    {
+      "text": "Why?",
+      "start": 705.47,
+      "end": 705.71,
+      "words": []
+    },
+    {
+      "text": "Because, as we discussed, the biological neuron, this little guy,",
+      "start": 706.05,
+      "end": 711.22,
+      "words": []
+    },
+    {
+      "text": "has a lot of dendrites coming out of here, right?",
+      "start": 711.79,
+      "end": 715.65,
+      "words": []
+    },
+    {
+      "text": "And the little guy also has a single axon",
+      "start": 716.07,
+      "end": 719.76,
+      "words": []
+    },
+    {
+      "text": "that is the output of the biological neuron, right?",
+      "start": 719.76,
+      "end": 725.37,
+      "words": []
+    },
+    {
+      "text": "And that's it.",
+      "start": 726.32,
+      "end": 728.81,
+      "words": []
+    },
+    {
+      "text": "So a biological neuron can compute only one function.",
+      "start": 728.81,
+      "end": 733.8,
+      "words": []
+    },
+    {
+      "text": "And to have gradient descent,",
+      "start": 735.38,
+      "end": 736.62,
+      "words": []
+    },
+    {
+      "text": "you need every node in your network to compute",
+      "start": 737.15,
+      "end": 739.62,
+      "words": []
+    },
+    {
+      "text": "at least two different functions.",
+      "start": 739.62,
+      "end": 742.34,
+      "words": []
+    },
+    {
+      "text": "You need to be able to go forward,",
+      "start": 742.6,
+      "end": 744.7,
+      "words": []
+    },
+    {
+      "text": "but you also need to be able to go backward, right?",
+      "start": 744.99,
+      "end": 750.06,
+      "words": []
+    },
+    {
+      "text": "And I told you how to implement your own node",
+      "start": 750.51,
+      "end": 756.38,
+      "words": []
+    },
+    {
+      "text": "in the computational graph in PyTorch.",
+      "start": 756.38,
+      "end": 758.46,
+      "words": []
+    },
+    {
+      "text": "What you would actually have to do is",
+      "start": 758.46,
+      "end": 760.69,
+      "words": []
+    },
+    {
+      "text": "you would have to implement two procedures,",
+      "start": 760.69,
+      "end": 762.67,
+      "words": []
+    },
+    {
+      "text": "f-prop, forward propagation,",
+      "start": 763.17,
+      "end": 764.81,
+      "words": []
+    },
+    {
+      "text": "and b-prop, backward propagation,",
+      "start": 764.99,
+      "end": 766.35,
+      "words": []
+    },
+    {
+      "text": "what the function actually does when it goes,",
+      "start": 767.01,
+      "end": 772.06,
+      "words": []
+    },
+    {
+      "text": "when you compute it,",
+      "start": 772.78,
+      "end": 773.94,
+      "words": []
+    },
+    {
+      "text": "what are its derivatives,",
+      "start": 774.28,
+      "end": 778.02,
+      "words": []
+    },
+    {
+      "text": "how the gradients should be recomputed",
+      "start": 778.22,
+      "end": 780.02,
+      "words": []
+    },
+    {
+      "text": "as you do back propagation.",
+      "start": 780.02,
+      "end": 781.42,
+      "words": []
+    },
+    {
+      "text": "Well, here is the thing.",
+      "start": 782.75,
+      "end": 785.7,
+      "words": []
+    },
+    {
+      "text": "The biological neurons,",
+      "start": 786.68,
+      "end": 788.42,
+      "words": []
+    },
+    {
+      "text": "the neurons in our heads cannot do that.",
+      "start": 788.52,
+      "end": 790.44,
+      "words": []
+    },
+    {
+      "text": "They only have one output.",
+      "start": 790.7,
+      "end": 791.88,
+      "words": []
+    },
+    {
+      "text": "So what this actually means,",
+      "start": 792.73,
+      "end": 795.43,
+      "words": []
+    },
+    {
+      "text": "and this is an even deeper point than it might seem.",
+      "start": 795.61,
+      "end": 799.19,
+      "words": []
+    },
+    {
+      "text": "So, okay, they cannot do gradient descent,",
+      "start": 799.69,
+      "end": 802.73,
+      "words": []
+    },
+    {
+      "text": "so they have to do something else.",
+      "start": 802.73,
+      "end": 804.49,
+      "words": []
+    },
+    {
+      "text": "And also what it means is that this something else that they do",
+      "start": 805.32,
+      "end": 810.88,
+      "words": []
+    },
+    {
+      "text": "also has to somehow send the signal back from the end,",
+      "start": 810.88,
+      "end": 821.47,
+      "words": []
+    },
+    {
+      "text": "from the point where the loss function is actually computed.",
+      "start": 821.75,
+      "end": 824.49,
+      "words": []
+    },
+    {
+      "text": "I mean, I don't think it ever is explicitly computed in our brains,",
+      "start": 824.99,
+      "end": 828.67,
+      "words": []
+    },
+    {
+      "text": "but somehow, at least theoretically, it's there.",
+      "start": 828.81,
+      "end": 831.59,
+      "words": []
+    },
+    {
+      "text": "So between the end goal and whether we achieved it or not,",
+      "start": 831.59,
+      "end": 839.47,
+      "words": []
+    },
+    {
+      "text": "you need to have a connection from there,",
+      "start": 840.09,
+      "end": 843.1,
+      "words": []
+    },
+    {
+      "text": "from the end of the chain to every neuron up there, right?",
+      "start": 843.3,
+      "end": 848.71,
+      "words": []
+    },
+    {
+      "text": "So you need to have loops in the human brain.",
+      "start": 849.29,
+      "end": 865.52,
+      "words": []
+    },
+    {
+      "text": "In the biological brain, you absolutely have to have connections",
+      "start": 865.52,
+      "end": 870.18,
+      "words": []
+    },
+    {
+      "text": "that go from here or back here, back there and everything.",
+      "start": 870.18,
+      "end": 876.83,
+      "words": []
+    },
+    {
+      "text": "You have to have a lot of feedback in the brain in order to train.",
+      "start": 877.15,
+      "end": 881.73,
+      "words": []
+    },
+    {
+      "text": "And the brain does have feedback, right?",
+      "start": 883.51,
+      "end": 886.28,
+      "words": []
+    },
+    {
+      "text": "So here is where the analogy totally and completely ends.",
+      "start": 886.71,
+      "end": 893.22,
+      "words": []
+    },
+    {
+      "text": "So we discussed that one neuron is actually a pretty good model",
+      "start": 894.05,
+      "end": 899.43,
+      "words": []
+    },
+    {
+      "text": "of what's happening in the brain.",
+      "start": 899.43,
+      "end": 900.69,
+      "words": []
+    },
+    {
+      "text": "One perceptron is a pretty good model of the biological neuron,",
+      "start": 900.79,
+      "end": 903.47,
+      "words": []
+    },
+    {
+      "text": "especially with real activations.",
+      "start": 903.47,
+      "end": 905.09,
+      "words": []
+    },
+    {
+      "text": "We discussed that, yes, our brain also works on the principle",
+      "start": 905.63,
+      "end": 909.38,
+      "words": []
+    },
+    {
+      "text": "of connectionism, that is, a huge composition of simple functions",
+      "start": 909.38,
+      "end": 913.15,
+      "words": []
+    },
+    {
+      "text": "can give you something very complicated.",
+      "start": 913.15,
+      "end": 916.23,
+      "words": []
+    },
+    {
+      "text": "But, it cannot run on gradient descent, definitely.",
+      "start": 916.87,
+      "end": 922.85,
+      "words": []
+    },
+    {
+      "text": "And the architecture cannot be similar at all.",
+      "start": 923.89,
+      "end": 926.77,
+      "words": []
+    },
+    {
+      "text": "So, the brain also has layers, we'll see it just now,",
+      "start": 927.23,
+      "end": 930.39,
+      "words": []
+    },
+    {
+      "text": "but between every two layers, there are feedback connections that go back.",
+      "start": 930.81,
+      "end": 935.45,
+      "words": []
+    },
+    {
+      "text": "And from later layers, there are feedback connections that go all the way back.",
+      "start": 935.93,
+      "end": 939.81,
+      "words": []
+    },
+    {
+      "text": "I mean, it's a mess.",
+      "start": 940.44,
+      "end": 941.37,
+      "words": []
+    },
+    {
+      "text": "We don't really understand in detail what the brain's architecture is.",
+      "start": 941.89,
+      "end": 946.55,
+      "words": []
+    },
+    {
+      "text": "We understand it generally in terms of, well, this is the visual cortex,",
+      "start": 946.55,
+      "end": 951.03,
+      "words": []
+    },
+    {
+      "text": "and here are the layers in the visual cortex,",
+      "start": 951.17,
+      "end": 952.81,
+      "words": []
+    },
+    {
+      "text": "but the actual fine structure is very, very difficult, of course.",
+      "start": 952.95,
+      "end": 956.19,
+      "words": []
+    },
+    {
+      "text": "Okay, so with that remark out of the way, let's go back to these guys.",
+      "start": 957.38,
+      "end": 962.64,
+      "words": []
+    },
+    {
+      "text": "These guys are Hubel and Weasel, Thorsten Weasel,",
+      "start": 963.92,
+      "end": 968.94,
+      "words": []
+    },
+    {
+      "text": "and I forget the name of Hubel,",
+      "start": 969.12,
+      "end": 971.06,
+      "words": []
+    },
+    {
+      "text": "who got their Nobel Prize for studying the visual cortex.",
+      "start": 972.81,
+      "end": 978.51,
+      "words": []
+    },
+    {
+      "text": "And convolutional networks are partly motivated by the visual cortex.",
+      "start": 978.87,
+      "end": 984.83,
+      "words": []
+    },
+    {
+      "text": "That's why I'm talking about this.",
+      "start": 985.55,
+      "end": 986.97,
+      "words": []
+    },
+    {
+      "text": "But again, there will be a point where the analogy just will have to stop.",
+      "start": 987.09,
+      "end": 992.04,
+      "words": []
+    },
+    {
+      "text": "I'll tell you when it happens.",
+      "start": 992.45,
+      "end": 994.01,
+      "words": []
+    },
+    {
+      "text": "But first, let's begin with the bio.",
+      "start": 994.59,
+      "end": 996.93,
+      "words": []
+    },
+    {
+      "text": "So back in the, I think, 1960s, 1970s,",
+      "start": 997.58,
+      "end": 1001.77,
+      "words": []
+    },
+    {
+      "text": "they made their famous studies of the visual cortex.",
+      "start": 1001.81,
+      "end": 1004.55,
+      "words": []
+    },
+    {
+      "text": "And as it quite often happens in biology and in sciences like this,",
+      "start": 1004.55,
+      "end": 1010.15,
+      "words": []
+    },
+    {
+      "text": "their actual truly novel thing that they did was having a new device.",
+      "start": 1010.53,
+      "end": 1020.0,
+      "words": []
+    },
+    {
+      "text": "So what their advantage was compared to everybody who was before that",
+      "start": 1020.9,
+      "end": 1027.24,
+      "words": []
+    },
+    {
+      "text": "was that they could actually make such tiny electrodes",
+      "start": 1027.24,
+      "end": 1033.0,
+      "words": []
+    },
+    {
+      "text": "that you could attach the electrode to a single neuron",
+      "start": 1033.0,
+      "end": 1037.5,
+      "words": []
+    },
+    {
+      "text": "and read off the activation of a single neuron on a live brain.",
+      "start": 1037.5,
+      "end": 1042.35,
+      "words": []
+    },
+    {
+      "text": "Right? So before that, all the people could do was, you know,",
+      "start": 1043.56,
+      "end": 1047.91,
+      "words": []
+    },
+    {
+      "text": "hope that some guy would get in the motorcycle accident",
+      "start": 1048.4,
+      "end": 1053.36,
+      "words": []
+    },
+    {
+      "text": "and then have a stroke.",
+      "start": 1053.36,
+      "end": 1056.1,
+      "words": []
+    },
+    {
+      "text": "And then the stroke will give you some interesting information",
+      "start": 1056.18,
+      "end": 1059.08,
+      "words": []
+    },
+    {
+      "text": "about which part of the brain does what.",
+      "start": 1059.08,
+      "end": 1061.2,
+      "words": []
+    },
+    {
+      "text": "But these guys, they could actually, well, okay,",
+      "start": 1061.58,
+      "end": 1066.79,
+      "words": []
+    },
+    {
+      "text": "this is not my favorite part, but they could take a cat.",
+      "start": 1066.89,
+      "end": 1069.59,
+      "words": []
+    },
+    {
+      "text": "If you look closely, there is a very well,",
+      "start": 1069.81,
+      "end": 1072.09,
+      "words": []
+    },
+    {
+      "text": "fixated cat over here.",
+      "start": 1073.15,
+      "end": 1076.35,
+      "words": []
+    },
+    {
+      "text": "And then they would actually slice open the head of the cat,",
+      "start": 1076.97,
+      "end": 1081.11,
+      "words": []
+    },
+    {
+      "text": "of course, on painkillers.",
+      "start": 1081.69,
+      "end": 1085.13,
+      "words": []
+    },
+    {
+      "text": "And then they would be able to attach electrodes",
+      "start": 1085.13,
+      "end": 1088.49,
+      "words": []
+    },
+    {
+      "text": "to individual neurons and see what the individual neurons",
+      "start": 1088.49,
+      "end": 1093.19,
+      "words": []
+    },
+    {
+      "text": "in the cat's brain actually respond to.",
+      "start": 1093.19,
+      "end": 1095.71,
+      "words": []
+    },
+    {
+      "text": "And what they did, so what they found was that,",
+      "start": 1098.75,
+      "end": 1102.68,
+      "words": []
+    },
+    {
+      "text": "okay, so it had been known that the visual cortex",
+      "start": 1103.57,
+      "end": 1106.79,
+      "words": []
+    },
+    {
+      "text": "is back here in the occipital lobe,",
+      "start": 1106.79,
+      "end": 1109.13,
+      "words": []
+    },
+    {
+      "text": "in mammals, in us and in cats.",
+      "start": 1109.41,
+      "end": 1112.35,
+      "words": []
+    },
+    {
+      "text": "It's actually a very bad decision of nature.",
+      "start": 1113.63,
+      "end": 1119.47,
+      "words": []
+    },
+    {
+      "text": "It's a very fragile thing that makes absolutely no sense",
+      "start": 1120.19,
+      "end": 1123.63,
+      "words": []
+    },
+    {
+      "text": "because your eyes are in front over here.",
+      "start": 1123.63,
+      "end": 1126.37,
+      "words": []
+    },
+    {
+      "text": "And then there is this optical nerve,",
+      "start": 1126.85,
+      "end": 1129.07,
+      "words": []
+    },
+    {
+      "text": "this big fat pile of connections",
+      "start": 1129.45,
+      "end": 1133.2,
+      "words": []
+    },
+    {
+      "text": "that goes all the way through your skull backwards.",
+      "start": 1133.2,
+      "end": 1137.21,
+      "words": []
+    },
+    {
+      "text": "And, of course, it would be easier",
+      "start": 1139.18,
+      "end": 1142.25,
+      "words": []
+    },
+    {
+      "text": "to just have the visual cortex in front,",
+      "start": 1142.25,
+      "end": 1144.63,
+      "words": []
+    },
+    {
+      "text": "but I think the evolutionary explanation is that",
+      "start": 1144.79,
+      "end": 1148.57,
+      "words": []
+    },
+    {
+      "text": "back when we were very far from mammals,",
+      "start": 1148.57,
+      "end": 1151.81,
+      "words": []
+    },
+    {
+      "text": "we would have the proto-eyes up here on top of the head.",
+      "start": 1151.81,
+      "end": 1157.97,
+      "words": []
+    },
+    {
+      "text": "And then somehow the eyes went over here",
+      "start": 1158.51,
+      "end": 1161.05,
+      "words": []
+    },
+    {
+      "text": "and the part of the brain that processes it went over there.",
+      "start": 1161.05,
+      "end": 1164.87,
+      "words": []
+    },
+    {
+      "text": "I have no idea why.",
+      "start": 1165.39,
+      "end": 1166.55,
+      "words": []
+    },
+    {
+      "text": "Anyway, it is known that the visual cortex is here,",
+      "start": 1167.56,
+      "end": 1171.64,
+      "words": []
+    },
+    {
+      "text": "the part that processes visual input,",
+      "start": 1171.74,
+      "end": 1173.32,
+      "words": []
+    },
+    {
+      "text": "and it's easy to find like the first layer of the cortex.",
+      "start": 1173.64,
+      "end": 1177.66,
+      "words": []
+    },
+    {
+      "text": "It's easy to see that, okay,",
+      "start": 1178.27,
+      "end": 1180.02,
+      "words": []
+    },
+    {
+      "text": "here is where the optical nerve attaches,",
+      "start": 1180.02,
+      "end": 1182.02,
+      "words": []
+    },
+    {
+      "text": "so these neurons take the immediate inputs from the eyes.",
+      "start": 1182.52,
+      "end": 1186.48,
+      "words": []
+    },
+    {
+      "text": "And if you actually look at what a single neuron activates for,",
+      "start": 1188.55,
+      "end": 1194.1,
+      "words": []
+    },
+    {
+      "text": "what a single neuron is doing on this first layer of the visual cortex,",
+      "start": 1194.45,
+      "end": 1199.13,
+      "words": []
+    },
+    {
+      "text": "you will see that, first of all,",
+      "start": 1199.69,
+      "end": 1201.25,
+      "words": []
+    },
+    {
+      "text": "it cannot, of course, see the whole picture.",
+      "start": 1201.64,
+      "end": 1204.2,
+      "words": []
+    },
+    {
+      "text": "It has only that many inputs,",
+      "start": 1204.2,
+      "end": 1207.04,
+      "words": []
+    },
+    {
+      "text": "and it has a small receptive field, as it is called.",
+      "start": 1207.42,
+      "end": 1212.26,
+      "words": []
+    },
+    {
+      "text": "It looks at a relatively small part of the general picture,",
+      "start": 1215.07,
+      "end": 1222.69,
+      "words": []
+    },
+    {
+      "text": "and in this small part,",
+      "start": 1223.71,
+      "end": 1226.05,
+      "words": []
+    },
+    {
+      "text": "it recognizes something really, really simple.",
+      "start": 1226.31,
+      "end": 1228.31,
+      "words": []
+    },
+    {
+      "text": "So on this slide, you see a sample neuron",
+      "start": 1228.31,
+      "end": 1231.9,
+      "words": []
+    },
+    {
+      "text": "that recognizes vertical lines.",
+      "start": 1231.9,
+      "end": 1233.98,
+      "words": []
+    },
+    {
+      "text": "So if it sees a bright vertical line in its field of vision,",
+      "start": 1234.54,
+      "end": 1237.86,
+      "words": []
+    },
+    {
+      "text": "great, it's activated a lot,",
+      "start": 1238.3,
+      "end": 1239.96,
+      "words": []
+    },
+    {
+      "text": "and even if you still have just a single line,",
+      "start": 1240.52,
+      "end": 1243.24,
+      "words": []
+    },
+    {
+      "text": "but you start to rotate it, the activation dies out",
+      "start": 1243.32,
+      "end": 1248.01,
+      "words": []
+    },
+    {
+      "text": "and basically goes to zero.",
+      "start": 1248.01,
+      "end": 1250.32,
+      "words": []
+    },
+    {
+      "text": "And then what would you expect next?",
+      "start": 1252.03,
+      "end": 1255.58,
+      "words": []
+    },
+    {
+      "text": "Well, you would definitely expect that then you would have layer two,",
+      "start": 1256.18,
+      "end": 1260.52,
+      "words": []
+    },
+    {
+      "text": "the second layer that would feed off the outputs of the first layer.",
+      "start": 1261.06,
+      "end": 1264.24,
+      "words": []
+    },
+    {
+      "text": "So it would somehow combine these simple shapes",
+      "start": 1264.24,
+      "end": 1273.69,
+      "words": []
+    },
+    {
+      "text": "into something more complicated.",
+      "start": 1273.69,
+      "end": 1275.58,
+      "words": []
+    },
+    {
+      "text": "Like if you had one neuron that recognizes vertical lines,",
+      "start": 1275.89,
+      "end": 1279.76,
+      "words": []
+    },
+    {
+      "text": "another neuron that recognizes horizontal lines, boom, you put an end.",
+      "start": 1279.92,
+      "end": 1284.1,
+      "words": []
+    },
+    {
+      "text": "You have a neuron that gets an end across them,",
+      "start": 1284.68,
+      "end": 1287.44,
+      "words": []
+    },
+    {
+      "text": "and now you have a neuron that recognizes across",
+      "start": 1287.64,
+      "end": 1291.61,
+      "words": []
+    },
+    {
+      "text": "in its receptive field and its visual field of vision.",
+      "start": 1291.61,
+      "end": 1294.93,
+      "words": []
+    },
+    {
+      "text": "And Hebel and Weasel did this, and they also studied the second layer.",
+      "start": 1296.7,
+      "end": 1303.22,
+      "words": []
+    },
+    {
+      "text": "So they discovered neurons like I just said.",
+      "start": 1303.46,
+      "end": 1305.92,
+      "words": []
+    },
+    {
+      "text": "But then they somehow didn't go any further,",
+      "start": 1306.56,
+      "end": 1311.37,
+      "words": []
+    },
+    {
+      "text": "and they started doing other things.",
+      "start": 1311.81,
+      "end": 1315.53,
+      "words": []
+    },
+    {
+      "text": "And actually, that was a pretty wise decision",
+      "start": 1316.11,
+      "end": 1317.97,
+      "words": []
+    },
+    {
+      "text": "because, again, the brain is very, very complicated.",
+      "start": 1317.97,
+      "end": 1322.09,
+      "words": []
+    },
+    {
+      "text": "And if you look at some simplified representation",
+      "start": 1322.67,
+      "end": 1326.69,
+      "words": []
+    },
+    {
+      "text": "of the visual cortex, you will actually see",
+      "start": 1326.69,
+      "end": 1328.93,
+      "words": []
+    },
+    {
+      "text": "that there are layers from V1 to V4,",
+      "start": 1328.93,
+      "end": 1336.34,
+      "words": []
+    },
+    {
+      "text": "then V5, V6, et cetera, et cetera,",
+      "start": 1336.48,
+      "end": 1338.64,
+      "words": []
+    },
+    {
+      "text": "and, yes, there are layers,",
+      "start": 1338.82,
+      "end": 1341.38,
+      "words": []
+    },
+    {
+      "text": "but it's not an artificial neural network.",
+      "start": 1341.92,
+      "end": 1344.02,
+      "words": []
+    },
+    {
+      "text": "The actual structure is much more complicated.",
+      "start": 1344.44,
+      "end": 1347.04,
+      "words": []
+    },
+    {
+      "text": "There is all sorts of feedback that goes back.",
+      "start": 1347.38,
+      "end": 1350.4,
+      "words": []
+    },
+    {
+      "text": "There are all sorts of connections,",
+      "start": 1350.54,
+      "end": 1352.14,
+      "words": []
+    },
+    {
+      "text": "and, yeah, I keep showing this picture",
+      "start": 1353.02,
+      "end": 1356.29,
+      "words": []
+    },
+    {
+      "text": "for the last 10 years or so,",
+      "start": 1356.29,
+      "end": 1358.28,
+      "words": []
+    },
+    {
+      "text": "and I suppose that since the last 10 years,",
+      "start": 1358.7,
+      "end": 1361.02,
+      "words": []
+    },
+    {
+      "text": "it has become much more complicated.",
+      "start": 1361.08,
+      "end": 1362.54,
+      "words": []
+    },
+    {
+      "text": "So this is from some survey,",
+      "start": 1363.54,
+      "end": 1366.9,
+      "words": []
+    },
+    {
+      "text": "and this picture was called",
+      "start": 1366.9,
+      "end": 1368.38,
+      "words": []
+    },
+    {
+      "text": "the most important neural pathways",
+      "start": 1368.38,
+      "end": 1372.82,
+      "words": []
+    },
+    {
+      "text": "in the early layers of the visual cortex.",
+      "start": 1372.82,
+      "end": 1377.3,
+      "words": []
+    },
+    {
+      "text": "So you can actually see that, yeah,",
+      "start": 1377.86,
+      "end": 1379.84,
+      "words": []
+    },
+    {
+      "text": "there is a very well-defined first layer.",
+      "start": 1380.12,
+      "end": 1382.36,
+      "words": []
+    },
+    {
+      "text": "Yes, the optical nerve does come in somewhere,",
+      "start": 1382.66,
+      "end": 1386.71,
+      "words": []
+    },
+    {
+      "text": "so the first layer is easier.",
+      "start": 1387.11,
+      "end": 1388.53,
+      "words": []
+    },
+    {
+      "text": "The second layer is also kind of clear,",
+      "start": 1388.93,
+      "end": 1391.11,
+      "words": []
+    },
+    {
+      "text": "and then it's just a mess.",
+      "start": 1391.37,
+      "end": 1393.27,
+      "words": []
+    },
+    {
+      "text": "Then it's like a lot of different components",
+      "start": 1393.63,
+      "end": 1395.77,
+      "words": []
+    },
+    {
+      "text": "that do different things,",
+      "start": 1395.77,
+      "end": 1396.79,
+      "words": []
+    },
+    {
+      "text": "so they are all interconnected with each other.",
+      "start": 1396.79,
+      "end": 1399.09,
+      "words": []
+    },
+    {
+      "text": "Anyway, when people saw that,",
+      "start": 1400.1,
+      "end": 1406.2,
+      "words": []
+    },
+    {
+      "text": "when they saw how small geometric shapes",
+      "start": 1407.1,
+      "end": 1411.37,
+      "words": []
+    },
+    {
+      "text": "gradually go up layer by layer,",
+      "start": 1411.37,
+      "end": 1416.8,
+      "words": []
+    },
+    {
+      "text": "and we didn't have a clear picture",
+      "start": 1417.18,
+      "end": 1420.21,
+      "words": []
+    },
+    {
+      "text": "of what happens next at that point,",
+      "start": 1420.21,
+      "end": 1421.85,
+      "words": []
+    },
+    {
+      "text": "but clearly at some point,",
+      "start": 1421.97,
+      "end": 1424.35,
+      "words": []
+    },
+    {
+      "text": "the picture would go to something like face recognition, right?",
+      "start": 1424.91,
+      "end": 1428.89,
+      "words": []
+    },
+    {
+      "text": "So some very complicated computer vision problems",
+      "start": 1428.89,
+      "end": 1431.83,
+      "words": []
+    },
+    {
+      "text": "would be solved in our human brain very quickly.",
+      "start": 1431.83,
+      "end": 1434.03,
+      "words": []
+    },
+    {
+      "text": "So people, of course, try to imitate stuff like this in computers.",
+      "start": 1434.89,
+      "end": 1439.05,
+      "words": []
+    },
+    {
+      "text": "And actually, convolutions and convolutional networks",
+      "start": 1439.86,
+      "end": 1445.14,
+      "words": []
+    },
+    {
+      "text": "are a very old idea.",
+      "start": 1445.14,
+      "end": 1446.08,
+      "words": []
+    },
+    {
+      "text": "They date back at least to this very interesting architecture",
+      "start": 1447.92,
+      "end": 1452.34,
+      "words": []
+    },
+    {
+      "text": "called the neocognitron",
+      "start": 1452.34,
+      "end": 1453.76,
+      "words": []
+    },
+    {
+      "text": "by a Japanese researcher named Kunihiko Fukushima.",
+      "start": 1453.76,
+      "end": 1459.08,
+      "words": []
+    },
+    {
+      "text": "He did it in the late 1970s,",
+      "start": 1460.05,
+      "end": 1463.01,
+      "words": []
+    },
+    {
+      "text": "and I actually, if you're interested",
+      "start": 1463.39,
+      "end": 1465.35,
+      "words": []
+    },
+    {
+      "text": "in the history of deep learning,",
+      "start": 1465.35,
+      "end": 1466.55,
+      "words": []
+    },
+    {
+      "text": "I actually recommend you to read these papers.",
+      "start": 1466.69,
+      "end": 1468.53,
+      "words": []
+    },
+    {
+      "text": "It's like, it's a two-page paper.",
+      "start": 1469.35,
+      "end": 1471.69,
+      "words": []
+    },
+    {
+      "text": "It's very short, and you can definitely read it.",
+      "start": 1471.83,
+      "end": 1474.87,
+      "words": []
+    },
+    {
+      "text": "There's nothing too complicated in there,",
+      "start": 1474.99,
+      "end": 1477.19,
+      "words": []
+    },
+    {
+      "text": "and when you read it, you see that in 1979,",
+      "start": 1477.61,
+      "end": 1482.97,
+      "words": []
+    },
+    {
+      "text": "he had a deep neural network, several layers.",
+      "start": 1482.97,
+      "end": 1486.23,
+      "words": []
+    },
+    {
+      "text": "It was a convolutional network,",
+      "start": 1487.12,
+      "end": 1488.66,
+      "words": []
+    },
+    {
+      "text": "and it had real low activations,",
+      "start": 1489.77,
+      "end": 1492.98,
+      "words": []
+    },
+    {
+      "text": "these hinge activations",
+      "start": 1493.72,
+      "end": 1496.0,
+      "words": []
+    },
+    {
+      "text": "that we discussed last time",
+      "start": 1496.0,
+      "end": 1497.46,
+      "words": []
+    },
+    {
+      "text": "and that I told you only came into common practice",
+      "start": 1497.46,
+      "end": 1501.9,
+      "words": []
+    },
+    {
+      "text": "in 2011 or 2012.",
+      "start": 1501.9,
+      "end": 1504.38,
+      "words": []
+    },
+    {
+      "text": "But the thing he didn't have,",
+      "start": 1506.63,
+      "end": 1508.95,
+      "words": []
+    },
+    {
+      "text": "the thing he didn't have in 1979 was learning.",
+      "start": 1509.05,
+      "end": 1512.09,
+      "words": []
+    },
+    {
+      "text": "So there was a big composition of simple things,",
+      "start": 1512.69,
+      "end": 1516.17,
+      "words": []
+    },
+    {
+      "text": "and they were convolutions,",
+      "start": 1516.17,
+      "end": 1517.63,
+      "words": []
+    },
+    {
+      "text": "but they were not trainable convolutions.",
+      "start": 1517.95,
+      "end": 1520.35,
+      "words": []
+    },
+    {
+      "text": "They were just some fixed filters",
+      "start": 1520.55,
+      "end": 1522.39,
+      "words": []
+    },
+    {
+      "text": "that he would apply across the image.",
+      "start": 1522.39,
+      "end": 1526.06,
+      "words": []
+    },
+    {
+      "text": "Anyway, whatever.",
+      "start": 1526.28,
+      "end": 1527.57,
+      "words": []
+    },
+    {
+      "text": "So in a modern form,",
+      "start": 1527.67,
+      "end": 1530.86,
+      "words": []
+    },
+    {
+      "text": "convolutional networks appeared in Jan LeCun's group.",
+      "start": 1531.41,
+      "end": 1534.98,
+      "words": []
+    },
+    {
+      "text": "That's the main claim to fame by Jan LeCun.",
+      "start": 1535.45,
+      "end": 1538.55,
+      "words": []
+    },
+    {
+      "text": "He developed convolutional networks for many, many years,",
+      "start": 1538.99,
+      "end": 1542.19,
+      "words": []
+    },
+    {
+      "text": "for several decades.",
+      "start": 1542.29,
+      "end": 1543.09,
+      "words": []
+    },
+    {
+      "text": "And in the late 1980s,",
+      "start": 1544.53,
+      "end": 1546.85,
+      "words": []
+    },
+    {
+      "text": "they appeared already certainly in their modern form.",
+      "start": 1547.07,
+      "end": 1553.29,
+      "words": []
+    },
+    {
+      "text": "They had training,",
+      "start": 1553.8,
+      "end": 1555.8,
+      "words": []
+    },
+    {
+      "text": "they had convolutions and everything.",
+      "start": 1556.12,
+      "end": 1558.44,
+      "words": []
+    },
+    {
+      "text": "And let me just walk you through a few images",
+      "start": 1558.72,
+      "end": 1562.12,
+      "words": []
+    },
+    {
+      "text": "that will show how convolutional networks work.",
+      "start": 1562.12,
+      "end": 1566.59,
+      "words": []
+    },
+    {
+      "text": "And it's such a brilliant idea that it's...",
+      "start": 1567.38,
+      "end": 1575.29,
+      "words": []
+    },
+    {
+      "text": "Well, okay, it's just a brilliant idea.",
+      "start": 1575.29,
+      "end": 1577.48,
+      "words": []
+    },
+    {
+      "text": "It's a very brilliant idea of what I would call",
+      "start": 1577.76,
+      "end": 1580.64,
+      "words": []
+    },
+    {
+      "text": "structural regularization.",
+      "start": 1580.64,
+      "end": 1582.34,
+      "words": []
+    },
+    {
+      "text": "You'll see what I mean.",
+      "start": 1582.72,
+      "end": 1583.66,
+      "words": []
+    },
+    {
+      "text": "So first of all, let's have a picture like this one.",
+      "start": 1584.47,
+      "end": 1589.43,
+      "words": []
+    },
+    {
+      "text": "And let's assume that I want to process this picture.",
+      "start": 1589.43,
+      "end": 1592.63,
+      "words": []
+    },
+    {
+      "text": "So what do I mean by processing?",
+      "start": 1593.73,
+      "end": 1595.65,
+      "words": []
+    },
+    {
+      "text": "Well, maybe I want to solve some computer vision task.",
+      "start": 1596.01,
+      "end": 1598.9,
+      "words": []
+    },
+    {
+      "text": "Maybe I want to, for example, find the little boy's head on this image.",
+      "start": 1599.28,
+      "end": 1604.36,
+      "words": []
+    },
+    {
+      "text": "So that would be object detection.",
+      "start": 1604.76,
+      "end": 1607.2,
+      "words": []
+    },
+    {
+      "text": "We'll discuss object detection later.",
+      "start": 1607.32,
+      "end": 1608.66,
+      "words": []
+    },
+    {
+      "text": "So where is the boy's head on this image?",
+      "start": 1609.2,
+      "end": 1613.3,
+      "words": []
+    },
+    {
+      "text": "And the main observation, the main idea,",
+      "start": 1613.3,
+      "end": 1620.7,
+      "words": []
+    },
+    {
+      "text": "the main assumption that is behind CNNs,",
+      "start": 1620.82,
+      "end": 1623.8,
+      "words": []
+    },
+    {
+      "text": "that is behind convolutional neural networks,",
+      "start": 1623.86,
+      "end": 1625.48,
+      "words": []
+    },
+    {
+      "text": "is that, well, if I'm looking for something,",
+      "start": 1626.16,
+      "end": 1629.48,
+      "words": []
+    },
+    {
+      "text": "for some feature on an image,",
+      "start": 1629.97,
+      "end": 1632.21,
+      "words": []
+    },
+    {
+      "text": "then it's the exact same function",
+      "start": 1633.59,
+      "end": 1638.29,
+      "words": []
+    },
+    {
+      "text": "applied all across the image.",
+      "start": 1638.29,
+      "end": 1641.41,
+      "words": []
+    },
+    {
+      "text": "So if I have a black box that looks at a small window",
+      "start": 1642.14,
+      "end": 1646.24,
+      "words": []
+    },
+    {
+      "text": "and says, well, that's a boy's head,",
+      "start": 1646.24,
+      "end": 1648.3,
+      "words": []
+    },
+    {
+      "text": "or no, that's not a boy's head,",
+      "start": 1648.3,
+      "end": 1650.06,
+      "words": []
+    },
+    {
+      "text": "then it will be the exact same black box",
+      "start": 1650.58,
+      "end": 1654.13,
+      "words": []
+    },
+    {
+      "text": "that I'm supposed to apply across this whole big picture,",
+      "start": 1654.13,
+      "end": 1659.92,
+      "words": []
+    },
+    {
+      "text": "and just the output will be different.",
+      "start": 1660.24,
+      "end": 1662.24,
+      "words": []
+    },
+    {
+      "text": "So here it will say yes, and over here it will say no.",
+      "start": 1662.38,
+      "end": 1665.46,
+      "words": []
+    },
+    {
+      "text": "But the function is the same.",
+      "start": 1665.76,
+      "end": 1667.99,
+      "words": []
+    },
+    {
+      "text": "The inputs are different, so the outputs, of course, are also different.",
+      "start": 1668.6,
+      "end": 1671.48,
+      "words": []
+    },
+    {
+      "text": "So the idea of convolutional neural networks is this.",
+      "start": 1672.94,
+      "end": 1675.74,
+      "words": []
+    },
+    {
+      "text": "Let's take a picture, or any input is just easier to,",
+      "start": 1676.13,
+      "end": 1680.63,
+      "words": []
+    },
+    {
+      "text": "more clear to reason about pictures,",
+      "start": 1680.91,
+      "end": 1683.69,
+      "words": []
+    },
+    {
+      "text": "but take any input, break it into small windows like this.",
+      "start": 1683.81,
+      "end": 1688.07,
+      "words": []
+    },
+    {
+      "text": "Usually they are overlapping, like shown here.",
+      "start": 1688.69,
+      "end": 1691.43,
+      "words": []
+    },
+    {
+      "text": "Then, for every tile like this one, apply a small neural network.",
+      "start": 1692.92,
+      "end": 1701.11,
+      "words": []
+    },
+    {
+      "text": "So, now this small neural network is a model that we need to train,",
+      "start": 1701.89,
+      "end": 1705.87,
+      "words": []
+    },
+    {
+      "text": "it will have weights, we will do gradient descent, etc., etc.,",
+      "start": 1705.97,
+      "end": 1709.61,
+      "words": []
+    },
+    {
+      "text": "but it will be small.",
+      "start": 1709.61,
+      "end": 1711.86,
+      "words": []
+    },
+    {
+      "text": "It will be applied only to this little tile,",
+      "start": 1712.37,
+      "end": 1716.31,
+      "words": []
+    },
+    {
+      "text": "a few pixels across, that we split the picture into, right?",
+      "start": 1716.85,
+      "end": 1723.42,
+      "words": []
+    },
+    {
+      "text": "And the big gain here, the profit,",
+      "start": 1723.42,
+      "end": 1727.84,
+      "words": []
+    },
+    {
+      "text": "is that now I take the exact same small neural network",
+      "start": 1728.24,
+      "end": 1732.62,
+      "words": []
+    },
+    {
+      "text": "and I apply it to every single tile across the input.",
+      "start": 1732.62,
+      "end": 1740.12,
+      "words": []
+    },
+    {
+      "text": "So I take this tile, I apply the neural network,",
+      "start": 1741.2,
+      "end": 1746.77,
+      "words": []
+    },
+    {
+      "text": "I get this, let's say, output vector.",
+      "start": 1747.09,
+      "end": 1749.43,
+      "words": []
+    },
+    {
+      "text": "Usually you would want to extract not one feature,",
+      "start": 1749.95,
+      "end": 1752.17,
+      "words": []
+    },
+    {
+      "text": "but several features.",
+      "start": 1752.25,
+      "end": 1753.07,
+      "words": []
+    },
+    {
+      "text": "So usually the output is several numbers.",
+      "start": 1753.07,
+      "end": 1755.54,
+      "words": []
+    },
+    {
+      "text": "And then I take the next tile, I apply, I get some more.",
+      "start": 1756.78,
+      "end": 1761.42,
+      "words": []
+    },
+    {
+      "text": "And so when I actually do that, get back to the board,",
+      "start": 1763.2,
+      "end": 1767.82,
+      "words": []
+    },
+    {
+      "text": "when I actually do that, what I get as a result,",
+      "start": 1768.55,
+      "end": 1774.39,
+      "words": []
+    },
+    {
+      "text": "so here is my input picture, right?",
+      "start": 1774.61,
+      "end": 1777.94,
+      "words": []
+    },
+    {
+      "text": "I break it into windows, like I showed.",
+      "start": 1778.04,
+      "end": 1780.82,
+      "words": []
+    },
+    {
+      "text": "And then I take each window, okay, yeah, okay,",
+      "start": 1781.36,
+      "end": 1786.14,
+      "words": []
+    },
+    {
+      "text": "let them be overlapping, whatever.",
+      "start": 1786.14,
+      "end": 1787.86,
+      "words": []
+    },
+    {
+      "text": "I take each window, I put it through my small neural network,",
+      "start": 1788.38,
+      "end": 1793.04,
+      "words": []
+    },
+    {
+      "text": "and let me draw it horizontally, I get this vector of features, right?",
+      "start": 1793.28,
+      "end": 1799.2,
+      "words": []
+    },
+    {
+      "text": "Then I take the next window over here,",
+      "start": 1801.24,
+      "end": 1805.95,
+      "words": []
+    },
+    {
+      "text": "I put it through the exact same neural network,",
+      "start": 1807.53,
+      "end": 1810.21,
+      "words": []
+    },
+    {
+      "text": "and I get a different vector of features that goes here.",
+      "start": 1810.89,
+      "end": 1815.54,
+      "words": []
+    },
+    {
+      "text": "Okay, now this will be a massive picture,",
+      "start": 1817.17,
+      "end": 1818.81,
+      "words": []
+    },
+    {
+      "text": "but anyway, as I take each one of these windows,",
+      "start": 1818.81,
+      "end": 1822.94,
+      "words": []
+    },
+    {
+      "text": "I get a vector of features,",
+      "start": 1823.62,
+      "end": 1827.81,
+      "words": []
+    },
+    {
+      "text": "and then these vectors of features themselves",
+      "start": 1828.85,
+      "end": 1833.19,
+      "words": []
+    },
+    {
+      "text": "also have this geometric structure, right?",
+      "start": 1833.19,
+      "end": 1838.08,
+      "words": []
+    },
+    {
+      "text": "So there is a top right window,",
+      "start": 1838.36,
+      "end": 1843.63,
+      "words": []
+    },
+    {
+      "text": "there is a bottom left window,",
+      "start": 1843.81,
+      "end": 1845.75,
+      "words": []
+    },
+    {
+      "text": "and the bottom left window will give me",
+      "start": 1845.75,
+      "end": 1848.25,
+      "words": []
+    },
+    {
+      "text": "this bottom left vector of features and so on, right?",
+      "start": 1848.25,
+      "end": 1851.75,
+      "words": []
+    },
+    {
+      "text": "So as the output of this procedure,",
+      "start": 1852.17,
+      "end": 1855.88,
+      "words": []
+    },
+    {
+      "text": "I will get a three-dimensional tensor, right?",
+      "start": 1856.57,
+      "end": 1860.36,
+      "words": []
+    },
+    {
+      "text": "I will still have some width, some height,",
+      "start": 1860.48,
+      "end": 1864.18,
+      "words": []
+    },
+    {
+      "text": "and now I will also have a meaningful depth.",
+      "start": 1864.84,
+      "end": 1869.33,
+      "words": []
+    },
+    {
+      "text": "So actually, the input also usually has depth,",
+      "start": 1870.18,
+      "end": 1872.38,
+      "words": []
+    },
+    {
+      "text": "for example, because these days,",
+      "start": 1872.99,
+      "end": 1876.19,
+      "words": []
+    },
+    {
+      "text": "for the last few decades,",
+      "start": 1876.19,
+      "end": 1879.01,
+      "words": []
+    },
+    {
+      "text": "pictures are usually in color.",
+      "start": 1879.37,
+      "end": 1881.29,
+      "words": []
+    },
+    {
+      "text": "So even on the first step,",
+      "start": 1881.77,
+      "end": 1884.45,
+      "words": []
+    },
+    {
+      "text": "if you have a color image,",
+      "start": 1884.55,
+      "end": 1885.79,
+      "words": []
+    },
+    {
+      "text": "you have depth three at the input, right?",
+      "start": 1885.87,
+      "end": 1887.93,
+      "words": []
+    },
+    {
+      "text": "In general, what you get",
+      "start": 1888.73,
+      "end": 1893.08,
+      "words": []
+    },
+    {
+      "text": "at the output of a convolutional layer",
+      "start": 1893.08,
+      "end": 1895.9,
+      "words": []
+    },
+    {
+      "text": "is a 3D tensor,",
+      "start": 1895.9,
+      "end": 1897.54,
+      "words": []
+    },
+    {
+      "text": "if you start with a 2D input",
+      "start": 1897.95,
+      "end": 1900.67,
+      "words": []
+    },
+    {
+      "text": "in structure, like a picture,",
+      "start": 1900.67,
+      "end": 1902.43,
+      "words": []
+    },
+    {
+      "text": "and then you can do the same thing, right?",
+      "start": 1903.65,
+      "end": 1906.24,
+      "words": []
+    },
+    {
+      "text": "So again, you take its pixels,",
+      "start": 1906.24,
+      "end": 1908.98,
+      "words": []
+    },
+    {
+      "text": "you take this structure over here,",
+      "start": 1910.27,
+      "end": 1912.94,
+      "words": []
+    },
+    {
+      "text": "and you tile it with windows,",
+      "start": 1913.12,
+      "end": 1918.44,
+      "words": []
+    },
+    {
+      "text": "with small tiles,",
+      "start": 1919.5,
+      "end": 1921.02,
+      "words": []
+    },
+    {
+      "text": "and then you take this small sub tensor,",
+      "start": 1921.48,
+      "end": 1924.93,
+      "words": []
+    },
+    {
+      "text": "this small window out of here,",
+      "start": 1925.47,
+      "end": 1928.06,
+      "words": []
+    },
+    {
+      "text": "and you pass it through another small neural network,",
+      "start": 1928.45,
+      "end": 1931.89,
+      "words": []
+    },
+    {
+      "text": "and you get another vector of features.",
+      "start": 1932.01,
+      "end": 1935.8,
+      "words": []
+    },
+    {
+      "text": "And again, you repeat this,",
+      "start": 1936.55,
+      "end": 1938.56,
+      "words": []
+    },
+    {
+      "text": "this was the top left vector of features,",
+      "start": 1938.56,
+      "end": 1941.2,
+      "words": []
+    },
+    {
+      "text": "but then you get another tensor,",
+      "start": 1941.38,
+      "end": 1942.74,
+      "words": []
+    },
+    {
+      "text": "and so on and so forth.",
+      "start": 1943.68,
+      "end": 1944.7,
+      "words": []
+    },
+    {
+      "text": "I'm sorry, I'm not in a convenient place",
+      "start": 1945.56,
+      "end": 1948.56,
+      "words": []
+    },
+    {
+      "text": "to draw a nice picture,",
+      "start": 1948.56,
+      "end": 1949.42,
+      "words": []
+    },
+    {
+      "text": "but I hope you understand what's going on.",
+      "start": 1949.56,
+      "end": 1951.2,
+      "words": []
+    },
+    {
+      "text": "So on every step,",
+      "start": 1951.38,
+      "end": 1953.47,
+      "words": []
+    },
+    {
+      "text": "we tile the image into tiles like this one.",
+      "start": 1954.18,
+      "end": 1962.39,
+      "words": []
+    },
+    {
+      "text": "It doesn't have to be the original image.",
+      "start": 1963.41,
+      "end": 1966.79,
+      "words": []
+    },
+    {
+      "text": "You can chain these layers one after the other",
+      "start": 1967.16,
+      "end": 1971.39,
+      "words": []
+    },
+    {
+      "text": "because always you are working",
+      "start": 1971.39,
+      "end": 1974.15,
+      "words": []
+    },
+    {
+      "text": "with like three-dimensional arrays,",
+      "start": 1974.15,
+      "end": 1975.67,
+      "words": []
+    },
+    {
+      "text": "which in deep learning are confusingly called tensors,",
+      "start": 1976.28,
+      "end": 1979.18,
+      "words": []
+    },
+    {
+      "text": "but what can you do?",
+      "start": 1979.34,
+      "end": 1980.38,
+      "words": []
+    },
+    {
+      "text": "So you're working with three-dimensional tensors,",
+      "start": 1981.1,
+      "end": 1984.24,
+      "words": []
+    },
+    {
+      "text": "and you just convert one 3D tensor to another",
+      "start": 1985.4,
+      "end": 1990.05,
+      "words": []
+    },
+    {
+      "text": "as you go with this procedure.",
+      "start": 1990.05,
+      "end": 1992.18,
+      "words": []
+    },
+    {
+      "text": "And then you can have like a whole sequence",
+      "start": 1993.45,
+      "end": 1999.95,
+      "words": []
+    },
+    {
+      "text": "of these convolutional layers.",
+      "start": 1999.95,
+      "end": 2001.29,
+      "words": []
+    },
+    {
+      "text": "So before we proceed, one more thing about this.",
+      "start": 2005.11,
+      "end": 2008.34,
+      "words": []
+    },
+    {
+      "text": "In classical convolutional neural networks",
+      "start": 2009.06,
+      "end": 2012.99,
+      "words": []
+    },
+    {
+      "text": "and in many architectures that we will see today,",
+      "start": 2012.99,
+      "end": 2016.05,
+      "words": []
+    },
+    {
+      "text": "there is another type of layers.",
+      "start": 2017.05,
+      "end": 2022.72,
+      "words": []
+    },
+    {
+      "text": "Like there is a convolutional layer.",
+      "start": 2023.04,
+      "end": 2024.38,
+      "words": []
+    },
+    {
+      "text": "That's the one that we just discussed.",
+      "start": 2024.87,
+      "end": 2026.27,
+      "words": []
+    },
+    {
+      "text": "And then there is also what is called the pooling layer.",
+      "start": 2026.63,
+      "end": 2029.25,
+      "words": []
+    },
+    {
+      "text": "And let me maybe first give you the motivation for it.",
+      "start": 2029.25,
+      "end": 2034.88,
+      "words": []
+    },
+    {
+      "text": "And then the actual layer is actually pretty simple.",
+      "start": 2035.32,
+      "end": 2038.35,
+      "words": []
+    },
+    {
+      "text": "So the motivation is this.",
+      "start": 2038.73,
+      "end": 2039.95,
+      "words": []
+    },
+    {
+      "text": "Let's again try to look at what the neurons do.",
+      "start": 2041.57,
+      "end": 2048.84,
+      "words": []
+    },
+    {
+      "text": "So this is our original image.",
+      "start": 2049.41,
+      "end": 2051.35,
+      "words": []
+    },
+    {
+      "text": "And it has lots and lots of pixels, right?",
+      "start": 2051.79,
+      "end": 2055.45,
+      "words": []
+    },
+    {
+      "text": "It has big width, big height.",
+      "start": 2056.8,
+      "end": 2062.24,
+      "words": []
+    },
+    {
+      "text": "Then I slice it into very small tiles.",
+      "start": 2063.49,
+      "end": 2068.33,
+      "words": []
+    },
+    {
+      "text": "So, of course, in my picture, they're not small, but in practice, they're small tiles.",
+      "start": 2068.95,
+      "end": 2072.41,
+      "words": []
+    },
+    {
+      "text": "So I have this tile of, let's say, three by three pixels.",
+      "start": 2072.87,
+      "end": 2076.91,
+      "words": []
+    },
+    {
+      "text": "And it's a color image, so it has depth three too.",
+      "start": 2077.82,
+      "end": 2081.13,
+      "words": []
+    },
+    {
+      "text": "So it has a small height, a small width, and then it goes through the neural network,",
+      "start": 2081.13,
+      "end": 2087.54,
+      "words": []
+    },
+    {
+      "text": "and then we get our vector of features.",
+      "start": 2088.14,
+      "end": 2092.53,
+      "words": []
+    },
+    {
+      "text": "So this vector of features, this one, depends only on this small three by three tile, right?",
+      "start": 2094.25,
+      "end": 2105.54,
+      "words": []
+    },
+    {
+      "text": "So if you look at it in the other direction, you can say that for this feature,",
+      "start": 2106.2,
+      "end": 2115.23,
+      "words": []
+    },
+    {
+      "text": "this feature has a receptive field, it's called in this part of science,",
+      "start": 2115.23,
+      "end": 2123.96,
+      "words": []
+    },
+    {
+      "text": "receptive field, has a receptive field of three by three pixels.",
+      "start": 2124.2,
+      "end": 2127.94,
+      "words": []
+    },
+    {
+      "text": "So it only looks at a very small, very local part of the image, right?",
+      "start": 2128.78,
+      "end": 2133.93,
+      "words": []
+    },
+    {
+      "text": "So what happens next?",
+      "start": 2134.08,
+      "end": 2136.52,
+      "words": []
+    },
+    {
+      "text": "Suppose that I cover this whole image with three by three windows like this,",
+      "start": 2137.46,
+      "end": 2147.49,
+      "words": []
+    },
+    {
+      "text": "and then as a result, I will have a 3D tensor like this,",
+      "start": 2147.49,
+      "end": 2155.14,
+      "words": []
+    },
+    {
+      "text": "and then I do another convolution.",
+      "start": 2155.84,
+      "end": 2157.6,
+      "words": []
+    },
+    {
+      "text": "I do another three by three convolution over here, okay?",
+      "start": 2158.11,
+      "end": 2161.9,
+      "words": []
+    },
+    {
+      "text": "So I cut off, I cut out another three by three by something.",
+      "start": 2162.13,
+      "end": 2167.19,
+      "words": []
+    },
+    {
+      "text": "Now the depth is probably more than three, but anyway,",
+      "start": 2167.51,
+      "end": 2169.69,
+      "words": []
+    },
+    {
+      "text": "I cut out another three by three by D tensor,",
+      "start": 2170.05,
+      "end": 2172.45,
+      "words": []
+    },
+    {
+      "text": "and I put it through a small neural network and so on.",
+      "start": 2172.75,
+      "end": 2175.45,
+      "words": []
+    },
+    {
+      "text": "I get a feature over here.",
+      "start": 2176.45,
+      "end": 2178.42,
+      "words": []
+    },
+    {
+      "text": "What is its receptive field?",
+      "start": 2179.31,
+      "end": 2181.4,
+      "words": []
+    },
+    {
+      "text": "Well, it looks at these features inside this parallelepiped, right?",
+      "start": 2181.4,
+      "end": 2189.16,
+      "words": []
+    },
+    {
+      "text": "At the features inside this small part of the tensor.",
+      "start": 2189.72,
+      "end": 2193.69,
+      "words": []
+    },
+    {
+      "text": "And these features in turn are looking at more pixels than before, right?",
+      "start": 2195.09,
+      "end": 2200.43,
+      "words": []
+    },
+    {
+      "text": "So if I had a three by three over here and another three by three over here,",
+      "start": 2200.63,
+      "end": 2207.33,
+      "words": []
+    },
+    {
+      "text": "which goes to one here, so now this guy corresponds to this,",
+      "start": 2207.95,
+      "end": 2213.64,
+      "words": []
+    },
+    {
+      "text": "and this guy corresponds to a window over here, right?",
+      "start": 2213.64,
+      "end": 2219.86,
+      "words": []
+    },
+    {
+      "text": "So overall, this pixel over here would look at a five by five window in the original pixels, right?",
+      "start": 2220.59,
+      "end": 2231.97,
+      "words": []
+    },
+    {
+      "text": "That's my point.",
+      "start": 2232.35,
+      "end": 2233.53,
+      "words": []
+    },
+    {
+      "text": "So if you do a three by three, and then the results of your three by three you compose in another three by three,",
+      "start": 2233.61,
+      "end": 2239.27,
+      "words": []
+    },
+    {
+      "text": "then you collect information from a five by five window originally, right?",
+      "start": 2239.58,
+      "end": 2245.5,
+      "words": []
+    },
+    {
+      "text": "But five by five is also a pretty small window.",
+      "start": 2247.41,
+      "end": 2251.02,
+      "words": []
+    },
+    {
+      "text": "So like how many layers would you need to have neurons that look at the whole picture?",
+      "start": 2252.0,
+      "end": 2256.84,
+      "words": []
+    },
+    {
+      "text": "On every three by three convolutional layer, you just add two to the width,",
+      "start": 2257.93,
+      "end": 2262.84,
+      "words": []
+    },
+    {
+      "text": "and you don't multiply by two, you just add two to the width,",
+      "start": 2262.84,
+      "end": 2266.2,
+      "words": []
+    },
+    {
+      "text": "and add two to the height of this receptor field, right?",
+      "start": 2266.54,
+      "end": 2269.78,
+      "words": []
+    },
+    {
+      "text": "So if I want to process a 256 by 256 image, I would need like 130 layers.",
+      "start": 2271.04,
+      "end": 2279.05,
+      "words": []
+    },
+    {
+      "text": "That doesn't make any sense.",
+      "start": 2279.57,
+      "end": 2280.94,
+      "words": []
+    },
+    {
+      "text": "I don't want to have that many layers.",
+      "start": 2281.18,
+      "end": 2282.94,
+      "words": []
+    },
+    {
+      "text": "So in the original convolutional networks, you would somehow need to solve this problem.",
+      "start": 2284.0,
+      "end": 2293.22,
+      "words": []
+    },
+    {
+      "text": "That is, you would need to reduce the geometry, and this is an important way of looking at it.",
+      "start": 2293.32,
+      "end": 2298.89,
+      "words": []
+    },
+    {
+      "text": "We will talk about reducing the geometry a lot in this class.",
+      "start": 2298.89,
+      "end": 2302.23,
+      "words": []
+    },
+    {
+      "text": "But you want to reduce the geometry quicker than by just tiling everything and hoping that, you know,",
+      "start": 2302.23,
+      "end": 2312.63,
+      "words": []
+    },
+    {
+      "text": "convolutions will do it by themselves.",
+      "start": 2312.71,
+      "end": 2315.86,
+      "words": []
+    },
+    {
+      "text": "So in the original neural networks, in the original CNNs, they had, and you can still see it today in some architectures,",
+      "start": 2315.86,
+      "end": 2326.91,
+      "words": []
+    },
+    {
+      "text": "they had this idea of a pooling layer.",
+      "start": 2326.91,
+      "end": 2329.78,
+      "words": []
+    },
+    {
+      "text": "So let's suppose that I had a convolutional layer, I expected some features, and then I can say, well, you know, there are too many.",
+      "start": 2329.78,
+      "end": 2341.49,
+      "words": []
+    },
+    {
+      "text": "The width and height are too big, I want to reduce the geometry.",
+      "start": 2341.49,
+      "end": 2345.26,
+      "words": []
+    },
+    {
+      "text": "How could I reduce the geometry?",
+      "start": 2345.26,
+      "end": 2345.98,
+      "words": []
+    },
+    {
+      "text": "Well, I could just slice it into small windows, this time no overlaps, that's the whole point, no overlaps, usually it's two by two windows, but of course you can say it whatever you want, and just replace in every two by two window, out of four features leave only one, according to some rule, right?",
+      "start": 2345.98,
+      "end": 2372.99,
+      "words": []
+    },
+    {
+      "text": "And there are two commonly used rules, I think anything else just reduces basically to one of these two in effect, so there is max pooling, where you take the maximum of the feature values in this small window, and there is average pooling, where you average them.",
+      "start": 2372.99,
+      "end": 2394.92,
+      "words": []
+    },
+    {
+      "text": "I don't think I've ever seen anything else in practice, and usually it's max pooling, so usually it's max pooling, why? Because it kind of makes sense for feature extraction.",
+      "start": 2395.99,
+      "end": 2407.24,
+      "words": []
+    },
+    {
+      "text": "So, okay, so the real answer is because it works better usually, but the justification is that it urges convolutional layers to actually extract more meaningful features.",
+      "start": 2407.24,
+      "end": 2423.53,
+      "words": []
+    },
+    {
+      "text": "So if you, for example, so let's look at this picture and let's say, okay, so I want to like have a black box, have a feature extractor that says, is there a little boy's head in this tile?",
+      "start": 2423.53,
+      "end": 2444.33,
+      "words": []
+    },
+    {
+      "text": "And so when I run it on this tile, I get a one, right? But when I run it, say, on this tile or on this tile, I get basically a zero, even if it's like perfectly understands everything.",
+      "start": 2444.33,
+      "end": 2458.07,
+      "words": []
+    },
+    {
+      "text": "So then let's suppose that I have this bigger tile that combines the small tiles over here that glues them together like pooling does.",
+      "start": 2458.91,
+      "end": 2470.77,
+      "words": []
+    },
+    {
+      "text": "And then I ask, well, what is the proper composition? What is the proper combination of features that will answer the question, is there a little boy's hat in this tile?",
+      "start": 2471.11,
+      "end": 2482.86,
+      "words": []
+    },
+    {
+      "text": "And that would be the max, right?",
+      "start": 2483.37,
+      "end": 2484.9,
+      "words": []
+    },
+    {
+      "text": "If I average, I get some pretty low average because most tiles don't have a little boy's hat, right?",
+      "start": 2485.2,
+      "end": 2491.53,
+      "words": []
+    },
+    {
+      "text": "And only one tile would have the little boy's hat and the rest wouldn't.",
+      "start": 2491.61,
+      "end": 2495.69,
+      "words": []
+    },
+    {
+      "text": "But meaningful features like something is there, they obey the max law, right?",
+      "start": 2497.78,
+      "end": 2504.91,
+      "words": []
+    },
+    {
+      "text": "And less meaningful but sometimes also useful features like how green it is, this feature",
+      "start": 2505.11,
+      "end": 2511.66,
+      "words": []
+    },
+    {
+      "text": "would obey the average law, right?",
+      "start": 2511.66,
+      "end": 2513.42,
+      "words": []
+    },
+    {
+      "text": "If I have a big tile which is half green and half blue, I would probably want to say that",
+      "start": 2513.48,
+      "end": 2520.32,
+      "words": []
+    },
+    {
+      "text": "it's half green.",
+      "start": 2520.32,
+      "end": 2521.66,
+      "words": []
+    },
+    {
+      "text": "It's not fully green.",
+      "start": 2521.92,
+      "end": 2522.96,
+      "words": []
+    },
+    {
+      "text": "But for features corresponding to objects or whatever shapes, max is usually the way",
+      "start": 2522.96,
+      "end": 2531.06,
+      "words": []
+    },
+    {
+      "text": "to go.",
+      "start": 2531.06,
+      "end": 2531.36,
+      "words": []
+    },
+    {
+      "text": "Anyway, that's just a rambling justification of why max pooling.",
+      "start": 2531.58,
+      "end": 2539.27,
+      "words": []
+    },
+    {
+      "text": "All right.",
+      "start": 2541.63,
+      "end": 2541.97,
+      "words": []
+    },
+    {
+      "text": "And so now when you combine convolutional and pooling layers, you can start reducing the",
+      "start": 2542.96,
+      "end": 2556.04,
+      "words": []
+    },
+    {
+      "text": "geometry really, really quickly because every pooling layer cuts the width and the half",
+      "start": 2556.04,
+      "end": 2562.48,
+      "words": []
+    },
+    {
+      "text": "by two.",
+      "start": 2562.48,
+      "end": 2563.18,
+      "words": []
+    },
+    {
+      "text": "Let's assume it's two by two pooling.",
+      "start": 2563.38,
+      "end": 2564.9,
+      "words": []
+    },
+    {
+      "text": "It's almost always two by two pooling.",
+      "start": 2565.0,
+      "end": 2566.78,
+      "words": []
+    },
+    {
+      "text": "So every pooling layer cuts the width by two, cuts the height by two.",
+      "start": 2567.1,
+      "end": 2571.52,
+      "words": []
+    },
+    {
+      "text": "So you get twice, you get four times fewer pixels, four times fewer numbers.",
+      "start": 2571.52,
+      "end": 2578.64,
+      "words": []
+    },
+    {
+      "text": "And then you can do another convolution, blah, blah, blah, and so on.",
+      "start": 2579.02,
+      "end": 2582.99,
+      "words": []
+    },
+    {
+      "text": "So at this point, what I want to do is I want to actually discuss how you would define a convolution,",
+      "start": 2583.65,
+      "end": 2597.76,
+      "words": []
+    },
+    {
+      "text": "like what it actually is, and then we will just work through an example where, I apologize,",
+      "start": 2597.76,
+      "end": 2605.66,
+      "words": []
+    },
+    {
+      "text": "then we would just work through an example where we would see the beauty of convolutions,",
+      "start": 2606.24,
+      "end": 2615.13,
+      "words": []
+    },
+    {
+      "text": "where we would actually realize why convolutions save so much,",
+      "start": 2615.65,
+      "end": 2623.36,
+      "words": []
+    },
+    {
+      "text": "why they are such a great way to process large inputs.",
+      "start": 2623.36,
+      "end": 2626.66,
+      "words": []
+    },
+    {
+      "text": "So, what exactly could this neural network be?",
+      "start": 2627.75,
+      "end": 2631.57,
+      "words": []
+    },
+    {
+      "text": "Well, the word convolution doesn't really mean anything specific,",
+      "start": 2633.68,
+      "end": 2643.12,
+      "words": []
+    },
+    {
+      "text": "it just means that I tile the input with small tiles,",
+      "start": 2643.48,
+      "end": 2649.33,
+      "words": []
+    },
+    {
+      "text": "and I apply my transformation to every tile separately.",
+      "start": 2649.33,
+      "end": 2654.7,
+      "words": []
+    },
+    {
+      "text": "So, this is what the word convolution means.",
+      "start": 2654.7,
+      "end": 2657.44,
+      "words": []
+    },
+    {
+      "text": "It doesn't tell you what exactly this transformation should be.",
+      "start": 2657.66,
+      "end": 2660.68,
+      "words": []
+    },
+    {
+      "text": "But usually when people talk about convolutional layers,",
+      "start": 2661.43,
+      "end": 2663.87,
+      "words": []
+    },
+    {
+      "text": "they mean the simplest neural network possible.",
+      "start": 2664.25,
+      "end": 2667.52,
+      "words": []
+    },
+    {
+      "text": "The simplest neural network possible,",
+      "start": 2668.7,
+      "end": 2670.42,
+      "words": []
+    },
+    {
+      "text": "that is just one fully connected layer.",
+      "start": 2670.52,
+      "end": 2672.46,
+      "words": []
+    },
+    {
+      "text": "So, it looks like this.",
+      "start": 2673.77,
+      "end": 2676.46,
+      "words": []
+    },
+    {
+      "text": "I have my input, now let me do it in full generality.",
+      "start": 2677.24,
+      "end": 2681.35,
+      "words": []
+    },
+    {
+      "text": "So, I have a three-dimensional input.",
+      "start": 2681.51,
+      "end": 2683.25,
+      "words": []
+    },
+    {
+      "text": "It has some width capital W, some height capital H, some depth D.",
+      "start": 2684.24,
+      "end": 2689.18,
+      "words": []
+    },
+    {
+      "text": "And I cut out a subset, a tile,",
+      "start": 2689.85,
+      "end": 2694.42,
+      "words": []
+    },
+    {
+      "text": "which has width small W and height small H and still depth D.",
+      "start": 2695.01,
+      "end": 2701.8,
+      "words": []
+    },
+    {
+      "text": "So, this is also important.",
+      "start": 2702.26,
+      "end": 2703.3,
+      "words": []
+    },
+    {
+      "text": "I always cut through all the features.",
+      "start": 2703.46,
+      "end": 2705.88,
+      "words": []
+    },
+    {
+      "text": "I take all the features, all the depth.",
+      "start": 2706.08,
+      "end": 2707.62,
+      "words": []
+    },
+    {
+      "text": "So, then I take this guy and basically I say,",
+      "start": 2708.88,
+      "end": 2717.1,
+      "words": []
+    },
+    {
+      "text": "well, okay, here I have like a D times W times H tensor, right?",
+      "start": 2717.1,
+      "end": 2722.64,
+      "words": []
+    },
+    {
+      "text": "I have this three-dimensional matrix of three-dimensional array of numbers, right?",
+      "start": 2722.7,
+      "end": 2728.9,
+      "words": []
+    },
+    {
+      "text": "But when I go inside this neural network,",
+      "start": 2729.62,
+      "end": 2733.68,
+      "words": []
+    },
+    {
+      "text": "I don't care about the structure of this array.",
+      "start": 2733.8,
+      "end": 2736.26,
+      "words": []
+    },
+    {
+      "text": "I just lose it.",
+      "start": 2736.48,
+      "end": 2737.36,
+      "words": []
+    },
+    {
+      "text": "I just say, okay, so I have this many numbers.",
+      "start": 2737.44,
+      "end": 2740.68,
+      "words": []
+    },
+    {
+      "text": "You can actually visualize it as flattening it to a single vector",
+      "start": 2741.11,
+      "end": 2747.37,
+      "words": []
+    },
+    {
+      "text": "of size dWh, and then I just apply a matrix of weights to it.",
+      "start": 2747.37,
+      "end": 2753.52,
+      "words": []
+    },
+    {
+      "text": "I have some matrix of weights.",
+      "start": 2754.05,
+      "end": 2755.59,
+      "words": []
+    },
+    {
+      "text": "So the output will be a vector of size, let's say, d'.",
+      "start": 2756.35,
+      "end": 2762.19,
+      "words": []
+    },
+    {
+      "text": "And this vector of size d' is just w times this d'.",
+      "start": 2762.19,
+      "end": 2776.35,
+      "words": []
+    },
+    {
+      "text": "So the matrix w, how many weights does a convolutional layer have?",
+      "start": 2776.35,
+      "end": 2783.59,
+      "words": []
+    },
+    {
+      "text": "the matrix w uh has is supposed to have like um uh it's supposed to be well okay so just to",
+      "start": 2783.77,
+      "end": 2793.58,
+      "words": []
+    },
+    {
+      "text": "make it more convenient let's say um it's z times w so w uh would be like dwh times d prime okay um",
+      "start": 2793.58,
+      "end": 2809.71,
+      "words": []
+    },
+    {
+      "text": "so it would be dwh times d prime uh and um and then and and then yes i lost my train of thought a",
+      "start": 2810.27,
+      "end": 2828.02,
+      "words": []
+    },
+    {
+      "text": "little um dwh times d prime yeah and then uh the beauty of convolutional networks is that now when",
+      "start": 2828.02,
+      "end": 2839.43,
+      "words": []
+    },
+    {
+      "text": "i take another window over here i also have an input of the same size and i reuse the exact same",
+      "start": 2839.43,
+      "end": 2848.2,
+      "words": []
+    },
+    {
+      "text": "matrix w right so uh these many weights are needed to process the whole image i don't uh i don't have",
+      "start": 2848.2,
+      "end": 2860.12,
+      "words": []
+    },
+    {
+      "text": "a different w for a different window i have the same double i reuse the weights so these many weights",
+      "start": 2860.12,
+      "end": 2866.7,
+      "words": []
+    },
+    {
+      "text": "are needed to process the whole d times big w times big h input and as as you can notice the number of",
+      "start": 2866.7,
+      "end": 2874.99,
+      "words": []
+    },
+    {
+      "text": "weights doesn't depend on the size of the input it only depends on the size of the window so when i",
+      "start": 2874.99,
+      "end": 2880.78,
+      "words": []
+    },
+    {
+      "text": "have a convolutional layer it's very easy for me to say oh okay so my my input image is now twice",
+      "start": 2880.78,
+      "end": 2886.78,
+      "words": []
+    },
+    {
+      "text": "larger but let's just run the convolution across the larger image i don't care uh i only care about",
+      "start": 2886.78,
+      "end": 2892.94,
+      "words": []
+    },
+    {
+      "text": "the size of the window uh and of course formally and like in reality what you have here is a matrix",
+      "start": 2892.94,
+      "end": 2903.63,
+      "words": []
+    },
+    {
+      "text": "of of these dimensions but it would be very very inconvenient if if we humans had to think of of",
+      "start": 2903.63,
+      "end": 2909.95,
+      "words": []
+    },
+    {
+      "text": "this matrices as you know some huge number times d prime and then this huge number we would have to",
+      "start": 2909.95,
+      "end": 2916.41,
+      "words": []
+    },
+    {
+      "text": "memorize and think of oh okay so that was like three by three by 32 how many is that oh this",
+      "start": 2916.41,
+      "end": 2922.97,
+      "words": []
+    },
+    {
+      "text": "this should be the size of course that's very inconvenient so in in practice if you for",
+      "start": 2922.97,
+      "end": 2928.57,
+      "words": []
+    },
+    {
+      "text": "example set up a convolutional layer in pytorch um it wouldn't be a 2d matrix uh the convolutional",
+      "start": 2928.57,
+      "end": 2936.68,
+      "words": []
+    },
+    {
+      "text": "the convolution would be defined by a four-dimensional tensor so your tensor of weights",
+      "start": 2936.68,
+      "end": 2941.88,
+      "words": []
+    },
+    {
+      "text": "would have size d times w times h times d prime and what would actually happen is your input",
+      "start": 2942.35,
+      "end": 2951.78,
+      "words": []
+    },
+    {
+      "text": "is a three-dimensional tensor which is supposed to match the first uh three dimensions of w",
+      "start": 2952.75,
+      "end": 2960.89,
+      "words": []
+    },
+    {
+      "text": "and that means that your output is is a vector of this dimension okay uh so in practice you would",
+      "start": 2960.89,
+      "end": 2971.58,
+      "words": []
+    },
+    {
+      "text": "define like four-dimensional tensors when you when you set up convolutional layers and by the way while",
+      "start": 2971.58,
+      "end": 2980.87,
+      "words": []
+    },
+    {
+      "text": "we are at this while while we are defining this note that uh it is absolutely positively uh it",
+      "start": 2980.87,
+      "end": 2990.29,
+      "words": []
+    },
+    {
+      "text": "absolutely positively uh doesn't matter uh that the input is specifically uh a picture that specifically",
+      "start": 2990.29,
+      "end": 3000.0,
+      "words": []
+    },
+    {
+      "text": "is like a 3d tensor with some width some height and some depth uh you can surely have convolutional",
+      "start": 3000.0,
+      "end": 3006.08,
+      "words": []
+    },
+    {
+      "text": "networks for other kinds of inputs for example uh at some point now of course nobody does this but at",
+      "start": 3006.08,
+      "end": 3013.99,
+      "words": []
+    },
+    {
+      "text": "some point uh you could there were cnn's designed for text processing and what is text text is a",
+      "start": 3013.99,
+      "end": 3023.85,
+      "words": []
+    },
+    {
+      "text": "sequence right it's a sequence of tokens and um every token gets represented in by some vector",
+      "start": 3023.85,
+      "end": 3031.01,
+      "words": []
+    },
+    {
+      "text": "uh so it's a sequence of vectors right it's a it's a 1d object one-dimensional object that",
+      "start": 3031.01,
+      "end": 3040.19,
+      "words": []
+    },
+    {
+      "text": "produces a two-dimensional input tensor and sure enough you can have one-dimensional",
+      "start": 3040.19,
+      "end": 3046.34,
+      "words": []
+    },
+    {
+      "text": "convolutions no problem at all you just just your windows are now sliding windows like this",
+      "start": 3046.34,
+      "end": 3052.44,
+      "words": []
+    },
+    {
+      "text": "you take like three uh neighboring vectors your small input is like this it's um",
+      "start": 3052.44,
+      "end": 3063.01,
+      "words": []
+    },
+    {
+      "text": "well it's d times l length of the window and then you multiply it by the matrix w",
+      "start": 3063.01,
+      "end": 3072.45,
+      "words": []
+    },
+    {
+      "text": "which now is a three-dimensional tensor d times l times d prime and you get the result which is a",
+      "start": 3073.61,
+      "end": 3081.65,
+      "words": []
+    },
+    {
+      "text": "vector of size t prime almost no difference at all just all all dimensions uh change by one and that's",
+      "start": 3081.65,
+      "end": 3088.86,
+      "words": []
+    },
+    {
+      "text": "or you can go in the other direction you can say well but what if i have let's say a video i have a",
+      "start": 3090.88,
+      "end": 3098.58,
+      "words": []
+    },
+    {
+      "text": "video which means that i have a sequence of images so now my input is like d times w times h times",
+      "start": 3098.58,
+      "end": 3109.03,
+      "words": []
+    },
+    {
+      "text": "let's say t for time right if this is a video so now there are there is a sequence of images and every",
+      "start": 3109.03,
+      "end": 3115.75,
+      "words": []
+    },
+    {
+      "text": "image is a w times h times d tensor and of course you can multiply it by a five-dimensional tensor w",
+      "start": 3115.75,
+      "end": 3125.32,
+      "words": []
+    },
+    {
+      "text": "which is t times w times h times t times d prime that's it right so um you can apply the same idea",
+      "start": 3125.32,
+      "end": 3133.64,
+      "words": []
+    },
+    {
+      "text": "of cutting stuff into small tiles and processing each tile separately you can apply it to anything",
+      "start": 3133.64,
+      "end": 3139.42,
+      "words": []
+    },
+    {
+      "text": "it just so happens that it was especially productive for uh images and basically",
+      "start": 3139.42,
+      "end": 3146.7,
+      "words": []
+    },
+    {
+      "text": "all of the examples in our class since it's a computer vision class of course",
+      "start": 3147.1,
+      "end": 3151.42,
+      "words": []
+    },
+    {
+      "text": "all of the examples in our class will be uh will be images okay so um okay okay so with this let's",
+      "start": 3151.42,
+      "end": 3164.54,
+      "words": []
+    },
+    {
+      "text": "maybe look at a specific example um let's look at a specific example of a convolutional network",
+      "start": 3164.54,
+      "end": 3173.19,
+      "words": []
+    },
+    {
+      "text": "yeah this one uh and i just want to go through this network layer by layer it's some classical",
+      "start": 3175.15,
+      "end": 3184.11,
+      "words": []
+    },
+    {
+      "text": "leonet architecture from i don't know 2001 or something uh it's very small it has very small",
+      "start": 3184.11,
+      "end": 3191.68,
+      "words": []
+    },
+    {
+      "text": "input not very powerful but i want to to go through this architecture to count the weights to get a",
+      "start": 3191.68,
+      "end": 3199.07,
+      "words": []
+    },
+    {
+      "text": "feeling of what convolutional networks look like and we will see like what's the whole point of",
+      "start": 3199.07,
+      "end": 3207.0,
+      "words": []
+    },
+    {
+      "text": "convolutional networks when we discuss how many weights they have so um so let's look at this",
+      "start": 3207.0,
+      "end": 3214.58,
+      "words": []
+    },
+    {
+      "text": "slide what do we have here we have the input which is a 32 by 32 picture and it's a black and white",
+      "start": 3214.58,
+      "end": 3221.31,
+      "words": []
+    },
+    {
+      "text": "picture well a gray scaly picture so it has depth one so our input and let me switch from",
+      "start": 3221.31,
+      "end": 3232.5,
+      "words": []
+    },
+    {
+      "text": "from the picture to the board for a little bit so our input uh is a tensor of size 1 times 32 times 32",
+      "start": 3232.66,
+      "end": 3245.28,
+      "words": []
+    },
+    {
+      "text": "okay then a convolutional layer happens and this picture doesn't show you the weights doesn't show",
+      "start": 3245.28,
+      "end": 3255.36,
+      "words": []
+    },
+    {
+      "text": "you the layers themselves it shows you the intermediate results the tensors that result",
+      "start": 3255.36,
+      "end": 3260.92,
+      "words": []
+    },
+    {
+      "text": "from every layer so now it says that after the first layer you have 28 by 28 tensor uh with six",
+      "start": 3260.92,
+      "end": 3272.42,
+      "words": []
+    },
+    {
+      "text": "feature maps when people say feature maps it's the same as channels the same as depth so basically it",
+      "start": 3272.42,
+      "end": 3278.45,
+      "words": []
+    },
+    {
+      "text": "says that it's a 28 by 28 by 6 tensor okay six different features uh so we started with a 32 by",
+      "start": 3278.45,
+      "end": 3290.04,
+      "words": []
+    },
+    {
+      "text": "32 by one then something happened a convolutional layer happened and now we have a tensor of size",
+      "start": 3290.04,
+      "end": 3299.88,
+      "words": []
+    },
+    {
+      "text": "uh 6 by 28 by 28 so the question to you how large do you think was the convolution what was the size",
+      "start": 3299.88,
+      "end": 3314.85,
+      "words": []
+    },
+    {
+      "text": "of the window if we went from 32 by 32 pixels to 28 by 28 pixels why would why would the geometry be",
+      "start": 3314.85,
+      "end": 3344.55,
+      "words": []
+    },
+    {
+      "text": "reduced why would the convolutional network actually have less pixels at the output so i'm covering the",
+      "start": 3344.55,
+      "end": 3370.91,
+      "words": []
+    },
+    {
+      "text": "input by overlapping tiles all possible tiles how many tiles are possible okay so this this is our",
+      "start": 3370.91,
+      "end": 3389.44,
+      "words": []
+    },
+    {
+      "text": "first remark here so i have this input which is like a 32 by 32 pixel image of course i won't draw",
+      "start": 3389.44,
+      "end": 3401.36,
+      "words": []
+    },
+    {
+      "text": "the full 32 and then i start covering it by tiles of some kind of size right let's say three by three",
+      "start": 3401.36,
+      "end": 3409.31,
+      "words": []
+    },
+    {
+      "text": "tiles but how many tiles will fit not 32 by 32 right so you see uh for every tile uh every tile",
+      "start": 3409.31,
+      "end": 3426.47,
+      "words": []
+    },
+    {
+      "text": "is defined by its center pixel let's say right so this center pixel corresponds to this three by three",
+      "start": 3426.47,
+      "end": 3432.07,
+      "words": []
+    },
+    {
+      "text": "window usually it's odd there are very few even convolutions so i i will i'm safe uh talking",
+      "start": 3432.07,
+      "end": 3439.08,
+      "words": []
+    },
+    {
+      "text": "about the center pixel so there is a center pixel corresponding to the three by three tile this",
+      "start": 3439.08,
+      "end": 3445.06,
+      "words": []
+    },
+    {
+      "text": "center pixel corresponds to the three by three and so on but there is no tile that will correspond to",
+      "start": 3445.06,
+      "end": 3450.02,
+      "words": []
+    },
+    {
+      "text": "this pixel right uh it doesn't fit so in effect uh how many if i had a three by three convolution",
+      "start": 3450.02,
+      "end": 3461.49,
+      "words": []
+    },
+    {
+      "text": "the output if i just do the tiling if i just use all possible tiles not use any special tricks here",
+      "start": 3461.95,
+      "end": 3469.39,
+      "words": []
+    },
+    {
+      "text": "the tiling would be would would not be able to use these pixels and also wouldn't be able to use",
+      "start": 3470.44,
+      "end": 3478.67,
+      "words": []
+    },
+    {
+      "text": "these pixels right so it would cut off one pixel on top one pixel on bottom one on the left one on",
+      "start": 3478.67,
+      "end": 3484.22,
+      "words": []
+    },
+    {
+      "text": "the right so if i did a three by three convolution and i had like a w times h image at the input i",
+      "start": 3484.22,
+      "end": 3492.77,
+      "words": []
+    },
+    {
+      "text": "would go to something like w minus two times h minus two right because i would need to cut off",
+      "start": 3492.77,
+      "end": 3498.37,
+      "words": []
+    },
+    {
+      "text": "two pixels on the sides well in here we go to w minus four and h minus four so how how big was the",
+      "start": 3498.37,
+      "end": 3507.54,
+      "words": []
+    },
+    {
+      "text": "window yeah exactly so uh i mean of course it's not guaranteed there could have been tricks etc but",
+      "start": 3507.54,
+      "end": 3541.46,
+      "words": []
+    },
+    {
+      "text": "the most plausible version of how this convolution what this convolution looks like judging by that",
+      "start": 3542.29,
+      "end": 3548.41,
+      "words": []
+    },
+    {
+      "text": "picture and it's true in fact it's true uh is that it was we were covering the input by five by five",
+      "start": 3548.41,
+      "end": 3559.78,
+      "words": []
+    },
+    {
+      "text": "tiles and then uh so what what is the size of the weight matrix here um yeah i didn't tell you that",
+      "start": 3561.51,
+      "end": 3570.38,
+      "words": []
+    },
+    {
+      "text": "sorry uh i i'm when i talk about the weight matrix i of course simplify a little bit because in addition",
+      "start": 3570.38,
+      "end": 3576.7,
+      "words": []
+    },
+    {
+      "text": "to the weight matrix there is also the intercept so in fact of course this output is like",
+      "start": 3576.7,
+      "end": 3584.09,
+      "words": []
+    },
+    {
+      "text": "z w plus some constant so there there is an additional d prime weights which is also a weight",
+      "start": 3586.25,
+      "end": 3595.36,
+      "words": []
+    },
+    {
+      "text": "right which is also which are also trained but let's forget about that it doesn't matter for us",
+      "start": 3595.36,
+      "end": 3601.29,
+      "words": []
+    },
+    {
+      "text": "now let's just count the weights and the matrices themselves so what would be the matrix size over",
+      "start": 3601.29,
+      "end": 3606.87,
+      "words": []
+    },
+    {
+      "text": "here the matrix size would be as we discussed uh there d times w times h times d prime right so here",
+      "start": 3606.87,
+      "end": 3616.81,
+      "words": []
+    },
+    {
+      "text": "we have a convolutional weight matrix weight tensor of size one times five times five and we have six",
+      "start": 3616.81,
+      "end": 3626.57,
+      "words": []
+    },
+    {
+      "text": "features at the output times six right so five five by five is 25 25 times six 150 right so over here in",
+      "start": 3626.57,
+      "end": 3637.59,
+      "words": []
+    },
+    {
+      "text": "this layer we have 150 weights trainable weights that we will need to learn by gradient descent well",
+      "start": 3637.59,
+      "end": 3648.96,
+      "words": []
+    },
+    {
+      "text": "there you have it that's that's that's the first point that i want to make with this example uh the",
+      "start": 3648.96,
+      "end": 3655.56,
+      "words": []
+    },
+    {
+      "text": "convolutional idea the idea of sliding a window over the input saves a huge amount of weights so",
+      "start": 3655.56,
+      "end": 3665.3,
+      "words": []
+    },
+    {
+      "text": "suppose that i wanted to have a fully connected layer over here suppose that i just wanted to",
+      "start": 3665.3,
+      "end": 3671.4,
+      "words": []
+    },
+    {
+      "text": "have a single weight matrix that takes this guy's input and outputs this then how many weights would",
+      "start": 3671.4,
+      "end": 3680.57,
+      "words": []
+    },
+    {
+      "text": "i have what what what kind of matrix would it be a fully connected uh first layer would be like",
+      "start": 3680.57,
+      "end": 3687.27,
+      "words": []
+    },
+    {
+      "text": "32 times 32 times 6 times 28 times 28 right so it would be a matrix of size input times output input",
+      "start": 3688.21,
+      "end": 3699.54,
+      "words": []
+    },
+    {
+      "text": "size times output size if i didn't have this convolutional structure um and i still for some",
+      "start": 3699.54,
+      "end": 3705.98,
+      "words": []
+    },
+    {
+      "text": "unfathomable reason would would want to to have this kind of output the matrix would have this kind",
+      "start": 3705.98,
+      "end": 3712.92,
+      "words": []
+    },
+    {
+      "text": "of size so uh of course i cannot do this in my head but like 32 squared is about a thousand",
+      "start": 3712.92,
+      "end": 3720.59,
+      "words": []
+    },
+    {
+      "text": "so this is like you know five million or something you can count if you want but this is like several",
+      "start": 3720.59,
+      "end": 3727.05,
+      "words": []
+    },
+    {
+      "text": "million weights and the convolutional idea reduced this five million weights down to 150 so that this is",
+      "start": 3727.05,
+      "end": 3739.44,
+      "words": []
+    },
+    {
+      "text": "the the power of convolutions the main power of convolutions they save a lot of weights and that's",
+      "start": 3739.44,
+      "end": 3746.3,
+      "words": []
+    },
+    {
+      "text": "why i always say that what convolutions actually are they are an excellent technique of structural",
+      "start": 3746.3,
+      "end": 3755.86,
+      "words": []
+    },
+    {
+      "text": "regularization we discussed uh last some previous lectures that regularization is when you um",
+      "start": 3755.86,
+      "end": 3768.3,
+      "words": []
+    },
+    {
+      "text": "regularization is when you compress uh could compress the weights magnum smaller uh or reduce",
+      "start": 3771.12,
+      "end": 3780.4,
+      "words": []
+    },
+    {
+      "text": "like reduce the set from which the weights are taken right but in this case it's even more",
+      "start": 3780.4,
+      "end": 3786.83,
+      "words": []
+    },
+    {
+      "text": "straightforward like structural regularization means all right so i have five million weights",
+      "start": 3786.83,
+      "end": 3791.55,
+      "words": []
+    },
+    {
+      "text": "and you could like if you think of it from a proper view view it from a proper angle you will see that",
+      "start": 3791.55,
+      "end": 3798.11,
+      "words": []
+    },
+    {
+      "text": "you can actually think of a convolutional layer also as a transformation of this guy to this guy",
+      "start": 3798.11,
+      "end": 3803.42,
+      "words": []
+    },
+    {
+      "text": "but when i do this transformation i say oh okay so i want this thousand of weights to be equal to each",
+      "start": 3803.42,
+      "end": 3811.23,
+      "words": []
+    },
+    {
+      "text": "other and i just said this constraint that i always process every window be it over here or over here or",
+      "start": 3811.23,
+      "end": 3820.74,
+      "words": []
+    },
+    {
+      "text": "over here i process it in the exact same way with the exact same weights that so that structural",
+      "start": 3820.74,
+      "end": 3827.84,
+      "words": []
+    },
+    {
+      "text": "regularization when you impose constraints like this way it should be equal to each other this way it",
+      "start": 3827.84,
+      "end": 3834.24,
+      "words": []
+    },
+    {
+      "text": "should just disappear to zero or something so so um so this is the power of convolutions and let's um",
+      "start": 3834.24,
+      "end": 3845.11,
+      "words": []
+    },
+    {
+      "text": "so let's finish the the exercise that there are still a couple of points that i want to make here",
+      "start": 3845.2,
+      "end": 3849.96,
+      "words": []
+    },
+    {
+      "text": "so after the first convolutional layer there is a pooling layer subsampling is the same as",
+      "start": 3849.96,
+      "end": 3860.24,
+      "words": []
+    },
+    {
+      "text": "pooling layers so the pooling layer is obviously has two by two windows right so we go from 28 by",
+      "start": 3860.24,
+      "end": 3869.81,
+      "words": []
+    },
+    {
+      "text": "28 to 14 by 14 a question to you how many weights does this pooling layer have i had the",
+      "start": 3869.81,
+      "end": 3883.19,
+      "words": []
+    },
+    {
+      "text": "28 by 28 by 6 input i have 14 by 14 by 6 output which means that okay let's assume it's max",
+      "start": 3883.19,
+      "end": 3892.15,
+      "words": []
+    },
+    {
+      "text": "pooling i don't remember which it was actually but i take a two by two window and in every two",
+      "start": 3892.15,
+      "end": 3899.71,
+      "words": []
+    },
+    {
+      "text": "by two window across every feature i take the max of these four numbers um how many weights is that",
+      "start": 3899.71,
+      "end": 3909.48,
+      "words": []
+    },
+    {
+      "text": "how many trainable weights so the pooling transformation takes the input uh cuts it into",
+      "start": 3909.48,
+      "end": 3949.26,
+      "words": []
+    },
+    {
+      "text": "tiles and for every tile uh you take the numbers that are parts of your input and you leave",
+      "start": 3949.26,
+      "end": 3954.93,
+      "words": []
+    },
+    {
+      "text": "only the max of these numbers like you take a two by two window every two by two window becomes just",
+      "start": 3954.93,
+      "end": 3962.67,
+      "words": []
+    },
+    {
+      "text": "its maximum how many trainable weights are in transformation like this no all right not talking",
+      "start": 3962.67,
+      "end": 3993.9,
+      "words": []
+    },
+    {
+      "text": "to me today anyway uh how many weights are in this transformation of course none of course there are",
+      "start": 3993.9,
+      "end": 4001.37,
+      "words": []
+    },
+    {
+      "text": "no weights it's a deterministic function there is nothing to train i just take the",
+      "start": 4001.37,
+      "end": 4006.57,
+      "words": []
+    },
+    {
+      "text": "max right so the uh the uh the pooling layers don't have weights and there is no no point for",
+      "start": 4006.57,
+      "end": 4020.17,
+      "words": []
+    },
+    {
+      "text": "for them to have weights there is nothing to train i just do a specific fixed thing uh so okay so let",
+      "start": 4020.17,
+      "end": 4030.84,
+      "words": []
+    },
+    {
+      "text": "me draw this uh next i have a pooling layer uh a pooling layer goes to 6 by 14 by 14",
+      "start": 4030.84,
+      "end": 4042.27,
+      "words": []
+    },
+    {
+      "text": "uh the pooling layer has no weights and then i have another convolutional layer uh right",
+      "start": 4042.27,
+      "end": 4052.9,
+      "words": []
+    },
+    {
+      "text": "let's check i have another convolutional layer that goes down to 10 by 10 so um sorry check",
+      "start": 4052.9,
+      "end": 4064.7,
+      "words": []
+    },
+    {
+      "text": "10 by 10 by how many 10 by 10 by 16 so my next knowledge layer goes makes it like this um 16",
+      "start": 4064.7,
+      "end": 4078.22,
+      "words": []
+    },
+    {
+      "text": "by 10 by 10 so i i put depth first here but you don't have to you can put it wherever you want",
+      "start": 4078.22,
+      "end": 4085.43,
+      "words": []
+    },
+    {
+      "text": "um so how many weights are here well again we reduce the width and the height by uh four so it's",
+      "start": 4085.43,
+      "end": 4094.24,
+      "words": []
+    },
+    {
+      "text": "a five by five convolution but now we need to transfer uh translate six features into 16 features",
+      "start": 4094.24,
+      "end": 4101.97,
+      "words": []
+    },
+    {
+      "text": "so like six by five by five by 16 okay that's more weights right so we know six by five by five is",
+      "start": 4101.97,
+      "end": 4112.87,
+      "words": []
+    },
+    {
+      "text": "150 and 150 times 16 uh 150 times four is six so six times four is 2400 weights right i i suppose",
+      "start": 4112.87,
+      "end": 4127.9,
+      "words": []
+    },
+    {
+      "text": "that's correct uh 2400 weights over here okay then another pooling uh this part i remember",
+      "start": 4127.9,
+      "end": 4138.57,
+      "words": []
+    },
+    {
+      "text": "and then we get uh wait for it there will be a little bit more interesting stuff here so",
+      "start": 4138.57,
+      "end": 4147.34,
+      "words": []
+    },
+    {
+      "text": "now i have like 16 by 5 by 5 and at this point i say oh okay so now i have a 5 by 5 tensor",
+      "start": 4147.34,
+      "end": 4158.9,
+      "words": []
+    },
+    {
+      "text": "with depth 16 so if i keep doing 5 by 5 convolutions it means that now there are no tiles really like",
+      "start": 4158.9,
+      "end": 4171.29,
+      "words": []
+    },
+    {
+      "text": "the whole tensor is a single tile i don't have to cut it any longer which means that uh okay in the",
+      "start": 4171.29,
+      "end": 4179.39,
+      "words": []
+    },
+    {
+      "text": "picture they call it a convolutional layer but now it really doesn't matter you could call it a",
+      "start": 4179.39,
+      "end": 4183.37,
+      "words": []
+    },
+    {
+      "text": "convolutional layer or you could call it a fully connected layer you just take the whole input",
+      "start": 4183.37,
+      "end": 4188.55,
+      "words": []
+    },
+    {
+      "text": "and you convert it to okay how many features so next you go to 120 features then 84 features and",
+      "start": 4188.55,
+      "end": 4199.84,
+      "words": []
+    },
+    {
+      "text": "then finally the output of 10 so um you go to 120 then another fully connected layer you go to 84",
+      "start": 4199.84,
+      "end": 4213.46,
+      "words": []
+    },
+    {
+      "text": "and another fully connected layer maybe a softmax layer um you go to 10 so how many weights are here",
+      "start": 4213.46,
+      "end": 4225.97,
+      "words": []
+    },
+    {
+      "text": "well in this fully connected layer i have 16 times 5 times 5 times 120 right so i compress",
+      "start": 4225.97,
+      "end": 4238.07,
+      "words": []
+    },
+    {
+      "text": "the whole input down to the to a vector and i just lose all the geometry i don't care about the",
+      "start": 4238.07,
+      "end": 4246.19,
+      "words": []
+    },
+    {
+      "text": "geometry anymore these are just global features numbers about the the the input image and but i",
+      "start": 4246.19,
+      "end": 4252.51,
+      "words": []
+    },
+    {
+      "text": "still need to, you know, do stuff with them. I still need to toss them around a little to do",
+      "start": 4252.51,
+      "end": 4262.55,
+      "words": []
+    },
+    {
+      "text": "some linear combinations of them to actually extract the signal that I want, not just reasonable",
+      "start": 4262.55,
+      "end": 4267.11,
+      "words": []
+    },
+    {
+      "text": "signal, but signal that I want to actually get to the classes, for example, that I want to recognize.",
+      "start": 4267.11,
+      "end": 4278.67,
+      "words": []
+    },
+    {
+      "text": "So, in classical conversational networks, after you go through all of these layers, after you",
+      "start": 4279.13,
+      "end": 4287.17,
+      "words": []
+    },
+    {
+      "text": "downsample and downsample and downsample, at the end, you have a couple of fully connected",
+      "start": 4287.17,
+      "end": 4291.97,
+      "words": []
+    },
+    {
+      "text": "layers usually. Sometimes it's called the head of the network, and sometimes our networks",
+      "start": 4291.97,
+      "end": 4302.77,
+      "words": []
+    },
+    {
+      "text": "will have multiple heads that do different things, but for now, let's just say that I",
+      "start": 4302.77,
+      "end": 4307.95,
+      "words": []
+    },
+    {
+      "text": "do need to have some kind of a classification head at the end with a couple of fully connected",
+      "start": 4307.95,
+      "end": 4312.13,
+      "words": []
+    },
+    {
+      "text": "layers. And interestingly, it turns out that this classification head holds the vast majority",
+      "start": 4312.13,
+      "end": 4322.6,
+      "words": []
+    },
+    {
+      "text": "of all the weights. You see? So over here, we have like, what, 400 times 120. We have 48,000",
+      "start": 4322.6,
+      "end": 4335.62,
+      "words": []
+    },
+    {
+      "text": "weights over here. And here we have 120 times 84, which is, I don't know, about 10k more, right?",
+      "start": 4335.62,
+      "end": 4344.22,
+      "words": []
+    },
+    {
+      "text": "So out of the total 60,000 weights in this network, about 60,000, about 57,000, 58,000 lie in the",
+      "start": 4344.22,
+      "end": 4358.59,
+      "words": []
+    },
+    {
+      "text": "classification head. And only 2,500 weights are in the convolutional layers. But the convolutional",
+      "start": 4358.59,
+      "end": 4370.5,
+      "words": []
+    },
+    {
+      "text": "layers are doing the most important job. They are the Fisher extractors. And so how does",
+      "start": 4370.5,
+      "end": 4380.02,
+      "words": []
+    },
+    {
+      "text": "it actually work during training? Well, remember how we discussed backpropagation. So if you",
+      "start": 4380.02,
+      "end": 4392.03,
+      "words": []
+    },
+    {
+      "text": "have a single input going into several different places, then in the graph, then when you go",
+      "start": 4392.03,
+      "end": 4400.87,
+      "words": []
+    },
+    {
+      "text": "back to the backpropagation here, your update, your gradient will be by the chain rule, the",
+      "start": 4400.87,
+      "end": 4409.81,
+      "words": []
+    },
+    {
+      "text": "sum of, not the gradient, the partial derivative at this node will be by the chain rule, the",
+      "start": 4409.81,
+      "end": 4420.51,
+      "words": []
+    },
+    {
+      "text": "sum across all of the paths. And in the convolutional network, every weight over here, every weight",
+      "start": 4420.51,
+      "end": 4429.94,
+      "words": []
+    },
+    {
+      "text": "in this convolution, in this matrix, occurs in the computational graph, is input into the",
+      "start": 4429.94,
+      "end": 4438.84,
+      "words": []
+    },
+    {
+      "text": "computational graph many, many, many, many times. So I don't think I can draw a computational",
+      "start": 4438.84,
+      "end": 4444.45,
+      "words": []
+    },
+    {
+      "text": "graph for it here, but basically like this, you have this input, right? In the input, every",
+      "start": 4444.45,
+      "end": 4453.37,
+      "words": []
+    },
+    {
+      "text": "pixel is a value, let's say, and now let's suppose that this weight like WI gets multiplied",
+      "start": 4453.37,
+      "end": 4463.97,
+      "words": []
+    },
+    {
+      "text": "by the value of middle right pixel in the 3x3 window, which means that when we process this",
+      "start": 4463.97,
+      "end": 4476.59,
+      "words": []
+    },
+    {
+      "text": "window, I will multiply it by this pixel and then add up and everything. When I process",
+      "start": 4476.59,
+      "end": 4485.04,
+      "words": []
+    },
+    {
+      "text": "this window, I will multiply it by this pixel and then add up and everything. So the same weight,",
+      "start": 4485.04,
+      "end": 4494.02,
+      "words": []
+    },
+    {
+      "text": "the same input to the computational graph will occur many, many, many times. It will occur in the",
+      "start": 4494.02,
+      "end": 4501.55,
+      "words": []
+    },
+    {
+      "text": "processing of every single tile by the nature of convolutional networks. And that's why, by the way,",
+      "start": 4501.55,
+      "end": 4510.64,
+      "words": []
+    },
+    {
+      "text": "ReLU activations are such a good fit here, because this means that we don't mind sparsity. Sparsity is",
+      "start": 4512.19,
+      "end": 4521.82,
+      "words": []
+    },
+    {
+      "text": "bad if you have little signal, if you don't have enough signal, if you don't want to lose",
+      "start": 4521.82,
+      "end": 4528.46,
+      "words": []
+    },
+    {
+      "text": "anything. But sparsity is great if you have an abundance of signal, if you have a lot of",
+      "start": 4528.46,
+      "end": 4534.55,
+      "words": []
+    },
+    {
+      "text": "computational paths. Now, sparsity just saves you time. It doesn't really hurt you. It doesn't",
+      "start": 4534.55,
+      "end": 4543.24,
+      "words": []
+    },
+    {
+      "text": "really hurt training. It just says that, oh, okay, so like in the processing of this window doesn't",
+      "start": 4543.24,
+      "end": 4550.7,
+      "words": []
+    },
+    {
+      "text": "matter right now. So this guy will be a zero, and this part of the graph will not matter. But the",
+      "start": 4550.7,
+      "end": 4557.99,
+      "words": []
+    },
+    {
+      "text": "processing of this window will still matter. So this weight will still get a meaningful update.",
+      "start": 4557.99,
+      "end": 4562.41,
+      "words": []
+    },
+    {
+      "text": "So usually when you have the same weight occurring in many, many different places,",
+      "start": 4563.3,
+      "end": 4569.41,
+      "words": []
+    },
+    {
+      "text": "it's a good idea to add some sparsity, and ReLU provides this kind of sparsity.",
+      "start": 4569.99,
+      "end": 4574.29,
+      "words": []
+    },
+    {
+      "text": "Okay, so what have we discussed so far? We discussed the basic idea of convolutional networks,",
+      "start": 4575.71,
+      "end": 4583.57,
+      "words": []
+    },
+    {
+      "text": "how you slide across the input. We discussed how the receptive field grows with time,",
+      "start": 4583.57,
+      "end": 4590.61,
+      "words": []
+    },
+    {
+      "text": "that it grows not fast enough, and that's why you want to have pooling from time to time,",
+      "start": 4591.16,
+      "end": 4597.37,
+      "words": []
+    },
+    {
+      "text": "pooling layers. We discussed that you can apply convolutions to inputs of other dimensions,",
+      "start": 4597.47,
+      "end": 4611.04,
+      "words": []
+    },
+    {
+      "text": "to inputs of other different nature, it doesn't matter. As long as you can tile it with something,",
+      "start": 4611.04,
+      "end": 4617.32,
+      "words": []
+    },
+    {
+      "text": "you can do a convolutional net. And we also went through a specific example.",
+      "start": 4617.5,
+      "end": 4623.89,
+      "words": []
+    },
+    {
+      "text": "Well, before we close, I honestly think I need to go pretty soon,",
+      "start": 4625.37,
+      "end": 4630.22,
+      "words": []
+    },
+    {
+      "text": "but before we close, let me just tell you a couple more practical tricks",
+      "start": 4630.34,
+      "end": 4636.58,
+      "words": []
+    },
+    {
+      "text": "about how convolutions actually work, because you will need them in practice,",
+      "start": 4636.58,
+      "end": 4642.68,
+      "words": []
+    },
+    {
+      "text": "and you will need them to understand what goes next.",
+      "start": 4643.26,
+      "end": 4646.4,
+      "words": []
+    },
+    {
+      "text": "So trick number one, let's go back to this input tensor.",
+      "start": 4648.39,
+      "end": 4659.36,
+      "words": []
+    },
+    {
+      "text": "This time I will not be drawing the depth,",
+      "start": 4659.95,
+      "end": 4662.19,
+      "words": []
+    },
+    {
+      "text": "so let me just draw it as a two-dimensional grid,",
+      "start": 4662.59,
+      "end": 4665.13,
+      "words": []
+    },
+    {
+      "text": "so a grid like this, and what am I doing with it?",
+      "start": 4666.39,
+      "end": 4676.48,
+      "words": []
+    },
+    {
+      "text": "I'm tiling it by, let's say, 3x3 windows or whatever.",
+      "start": 4676.56,
+      "end": 4683.11,
+      "words": []
+    },
+    {
+      "text": "I'm tiling it by 3x3 windows, and as we just discussed,",
+      "start": 4684.68,
+      "end": 4691.29,
+      "words": []
+    },
+    {
+      "text": "every time that I apply a 3x3 convolution,",
+      "start": 4691.37,
+      "end": 4697.06,
+      "words": []
+    },
+    {
+      "text": "not every pixel can be the center of a 3x3 window, right?",
+      "start": 4697.38,
+      "end": 4700.92,
+      "words": []
+    },
+    {
+      "text": "So we just discussed that when I apply convolutions",
+      "start": 4701.24,
+      "end": 4705.6,
+      "words": []
+    },
+    {
+      "text": "just by overlapping everything and fitting as many tiles as I can,",
+      "start": 4705.6,
+      "end": 4710.33,
+      "words": []
+    },
+    {
+      "text": "well, I can't fit as many tiles as there were pixels.",
+      "start": 4710.77,
+      "end": 4718.29,
+      "words": []
+    },
+    {
+      "text": "And sometimes that's really inconvenient.",
+      "start": 4719.33,
+      "end": 4721.09,
+      "words": []
+    },
+    {
+      "text": "So sometimes what you really want is you want to preserve the shape of your tensor.",
+      "start": 4721.09,
+      "end": 4727.61,
+      "words": []
+    },
+    {
+      "text": "So if you had D times W times H as input,",
+      "start": 4728.08,
+      "end": 4732.5,
+      "words": []
+    },
+    {
+      "text": "then after a convolutional layer,",
+      "start": 4732.89,
+      "end": 4734.92,
+      "words": []
+    },
+    {
+      "text": "you would have a D times W minus K times H minus K.",
+      "start": 4735.34,
+      "end": 4742.58,
+      "words": []
+    },
+    {
+      "text": "And I don't want this minus Ks.",
+      "start": 4743.36,
+      "end": 4746.04,
+      "words": []
+    },
+    {
+      "text": "I want to have a tensor of the exact same shape.",
+      "start": 4746.77,
+      "end": 4749.57,
+      "words": []
+    },
+    {
+      "text": "It will be, for example, I want to have like a dozen such convolutional layers in a row.",
+      "start": 4749.57,
+      "end": 4754.69,
+      "words": []
+    },
+    {
+      "text": "I want to repeat this.",
+      "start": 4755.33,
+      "end": 4756.33,
+      "words": []
+    },
+    {
+      "text": "I want to stack the same layers, and I don't want to change the dimensions.",
+      "start": 4756.43,
+      "end": 4760.43,
+      "words": []
+    },
+    {
+      "text": "Well, when that happens, what you actually want to do is you want to use so-called padding.",
+      "start": 4761.93,
+      "end": 4772.41,
+      "words": []
+    },
+    {
+      "text": "Padding just means that suppose that I need to have this pixel also be the center of a 3x3 window.",
+      "start": 4773.45,
+      "end": 4782.42,
+      "words": []
+    },
+    {
+      "text": "So I draw a window, a 3x3 window around this pixel, and I notice that it goes outside of the image, right?",
+      "start": 4782.42,
+      "end": 4791.43,
+      "words": []
+    },
+    {
+      "text": "Well, why don't we just play that, let's say, with zeros?",
+      "start": 4792.32,
+      "end": 4796.66,
+      "words": []
+    },
+    {
+      "text": "Just say that these pixels are zeros.",
+      "start": 4797.64,
+      "end": 4799.62,
+      "words": []
+    },
+    {
+      "text": "That's it.",
+      "start": 4800.06,
+      "end": 4800.44,
+      "words": []
+    },
+    {
+      "text": "And now that would be zero padding.",
+      "start": 4801.93,
+      "end": 4804.5,
+      "words": []
+    },
+    {
+      "text": "And now we are done, we can preserve the size.",
+      "start": 4806.73,
+      "end": 4814.18,
+      "words": []
+    },
+    {
+      "text": "So that's just a stupid practical trick to pad the image with something in order to be able to hit more windows.",
+      "start": 4814.18,
+      "end": 4825.86,
+      "words": []
+    },
+    {
+      "text": "And so there are two common ways to do padding.",
+      "start": 4826.6,
+      "end": 4829.48,
+      "words": []
+    },
+    {
+      "text": "One is pad with zeros and the other is, let's say, I want to have a window like this.",
+      "start": 4829.66,
+      "end": 4836.68,
+      "words": []
+    },
+    {
+      "text": "So when you pad with zeros, there can be a strange effect.",
+      "start": 4837.04,
+      "end": 4840.85,
+      "words": []
+    },
+    {
+      "text": "Like you could have like a border around your image of some not really plausible features",
+      "start": 4840.85,
+      "end": 4850.71,
+      "words": []
+    },
+    {
+      "text": "because these features take lots of zeros on the side, right?",
+      "start": 4850.71,
+      "end": 4854.57,
+      "words": []
+    },
+    {
+      "text": "So if you want to avoid that, you may want to have like mirror padding.",
+      "start": 4854.85,
+      "end": 4860.57,
+      "words": []
+    },
+    {
+      "text": "You may want to just take these guys from here and just copy them,",
+      "start": 4860.88,
+      "end": 4865.73,
+      "words": []
+    },
+    {
+      "text": "like do a mirror image of your image over there.",
+      "start": 4865.95,
+      "end": 4869.41,
+      "words": []
+    },
+    {
+      "text": "That's also a valid way to do padding.",
+      "start": 4869.41,
+      "end": 4872.52,
+      "words": []
+    },
+    {
+      "text": "Often people do that.",
+      "start": 4872.94,
+      "end": 4873.84,
+      "words": []
+    },
+    {
+      "text": "But the whole point is to be able to fit more tiles,",
+      "start": 4874.94,
+      "end": 4880.92,
+      "words": []
+    },
+    {
+      "text": "to be able to make any pixel in the input the center of a tile.",
+      "start": 4881.08,
+      "end": 4886.13,
+      "words": []
+    },
+    {
+      "text": "And one more trick is this.",
+      "start": 4889.56,
+      "end": 4893.78,
+      "words": []
+    },
+    {
+      "text": "So as I said, if you just keep tiling your tensors with all possible tiles,",
+      "start": 4894.94,
+      "end": 4907.36,
+      "words": []
+    },
+    {
+      "text": "you will not be reducing the geometry fast enough.",
+      "start": 4907.36,
+      "end": 4927.66,
+      "words": []
+    },
+    {
+      "text": "You will have to resort to things like pooling layers.",
+      "start": 4927.86,
+      "end": 4931.82,
+      "words": []
+    },
+    {
+      "text": "You will have to reduce your geometry artificial.",
+      "start": 4932.02,
+      "end": 4934.08,
+      "words": []
+    },
+    {
+      "text": "Well, there is a different way.",
+      "start": 4935.08,
+      "end": 4938.12,
+      "words": []
+    },
+    {
+      "text": "Okay, very simple.",
+      "start": 4938.53,
+      "end": 4940.77,
+      "words": []
+    },
+    {
+      "text": "What if I just take not every pixel as the center of a tile,",
+      "start": 4941.03,
+      "end": 4947.78,
+      "words": []
+    },
+    {
+      "text": "but what if I take like every second pixel as the center like this?",
+      "start": 4947.99,
+      "end": 4953.54,
+      "words": []
+    },
+    {
+      "text": "So I have like the green window, the green 3x3 window over here, the light blue over here, the red one over here, and the dark blue one over here.",
+      "start": 4955.56,
+      "end": 4971.4,
+      "words": []
+    },
+    {
+      "text": "So at this point, I have four times fewer tiles, right?",
+      "start": 4973.47,
+      "end": 4980.64,
+      "words": []
+    },
+    {
+      "text": "I have cut my number of tiles in half across the width and in half across the height.",
+      "start": 4980.64,
+      "end": 4987.6,
+      "words": []
+    },
+    {
+      "text": "So now when I get to the output from this, I will have a tensor of size approximately W over 2 and H over 2, right?",
+      "start": 4988.62,
+      "end": 5000.34,
+      "words": []
+    },
+    {
+      "text": "Depending on the padding, there may be some plus or minus ones, but more or less like this.",
+      "start": 5000.42,
+      "end": 5004.24,
+      "words": []
+    },
+    {
+      "text": "So it's exactly the geometric effect that we often want.",
+      "start": 5005.71,
+      "end": 5009.11,
+      "words": []
+    },
+    {
+      "text": "We reduce the geometry by a factor of 2, right?",
+      "start": 5009.39,
+      "end": 5013.09,
+      "words": []
+    },
+    {
+      "text": "On the other hand, notice how I'm not losing anything.",
+      "start": 5013.09,
+      "end": 5018.13,
+      "words": []
+    },
+    {
+      "text": "Like every pixel is still covered.",
+      "start": 5019.04,
+      "end": 5021.02,
+      "words": []
+    },
+    {
+      "text": "It's just covered not as many times.",
+      "start": 5022.02,
+      "end": 5023.94,
+      "words": []
+    },
+    {
+      "text": "So before, if I tile everything, then like this pixel is part of this window and this window and this window and this window and this window and many different windows.",
+      "start": 5025.6,
+      "end": 5038.32,
+      "words": []
+    },
+    {
+      "text": "Over here, well, now the maximum number of windows is 4 and usually it's less.",
+      "start": 5038.81,
+      "end": 5045.16,
+      "words": []
+    },
+    {
+      "text": "Like this guy will only be covered by two windows, two tiles, but still every pixel is covered, right?",
+      "start": 5045.34,
+      "end": 5052.6,
+      "words": []
+    },
+    {
+      "text": "So we are not missing anything, we are not losing any information.",
+      "start": 5052.6,
+      "end": 5055.82,
+      "words": []
+    },
+    {
+      "text": "The network is still perfectly able to get everything and process everything.",
+      "start": 5056.04,
+      "end": 5060.66,
+      "words": []
+    },
+    {
+      "text": "So this is a reasonable way to reduce geometry 2 and when it happens, it's called a stride.",
+      "start": 5061.97,
+      "end": 5068.49,
+      "words": []
+    },
+    {
+      "text": "Stride, so for example, this would be stride 2, like if you don't do anything, it will be stride 1 if you just tile with every possible tile.",
+      "start": 5070.37,
+      "end": 5079.65,
+      "words": []
+    },
+    {
+      "text": "So to summarize what we've discussed today, when you do a convolutional layer, what do you define?",
+      "start": 5079.77,
+      "end": 5089.71,
+      "words": []
+    },
+    {
+      "text": "Well, you define the shape of the tensor, like d times w times h times d prime, right?",
+      "start": 5090.36,
+      "end": 5098.17,
+      "words": []
+    },
+    {
+      "text": "And d is the depth of the input, d prime is the depth of the output.",
+      "start": 5098.51,
+      "end": 5102.52,
+      "words": []
+    },
+    {
+      "text": "You define the padding if you want to pad the input with zeros or something else.",
+      "start": 5103.67,
+      "end": 5109.12,
+      "words": []
+    },
+    {
+      "text": "And you also define the stride.",
+      "start": 5109.34,
+      "end": 5111.5,
+      "words": []
+    },
+    {
+      "text": "And for, I mean, nobody actually uses it, but formally, of course, the stride is a two-dimensional thing because it's two numbers,",
+      "start": 5114.16,
+      "end": 5124.07,
+      "words": []
+    },
+    {
+      "text": "because nothing prevents you from going like every second pixel across the x-coordinate and every third pixel across the y-coordinate, right?",
+      "start": 5124.07,
+      "end": 5135.36,
+      "words": []
+    },
+    {
+      "text": "It doesn't have to be that equal.",
+      "start": 5135.42,
+      "end": 5136.74,
+      "words": []
+    },
+    {
+      "text": "So formally, it's two different numbers.",
+      "start": 5137.28,
+      "end": 5139.26,
+      "words": []
+    },
+    {
+      "text": "Of course, most usually they're the same, but the stride defines how you tile.",
+      "start": 5139.46,
+      "end": 5145.89,
+      "words": []
+    },
+    {
+      "text": "Rating also defines how you tile and what do you add to the, what do you add?",
+      "start": 5145.89,
+      "end": 5153.96,
+      "words": []
+    },
+    {
+      "text": "And the convolution, the convolutional tensor, the size of the tensor defines how many features you get.",
+      "start": 5154.49,
+      "end": 5163.57,
+      "words": []
+    },
+    {
+      "text": "Okay.",
+      "start": 5166.72,
+      "end": 5166.84,
+      "words": []
+    },
+    {
+      "text": "Okay.",
+      "start": 5168.03,
+      "end": 5170.31,
+      "words": []
+    },
+    {
+      "text": "Okay.",
+      "start": 5170.82,
+      "end": 5171.14,
+      "words": []
+    },
+    {
+      "text": "Well, I think, actually, actually, I think I want to stop at this point.",
+      "start": 5171.86,
+      "end": 5181.84,
+      "words": []
+    },
+    {
+      "text": "So, I, unfortunately, I have to go.",
+      "start": 5181.84,
+      "end": 5186.53,
+      "words": []
+    },
+    {
+      "text": "Are there any, okay, question, are there any downsides to doing this, to doing the strides?",
+      "start": 5187.74,
+      "end": 5191.34,
+      "words": []
+    },
+    {
+      "text": "Well, again, every pixel now participates in the processing fewer times.",
+      "start": 5191.93,
+      "end": 5198.63,
+      "words": []
+    },
+    {
+      "text": "So, maybe you don't want as much sparsity or something.",
+      "start": 5199.25,
+      "end": 5202.4,
+      "words": []
+    },
+    {
+      "text": "But actually, the general trend of how convolutional networks developed was, as time went by, we did pooling less and less often.",
+      "start": 5202.56,
+      "end": 5225.19,
+      "words": []
+    },
+    {
+      "text": "So, pooling actually has some undesirable properties.",
+      "start": 5225.19,
+      "end": 5228.87,
+      "words": []
+    },
+    {
+      "text": "Pooling cuts off lots of computational paths as well, and pooling kind of distorts the gradients.",
+      "start": 5229.13,
+      "end": 5236.02,
+      "words": []
+    },
+    {
+      "text": "I won't go into details, but basically, there are bad side effects of pooling.",
+      "start": 5237.14,
+      "end": 5242.78,
+      "words": []
+    },
+    {
+      "text": "And when we get to modern architectures, you will see that, starting from things like Inception ResNet and some more involved architectures,",
+      "start": 5243.42,
+      "end": 5253.77,
+      "words": []
+    },
+    {
+      "text": "you will see that they reduce the geometry, of course, but they reduce it with, not exactly with a stride,",
+      "start": 5253.77,
+      "end": 5261.53,
+      "words": []
+    },
+    {
+      "text": "but they reduce it with like a complex subnetwork that basically, at some point, does strided convolution,",
+      "start": 5261.79,
+      "end": 5269.08,
+      "words": []
+    },
+    {
+      "text": "that at some point does something like this, and then also does something else.",
+      "start": 5269.79,
+      "end": 5274.75,
+      "words": []
+    },
+    {
+      "text": "But we'll get there when we get there.",
+      "start": 5275.01,
+      "end": 5276.41,
+      "words": []
+    },
+    {
+      "text": "Okay, guys, it's been a pleasure talking to you today.",
+      "start": 5276.41,
+      "end": 5285.9,
+      "words": []
+    },
+    {
+      "text": "Sorry that this lecture is a little bit messy, but I hope that I'll get settled by next week, and we will continue.",
+      "start": 5286.86,
+      "end": 5296.14,
+      "words": []
+    },
+    {
+      "text": "Thanks a lot, and bye-bye.",
+      "start": 5296.88,
+      "end": 5298.52,
+      "words": []
+    }
+  ],
+  "language": "en",
+  "provider": "whisper_cpp",
+  "audio_duration": 5299.258063,
+  "meta": {
+    "model": "ggml-large-v3-turbo.bin",
+    "vad": true,
+    "beam_size": 5,
+    "entropy_thold": 2.8,
+    "latency_sec": 723.62,
+    "system": null
+  }
+}

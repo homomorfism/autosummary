@@ -1,0 +1,2488 @@
+{
+  "settings": {
+    "stt_provider": "whisper_cpp",
+    "backend": "embeddings",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "window_s": 60.0,
+    "stride_s": 60.0,
+    "keywords_per_slide": 10
+  },
+  "n_slide_pages": 66,
+  "units": [
+    {
+      "pages": [
+        1,
+        1
+      ],
+      "title": "INTRO TO MACHINE LEARNING"
+    },
+    {
+      "pages": [
+        2,
+        2
+      ],
+      "title": "WHAT IS MACHINE LEARNING"
+    },
+    {
+      "pages": [
+        3,
+        5
+      ],
+      "title": "AI TIMELINES"
+    },
+    {
+      "pages": [
+        6,
+        6
+      ],
+      "title": "AI TIMELINES"
+    },
+    {
+      "pages": [
+        7,
+        7
+      ],
+      "title": "EARLY THOUGHTS ON ARTIFICIAL INTELLIGENCE"
+    },
+    {
+      "pages": [
+        8,
+        8
+      ],
+      "title": "MECHANICAL AUTOMATA"
+    },
+    {
+      "pages": [
+        9,
+        9
+      ],
+      "title": "MECHANICAL AUTOMATA"
+    },
+    {
+      "pages": [
+        10,
+        10
+      ],
+      "title": "MECHANICAL AUTOMATA"
+    },
+    {
+      "pages": [
+        11,
+        11
+      ],
+      "title": "THE TURING TEST"
+    },
+    {
+      "pages": [
+        12,
+        12
+      ],
+      "title": "THE TURING TEST"
+    },
+    {
+      "pages": [
+        13,
+        13
+      ],
+      "title": "THE TURING TEST"
+    },
+    {
+      "pages": [
+        14,
+        14
+      ],
+      "title": "THE DARTMOUTH WORKSHOP"
+    },
+    {
+      "pages": [
+        15,
+        15
+      ],
+      "title": "THE DARTMOUTH WORKSHOP"
+    },
+    {
+      "pages": [
+        16,
+        16
+      ],
+      "title": "1956–1960: HIGH EXPECTATIONS"
+    },
+    {
+      "pages": [
+        17,
+        17
+      ],
+      "title": "1956–1960: HIGH EXPECTATIONS"
+    },
+    {
+      "pages": [
+        18,
+        18
+      ],
+      "title": "1970S: KNOWLEDGE-BASED SYSTEMS"
+    },
+    {
+      "pages": [
+        19,
+        19
+      ],
+      "title": "1980S: COMMERCIAL APPLICATIONS; AI INDUSTRY"
+    },
+    {
+      "pages": [
+        20,
+        20
+      ],
+      "title": "1990–2010: DATA MINING, MACHINE LEARNING"
+    },
+    {
+      "pages": [
+        21,
+        22
+      ],
+      "title": "DEFINITION"
+    },
+    {
+      "pages": [
+        23,
+        23
+      ],
+      "title": "WHAT WE WILL COVER"
+    },
+    {
+      "pages": [
+        24,
+        25
+      ],
+      "title": "KEY ML TASKS AND CONCEPTS"
+    },
+    {
+      "pages": [
+        26,
+        26
+      ],
+      "title": "KEY ML TASKS AND CONCEPTS"
+    },
+    {
+      "pages": [
+        27,
+        27
+      ],
+      "title": "KEY ML TASKS AND CONCEPTS"
+    },
+    {
+      "pages": [
+        28,
+        28
+      ],
+      "title": "KEY ML TASKS AND CONCEPTS"
+    },
+    {
+      "pages": [
+        29,
+        29
+      ],
+      "title": "KEY ML TASKS AND CONCEPTS"
+    },
+    {
+      "pages": [
+        30,
+        30
+      ],
+      "title": "KEY ML TASKS AND CONCEPTS"
+    },
+    {
+      "pages": [
+        31,
+        31
+      ],
+      "title": "KEY ML TASKS AND CONCEPTS"
+    },
+    {
+      "pages": [
+        32,
+        32
+      ],
+      "title": "PROBABILITY IN MACHINE LEARNING"
+    },
+    {
+      "pages": [
+        33,
+        33
+      ],
+      "title": "BAYESIAN APPROACH TO ML"
+    },
+    {
+      "pages": [
+        34,
+        34
+      ],
+      "title": "BASIC DEFINITIONS"
+    },
+    {
+      "pages": [
+        35,
+        35
+      ],
+      "title": "BASIC DEFINITIONS"
+    },
+    {
+      "pages": [
+        36,
+        36
+      ],
+      "title": "DEFINITIONS"
+    },
+    {
+      "pages": [
+        37,
+        37
+      ],
+      "title": "ML VS. MAP"
+    },
+    {
+      "pages": [
+        38,
+        38
+      ],
+      "title": "DIRECT AND INVERSE PROBLEMS"
+    },
+    {
+      "pages": [
+        39,
+        39
+      ],
+      "title": "DIRECT AND INVERSE PROBLEMS"
+    },
+    {
+      "pages": [
+        40,
+        40
+      ],
+      "title": "PROBABILITY AS FREQUENCY"
+    },
+    {
+      "pages": [
+        41,
+        41
+      ],
+      "title": "PROBABILITY AS A DEGREE OF BELIEF"
+    },
+    {
+      "pages": [
+        42,
+        42
+      ],
+      "title": "PROBABILITY AS A DEGREE OF BELIEF"
+    },
+    {
+      "pages": [
+        43,
+        43
+      ],
+      "title": "EXAMPLES"
+    },
+    {
+      "pages": [
+        44,
+        44
+      ],
+      "title": "EXAMPLES"
+    },
+    {
+      "pages": [
+        45,
+        45
+      ],
+      "title": "EXAMPLES"
+    },
+    {
+      "pages": [
+        46,
+        46
+      ],
+      "title": "BAYESIAN INFERENCE"
+    },
+    {
+      "pages": [
+        47,
+        47
+      ],
+      "title": "PROBLEM STATEMENT"
+    },
+    {
+      "pages": [
+        48,
+        48
+      ],
+      "title": "PROBLEM STATEMENT"
+    },
+    {
+      "pages": [
+        49,
+        49
+      ],
+      "title": "EXAMPLE OF BAYESIAN INFERENCE"
+    },
+    {
+      "pages": [
+        50,
+        50
+      ],
+      "title": "EXAMPLE OF BAYESIAN INFERENCE"
+    },
+    {
+      "pages": [
+        51,
+        51
+      ],
+      "title": "EXAMPLE OF BAYESIAN INFERENCE"
+    },
+    {
+      "pages": [
+        52,
+        52
+      ],
+      "title": "EXAMPLE OF BAYESIAN INFERENCE"
+    },
+    {
+      "pages": [
+        53,
+        53
+      ],
+      "title": "CONJUGATE PRIORS"
+    },
+    {
+      "pages": [
+        54,
+        54
+      ],
+      "title": "A REMINDER"
+    },
+    {
+      "pages": [
+        55,
+        55
+      ],
+      "title": "PRIOR DISTRIBUTIONS"
+    },
+    {
+      "pages": [
+        56,
+        56
+      ],
+      "title": "CONJUGATE PRIORS"
+    },
+    {
+      "pages": [
+        57,
+        57
+      ],
+      "title": "CONJUGATE PRIORS"
+    },
+    {
+      "pages": [
+        58,
+        58
+      ],
+      "title": "CONJUGATE PRIORS"
+    },
+    {
+      "pages": [
+        59,
+        59
+      ],
+      "title": "BERNOULLI TRIALS"
+    },
+    {
+      "pages": [
+        60,
+        60
+      ],
+      "title": "BERNOULLI TRIALS"
+    },
+    {
+      "pages": [
+        61,
+        61
+      ],
+      "title": "BERNOULLI TRIALS"
+    },
+    {
+      "pages": [
+        62,
+        62
+      ],
+      "title": "THE BETA DISTRIBUTION"
+    },
+    {
+      "pages": [
+        63,
+        63
+      ],
+      "title": "MULTINOMIAL DISTRIBUTION"
+    },
+    {
+      "pages": [
+        64,
+        64
+      ],
+      "title": "MULTINOMIAL DISTRIBUTION"
+    },
+    {
+      "pages": [
+        65,
+        65
+      ],
+      "title": "THE DIRICHLET DISTRIBUTION"
+    },
+    {
+      "pages": [
+        66,
+        66
+      ],
+      "title": "THANK YOU!"
+    }
+  ],
+  "windows": [
+    {
+      "start": 0.0,
+      "end": 60.0
+    },
+    {
+      "start": 60.0,
+      "end": 120.0
+    },
+    {
+      "start": 120.0,
+      "end": 180.0
+    },
+    {
+      "start": 180.0,
+      "end": 240.0
+    },
+    {
+      "start": 240.0,
+      "end": 300.0
+    },
+    {
+      "start": 300.0,
+      "end": 360.0
+    },
+    {
+      "start": 360.0,
+      "end": 420.0
+    },
+    {
+      "start": 420.0,
+      "end": 480.0
+    },
+    {
+      "start": 480.0,
+      "end": 540.0
+    },
+    {
+      "start": 540.0,
+      "end": 600.0
+    },
+    {
+      "start": 600.0,
+      "end": 660.0
+    },
+    {
+      "start": 660.0,
+      "end": 720.0
+    },
+    {
+      "start": 720.0,
+      "end": 780.0
+    },
+    {
+      "start": 780.0,
+      "end": 840.0
+    },
+    {
+      "start": 840.0,
+      "end": 900.0
+    },
+    {
+      "start": 900.0,
+      "end": 960.0
+    },
+    {
+      "start": 960.0,
+      "end": 1020.0
+    },
+    {
+      "start": 1020.0,
+      "end": 1080.0
+    },
+    {
+      "start": 1080.0,
+      "end": 1140.0
+    },
+    {
+      "start": 1140.0,
+      "end": 1200.0
+    },
+    {
+      "start": 1200.0,
+      "end": 1260.0
+    },
+    {
+      "start": 1260.0,
+      "end": 1320.0
+    },
+    {
+      "start": 1320.0,
+      "end": 1380.0
+    },
+    {
+      "start": 1380.0,
+      "end": 1440.0
+    },
+    {
+      "start": 1440.0,
+      "end": 1500.0
+    },
+    {
+      "start": 1500.0,
+      "end": 1560.0
+    },
+    {
+      "start": 1560.0,
+      "end": 1620.0
+    },
+    {
+      "start": 1620.0,
+      "end": 1680.0
+    },
+    {
+      "start": 1680.0,
+      "end": 1740.0
+    },
+    {
+      "start": 1740.0,
+      "end": 1800.0
+    },
+    {
+      "start": 1800.0,
+      "end": 1860.0
+    },
+    {
+      "start": 1860.0,
+      "end": 1920.0
+    },
+    {
+      "start": 1920.0,
+      "end": 1980.0
+    },
+    {
+      "start": 1980.0,
+      "end": 2040.0
+    },
+    {
+      "start": 2040.0,
+      "end": 2100.0
+    },
+    {
+      "start": 2100.0,
+      "end": 2160.0
+    },
+    {
+      "start": 2160.0,
+      "end": 2220.0
+    },
+    {
+      "start": 2220.0,
+      "end": 2280.0
+    },
+    {
+      "start": 2280.0,
+      "end": 2340.0
+    },
+    {
+      "start": 2340.0,
+      "end": 2400.0
+    },
+    {
+      "start": 2400.0,
+      "end": 2460.0
+    },
+    {
+      "start": 2460.0,
+      "end": 2520.0
+    },
+    {
+      "start": 2520.0,
+      "end": 2580.0
+    },
+    {
+      "start": 2580.0,
+      "end": 2640.0
+    },
+    {
+      "start": 2640.0,
+      "end": 2700.0
+    },
+    {
+      "start": 2700.0,
+      "end": 2760.0
+    },
+    {
+      "start": 2760.0,
+      "end": 2820.0
+    },
+    {
+      "start": 2820.0,
+      "end": 2880.0
+    },
+    {
+      "start": 2880.0,
+      "end": 2940.0
+    },
+    {
+      "start": 2940.0,
+      "end": 3000.0
+    },
+    {
+      "start": 3000.0,
+      "end": 3060.0
+    },
+    {
+      "start": 3060.0,
+      "end": 3120.0
+    },
+    {
+      "start": 3120.0,
+      "end": 3180.0
+    },
+    {
+      "start": 3180.0,
+      "end": 3240.0
+    },
+    {
+      "start": 3240.0,
+      "end": 3300.0
+    },
+    {
+      "start": 3300.0,
+      "end": 3360.0
+    },
+    {
+      "start": 3360.0,
+      "end": 3420.0
+    },
+    {
+      "start": 3420.0,
+      "end": 3480.0
+    },
+    {
+      "start": 3480.0,
+      "end": 3540.0
+    },
+    {
+      "start": 3540.0,
+      "end": 3600.0
+    },
+    {
+      "start": 3600.0,
+      "end": 3660.0
+    },
+    {
+      "start": 3660.0,
+      "end": 3720.0
+    },
+    {
+      "start": 3720.0,
+      "end": 3780.0
+    },
+    {
+      "start": 3780.0,
+      "end": 3840.0
+    },
+    {
+      "start": 3840.0,
+      "end": 3900.0
+    },
+    {
+      "start": 3900.0,
+      "end": 3960.0
+    },
+    {
+      "start": 3960.0,
+      "end": 4020.0
+    },
+    {
+      "start": 4020.0,
+      "end": 4080.0
+    },
+    {
+      "start": 4080.0,
+      "end": 4140.0
+    },
+    {
+      "start": 4140.0,
+      "end": 4200.0
+    },
+    {
+      "start": 4200.0,
+      "end": 4260.0
+    },
+    {
+      "start": 4260.0,
+      "end": 4320.0
+    },
+    {
+      "start": 4320.0,
+      "end": 4380.0
+    },
+    {
+      "start": 4380.0,
+      "end": 4440.0
+    },
+    {
+      "start": 4440.0,
+      "end": 4500.0
+    },
+    {
+      "start": 4500.0,
+      "end": 4560.0
+    },
+    {
+      "start": 4560.0,
+      "end": 4620.0
+    },
+    {
+      "start": 4620.0,
+      "end": 4680.0
+    },
+    {
+      "start": 4680.0,
+      "end": 4740.0
+    },
+    {
+      "start": 4740.0,
+      "end": 4800.0
+    },
+    {
+      "start": 4800.0,
+      "end": 4860.0
+    },
+    {
+      "start": 4860.0,
+      "end": 4920.0
+    },
+    {
+      "start": 4920.0,
+      "end": 4980.0
+    },
+    {
+      "start": 5580.0,
+      "end": 5640.0
+    },
+    {
+      "start": 6240.0,
+      "end": 6300.0
+    },
+    {
+      "start": 6300.0,
+      "end": 6360.0
+    },
+    {
+      "start": 6360.0,
+      "end": 6420.0
+    },
+    {
+      "start": 6420.0,
+      "end": 6480.0
+    },
+    {
+      "start": 6480.0,
+      "end": 6540.0
+    },
+    {
+      "start": 6540.0,
+      "end": 6600.0
+    },
+    {
+      "start": 6600.0,
+      "end": 6660.0
+    },
+    {
+      "start": 6660.0,
+      "end": 6720.0
+    },
+    {
+      "start": 6720.0,
+      "end": 6780.0
+    },
+    {
+      "start": 6780.0,
+      "end": 6840.0
+    },
+    {
+      "start": 6840.0,
+      "end": 6900.0
+    },
+    {
+      "start": 6900.0,
+      "end": 6960.0
+    },
+    {
+      "start": 6960.0,
+      "end": 7020.0
+    },
+    {
+      "start": 7020.0,
+      "end": 7080.0
+    },
+    {
+      "start": 7080.0,
+      "end": 7140.0
+    },
+    {
+      "start": 7140.0,
+      "end": 7200.0
+    },
+    {
+      "start": 7200.0,
+      "end": 7260.0
+    },
+    {
+      "start": 7260.0,
+      "end": 7320.0
+    },
+    {
+      "start": 7320.0,
+      "end": 7380.0
+    },
+    {
+      "start": 7380.0,
+      "end": 7440.0
+    },
+    {
+      "start": 7440.0,
+      "end": 7500.0
+    },
+    {
+      "start": 7500.0,
+      "end": 7560.0
+    },
+    {
+      "start": 7560.0,
+      "end": 7620.0
+    },
+    {
+      "start": 7620.0,
+      "end": 7680.0
+    },
+    {
+      "start": 7680.0,
+      "end": 7740.0
+    },
+    {
+      "start": 7740.0,
+      "end": 7800.0
+    },
+    {
+      "start": 7800.0,
+      "end": 7860.0
+    },
+    {
+      "start": 7860.0,
+      "end": 7920.0
+    },
+    {
+      "start": 7920.0,
+      "end": 7980.0
+    },
+    {
+      "start": 7980.0,
+      "end": 8040.0
+    },
+    {
+      "start": 8040.0,
+      "end": 8100.0
+    },
+    {
+      "start": 8100.0,
+      "end": 8160.0
+    },
+    {
+      "start": 8160.0,
+      "end": 8220.0
+    },
+    {
+      "start": 8220.0,
+      "end": 8280.0
+    },
+    {
+      "start": 8280.0,
+      "end": 8340.0
+    },
+    {
+      "start": 8340.0,
+      "end": 8400.0
+    },
+    {
+      "start": 8400.0,
+      "end": 8460.0
+    },
+    {
+      "start": 8460.0,
+      "end": 8520.0
+    },
+    {
+      "start": 8520.0,
+      "end": 8580.0
+    },
+    {
+      "start": 8580.0,
+      "end": 8640.0
+    },
+    {
+      "start": 8640.0,
+      "end": 8700.0
+    },
+    {
+      "start": 8700.0,
+      "end": 8760.0
+    },
+    {
+      "start": 8760.0,
+      "end": 8820.0
+    },
+    {
+      "start": 8820.0,
+      "end": 8880.0
+    },
+    {
+      "start": 8880.0,
+      "end": 8940.0
+    },
+    {
+      "start": 8940.0,
+      "end": 9000.0
+    },
+    {
+      "start": 9000.0,
+      "end": 9060.0
+    },
+    {
+      "start": 9060.0,
+      "end": 9120.0
+    },
+    {
+      "start": 9120.0,
+      "end": 9180.0
+    },
+    {
+      "start": 9180.0,
+      "end": 9240.0
+    },
+    {
+      "start": 9240.0,
+      "end": 9300.0
+    },
+    {
+      "start": 9300.0,
+      "end": 9360.0
+    },
+    {
+      "start": 9360.0,
+      "end": 9420.0
+    },
+    {
+      "start": 9420.0,
+      "end": 9480.0
+    },
+    {
+      "start": 9480.0,
+      "end": 9540.0
+    },
+    {
+      "start": 9540.0,
+      "end": 9600.0
+    },
+    {
+      "start": 9600.0,
+      "end": 9660.0
+    },
+    {
+      "start": 9660.0,
+      "end": 9720.0
+    },
+    {
+      "start": 9720.0,
+      "end": 9780.0
+    },
+    {
+      "start": 9780.0,
+      "end": 9840.0
+    },
+    {
+      "start": 9840.0,
+      "end": 9900.0
+    },
+    {
+      "start": 9900.0,
+      "end": 9960.0
+    },
+    {
+      "start": 9960.0,
+      "end": 10020.0
+    },
+    {
+      "start": 10020.0,
+      "end": 10080.0
+    },
+    {
+      "start": 10080.0,
+      "end": 10140.0
+    },
+    {
+      "start": 10140.0,
+      "end": 10200.0
+    },
+    {
+      "start": 10200.0,
+      "end": 10260.0
+    },
+    {
+      "start": 10260.0,
+      "end": 10320.0
+    },
+    {
+      "start": 10320.0,
+      "end": 10380.0
+    },
+    {
+      "start": 10380.0,
+      "end": 10440.0
+    },
+    {
+      "start": 10440.0,
+      "end": 10500.0
+    },
+    {
+      "start": 10500.0,
+      "end": 10560.0
+    },
+    {
+      "start": 10560.0,
+      "end": 10620.0
+    },
+    {
+      "start": 10620.0,
+      "end": 10680.0
+    },
+    {
+      "start": 10680.0,
+      "end": 10740.0
+    },
+    {
+      "start": 10740.0,
+      "end": 10800.0
+    },
+    {
+      "start": 10800.0,
+      "end": 10860.0
+    },
+    {
+      "start": 10860.0,
+      "end": 10920.0
+    },
+    {
+      "start": 10920.0,
+      "end": 10980.0
+    },
+    {
+      "start": 10980.0,
+      "end": 11040.0
+    },
+    {
+      "start": 11040.0,
+      "end": 11100.0
+    },
+    {
+      "start": 11100.0,
+      "end": 11160.0
+    },
+    {
+      "start": 11160.0,
+      "end": 11220.0
+    },
+    {
+      "start": 11220.0,
+      "end": 11280.0
+    },
+    {
+      "start": 11280.0,
+      "end": 11340.0
+    },
+    {
+      "start": 11340.0,
+      "end": 11400.0
+    },
+    {
+      "start": 11400.0,
+      "end": 11460.0
+    },
+    {
+      "start": 11460.0,
+      "end": 11520.0
+    },
+    {
+      "start": 11520.0,
+      "end": 11580.0
+    },
+    {
+      "start": 11580.0,
+      "end": 11640.0
+    },
+    {
+      "start": 11640.0,
+      "end": 11700.0
+    },
+    {
+      "start": 11700.0,
+      "end": 11760.0
+    },
+    {
+      "start": 11760.0,
+      "end": 11820.0
+    },
+    {
+      "start": 11820.0,
+      "end": 11880.0
+    },
+    {
+      "start": 11880.0,
+      "end": 11940.0
+    },
+    {
+      "start": 11940.0,
+      "end": 12000.0
+    },
+    {
+      "start": 12000.0,
+      "end": 12060.0
+    },
+    {
+      "start": 12060.0,
+      "end": 12120.0
+    },
+    {
+      "start": 12120.0,
+      "end": 12180.0
+    },
+    {
+      "start": 12180.0,
+      "end": 12240.0
+    },
+    {
+      "start": 12240.0,
+      "end": 12300.0
+    },
+    {
+      "start": 12300.0,
+      "end": 12360.0
+    },
+    {
+      "start": 12360.0,
+      "end": 12420.0
+    },
+    {
+      "start": 12420.0,
+      "end": 12480.0
+    },
+    {
+      "start": 12480.0,
+      "end": 12540.0
+    },
+    {
+      "start": 12540.0,
+      "end": 12570.24
+    }
+  ],
+  "assignments": {
+    "uniform": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      7,
+      7,
+      7,
+      8,
+      8,
+      8,
+      9,
+      9,
+      9,
+      10,
+      10,
+      10,
+      11,
+      11,
+      11,
+      12,
+      12,
+      12,
+      13,
+      13,
+      13,
+      14,
+      14,
+      14,
+      15,
+      15,
+      15,
+      15,
+      16,
+      16,
+      16,
+      17,
+      17,
+      17,
+      18,
+      18,
+      18,
+      19,
+      19,
+      19,
+      20,
+      20,
+      20,
+      21,
+      21,
+      21,
+      22,
+      22,
+      22,
+      23,
+      23,
+      23,
+      24,
+      24,
+      24,
+      25,
+      25,
+      25,
+      26,
+      26,
+      26,
+      27,
+      27,
+      27,
+      28,
+      28,
+      28,
+      29,
+      29,
+      29,
+      30,
+      30,
+      30,
+      31,
+      31,
+      31,
+      31,
+      32,
+      32,
+      32,
+      33,
+      33,
+      33,
+      34,
+      34,
+      34,
+      35,
+      35,
+      35,
+      36,
+      36,
+      36,
+      37,
+      37,
+      37,
+      38,
+      38,
+      38,
+      39,
+      39,
+      39,
+      40,
+      40,
+      40,
+      41,
+      41,
+      41,
+      42,
+      42,
+      42,
+      43,
+      43,
+      43,
+      44,
+      44,
+      44,
+      45,
+      45,
+      45,
+      46,
+      46,
+      46,
+      46,
+      47,
+      47,
+      47,
+      48,
+      48,
+      48,
+      49,
+      49,
+      49,
+      50,
+      50,
+      50,
+      51,
+      51,
+      51,
+      52,
+      52,
+      52,
+      53,
+      53,
+      53,
+      54,
+      54,
+      54,
+      55,
+      55,
+      55,
+      56,
+      56,
+      56,
+      57,
+      57,
+      57,
+      58,
+      58,
+      58,
+      59,
+      59,
+      59,
+      60,
+      60,
+      60,
+      61,
+      61,
+      61
+    ],
+    "plain": [
+      19,
+      12,
+      12,
+      3,
+      2,
+      2,
+      12,
+      3,
+      3,
+      2,
+      3,
+      3,
+      12,
+      4,
+      4,
+      2,
+      4,
+      4,
+      5,
+      12,
+      3,
+      8,
+      12,
+      8,
+      8,
+      12,
+      12,
+      12,
+      12,
+      3,
+      3,
+      3,
+      12,
+      9,
+      26,
+      29,
+      12,
+      8,
+      12,
+      8,
+      8,
+      12,
+      12,
+      14,
+      12,
+      12,
+      15,
+      15,
+      39,
+      56,
+      17,
+      12,
+      17,
+      18,
+      24,
+      20,
+      21,
+      27,
+      20,
+      24,
+      24,
+      24,
+      33,
+      33,
+      29,
+      24,
+      24,
+      23,
+      24,
+      24,
+      21,
+      19,
+      24,
+      24,
+      23,
+      23,
+      21,
+      25,
+      25,
+      12,
+      3,
+      12,
+      2,
+      61,
+      12,
+      27,
+      29,
+      29,
+      29,
+      29,
+      29,
+      30,
+      30,
+      30,
+      46,
+      37,
+      30,
+      46,
+      56,
+      27,
+      51,
+      31,
+      50,
+      56,
+      44,
+      56,
+      43,
+      43,
+      46,
+      43,
+      43,
+      43,
+      43,
+      19,
+      55,
+      55,
+      45,
+      33,
+      43,
+      43,
+      43,
+      32,
+      44,
+      43,
+      32,
+      43,
+      27,
+      44,
+      19,
+      32,
+      19,
+      19,
+      27,
+      55,
+      43,
+      44,
+      43,
+      55,
+      44,
+      55,
+      55,
+      43,
+      55,
+      55,
+      44,
+      32,
+      56,
+      56,
+      19,
+      27,
+      43,
+      56,
+      30,
+      43,
+      43,
+      44,
+      46,
+      31,
+      55,
+      3,
+      43,
+      43,
+      43,
+      58,
+      55,
+      56,
+      56,
+      45,
+      57,
+      56,
+      57,
+      44,
+      56,
+      43,
+      43,
+      44,
+      56,
+      46,
+      46,
+      19,
+      46,
+      46,
+      32,
+      46,
+      56,
+      21,
+      2,
+      56,
+      43,
+      61
+    ],
+    "dtw": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      7,
+      8,
+      8,
+      8,
+      8,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      15,
+      15,
+      15,
+      17,
+      17,
+      17,
+      17,
+      18,
+      20,
+      20,
+      20,
+      20,
+      20,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      25,
+      25,
+      26,
+      26,
+      26,
+      26,
+      26,
+      26,
+      27,
+      29,
+      29,
+      29,
+      29,
+      29,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      43,
+      44,
+      44,
+      44,
+      44,
+      44,
+      44,
+      44,
+      44,
+      46,
+      55,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      56,
+      61
+    ]
+  },
+  "keywords": [
+    [
+      "june",
+      "mail",
+      "robespierre",
+      "religion",
+      "missile",
+      "began",
+      "intro",
+      "sergey",
+      "nikolenko",
+      "harbour"
+    ],
+    [
+      "machine",
+      "learning"
+    ],
+    [
+      "timelines",
+      "live",
+      "interesting",
+      "times"
+    ],
+    [
+      "nobody",
+      "predicted",
+      "book",
+      "start",
+      "beginning",
+      "timelines"
+    ],
+    [
+      "artificial",
+      "thoughts",
+      "hephaestus",
+      "created",
+      "android",
+      "robots",
+      "himself",
+      "giant",
+      "humanoid",
+      "talos"
+    ],
+    [
+      "mechanical",
+      "automata",
+      "quite",
+      "inventive",
+      "jazari",
+      "12th",
+      "robert",
+      "artois",
+      "hesdin",
+      "castle"
+    ],
+    [
+      "automata",
+      "jaquet",
+      "droz",
+      "xviii",
+      "mechanical",
+      "century"
+    ],
+    [
+      "logical",
+      "mechanical",
+      "purely",
+      "remained",
+      "rudimentary",
+      "long",
+      "time",
+      "ramon",
+      "llull",
+      "xiii"
+    ],
+    [
+      "computer",
+      "human",
+      "turing",
+      "test",
+      "science",
+      "impersonate",
+      "dialogue",
+      "judge",
+      "original",
+      "formulation"
+    ],
+    [
+      "knowledge",
+      "learning",
+      "obvious",
+      "much",
+      "build",
+      "language",
+      "processing",
+      "representation",
+      "reasoning",
+      "acquired"
+    ],
+    [
+      "turing",
+      "test",
+      "way",
+      "efforts",
+      "try",
+      "modern",
+      "llms",
+      "passed",
+      "jones",
+      "bergen"
+    ],
+    [
+      "dartmouth",
+      "workshop",
+      "field",
+      "emerged",
+      "organized",
+      "john",
+      "mccarthy",
+      "marvin",
+      "minsky",
+      "claude"
+    ],
+    [
+      "study",
+      "summer",
+      "dartmouth",
+      "intelligence",
+      "problems",
+      "propose",
+      "month",
+      "carried",
+      "college",
+      "hanover"
+    ],
+    [
+      "bit",
+      "allen",
+      "newell",
+      "herbert",
+      "simon",
+      "theorist",
+      "proved",
+      "principia",
+      "mathematica",
+      "sometimes"
+    ],
+    [
+      "blocks",
+      "bit",
+      "solver",
+      "trying",
+      "like",
+      "specialized",
+      "programs",
+      "limited",
+      "microworlds",
+      "analogy"
+    ],
+    [
+      "rules",
+      "knowledge",
+      "1970s",
+      "systems",
+      "core",
+      "idea",
+      "accumulate",
+      "sufficiently",
+      "domain",
+      "draw"
+    ],
+    [
+      "dec",
+      "1980s",
+      "commercial",
+      "industry",
+      "department",
+      "digital",
+      "equipment",
+      "corporation",
+      "reportedly",
+      "saving"
+    ],
+    [
+      "revolution",
+      "learning",
+      "machine",
+      "data",
+      "mining",
+      "recent",
+      "decades",
+      "focus",
+      "shifted",
+      "discovering"
+    ],
+    [
+      "definition",
+      "performance",
+      "experience",
+      "tasks",
+      "mean",
+      "define",
+      "learnability",
+      "accumulating",
+      "regarding",
+      "𝑇and"
+    ],
+    [
+      "tasks",
+      "cover",
+      "various",
+      "solving",
+      "today",
+      "discuss",
+      "applicable",
+      "algorithm",
+      "brief",
+      "overview"
+    ],
+    [
+      "set",
+      "training",
+      "examples",
+      "phase",
+      "learning",
+      "model",
+      "new",
+      "data",
+      "consisting",
+      "attributes"
+    ],
+    [
+      "validation",
+      "training",
+      "set",
+      "data",
+      "learning",
+      "check",
+      "cross",
+      "splitting",
+      "preprocessing",
+      "inputting"
+    ],
+    [
+      "classification",
+      "text",
+      "recognition",
+      "predicting",
+      "examples",
+      "must",
+      "set",
+      "new",
+      "learning",
+      "categories"
+    ],
+    [
+      "clustering",
+      "learning",
+      "data",
+      "labeled",
+      "partitioning",
+      "similarity",
+      "identifying",
+      "gene",
+      "families",
+      "nucleotide"
+    ],
+    [
+      "learning",
+      "data",
+      "labeled",
+      "dimensionality",
+      "matrix",
+      "features",
+      "supervised",
+      "examples",
+      "reduction",
+      "huge"
+    ],
+    [
+      "leading",
+      "credit",
+      "learning",
+      "reinforcement",
+      "agent",
+      "errors",
+      "multi",
+      "armed",
+      "bandits",
+      "several"
+    ],
+    [
+      "model",
+      "learning",
+      "active",
+      "relatively",
+      "expensive",
+      "rank",
+      "produce",
+      "ordered",
+      "lists",
+      "search"
+    ],
+    [
+      "methods",
+      "machine",
+      "probability",
+      "learning",
+      "benefit",
+      "estimate",
+      "confidence",
+      "description",
+      "quality",
+      "anticipate"
+    ],
+    [
+      "approach",
+      "bayesian"
+    ],
+    [
+      "variables",
+      "definitions",
+      "random",
+      "one",
+      "won",
+      "sigma",
+      "algebras",
+      "borel",
+      "suffices",
+      "understand"
+    ],
+    [
+      "probability",
+      "joint",
+      "events",
+      "occurring",
+      "simultaneously",
+      "marginalization",
+      "conditional",
+      "event",
+      "another",
+      "occurred"
+    ],
+    [
+      "probability",
+      "begin",
+      "d𝜃is",
+      "evidence",
+      "definitions",
+      "theorem",
+      "bayes",
+      "likelihood",
+      "posterior",
+      "prior"
+    ],
+    [
+      "arg",
+      "max𝜃𝑝",
+      "maximum",
+      "hypothesis",
+      "map",
+      "look",
+      "𝜃𝑀𝐿",
+      "seek",
+      "possibly",
+      "𝜃𝑀𝐴𝑃"
+    ],
+    [
+      "balls",
+      "black",
+      "urn",
+      "inverse",
+      "problem",
+      "contains",
+      "direct",
+      "ball",
+      "probability",
+      "one"
+    ],
+    [
+      "problems",
+      "model",
+      "behavior",
+      "direct",
+      "inverse",
+      "probabilistic",
+      "based",
+      "probability",
+      "words",
+      "describe"
+    ],
+    [
+      "probability",
+      "experiments",
+      "frequency",
+      "classical",
+      "originating",
+      "physical",
+      "views",
+      "limit",
+      "ratio",
+      "occurrences"
+    ],
+    [
+      "probability",
+      "might",
+      "reason",
+      "spain",
+      "fifa",
+      "cup",
+      "odyssey",
+      "woman",
+      "agi",
+      "taking"
+    ],
+    [
+      "belief",
+      "probability",
+      "degrees",
+      "interpretation",
+      "originally",
+      "saw",
+      "fortunately",
+      "interpretations",
+      "follow",
+      "laws"
+    ],
+    [
+      "girl",
+      "kids",
+      "boy",
+      "two",
+      "probability",
+      "person",
+      "baby",
+      "born",
+      "either",
+      "independently"
+    ],
+    [
+      "blood",
+      "type",
+      "defendant",
+      "says",
+      "guilty",
+      "mistake",
+      "prosecutor",
+      "attorney",
+      "probability",
+      "happened"
+    ],
+    [
+      "cases",
+      "domestic",
+      "violence",
+      "sids",
+      "prosecutor",
+      "said",
+      "two",
+      "real",
+      "simpson",
+      "wife"
+    ],
+    [
+      "coin",
+      "inference",
+      "bayesian"
+    ],
+    [
+      "problem",
+      "flipped",
+      "𝑁times",
+      "producing",
+      "determine",
+      "unfairness",
+      "statement",
+      "sequence",
+      "simple",
+      "unfair"
+    ],
+    [
+      "probability",
+      "heads",
+      "𝜃for",
+      "tails",
+      "𝑠with",
+      "𝑚tails",
+      "meaning",
+      "infer",
+      "statement",
+      "sequence"
+    ],
+    [
+      "prior",
+      "understood",
+      "defined",
+      "interval",
+      "indeed",
+      "assumption",
+      "fairness",
+      "assuming",
+      "equally",
+      "likely"
+    ],
+    [
+      "calculated",
+      "𝑚𝑑𝜃",
+      "𝑚can",
+      "found",
+      "integral",
+      "arg",
+      "max𝜃𝑝",
+      "without",
+      "example",
+      "thus"
+    ],
+    [
+      "heads",
+      "laplace",
+      "calculate",
+      "obtained",
+      "rule",
+      "outcome",
+      "next",
+      "example",
+      "thus",
+      "predict"
+    ],
+    [
+      "finding",
+      "inference",
+      "bayesian",
+      "distribution",
+      "illustration",
+      "hypotheses",
+      "𝜃map",
+      "predictive",
+      "future",
+      "maximum"
+    ],
+    [
+      "priors",
+      "conjugate"
+    ],
+    [
+      "task",
+      "distribution",
+      "likelihood",
+      "data",
+      "reminder",
+      "recall",
+      "learn",
+      "points",
+      "available",
+      "involves"
+    ],
+    [
+      "choose",
+      "prior",
+      "distributions",
+      "inference",
+      "bayesian",
+      "besides",
+      "paid",
+      "important",
+      "compute",
+      "possible"
+    ],
+    [
+      "form",
+      "distribution",
+      "reasonable",
+      "keep",
+      "choose",
+      "goal",
+      "posteriori",
+      "want",
+      "different",
+      "priors"
+    ],
+    [
+      "family",
+      "called",
+      "conjugate",
+      "priors",
+      "distributions",
+      "parameters",
+      "formal",
+      "likelihoods",
+      "multiplying",
+      "stays"
+    ],
+    [
+      "form",
+      "priors",
+      "conjugate",
+      "course",
+      "good",
+      "depends",
+      "computed",
+      "give",
+      "distributions",
+      "many"
+    ],
+    [
+      "bernoulli",
+      "trials",
+      "coin",
+      "answer",
+      "𝜃is",
+      "tossing",
+      "beta",
+      "unfair",
+      "density",
+      "bias"
+    ],
+    [
+      "coin",
+      "sample",
+      "obtain",
+      "𝑠heads",
+      "𝑓tails",
+      "get",
+      "bernoulli",
+      "density",
+      "bias",
+      "trials"
+    ],
+    [
+      "hyperparameters",
+      "learning",
+      "turns",
+      "𝜃of",
+      "point",
+      "forget",
+      "complicated",
+      "formulas",
+      "derivations",
+      "updating"
+    ],
+    [
+      "beta",
+      "distribution"
+    ],
+    [
+      "multinomial",
+      "category",
+      "distribution",
+      "𝑛trials",
+      "𝑘categories",
+      "𝑥𝑖of",
+      "fell",
+      "𝜃𝑖are",
+      "falling",
+      "generalization"
+    ],
+    [
+      "distribution",
+      "exercise",
+      "upon",
+      "𝑥𝑘the",
+      "multinomial",
+      "𝜃𝛼1",
+      "𝜃𝛼2",
+      "𝜃𝛼𝑘",
+      "show",
+      "receiving"
+    ],
+    [
+      "dirichlet",
+      "distribution"
+    ],
+    [
+      "thank",
+      "attention"
+    ]
+  ],
+  "metrics": {
+    "uniform": {
+      "keyword_hit_rate": 0.2032,
+      "slide_coverage": 1.0,
+      "monotonicity": 1.0,
+      "kendall_tau_b": 0.9945
+    },
+    "plain": {
+      "keyword_hit_rate": 0.3878,
+      "slide_coverage": 0.5968,
+      "monotonicity": 0.6455,
+      "kendall_tau_b": 0.6045
+    },
+    "dtw": {
+      "keyword_hit_rate": 0.4232,
+      "slide_coverage": 0.371,
+      "monotonicity": 1.0,
+      "kendall_tau_b": 0.9404
+    },
+    "plain_vs_dtw": {
+      "windows_differing": 0.5842,
+      "mean_unit_distance": 6.7316
+    }
+  }
+}

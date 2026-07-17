@@ -1,0 +1,29 @@
+# Quiz web app (web/, Next.js) — production compose for the VPS, behind Caddy.
+#
+#   docker compose -f docker-compose.prod.yml up -d --build
+#
+# No published ports: the app joins the external `proxy` network and Caddy
+# reverse-proxies to it over that network. Caddyfile entry:
+#
+#   lectorium.example.com {
+#       reverse_proxy lectorium:3000
+#   }
+#
+# Course content and the attempts DB live in ./data on the host (bind mount),
+# so redeploys never lose attempts, and newly synced conspects/quizzes appear
+# on the next request — no restart needed.
+name: lectorium
+
+services:
+  quiz:
+    build: ./web
+    container_name: lectorium
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - ./data:/data
+
+networks:
+  proxy:
+    external: true

@@ -1,0 +1,130 @@
+{
+  "title": "VAE and Diffusion Models",
+  "questions": [
+    {
+      "question": "Why does a VAE need a KL divergence term in its loss function, even though it already includes a reconstruction error?",
+      "options": [
+        {
+          "text": "To prevent the encoder from collapsing to a deterministic autoencoder.",
+          "is_correct": true,
+          "explanation": "Without the KL regularizer, the encoder would push the means of different inputs far apart and shrink the variances to zero, effectively reverting to a simple autoencoder. The KL term forces the approximate posterior to stay close to the prior, ensuring the latent space is densely covered and the decoder can handle random samples."
+        },
+        {
+          "text": "To allow the decoder to produce multiple reconstructions for the same input.",
+          "is_correct": false,
+          "explanation": "While the VAE's probabilistic decoder can generate varied outputs, this is a side effect of the latent distribution. The primary purpose of the KL term is to regularize the latent space, not to enable multi-modal outputs."
+        },
+        {
+          "text": "To reduce the computational cost of sampling latent codes.",
+          "is_correct": false,
+          "explanation": "The KL term does not affect sampling cost; the reparametrization trick handles gradient flow through the sampling step. The KL term is a regularizer that shapes the latent space."
+        },
+        {
+          "text": "To make the loss function differentiable with respect to the latent variables.",
+          "is_correct": false,
+          "explanation": "Differentiability is enabled by the reparametrization trick, not by the KL term. The KL term ensures the latent space is well-structured, while the reparametrization allows gradient backpropagation."
+        }
+      ]
+    },
+    {
+      "question": "What problem does the reparametrization trick solve in training a VAE?",
+      "options": [
+        {
+          "text": "It allows gradients to flow through the random sampling step.",
+          "is_correct": true,
+          "explanation": "The reparametrization trick expresses the sampled latent vector as a deterministic function of the encoder's output (mean and variance) and an independent noise term, enabling gradients to pass through during backpropagation."
+        },
+        {
+          "text": "It ensures the encoder outputs a valid Gaussian distribution by making the variance positive.",
+          "is_correct": false,
+          "explanation": "The encoder can be designed to output positive variances (e.g., via softplus), but the reparametrization trick is concerned with gradient flow, not the shape of the distribution."
+        },
+        {
+          "text": "It reduces the KL divergence between the approximate posterior and the prior by enabling a closed-form expression.",
+          "is_correct": false,
+          "explanation": "The KL divergence is computed analytically because both distributions are Gaussian; the reparametrization trick is unrelated to the KL term—it solves the nondifferentiable sampling issue."
+        },
+        {
+          "text": "It makes the training objective convex, so gradient descent always converges to the global minimum.",
+          "is_correct": false,
+          "explanation": "The VAE loss is highly non-convex; the reparametrization trick simply makes the expectation unbiased and differentiable, without affecting convergence guarantees."
+        }
+      ]
+    },
+    {
+      "question": "Why is the VAE loss derived from the ELBO considered principled rather than ad‑hoc?",
+      "options": [
+        {
+          "text": "It naturally arises from the probabilistic model as the only way to combine reconstruction and regularization.",
+          "is_correct": true,
+          "explanation": "The evidence lower bound is a direct consequence of the variational approximation to the true posterior. The decomposition into reconstruction loss and KL divergence emerges uniquely, without arbitrary choices."
+        },
+        {
+          "text": "It uses a closed-form KL divergence, which is computationally cheaper than sampling-based methods.",
+          "is_correct": false,
+          "explanation": "While the closed-form KL is convenient, this is a practical advantage of choosing Gaussian distributions, not the reason the loss is principled."
+        },
+        {
+          "text": "It minimizes the reconstruction error directly, so it is guaranteed to produce sharp images.",
+          "is_correct": false,
+          "explanation": "The ELBO balances reconstruction and regularization; minimizing reconstruction error alone leads to overfitting and a degenerate latent space, not a principled generative model."
+        },
+        {
+          "text": "It doesn't require the encoder to predict a variance, so it has fewer parameters than a standard autoencoder.",
+          "is_correct": false,
+          "explanation": "The VAE encoder explicitly outputs both a mean and a variance, so it has more parameters, not fewer. The loss derivation assumes a full variational distribution."
+        }
+      ]
+    },
+    {
+      "question": "How does DDIM achieve faster generation compared to DDPM?",
+      "options": [
+        {
+          "text": "It defines a non-Markovian forward process with the same marginals, enabling larger deterministic steps during reverse.",
+          "is_correct": true,
+          "explanation": "DDIM constructs an alternative forward process that shares the marginal distributions with DDPM, allowing the reverse process to skip many intermediate steps while maintaining the same loss."
+        },
+        {
+          "text": "It uses a pretrained autoencoder to compress images before applying diffusion, so each step processes lower-dimensional data.",
+          "is_correct": false,
+          "explanation": "This describes latent diffusion models (e.g., Stable Diffusion), not DDIM. DDIM operates in pixel space and speeds up sampling by changing the reverse dynamics."
+        },
+        {
+          "text": "It replaces the Gaussian diffusion process with a deterministic ODE, which can be solved in fewer steps.",
+          "is_correct": false,
+          "explanation": "While DDIM has an ODE interpretation, the speed improvement comes from the ability to take larger deterministic steps; simply using an ODE does not directly reduce the number of steps."
+        },
+        {
+          "text": "It trains the denoising network to directly predict x_0 instead of the noise, making each reverse step simpler.",
+          "is_correct": false,
+          "explanation": "DDIM still predicts the noise (ε); the core innovation is the non-Markovian forward process that permits skipping steps, not a change in the prediction target."
+        }
+      ]
+    },
+    {
+      "question": "Why is Stable Diffusion more computationally efficient than pixel-space diffusion models?",
+      "options": [
+        {
+          "text": "It performs diffusion in a lower-dimensional latent space obtained from a pretrained autoencoder, drastically reducing data size.",
+          "is_correct": true,
+          "explanation": "Stable Diffusion operates on compact latent codes rather than high-resolution pixels, significantly cutting computational costs while preserving generation quality."
+        },
+        {
+          "text": "It uses a transformer-based denoising network, which is more parallelizable than U-Nets.",
+          "is_correct": false,
+          "explanation": "DiT (Diffusion Transformer) uses a transformer backbone, but Stable Diffusion typically employs a U-Net. The efficiency gain of Stable Diffusion comes from the latent space, not the network architecture."
+        },
+        {
+          "text": "It avoids the need for a noise schedule by learning the reverse process implicitly, skipping many steps.",
+          "is_correct": false,
+          "explanation": "Stable Diffusion still uses a noise schedule and iterative denoising; the key innovation is applying diffusion in a compressed latent representation."
+        },
+        {
+          "text": "It uses an ODE solver with adaptive step sizes, which is inherently faster than the DDPM sampler.",
+          "is_correct": false,
+          "explanation": "Advanced solvers like DPM-Solver++ accelerate sampling, but they are not specific to Stable Diffusion. The fundamental efficiency of Stable Diffusion arises from latent space operation."
+        }
+      ]
+    }
+  ]
+}
