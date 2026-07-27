@@ -27,6 +27,8 @@ h_t  &= o_t \odot \tanh(c_t) \quad &\text{(block output)}
 
 The cell behaves like a memory‑manipulation program: the forget gate erases information from \(c_{t-1}\) (multiplication by a number near zero erases, near one retains), the input gate writes new content from the candidate \(c'_t\) into the cleared locations, and the output gate reads a filtered version of the updated cell state into \(h_t\). The \(\tanh\) on the candidate output and the final \(\tanh\) before the output gate are not essential—many variations exist—but they are the conventional choices.
 
+![LSTM cell architecture](slides_images/slide-08.png)
+
 ### Constant Error Carousel and Highway Gradients
 
 The critical architectural benefit is that the cell state update contains a direct path for gradients. When the forget gate is fully open (\(f_t = 1\)), the update reduces to
@@ -78,6 +80,8 @@ h_t   &= (1 - u_t) \odot h'_t + u_t \odot h_{t-1}
 
 The update gate performs a convex combination of the old state and the candidate: a high \(u_t\) retains \(h_{t-1}\); a low \(u_t\) accepts the new candidate. The reset gate controls which part of the previous memory influences the candidate. This reduction from eight (or eleven) weight matrices to six makes the GRU more parameter‑efficient. For a short period around 2015–2016 GRUs were widely adopted in NLP, but the field later returned to LSTMs—empirically they often perform better, though the reason is not fully understood.
 
+![GRU cell architecture](slides_images/slide-11.png)
+
 ## What is Attention? *[41:54]*
 
 ### Biological Attention and the Foveal Spotlight
@@ -102,6 +106,8 @@ a_t &\sim p(\cdot \mid f_a(h_t; \theta_a)).
 \]
 
 A reward \(r_t\) is received after the action, and the objective is to maximise expected total reward \(J(\theta) = \mathbb{E}_{p(s_{1:T};\theta)}\!\left[\sum_{t} r_t\right]\). This defines a stochastic policy implemented by an RNN and trained with REINFORCE or other policy gradient methods. The model learns to move attention around the image, focusing on the object relevant for classification.
+
+![Recurrent visual attention model](slides_images/slide-24.png)
 
 Later work extended the idea to deep generative models: DRAW (Gregor et al. 2015) uses recurrent attention in a variational autoencoder for image generation, and Ba et al. (2015) scaled it with variational approximations.
 
@@ -129,6 +135,8 @@ No ground‑truth alignment is provided during training; the attention network l
 
 The attention weights \(\alpha_{tj}\) are highly interpretable. In French‑to‑English translation they form a mostly diagonal matrix, but with revealing exceptions: “la destruction” → “destruction” shows high weight on both input words while producing one output token; “armes chimiques” → “chemical weapons” yields off‑diagonal attention reflecting the word‑order swap. In a sequence reversal task the attention matrix becomes a reverse diagonal, letting the model reverse without memorising the whole sequence; in a sorting task the decoder attends to the position of the current minimum at each step, literally “picking” the correct element.
 
+![Attention alignment matrix examples](slides_images/slide-37.png)
+
 These properties extend beyond translation: treating a grammar parse tree as a flat string lets the same architecture handle structured outputs (Vinyals et al. 2015, “Grammar as a Foreign Language”).
 
 ### Google’s Neural Machine Translation System
@@ -150,6 +158,8 @@ Two variants were studied by Xu et al. (2015):
 
 The resulting attention maps are perfectly interpretable: when generating “woman” the model looks at people, “throwing” at the action, “frisbee” at the object, and “park” at the background.
 
+![Attention maps for image captioning](slides_images/slide-50.png)
+
 ## The Transformer *[1:27:53]*
 
 ### Overview and Scalability
@@ -160,6 +170,8 @@ The Transformer (Vaswani et al. 2017) discards recurrence entirely and relies so
 2. **Scalability**: unlike LSTMs, which saturate or become too expensive when scaled, transformers keep improving as the model size grows—from millions to trillions of parameters—without any fundamental architectural change. This never‑saturating behaviour was unprecedented.
 
 The architecture follows the encoder‑decoder pattern. An encoder stack (six identical layers) transforms the source into a sequence of context‑rich representations; a decoder stack (six identical layers) generates the target token by token.
+
+![Transformer architecture](slides_images/slide-58.png)
 
 ### Self-Attention Mechanism
 

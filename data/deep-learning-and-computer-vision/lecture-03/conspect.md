@@ -20,6 +20,8 @@ To obtain a smooth, differentiable alternative, the field adopted **sigmoid** fu
 
 These served as the standard activations until about 2011–2012. Their main drawback is **saturation**: derivatives vanish on both tails, halting learning once a neuron is strongly activated.
 
+![Sigmoid and tanh activation functions](slides_images/slide-15.png)
+
 ### Rectified Linear Unit (ReLU)
 
 > $$ \text{ReLU}(x) = \max(0, x) $$
@@ -105,6 +107,8 @@ For an example $f(x,y) = (x+y)^2(x-y) + y^3$, the graph is:
 - $e = d \cdot b$
 - $f = e + c$
 
+![Computational graph example for f(x,y)](slides_images/slide-09.png)
+
 Given concrete numbers, **forward propagation** (inputs → output) computes the function value in one pass. At $x=2,\; y=-1$ we get $f=2$.
 
 ### Why Forward‑Mode Differentiation Does Not Scale
@@ -183,6 +187,8 @@ $$ \mathbb{E} F(\hat{\mathbf{x}}_k) - F(\mathbf{x}_{\text{opt}}) \le \frac{R^2 +
 - The variance term introduces $O(1/\sqrt{k})$ convergence instead of the $O(1/k)$ of full GD, but each iteration is orders of magnitude cheaper.
 - Mini‑batch sizes are often tiny (4–8), so the variance $G^2$ remains large. This noise is the root cause that kills line‑search and quasi‑Newton methods.
 
+![SGD noise and convergence ball](slides_images/slide-37.png)
+
 ---
 
 ## SGD with Momentum *[2:20:33]*
@@ -200,6 +206,8 @@ $$
 
 With $\gamma$ near $0.95$–$0.99$, the optimisation behaves like a rolling ball with friction: it keeps moving in directions where the gradient consistently points, stabilising orthogonal oscillations and accelerating along shallow ravines.
 
+![Momentum accelerates along shallow ravines](slides_images/slide-46.png)
+
 ### Nesterov Accelerated Gradient
 
 Nesterov’s method looks ahead to the point where momentum would carry the parameters:
@@ -216,6 +224,8 @@ Intuition: it anticipates the upcoming curve and starts slowing before the turn,
 ## Adaptive Gradient Descent *[2:34:35]*
 
 Even momentum does not solve the fundamental scaling problem: each coordinate may need a **different learning rate**. Adaptive methods maintain per‑parameter rates, increasing them for parameters with small, consistent gradients and decreasing them for those with large, rapidly changing gradients.
+
+![Adaptive per-parameter learning rates](slides_images/slide-55.png)
 
 ### AdaGrad
 
@@ -288,6 +298,8 @@ Evidence shows that adaptive methods (Adam) can converge to minima that generali
 ### Super‑Convergence and Cyclical Schedules
 
 A 2017 paper on **Super‑Convergence** showed that cyclic learning rate schedules (alternating fast and slow phases) can accelerate training 10–20× and yield models of comparable quality. The idea generated excitement but never became a universal standard; cyclical schedules are used in some contexts but are not a default.
+
+![Super-convergence with cyclical learning rate schedule](slides_images/slide-59.png)
 
 ### AMSGrad: Theory vs. Practice
 

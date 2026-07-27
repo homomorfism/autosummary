@@ -13,6 +13,11 @@ export default function HomePage() {
         Every course below was distilled from its lecture recordings and slides: read the conspect, then check
         yourself with the quiz.
       </p>
+      <p style={{ marginTop: "1.25rem" }}>
+        <Link href="/courses/new" className="btn">
+          + Add course
+        </Link>
+      </p>
 
       {courses.length === 0 ? (
         <div className="empty-note">

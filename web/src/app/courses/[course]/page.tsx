@@ -49,6 +49,11 @@ export default async function CoursePage({ params }: Props) {
           {withConspect} of {page.rows.length} lectures
         </span>
       </div>
+      <p style={{ marginTop: "1.25rem" }}>
+        <Link href={`/courses/${page.slug}/new`} className="btn">
+          + Add lecture
+        </Link>
+      </p>
 
       <div className="panel">
         <div className="table-scroll">

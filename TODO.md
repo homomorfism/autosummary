@@ -10,12 +10,12 @@ Status: `[x]` — done, `[~]` — partial, `[ ]` — not started.
 
 ## 0. Contest submission (organizational)
 
-- [ ] `[P0]` Submit the application to participate → the upload form will arrive by email
+- [x] `[P0]` Submit the application to participate → the upload form will arrive by email
 - [ ] `[P0]` Register in the [applicant portal](https://abitlk.itmo.ru/), choose a program
-- [ ] `[P0]` Choose a wave (2nd until 07/01 / 3rd until 07/20) and lock in the deadline
-- [ ] `[P0]` Prepare the package: CV, motivation letter, repository link, project description (PDF), slides
-- [ ] `[P1]` Build slides from the [template](https://docs.google.com/presentation/d/1cH42eNBEUKBulLkOK8Nd6UDPbKQ70JWkZ7yRAJQ2SM8/edit) (5 min pitch + 7 min Q&A)
-- [ ] `[P1]` Sign up for the defense, rehearse the pitch on a timer
+- [x] `[P0]` Choose a wave (2nd until 07/01 / 3rd until 07/20) and lock in the deadline
+- [x] `[P0]` Prepare the package: CV, motivation letter, repository link, project description (PDF), slides
+- [x] `[P1]` Build slides from the [template](https://docs.google.com/presentation/d/1cH42eNBEUKBulLkOK8Nd6UDPbKQ70JWkZ7yRAJQ2SM8/edit) (5 min pitch + 7 min Q&A)
+- [x] `[P1]` Sign up for the defense, rehearse the pitch on a timer
 - [ ] `[P0]` After winning — upload the certificate to section 4 of the portfolio Contest
 
 ---

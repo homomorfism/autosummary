@@ -43,7 +43,9 @@ uv run python -m app.transcribe data/<course>/<lecture> --providers whisper_cpp 
 
 # per-lecture LLM stages (each reads/writes in place inside <lecture-dir>)
 uv run python -m app.reconstruct_transcript data/<course>/<lecture>   # raw ASR → transcription_reconstructed.md (no summarizing)
-uv run python -m app.conspect data/<course>/<lecture>     # transcript + slides → conspect.md (prefers the reconstructed transcript)
+uv run python -m app.conspect data/<course>/<lecture>     # transcript + slides → conspect.md (prefers the reconstructed transcript;
+                                                          #  auto-renders slides_images/ via pdftoppm and lets the LLM embed figure slides)
+uv run python -m app.slide_images data/<course>/<lecture>  # just render slides.pdf → slides_images/slide-NN.png (poppler)
 uv run python -m app.quiz data/<course>/<lecture>         # conspect.md → quiz.json (5 single-choice Qs)
 
 # course web app (web/, Next.js): lectures → conspect → quiz → results
@@ -115,6 +117,12 @@ name/config so downstream code never branches on the concrete backend.
   `QuizGenerator.complete_structured()` is the shared structured-output LLM
   call (same anthropic/deepseek split as the summarizer, retries with the
   validator error fed back) also used by `app/quality.py` regeneration.
+- **`app/slide_images.py`** — renders `slides.pdf` pages to
+  `slides_images/slide-NN.png` (pdftoppm) and builds the per-slide index
+  (image path, slide number, extracted word count) that `app.conspect` feeds
+  the LLM so it can embed figure-heavy slides as `![…](slides_images/…)`
+  images; the web app serves them via
+  `/courses/<course>/<lecture>/assets/slides_images/<file>`.
 - **`app/db.py`** — SQLite results store (`data/quiz_results.db`, override via
   `QUIZ_DB_PATH` or `--db`): attempts, per-question answers (keyed by a stable
   content-hash `question_id`), retired-question archive. All functions accept

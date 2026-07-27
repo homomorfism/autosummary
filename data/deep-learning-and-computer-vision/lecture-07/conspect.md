@@ -9,12 +9,16 @@ VisualBERT was one of the earliest attempts to jointly model images and text wit
 - The approach relies on a pretrained object detector (e.g., Faster R‑CNN) to crop out objects, embed them into vectors via CNNs with special positional embeddings, and feed them together with the caption words into a single Transformer.
 - Pretraining uses masked language modeling and a sentence‑image prediction task (classifying whether a given caption matches the image). Attention heads show clear alignment between words and the corresponding visual objects.
 
+![Attention alignment in Visual BERT](slides_images/slide-04.png)
+
 ### Vision Transformer (ViT) *[05:50]*
 The Vision Transformer (ViT; Dosovitsky et al., 2020) applies the Transformer directly to images without any text input. Its simplicity is striking: it is essentially BERT but with image patches instead of word tokens, keeping the standard Transformer architecture entirely unchanged.
 
 - An input image $x \in \mathbb{R}^{H \times W \times C}$ is cut into $P \times P$ patches, producing a sequence of $N = HW/P^2$ flattened tokens $x_p \in \mathbb{R}^{N \times P^2 \times C}$.
 - Patches are linearly projected to embeddings and concatenated with a learnable `[class]` token; positional encodings (the same absolute encodings as in the original Transformer) are added.
 - The sequence is fed into a standard Transformer encoder. Pretraining is performed via masked patch modeling, analogous to masked language modeling: a random subset of patches is replaced with a learnable `[mask]` embedding and the model must reconstruct them.
+
+![ViT architecture: patch embedding and Transformer encoder](slides_images/slide-05.png)
 
 Despite the two‑dimensional structure of an image, experiments showed no benefit from using 2D positional encodings; simple sequence‑like encodings work just as well.
 
@@ -27,6 +31,9 @@ The main limitation of ViT is the quadratic complexity of self‑attention: the 
 The Swin Transformer (Liu et al., 2021) addresses the quadratic cost by restricting self‑attention to local windows and building a hierarchical pyramid of features, similar to classical CNN backbones.
 
 - The image is partitioned into a grid of non‑overlapping windows (e.g., $4 \times 4$ patches per window). Self‑attention is computed only within each window, reducing the complexity from $O(N^2)$ to $O(W^2)$, where $W$ is the window size, and the overall cost becomes linear in the number of patches.
+
+![Swin Transformer: window partitioning and hierarchical architecture](slides_images/slide-09.png)
+
 - Hierarchical processing: early stages work on small windows, later stages merge adjacent windows to form coarser feature maps, eventually producing a global representation. This multi‑scale structure allows the model to handle varying object sizes.
 - **Shifted windows**: Between consecutive layers, the window grid is shifted by half the window size. Because each shifted window covers a different set of patches, this trick expands the receptive field without increasing computational cost. A patch that initially only sees a small region gradually aggregates context from a much larger area after a few layers.
 
@@ -38,6 +45,9 @@ The Swin Transformer can scale to very large resolutions (up to $1536 \times 153
 DeepMind’s Perceiver (Jaegle et al., 2021a) is a general‑purpose architecture that processes many modalities – images, point clouds, audio, video – without modality‑specific encoders.
 
 - To avoid the quadratic bottleneck, it uses a small set of latent vectors as queries that attend to a large array of input bytes (keys and values). This allows attention to operate at the level of individual pixels, even for high‑resolution inputs.
+
+![Perceiver architecture: latent queries attending to input bytes](slides_images/slide-15.png)
+
 - Perceiver IO (Jaegle et al., 2021b) extends the architecture to produce high‑dimensional structured outputs, handling tasks such as optical flow, multi‑task language understanding, and StarCraft II. Output queries can be constructed using position coordinates and other properties, enabling the model to produce dense outputs.
 
 ## Object Detection *[23:27]*
@@ -94,6 +104,9 @@ This makes the entire detector trainable end‑to‑end. Faster R‑CNN became t
 ### YOLO *[1:13:03]*
 YOLO (You Only Look Once; Redmon et al., 2016) takes a one‑stage approach, performing both box proposal and classification in a single forward pass:
 - The image is divided into an $S \times S$ grid. Each grid cell predicts $B$ bounding boxes and class probabilities.
+
+![YOLO grid prediction architecture](slides_images/slide-32.png)
+
 - The output is a tensor of shape $S \times S \times (5B + C)$, where each box has 5 components: $(x, y, w, h, \text{confidence})$, and $C$ class probabilities.
 - The final score for a box containing a specific class is $p(\text{class}_i) \cdot \text{IoU}$ (originally $p(\text{class}_i \mid \text{obj}) \cdot p(\text{obj}) \cdot \text{IoU}_{\text{bbox}}$).
 - Training is done with a single loss function where an indicator $\mathbb{1}_{\text{obj}}^{ij}$ specifies whether the $j$‑th box in cell $i$ is responsible for a given object.
@@ -113,6 +126,8 @@ DETR (DEtection TRansformer; Carion et al., 2020) reformulates object detection 
 - A conventional CNN backbone (e.g., ResNet) extracts feature maps, which are flattened and combined with positional encodings. The resulting sequence is processed by a Transformer encoder.
 - The decoder receives a small fixed number of learnable **object queries** – vectors that act as input anchors and interact via self‑attention and cross‑attention with the encoder outputs. Each query eventually produces one detection (or a “no object”).
 - A feed‑forward network on top of the decoder outputs class labels (including a special $\varnothing$ class) and bounding boxes.
+
+![DETR architecture: Transformer encoder-decoder with object queries](slides_images/slide-40.png)
 
 #### Bipartite matching loss
 The training relies on the Hungarian algorithm to find the optimal one‑to‑one matching between the $N$ predictions and the $N$ ground‑truth objects (padded with $\varnothing$):

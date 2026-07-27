@@ -40,6 +40,8 @@ Two broad processing streams emerge:
 - **What pathway** (V2 → V4): recognition of shapes and objects.
 - **Where pathway** (V2 → V5, V6): motion recognition, control over eyes and hands.
 
+![Visual cortex hierarchy and processing streams](slides_images/slide-07.png)
+
 Neurons in V1 have small receptive fields and respond to simple patterns – a vertical line, a horizontal line. Neurons in V2 combine them into more complex shapes (e.g. a corner). Beyond V2, the clean hierarchy dissolves into a dense mesh of feedback and lateral connections; there is no simple feed‑forward architecture like an artificial CNN.
 
 ### From biology to the neocognitron
@@ -74,6 +76,8 @@ A pooling layer takes the feature map, slices it into non‑overlapping windows 
 
 Max pooling is far more common in practice. Most features we care about in vision answer “is something present?”. If a head detector outputs $1$ for the correct patch and $0$ elsewhere, max pooling over a region yields $1$ wherever the head appears, while averaging would dilute the signal with all the zeros. Features that behave as *presence detectors* naturally compose via max, whereas features like average colour would be better served by averaging. Because convolutional networks are predominantly building shape detectors, max pooling is the default.
 
+![Max pooling operation over a feature map](slides_images/slide-14.png)
+
 With $2 \times 2$ pooling, each pooling layer halves the width and halves the height, reducing the number of values by a factor of four. Alternating convolution and pooling lets the network reach a large receptive field with far fewer layers.
 
 ## CNNs Formally *[43:04]*
@@ -93,6 +97,8 @@ y^{(l)}_{i,j} = \sum_{-d \le a,b \le d} W_{a,b}\; x^{(l)}_{i+a,\,j+b}.
 $$
 
 The notation emphasises that the same weights $W$ are applied at every position $(i,j)$.
+
+![Convolution operation with shared weights](slides_images/slide-18.png)
 
 ### Nonlinearity
 

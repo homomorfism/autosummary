@@ -35,7 +35,9 @@ export default async function LecturePage({ params }: Props) {
   if (!conspect) notFound();
 
   const coursePage = getCoursePage(course);
-  const { html, toc, title } = await renderMarkdown(conspect);
+  const { html, toc, title } = await renderMarkdown(conspect, {
+    assetBase: `/courses/${course}/${lecture}/assets`,
+  });
   const hasQuiz = fs.existsSync(path.join(lectureDir(course, lecture)!, "quiz.json"));
   const attempts = attemptCount(course, lecture);
 

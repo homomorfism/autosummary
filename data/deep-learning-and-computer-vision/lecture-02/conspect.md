@@ -50,6 +50,8 @@ When we do machine learning we are not deriving logical certainties – we are u
 
 Machine learning is overwhelmingly concerned with inverse problems: building probabilistic models from observations, which naturally calls for Bayesian reasoning.
 
+![Illustration of direct and inverse probability problems with urns](slides_images/slide-08.png)
+
 ### Examples of Bayesian Reasoning *[14:36]*
 
 #### Two Children *[14:36]*
@@ -123,6 +125,8 @@ Linear regression is not limited to straight lines; we can transform the raw inp
 
 A classic demonstration: true function is $\sin(2\pi x)$ (not a polynomial). With 11 training points, a third‑degree polynomial (four weights) already gives a good fit. A tenth‑degree polynomial passes exactly through every point – zero training error – but the interpolation curve oscillates wildly and is useless for prediction. This is the classical picture of **overfitting**: too many parameters capture noise instead of the underlying pattern.
 
+![Polynomial overfitting demonstration: true sine function, third‑degree and tenth‑degree polynomial fits](slides_images/slide-28.png)
+
 The overfitted model’s coefficients become huge (magnitudes on the order of $50$), whereas plausible weights for this data ($x\in[-1.5,2]$, $y\in[-1,1]$) should be around $1$–$2$. Large weights are a symptom.
 
 In high dimensions the problem is more severe and harder to avoid. Moving from a linear model to a quadratic model adds terms $x_i^2$ and all cross‑products $x_i x_j$, leading to $\mathcal{O}(d^2)$ features. Starting from 100 features, a quadratic expansion gives $\approx 5000$ features – an immense increase that almost guarantees overfitting. There is no “fractional” degree; you cannot smoothly increase complexity. Overfitting is therefore an inherent challenge in machine learning, even for simple linear models with feature expansions.
@@ -168,6 +172,8 @@ We therefore set
 $$y(\mathbf{x}) = P(C_1\mid\mathbf{x}) = \sigma(\mathbf{w}^\top\mathbf{x}),\qquad \sigma(a) = \frac{1}{1+e^{-a}},$$
 where $\sigma$ is the **logistic sigmoid**. It is smooth, monotonic, and maps the whole real line to $(0,1)$, passing through $1/2$ at $a=0$.
 
+![The logistic sigmoid function](slides_images/slide-36.png)
+
 For a dataset $\{(\mathbf{x}_n, t_n)\}$ with $t_n\in\{0,1\}$, the likelihood is
 $$p(\mathbf{t}\mid\mathbf{w}) = \prod_{n=1}^N y_n^{t_n} (1-y_n)^{1-t_n}.$$
 The negative log‑likelihood gives the **cross‑entropy** error:
@@ -205,6 +211,8 @@ Gradient descent is a **local** optimisation procedure: it moves downhill from t
 ### Biological Inspiration *[02:33:30]*
 
 The human brain contains ~$10^{11}$ neurons, each connecting via ~$7\,000$ synapses, totalling $10^{14}$–$10^{15}$ connections. Computation is fundamentally different from a von Neumann computer:
+
+![Neuron and synapse structure in the human brain](slides_images/slide-47.png)
 
 - Neurons communicate via **spikes** (identical electrical pulses), with firing rates of only 10–200 Hz – magnitudes slower than transistors.
 - Processing is **massively parallel and shallow**. Recognising a face takes about 200 ms; at those firing rates only 10–15 sequential steps can be performed. The brain uses extreme width, not depth.

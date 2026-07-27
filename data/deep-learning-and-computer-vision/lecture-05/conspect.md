@@ -109,6 +109,8 @@ The core building block is the **fire module**, composed of a *squeeze* layer (o
 
 The efficiency landscape is often displayed on a plot with number of parameters on the x‑axis (fewer is better) and ImageNet top‑1 accuracy on the y‑axis (higher is better). The **Pareto frontier** connects the best possible network for every size, and for every target quality the smallest possible network. The EfficientNet family succeeded in defining this frontier, and it remains the best underlying convolutional backbone, widely used in object detection and segmentation pipelines.
 
+![Pareto frontier of EfficientNet vs. other models](slides_images/slide-36.png)
+
 ## Batch Normalization *[56:14]*
 
 ### The Internal Covariate Shift Problem
@@ -144,6 +146,8 @@ Although originally motivated by reducing internal covariate shift, subsequent r
 
 Many normalisation methods share the same general operations: compute statistics over some set, normalise, then apply a learned scale and shift. They differ in *which dimensions* the statistics are computed over.
 
+![Comparison of normalization variants across axes](slides_images/slide-50.png)
+
 > **General form**: compute mean and variance over a specified set of axes, normalise, then transform with $\gamma$ and $\beta$.
 
 - **Batch Normalization** – over the mini‑batch dimension ($N$). Commonly used for images. It averages the same feature over spatial dimensions and across the mini‑batch.
@@ -166,6 +170,8 @@ Several problem types exist:
 - **Single input → sequence**: e.g., image captioning – a still image is converted into a variable‑length text description.
 - **Sequence → sequence**: e.g., machine translation – both input and output are sequences of variable length.
 - **Sequence labelling**: the output is a label for each input element, aligned with the input. Examples include part‑of‑speech tagging (a label for every word), video subtitle addition (each frame gets a text), and object tracking (segmenting an object consistently across video frames).
+
+![Types of sequence problems](slides_images/slide-58.png)
 
 A simple approach is to apply a sliding window over the sequence, but this cannot capture long‑range dependencies. When you read a paragraph, you need to remember what occurred many words earlier for the ending to make sense. The crucial missing capability is the ability to retain information across arbitrary time spans.
 
@@ -205,6 +211,8 @@ The vanishing gradient problem is far more challenging and is addressed by archi
 
 For sequence labelling tasks (e.g., part‑of‑speech tagging) it is unnatural to look only at past context. A **bidirectional RNN** runs two separate recurrent networks: one left‑to‑right, one right‑to‑left. At position $t$, the left‑to‑right hidden state captures left context and the right‑to‑left hidden state captures right context. Their outputs are then merged via a classification head:
 
+![Bidirectional RNN architecture](slides_images/slide-69.png)
+
 $$s_t = \sigma(b + W s_{t-1} + U x_t),$$
 $$s'_t = \sigma(b' + W' s'_{t+1} + U' x_t),$$
 $$o_t = c + V s_t + V' s'_t, \quad y_t = h(o_t).$$
@@ -228,6 +236,8 @@ Vanishing gradients occur because the gradient must repeatedly pass through mult
 > - Hidden state: $h_t = o_t \odot \tanh(c_t)$
 
 If the forget gate is fully open ($f_t = 1$), then $c_t = c_{t-1} + i_t \odot c'_t$ and $\frac{\partial c_t}{\partial c_{t-1}} = 1$ – the constant error carousel.
+
+![LSTM cell diagram](slides_images/slide-77.png)
 
 **Peephole connections** address the case where the output gate closes and the LSTM behaviour becomes independent of the cell state. They add the cell state directly to the gate computations:
 

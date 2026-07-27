@@ -31,6 +31,8 @@ import sys
 import time
 from pathlib import Path
 
+from app.slide_images import build_slide_index, render_slide_images
+
 # --- prompts ---------------------------------------------------------------
 
 SYSTEM_PROMPT = """\
@@ -114,6 +116,23 @@ identifiable information, verbatim repetitions, and filler.
   math symbols (×, ², θ) inside prose when the expression belongs in LaTeX —
   write `$\theta^2$`, not θ².
 
+## Slide images (only when a SLIDE IMAGE INDEX is provided)
+
+Rendered PNGs of the original slides may be available. The index lists, for
+every slide: its image path, its number, and how much text was extracted from
+it (a low word count usually means the slide is a figure — a diagram, plot,
+architecture scheme, or photo).
+
+- Embed a slide image where the visual genuinely helps understanding — the
+  text discusses a figure, architecture, plot, or geometric intuition that
+  words alone convey poorly. Prefer low-word-count slides; text-only slides
+  are already covered by the conspect and must NOT be embedded.
+- Insert as a standalone paragraph right after the text it illustrates:
+  `![<short caption>](<path from the index>)` — use the path EXACTLY as given
+  in the index, and write a caption describing the figure, not "slide N".
+- Be selective: at most one image per section, none where nothing visual is
+  discussed. An image is an illustration, never a substitute for text.
+
 ## Output contract
 
 Return ONLY the finished Markdown document — no preamble, no meta-commentary.
@@ -130,6 +149,11 @@ Build the final lecture conspect from the two sources below.
 
 === SPEECH TRANSCRIPT (ASR, with timestamps) ===
 {transcript}"""
+
+SLIDE_INDEX_TEMPLATE = """
+
+=== SLIDE IMAGE INDEX (rendered PNGs available for embedding) ===
+{slide_index}"""
 
 
 # --- LLM call ---------------------------------------------------------------
@@ -197,12 +221,14 @@ class ConspectWriter:
 
     # --- public API ----------------------------------------------------------
 
-    def write(self, transcript_md: str, slides_md: str) -> str:
+    def write(self, transcript_md: str, slides_md: str, slide_index: str | None = None) -> str:
         """Return the final conspect as a Markdown string."""
         user_msg = USER_TEMPLATE.format(
             slides=slides_md.strip() or "(no slides provided)",
             transcript=transcript_md.strip() or "(transcript is empty)",
         )
+        if slide_index:
+            user_msg += SLIDE_INDEX_TEMPLATE.format(slide_index=slide_index)
         if self.provider == "anthropic":
             content = self._call_anthropic(user_msg)
         elif self.provider == "deepseek":
@@ -253,9 +279,9 @@ class ConspectWriter:
         return choice.message.content or ""
 
 
-def write_conspect(transcript_md: str, slides_md: str, **kwargs) -> str:
+def write_conspect(transcript_md: str, slides_md: str, slide_index: str | None = None, **kwargs) -> str:
     """Convenience wrapper: a single call without explicitly creating a ConspectWriter."""
-    return ConspectWriter(**kwargs).write(transcript_md, slides_md)
+    return ConspectWriter(**kwargs).write(transcript_md, slides_md, slide_index)
 
 
 # --- pipeline --------------------------------------------------------------
@@ -305,10 +331,21 @@ def process_lecture(
 ) -> Path:
     transcript_md, slides_md = _read_sources(lecture_dir, stt_provider)
 
+    # Render slide PNGs (pdftoppm) so the conspect can embed figure-heavy slides.
+    slide_index = None
+    try:
+        if render_slide_images(lecture_dir) is not None:
+            slide_index = build_slide_index(lecture_dir)
+    except RuntimeError as e:
+        print(f"           WARNING: slide images skipped ({e})")
+
     writer = ConspectWriter(model=model, provider=provider, max_tokens=max_tokens)
-    print(f"[{lecture_dir.name}] writing conspect ({writer.provider}:{writer.model}, stt={stt_provider}) …")
+    print(
+        f"[{lecture_dir.name}] writing conspect ({writer.provider}:{writer.model}, stt={stt_provider}, "
+        f"images={'yes' if slide_index else 'no'}) …"
+    )
     t0 = time.monotonic()
-    conspect = writer.write(transcript_md, slides_md)
+    conspect = writer.write(transcript_md, slides_md, slide_index)
     dt = time.monotonic() - t0
 
     out_path = lecture_dir / "conspect.md"

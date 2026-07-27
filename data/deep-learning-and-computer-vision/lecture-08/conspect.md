@@ -29,6 +29,8 @@ A GAN consists of two networks playing a **minimax game**:
 
 The discriminator sees real samples $x \sim p_{\text{data}}$ and fake samples $\hat{x} \sim p_g$ (the distribution induced by $G$). It is trained to maximise the probability of assigning the correct label. The generator is trained to **fool** the discriminator, i.e., to make $D(G(z))$ large.
 
+![GAN architecture](slides_images/slide-05.png)
+
 Early in training the generator is poor and the discriminator untrained. One alternates: improve $D$ slightly, then improve $G$ to catch up, repeating until ideally $p_g = p_{\text{data}}$ and the discriminator cannot do better than random guessing. In practice this ideal is seldom reached, but the intuition drives the design.
 
 ### Formal Definition *[26:34]*
@@ -101,6 +103,8 @@ On LSUN bedrooms (64×64), after one epoch only coarse room structures appear, b
 
 A discriminator that merely fails to tell real from fake does not guarantee that the generator understands the data manifold—the discriminator might be undertrained. A more convincing test is a **linear walk** in latent space. Take two latent vectors $z_1, z_2$ and interpolate between them: $z(\alpha) = (1-\alpha)z_1 + \alpha z_2$. If the generator has learned a smooth manifold, every interpolated $z$ should decode to a plausible image. If it simply memorised a few training points, interpolated images will be nonsensical blurs. This walk, often displayed in papers with the two endpoints as real images and the intermediate frames generated, shows that the latent space captures meaningful structure.
 
+![Linear walk in DCGAN latent space](slides_images/slide-21.png)
+
 Additional explorations in DCGAN:
 
 - Removing filters that detect windows removes windows from generated images.
@@ -118,6 +122,8 @@ A major breakthrough came from NVIDIA (Karras et al., 2017) with **ProGAN**. The
 - New layers are added progressively; the discriminator remains roughly symmetric.
 - For some categories resolution is stopped at 256×256, which already looks excellent.
 - Training took about two weeks on large NVIDIA hardware at the time, yielding the famous photorealistic faces seen on websites like *This Person Does Not Exist*.
+
+![ProGAN generated faces](slides_images/slide-43.png)
 
 The authors compared **Least Squares GAN** and **Wasserstein GAN** losses, motivating the deeper study of loss functions.
 
@@ -149,6 +155,8 @@ Example on MNIST with $c = (c_1, c_2, c_3)$:
 - $c_2, c_3 \sim U[-1,1]$ control continuous properties (slant, thickness, etc.).
 
 A classifier trained only on $c_1$ achieves 5% error on MNIST with zero labels. The approach also works on 3D faces and chairs.
+
+![InfoGAN disentangled codes on MNIST](slides_images/slide-53.png)
 
 ### Wasserstein GAN (WGAN) *[1:00:19]*
 
@@ -218,6 +226,8 @@ It cannot be used directly as a training loss but is a widely used evaluation me
 A plain autoencoder—encoder $E:X\to Z$, decoder $D:Z\to \hat{X}$—trained with an $L_2$ reconstruction loss does **not** yield a usable generative model. The latent vectors $Z$ coming from real images form a complicated manifold inside the latent space; a $Z$ sampled from a simple prior (e.g., a standard Gaussian) almost never lies on that manifold, and the decoder will produce garbage, not a realistic image.
 
 **Adversarial Autoencoders** (Makhzani et al., 2015) solve this by placing a discriminator **on the latent codes** $Z$. The discriminator tries to distinguish between encoded vectors $E(x)$ (fake) and samples from a chosen prior (real). The encoder is trained both to reconstruct well and to **fool the latent discriminator**. When the two distributions match, sampling $Z$ from the prior and decoding yields realistic outputs. This is a conceptually older idea, almost as old as GANs; variational autoencoders provide a cleaner variational solution, but AAEs still find use in practice.
+
+![Adversarial Autoencoder architecture](slides_images/slide-76.png)
 
 Applications:
 - Molecule generation in oncology (Kadurin et al., 2017, 2018).

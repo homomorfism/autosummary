@@ -11,6 +11,8 @@ The idea of creating intelligence is ancient. In Greek myth, Hephaestus built an
 ### Mechanical Automata *[17:57]*
 Early automata were inventive: al‑Jazari (12th century), the automata at Hesdin Castle, Leonardo’s mechanical knight. One of the most remarkable is Pierre Jaquet‑Droz’s 18th‑century calligrapher—a programmable doll that wrote different letters via a system of levers on its back. It was, to our knowledge, the first programmable device, predating Jacquard looms and punched cards. Still, it was purely mechanical; mathematical or logical intelligence remained rudimentary for centuries (Ramon Llull’s logical machine being a notable, though stretched, early effort).
 
+![Pierre Jaquet-Droz's calligrapher automaton](slides_images/slide-09.png)
+
 ### The Turing Test *[21:40]*
 AI as a science began with Alan Turing’s 1950 paper “Computing Machinery and Intelligence.” The original test: a judge chats in writing with two hidden entities—a human and a computer—and must distinguish them. A single run means nothing; the program passes only when, over many trials, the judge cannot distinguish it from a human with probability different from ½. This immediately places the test in the realm of probability theory and randomised algorithms.
 
@@ -204,6 +206,8 @@ For Bernoulli (coin‑toss) trials, the likelihood is proportional to $\theta^s 
 $$p(\theta \mid \alpha, \beta) = \frac{\theta^{\alpha-1} (1-\theta)^{\beta-1}}{B(\alpha, \beta)}, \quad \theta \in [0,1],$$
 
 where $B(\alpha, \beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$ is the beta function.
+
+![Beta distribution shapes for different hyperparameters](slides_images/slide-62.png)
 
 After observing $s$ heads and $f$ tails, the posterior is
 

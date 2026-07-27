@@ -8,6 +8,8 @@ A standard autoencoder maps every input \(x\) (e.g. an image) to a single latent
 
 The **variational autoencoder** (Kingma et al., 2013) solves this by making the encoder output an entire distribution \(q(z\mid x)\) instead of a single point. For a given input, the encoder produces parameters (e.g. mean \(\mu_x\) and diagonal variance \(\sigma_x^2\)) of a Gaussian; a latent code is then drawn from that distribution and passed to the decoder. The intuition is that the decoder must become stable to small perturbations of \(z\) – much like a denoising autoencoder – and that, after training, the Gaussian “bubbles” placed around different training points will overlap and densely cover the latent space. Later, drawing a random \(z\) from a simple prior (e.g. \(\mathcal{N}(0,I)\)) will almost surely land in a region that the decoder can handle.
 
+![Overlapping Gaussian "bubbles" in latent space](slides_images/slide-11.png)
+
 However, left unconstrained, the encoder will cheat: it can push the means of different inputs far apart and shrink the variances to zero, effectively collapsing back to a deterministic autoencoder. Therefore we **must add a regularizer** that forces \(q(z\mid x)\) to stay close to a simple prior—the standard Gaussian \(\mathcal{N}(0,I)\). This yields two central questions:
 
 1. What exact loss function and regularizer should we use?
@@ -146,6 +148,8 @@ so the marginal distribution is
 \[
 q(x_t\mid x_0) = \mathcal{N}\!\bigl(x_t\mid \sqrt{A_t}\,x_0,\; (1-A_t)I\bigr).
 \]
+
+![Forward diffusion process adding Gaussian noise](slides_images/slide-26.png)
 
 ### Reverse Diffusion and Variational Lower Bound
 
