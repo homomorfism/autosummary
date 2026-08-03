@@ -1,0 +1,7807 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "transcript:0",
+      "text": "This is the last lecture of the class.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:28",
+        "slides:48",
+        "slides:106",
+        "slides:131",
+        "slides:25",
+        "slides:56",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:1",
+      "text": "The class did not cover computer vision itself.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:106",
+        "slides:131",
+        "slides:112",
+        "slides:24",
+        "slides:139",
+        "slides:14",
+        "slides:109",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:2",
+      "text": "The class had only one lecture on object detection.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:106",
+        "slides:9",
+        "slides:48",
+        "slides:112",
+        "slides:131",
+        "slides:139",
+        "slides:19",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:3",
+      "text": "The instructor skipped segmentation entirely.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:106",
+        "slides:146",
+        "slides:122",
+        "slides:109",
+        "slides:34",
+        "slides:75",
+        "slides:165",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:4",
+      "text": "Generative models are important ideas.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:27",
+        "slides:140",
+        "slides:167",
+        "slides:34",
+        "slides:19",
+        "slides:117",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:5",
+      "text": "Usually the instructor chooses either computer vision topics or generative models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:27",
+        "slides:147",
+        "slides:167",
+        "slides:22",
+        "slides:140",
+        "slides:146",
+        "slides:15"
+      ]
+    },
+    {
+      "claim": "transcript:6",
+      "text": "In this case, the instructor chose generative models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:168",
+        "slides:49",
+        "slides:140",
+        "slides:15",
+        "slides:19",
+        "slides:106",
+        "slides:117"
+      ]
+    },
+    {
+      "claim": "transcript:7",
+      "text": "Generative models are a great teaching tool because they show ideas that span all of machine learning in a simple form.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:27",
+        "slides:140",
+        "slides:117",
+        "slides:19",
+        "slides:167",
+        "slides:20",
+        "slides:15"
+      ]
+    },
+    {
+      "claim": "transcript:8",
+      "text": "Today, the instructor will explain one of these basic ideas.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:22",
+        "slides:56",
+        "slides:133",
+        "slides:164",
+        "slides:146",
+        "slides:68",
+        "slides:166"
+      ]
+    },
+    {
+      "claim": "transcript:9",
+      "text": "The instructor doubts that people in Harbor Space teach that idea unless the instructor does.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:14",
+        "slides:56",
+        "slides:9",
+        "slides:75",
+        "slides:11",
+        "slides:146",
+        "slides:106",
+        "slides:10"
+      ]
+    },
+    {
+      "claim": "transcript:10",
+      "text": "Today the class will mostly discuss variational autoencoders.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:19",
+        "slides:20",
+        "slides:34",
+        "slides:47",
+        "slides:140",
+        "slides:22",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:11",
+      "text": "Therefore, the class will discuss variational approximations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:77",
+        "slides:82",
+        "slides:80",
+        "slides:15",
+        "slides:124",
+        "slides:75",
+        "slides:134"
+      ]
+    },
+    {
+      "claim": "transcript:12",
+      "text": "In variational autoencoders, the variational approximation appears in its simplest and most useful form.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:15",
+        "slides:47",
+        "slides:19",
+        "slides:77",
+        "slides:20",
+        "slides:80",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:13",
+      "text": "The instructor thinks variational autoencoders are perfect for teaching variational approximation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:15",
+        "slides:19",
+        "slides:47",
+        "slides:20",
+        "slides:140",
+        "slides:17",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "transcript:14",
+      "text": "If time remains, the instructor will walk through diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:121",
+        "slides:79",
+        "slides:120",
+        "slides:124",
+        "slides:122",
+        "slides:52",
+        "slides:119",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:15",
+      "text": "Diffusion models involve complicated math.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:120",
+        "slides:121",
+        "slides:119",
+        "slides:52",
+        "slides:79",
+        "slides:122",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:16",
+      "text": "The class will not have time for the complicated math of diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:119",
+        "slides:122",
+        "slides:79",
+        "slides:120",
+        "slides:124",
+        "slides:52",
+        "slides:131",
+        "slides:127"
+      ]
+    },
+    {
+      "claim": "transcript:17",
+      "text": "The basic ideas of diffusion models are easy to show.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:119",
+        "slides:121",
+        "slides:120",
+        "slides:52",
+        "slides:82",
+        "slides:104",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:18",
+      "text": "The instructor suggests starting with the motivation and basic idea of the variational autoencoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:19",
+        "slides:34",
+        "slides:20",
+        "slides:47",
+        "slides:17",
+        "slides:22",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:19",
+      "text": "The instructor started discussing the motivation of variational autoencoders yesterday.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:19",
+        "slides:47",
+        "slides:20",
+        "slides:34",
+        "slides:17",
+        "slides:22",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:20",
+      "text": "Yesterday, the instructor explained the problem of why a generative model cannot be made from an autoencoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:20",
+        "slides:27",
+        "slides:15",
+        "slides:168",
+        "slides:49",
+        "slides:22",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:21",
+      "text": "In an autoencoder, the input X is a picture or a complicated object.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:22",
+        "slides:19",
+        "slides:17",
+        "slides:15",
+        "slides:20",
+        "slides:26",
+        "slides:139",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:22",
+      "text": "X is passed through the encoder.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:26",
+        "slides:22",
+        "slides:114",
+        "slides:68",
+        "slides:16",
+        "slides:31",
+        "slides:49",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "transcript:23",
+      "text": "In a regular autoencoder, the encoder outputs a latent code Z.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:22",
+        "slides:25",
+        "slides:16",
+        "slides:26",
+        "slides:19",
+        "slides:17",
+        "slides:15",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:24",
+      "text": "Z is relatively small compared to X.",
+      "entailed": true,
+      "evidence": "slides:28",
+      "top": [
+        "slides:28",
+        "slides:21",
+        "slides:35",
+        "slides:33",
+        "slides:16",
+        "slides:36",
+        "slides:39",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:25",
+      "text": "The decoder is supposed to recover or reconstruct the original X.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:16",
+        "slides:114",
+        "slides:26",
+        "slides:22",
+        "slides:68",
+        "slides:111",
+        "slides:17",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:26",
+      "text": "The combination of an encoder, a small latent code, and a decoder that reconstructs the input is the basic structure of an autoencoder.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:22",
+        "slides:19",
+        "slides:17",
+        "slides:15",
+        "slides:20",
+        "slides:25",
+        "slides:18",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:27",
+      "text": "An autoencoder can be trained straightforwardly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:22",
+        "slides:20",
+        "slides:17",
+        "slides:15",
+        "slides:49",
+        "slides:51",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:28",
+      "text": "The training objective is to make X and X hat similar.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:101",
+        "slides:51",
+        "slides:68",
+        "slides:22",
+        "slides:109",
+        "slides:27",
+        "slides:166",
+        "slides:106"
+      ]
+    },
+    {
+      "claim": "transcript:29",
+      "text": "This objective is called the reconstruction loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:126",
+        "slides:34",
+        "slides:17",
+        "slides:130",
+        "slides:104",
+        "slides:131",
+        "slides:79",
+        "slides:162"
+      ]
+    },
+    {
+      "claim": "transcript:30",
+      "text": "The reconstruction loss can be the L2 norm.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:97",
+        "slides:86",
+        "slides:126",
+        "slides:125",
+        "slides:45",
+        "slides:34",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:31",
+      "text": "The reconstruction loss can be a perception loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:126",
+        "slides:131",
+        "slides:17",
+        "slides:104",
+        "slides:22",
+        "slides:130",
+        "slides:47",
+        "slides:16"
+      ]
+    },
+    {
+      "claim": "transcript:32",
+      "text": "The instructor is unsure if Alex talked to the class about perception loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:101",
+        "slides:17",
+        "slides:22",
+        "slides:125",
+        "slides:19",
+        "slides:56",
+        "slides:126",
+        "slides:86"
+      ]
+    },
+    {
+      "claim": "transcript:33",
+      "text": "Perception loss is based on the similarity between local features extracted by a few layers of a standard feature extractor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:19",
+        "slides:17",
+        "slides:126",
+        "slides:168",
+        "slides:167",
+        "slides:47",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:34",
+      "text": "One can define any similarity measure and optimize it.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:34",
+        "slides:140",
+        "slides:168",
+        "slides:19",
+        "slides:14",
+        "slides:18",
+        "slides:166"
+      ]
+    },
+    {
+      "claim": "transcript:35",
+      "text": "Autoencoders do not need labeled training data.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:19",
+        "slides:20",
+        "slides:49",
+        "slides:17",
+        "slides:22",
+        "slides:106",
+        "slides:15",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:36",
+      "text": "The dataset can be just a set of Xs.",
+      "entailed": true,
+      "evidence": "slides:112",
+      "top": [
+        "slides:112",
+        "slides:68",
+        "slides:101",
+        "slides:51",
+        "slides:59",
+        "slides:48",
+        "slides:24",
+        "slides:114"
+      ]
+    },
+    {
+      "claim": "transcript:37",
+      "text": "Labeled samples are obtained automatically because the task is to reconstruct the same X.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:48",
+        "slides:65",
+        "slides:51",
+        "slides:50",
+        "slides:22",
+        "slides:59",
+        "slides:49",
+        "slides:101"
+      ]
+    },
+    {
+      "claim": "transcript:38",
+      "text": "A major question is why the blue part cannot be used as a generative model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:168",
+        "slides:49",
+        "slides:117",
+        "slides:15",
+        "slides:120",
+        "slides:20",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:39",
+      "text": "In the slide, the instructor intentionally colored that part differently.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:146",
+        "slides:101",
+        "slides:150",
+        "slides:147",
+        "slides:109",
+        "slides:165",
+        "slides:166"
+      ]
+    },
+    {
+      "claim": "transcript:40",
+      "text": "Latent codes live on a simpler and more structured manifold than in the space of X.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:18",
+        "slides:139",
+        "slides:22",
+        "slides:25",
+        "slides:19",
+        "slides:140",
+        "slides:15",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "transcript:41",
+      "text": "The space of X is huge and very complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:68",
+        "slides:14",
+        "slides:28",
+        "slides:133",
+        "slides:24",
+        "slides:18",
+        "slides:74",
+        "slides:139"
+      ]
+    },
+    {
+      "claim": "transcript:42",
+      "text": "Latent codes do not cover the entire space of Z.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:18",
+        "slides:25",
+        "slides:22",
+        "slides:16",
+        "slides:139",
+        "slides:26",
+        "slides:21",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:43",
+      "text": "The space of Z is still complex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:30",
+        "slides:29",
+        "slides:35",
+        "slides:32",
+        "slides:16",
+        "slides:21",
+        "slides:14"
+      ]
+    },
+    {
+      "claim": "transcript:44",
+      "text": "A random point in latent space Z will not lie on the manifold of latent codes for good cat pictures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:18",
+        "slides:25",
+        "slides:22",
+        "slides:15",
+        "slides:49",
+        "slides:26",
+        "slides:16"
+      ]
+    },
+    {
+      "claim": "transcript:45",
+      "text": "Yesterday, the instructor proposed using a discriminator to fix this.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:164",
+        "slides:48",
+        "slides:19",
+        "slides:166",
+        "slides:21",
+        "slides:22",
+        "slides:161"
+      ]
+    },
+    {
+      "claim": "transcript:46",
+      "text": "The class discussed adversarial autoencoders.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:20",
+        "slides:17",
+        "slides:15",
+        "slides:22",
+        "slides:47",
+        "slides:164",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:47",
+      "text": "In adversarial autoencoders, the discriminator distinguishes fake Z from real Zs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:22",
+        "slides:20",
+        "slides:49",
+        "slides:15",
+        "slides:17",
+        "slides:16",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:48",
+      "text": "Real Zs are sampled from a Gaussian or any chosen distribution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:25",
+        "slides:49",
+        "slides:26",
+        "slides:33",
+        "slides:28",
+        "slides:48",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:49",
+      "text": "Adversarial autoencoders apply adversarial learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:20",
+        "slides:17",
+        "slides:15",
+        "slides:22",
+        "slides:49",
+        "slides:168",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:50",
+      "text": "Adversarial autoencoders apply the basic GAN idea.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:20",
+        "slides:17",
+        "slides:22",
+        "slides:15",
+        "slides:168",
+        "slides:117",
+        "slides:123"
+      ]
+    },
+    {
+      "claim": "transcript:51",
+      "text": "This approach regularizes the latent space.",
+      "entailed": true,
+      "evidence": "slides:18",
+      "top": [
+        "slides:18",
+        "slides:139",
+        "slides:34",
+        "slides:140",
+        "slides:142",
+        "slides:17",
+        "slides:22",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:52",
+      "text": "This approach fixes the manifold of latent codes.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:18",
+        "slides:22",
+        "slides:139",
+        "slides:140",
+        "slides:17",
+        "slides:25",
+        "slides:19",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "transcript:53",
+      "text": "That method was called the adversarial autoencoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:19",
+        "slides:20",
+        "slides:22",
+        "slides:164",
+        "slides:15",
+        "slides:47",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:54",
+      "text": "Today, the instructor presented a different approach to the same problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:162",
+        "slides:55",
+        "slides:164",
+        "slides:103",
+        "slides:134",
+        "slides:163",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:55",
+      "text": "The different approach is better.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:134",
+        "slides:162",
+        "slides:55",
+        "slides:103",
+        "slides:155",
+        "slides:48",
+        "slides:163",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "transcript:56",
+      "text": "There was a competition between adversarial autoencoders and variational autoencoders.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:15",
+        "slides:20",
+        "slides:47",
+        "slides:34",
+        "slides:17",
+        "slides:22",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:57",
+      "text": "With recent innovations, variational autoencoders became better.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:15",
+        "slides:20",
+        "slides:17",
+        "slides:47",
+        "slides:34",
+        "slides:22",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:58",
+      "text": "Variational autoencoders form the basis for much of generative modeling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:168",
+        "slides:19",
+        "slides:20",
+        "slides:34",
+        "slides:47",
+        "slides:27",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:59",
+      "text": "Variational autoencoders form the basis for diffusion models discussed later.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:82",
+        "slides:52",
+        "slides:120",
+        "slides:104",
+        "slides:15",
+        "slides:34",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "transcript:60",
+      "text": "The variational approach uses the same encoder-decoder structure with reconstruction losses.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:22",
+        "slides:15",
+        "slides:19",
+        "slides:17",
+        "slides:34",
+        "slides:16",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:61",
+      "text": "The core problem of the latent space is that each training X maps to a single point Z.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:139",
+        "slides:18",
+        "slides:15",
+        "slides:140",
+        "slides:51",
+        "slides:101",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:62",
+      "text": "This leads to almost automatic overfitting in latent code space.",
+      "entailed": true,
+      "evidence": "slides:20",
+      "top": [
+        "slides:18",
+        "slides:19",
+        "slides:139",
+        "slides:22",
+        "slides:140",
+        "slides:17",
+        "slides:20",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:63",
+      "text": "Even with a huge dataset, each training X maps to a single Z.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:49",
+        "slides:51",
+        "slides:101",
+        "slides:27",
+        "slides:15",
+        "slides:19",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:64",
+      "text": "Shifting Z slightly causes a fall off the manifold of good latent codes.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:16",
+        "slides:25",
+        "slides:22",
+        "slides:18",
+        "slides:49",
+        "slides:139",
+        "slides:21",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "transcript:65",
+      "text": "When sampling, one does not know the good or bad directions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:131",
+        "slides:65",
+        "slides:49",
+        "slides:116",
+        "slides:56",
+        "slides:123",
+        "slides:101"
+      ]
+    },
+    {
+      "claim": "transcript:66",
+      "text": "One is very likely to fall off the manifold when sampling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:116",
+        "slides:59",
+        "slides:50",
+        "slides:131",
+        "slides:123",
+        "slides:65",
+        "slides:14"
+      ]
+    },
+    {
+      "claim": "transcript:67",
+      "text": "The variational autoencoder solution is to have the encoder output a distribution p(z|x) instead of a single point.",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:15",
+        "slides:47",
+        "slides:26",
+        "slides:19",
+        "slides:21",
+        "slides:20",
+        "slides:49",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:68",
+      "text": "A cat picture maps to a Gaussian distribution in latent space, not a single point.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:15",
+        "slides:24",
+        "slides:18",
+        "slides:112",
+        "slides:147",
+        "slides:131",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:69",
+      "text": "A different cat picture maps to a different distribution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:147",
+        "slides:131",
+        "slides:112",
+        "slides:139",
+        "slides:15",
+        "slides:26",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:70",
+      "text": "The goal is to sample a point from the distribution and reconstruct the correct cat.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:65",
+        "slides:50",
+        "slides:48",
+        "slides:107",
+        "slides:24",
+        "slides:59",
+        "slides:25",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:71",
+      "text": "From a point sampled from the orange distribution, the same orange cat should be reconstructed.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:59",
+        "slides:48",
+        "slides:65",
+        "slides:139",
+        "slides:131",
+        "slides:112",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:72",
+      "text": "From a point sampled from the green distribution, the same green cat should be reconstructed.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:48",
+        "slides:59",
+        "slides:65",
+        "slides:147",
+        "slides:131",
+        "slides:139",
+        "slides:112"
+      ]
+    },
+    {
+      "claim": "transcript:73",
+      "text": "The encoder provides the distribution in the form of parameters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:19",
+        "slides:20",
+        "slides:114",
+        "slides:15",
+        "slides:22",
+        "slides:25",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:74",
+      "text": "After sampling, X hat is obtained and should be similar to X via reconstruction loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:50",
+        "slides:48",
+        "slides:65",
+        "slides:126",
+        "slides:101",
+        "slides:24",
+        "slides:107"
+      ]
+    },
+    {
+      "claim": "transcript:75",
+      "text": "This method aims to cover the whole latent space or a reasonable portion with distributions.",
+      "entailed": true,
+      "evidence": "slides:18",
+      "top": [
+        "slides:18",
+        "slides:34",
+        "slides:139",
+        "slides:25",
+        "slides:131",
+        "slides:142",
+        "slides:140",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "transcript:76",
+      "text": "Typically, these distributions are normal (Gaussian).",
+      "entailed": true,
+      "evidence": "slides:66",
+      "top": [
+        "slides:66",
+        "slides:24",
+        "slides:32",
+        "slides:25",
+        "slides:45",
+        "slides:54",
+        "slides:147",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:77",
+      "text": "The encoder outputs parameters mu of X and sigma of X.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:114",
+        "slides:26",
+        "slides:47",
+        "slides:22",
+        "slides:49",
+        "slides:31",
+        "slides:19",
+        "slides:16"
+      ]
+    },
+    {
+      "claim": "transcript:78",
+      "text": "For simplicity, sigma is a vector, but it should be a covariance matrix.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:63",
+        "slides:139",
+        "slides:98",
+        "slides:25",
+        "slides:97",
+        "slides:62",
+        "slides:24",
+        "slides:114"
+      ]
+    },
+    {
+      "claim": "transcript:79",
+      "text": "For multidimensional distributions, a diagonal covariance matrix is used.",
+      "entailed": true,
+      "evidence": "slides:113",
+      "top": [
+        "slides:66",
+        "slides:25",
+        "slides:18",
+        "slides:98",
+        "slides:124",
+        "slides:24",
+        "slides:113",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:80",
+      "text": "From mu and sigma, a Gaussian is constructed, Z is sampled, and X hat is produced.",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:32",
+        "slides:63",
+        "slides:59",
+        "slides:98",
+        "slides:26",
+        "slides:25",
+        "slides:45",
+        "slides:114"
+      ]
+    },
+    {
+      "claim": "transcript:81",
+      "text": "The Gaussian shape is fixed, but means and variances are determined by the encoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:45",
+        "slides:20",
+        "slides:15",
+        "slides:26",
+        "slides:63",
+        "slides:112",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:82",
+      "text": "The encoder would prefer to output a single point because it makes the task easier.",
+      "entailed": true,
+      "evidence": "slides:19",
+      "top": [
+        "slides:22",
+        "slides:16",
+        "slides:19",
+        "slides:26",
+        "slides:15",
+        "slides:114",
+        "slides:17",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:83",
+      "text": "Reconstructing the same cat from a neighborhood of points is strictly harder than from a single point.",
+      "entailed": true,
+      "evidence": "slides:19",
+      "top": [
+        "slides:14",
+        "slides:133",
+        "slides:15",
+        "slides:34",
+        "slides:167",
+        "slides:162",
+        "slides:19",
+        "slides:152"
+      ]
+    },
+    {
+      "claim": "transcript:84",
+      "text": "Since the encoder controls variances, it can set the variance to zero.",
+      "entailed": true,
+      "evidence": "slides:20",
+      "top": [
+        "slides:20",
+        "slides:16",
+        "slides:139",
+        "slides:26",
+        "slides:17",
+        "slides:47",
+        "slides:19",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:85",
+      "text": "The encoder can fake a Gaussian with very small variance.",
+      "entailed": true,
+      "evidence": "slides:20",
+      "top": [
+        "slides:20",
+        "slides:19",
+        "slides:22",
+        "slides:26",
+        "slides:17",
+        "slides:16",
+        "slides:49",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:86",
+      "text": "This will happen in practice without regularization.",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:20",
+        "slides:21",
+        "slides:161",
+        "slides:19",
+        "slides:48",
+        "slides:17",
+        "slides:166",
+        "slides:165"
+      ]
+    },
+    {
+      "claim": "transcript:87",
+      "text": "Regularization on mu and sigma is needed.",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:34",
+        "slides:20",
+        "slides:21",
+        "slides:116",
+        "slides:19",
+        "slides:114",
+        "slides:75",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:88",
+      "text": "Regularization should prevent sigma from going to zero.",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:20",
+        "slides:21",
+        "slides:47",
+        "slides:161",
+        "slides:34",
+        "slides:63",
+        "slides:132",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:89",
+      "text": "Regularization should prevent mu from going to infinity.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:20",
+        "slides:34",
+        "slides:77",
+        "slides:18",
+        "slides:161",
+        "slides:19",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "transcript:90",
+      "text": "Another easy solution is to drive points apart with fixed variance to avoid overlap.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:21",
+        "slides:103",
+        "slides:48",
+        "slides:116",
+        "slides:14",
+        "slides:77",
+        "slides:141"
+      ]
+    },
+    {
+      "claim": "transcript:91",
+      "text": "Driving points apart with fixed variance still results in essentially individual points.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:14",
+        "slides:34",
+        "slides:15",
+        "slides:20",
+        "slides:105",
+        "slides:109",
+        "slides:139",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:92",
+      "text": "That also happens without regularization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:161",
+        "slides:20",
+        "slides:21",
+        "slides:17",
+        "slides:48",
+        "slides:19",
+        "slides:166",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:93",
+      "text": "The required regularization is for the distribution to be similar to a standard normal distribution (mean zero, unit covariance).",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:20",
+        "slides:21",
+        "slides:131",
+        "slides:66",
+        "slides:50",
+        "slides:19",
+        "slides:34",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:94",
+      "text": "This is the idea of the Variational Autoencoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:17",
+        "slides:19",
+        "slides:34",
+        "slides:20",
+        "slides:47",
+        "slides:22",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:95",
+      "text": "There are remaining problems and unclear points.",
+      "entailed": true,
+      "evidence": "slides:48",
+      "top": [
+        "slides:162",
+        "slides:14",
+        "slides:48",
+        "slides:68",
+        "slides:55",
+        "slides:56",
+        "slides:122",
+        "slides:121"
+      ]
+    },
+    {
+      "claim": "transcript:96",
+      "text": "One problem is formalizing the desired objectives: reconstruction loss and regularizer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:20",
+        "slides:19",
+        "slides:17",
+        "slides:168",
+        "slides:47",
+        "slides:22",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:97",
+      "text": "The reconstruction loss should make X and X hat similar.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:126",
+        "slides:68",
+        "slides:125",
+        "slides:24",
+        "slides:50",
+        "slides:101",
+        "slides:139",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:98",
+      "text": "The regularizer should keep mu near zero and sigma away from zero.",
+      "entailed": true,
+      "evidence": "slides:46",
+      "top": [
+        "slides:21",
+        "slides:20",
+        "slides:161",
+        "slides:47",
+        "slides:116",
+        "slides:46",
+        "slides:17",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:99",
+      "text": "Question 1: how to formalize these objectives?",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:162",
+        "slides:68",
+        "slides:69",
+        "slides:145",
+        "slides:21",
+        "slides:51",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:100",
+      "text": "What do different reconstruction losses mean?",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:126",
+        "slides:104",
+        "slides:86",
+        "slides:34",
+        "slides:166",
+        "slides:156",
+        "slides:131",
+        "slides:130"
+      ]
+    },
+    {
+      "claim": "transcript:101",
+      "text": "What does closeness of distributions mean?",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:18",
+        "slides:19",
+        "slides:66",
+        "slides:78",
+        "slides:33",
+        "slides:25",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:102",
+      "text": "There are many ways to define distribution closeness.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:18",
+        "slides:24",
+        "slides:54",
+        "slides:19",
+        "slides:25",
+        "slides:53",
+        "slides:78",
+        "slides:124"
+      ]
+    },
+    {
+      "claim": "transcript:103",
+      "text": "Which reconstruction loss and closeness measure should be chosen?",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:126",
+        "slides:134",
+        "slides:34",
+        "slides:104",
+        "slides:131",
+        "slides:75",
+        "slides:77",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:104",
+      "text": "A special question for this architecture is how to insert a sampling procedure into a deep neural network.",
+      "entailed": true,
+      "evidence": "slides:49",
+      "top": [
+        "slides:49",
+        "slides:51",
+        "slides:65",
+        "slides:48",
+        "slides:116",
+        "slides:123",
+        "slides:50",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:105",
+      "text": "The encoder is a neural network with two output vectors: mu and sigma.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:114",
+        "slides:26",
+        "slides:17",
+        "slides:19",
+        "slides:49",
+        "slides:47",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:106",
+      "text": "In the forward pass of the variational autoencoder, sampling from a Gaussian distribution is simple.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:47",
+        "slides:49",
+        "slides:20",
+        "slides:19",
+        "slides:131",
+        "slides:65",
+        "slides:139"
+      ]
+    },
+    {
+      "claim": "transcript:107",
+      "text": "Gradient does not propagate through a sampling operation in the backward pass.",
+      "entailed": true,
+      "evidence": "slides:49",
+      "top": [
+        "slides:49",
+        "slides:131",
+        "slides:65",
+        "slides:105",
+        "slides:67",
+        "slides:109",
+        "slides:122",
+        "slides:74"
+      ]
+    },
+    {
+      "claim": "transcript:108",
+      "text": "The inability of gradients to propagate through a sampling operation is a big problem.",
+      "entailed": true,
+      "evidence": "slides:49",
+      "top": [
+        "slides:48",
+        "slides:49",
+        "slides:131",
+        "slides:34",
+        "slides:74",
+        "slides:20",
+        "slides:53",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "transcript:109",
+      "text": "The ideas that solve the gradient-through-sampling problem are fundamental ideas that appear throughout machine learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:34",
+        "slides:131",
+        "slides:49",
+        "slides:124",
+        "slides:53",
+        "slides:51",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "transcript:110",
+      "text": "The model has two variables: x and z.",
+      "entailed": true,
+      "evidence": "slides:35",
+      "top": [
+        "slides:27",
+        "slides:21",
+        "slides:35",
+        "slides:26",
+        "slides:76",
+        "slides:42",
+        "slides:25",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:111",
+      "text": "x represents the input (e.g., an image) being encoded.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:24",
+        "slides:22",
+        "slides:114",
+        "slides:26",
+        "slides:112",
+        "slides:139",
+        "slides:68",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:112",
+      "text": "z represents the latent code.",
+      "entailed": true,
+      "evidence": "slides:25",
+      "top": [
+        "slides:25",
+        "slides:16",
+        "slides:22",
+        "slides:26",
+        "slides:18",
+        "slides:139",
+        "slides:42",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:113",
+      "text": "Every machine learning model decomposes the joint distribution p(x,z).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:23",
+        "slides:35",
+        "slides:27",
+        "slides:21",
+        "slides:26",
+        "slides:30",
+        "slides:25",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:114",
+      "text": "The joint distribution p(x,z) can be decomposed as p(x,z) = p(x) p(z|x).",
+      "entailed": true,
+      "evidence": "slides:23",
+      "top": [
+        "slides:23",
+        "slides:35",
+        "slides:36",
+        "slides:29",
+        "slides:30",
+        "slides:39",
+        "slides:26",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:115",
+      "text": "The joint distribution p(x,z) can be decomposed as p(x,z) = p(z) p(x|z).",
+      "entailed": true,
+      "evidence": "slides:23",
+      "top": [
+        "slides:23",
+        "slides:35",
+        "slides:36",
+        "slides:29",
+        "slides:30",
+        "slides:39",
+        "slides:26",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:116",
+      "text": "p(z|x) is the encoder distribution.",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:26",
+        "slides:25",
+        "slides:31",
+        "slides:35",
+        "slides:29",
+        "slides:30",
+        "slides:32",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:117",
+      "text": "The encoder produces p(z|x).",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:26",
+        "slides:31",
+        "slides:25",
+        "slides:35",
+        "slides:27",
+        "slides:29",
+        "slides:22",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:118",
+      "text": "The decoder takes z as input and outputs x̂ (an approximation to x).",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:16",
+        "slides:26",
+        "slides:114",
+        "slides:22",
+        "slides:31",
+        "slides:25",
+        "slides:21",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:119",
+      "text": "The decoder outputs an approximation to x, not the exact x.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:16",
+        "slides:114",
+        "slides:26",
+        "slides:31",
+        "slides:111",
+        "slides:19",
+        "slides:22",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:120",
+      "text": "The decoder produces some noise distribution around x.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:16",
+        "slides:114",
+        "slides:26",
+        "slides:58",
+        "slides:101",
+        "slides:19",
+        "slides:17",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:121",
+      "text": "The decoder distribution is the distribution of noise at the output.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:26",
+        "slides:16",
+        "slides:114",
+        "slides:19",
+        "slides:25",
+        "slides:31",
+        "slides:17",
+        "slides:111"
+      ]
+    },
+    {
+      "claim": "transcript:122",
+      "text": "The decoder distribution will be captured in the reconstruction loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:16",
+        "slides:19",
+        "slides:114",
+        "slides:22",
+        "slides:31",
+        "slides:20",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:123",
+      "text": "p(x) is the global distribution of, for example, cat pictures.",
+      "entailed": true,
+      "evidence": "slides:24",
+      "top": [
+        "slides:24",
+        "slides:147",
+        "slides:25",
+        "slides:35",
+        "slides:107",
+        "slides:29",
+        "slides:33",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:124",
+      "text": "p(x) is an extremely difficult and complicated distribution to comprehend.",
+      "entailed": true,
+      "evidence": "slides:28",
+      "top": [
+        "slides:24",
+        "slides:29",
+        "slides:28",
+        "slides:33",
+        "slides:30",
+        "slides:41",
+        "slides:25",
+        "slides:107"
+      ]
+    },
+    {
+      "claim": "transcript:125",
+      "text": "p(z) is the prior distribution on latent codes, without any x.",
+      "entailed": true,
+      "evidence": "slides:25",
+      "top": [
+        "slides:25",
+        "slides:26",
+        "slides:35",
+        "slides:18",
+        "slides:39",
+        "slides:31",
+        "slides:23",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:126",
+      "text": "We want p(z) to be a simple distribution that we can sample from.",
+      "entailed": true,
+      "evidence": "slides:25",
+      "top": [
+        "slides:25",
+        "slides:28",
+        "slides:29",
+        "slides:30",
+        "slides:33",
+        "slides:35",
+        "slides:26",
+        "slides:23"
+      ]
+    },
+    {
+      "claim": "transcript:127",
+      "text": "The regeneration process involves sampling z from p(z) and then sampling x from p(x|z).",
+      "entailed": true,
+      "evidence": "slides:23",
+      "top": [
+        "slides:27",
+        "slides:35",
+        "slides:23",
+        "slides:29",
+        "slides:21",
+        "slides:26",
+        "slides:28",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:128",
+      "text": "For the regeneration process to work, p(z) must be simple.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:29",
+        "slides:30",
+        "slides:27",
+        "slides:25",
+        "slides:21",
+        "slides:35",
+        "slides:23"
+      ]
+    },
+    {
+      "claim": "transcript:129",
+      "text": "The encoder distribution is the distribution from which we sample z given x.",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:26",
+        "slides:25",
+        "slides:22",
+        "slides:49",
+        "slides:15",
+        "slides:16",
+        "slides:19",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:130",
+      "text": "The encoder distribution is analogous to the true Gaussian distribution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:19",
+        "slides:20",
+        "slides:22",
+        "slides:15",
+        "slides:17",
+        "slides:25",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:131",
+      "text": "Assuming both the decoder has Gaussian noise and the encoder produces a Gaussian does not work.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:16",
+        "slides:114",
+        "slides:22",
+        "slides:19",
+        "slides:31",
+        "slides:17",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:132",
+      "text": "It does not work because p(z) must be simple.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:21",
+        "slides:29",
+        "slides:30",
+        "slides:35",
+        "slides:25",
+        "slides:81",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:133",
+      "text": "In the classical variational autoencoder, p(z) is a standard Gaussian.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:15",
+        "slides:25",
+        "slides:32",
+        "slides:47",
+        "slides:26",
+        "slides:31",
+        "slides:20",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "transcript:134",
+      "text": "We choose p(z) to be a standard Gaussian.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:32",
+        "slides:28",
+        "slides:25",
+        "slides:29",
+        "slides:30",
+        "slides:33",
+        "slides:21",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:135",
+      "text": "p(z) is chosen to be simple.",
+      "entailed": true,
+      "evidence": "slides:25",
+      "top": [
+        "slides:28",
+        "slides:30",
+        "slides:29",
+        "slides:25",
+        "slides:35",
+        "slides:21",
+        "slides:36",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:136",
+      "text": "If the decoder is also Gaussian, it is a Gaussian with mean specified by the decoder and Gaussian noise around the output.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:114",
+        "slides:16",
+        "slides:26",
+        "slides:17",
+        "slides:111",
+        "slides:19",
+        "slides:25",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:137",
+      "text": "We want to reconstruct the original x, but we cannot do it perfectly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:68",
+        "slides:74",
+        "slides:65",
+        "slides:28",
+        "slides:101",
+        "slides:71",
+        "slides:55",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:138",
+      "text": "x is near the decoder output with some noise.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:114",
+        "slides:16",
+        "slides:26",
+        "slides:101",
+        "slides:58",
+        "slides:17",
+        "slides:68",
+        "slides:111"
+      ]
+    },
+    {
+      "claim": "transcript:139",
+      "text": "In linear regression, points are around the line with noise; similarly, in the decoder, x is around the decoder output with noise.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:16",
+        "slides:114",
+        "slides:58",
+        "slides:101",
+        "slides:26",
+        "slides:147",
+        "slides:139",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:140",
+      "text": "It is natural to assume simple noise like Gaussian noise for the decoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:16",
+        "slides:114",
+        "slides:26",
+        "slides:19",
+        "slides:17",
+        "slides:111",
+        "slides:20",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:141",
+      "text": "The decoder noise distribution is a simple distribution (like Gaussian).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:114",
+        "slides:16",
+        "slides:19",
+        "slides:25",
+        "slides:54",
+        "slides:17",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:142",
+      "text": "The product of two Gaussians is a Gaussian, which is simple.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:63",
+        "slides:45",
+        "slides:32",
+        "slides:97",
+        "slides:30",
+        "slides:28",
+        "slides:66",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:143",
+      "text": "p(x) is an incredibly complicated distribution in a high-dimensional space.",
+      "entailed": true,
+      "evidence": "slides:28",
+      "top": [
+        "slides:24",
+        "slides:28",
+        "slides:29",
+        "slides:41",
+        "slides:14",
+        "slides:33",
+        "slides:30",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:144",
+      "text": "Cat pictures do not form a Gaussian distribution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:139",
+        "slides:112",
+        "slides:32",
+        "slides:45",
+        "slides:131",
+        "slides:147",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:145",
+      "text": "The model aims to simplify the complicated distribution p(x).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:33",
+        "slides:107",
+        "slides:25",
+        "slides:41",
+        "slides:29",
+        "slides:40",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:146",
+      "text": "The equality p(x,z) = p(x) p(z|x) = p(z) p(x|z) implies that both the decoder and encoder cannot be simple simultaneously.",
+      "entailed": true,
+      "evidence": "slides:30",
+      "top": [
+        "slides:26",
+        "slides:31",
+        "slides:16",
+        "slides:35",
+        "slides:23",
+        "slides:30",
+        "slides:22",
+        "slides:114"
+      ]
+    },
+    {
+      "claim": "transcript:147",
+      "text": "If the encoder were also Gaussian, the equality would not hold because p(x) p(z|x) would be simple but p(x) is complicated, forcing p(z|x) to be complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:32",
+        "slides:31",
+        "slides:30",
+        "slides:35",
+        "slides:23",
+        "slides:29",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:148",
+      "text": "It is impossible to assume both the encoder and decoder distributions are simple.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:26",
+        "slides:16",
+        "slides:20",
+        "slides:114",
+        "slides:22",
+        "slides:31",
+        "slides:15"
+      ]
+    },
+    {
+      "claim": "transcript:149",
+      "text": "One can choose to assume the encoder is simple, which would make the decoder complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:16",
+        "slides:19",
+        "slides:26",
+        "slides:22",
+        "slides:114",
+        "slides:17",
+        "slides:20",
+        "slides:111"
+      ]
+    },
+    {
+      "claim": "transcript:150",
+      "text": "Keeping the decoder easier is a more natural choice.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:16",
+        "slides:19",
+        "slides:114",
+        "slides:22",
+        "slides:111",
+        "slides:17",
+        "slides:26",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:151",
+      "text": "Having Gaussian noise at the output is a more natural choice.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:17",
+        "slides:53",
+        "slides:101",
+        "slides:20",
+        "slides:116",
+        "slides:19",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:152",
+      "text": "The encoder cannot really be simple.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:19",
+        "slides:26",
+        "slides:16",
+        "slides:17",
+        "slides:20",
+        "slides:114",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:153",
+      "text": "The variational autoencoder is called 'variational' because it approximates the true encoder distribution p(z|x) with a simple distribution q(z).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:47",
+        "slides:19",
+        "slides:20",
+        "slides:34",
+        "slides:26",
+        "slides:25",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:154",
+      "text": "In the variational autoencoder, the encoder produces parameters for a Gaussian (q(z)).",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:15",
+        "slides:26",
+        "slides:49",
+        "slides:22",
+        "slides:19",
+        "slides:80",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:155",
+      "text": "The encoder's output distribution q(z) is an approximation to the true p(z|x).",
+      "entailed": true,
+      "evidence": "slides:33",
+      "top": [
+        "slides:26",
+        "slides:31",
+        "slides:25",
+        "slides:33",
+        "slides:40",
+        "slides:16",
+        "slides:81",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:156",
+      "text": "The true distribution p(z|x) is complicated and unknown.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:35",
+        "slides:30",
+        "slides:23",
+        "slides:33",
+        "slides:32",
+        "slides:36",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:157",
+      "text": "The approximation q(z) is not the true p(z|x).",
+      "entailed": true,
+      "evidence": "slides:41",
+      "top": [
+        "slides:33",
+        "slides:41",
+        "slides:29",
+        "slides:81",
+        "slides:40",
+        "slides:35",
+        "slides:21",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:158",
+      "text": "The key question is how to make the approximation q(z) to p(z|x).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:33",
+        "slides:41",
+        "slides:40",
+        "slides:81",
+        "slides:29",
+        "slides:21",
+        "slides:35",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:159",
+      "text": "The idea of variational approximations is a very important, fundamental idea in machine learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:15",
+        "slides:77",
+        "slides:75",
+        "slides:80",
+        "slides:47",
+        "slides:124",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:160",
+      "text": "Variational approximations underlie many different models and appear throughout the field.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:82",
+        "slides:77",
+        "slides:80",
+        "slides:15",
+        "slides:124",
+        "slides:168",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "transcript:161",
+      "text": "The derivation of the variational approximation formula begins with the identity p(x,z) = p(x) p(z|x).",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "slides:80",
+        "slides:33",
+        "slides:34",
+        "slides:41",
+        "slides:77",
+        "slides:15",
+        "slides:40",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:162",
+      "text": "Taking logs gives log p(x,z) = log p(x) + log p(z|x).",
+      "entailed": true,
+      "evidence": "slides:35",
+      "top": [
+        "slides:36",
+        "slides:39",
+        "slides:40",
+        "slides:81",
+        "slides:35",
+        "slides:38",
+        "slides:23",
+        "slides:83"
+      ]
+    },
+    {
+      "claim": "transcript:163",
+      "text": "Rearranging yields log p(x) = log p(x,z) - log p(z|x).",
+      "entailed": true,
+      "evidence": "slides:36",
+      "top": [
+        "slides:36",
+        "slides:39",
+        "slides:40",
+        "slides:35",
+        "slides:81",
+        "slides:38",
+        "slides:23",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "transcript:164",
+      "text": "Taking the expectation with respect to any distribution q(z) on both sides gives: log p(x) = E_{q(z)}[log p(x,z) - log p(z|x)].",
+      "entailed": true,
+      "evidence": "slides:37",
+      "top": [
+        "slides:37",
+        "slides:39",
+        "slides:38",
+        "slides:40",
+        "slides:80",
+        "slides:81",
+        "slides:36",
+        "slides:84"
+      ]
+    },
+    {
+      "claim": "transcript:165",
+      "text": "Since log p(x) does not depend on z, it remains constant under the expectation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:37",
+        "slides:39",
+        "slides:40",
+        "slides:81",
+        "slides:38",
+        "slides:33",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "transcript:166",
+      "text": "Adding and subtracting E_{q(z)}[log q(z)] (the entropy of q) yields: log p(x) = E_{q(z)}[log p(x,z) - log p(z|x) + log q(z) - log q(z)].",
+      "entailed": true,
+      "evidence": "slides:38",
+      "top": [
+        "slides:37",
+        "slides:38",
+        "slides:39",
+        "slides:40",
+        "slides:81",
+        "slides:80",
+        "slides:36",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:167",
+      "text": "Rearranging terms leads to the formula: log p(x) = E_{q(z)}[log(p(x,z)/p(z))] + E_{q(z)}[log(q(z)/p(z|x))].",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:39",
+        "slides:38",
+        "slides:40",
+        "slides:37",
+        "slides:81",
+        "slides:36",
+        "slides:80",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:168",
+      "text": "That formula is the main formula of variational approximations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:77",
+        "slides:80",
+        "slides:82",
+        "slides:47",
+        "slides:97",
+        "slides:15",
+        "slides:86"
+      ]
+    },
+    {
+      "claim": "transcript:169",
+      "text": "The identity holds for any p(x,z) and any q(z).",
+      "entailed": true,
+      "evidence": "slides:39",
+      "top": [
+        "slides:35",
+        "slides:39",
+        "slides:28",
+        "slides:32",
+        "slides:40",
+        "slides:81",
+        "slides:38",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:170",
+      "text": "On the left side of the formula, log p(x) is a constant.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:39",
+        "slides:40",
+        "slides:83",
+        "slides:81",
+        "slides:96",
+        "slides:42",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "transcript:171",
+      "text": "The goal is to find a distribution q(z) that serves as a good approximation for p(z|x).",
+      "entailed": true,
+      "evidence": "slides:33",
+      "top": [
+        "slides:33",
+        "slides:41",
+        "slides:29",
+        "slides:40",
+        "slides:35",
+        "slides:81",
+        "slides:30",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:172",
+      "text": "The problem is viewed as optimizing a functional with respect to q(z).",
+      "entailed": true,
+      "evidence": "slides:41",
+      "top": [
+        "slides:41",
+        "slides:43",
+        "slides:21",
+        "slides:74",
+        "slides:44",
+        "slides:80",
+        "slides:33",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "transcript:173",
+      "text": "On the left side of an equation, there is a term that is independent of q(z) and is the likelihood of the dataset.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:25",
+        "slides:40",
+        "slides:42",
+        "slides:39",
+        "slides:43",
+        "slides:81",
+        "slides:33",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "transcript:174",
+      "text": "On the right side, there is a term L(q) plus the Kullback-Leibler divergence between q(z) and p(z|x).",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:40",
+        "slides:33",
+        "slides:41",
+        "slides:81",
+        "slides:43",
+        "slides:80",
+        "slides:37",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:175",
+      "text": "The Kullback-Leibler divergence is a metric that measures how similar two distributions are.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:86",
+        "slides:97",
+        "slides:104",
+        "slides:34",
+        "slides:126",
+        "slides:66",
+        "slides:124"
+      ]
+    },
+    {
+      "claim": "transcript:176",
+      "text": "The KL divergence from Q to P is defined as the integral of Q times log(Q/P) dx.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:86",
+        "slides:45",
+        "slides:46",
+        "slides:40",
+        "slides:43",
+        "slides:97",
+        "slides:81",
+        "slides:95"
+      ]
+    },
+    {
+      "claim": "transcript:177",
+      "text": "The KL divergence between q(z) and p(z|x) indicates how close q(z) is to p(z|x).",
+      "entailed": true,
+      "evidence": "slides:33",
+      "top": [
+        "slides:40",
+        "slides:81",
+        "slides:46",
+        "slides:33",
+        "slides:43",
+        "slides:41",
+        "slides:39",
+        "slides:86"
+      ]
+    },
+    {
+      "claim": "transcript:178",
+      "text": "Minimizing the KL divergence from q(z) to p(z|x) is a good optimization target.",
+      "entailed": true,
+      "evidence": "slides:41",
+      "top": [
+        "slides:41",
+        "slides:81",
+        "slides:40",
+        "slides:21",
+        "slides:46",
+        "slides:33",
+        "slides:80",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "transcript:179",
+      "text": "p(z|x) is a very complicated distribution and is hard to work with.",
+      "entailed": true,
+      "evidence": "slides:29",
+      "top": [
+        "slides:29",
+        "slides:35",
+        "slides:30",
+        "slides:33",
+        "slides:23",
+        "slides:32",
+        "slides:21",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:180",
+      "text": "In standard machine learning, p(z|x) is a complicated posterior of a model with many hidden variables requiring integration.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:35",
+        "slides:27",
+        "slides:29",
+        "slides:23",
+        "slides:30",
+        "slides:25",
+        "slides:21",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:181",
+      "text": "The sum of L(q) and the KL divergence equals a constant that is independent of q(z).",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:43",
+        "slides:46",
+        "slides:40",
+        "slides:45",
+        "slides:44",
+        "slides:81",
+        "slides:86",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:182",
+      "text": "Minimizing the KL divergence with respect to q(z) is equivalent to maximizing L(q) because the sum is constant.",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:86",
+        "slides:46",
+        "slides:43",
+        "slides:41",
+        "slides:45",
+        "slides:40",
+        "slides:80",
+        "slides:44"
+      ]
+    },
+    {
+      "claim": "transcript:183",
+      "text": "L(q) is called the variational lower bound or evidence lower bound (ELBO).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:86",
+        "slides:34",
+        "slides:96",
+        "slides:95",
+        "slides:77",
+        "slides:41",
+        "slides:97",
+        "slides:125"
+      ]
+    },
+    {
+      "claim": "transcript:184",
+      "text": "L(q) is a lower bound to a constant that one wants to maximize.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:108",
+        "slides:86",
+        "slides:43",
+        "slides:44",
+        "slides:74",
+        "slides:95",
+        "slides:125"
+      ]
+    },
+    {
+      "claim": "transcript:185",
+      "text": "L(q) can be expressed as the integral q(z) log p(x,z)/q(z) dz.",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:43",
+        "slides:40",
+        "slides:39",
+        "slides:42",
+        "slides:81",
+        "slides:38",
+        "slides:37",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "transcript:186",
+      "text": "L(q) involves the distribution q(z) being optimized and the joint distribution p(x,z).",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:41",
+        "slides:40",
+        "slides:42",
+        "slides:43",
+        "slides:39",
+        "slides:25",
+        "slides:81",
+        "slides:23"
+      ]
+    },
+    {
+      "claim": "transcript:187",
+      "text": "In probabilistic models with observable x and hidden z, the joint distribution p(x,z) is typically simple.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:23",
+        "slides:35",
+        "slides:30",
+        "slides:27",
+        "slides:29",
+        "slides:36",
+        "slides:25",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:188",
+      "text": "The variational approximation switches from working with the difficult posterior p(z|x) to the simpler joint distribution p(x,z).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:80",
+        "slides:23",
+        "slides:33",
+        "slides:41",
+        "slides:34",
+        "slides:15",
+        "slides:27",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:189",
+      "text": "In a variational autoencoder, p(z|x) is very complicated.",
+      "entailed": true,
+      "evidence": "slides:29",
+      "top": [
+        "slides:15",
+        "slides:27",
+        "slides:26",
+        "slides:31",
+        "slides:21",
+        "slides:30",
+        "slides:29",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:190",
+      "text": "In a variational autoencoder, the joint distribution p(x,z) is a product of two Gaussians.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:15",
+        "slides:26",
+        "slides:23",
+        "slides:47",
+        "slides:32",
+        "slides:27",
+        "slides:25",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:191",
+      "text": "The joint distribution can be decomposed as log p(z) + log p(x|z).",
+      "entailed": true,
+      "evidence": "slides:23",
+      "top": [
+        "slides:23",
+        "slides:36",
+        "slides:39",
+        "slides:35",
+        "slides:40",
+        "slides:81",
+        "slides:26",
+        "slides:38"
+      ]
+    },
+    {
+      "claim": "transcript:192",
+      "text": "Applying the decomposition to L(q) yields: expectation_{q(z)} log p(x|z) + expectation_{q(z)} log p(z) - expectation_{q(z)} log q(z).",
+      "entailed": true,
+      "evidence": "slides:42",
+      "top": [
+        "slides:37",
+        "slides:40",
+        "slides:80",
+        "slides:38",
+        "slides:81",
+        "slides:39",
+        "slides:42",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "transcript:193",
+      "text": "The last two terms combine to form - expectation_{q(z)} log(q(z)/p(z)).",
+      "entailed": true,
+      "evidence": "slides:42",
+      "top": [
+        "slides:37",
+        "slides:39",
+        "slides:38",
+        "slides:81",
+        "slides:40",
+        "slides:80",
+        "slides:42",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "transcript:194",
+      "text": "The term - expectation_{q(z)} log(q(z)/p(z)) is the Kullback-Leibler divergence between q(z) and p(z).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:37",
+        "slides:80",
+        "slides:40",
+        "slides:39",
+        "slides:81",
+        "slides:38",
+        "slides:43",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:195",
+      "text": "In the variational autoencoder, q(z) is the encoder output distribution with parameters mu_x and sigma_x.",
+      "entailed": true,
+      "evidence": "slides:46",
+      "top": [
+        "slides:47",
+        "slides:15",
+        "slides:26",
+        "slides:25",
+        "slides:42",
+        "slides:80",
+        "slides:46",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "transcript:196",
+      "text": "In the variational autoencoder, p(z) is the prior distribution, a standard Gaussian.",
+      "entailed": true,
+      "evidence": "slides:27",
+      "top": [
+        "slides:25",
+        "slides:15",
+        "slides:26",
+        "slides:32",
+        "slides:47",
+        "slides:31",
+        "slides:27",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:197",
+      "text": "The KL divergence between q(z) and p(z) acts as a regularizer in the loss function.",
+      "entailed": true,
+      "evidence": "slides:44",
+      "top": [
+        "slides:46",
+        "slides:86",
+        "slides:40",
+        "slides:80",
+        "slides:43",
+        "slides:81",
+        "slides:47",
+        "slides:44"
+      ]
+    },
+    {
+      "claim": "transcript:198",
+      "text": "Without regularization, latent space distributions may drift apart and their variance may shrink.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:18",
+        "slides:20",
+        "slides:139",
+        "slides:34",
+        "slides:19",
+        "slides:124",
+        "slides:53",
+        "slides:15"
+      ]
+    },
+    {
+      "claim": "transcript:199",
+      "text": "The variational approximation provides an exact formula for the regularizer as a function of mu and sigma.",
+      "entailed": true,
+      "evidence": "slides:46",
+      "top": [
+        "slides:34",
+        "slides:47",
+        "slides:77",
+        "slides:80",
+        "slides:46",
+        "slides:15",
+        "slides:82",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:200",
+      "text": "The provided regularizer formula can be directly implemented in PyTorch.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:20",
+        "slides:103",
+        "slides:47",
+        "slides:19",
+        "slides:21",
+        "slides:150",
+        "slides:163"
+      ]
+    },
+    {
+      "claim": "transcript:201",
+      "text": "The variational approximation uniquely specifies the loss functions needed for training.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:47",
+        "slides:15",
+        "slides:86",
+        "slides:80",
+        "slides:19",
+        "slides:77",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:202",
+      "text": "The term expectation_{q(z)} log p(x|z) is related to the decoder distribution.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:37",
+        "slides:26",
+        "slides:40",
+        "slides:39",
+        "slides:81",
+        "slides:80",
+        "slides:38",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:203",
+      "text": "p(x|z) is the decoder distribution, modeled as a Gaussian centered at the decoder output.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:26",
+        "slides:25",
+        "slides:31",
+        "slides:32",
+        "slides:16",
+        "slides:33",
+        "slides:35",
+        "slides:23"
+      ]
+    },
+    {
+      "claim": "transcript:204",
+      "text": "Evaluating the log-density of a Gaussian yields a constant minus a term proportional to the squared difference between x and the decoder output.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:114",
+        "slides:16",
+        "slides:45",
+        "slides:97",
+        "slides:47",
+        "slides:81",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "transcript:205",
+      "text": "The expectation of the squared difference forms the reconstruction loss.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:126",
+        "slides:47",
+        "slides:86",
+        "slides:131",
+        "slides:34",
+        "slides:104",
+        "slides:71",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:206",
+      "text": "In practice, the expectation is approximated by averaging over the training data, leading to the mean squared error.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:100",
+        "slides:75",
+        "slides:34",
+        "slides:132",
+        "slides:101",
+        "slides:109",
+        "slides:134",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "transcript:207",
+      "text": "The positive variational lower bound can be expressed as a negative constant times the reconstruction loss minus the regularizer.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:34",
+        "slides:77",
+        "slides:86",
+        "slides:82",
+        "slides:15",
+        "slides:20",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:208",
+      "text": "Maximizing the variational lower bound is equivalent to minimizing the sum of the reconstruction loss and the regularizer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:77",
+        "slides:47",
+        "slides:82",
+        "slides:86",
+        "slides:15",
+        "slides:17",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:209",
+      "text": "Q represents the encoder parameters mu and sigma.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:114",
+        "slides:47",
+        "slides:26",
+        "slides:84",
+        "slides:106",
+        "slides:46",
+        "slides:74",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:210",
+      "text": "The optimization minimizes the sum of reconstruction loss and regularizer with respect to mu and sigma.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:34",
+        "slides:126",
+        "slides:17",
+        "slides:20",
+        "slides:114",
+        "slides:19",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:211",
+      "text": "In the variational autoencoder, the regularizer is a specific formula of mu and sigma.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:15",
+        "slides:34",
+        "slides:20",
+        "slides:17",
+        "slides:19",
+        "slides:80",
+        "slides:114"
+      ]
+    },
+    {
+      "claim": "transcript:212",
+      "text": "The specific regularizer formula is not trivial.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:20",
+        "slides:47",
+        "slides:34",
+        "slides:17",
+        "slides:46",
+        "slides:161",
+        "slides:110"
+      ]
+    },
+    {
+      "claim": "transcript:213",
+      "text": "One would not be able to guess the regularizer formula without prior knowledge.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:166",
+        "slides:19",
+        "slides:20",
+        "slides:164",
+        "slides:17",
+        "slides:45",
+        "slides:165",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:214",
+      "text": "In the variational autoencoder, the reconstruction loss follows from the noise assumption in the decoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:15",
+        "slides:19",
+        "slides:20",
+        "slides:17",
+        "slides:16",
+        "slides:22",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:215",
+      "text": "The least squares reconstruction loss in the variational autoencoder resulted from choosing a Gaussian noise model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:20",
+        "slides:19",
+        "slides:15",
+        "slides:17",
+        "slides:22",
+        "slides:49",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:216",
+      "text": "If a different noise model were chosen, the reconstruction loss would be different.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:126",
+        "slides:104",
+        "slides:101",
+        "slides:56",
+        "slides:17",
+        "slides:116",
+        "slides:54",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:217",
+      "text": "The variational autoencoder provides an exact form of the regularizer.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:15",
+        "slides:17",
+        "slides:47",
+        "slides:20",
+        "slides:34",
+        "slides:19",
+        "slides:140",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:218",
+      "text": "The speaker considers the application of the variational idea in deep learning to be beautiful.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:15",
+        "slides:19",
+        "slides:47",
+        "slides:17",
+        "slides:168",
+        "slides:52",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:219",
+      "text": "The sampling problem in variational autoencoders is how to put gradients through the sampling step.",
+      "entailed": true,
+      "evidence": "slides:49",
+      "top": [
+        "slides:49",
+        "slides:15",
+        "slides:47",
+        "slides:34",
+        "slides:65",
+        "slides:51",
+        "slides:19",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:220",
+      "text": "The re-parameterization trick solves the sampling problem.",
+      "entailed": true,
+      "evidence": "slides:59",
+      "top": [
+        "slides:48",
+        "slides:50",
+        "slides:65",
+        "slides:59",
+        "slides:116",
+        "slides:131",
+        "slides:49",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:221",
+      "text": "The re-parameterization trick is easier than deriving the loss functions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:126",
+        "slides:47",
+        "slides:86",
+        "slides:97",
+        "slides:45",
+        "slides:114",
+        "slides:74"
+      ]
+    },
+    {
+      "claim": "transcript:222",
+      "text": "The re-parameterization trick restructures the neural network to allow sampling in advance.",
+      "entailed": true,
+      "evidence": "slides:50",
+      "top": [
+        "slides:50",
+        "slides:48",
+        "slides:49",
+        "slides:51",
+        "slides:65",
+        "slides:131",
+        "slides:116",
+        "slides:101"
+      ]
+    },
+    {
+      "claim": "transcript:223",
+      "text": "Reparameterization means reparameterizing the sampling distribution so that sampling can be done before knowing mu and sigma.",
+      "entailed": true,
+      "evidence": "slides:50",
+      "top": [
+        "slides:50",
+        "slides:48",
+        "slides:107",
+        "slides:116",
+        "slides:65",
+        "slides:24",
+        "slides:25",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:224",
+      "text": "The re-parameterization trick adds a separate input u sampled from a standard Gaussian.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:45",
+        "slides:74",
+        "slides:51",
+        "slides:49",
+        "slides:59",
+        "slides:65",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "transcript:225",
+      "text": "The input u is sampled without regard to x.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:48",
+        "slides:65",
+        "slides:50",
+        "slides:49",
+        "slides:24",
+        "slides:107",
+        "slides:114"
+      ]
+    },
+    {
+      "claim": "transcript:226",
+      "text": "This restructuring allows gradients to flow because the sampling is moved outside the gradient flow.",
+      "entailed": true,
+      "evidence": "slides:50",
+      "top": [
+        "slides:49",
+        "slides:131",
+        "slides:50",
+        "slides:48",
+        "slides:74",
+        "slides:65",
+        "slides:122",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:227",
+      "text": "For Gaussian distributions, sampling from a Gaussian with mean mu and covariance sigma^2 is equivalent to sampling from a standard Gaussian, multiplying component-wise by sigma, and adding mu.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:63",
+        "slides:32",
+        "slides:116",
+        "slides:48",
+        "slides:98",
+        "slides:45",
+        "slides:97",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:228",
+      "text": "The distribution N(mu, sigma^2) is a linear function of the standard normal: Z = mu + sigma * u, where u ~ N(0,1).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:63",
+        "slides:32",
+        "slides:46",
+        "slides:26",
+        "slides:25",
+        "slides:33",
+        "slides:98",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:229",
+      "text": "In the Gaussian reparameterization, mu acts as a shift.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:114",
+        "slides:98",
+        "slides:50",
+        "slides:63",
+        "slides:32",
+        "slides:139",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:230",
+      "text": "In the Gaussian reparameterization, sigma acts as a rescaling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:63",
+        "slides:50",
+        "slides:45",
+        "slides:34",
+        "slides:98",
+        "slides:46",
+        "slides:66",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:231",
+      "text": "The shape of the Gaussian distribution remains the same when starting from a standard Gaussian and applying mu and sigma.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:63",
+        "slides:32",
+        "slides:45",
+        "slides:66",
+        "slides:98",
+        "slides:97",
+        "slides:126",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "transcript:232",
+      "text": "The reparameterization trick for Gaussians involves sampling u from a standard Gaussian, computing Z = mu + sigma * u, and feeding Z to the decoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:16",
+        "slides:114",
+        "slides:49",
+        "slides:45",
+        "slides:31",
+        "slides:22",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:233",
+      "text": "The ability to reparameterize depends on the distribution; it works for Gaussians but may not work for other distributions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:20",
+        "slides:45",
+        "slides:19",
+        "slides:131",
+        "slides:59",
+        "slides:66",
+        "slides:15"
+      ]
+    },
+    {
+      "claim": "transcript:234",
+      "text": "The speaker finds the reparameterization trick to be a beautiful and simple trick.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:17",
+        "slides:101",
+        "slides:56",
+        "slides:48",
+        "slides:150",
+        "slides:51",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:235",
+      "text": "Training an autoencoder is relatively easy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:22",
+        "slides:20",
+        "slides:17",
+        "slides:15",
+        "slides:51",
+        "slides:49",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:236",
+      "text": "The high-dimensional data manifold is very difficult.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:14",
+        "slides:157",
+        "slides:140",
+        "slides:19",
+        "slides:18",
+        "slides:124",
+        "slides:167",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:237",
+      "text": "Even the lower-dimensional latent space is non-trivial.",
+      "entailed": true,
+      "evidence": "slides:14",
+      "top": [
+        "slides:139",
+        "slides:18",
+        "slides:14",
+        "slides:140",
+        "slides:142",
+        "slides:34",
+        "slides:127",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:238",
+      "text": "Sampling from a Gaussian in a low-dimensional space does not guarantee falling into the data manifold.",
+      "entailed": true,
+      "evidence": "slides:14",
+      "top": [
+        "slides:59",
+        "slides:63",
+        "slides:48",
+        "slides:49",
+        "slides:14",
+        "slides:131",
+        "slides:116",
+        "slides:98"
+      ]
+    },
+    {
+      "claim": "transcript:239",
+      "text": "The variational autoencoder idea involves the encoder producing full distributions in latent space, then sampling Z from one, and the decoder reconstructing the original image from any sampled point.",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:15",
+        "slides:22",
+        "slides:19",
+        "slides:47",
+        "slides:49",
+        "slides:20",
+        "slides:17",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:240",
+      "text": "The intuition behind variational autoencoders is to cover the latent space with these distributions, making them wide enough and close enough so that standard Gaussian samples fall into good parts of the space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:19",
+        "slides:20",
+        "slides:47",
+        "slides:18",
+        "slides:34",
+        "slides:17",
+        "slides:139"
+      ]
+    },
+    {
+      "claim": "transcript:241",
+      "text": "Without regularization, the points in the latent space will fly apart and the variances will shrink to zero.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:20",
+        "slides:34",
+        "slides:18",
+        "slides:15",
+        "slides:47",
+        "slides:77",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:242",
+      "text": "Both a reconstruction loss and a regularization on the encoder output are needed in variational autoencoders.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:15",
+        "slides:19",
+        "slides:20",
+        "slides:17",
+        "slides:22",
+        "slides:34",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:243",
+      "text": "Two key questions addressed in the derivation: how to choose the loss function/regularizer? and how to pass gradients through sampling?",
+      "entailed": true,
+      "evidence": "slides:49",
+      "top": [
+        "slides:47",
+        "slides:49",
+        "slides:131",
+        "slides:50",
+        "slides:34",
+        "slides:80",
+        "slides:86",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "transcript:244",
+      "text": "The derivation started from an equality involving the encoder, decoder, and the target distribution for Z.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:16",
+        "slides:31",
+        "slides:25",
+        "slides:114",
+        "slides:22",
+        "slides:47",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "transcript:245",
+      "text": "The true encoder and decoder distributions in that equality are complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:19",
+        "slides:16",
+        "slides:114",
+        "slides:20",
+        "slides:22",
+        "slides:31",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:246",
+      "text": "In the variational approximation, the decoder distribution is modeled as a simple round Gaussian.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:114",
+        "slides:26",
+        "slides:19",
+        "slides:16",
+        "slides:34",
+        "slides:47",
+        "slides:20",
+        "slides:15"
+      ]
+    },
+    {
+      "claim": "transcript:247",
+      "text": "In the variational approximation, the complicated encoder distribution is approximated with a Gaussian.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:34",
+        "slides:15",
+        "slides:19",
+        "slides:47",
+        "slides:26",
+        "slides:20",
+        "slides:80",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:248",
+      "text": "The variational approximation yields: the variational lower bound plus the KL divergence between the approximation and the true posterior equals a constant.",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "slides:34",
+        "slides:77",
+        "slides:86",
+        "slides:82",
+        "slides:80",
+        "slides:75",
+        "slides:97",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:249",
+      "text": "Maximizing the variational lower bound minimizes the KL divergence.",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "slides:86",
+        "slides:34",
+        "slides:77",
+        "slides:45",
+        "slides:82",
+        "slides:97",
+        "slides:80",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:250",
+      "text": "This maximization yields the reconstruction loss and the regularizer.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:17",
+        "slides:47",
+        "slides:34",
+        "slides:131",
+        "slides:50",
+        "slides:20",
+        "slides:74",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:251",
+      "text": "The reparameterization trick for Gaussians is: sample from a standard Gaussian, multiply by sigma, and add mu.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:45",
+        "slides:63",
+        "slides:98",
+        "slides:116",
+        "slides:59",
+        "slides:32",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:252",
+      "text": "The variational autoencoder is described as the proper way to do autoencoders.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:19",
+        "slides:20",
+        "slides:17",
+        "slides:47",
+        "slides:22",
+        "slides:168",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:253",
+      "text": "Initially, upon its introduction, the variational autoencoder did not catch on; early papers used it as a baseline that was easy to beat.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:19",
+        "slides:20",
+        "slides:34",
+        "slides:17",
+        "slides:47",
+        "slides:22",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:254",
+      "text": "Since its introduction, variational autoencoders have been extended to discrete latent spaces, where Z is a sequence of tokens.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:19",
+        "slides:47",
+        "slides:18",
+        "slides:34",
+        "slides:22",
+        "slides:140",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:255",
+      "text": "The discrete latent space extension allows latent codes to be written with a transformer from text.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:18",
+        "slides:149",
+        "slides:140",
+        "slides:22",
+        "slides:25",
+        "slides:139",
+        "slides:19",
+        "slides:142"
+      ]
+    },
+    {
+      "claim": "transcript:256",
+      "text": "Writing latent codes with a transformer from text is similar to machine translation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:18",
+        "slides:149",
+        "slides:19",
+        "slides:140",
+        "slides:25",
+        "slides:20",
+        "slides:150"
+      ]
+    },
+    {
+      "claim": "transcript:257",
+      "text": "DALI (around 2020-2021) worked by converting a text prompt into a sequence of tokens that were decoded into an image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:118",
+        "slides:22",
+        "slides:20",
+        "slides:167",
+        "slides:146",
+        "slides:103",
+        "slides:111",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:258",
+      "text": "Variational autoencoders with discrete latent spaces are now foundational for many models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:140",
+        "slides:34",
+        "slides:19",
+        "slides:20",
+        "slides:18",
+        "slides:47",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:259",
+      "text": "Diffusion models typically operate in the latent space of some model, not directly in pixel space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:149",
+        "slides:122",
+        "slides:119",
+        "slides:120",
+        "slides:121",
+        "slides:142",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:260",
+      "text": "Operating diffusion models directly on pixels would be too computationally expensive.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:119",
+        "slides:121",
+        "slides:131",
+        "slides:79",
+        "slides:124",
+        "slides:122",
+        "slides:120",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:261",
+      "text": "Operating in the latent space is easier and better than operating on pixels.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:18",
+        "slides:142",
+        "slides:155",
+        "slides:14",
+        "slides:22",
+        "slides:140",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:262",
+      "text": "The latent space used by diffusion models is usually that of a modern variational autoencoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:124",
+        "slides:149",
+        "slides:15",
+        "slides:104",
+        "slides:19",
+        "slides:140",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:263",
+      "text": "VQ-VAE is a variational autoencoder architecture with a discrete latent space and additional adversarial losses.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:47",
+        "slides:19",
+        "slides:20",
+        "slides:22",
+        "slides:34",
+        "slides:17",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:264",
+      "text": "The adversarial loss in VQ-VAE examines small patches of the generated image to ensure local realism.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:20",
+        "slides:47",
+        "slides:19",
+        "slides:22",
+        "slides:17",
+        "slides:15",
+        "slides:139",
+        "slides:123"
+      ]
+    },
+    {
+      "claim": "transcript:265",
+      "text": "The adversarial loss ensures that small patches look similar to patches from real images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:152",
+        "slides:17",
+        "slides:131",
+        "slides:153",
+        "slides:139",
+        "slides:19",
+        "slides:20",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:266",
+      "text": "VQ-VAE uses a separate discriminator for enforcing fine local structure.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:31",
+        "slides:42",
+        "slides:77",
+        "slides:161",
+        "slides:152",
+        "slides:15",
+        "slides:153",
+        "slides:106"
+      ]
+    },
+    {
+      "claim": "transcript:267",
+      "text": "Modern diffusion models often work in the latent space of VQ-VAE or similar architectures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:142",
+        "slides:149",
+        "slides:119",
+        "slides:120",
+        "slides:104",
+        "slides:121",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:268",
+      "text": "Diffusion models are a big idea, simple in essence but mathematically difficult in full detail.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:119",
+        "slides:52",
+        "slides:121",
+        "slides:120",
+        "slides:143",
+        "slides:104",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:269",
+      "text": "The mathematical formalization of variational autoencoders was relatively simple.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:34",
+        "slides:19",
+        "slides:47",
+        "slides:20",
+        "slides:168",
+        "slides:17",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:270",
+      "text": "Diffusion models also use a variational bound, but a more difficult one than in VAEs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:82",
+        "slides:124",
+        "slides:79",
+        "slides:119",
+        "slides:77",
+        "slides:34",
+        "slides:52",
+        "slides:120"
+      ]
+    },
+    {
+      "claim": "transcript:271",
+      "text": "The foundational paper on diffusion models dates back to 2015.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:124",
+        "slides:119",
+        "slides:120",
+        "slides:82",
+        "slides:143",
+        "slides:121",
+        "slides:104",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:272",
+      "text": "The foundational paper on diffusion models is by Sohl-Dickstein and co-authors.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:124",
+        "slides:82",
+        "slides:143",
+        "slides:52",
+        "slides:119",
+        "slides:120",
+        "slides:104",
+        "slides:121"
+      ]
+    },
+    {
+      "claim": "transcript:273",
+      "text": "The title of the foundational diffusion models paper is \"Deep Unsupervised Learning Using Non-Equilibrium Thermodynamics\".",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:52",
+        "slides:124",
+        "slides:127",
+        "slides:82",
+        "slides:104",
+        "slides:79",
+        "slides:105",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:274",
+      "text": "Physics, thermodynamics, and deep learning have many similarities.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:124",
+        "slides:104",
+        "slides:19",
+        "slides:120",
+        "slides:121",
+        "slides:157",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:275",
+      "text": "The speaker is conducting research on the thermodynamics of stochastic gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:124",
+        "slides:105",
+        "slides:104",
+        "slides:132",
+        "slides:79",
+        "slides:53",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:276",
+      "text": "The speaker's website contains a long blog post introducing the area of thermodynamics of stochastic gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:124",
+        "slides:104",
+        "slides:34",
+        "slides:79",
+        "slides:82",
+        "slides:53",
+        "slides:121"
+      ]
+    },
+    {
+      "claim": "transcript:277",
+      "text": "There is an analogy between stochastic gradient descent and the ideal gas law.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:124",
+        "slides:52",
+        "slides:104",
+        "slides:53",
+        "slides:132",
+        "slides:127",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:278",
+      "text": "In the context of diffusion models, the analogy is different from the stochastic gradient descent-ideal gas law analogy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:104",
+        "slides:52",
+        "slides:120",
+        "slides:119",
+        "slides:82",
+        "slides:105",
+        "slides:121"
+      ]
+    },
+    {
+      "claim": "transcript:279",
+      "text": "The analogy in diffusion models comes from a basic fact about Markov chains.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:127",
+        "slides:120",
+        "slides:121",
+        "slides:79",
+        "slides:104",
+        "slides:52",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:280",
+      "text": "Statistical physics is not necessary for diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:119",
+        "slides:122",
+        "slides:124",
+        "slides:127",
+        "slides:120",
+        "slides:105",
+        "slides:52",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:281",
+      "text": "You can train a Markov chain to add increasing noise to the input.",
+      "entailed": true,
+      "evidence": "slides:54",
+      "top": [
+        "slides:53",
+        "slides:54",
+        "slides:101",
+        "slides:17",
+        "slides:56",
+        "slides:132",
+        "slides:19",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "transcript:282",
+      "text": "After enough steps (hundreds), the result of the noising Markov chain becomes indistinguishable from randomness.",
+      "entailed": true,
+      "evidence": "slides:54",
+      "top": [
+        "slides:53",
+        "slides:127",
+        "slides:54",
+        "slides:122",
+        "slides:56",
+        "slides:132",
+        "slides:138",
+        "slides:130"
+      ]
+    },
+    {
+      "claim": "transcript:283",
+      "text": "Starting with a crisp picture and adding Gaussian noise repeatedly is straightforward.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:17",
+        "slides:54",
+        "slides:53",
+        "slides:101",
+        "slides:45",
+        "slides:112",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:284",
+      "text": "If you do not add noise to the very end, you can still see some shade of the original picture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:17",
+        "slides:131",
+        "slides:56",
+        "slides:54",
+        "slides:112",
+        "slides:139",
+        "slides:101"
+      ]
+    },
+    {
+      "claim": "transcript:285",
+      "text": "If you add Gaussian noise 500 times, the result is Gaussian noise indistinguishable from random sampling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:63",
+        "slides:132",
+        "slides:53",
+        "slides:32",
+        "slides:116",
+        "slides:48",
+        "slides:101"
+      ]
+    },
+    {
+      "claim": "transcript:286",
+      "text": "The point of diffusion models is to try to reverse the noising process.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:119",
+        "slides:121",
+        "slides:120",
+        "slides:124",
+        "slides:122",
+        "slides:79",
+        "slides:104",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:287",
+      "text": "In diffusion models, you have a noising chain and you want to turn it into a denoising chain.",
+      "entailed": true,
+      "evidence": "slides:17",
+      "top": [
+        "slides:124",
+        "slides:121",
+        "slides:122",
+        "slides:119",
+        "slides:120",
+        "slides:79",
+        "slides:52",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:288",
+      "text": "In the forward direction (noising), the transformation is trivial.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:38",
+        "slides:150",
+        "slides:17",
+        "slides:59",
+        "slides:131",
+        "slides:20",
+        "slides:139"
+      ]
+    },
+    {
+      "claim": "transcript:289",
+      "text": "The forward transformation consists of adding Gaussian noise.",
+      "entailed": true,
+      "evidence": "slides:57",
+      "top": [
+        "slides:57",
+        "slides:131",
+        "slides:147",
+        "slides:101",
+        "slides:97",
+        "slides:66",
+        "slides:98",
+        "slides:102"
+      ]
+    },
+    {
+      "claim": "transcript:290",
+      "text": "The opposite direction is a denoising procedure.",
+      "entailed": true,
+      "evidence": "slides:74",
+      "top": [
+        "slides:17",
+        "slides:147",
+        "slides:131",
+        "slides:121",
+        "slides:130",
+        "slides:74",
+        "slides:122",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:291",
+      "text": "Removing Gaussian noise is much more difficult than adding it.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:101",
+        "slides:63",
+        "slides:54",
+        "slides:45",
+        "slides:116",
+        "slides:20",
+        "slides:53"
+      ]
+    },
+    {
+      "claim": "transcript:292",
+      "text": "You cannot reverse the noising process exactly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:68",
+        "slides:55",
+        "slides:114",
+        "slides:130",
+        "slides:141",
+        "slides:16",
+        "slides:74"
+      ]
+    },
+    {
+      "claim": "transcript:293",
+      "text": "You do not know what noise was added.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:101",
+        "slides:54",
+        "slides:56",
+        "slides:141",
+        "slides:17",
+        "slides:147",
+        "slides:116",
+        "slides:53"
+      ]
+    },
+    {
+      "claim": "transcript:294",
+      "text": "You can reverse the process exactly only if you know what you were supposed to get (the original image).",
+      "entailed": true,
+      "evidence": "slides:68",
+      "top": [
+        "slides:130",
+        "slides:55",
+        "slides:131",
+        "slides:65",
+        "slides:68",
+        "slides:22",
+        "slides:50",
+        "slides:153"
+      ]
+    },
+    {
+      "claim": "transcript:295",
+      "text": "Conditional on the original image (x0), you can reverse the process.",
+      "entailed": true,
+      "evidence": "slides:68",
+      "top": [
+        "slides:68",
+        "slides:147",
+        "slides:131",
+        "slides:130",
+        "slides:24",
+        "slides:22",
+        "slides:58",
+        "slides:112"
+      ]
+    },
+    {
+      "claim": "transcript:296",
+      "text": "We want to apply the reverse process without the original image.",
+      "entailed": true,
+      "evidence": "slides:74",
+      "top": [
+        "slides:131",
+        "slides:55",
+        "slides:130",
+        "slides:147",
+        "slides:50",
+        "slides:153",
+        "slides:74",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "transcript:297",
+      "text": "We want to use it as a generative model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:27",
+        "slides:140",
+        "slides:19",
+        "slides:20",
+        "slides:120",
+        "slides:15",
+        "slides:146"
+      ]
+    },
+    {
+      "claim": "transcript:298",
+      "text": "After training the denoising chain, we want to start with random noise and gradually turn it into something real.",
+      "entailed": true,
+      "evidence": "slides:56",
+      "top": [
+        "slides:54",
+        "slides:53",
+        "slides:56",
+        "slides:17",
+        "slides:101",
+        "slides:132",
+        "slides:20",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:299",
+      "text": "It is possible to generate real samples from noise without the original image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:147",
+        "slides:116",
+        "slides:53",
+        "slides:131",
+        "slides:48",
+        "slides:101",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:300",
+      "text": "The forward chain is a Gaussian distribution.",
+      "entailed": true,
+      "evidence": "slides:57",
+      "top": [
+        "slides:129",
+        "slides:32",
+        "slides:57",
+        "slides:54",
+        "slides:66",
+        "slides:45",
+        "slides:53",
+        "slides:78"
+      ]
+    },
+    {
+      "claim": "transcript:301",
+      "text": "The backward chain is a very complicated distribution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:122",
+        "slides:131",
+        "slides:121",
+        "slides:53",
+        "slides:74",
+        "slides:56",
+        "slides:138"
+      ]
+    },
+    {
+      "claim": "transcript:302",
+      "text": "You can try to approximate the backward chain with a Gaussian.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:45",
+        "slides:74",
+        "slides:54",
+        "slides:34",
+        "slides:103",
+        "slides:57",
+        "slides:133",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:303",
+      "text": "We need to formalize the forward diffusion chain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:121",
+        "slides:124",
+        "slides:120",
+        "slides:79",
+        "slides:129",
+        "slides:127",
+        "slides:122",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:304",
+      "text": "We need to obtain closed-form formulas for advancing multiple steps in the forward chain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:110",
+        "slides:162",
+        "slides:121",
+        "slides:38",
+        "slides:55",
+        "slides:71",
+        "slides:159",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:305",
+      "text": "We need to reverse the diffusion process.",
+      "entailed": true,
+      "evidence": "slides:131",
+      "top": [
+        "slides:121",
+        "slides:79",
+        "slides:120",
+        "slides:122",
+        "slides:142",
+        "slides:143",
+        "slides:131",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "transcript:306",
+      "text": "We need to derive formulas for reversing the process when the target is known (conditional on x0).",
+      "entailed": true,
+      "evidence": "slides:69",
+      "top": [
+        "slides:68",
+        "slides:76",
+        "slides:58",
+        "slides:69",
+        "slides:65",
+        "slides:85",
+        "slides:74",
+        "slides:84"
+      ]
+    },
+    {
+      "claim": "transcript:307",
+      "text": "Conditional on x0, everything is possible for reversing the diffusion.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:79",
+        "slides:74",
+        "slides:57",
+        "slides:67",
+        "slides:129",
+        "slides:121",
+        "slides:122",
+        "slides:128"
+      ]
+    },
+    {
+      "claim": "transcript:308",
+      "text": "You can perform perfect denoising in closed analytic form if you know the denoising target (x0).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:101",
+        "slides:74",
+        "slides:103",
+        "slides:59",
+        "slides:141",
+        "slides:147",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "transcript:309",
+      "text": "Ultimately, a large variational approximation is used to jointly approximate every step in the long denoising chain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:17",
+        "slides:124",
+        "slides:75",
+        "slides:77",
+        "slides:80",
+        "slides:82",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:310",
+      "text": "The transformations in the model have parameters (theta).",
+      "entailed": true,
+      "evidence": "slides:98",
+      "top": [
+        "slides:99",
+        "slides:114",
+        "slides:116",
+        "slides:98",
+        "slides:107",
+        "slides:109",
+        "slides:168",
+        "slides:95"
+      ]
+    },
+    {
+      "claim": "transcript:311",
+      "text": "These parametric transformations are likely modeled by neural networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:50",
+        "slides:167",
+        "slides:19",
+        "slides:149",
+        "slides:34",
+        "slides:120",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:312",
+      "text": "At some point (P of Xn), we want to substitute a simple distribution like a standard Gaussian.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:32",
+        "slides:24",
+        "slides:33",
+        "slides:53",
+        "slides:54",
+        "slides:74",
+        "slides:45",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:313",
+      "text": "After applying the denoising chain, we obtain a sample from the target distribution (e.g., cat pictures), which is a complicated distribution.",
+      "entailed": true,
+      "evidence": "slides:147",
+      "top": [
+        "slides:147",
+        "slides:131",
+        "slides:24",
+        "slides:54",
+        "slides:17",
+        "slides:112",
+        "slides:59",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:314",
+      "text": "The method involves approximation.",
+      "entailed": true,
+      "evidence": "slides:75",
+      "top": [
+        "slides:134",
+        "slides:75",
+        "slides:34",
+        "slides:77",
+        "slides:103",
+        "slides:33",
+        "slides:48",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:315",
+      "text": "The approach is similar to rational approximations but more difficult.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:134",
+        "slides:34",
+        "slides:41",
+        "slides:75",
+        "slides:33",
+        "slides:74",
+        "slides:77",
+        "slides:103"
+      ]
+    },
+    {
+      "claim": "transcript:316",
+      "text": "The approach works.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:162",
+        "slides:48",
+        "slides:75",
+        "slides:103",
+        "slides:118",
+        "slides:167",
+        "slides:56"
+      ]
+    },
+    {
+      "claim": "transcript:317",
+      "text": "The final result is a specific set of loss functions.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:126",
+        "slides:86",
+        "slides:97",
+        "slides:125",
+        "slides:114",
+        "slides:34",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:318",
+      "text": "Actually, it is a single loss function that is a sum of multiple terms.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:126",
+        "slides:97",
+        "slides:86",
+        "slides:104",
+        "slides:47",
+        "slides:114",
+        "slides:125",
+        "slides:64"
+      ]
+    },
+    {
+      "claim": "transcript:319",
+      "text": "The terms of the loss function are like pullback Kullback-Leibler divergences between Gaussians.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:97",
+        "slides:86",
+        "slides:45",
+        "slides:126",
+        "slides:47",
+        "slides:104",
+        "slides:125",
+        "slides:66"
+      ]
+    },
+    {
+      "claim": "transcript:320",
+      "text": "We can optimize this loss function using gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:17",
+        "slides:103",
+        "slides:126",
+        "slides:86",
+        "slides:51",
+        "slides:22",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:321",
+      "text": "We can train the parameters of these distributions.",
+      "entailed": true,
+      "evidence": "slides:67",
+      "top": [
+        "slides:19",
+        "slides:20",
+        "slides:53",
+        "slides:54",
+        "slides:18",
+        "slides:67",
+        "slides:106",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:322",
+      "text": "The standard Gaussian distribution is not trained.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:106",
+        "slides:109",
+        "slides:32",
+        "slides:63",
+        "slides:49",
+        "slides:45",
+        "slides:101",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:323",
+      "text": "We train the parameters of the other distributions.",
+      "entailed": true,
+      "evidence": "slides:67",
+      "top": [
+        "slides:19",
+        "slides:106",
+        "slides:131",
+        "slides:20",
+        "slides:53",
+        "slides:24",
+        "slides:18",
+        "slides:67"
+      ]
+    },
+    {
+      "claim": "transcript:324",
+      "text": "We train the parameters of the transformation that performs one step of denoising.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:131",
+        "slides:50",
+        "slides:147",
+        "slides:101",
+        "slides:74",
+        "slides:59",
+        "slides:124"
+      ]
+    },
+    {
+      "claim": "transcript:325",
+      "text": "When the trained transformation becomes a good approximation of the denoising chain, you can start with pure random noise and gradually turn it into a good sample.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "slides:54",
+        "slides:53",
+        "slides:101",
+        "slides:17",
+        "slides:49",
+        "slides:116",
+        "slides:131",
+        "slides:132"
+      ]
+    },
+    {
+      "claim": "transcript:326",
+      "text": "This process constitutes a generative model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:27",
+        "slides:120",
+        "slides:140",
+        "slides:65",
+        "slides:147",
+        "slides:79",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "transcript:327",
+      "text": "This is how diffusion models produce their results.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:121",
+        "slides:120",
+        "slides:79",
+        "slides:52",
+        "slides:143",
+        "slides:104",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:328",
+      "text": "In the original diffusion models paper, the method only worked for very small dimensions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:79",
+        "slides:121",
+        "slides:124",
+        "slides:119",
+        "slides:143",
+        "slides:82",
+        "slides:120",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:329",
+      "text": "On the CIFAR dataset, the original method somewhat worked.",
+      "entailed": true,
+      "evidence": "slides:103",
+      "top": [
+        "slides:103",
+        "slides:48",
+        "slides:164",
+        "slides:116",
+        "slides:166",
+        "slides:51",
+        "slides:168",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:330",
+      "text": "For larger dimensions, they lacked the capability to train the model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:14",
+        "slides:106",
+        "slides:49",
+        "slides:162",
+        "slides:109",
+        "slides:157",
+        "slides:19",
+        "slides:142"
+      ]
+    },
+    {
+      "claim": "transcript:331",
+      "text": "The original diffusion model paper was forgotten for quite a while.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:119",
+        "slides:142",
+        "slides:120",
+        "slides:121",
+        "slides:143",
+        "slides:104",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:332",
+      "text": "People assumed it was a cool idea but very difficult.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:103",
+        "slides:56",
+        "slides:14",
+        "slides:162",
+        "slides:55",
+        "slides:167",
+        "slides:68",
+        "slides:142"
+      ]
+    },
+    {
+      "claim": "transcript:333",
+      "text": "Even if scaling up succeeded, applying the model would still be problematic because you need to go through all steps of the reverse chain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:162",
+        "slides:74",
+        "slides:119",
+        "slides:79",
+        "slides:157",
+        "slides:122",
+        "slides:141"
+      ]
+    },
+    {
+      "claim": "transcript:334",
+      "text": "If you need to go through all steps, you need to run the neural network hundreds of times.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:121",
+        "slides:51",
+        "slides:122",
+        "slides:55",
+        "slides:49",
+        "slides:162",
+        "slides:109",
+        "slides:120"
+      ]
+    },
+    {
+      "claim": "transcript:335",
+      "text": "The chain needs to be long (hundreds of steps) for the approximation to be feasible.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:162",
+        "slides:134",
+        "slides:75",
+        "slides:121",
+        "slides:136",
+        "slides:103",
+        "slides:122",
+        "slides:54"
+      ]
+    },
+    {
+      "claim": "transcript:336",
+      "text": "Needing hundreds of network evaluations per image makes scaling up seem infeasible.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:19",
+        "slides:123",
+        "slides:131",
+        "slides:22",
+        "slides:155",
+        "slides:157",
+        "slides:112"
+      ]
+    },
+    {
+      "claim": "transcript:337",
+      "text": "People considered the original diffusion models as interesting but ultimately just a curiosity.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:119",
+        "slides:142",
+        "slides:124",
+        "slides:120",
+        "slides:121",
+        "slides:143",
+        "slides:104",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:338",
+      "text": "Progress resumed with DDPMs (denoising diffusion probabilistic models) in 2020.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:104",
+        "slides:105",
+        "slides:120",
+        "slides:121",
+        "slides:119",
+        "slides:142",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:339",
+      "text": "DDPMs used a collection of small tricks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:141",
+        "slides:137",
+        "slides:118",
+        "slides:158",
+        "slides:111",
+        "slides:163",
+        "slides:113"
+      ]
+    },
+    {
+      "claim": "transcript:340",
+      "text": "DDPMs basically made diffusion models work.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:104",
+        "slides:119",
+        "slides:121",
+        "slides:105",
+        "slides:120",
+        "slides:142",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:341",
+      "text": "DDPMs solved some technical problems of diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:104",
+        "slides:119",
+        "slides:105",
+        "slides:120",
+        "slides:121",
+        "slides:143",
+        "slides:128"
+      ]
+    },
+    {
+      "claim": "transcript:342",
+      "text": "DDPMs achieved generation quality comparable to the best GANs of that time.",
+      "entailed": true,
+      "evidence": "slides:117",
+      "top": [
+        "slides:117",
+        "slides:123",
+        "slides:137",
+        "slides:138",
+        "slides:141",
+        "slides:168",
+        "slides:118",
+        "slides:158"
+      ]
+    },
+    {
+      "claim": "transcript:343",
+      "text": "Sample generations from GANs were shown yesterday.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:123",
+        "slides:168",
+        "slides:27",
+        "slides:120",
+        "slides:138",
+        "slides:131",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:344",
+      "text": "At that time, GANs were very good at generating human faces.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:123",
+        "slides:168",
+        "slides:167",
+        "slides:27",
+        "slides:22",
+        "slides:120",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:345",
+      "text": "GANs were quite poor at generating other things because they were too diverse, and GANs couldn't capture full diversity.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:123",
+        "slides:168",
+        "slides:19",
+        "slides:20",
+        "slides:27",
+        "slides:138",
+        "slides:120"
+      ]
+    },
+    {
+      "claim": "transcript:346",
+      "text": "Cat images generated by GANs also appeared limited in diversity, like the other non-face images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:123",
+        "slides:117",
+        "slides:168",
+        "slides:19",
+        "slides:112",
+        "slides:139",
+        "slides:20",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:347",
+      "text": "GANs' performance on human faces was state of the art at the time.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:123",
+        "slides:168",
+        "slides:167",
+        "slides:22",
+        "slides:140",
+        "slides:17",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:348",
+      "text": "DDPMs achieved excellent generation.",
+      "entailed": true,
+      "evidence": "slides:117",
+      "top": [
+        "slides:117",
+        "slides:137",
+        "slides:141",
+        "slides:138",
+        "slides:118",
+        "slides:158",
+        "slides:111",
+        "slides:163"
+      ]
+    },
+    {
+      "claim": "transcript:349",
+      "text": "DDPMs did not solve the fundamental problem of needing to go through hundreds of steps.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:141",
+        "slides:158",
+        "slides:105",
+        "slides:163",
+        "slides:137",
+        "slides:138",
+        "slides:111",
+        "slides:117"
+      ]
+    },
+    {
+      "claim": "transcript:350",
+      "text": "DDPM generations were nice but extremely slow.",
+      "entailed": true,
+      "evidence": "slides:123",
+      "top": [
+        "slides:117",
+        "slides:137",
+        "slides:158",
+        "slides:141",
+        "slides:138",
+        "slides:163",
+        "slides:111",
+        "slides:123"
+      ]
+    },
+    {
+      "claim": "transcript:351",
+      "text": "Generating images with DDPMs took a lot of time.",
+      "entailed": true,
+      "evidence": "slides:123",
+      "top": [
+        "slides:117",
+        "slides:123",
+        "slides:158",
+        "slides:141",
+        "slides:137",
+        "slides:111",
+        "slides:138",
+        "slides:113"
+      ]
+    },
+    {
+      "claim": "transcript:352",
+      "text": "In the same year (2020), the speed problem was solved.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:158",
+        "slides:133",
+        "slides:118",
+        "slides:155",
+        "slides:167",
+        "slides:122",
+        "slides:141",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:353",
+      "text": "The speed problem was solved by a different group.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:122",
+        "slides:133",
+        "slides:158",
+        "slides:155",
+        "slides:48",
+        "slides:141",
+        "slides:163",
+        "slides:152"
+      ]
+    },
+    {
+      "claim": "transcript:354",
+      "text": "In standard diffusion models (like DDPM), you approximate the step from x_{t+1} to x_t.",
+      "entailed": true,
+      "evidence": "slides:67",
+      "top": [
+        "slides:128",
+        "slides:57",
+        "slides:129",
+        "slides:67",
+        "slides:132",
+        "slides:124",
+        "slides:79",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:355",
+      "text": "You need to make this step to know where to start the next step from.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:162",
+        "slides:118",
+        "slides:71",
+        "slides:121",
+        "slides:65",
+        "slides:48",
+        "slides:159"
+      ]
+    },
+    {
+      "claim": "transcript:356",
+      "text": "Therefore, you need to go through all intermediate points.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:162",
+        "slides:136",
+        "slides:14",
+        "slides:55",
+        "slides:122",
+        "slides:133",
+        "slides:48",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:357",
+      "text": "In DDPM, instead of approximating the direction to the next point, the direction to the original x0 is always approximated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:113",
+        "slides:141",
+        "slides:133",
+        "slides:68",
+        "slides:135",
+        "slides:137",
+        "slides:111",
+        "slides:160"
+      ]
+    },
+    {
+      "claim": "transcript:358",
+      "text": "x0 lies in the same space as the intermediate points, but is far away.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:68",
+        "slides:133",
+        "slides:14",
+        "slides:58",
+        "slides:69",
+        "slides:78",
+        "slides:76",
+        "slides:115"
+      ]
+    },
+    {
+      "claim": "transcript:359",
+      "text": "There is a long path from x_T to x0.",
+      "entailed": true,
+      "evidence": "slides:58",
+      "top": [
+        "slides:133",
+        "slides:69",
+        "slides:58",
+        "slides:136",
+        "slides:71",
+        "slides:135",
+        "slides:78",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:360",
+      "text": "In DDPM, we approximate the reverse process step by step.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:158",
+        "slides:113",
+        "slides:141",
+        "slides:104",
+        "slides:111",
+        "slides:128",
+        "slides:160",
+        "slides:118"
+      ]
+    },
+    {
+      "claim": "transcript:361",
+      "text": "In DDIM, at each step of the Markov chain, we approximate the direction directly to the goal (x0).",
+      "entailed": true,
+      "evidence": "slides:133",
+      "top": [
+        "slides:135",
+        "slides:133",
+        "slides:128",
+        "slides:113",
+        "slides:138",
+        "slides:132",
+        "slides:159",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:362",
+      "text": "In DDIM, you cannot reach the goal (generate a good picture) in one step.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:118",
+        "slides:138",
+        "slides:159",
+        "slides:137",
+        "slides:117",
+        "slides:158",
+        "slides:135",
+        "slides:141"
+      ]
+    },
+    {
+      "claim": "transcript:363",
+      "text": "The approximation is not accurate enough to allow a single-step jump.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:136",
+        "slides:134",
+        "slides:162",
+        "slides:75",
+        "slides:109",
+        "slides:77",
+        "slides:133",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:364",
+      "text": "In DDIM, you can go further per step than in DDPM.",
+      "entailed": true,
+      "evidence": "slides:137",
+      "top": [
+        "slides:158",
+        "slides:118",
+        "slides:137",
+        "slides:159",
+        "slides:163",
+        "slides:138",
+        "slides:141",
+        "slides:111"
+      ]
+    },
+    {
+      "claim": "transcript:365",
+      "text": "In DDPM, skipping steps is not possible because you would not know where to start the next step.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:158",
+        "slides:141",
+        "slides:118",
+        "slides:163",
+        "slides:160",
+        "slides:122",
+        "slides:159",
+        "slides:111"
+      ]
+    },
+    {
+      "claim": "transcript:366",
+      "text": "In DDIM, each step aims to get closer to x0.",
+      "entailed": true,
+      "evidence": "slides:133",
+      "top": [
+        "slides:68",
+        "slides:118",
+        "slides:135",
+        "slides:137",
+        "slides:159",
+        "slides:158",
+        "slides:133",
+        "slides:138"
+      ]
+    },
+    {
+      "claim": "transcript:367",
+      "text": "Because each step approximates the direction to x0, the process can be continued.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:133",
+        "slides:68",
+        "slides:136",
+        "slides:58",
+        "slides:122",
+        "slides:74",
+        "slides:76",
+        "slides:162"
+      ]
+    },
+    {
+      "claim": "transcript:368",
+      "text": "In DDIM, even if the original chain had thousands of steps, one can take wider steps, moving faster toward x0.",
+      "entailed": true,
+      "evidence": "slides:136",
+      "top": [
+        "slides:68",
+        "slides:133",
+        "slides:137",
+        "slides:158",
+        "slides:159",
+        "slides:118",
+        "slides:136",
+        "slides:138"
+      ]
+    },
+    {
+      "claim": "transcript:369",
+      "text": "In DDIM, because each step targets x0, you do not lose track of your position.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:135",
+        "slides:133",
+        "slides:137",
+        "slides:138",
+        "slides:118",
+        "slides:159",
+        "slides:158",
+        "slides:68"
+      ]
+    },
+    {
+      "claim": "transcript:370",
+      "text": "In DDIM, you cannot jump to the final image in one step.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:159",
+        "slides:118",
+        "slides:138",
+        "slides:135",
+        "slides:137",
+        "slides:123",
+        "slides:141",
+        "slides:136"
+      ]
+    },
+    {
+      "claim": "transcript:371",
+      "text": "In DDIM, you can reach the target in a few dozen steps instead of thousands.",
+      "entailed": true,
+      "evidence": "slides:137",
+      "top": [
+        "slides:118",
+        "slides:158",
+        "slides:137",
+        "slides:138",
+        "slides:162",
+        "slides:159",
+        "slides:123",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:372",
+      "text": "DDIMs achieved a 10x to 100x speedup compared to original diffusion models.",
+      "entailed": true,
+      "evidence": "slides:137",
+      "top": [
+        "slides:138",
+        "slides:137",
+        "slides:119",
+        "slides:128",
+        "slides:124",
+        "slides:104",
+        "slides:121",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:373",
+      "text": "This speedup came with no loss of quality.",
+      "entailed": true,
+      "evidence": "slides:137",
+      "top": [
+        "slides:137",
+        "slides:156",
+        "slides:141",
+        "slides:123",
+        "slides:117",
+        "slides:119",
+        "slides:16",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:374",
+      "text": "There was not much improvement in quality.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:156",
+        "slides:137",
+        "slides:14",
+        "slides:141",
+        "slides:117",
+        "slides:162",
+        "slides:152",
+        "slides:106"
+      ]
+    },
+    {
+      "claim": "transcript:375",
+      "text": "The speedup was good enough.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:137",
+        "slides:133",
+        "slides:136",
+        "slides:122",
+        "slides:141",
+        "slides:117",
+        "slides:119",
+        "slides:68"
+      ]
+    },
+    {
+      "claim": "transcript:376",
+      "text": "DDIMs made diffusion models start working effectively.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:119",
+        "slides:120",
+        "slides:104",
+        "slides:121",
+        "slides:143",
+        "slides:138",
+        "slides:128"
+      ]
+    },
+    {
+      "claim": "transcript:377",
+      "text": "Diffusion models (after DDIMs) were still slow.",
+      "entailed": true,
+      "evidence": "slides:119",
+      "top": [
+        "slides:119",
+        "slides:124",
+        "slides:121",
+        "slides:143",
+        "slides:138",
+        "slides:122",
+        "slides:120",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:378",
+      "text": "They were still expensive.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:8",
+        "slides:117",
+        "slides:5",
+        "slides:1",
+        "slides:11",
+        "slides:13",
+        "slides:75",
+        "slides:148"
+      ]
+    },
+    {
+      "claim": "transcript:379",
+      "text": "One final step was needed for diffusion models to work as they do now.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:121",
+        "slides:120",
+        "slides:142",
+        "slides:122",
+        "slides:119",
+        "slides:79",
+        "slides:124",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:380",
+      "text": "The final step was to perform diffusion in the latent space of an autoencoder rather than in pixel space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:19",
+        "slides:20",
+        "slides:22",
+        "slides:139",
+        "slides:74",
+        "slides:142",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:381",
+      "text": "There is a famous picture from the stable diffusion paper.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:143",
+        "slides:121",
+        "slides:124",
+        "slides:79",
+        "slides:52",
+        "slides:122",
+        "slides:142",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:382",
+      "text": "Stable diffusion was one of the first working text-to-image diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:143",
+        "slides:142",
+        "slides:121",
+        "slides:52",
+        "slides:120",
+        "slides:131",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:383",
+      "text": "Stable diffusion was created in 2022.",
+      "entailed": true,
+      "evidence": "slides:143",
+      "top": [
+        "slides:143",
+        "slides:121",
+        "slides:142",
+        "slides:120",
+        "slides:119",
+        "slides:122",
+        "slides:79",
+        "slides:124"
+      ]
+    },
+    {
+      "claim": "transcript:384",
+      "text": "AI image generation has advanced significantly since 2022.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:117",
+        "slides:22",
+        "slides:168",
+        "slides:112",
+        "slides:131",
+        "slides:17",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:385",
+      "text": "The basic idea remains the same.",
+      "entailed": true,
+      "evidence": "slides:104",
+      "top": [
+        "slides:162",
+        "slides:55",
+        "slides:56",
+        "slides:48",
+        "slides:167",
+        "slides:68",
+        "slides:166",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:386",
+      "text": "Stable diffusion includes a diffusion process.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:143",
+        "slides:79",
+        "slides:122",
+        "slides:121",
+        "slides:120",
+        "slides:124",
+        "slides:127",
+        "slides:128"
+      ]
+    },
+    {
+      "claim": "transcript:387",
+      "text": "Stable diffusion has a denoising architecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:143",
+        "slides:119",
+        "slides:121",
+        "slides:122",
+        "slides:52",
+        "slides:131",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:388",
+      "text": "Stable diffusion contains a diffusion model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:143",
+        "slides:124",
+        "slides:79",
+        "slides:121",
+        "slides:120",
+        "slides:122",
+        "slides:119",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:389",
+      "text": "The process starts with Z_T.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:65",
+        "slides:71",
+        "slides:110",
+        "slides:25",
+        "slides:62",
+        "slides:95",
+        "slides:64",
+        "slides:99"
+      ]
+    },
+    {
+      "claim": "transcript:390",
+      "text": "The network is a self-attention-based unit.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:56",
+        "slides:149",
+        "slides:140",
+        "slides:19",
+        "slides:101",
+        "slides:22",
+        "slides:52",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:391",
+      "text": "The architecture can accept a condition.",
+      "entailed": true,
+      "evidence": "slides:154",
+      "top": [
+        "slides:148",
+        "slides:167",
+        "slides:166",
+        "slides:154",
+        "slides:56",
+        "slides:168",
+        "slides:162",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:392",
+      "text": "The condition can be the prompt (text).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:146",
+        "slides:25",
+        "slides:30",
+        "slides:29",
+        "slides:110",
+        "slides:161",
+        "slides:71",
+        "slides:145"
+      ]
+    },
+    {
+      "claim": "transcript:393",
+      "text": "The model needs to be informed what to draw.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:168",
+        "slides:140",
+        "slides:27",
+        "slides:146",
+        "slides:147",
+        "slides:49",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "transcript:394",
+      "text": "The text prompt must be incorporated into the model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:146",
+        "slides:116",
+        "slides:118",
+        "slides:168",
+        "slides:140",
+        "slides:101",
+        "slides:27",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:395",
+      "text": "The text prompt is encoded into a vector by a transformer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:146",
+        "slides:150",
+        "slides:114",
+        "slides:16",
+        "slides:22",
+        "slides:25",
+        "slides:19",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:396",
+      "text": "The text encoding vector is fed into self-attention blocks, possibly using encoder-decoder attention.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:19",
+        "slides:146",
+        "slides:17",
+        "slides:16",
+        "slides:18",
+        "slides:20",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:397",
+      "text": "The text condition goes into every denoising step.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:146",
+        "slides:16",
+        "slides:79",
+        "slides:147",
+        "slides:31",
+        "slides:114",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "transcript:398",
+      "text": "Every denoising step in the model has a conditional input that comes from the problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:76",
+        "slides:17",
+        "slides:79",
+        "slides:116",
+        "slides:147",
+        "slides:58",
+        "slides:31",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:399",
+      "text": "The most important novelty of this approach is that all of the denoising steps happen in the latent space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:17",
+        "slides:18",
+        "slides:34",
+        "slides:74",
+        "slides:121",
+        "slides:131",
+        "slides:139"
+      ]
+    },
+    {
+      "claim": "transcript:400",
+      "text": "The denoising steps happen in the space of vector representations of images, not in pixel space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:147",
+        "slides:139",
+        "slides:131",
+        "slides:24",
+        "slides:112",
+        "slides:34",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:401",
+      "text": "In the denoising process, we start with random noise.",
+      "entailed": true,
+      "evidence": "slides:56",
+      "top": [
+        "slides:54",
+        "slides:53",
+        "slides:56",
+        "slides:132",
+        "slides:147",
+        "slides:17",
+        "slides:124",
+        "slides:101"
+      ]
+    },
+    {
+      "claim": "transcript:402",
+      "text": "In the denoising process, we add the condition from the problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:79",
+        "slides:82",
+        "slides:147",
+        "slides:57",
+        "slides:48",
+        "slides:94",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:403",
+      "text": "The denoising process goes through many steps of denoising.",
+      "entailed": true,
+      "evidence": "slides:121",
+      "top": [
+        "slides:121",
+        "slides:17",
+        "slides:79",
+        "slides:147",
+        "slides:120",
+        "slides:122",
+        "slides:124",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "transcript:404",
+      "text": "The output of the denoising process is a code, not an image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:139",
+        "slides:147",
+        "slides:112",
+        "slides:114",
+        "slides:24",
+        "slides:131",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:405",
+      "text": "That code is then decoded by a decoder.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:114",
+        "slides:16",
+        "slides:26",
+        "slides:22",
+        "slides:111",
+        "slides:17",
+        "slides:19",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:406",
+      "text": "The red part of the architecture is a variational autoencoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:17",
+        "slides:19",
+        "slides:34",
+        "slides:20",
+        "slides:47",
+        "slides:22",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:407",
+      "text": "It is a complicated modern variational autoencoder, not exactly the one previously explained.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:15",
+        "slides:17",
+        "slides:19",
+        "slides:47",
+        "slides:20",
+        "slides:34",
+        "slides:16",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:408",
+      "text": "A similar approach was used in DALL-E 2.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:144",
+        "slides:103",
+        "slides:167",
+        "slides:111",
+        "slides:118",
+        "slides:77",
+        "slides:153",
+        "slides:158"
+      ]
+    },
+    {
+      "claim": "transcript:409",
+      "text": "DALL-E 2 worked differently because it used pre-trained CLIP embeddings.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:144",
+        "slides:146",
+        "slides:103",
+        "slides:153",
+        "slides:19",
+        "slides:16",
+        "slides:111",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:410",
+      "text": "The class did not have time to cover CLIP, unsupervised learning, or contrastive learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:106",
+        "slides:131",
+        "slides:146",
+        "slides:109",
+        "slides:52",
+        "slides:122",
+        "slides:48",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:411",
+      "text": "CLIP is a standard way of doing joint text-image embeddings.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:146",
+        "slides:22",
+        "slides:168",
+        "slides:17",
+        "slides:167",
+        "slides:139",
+        "slides:131",
+        "slides:144"
+      ]
+    },
+    {
+      "claim": "transcript:412",
+      "text": "CLIP provides a joint latent space where both images and text can be represented.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:146",
+        "slides:139",
+        "slides:18",
+        "slides:140",
+        "slides:22",
+        "slides:24",
+        "slides:147",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:413",
+      "text": "CLIP does not include a decoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:146",
+        "slides:16",
+        "slides:114",
+        "slides:111",
+        "slides:26",
+        "slides:31",
+        "slides:19",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:414",
+      "text": "In DALL-E 2, a decoder is trained to produce an image from a CLIP representation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:16",
+        "slides:114",
+        "slides:19",
+        "slides:111",
+        "slides:26",
+        "slides:144",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:415",
+      "text": "In DALL-E 2, a diffusion model is trained inside the latent space to convert the text representation into the image representation from the decoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:149",
+        "slides:22",
+        "slides:140",
+        "slides:104",
+        "slides:19",
+        "slides:139",
+        "slides:124",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:416",
+      "text": "Diffusion in DALL-E 2 happens in the latent space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:121",
+        "slides:122",
+        "slides:79",
+        "slides:149",
+        "slides:124",
+        "slides:120",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:417",
+      "text": "DALL-E 2 was pretty good.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:144",
+        "slides:117",
+        "slides:167",
+        "slides:77",
+        "slides:103",
+        "slides:118",
+        "slides:111",
+        "slides:148"
+      ]
+    },
+    {
+      "claim": "transcript:418",
+      "text": "In 2022, the images generated by these models were awe-inspiring.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:168",
+        "slides:112",
+        "slides:117",
+        "slides:148",
+        "slides:120",
+        "slides:27",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:419",
+      "text": "By current standards, those images would be laughed at.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:112",
+        "slides:24",
+        "slides:131",
+        "slides:167",
+        "slides:22",
+        "slides:147",
+        "slides:139",
+        "slides:146"
+      ]
+    },
+    {
+      "claim": "transcript:420",
+      "text": "There is a very famous image from the original MidJourney that won a contest.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:10",
+        "slides:12",
+        "slides:11",
+        "slides:146",
+        "slides:147",
+        "slides:13",
+        "slides:9",
+        "slides:8"
+      ]
+    },
+    {
+      "claim": "transcript:421",
+      "text": "It was later revealed that the contest-winning MidJourney image was AI-generated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:146",
+        "slides:147",
+        "slides:167",
+        "slides:168",
+        "slides:112",
+        "slides:11",
+        "slides:117",
+        "slides:123"
+      ]
+    },
+    {
+      "claim": "transcript:422",
+      "text": "This revelation caused a big controversy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:162",
+        "slides:68",
+        "slides:10",
+        "slides:0",
+        "slides:11",
+        "slides:55",
+        "slides:152",
+        "slides:2"
+      ]
+    },
+    {
+      "claim": "transcript:423",
+      "text": "That controversy was the first of its kind.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:11",
+        "slides:10",
+        "slides:142",
+        "slides:2",
+        "slides:68",
+        "slides:118",
+        "slides:55",
+        "slides:148"
+      ]
+    },
+    {
+      "claim": "transcript:424",
+      "text": "Now, controversies about AI-generated images are everywhere.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:167",
+        "slides:112",
+        "slides:22",
+        "slides:131",
+        "slides:147",
+        "slides:11",
+        "slides:117"
+      ]
+    },
+    {
+      "claim": "transcript:425",
+      "text": "The next development was the Diffusion Transformer (DiT).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:149",
+        "slides:142",
+        "slides:143",
+        "slides:155",
+        "slides:121",
+        "slides:148",
+        "slides:150",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:426",
+      "text": "DiT is a latent diffusion model.",
+      "entailed": true,
+      "evidence": "slides:149",
+      "top": [
+        "slides:149",
+        "slides:124",
+        "slides:121",
+        "slides:157",
+        "slides:120",
+        "slides:142",
+        "slides:104",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:427",
+      "text": "DiT uses a full transformer instead of a unit with some self-attention inside.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:149",
+        "slides:155",
+        "slides:157",
+        "slides:148",
+        "slides:153",
+        "slides:154",
+        "slides:150",
+        "slides:156"
+      ]
+    },
+    {
+      "claim": "transcript:428",
+      "text": "Previous models used a unit with some self-attention inside.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:140",
+        "slides:131",
+        "slides:157",
+        "slides:149",
+        "slides:146",
+        "slides:148",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:429",
+      "text": "The difference between DiT and previous models is in the internal architecture, not in the overall approach.",
+      "entailed": true,
+      "evidence": "slides:149",
+      "top": [
+        "slides:157",
+        "slides:155",
+        "slides:149",
+        "slides:148",
+        "slides:154",
+        "slides:153",
+        "slides:104",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "transcript:430",
+      "text": "The approach of DiT is the same as previous latent diffusion models.",
+      "entailed": true,
+      "evidence": "slides:149",
+      "top": [
+        "slides:149",
+        "slides:124",
+        "slides:104",
+        "slides:142",
+        "slides:121",
+        "slides:120",
+        "slides:157",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "transcript:431",
+      "text": "In both approaches, diffusion is done in the latent space of an autoencoder.",
+      "entailed": true,
+      "evidence": "slides:149",
+      "top": [
+        "slides:149",
+        "slides:19",
+        "slides:142",
+        "slides:20",
+        "slides:124",
+        "slides:17",
+        "slides:104",
+        "slides:15"
+      ]
+    },
+    {
+      "claim": "transcript:432",
+      "text": "DiTs were good.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:155",
+        "slides:149",
+        "slides:157",
+        "slides:148",
+        "slides:153",
+        "slides:117",
+        "slides:154",
+        "slides:142"
+      ]
+    },
+    {
+      "claim": "transcript:433",
+      "text": "The samples from DiT in 2022 were starting to look pretty good.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:148",
+        "slides:155",
+        "slides:117",
+        "slides:157",
+        "slides:149",
+        "slides:153",
+        "slides:142",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "transcript:434",
+      "text": "There was a model called Flux.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:52",
+        "slides:124",
+        "slides:121",
+        "slides:149",
+        "slides:120",
+        "slides:143",
+        "slides:11"
+      ]
+    },
+    {
+      "claim": "transcript:435",
+      "text": "The speaker thinks Flux was the last model they really followed.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:168",
+        "slides:120",
+        "slides:156",
+        "slides:118",
+        "slides:117",
+        "slides:104",
+        "slides:105"
+      ]
+    },
+    {
+      "claim": "transcript:436",
+      "text": "Flux is the direct successor of Stable Diffusion.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:143",
+        "slides:121",
+        "slides:79",
+        "slides:122",
+        "slides:120",
+        "slides:124",
+        "slides:119",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:437",
+      "text": "Flux was created by the same team as Stable Diffusion.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:143",
+        "slides:142",
+        "slides:121",
+        "slides:122",
+        "slides:120",
+        "slides:119",
+        "slides:79",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:438",
+      "text": "Flux was very good when it was released.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:156",
+        "slides:142",
+        "slides:119",
+        "slides:167",
+        "slides:143",
+        "slides:137",
+        "slides:123"
+      ]
+    },
+    {
+      "claim": "transcript:439",
+      "text": "Flux can still be downloaded and used.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:118",
+        "slides:119",
+        "slides:117",
+        "slides:149",
+        "slides:20",
+        "slides:167",
+        "slides:142",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:440",
+      "text": "The speaker is unsure if Flux is currently the best local model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:156",
+        "slides:168",
+        "slides:117",
+        "slides:101",
+        "slides:140",
+        "slides:161",
+        "slides:157",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "transcript:441",
+      "text": "For a long time, Flux was the best local model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:117",
+        "slides:157",
+        "slides:156",
+        "slides:119",
+        "slides:167",
+        "slides:142",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:442",
+      "text": "The speaker used Flux to generate images for their slides for a very long time.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:147",
+        "slides:131",
+        "slides:156",
+        "slides:24",
+        "slides:123",
+        "slides:117",
+        "slides:150"
+      ]
+    },
+    {
+      "claim": "transcript:443",
+      "text": "The images being shown are all generated by Flux.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:112",
+        "slides:147",
+        "slides:24",
+        "slides:131",
+        "slides:168",
+        "slides:106",
+        "slides:150",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:444",
+      "text": "Flux could not generate text in images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:112",
+        "slides:131",
+        "slides:106",
+        "slides:49",
+        "slides:123",
+        "slides:24",
+        "slides:168",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:445",
+      "text": "Flux was not very good at following detailed prompts regarding composition and character actions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:106",
+        "slides:156",
+        "slides:20",
+        "slides:140",
+        "slides:119",
+        "slides:168",
+        "slides:105",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:446",
+      "text": "Flux was a huge step forward.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:121",
+        "slides:120",
+        "slides:117",
+        "slides:119",
+        "slides:131",
+        "slides:162",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:447",
+      "text": "After Flux, the speaker lost the ability to follow state-of-the-art text-to-image models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:131",
+        "slides:146",
+        "slides:22",
+        "slides:140",
+        "slides:142",
+        "slides:20",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:448",
+      "text": "The best text-to-image models now are GPT or Gemini.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:146",
+        "slides:168",
+        "slides:117",
+        "slides:140",
+        "slides:22",
+        "slides:157",
+        "slides:112"
+      ]
+    },
+    {
+      "claim": "transcript:449",
+      "text": "GPT and Gemini sometimes switch being the best.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:155",
+        "slides:117",
+        "slides:163",
+        "slides:156",
+        "slides:137",
+        "slides:157",
+        "slides:166",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "transcript:450",
+      "text": "At one point, Gemini was the better model.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:11",
+        "slides:167",
+        "slides:134",
+        "slides:68",
+        "slides:163",
+        "slides:155",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:451",
+      "text": "Now the speaker thinks GPT Images 2 is again the best.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:155",
+        "slides:148",
+        "slides:123",
+        "slides:156",
+        "slides:167",
+        "slides:131",
+        "slides:157"
+      ]
+    },
+    {
+      "claim": "transcript:452",
+      "text": "Nobody discloses exactly how the best image generation models work.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:147",
+        "slides:168",
+        "slides:123",
+        "slides:120",
+        "slides:112",
+        "slides:27",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:453",
+      "text": "The speaker has no idea how the best image generation models work.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:112",
+        "slides:117",
+        "slides:20",
+        "slides:147",
+        "slides:131",
+        "slides:139",
+        "slides:24",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:454",
+      "text": "The reason is that nobody discloses the details.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:166",
+        "slides:106",
+        "slides:18",
+        "slides:152",
+        "slides:14",
+        "slides:139",
+        "slides:48",
+        "slides:16"
+      ]
+    },
+    {
+      "claim": "transcript:455",
+      "text": "MidJourney is still competitive.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:12",
+        "slides:117",
+        "slides:8",
+        "slides:148",
+        "slides:13",
+        "slides:131",
+        "slides:118",
+        "slides:145"
+      ]
+    },
+    {
+      "claim": "transcript:456",
+      "text": "MidJourney was closed from the very beginning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:13",
+        "slides:4",
+        "slides:12",
+        "slides:3",
+        "slides:1",
+        "slides:8",
+        "slides:6",
+        "slides:2"
+      ]
+    },
+    {
+      "claim": "transcript:457",
+      "text": "The speaker does not know exactly how MidJourney worked originally.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:10",
+        "slides:75",
+        "slides:146",
+        "slides:122",
+        "slides:145",
+        "slides:118",
+        "slides:142",
+        "slides:133"
+      ]
+    },
+    {
+      "claim": "transcript:458",
+      "text": "MidJourney probably worked approximately the same as other diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:124",
+        "slides:119",
+        "slides:143",
+        "slides:120",
+        "slides:121",
+        "slides:104",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:459",
+      "text": "Image generation nowadays is done by diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:131",
+        "slides:120",
+        "slides:121",
+        "slides:124",
+        "slides:168",
+        "slides:52",
+        "slides:138"
+      ]
+    },
+    {
+      "claim": "transcript:460",
+      "text": "These diffusion models most probably operate in the latent space of a big autoencoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:149",
+        "slides:142",
+        "slides:121",
+        "slides:52",
+        "slides:120",
+        "slides:19",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:461",
+      "text": "Generative models are divided into explicit density models and implicit density models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:27",
+        "slides:124",
+        "slides:120",
+        "slides:140",
+        "slides:52",
+        "slides:20",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:462",
+      "text": "Generative stochastic networks did not take off.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:138",
+        "slides:20",
+        "slides:109",
+        "slides:27",
+        "slides:106",
+        "slides:120",
+        "slides:127"
+      ]
+    },
+    {
+      "claim": "transcript:463",
+      "text": "The only relevant representative of implicit density models is GANs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:124",
+        "slides:20",
+        "slides:140",
+        "slides:52",
+        "slides:19",
+        "slides:117",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:464",
+      "text": "GANs are still relevant.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:168",
+        "slides:123",
+        "slides:27",
+        "slides:131",
+        "slides:140",
+        "slides:167",
+        "slides:146"
+      ]
+    },
+    {
+      "claim": "transcript:465",
+      "text": "GANs are now more niche and specialized than they used to be.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:117",
+        "slides:123",
+        "slides:168",
+        "slides:20",
+        "slides:19",
+        "slides:155",
+        "slides:27",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "transcript:466",
+      "text": "Explicit density models include a huge class of autoregressive models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:52",
+        "slides:119",
+        "slides:20",
+        "slides:19",
+        "slides:34",
+        "slides:66",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:467",
+      "text": "WaveNet is an autoregressive model for producing sound.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:101",
+        "slides:53",
+        "slides:56",
+        "slides:54",
+        "slides:124",
+        "slides:52",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:468",
+      "text": "Language models are autoregressive models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:140",
+        "slides:19",
+        "slides:168",
+        "slides:20",
+        "slides:146",
+        "slides:124",
+        "slides:120",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:469",
+      "text": "All large language models (LLMs) are autoregressive models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:140",
+        "slides:124",
+        "slides:19",
+        "slides:20",
+        "slides:168",
+        "slides:104",
+        "slides:105",
+        "slides:127"
+      ]
+    },
+    {
+      "claim": "transcript:470",
+      "text": "The transformer decoder produces tokens one by one autoregressively.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:150",
+        "slides:20",
+        "slides:16",
+        "slides:17",
+        "slides:114",
+        "slides:26",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:471",
+      "text": "The generation is conditional on the already generated prefix.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:153",
+        "slides:120",
+        "slides:117",
+        "slides:138",
+        "slides:166",
+        "slides:21",
+        "slides:161"
+      ]
+    },
+    {
+      "claim": "transcript:472",
+      "text": "Flow-based models start with a simple distribution and gradually transform it into a more complicated distribution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:167",
+        "slides:124",
+        "slides:120",
+        "slides:53",
+        "slides:121",
+        "slides:149",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:473",
+      "text": "Approximate density models make assumptions about an approximation to the distribution rather than about the distribution itself.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:75",
+        "slides:34",
+        "slides:134",
+        "slides:119",
+        "slides:131",
+        "slides:132",
+        "slides:124",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:474",
+      "text": "The two main representatives of approximate density models are Variational Autoencoders (VAEs) and diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:34",
+        "slides:19",
+        "slides:15",
+        "slides:20",
+        "slides:52",
+        "slides:104",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:475",
+      "text": "VAEs do not make assumptions on p(z|x).",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:29",
+        "slides:31",
+        "slides:30",
+        "slides:35",
+        "slides:21",
+        "slides:23",
+        "slides:32",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:476",
+      "text": "VAEs approximate p(z|x) and then make assumptions on the approximation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:33",
+        "slides:41",
+        "slides:29",
+        "slides:31",
+        "slides:21",
+        "slides:30",
+        "slides:35",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:477",
+      "text": "VAEs work through the variational lower bound.",
+      "entailed": true,
+      "evidence": "slides:77",
+      "top": [
+        "slides:77",
+        "slides:34",
+        "slides:82",
+        "slides:31",
+        "slides:15",
+        "slides:42",
+        "slides:47",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:478",
+      "text": "Diffusion models also follow the approximate density approach.",
+      "entailed": true,
+      "evidence": "slides:82",
+      "top": [
+        "slides:124",
+        "slides:121",
+        "slides:119",
+        "slides:120",
+        "slides:104",
+        "slides:82",
+        "slides:79",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:479",
+      "text": "In diffusion models, strong assumptions cannot be made about the reverse (denoising) chain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:119",
+        "slides:127",
+        "slides:122",
+        "slides:79",
+        "slides:124",
+        "slides:131",
+        "slides:82",
+        "slides:120"
+      ]
+    },
+    {
+      "claim": "transcript:480",
+      "text": "Instead, strong assumptions are made about an approximation to the reverse chain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:74",
+        "slides:75",
+        "slides:133",
+        "slides:135",
+        "slides:79",
+        "slides:136",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "transcript:481",
+      "text": "Then a variational lower bound is done.",
+      "entailed": true,
+      "evidence": "slides:82",
+      "top": [
+        "slides:77",
+        "slides:34",
+        "slides:82",
+        "slides:87",
+        "slides:86",
+        "slides:47",
+        "slides:78",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "transcript:482",
+      "text": "The diffusion approach is a more complicated version of the same approximate density approach.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:121",
+        "slides:104",
+        "slides:119",
+        "slides:143",
+        "slides:79",
+        "slides:82",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:483",
+      "text": "All state-of-the-art generative models reported in the news belong somewhere in this taxonomy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "slides:27",
+        "slides:140",
+        "slides:52",
+        "slides:120",
+        "slides:117",
+        "slides:20",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "transcript:484",
+      "text": "Most probably, they are either autoregressive models or variational autoencoders and diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:104",
+        "slides:52",
+        "slides:149",
+        "slides:19",
+        "slides:127",
+        "slides:120",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:485",
+      "text": "The lectures started with Bayes theorem and ended with Bayes theorem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:75",
+        "slides:24",
+        "slides:53",
+        "slides:52",
+        "slides:124",
+        "slides:29",
+        "slides:129",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:486",
+      "text": "The lectures progressed from neural networks and backpropagation to transformers, variational autoencoders, and diffusion models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:124",
+        "slides:34",
+        "slides:19",
+        "slides:104",
+        "slides:149",
+        "slides:15",
+        "slides:120"
+      ]
+    }
+  ]
+}

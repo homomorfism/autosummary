@@ -1,0 +1,6047 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "transcript:0",
+      "text": "We are continuing our discussions of deep learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:63",
+        "slides:45",
+        "slides:50",
+        "slides:62",
+        "slides:18",
+        "slides:42",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:1",
+      "text": "The speaker is in a very noisy and not really comfortable place.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:55",
+        "slides:47",
+        "slides:62",
+        "slides:48",
+        "slides:28",
+        "slides:38",
+        "slides:56"
+      ]
+    },
+    {
+      "claim": "transcript:2",
+      "text": "The speaker hopes that the combination of modern deep learning based noise removal techniques will work.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:63",
+        "slides:50",
+        "slides:62",
+        "slides:45",
+        "slides:47",
+        "slides:46",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "transcript:3",
+      "text": "The speaker hopes you will hear him fine.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:34",
+        "slides:55",
+        "slides:27",
+        "slides:63",
+        "slides:24",
+        "slides:54",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:4",
+      "text": "The speaker hopes the recording will be fine.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:46",
+        "slides:48",
+        "slides:17",
+        "slides:49",
+        "slides:55",
+        "slides:44",
+        "slides:13",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:5",
+      "text": "The previous lecture stopped at stochastic gradient descent algorithms.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:57",
+        "slides:62",
+        "slides:49",
+        "slides:50",
+        "slides:47",
+        "slides:58",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:6",
+      "text": "On the previous lecture, it was discussed that a neural network is a big composition of little things.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:29",
+        "slides:42",
+        "slides:25",
+        "slides:62",
+        "slides:28",
+        "slides:17",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:7",
+      "text": "On the previous lecture, it was discussed that a neural network is a huge computational graph.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:62",
+        "slides:25",
+        "slides:42",
+        "slides:29",
+        "slides:28",
+        "slides:17",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:8",
+      "text": "There are two different kinds of inputs for a neural network.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:42",
+        "slides:51",
+        "slides:47",
+        "slides:29",
+        "slides:26",
+        "slides:21",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:9",
+      "text": "The actual input acts like a picture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:46",
+        "slides:51",
+        "slides:33",
+        "slides:36",
+        "slides:29",
+        "slides:28",
+        "slides:32",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:10",
+      "text": "Today the class will be switching to pictures mostly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:46",
+        "slides:63",
+        "slides:50",
+        "slides:34",
+        "slides:45",
+        "slides:18",
+        "slides:26",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:11",
+      "text": "The weights are the other kind of input.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:21",
+        "slides:59",
+        "slides:37",
+        "slides:20",
+        "slides:61",
+        "slides:42",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:12",
+      "text": "Two days ago, the class discussed that the output of the whole computational graph would be the loss function.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:36",
+        "slides:26",
+        "slides:49",
+        "slides:24",
+        "slides:47",
+        "slides:54",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:13",
+      "text": "The loss function is a function of x, y, and w.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:55",
+        "slides:52",
+        "slides:17",
+        "slides:53",
+        "slides:47",
+        "slides:56",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:14",
+      "text": "There is also the correct answer that comes in probably at the end somewhere.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:27",
+        "slides:26",
+        "slides:42",
+        "slides:55",
+        "slides:40",
+        "slides:59",
+        "slides:16"
+      ]
+    },
+    {
+      "claim": "transcript:15",
+      "text": "The overall loss function L(w) is like the sum or the average of the losses on every step along the way.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:55",
+        "slides:52",
+        "slides:59",
+        "slides:24",
+        "slides:47",
+        "slides:56",
+        "slides:53"
+      ]
+    },
+    {
+      "claim": "transcript:16",
+      "text": "Then we do gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:50",
+        "slides:47",
+        "slides:57",
+        "slides:45",
+        "slides:63",
+        "slides:58",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:17",
+      "text": "The speaker started with the recap because some people might need it.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:34",
+        "slides:23",
+        "slides:18",
+        "slides:51",
+        "slides:50",
+        "slides:17",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:18",
+      "text": "In practice, we use something much more involved and complicated than a simple weight update formula, like the A-demovers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:52",
+        "slides:50",
+        "slides:58",
+        "slides:54",
+        "slides:49",
+        "slides:36",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "transcript:19",
+      "text": "Deep learning works in general by using sophisticated optimization algorithms like A-demovers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:63",
+        "slides:62",
+        "slides:45",
+        "slides:50",
+        "slides:57",
+        "slides:42",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:20",
+      "text": "There are still a few general remarks that the speaker wants to make.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:34",
+        "slides:59",
+        "slides:27",
+        "slides:35",
+        "slides:62",
+        "slides:47",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:21",
+      "text": "The speaker will probably postpone those remarks to the beginning of next week.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:17",
+        "slides:41",
+        "slides:38",
+        "slides:50",
+        "slides:34",
+        "slides:47",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:22",
+      "text": "The speaker wants to discuss weight initialization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:20",
+        "slides:59",
+        "slides:50",
+        "slides:15",
+        "slides:34",
+        "slides:40",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "transcript:23",
+      "text": "Weight initialization is a pretty interesting and nice topic.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:58",
+        "slides:20",
+        "slides:52",
+        "slides:62",
+        "slides:59",
+        "slides:49",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:24",
+      "text": "The speaker wants to discuss normalization layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:34",
+        "slides:26",
+        "slides:45",
+        "slides:61",
+        "slides:29",
+        "slides:25",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:25",
+      "text": "Batch normalization is an example of a normalization layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:45",
+        "slides:47",
+        "slides:52",
+        "slides:50",
+        "slides:61",
+        "slides:36",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:26",
+      "text": "There are several different flavors of normalization layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:26",
+        "slides:36",
+        "slides:61",
+        "slides:29",
+        "slides:45",
+        "slides:25",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:27",
+      "text": "What normalization layers do and why they are necessary is a pretty interesting topic.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:45",
+        "slides:17",
+        "slides:63",
+        "slides:34",
+        "slides:29",
+        "slides:25",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:28",
+      "text": "Today the class starts talking about architectures of neural networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:42",
+        "slides:47",
+        "slides:29",
+        "slides:25",
+        "slides:17",
+        "slides:26",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:29",
+      "text": "Previously the loss function was treated as a black box; today the class discusses what happens inside it.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:55",
+        "slides:17",
+        "slides:47",
+        "slides:40",
+        "slides:57",
+        "slides:32",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:30",
+      "text": "The word 'architecture' means the structure of the computational graph.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:25",
+        "slides:62",
+        "slides:36",
+        "slides:29",
+        "slides:42",
+        "slides:39",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:31",
+      "text": "The computational graph can be any directed acyclic graph.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:58",
+        "slides:57",
+        "slides:36",
+        "slides:49",
+        "slides:26",
+        "slides:29",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:32",
+      "text": "The only requirement is that there are no cycles in the graph.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:58",
+        "slides:41",
+        "slides:26",
+        "slides:45",
+        "slides:22",
+        "slides:36",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:33",
+      "text": "You need to be able to traverse the graph in topological order in one direction and then in the opposite direction.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:25",
+        "slides:41",
+        "slides:40",
+        "slides:29",
+        "slides:28",
+        "slides:45",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:34",
+      "text": "You need to be able to do forward propagation and backward propagation inside every node.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:47",
+        "slides:49",
+        "slides:26",
+        "slides:52",
+        "slides:40",
+        "slides:41",
+        "slides:16"
+      ]
+    },
+    {
+      "claim": "transcript:35",
+      "text": "The general picture: you have elementary nodes constituting a graph; you do one pass of forward propagation, one pass of web propagation; then you have your gradient; then you can use the algorithms discussed last time.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:45",
+        "slides:47",
+        "slides:52",
+        "slides:57",
+        "slides:17",
+        "slides:53",
+        "slides:56"
+      ]
+    },
+    {
+      "claim": "transcript:36",
+      "text": "The graph can be organized in a layered architecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:25",
+        "slides:29",
+        "slides:26",
+        "slides:62",
+        "slides:36",
+        "slides:42",
+        "slides:45",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:37",
+      "text": "Usually people use a layered architecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:25",
+        "slides:29",
+        "slides:26",
+        "slides:52",
+        "slides:47",
+        "slides:50",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:38",
+      "text": "In a layered architecture, as you go left to right, the components of a layer talk mostly to the components of the next layer, and so on until the end.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:25",
+        "slides:29",
+        "slides:45",
+        "slides:62",
+        "slides:51",
+        "slides:52",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:39",
+      "text": "Layers are sequential slices of the computational graph.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:26",
+        "slides:36",
+        "slides:32",
+        "slides:62",
+        "slides:39",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:40",
+      "text": "The concept of layers is murky.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:50",
+        "slides:34",
+        "slides:26",
+        "slides:61",
+        "slides:28",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:41",
+      "text": "Sometimes a layer is characterized exactly like that.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:26",
+        "slides:61",
+        "slides:50",
+        "slides:62",
+        "slides:51",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:42",
+      "text": "Sometimes you have skip connections, which go around layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:48",
+        "slides:50",
+        "slides:26",
+        "slides:49",
+        "slides:25",
+        "slides:63",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:43",
+      "text": "We will see networks where there are connections that go around the layers from layer 1 to layer 3.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:29",
+        "slides:49",
+        "slides:51",
+        "slides:25",
+        "slides:45",
+        "slides:52",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:44",
+      "text": "We will see connections that go around a given layer and not touch it, called residual connections.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:51",
+        "slides:49",
+        "slides:25",
+        "slides:26",
+        "slides:61",
+        "slides:52",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:45",
+      "text": "Residual connections are one of the most important ideas.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:63",
+        "slides:29",
+        "slides:50",
+        "slides:57",
+        "slides:49",
+        "slides:18",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:46",
+      "text": "The notion of layers is useful.",
+      "entailed": true,
+      "evidence": "slides:50",
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:50",
+        "slides:34",
+        "slides:26",
+        "slides:61",
+        "slides:62",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:47",
+      "text": "The most straightforward class of architectures is feed-forward networks, also called fully connected networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:47",
+        "slides:49",
+        "slides:63",
+        "slides:45",
+        "slides:52",
+        "slides:42",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:48",
+      "text": "There is really nothing to say about fully connected networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:22",
+        "slides:57",
+        "slides:63",
+        "slides:47",
+        "slides:62",
+        "slides:45",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:49",
+      "text": "In a fully connected network, you have layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:29",
+        "slides:25",
+        "slides:51",
+        "slides:26",
+        "slides:45",
+        "slides:52",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:50",
+      "text": "Every layer is a set of perceptrons.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:47",
+        "slides:51",
+        "slides:26",
+        "slides:61",
+        "slides:36",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:51",
+      "text": "Perceptrons inside a layer don't talk to each other.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:51",
+        "slides:47",
+        "slides:28",
+        "slides:26",
+        "slides:24",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:52",
+      "text": "Perceptrons receive inputs from the previous layer.",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:29",
+        "slides:47",
+        "slides:26",
+        "slides:51",
+        "slides:25",
+        "slides:42",
+        "slides:21",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:53",
+      "text": "Perceptrons send outputs to all neurons of the next layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:51",
+        "slides:25",
+        "slides:47",
+        "slides:26",
+        "slides:21",
+        "slides:42",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:54",
+      "text": "'Fully connected' means that it is a fully connected bipartite graph between every pair of layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:25",
+        "slides:29",
+        "slides:26",
+        "slides:61",
+        "slides:51",
+        "slides:45",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:55",
+      "text": "It is not a fully connected graph overall.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:25",
+        "slides:49",
+        "slides:29",
+        "slides:36",
+        "slides:27",
+        "slides:26",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:56",
+      "text": "It all comes together in a single or smaller amount of perceptrons on the other end, giving the output Y.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:26",
+        "slides:36",
+        "slides:51",
+        "slides:24",
+        "slides:47",
+        "slides:25",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:57",
+      "text": "Fully connected networks were important.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:34",
+        "slides:63",
+        "slides:45",
+        "slides:17",
+        "slides:57",
+        "slides:62",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:58",
+      "text": "Fully connected layers are still important.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:49",
+        "slides:29",
+        "slides:50",
+        "slides:63",
+        "slides:61",
+        "slides:25",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:59",
+      "text": "You will see a fully connected layer inside the transformer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:29",
+        "slides:25",
+        "slides:26",
+        "slides:53",
+        "slides:61",
+        "slides:49",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "transcript:60",
+      "text": "Today the class starts discussing convolutional neural networks, a more interesting and more involved kind of architecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:62",
+        "slides:42",
+        "slides:45",
+        "slides:63",
+        "slides:61",
+        "slides:18",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:61",
+      "text": "This is one of the last times in class when the speaker will go back to the biological motivation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:18",
+        "slides:27",
+        "slides:40",
+        "slides:21",
+        "slides:24",
+        "slides:50",
+        "slides:34",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:62",
+      "text": "Artificial neural networks were inspired by the human brain or animal brain.",
+      "entailed": true,
+      "evidence": "slides:42",
+      "top": [
+        "slides:42",
+        "slides:18",
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:21",
+        "slides:20",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:63",
+      "text": "The principle of connectionism was discussed.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:42",
+        "slides:29",
+        "slides:18",
+        "slides:24",
+        "slides:27",
+        "slides:28",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:64",
+      "text": "The speaker takes a detour to remark on gradient descent and the brain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:24",
+        "slides:28",
+        "slides:29",
+        "slides:39",
+        "slides:26",
+        "slides:30",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:65",
+      "text": "All artificial neural networks today are trained with gradient descent in one way or another.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:47",
+        "slides:63",
+        "slides:42",
+        "slides:45",
+        "slides:57",
+        "slides:62",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:66",
+      "text": "The difference between neural networks is not in the basic principle of solving an optimization problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:42",
+        "slides:45",
+        "slides:47",
+        "slides:28",
+        "slides:17",
+        "slides:22",
+        "slides:27",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:67",
+      "text": "The difference is in the form of the loss function, the training set, and the architecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:26",
+        "slides:17",
+        "slides:45",
+        "slides:24",
+        "slides:62",
+        "slides:29",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:68",
+      "text": "To optimize, you have a loss function, a way to compute its gradients, and you use the gradients.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:50",
+        "slides:45",
+        "slides:47",
+        "slides:58",
+        "slides:52",
+        "slides:59",
+        "slides:54"
+      ]
+    },
+    {
+      "claim": "transcript:69",
+      "text": "The human brain cannot work this way at all.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:28",
+        "slides:22",
+        "slides:24",
+        "slides:29",
+        "slides:25",
+        "slides:20",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:70",
+      "text": "This is obvious from the biological structure.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:28",
+        "slides:40",
+        "slides:18",
+        "slides:51",
+        "slides:23",
+        "slides:29",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:71",
+      "text": "Even without understanding the mechanism, you can definitely say it's not gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:24",
+        "slides:47",
+        "slides:27",
+        "slides:55",
+        "slides:18",
+        "slides:40",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:72",
+      "text": "A biological neuron has many dendrites coming out.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:51",
+        "slides:29",
+        "slides:23",
+        "slides:25",
+        "slides:20",
+        "slides:27",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:73",
+      "text": "A biological neuron has a single axon that is its output.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:21",
+        "slides:20",
+        "slides:29",
+        "slides:26",
+        "slides:36",
+        "slides:25",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:74",
+      "text": "A biological neuron can compute only one function.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:21",
+        "slides:20",
+        "slides:27",
+        "slides:28",
+        "slides:29",
+        "slides:61",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:75",
+      "text": "To have gradient descent, every node in a network needs to compute at least two different functions: forward and backward.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:17",
+        "slides:57",
+        "slides:47",
+        "slides:51",
+        "slides:63",
+        "slides:52",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:76",
+      "text": "Implementing a custom node in PyTorch requires implementing two procedures: forward propagation and backward propagation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:45",
+        "slides:20",
+        "slides:40",
+        "slides:62",
+        "slides:41",
+        "slides:47",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:77",
+      "text": "Biological neurons cannot compute two functions; they only have one output.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:51",
+        "slides:20",
+        "slides:27",
+        "slides:28",
+        "slides:22",
+        "slides:29",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:78",
+      "text": "Therefore, biological neurons cannot do gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:20",
+        "slides:21",
+        "slides:51",
+        "slides:28",
+        "slides:27",
+        "slides:29",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:79",
+      "text": "They have to do something else.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:18",
+        "slides:63",
+        "slides:17",
+        "slides:38",
+        "slides:50",
+        "slides:28",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:80",
+      "text": "That something else must send the signal back from the end where the loss function is computed.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:24",
+        "slides:57",
+        "slides:45",
+        "slides:47",
+        "slides:52",
+        "slides:51",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:81",
+      "text": "The speaker does not think the loss function is explicitly computed in our brains.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:24",
+        "slides:22",
+        "slides:28",
+        "slides:29",
+        "slides:32",
+        "slides:39",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:82",
+      "text": "There needs to be a connection from the end goal to every neuron.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:29",
+        "slides:28",
+        "slides:21",
+        "slides:51",
+        "slides:25",
+        "slides:20",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:83",
+      "text": "You need to have loops in the human brain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:28",
+        "slides:29",
+        "slides:25",
+        "slides:21",
+        "slides:26",
+        "slides:24",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:84",
+      "text": "In the biological brain, you absolutely have to have connections that go back.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:29",
+        "slides:24",
+        "slides:28",
+        "slides:25",
+        "slides:26",
+        "slides:18",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "transcript:85",
+      "text": "You have to have a lot of feedback in the brain in order to train.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:28",
+        "slides:18",
+        "slides:29",
+        "slides:20",
+        "slides:21",
+        "slides:24",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:86",
+      "text": "The brain does have feedback.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:24",
+        "slides:29",
+        "slides:28",
+        "slides:25",
+        "slides:18",
+        "slides:30",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:87",
+      "text": "Here is where the analogy between artificial neural networks and biological brains totally ends.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:42",
+        "slides:28",
+        "slides:27",
+        "slides:29",
+        "slides:18",
+        "slides:25",
+        "slides:51",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:88",
+      "text": "One perceptron is a pretty good model of a biological neuron, especially with real activations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:29",
+        "slides:20",
+        "slides:28",
+        "slides:21",
+        "slides:25",
+        "slides:42",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:89",
+      "text": "The brain works on the principle of connectionism: a huge composition of simple functions can give something very complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:28",
+        "slides:29",
+        "slides:25",
+        "slides:24",
+        "slides:18",
+        "slides:42",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:90",
+      "text": "But the brain cannot run on gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:28",
+        "slides:29",
+        "slides:24",
+        "slides:22",
+        "slides:20",
+        "slides:25",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:91",
+      "text": "The architecture cannot be similar at all.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:27",
+        "slides:62",
+        "slides:28",
+        "slides:8",
+        "slides:12",
+        "slides:48",
+        "slides:38"
+      ]
+    },
+    {
+      "claim": "transcript:92",
+      "text": "The brain also has layers.",
+      "entailed": true,
+      "evidence": "slides:29",
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:27",
+        "slides:28",
+        "slides:26",
+        "slides:51",
+        "slides:24",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:93",
+      "text": "Between every two layers in the brain, there are feedback connections that go back.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:27",
+        "slides:24",
+        "slides:26",
+        "slides:28",
+        "slides:21",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:94",
+      "text": "From later layers, there are feedback connections that go all the way back.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:26",
+        "slides:25",
+        "slides:49",
+        "slides:50",
+        "slides:34",
+        "slides:24",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:95",
+      "text": "The brain's fine structure is very difficult to understand.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:28",
+        "slides:25",
+        "slides:29",
+        "slides:24",
+        "slides:39",
+        "slides:20",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:96",
+      "text": "The visual cortex has layers.",
+      "entailed": true,
+      "evidence": "slides:29",
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:26",
+        "slides:36",
+        "slides:18",
+        "slides:24",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:97",
+      "text": "We understand the brain generally in terms of regions like the visual cortex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:25",
+        "slides:29",
+        "slides:28",
+        "slides:36",
+        "slides:24",
+        "slides:32",
+        "slides:26",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:98",
+      "text": "Hubel and Weasel (Thorsten Weasel and the speaker forgets Hubel's first name) got a Nobel Prize for studying the visual cortex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:29",
+        "slides:28",
+        "slides:25",
+        "slides:24",
+        "slides:39",
+        "slides:20",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:99",
+      "text": "Convolutional networks are partly motivated by the visual cortex.",
+      "entailed": true,
+      "evidence": "slides:18",
+      "top": [
+        "slides:18",
+        "slides:42",
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:36",
+        "slides:51",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:100",
+      "text": "There will be a point where the analogy stops.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:18",
+        "slides:27",
+        "slides:42",
+        "slides:28",
+        "slides:30",
+        "slides:24",
+        "slides:29",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:101",
+      "text": "In the 1960s-70s, Hubel and Weasel made their famous studies of the visual cortex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:42",
+        "slides:36",
+        "slides:39",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:102",
+      "text": "Their truly novel thing was having a new device.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:63",
+        "slides:62",
+        "slides:12",
+        "slides:21",
+        "slides:17",
+        "slides:37",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:103",
+      "text": "Their advantage was that they could make tiny electrodes to attach to a single neuron and read off the activation of a single neuron on a live brain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:20",
+        "slides:21",
+        "slides:18",
+        "slides:29",
+        "slides:51",
+        "slides:42",
+        "slides:28",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:104",
+      "text": "Prior to the development of techniques to attach electrodes to individual neurons, the only way to study brain function was through natural experiments such as strokes caused by motorcycle accidents.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:20",
+        "slides:29",
+        "slides:51",
+        "slides:21",
+        "slides:27",
+        "slides:28",
+        "slides:25",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:105",
+      "text": "A stroke can provide information about which part of the brain performs which function.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:36",
+        "slides:27",
+        "slides:29",
+        "slides:30",
+        "slides:25",
+        "slides:51",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:106",
+      "text": "Hubel and Wiesel used cats in their experiments.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:19",
+        "slides:22",
+        "slides:20",
+        "slides:21",
+        "slides:43",
+        "slides:4",
+        "slides:44",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:107",
+      "text": "They surgically opened the cat's head while the cat was under painkillers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:4",
+        "slides:5",
+        "slides:27",
+        "slides:20",
+        "slides:21",
+        "slides:43",
+        "slides:22",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "transcript:108",
+      "text": "They attached electrodes to individual neurons in the cat's brain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:29",
+        "slides:20",
+        "slides:51",
+        "slides:25",
+        "slides:26",
+        "slides:36",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:109",
+      "text": "They were able to observe what individual neurons respond to.",
+      "entailed": true,
+      "evidence": "slides:20",
+      "top": [
+        "slides:51",
+        "slides:21",
+        "slides:20",
+        "slides:29",
+        "slides:24",
+        "slides:25",
+        "slides:42",
+        "slides:23"
+      ]
+    },
+    {
+      "claim": "transcript:110",
+      "text": "It was known that the visual cortex is located in the occipital lobe in mammals, including humans and cats.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:25",
+        "slides:29",
+        "slides:36",
+        "slides:28",
+        "slides:26",
+        "slides:19",
+        "slides:39",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:111",
+      "text": "The speaker states that the location of the visual cortex is a very bad decision of nature.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:29",
+        "slides:25",
+        "slides:30",
+        "slides:31",
+        "slides:24",
+        "slides:39",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:112",
+      "text": "The visual cortex is fragile.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:29",
+        "slides:25",
+        "slides:27",
+        "slides:30",
+        "slides:18",
+        "slides:32",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:113",
+      "text": "It makes no sense for the visual cortex to be in the back because the eyes are in front.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:26",
+        "slides:33",
+        "slides:36",
+        "slides:23",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:114",
+      "text": "The optical nerve is a large bundle of connections that goes backward through the skull from the eyes to the visual cortex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:23",
+        "slides:26",
+        "slides:24",
+        "slides:28",
+        "slides:36",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:115",
+      "text": "It would be easier to have the visual cortex in front.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:28",
+        "slides:25",
+        "slides:33",
+        "slides:26",
+        "slides:24",
+        "slides:30",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:116",
+      "text": "One evolutionary explanation is that distant ancestors had proto-eyes on top of the head.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:23",
+        "slides:31",
+        "slides:29",
+        "slides:25",
+        "slides:41",
+        "slides:28",
+        "slides:39",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:117",
+      "text": "Then the eyes moved forward, but the visual processing part of the brain remained in the back.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:26",
+        "slides:23",
+        "slides:35",
+        "slides:33",
+        "slides:25",
+        "slides:24",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:118",
+      "text": "The speaker does not know why this evolutionary change occurred.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:38",
+        "slides:22",
+        "slides:28",
+        "slides:40",
+        "slides:41",
+        "slides:24",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:119",
+      "text": "The visual cortex processes visual input.",
+      "entailed": true,
+      "evidence": "slides:24",
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:26",
+        "slides:36",
+        "slides:24",
+        "slides:30",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:120",
+      "text": "It is easy to identify the first layer of the visual cortex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:26",
+        "slides:30",
+        "slides:36",
+        "slides:18",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:121",
+      "text": "The first layer is where the optical nerve attaches.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:20",
+        "slides:26",
+        "slides:23",
+        "slides:21",
+        "slides:25",
+        "slides:51",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:122",
+      "text": "Neurons in the first layer receive immediate inputs from the eyes.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:20",
+        "slides:51",
+        "slides:25",
+        "slides:21",
+        "slides:26",
+        "slides:23",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:123",
+      "text": "A single neuron in the first layer of the visual cortex has a small receptive field.",
+      "entailed": true,
+      "evidence": "slides:30",
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:30",
+        "slides:28",
+        "slides:26",
+        "slides:51",
+        "slides:36",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:124",
+      "text": "It only sees a small portion of the visual scene.",
+      "entailed": true,
+      "evidence": "slides:30",
+      "top": [
+        "slides:28",
+        "slides:35",
+        "slides:31",
+        "slides:30",
+        "slides:33",
+        "slides:29",
+        "slides:32",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:125",
+      "text": "It detects very simple features within that region.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:30",
+        "slides:31",
+        "slides:41",
+        "slides:40",
+        "slides:36",
+        "slides:39",
+        "slides:32",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:126",
+      "text": "A sample neuron shown on the slide recognizes vertical lines.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:51",
+        "slides:29",
+        "slides:20",
+        "slides:35",
+        "slides:25",
+        "slides:26",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:127",
+      "text": "When this neuron sees a bright vertical line in its receptive field, it strongly activates.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:21",
+        "slides:20",
+        "slides:29",
+        "slides:25",
+        "slides:24",
+        "slides:23",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:128",
+      "text": "If the line is rotated away from vertical, the neuron's activation decreases.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:20",
+        "slides:51",
+        "slides:21",
+        "slides:23",
+        "slides:29",
+        "slides:33",
+        "slides:25",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:129",
+      "text": "As the line rotates further, the activation eventually goes to zero.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:20",
+        "slides:51",
+        "slides:55",
+        "slides:21",
+        "slides:41",
+        "slides:57",
+        "slides:26",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:130",
+      "text": "One would expect a second layer of the visual cortex that receives outputs from the first layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:26",
+        "slides:28",
+        "slides:24",
+        "slides:30",
+        "slides:36",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:131",
+      "text": "The second layer would combine simple shapes into more complex features.",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:21",
+        "slides:50",
+        "slides:29",
+        "slides:25",
+        "slides:61",
+        "slides:26",
+        "slides:20",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:132",
+      "text": "A second-layer neuron could combine a vertical-line detector and a horizontal-line detector to recognize a cross shape.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:20",
+        "slides:51",
+        "slides:29",
+        "slides:35",
+        "slides:25",
+        "slides:40",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:133",
+      "text": "Hubel and Wiesel studied the first and second layers of the visual cortex.",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:19",
+        "slides:29",
+        "slides:25",
+        "slides:26",
+        "slides:28",
+        "slides:21",
+        "slides:20",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:134",
+      "text": "They discovered neurons in the second layer that combine simple features.",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:21",
+        "slides:20",
+        "slides:51",
+        "slides:29",
+        "slides:25",
+        "slides:18",
+        "slides:42",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:135",
+      "text": "They did not study layers beyond the second, moving on to other research.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:29",
+        "slides:12",
+        "slides:34",
+        "slides:8",
+        "slides:50",
+        "slides:26",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:136",
+      "text": "This was a wise decision because the brain is very complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:28",
+        "slides:24",
+        "slides:25",
+        "slides:39",
+        "slides:29",
+        "slides:18",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:137",
+      "text": "A simplified representation of the visual cortex shows layers named V1, V2, V3, V4, V5, V6, etc.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:29",
+        "slides:25",
+        "slides:36",
+        "slides:33",
+        "slides:30",
+        "slides:32",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:138",
+      "text": "The actual visual cortex is not structured like a simple artificial neural network.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:29",
+        "slides:25",
+        "slides:42",
+        "slides:26",
+        "slides:18",
+        "slides:36",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:139",
+      "text": "Its actual structure is much more complex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:27",
+        "slides:25",
+        "slides:39",
+        "slides:63",
+        "slides:26",
+        "slides:29",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:140",
+      "text": "There are feedback connections that go backward.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:24",
+        "slides:26",
+        "slides:29",
+        "slides:38",
+        "slides:30",
+        "slides:57",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:141",
+      "text": "There are many different kinds of connections.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:37",
+        "slides:45",
+        "slides:49",
+        "slides:29",
+        "slides:40",
+        "slides:27",
+        "slides:18",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:142",
+      "text": "The speaker has been showing a particular picture of the visual cortex for about 10 years.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:39",
+        "slides:26",
+        "slides:19",
+        "slides:36",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:143",
+      "text": "Over the last 10 years, the understanding of the visual cortex's complexity has increased.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:25",
+        "slides:29",
+        "slides:18",
+        "slides:24",
+        "slides:39",
+        "slides:36",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:144",
+      "text": "The picture is from a survey.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:46",
+        "slides:39",
+        "slides:29",
+        "slides:33",
+        "slides:25",
+        "slides:32",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:145",
+      "text": "The picture is titled 'the most important neural pathways in the early layers of the visual cortex.'",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:26",
+        "slides:36",
+        "slides:28",
+        "slides:30",
+        "slides:39",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:146",
+      "text": "The first layer of the visual cortex is well-defined.",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:26",
+        "slides:30",
+        "slides:28",
+        "slides:36",
+        "slides:18",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:147",
+      "text": "The first layer is easier to study because the optical nerve enters there.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:20",
+        "slides:25",
+        "slides:26",
+        "slides:21",
+        "slides:23",
+        "slides:32",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:148",
+      "text": "The second layer is also somewhat clear.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:26",
+        "slides:34",
+        "slides:61",
+        "slides:32",
+        "slides:50",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:149",
+      "text": "Beyond the second layer, the structure is a messy network of interconnected components doing different things.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:25",
+        "slides:29",
+        "slides:26",
+        "slides:28",
+        "slides:21",
+        "slides:50",
+        "slides:27",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:150",
+      "text": "Researchers observed that simple geometric shapes are processed in lower layers of the visual cortex, with complexity increasing layer by layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:26",
+        "slides:33",
+        "slides:36",
+        "slides:42",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:151",
+      "text": "At that time, there was no clear understanding of what happens in higher layers.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:22",
+        "slides:29",
+        "slides:50",
+        "slides:34",
+        "slides:26",
+        "slides:32",
+        "slides:25",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:152",
+      "text": "It is clear that at some higher layer, functions like face recognition occur.",
+      "entailed": true,
+      "evidence": "slides:39",
+      "top": [
+        "slides:29",
+        "slides:51",
+        "slides:39",
+        "slides:25",
+        "slides:36",
+        "slides:31",
+        "slides:30",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:153",
+      "text": "The human brain can solve complex computer vision problems like face recognition very quickly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:39",
+        "slides:27",
+        "slides:25",
+        "slides:29",
+        "slides:42",
+        "slides:36",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:154",
+      "text": "People tried to imitate the hierarchical processing of the visual cortex in computers.",
+      "entailed": true,
+      "evidence": "slides:42",
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:42",
+        "slides:28",
+        "slides:26",
+        "slides:36",
+        "slides:18",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "transcript:155",
+      "text": "Convolutions and convolutional networks are an old idea.",
+      "entailed": true,
+      "evidence": "slides:44",
+      "top": [
+        "slides:17",
+        "slides:45",
+        "slides:42",
+        "slides:57",
+        "slides:44",
+        "slides:62",
+        "slides:63",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:156",
+      "text": "They date back at least to the neocognitron architecture by Kunihiko Fukushima in the late 1970s.",
+      "entailed": true,
+      "evidence": "slides:43",
+      "top": [
+        "slides:43",
+        "slides:1",
+        "slides:33",
+        "slides:63",
+        "slides:62",
+        "slides:19",
+        "slides:44",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "transcript:157",
+      "text": "The neocognitron paper is short, about two pages, and not complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:43",
+        "slides:28",
+        "slides:27",
+        "slides:47",
+        "slides:39",
+        "slides:36",
+        "slides:62",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:158",
+      "text": "In 1979, Fukushima's neocognitron was a deep neural network with several layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:43",
+        "slides:29",
+        "slides:42",
+        "slides:63",
+        "slides:17",
+        "slides:36",
+        "slides:62",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:159",
+      "text": "It was a convolutional network.",
+      "entailed": true,
+      "evidence": "slides:43",
+      "top": [
+        "slides:44",
+        "slides:42",
+        "slides:45",
+        "slides:17",
+        "slides:62",
+        "slides:61",
+        "slides:43",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:160",
+      "text": "It used ReLU-like activations (hinge activations).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:21",
+        "slides:20",
+        "slides:37",
+        "slides:43",
+        "slides:44",
+        "slides:51",
+        "slides:52",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:161",
+      "text": "Hinge activations only became common in practice around 2011-2012.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:20",
+        "slides:21",
+        "slides:22",
+        "slides:38",
+        "slides:43",
+        "slides:8",
+        "slides:57",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "transcript:162",
+      "text": "The neocognitron did not have learning; the convolutions used fixed, non-trainable filters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:43",
+        "slides:42",
+        "slides:22",
+        "slides:17",
+        "slides:30",
+        "slides:39",
+        "slides:35",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:163",
+      "text": "Modern convolutional networks were developed by Yann LeCun's group.",
+      "entailed": true,
+      "evidence": "slides:44",
+      "top": [
+        "slides:44",
+        "slides:17",
+        "slides:45",
+        "slides:42",
+        "slides:57",
+        "slides:62",
+        "slides:61",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "transcript:164",
+      "text": "Yann LeCun is famous for developing convolutional networks over several decades.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:44",
+        "slides:17",
+        "slides:45",
+        "slides:62",
+        "slides:57",
+        "slides:63",
+        "slides:42",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:165",
+      "text": "By the late 1980s, convolutional networks existed in their modern form with training and convolutions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:44",
+        "slides:17",
+        "slides:42",
+        "slides:43",
+        "slides:45",
+        "slides:62",
+        "slides:57",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:166",
+      "text": "The speaker will explain how convolutional networks work using images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:51",
+        "slides:17",
+        "slides:46",
+        "slides:42",
+        "slides:62",
+        "slides:63",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:167",
+      "text": "The idea behind convolutional networks is brilliant.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:17",
+        "slides:42",
+        "slides:63",
+        "slides:18",
+        "slides:57",
+        "slides:62",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:168",
+      "text": "It is a form of structural regularization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:56",
+        "slides:55",
+        "slides:57",
+        "slides:36",
+        "slides:52",
+        "slides:45",
+        "slides:40",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:169",
+      "text": "An example computer vision task is finding a boy's head in an image, which is object detection.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:39",
+        "slides:36",
+        "slides:51",
+        "slides:42",
+        "slides:35",
+        "slides:46",
+        "slides:45",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:170",
+      "text": "The main assumption behind CNNs is that a feature detection function can be applied identically across the entire image.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:51",
+        "slides:45",
+        "slides:18",
+        "slides:52",
+        "slides:46",
+        "slides:63",
+        "slides:50",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:171",
+      "text": "If a function can detect a boy's head in a small window, the same function can be applied to every part of the image.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:47",
+        "slides:51",
+        "slides:45",
+        "slides:52",
+        "slides:36",
+        "slides:46",
+        "slides:29",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:172",
+      "text": "The function's output depends on the input, but the function itself is invariant across the image.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:55",
+        "slides:51",
+        "slides:45",
+        "slides:36",
+        "slides:30",
+        "slides:46",
+        "slides:32",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:173",
+      "text": "In CNNs, the input (e.g., an image) is divided into small, overlapping windows.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:46",
+        "slides:51",
+        "slides:62",
+        "slides:45",
+        "slides:47",
+        "slides:18",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:174",
+      "text": "A small neural network is applied to each window.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:52",
+        "slides:62",
+        "slides:26",
+        "slides:29",
+        "slides:46",
+        "slides:25",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:175",
+      "text": "The small neural network is trained using gradient descent and has learnable weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:17",
+        "slides:52",
+        "slides:62",
+        "slides:42",
+        "slides:50",
+        "slides:51",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:176",
+      "text": "It processes only a small tile of a few pixels.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:47",
+        "slides:52",
+        "slides:38",
+        "slides:46",
+        "slides:32",
+        "slides:28",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:177",
+      "text": "The same neural network is applied to every tile of the input.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:47",
+        "slides:45",
+        "slides:52",
+        "slides:51",
+        "slides:26",
+        "slides:29",
+        "slides:21",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:178",
+      "text": "The output for each tile is a vector of features (multiple numbers).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:26",
+        "slides:52",
+        "slides:51",
+        "slides:53",
+        "slides:45",
+        "slides:55",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:179",
+      "text": "The result of applying the network to all windows is a grid of feature vectors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:52",
+        "slides:45",
+        "slides:49",
+        "slides:46",
+        "slides:17",
+        "slides:62",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:180",
+      "text": "These feature vectors are arranged spatially according to the window positions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:52",
+        "slides:26",
+        "slides:30",
+        "slides:33",
+        "slides:35",
+        "slides:25",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:181",
+      "text": "For example, the top-right window produces a feature vector in the top-right position of the output grid.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:52",
+        "slides:55",
+        "slides:26",
+        "slides:30",
+        "slides:31",
+        "slides:36",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:182",
+      "text": "The overall output is a three-dimensional tensor, with spatial dimensions (width and height) and a depth dimension for the features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:32",
+        "slides:53",
+        "slides:30",
+        "slides:33",
+        "slides:26",
+        "slides:31",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "transcript:183",
+      "text": "Color images have three input channels (depth 3).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:26",
+        "slides:36",
+        "slides:48",
+        "slides:29",
+        "slides:40",
+        "slides:45",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "transcript:184",
+      "text": "A convolutional layer always outputs a 3D tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:55",
+        "slides:45",
+        "slides:17",
+        "slides:29",
+        "slides:51",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:185",
+      "text": "The process can be repeated, applying another convolutional layer to the output tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:61",
+        "slides:45",
+        "slides:53",
+        "slides:17",
+        "slides:26",
+        "slides:57",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:186",
+      "text": "In subsequent layers, the input tensor is tiled into sub-tensors, and another neural network is applied to each sub-tensor to produce a new 3D tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:29",
+        "slides:45",
+        "slides:25",
+        "slides:21",
+        "slides:42",
+        "slides:17",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:187",
+      "text": "Many convolutional layers can be chained in this way.",
+      "entailed": true,
+      "evidence": "slides:63",
+      "top": [
+        "slides:45",
+        "slides:61",
+        "slides:17",
+        "slides:57",
+        "slides:63",
+        "slides:53",
+        "slides:50",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:188",
+      "text": "Each convolutional operation tiles its input into small windows.",
+      "entailed": true,
+      "evidence": "slides:46",
+      "top": [
+        "slides:52",
+        "slides:45",
+        "slides:47",
+        "slides:17",
+        "slides:62",
+        "slides:63",
+        "slides:61",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "transcript:189",
+      "text": "The input can be the original image or an intermediate 3D tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:26",
+        "slides:32",
+        "slides:40",
+        "slides:45",
+        "slides:33",
+        "slides:29",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:190",
+      "text": "Convolutional layers can be chained to form a deep sequence.",
+      "entailed": true,
+      "evidence": "slides:63",
+      "top": [
+        "slides:17",
+        "slides:63",
+        "slides:45",
+        "slides:61",
+        "slides:50",
+        "slides:62",
+        "slides:57",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:191",
+      "text": "Classical convolutional neural networks include a type of layer called the pooling layer.",
+      "entailed": true,
+      "evidence": "slides:61",
+      "top": [
+        "slides:61",
+        "slides:62",
+        "slides:17",
+        "slides:45",
+        "slides:42",
+        "slides:29",
+        "slides:53",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:192",
+      "text": "Many architectures discussed in today's lecture include pooling layers.",
+      "entailed": true,
+      "evidence": "slides:61",
+      "top": [
+        "slides:61",
+        "slides:58",
+        "slides:49",
+        "slides:62",
+        "slides:59",
+        "slides:29",
+        "slides:25",
+        "slides:60"
+      ]
+    },
+    {
+      "claim": "transcript:193",
+      "text": "In convolutional neural networks, input images are divided into small tiles.",
+      "entailed": true,
+      "evidence": "slides:46",
+      "top": [
+        "slides:45",
+        "slides:17",
+        "slides:51",
+        "slides:42",
+        "slides:52",
+        "slides:61",
+        "slides:46",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:194",
+      "text": "A common tile size is 3x3 pixels.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:52",
+        "slides:32",
+        "slides:59",
+        "slides:47",
+        "slides:53",
+        "slides:36",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:195",
+      "text": "For a color image, each tile has a depth of 3.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:48",
+        "slides:36",
+        "slides:63",
+        "slides:51",
+        "slides:26",
+        "slides:29",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:196",
+      "text": "Each tile is processed by a small neural network to produce a vector of features.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:51",
+        "slides:45",
+        "slides:52",
+        "slides:42",
+        "slides:17",
+        "slides:36",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:197",
+      "text": "The feature vector for a tile depends only on that specific tile.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:30",
+        "slides:35",
+        "slides:53",
+        "slides:31",
+        "slides:51",
+        "slides:32",
+        "slides:52",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:198",
+      "text": "A feature computed from a 3x3 tile has a receptive field of 3x3 pixels.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:36",
+        "slides:51",
+        "slides:30",
+        "slides:35",
+        "slides:43",
+        "slides:31",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:199",
+      "text": "The term 'receptive field' refers to the region of the input that influences a feature.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:30",
+        "slides:24",
+        "slides:42",
+        "slides:18",
+        "slides:29",
+        "slides:51",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:200",
+      "text": "After one convolutional layer with 3x3 tiles, the output is a 3D tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:32",
+        "slides:55",
+        "slides:45",
+        "slides:26",
+        "slides:17",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:201",
+      "text": "A second convolutional layer with 3x3 tiles applied to the first layer's output results in features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:45",
+        "slides:17",
+        "slides:50",
+        "slides:51",
+        "slides:55",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:202",
+      "text": "A feature in the second convolutional layer has a receptive field of 5x5 pixels in the original image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:53",
+        "slides:45",
+        "slides:61",
+        "slides:42",
+        "slides:35",
+        "slides:18",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:203",
+      "text": "Each 3x3 convolutional layer adds 2 to the width and height of the receptive field.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:32",
+        "slides:45",
+        "slides:51",
+        "slides:21",
+        "slides:29",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:204",
+      "text": "Processing a 256x256 image using only successive 3x3 convolutional layers would require approximately 130 layers, which is impractical.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:63",
+        "slides:53",
+        "slides:61",
+        "slides:48",
+        "slides:17",
+        "slides:50",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:205",
+      "text": "A method to reduce spatial dimensions more quickly is needed in convolutional networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "slides:45",
+        "slides:50",
+        "slides:63",
+        "slides:57",
+        "slides:61",
+        "slides:62",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:206",
+      "text": "Pooling layers were introduced in original CNNs to quickly reduce spatial geometry.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:63",
+        "slides:61",
+        "slides:62",
+        "slides:18",
+        "slides:45",
+        "slides:52",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:207",
+      "text": "Pooling layers are still used in some modern architectures.",
+      "entailed": true,
+      "evidence": "slides:59",
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:61",
+        "slides:49",
+        "slides:62",
+        "slides:63",
+        "slides:29",
+        "slides:60"
+      ]
+    },
+    {
+      "claim": "transcript:208",
+      "text": "Pooling layers reduce spatial dimensions by dividing the tensor into non-overlapping windows.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:58",
+        "slides:25",
+        "slides:29",
+        "slides:49",
+        "slides:52",
+        "slides:50",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:209",
+      "text": "A typical pooling window size is 2x2.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:48",
+        "slides:47",
+        "slides:52",
+        "slides:58",
+        "slides:60",
+        "slides:49",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:210",
+      "text": "In pooling, from each 2x2 window, only one value is kept, discarding three features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:60",
+        "slides:59",
+        "slides:61",
+        "slides:49",
+        "slides:52",
+        "slides:47",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:211",
+      "text": "Max pooling takes the maximum value in the window.",
+      "entailed": true,
+      "evidence": "slides:60",
+      "top": [
+        "slides:58",
+        "slides:59",
+        "slides:60",
+        "slides:49",
+        "slides:48",
+        "slides:47",
+        "slides:52",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:212",
+      "text": "Average pooling takes the average of the values in the window.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:60",
+        "slides:49",
+        "slides:48",
+        "slides:52",
+        "slides:47",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:213",
+      "text": "In practice, max pooling is more commonly used than average pooling.",
+      "entailed": true,
+      "evidence": "slides:59",
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:60",
+        "slides:49",
+        "slides:61",
+        "slides:48",
+        "slides:50",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:214",
+      "text": "Max pooling is preferred because it generally yields better performance.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:60",
+        "slides:49",
+        "slides:48",
+        "slides:61",
+        "slides:50",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:215",
+      "text": "A justification for max pooling is that it encourages convolutional layers to extract more meaningful features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:59",
+        "slides:61",
+        "slides:49",
+        "slides:45",
+        "slides:63",
+        "slides:60",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:216",
+      "text": "For object detection features, max pooling is more appropriate because only the relevant small tile has a high activation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:49",
+        "slides:63",
+        "slides:50",
+        "slides:61",
+        "slides:45",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:217",
+      "text": "For average-type features like color, average pooling is more appropriate.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:49",
+        "slides:61",
+        "slides:60",
+        "slides:50",
+        "slides:36",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:218",
+      "text": "Combining convolutional and pooling layers allows rapid reduction of spatial dimensions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:50",
+        "slides:45",
+        "slides:17",
+        "slides:63",
+        "slides:53",
+        "slides:36",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:219",
+      "text": "A 2x2 pooling layer halves both the width and height of the tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:60",
+        "slides:61",
+        "slides:53",
+        "slides:59",
+        "slides:49",
+        "slides:25",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:220",
+      "text": "A 2x2 pooling layer reduces the total number of features by a factor of 4.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:61",
+        "slides:53",
+        "slides:60",
+        "slides:59",
+        "slides:49",
+        "slides:50",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:221",
+      "text": "The term 'convolution' in this context means tiling the input with small tiles and applying a shared transformation to each tile.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:45",
+        "slides:44",
+        "slides:61",
+        "slides:17",
+        "slides:53",
+        "slides:55",
+        "slides:43",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:222",
+      "text": "The specific transformation is not defined by the term 'convolution'.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:44",
+        "slides:53",
+        "slides:61",
+        "slides:45",
+        "slides:17",
+        "slides:43",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:223",
+      "text": "In typical convolutional layers, the transformation is a single fully connected layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:45",
+        "slides:53",
+        "slides:51",
+        "slides:17",
+        "slides:52",
+        "slides:26",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:224",
+      "text": "The input to a convolutional layer is a 3D tensor of dimensions W (width) x H (height) x D (depth).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:45",
+        "slides:17",
+        "slides:55",
+        "slides:52",
+        "slides:29",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:225",
+      "text": "The convolutional transformation operates on a tile of size w x h x D, where the tile always spans the full depth D.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:45",
+        "slides:55",
+        "slides:61",
+        "slides:52",
+        "slides:17",
+        "slides:63",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:226",
+      "text": "The tile (w x h x D) is flattened into a vector of length D * w * h.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:53",
+        "slides:54",
+        "slides:52",
+        "slides:56",
+        "slides:21",
+        "slides:33",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "transcript:227",
+      "text": "This flattened vector is multiplied by a weight matrix.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:54",
+        "slides:52",
+        "slides:61",
+        "slides:56",
+        "slides:55",
+        "slides:26",
+        "slides:4"
+      ]
+    },
+    {
+      "claim": "transcript:228",
+      "text": "The output of the transformation is a vector of size d' (number of output features).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:54",
+        "slides:53",
+        "slides:40",
+        "slides:36",
+        "slides:26",
+        "slides:33",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:229",
+      "text": "The weight matrix has dimensions (D * w * h) x d'.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:54",
+        "slides:53",
+        "slides:56",
+        "slides:4",
+        "slides:62",
+        "slides:48",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:230",
+      "text": "In a convolutional layer, the same weight matrix is applied to every tile of the input.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:52",
+        "slides:53",
+        "slides:45",
+        "slides:61",
+        "slides:17",
+        "slides:51",
+        "slides:55",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:231",
+      "text": "The total number of weights in a convolutional layer depends only on the tile size (w, h, D) and the number of output features d', not on the input image dimensions (W, H).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:52",
+        "slides:45",
+        "slides:61",
+        "slides:51",
+        "slides:17",
+        "slides:55",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:232",
+      "text": "Convolutional layers can process inputs of any size without changing the number of weights.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:45",
+        "slides:17",
+        "slides:50",
+        "slides:57",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:233",
+      "text": "In practice (e.g., in PyTorch), the weights of a convolutional layer are stored as a 4D tensor of shape D x w x h x d'.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:45",
+        "slides:61",
+        "slides:52",
+        "slides:17",
+        "slides:62",
+        "slides:42",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:234",
+      "text": "The input to the convolutional layer is a 3D tensor that matches the first three dimensions of the weight tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:17",
+        "slides:45",
+        "slides:55",
+        "slides:44",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:235",
+      "text": "In practice, four-dimensional tensors are used when setting up convolutional layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:17",
+        "slides:53",
+        "slides:45",
+        "slides:52",
+        "slides:26",
+        "slides:50",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:236",
+      "text": "It does not matter that the input is specifically a picture represented as a $3D$ tensor with width, height, and depth.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:32",
+        "slides:33",
+        "slides:29",
+        "slides:31",
+        "slides:39",
+        "slides:53",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:237",
+      "text": "Convolutional networks can be used for other kinds of inputs besides images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:17",
+        "slides:42",
+        "slides:62",
+        "slides:61",
+        "slides:51",
+        "slides:63",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:238",
+      "text": "CNNs were designed for text processing at some point.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:18",
+        "slides:63",
+        "slides:51",
+        "slides:46",
+        "slides:42",
+        "slides:17",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:239",
+      "text": "Text is a sequence of tokens.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:21",
+        "slides:62",
+        "slides:20",
+        "slides:40",
+        "slides:36",
+        "slides:35",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:240",
+      "text": "Every token is represented by some vector.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:21",
+        "slides:24",
+        "slides:20",
+        "slides:45",
+        "slides:35",
+        "slides:36",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:241",
+      "text": "Text is a sequence of vectors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:40",
+        "slides:39",
+        "slides:36",
+        "slides:35",
+        "slides:24",
+        "slides:47",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:242",
+      "text": "Text is a 1D object that produces a 2D input tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:30",
+        "slides:62",
+        "slides:32",
+        "slides:20",
+        "slides:36",
+        "slides:33",
+        "slides:21",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:243",
+      "text": "One-dimensional convolutions can be used for text.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:62",
+        "slides:17",
+        "slides:45",
+        "slides:57",
+        "slides:44",
+        "slides:53",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:244",
+      "text": "In 1D convolutions, windows are sliding windows that take a number of neighboring vectors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:46",
+        "slides:53",
+        "slides:47",
+        "slides:61",
+        "slides:45",
+        "slides:55",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:245",
+      "text": "The small input for a 1D convolution window is of size $d \\times l$, where $d$ is the depth and $l$ is the length of the window.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:52",
+        "slides:61",
+        "slides:55",
+        "slides:47",
+        "slides:48",
+        "slides:17",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:246",
+      "text": "The weight matrix $W$ for a 1D convolution is a three-dimensional tensor of size $d \\times l \\times d'$, where $d'$ is the output depth.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:55",
+        "slides:44",
+        "slides:54",
+        "slides:17",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:247",
+      "text": "The result of the 1D convolution is a vector of size $d'$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:55",
+        "slides:61",
+        "slides:45",
+        "slides:17",
+        "slides:44",
+        "slides:57",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:248",
+      "text": "There is almost no difference from 2D convolutions, except all dimensions change by one.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:45",
+        "slides:17",
+        "slides:55",
+        "slides:44",
+        "slides:57",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:249",
+      "text": "For a video, which is a sequence of images, the input is a tensor of dimensions $d \\times w \\times h \\times t$ (time).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:36",
+        "slides:45",
+        "slides:62",
+        "slides:26",
+        "slides:61",
+        "slides:53",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "transcript:250",
+      "text": "Every image in a video is a $w \\times h \\times d$ tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:46",
+        "slides:62",
+        "slides:48",
+        "slides:29",
+        "slides:25",
+        "slides:28",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:251",
+      "text": "You can multiply the video input by a five-dimensional tensor $W$ of dimensions $t \\times w \\times h \\times t \\times d'$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:52",
+        "slides:53",
+        "slides:35",
+        "slides:33",
+        "slides:54",
+        "slides:44",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:252",
+      "text": "The idea of cutting input into small tiles and processing each tile separately can be applied to any kind of input.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:43",
+        "slides:52",
+        "slides:45",
+        "slides:21",
+        "slides:62",
+        "slides:20",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:253",
+      "text": "Convolutional networks were especially productive for images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:17",
+        "slides:42",
+        "slides:18",
+        "slides:63",
+        "slides:50",
+        "slides:62",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:254",
+      "text": "In this computer vision class, all examples will be images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:62",
+        "slides:45",
+        "slides:40",
+        "slides:51",
+        "slides:42",
+        "slides:35",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "transcript:255",
+      "text": "The specific example discussed is a LeNet architecture from around 2001.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:47",
+        "slides:26",
+        "slides:36",
+        "slides:52",
+        "slides:43",
+        "slides:48",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:256",
+      "text": "The LeNet architecture is very small and has very small input.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:48",
+        "slides:47",
+        "slides:28",
+        "slides:26",
+        "slides:27",
+        "slides:38",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:257",
+      "text": "The LeNet architecture is not very powerful.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:28",
+        "slides:48",
+        "slides:27",
+        "slides:47",
+        "slides:22",
+        "slides:63",
+        "slides:38"
+      ]
+    },
+    {
+      "claim": "transcript:258",
+      "text": "The purpose of going through the LeNet architecture is to count weights and understand convolutional networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:45",
+        "slides:17",
+        "slides:52",
+        "slides:63",
+        "slides:61",
+        "slides:47",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:259",
+      "text": "The input to the LeNet architecture is a $32 \\times 32$ picture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:48",
+        "slides:46",
+        "slides:36",
+        "slides:26",
+        "slides:28",
+        "slides:32",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:260",
+      "text": "The input picture is grayscale with depth 1.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:32",
+        "slides:46",
+        "slides:36",
+        "slides:29",
+        "slides:33",
+        "slides:26",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:261",
+      "text": "The input is a tensor of size $1 \\times 32 \\times 32$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:52",
+        "slides:62",
+        "slides:26",
+        "slides:54",
+        "slides:40",
+        "slides:61",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:262",
+      "text": "The slide shows intermediate results, not the weights or layers themselves.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:50",
+        "slides:29",
+        "slides:61",
+        "slides:51",
+        "slides:26",
+        "slides:59",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:263",
+      "text": "After the first convolutional layer, the result is a $28 \\times 28$ tensor with 6 feature maps.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:26",
+        "slides:17",
+        "slides:45",
+        "slides:29",
+        "slides:63",
+        "slides:44"
+      ]
+    },
+    {
+      "claim": "transcript:264",
+      "text": "Feature maps are the same as channels or depth.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:30",
+        "slides:31",
+        "slides:36",
+        "slides:40",
+        "slides:29",
+        "slides:32",
+        "slides:26",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:265",
+      "text": "The resulting tensor after the first layer is $6 \\times 28 \\times 28$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:53",
+        "slides:29",
+        "slides:25",
+        "slides:61",
+        "slides:21",
+        "slides:50",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:266",
+      "text": "The input size was $32 \\times 32 \\times 1$, and after the convolutional layer it became $6 \\times 28 \\times 28$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:17",
+        "slides:45",
+        "slides:44",
+        "slides:63",
+        "slides:26",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:267",
+      "text": "Going from $32 \\times 32$ to $28 \\times 28$ indicates that the convolution window was likely $5 \\times 5$ because the reduction in each dimension is 4 pixels.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:48",
+        "slides:52",
+        "slides:46",
+        "slides:55",
+        "slides:45",
+        "slides:17",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:268",
+      "text": "If you cover a $32 \\times 32$ image with overlapping $3 \\times 3$ tiles and no padding, the output would be $30 \\times 30$ because you lose one pixel on each side per convolution dimension.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:53",
+        "slides:45",
+        "slides:61",
+        "slides:52",
+        "slides:46",
+        "slides:55",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:269",
+      "text": "The most plausible version is that the first convolutional layer used $5 \\times 5$ tiles.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:53",
+        "slides:44",
+        "slides:43",
+        "slides:26",
+        "slides:45",
+        "slides:52",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:270",
+      "text": "The size of the weight tensor for a convolutional layer is $\\text{input\\_channels} \\times \\text{window\\_width} \\times \\text{window\\_height} \\times \\text{output\\_channels}$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:52",
+        "slides:61",
+        "slides:62",
+        "slides:17",
+        "slides:45",
+        "slides:47",
+        "slides:44"
+      ]
+    },
+    {
+      "claim": "transcript:271",
+      "text": "For the first convolutional layer, the weight tensor size is $1 \\times 5 \\times 5 \\times 6$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:26",
+        "slides:17",
+        "slides:45",
+        "slides:44",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:272",
+      "text": "The number of weights in the first convolutional layer is $1 \\times 5 \\times 5 \\times 6 = 150$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:45",
+        "slides:26",
+        "slides:17",
+        "slides:51",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:273",
+      "text": "The first convolutional layer has 150 trainable weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:53",
+        "slides:17",
+        "slides:45",
+        "slides:62",
+        "slides:50",
+        "slides:52",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:274",
+      "text": "The convolutional idea saves a huge amount of weights compared to a fully connected layer.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:45",
+        "slides:53",
+        "slides:61",
+        "slides:17",
+        "slides:50",
+        "slides:63",
+        "slides:52",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:275",
+      "text": "A fully connected layer from a $32 \\times 32 \\times 1$ input to a $28 \\times 28 \\times 6$ output would have $32 \\times 32 \\times 1 \\times 28 \\times 28 \\times 6$ weights, which is several million.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:53",
+        "slides:52",
+        "slides:49",
+        "slides:29",
+        "slides:62",
+        "slides:47",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:276",
+      "text": "The convolutional layer in this example reduces the weight count from several million to 150.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:50",
+        "slides:17",
+        "slides:45",
+        "slides:63",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:277",
+      "text": "The main power of convolutions is that they save a lot of weights.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:17",
+        "slides:45",
+        "slides:55",
+        "slides:61",
+        "slides:53",
+        "slides:57",
+        "slides:42",
+        "slides:44"
+      ]
+    },
+    {
+      "claim": "transcript:278",
+      "text": "Convolutions are an excellent technique of structural regularization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:17",
+        "slides:57",
+        "slides:55",
+        "slides:61",
+        "slides:50",
+        "slides:44",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:279",
+      "text": "Regularization compresses or reduces the set of weights from which the model can choose.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:57",
+        "slides:50",
+        "slides:52",
+        "slides:48",
+        "slides:62",
+        "slides:55",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:280",
+      "text": "Structural regularization imposes constraints on the weights, such as weight sharing and sparsification.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:50",
+        "slides:57",
+        "slides:52",
+        "slides:45",
+        "slides:61",
+        "slides:59",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:281",
+      "text": "In a convolutional layer, weight sharing means processing every window with the exact same weights.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:52",
+        "slides:45",
+        "slides:61",
+        "slides:53",
+        "slides:47",
+        "slides:17",
+        "slides:51",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "transcript:282",
+      "text": "After the first convolutional layer, there is a pooling layer (subsampling).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:58",
+        "slides:53",
+        "slides:45",
+        "slides:49",
+        "slides:55",
+        "slides:17",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:283",
+      "text": "Subsampling is the same as pooling layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:61",
+        "slides:49",
+        "slides:60",
+        "slides:48",
+        "slides:29",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:284",
+      "text": "The pooling layer uses $2 \\times 2$ windows.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:48",
+        "slides:58",
+        "slides:52",
+        "slides:60",
+        "slides:47",
+        "slides:61",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:285",
+      "text": "The pooling layer reduces the size from $28 \\times 28$ to $14 \\times 14$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:60",
+        "slides:49",
+        "slides:48",
+        "slides:61",
+        "slides:53",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:286",
+      "text": "Max pooling has no trainable weights.",
+      "entailed": true,
+      "evidence": "slides:60",
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:49",
+        "slides:60",
+        "slides:61",
+        "slides:48",
+        "slides:62",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:287",
+      "text": "Max pooling takes a $2 \\times 2$ window and replaces it with the maximum of its four numbers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:60",
+        "slides:59",
+        "slides:49",
+        "slides:48",
+        "slides:61",
+        "slides:52",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:288",
+      "text": "The pooling transformation cuts the input into tiles and, for each tile, takes the numbers and leaves only the maximum.",
+      "entailed": true,
+      "evidence": "slides:60",
+      "top": [
+        "slides:60",
+        "slides:58",
+        "slides:59",
+        "slides:49",
+        "slides:48",
+        "slides:61",
+        "slides:52",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "transcript:289",
+      "text": "Pooling layers have no trainable weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:61",
+        "slides:59",
+        "slides:49",
+        "slides:60",
+        "slides:29",
+        "slides:62",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "transcript:290",
+      "text": "Pooling is a deterministic function that takes the maximum.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:60",
+        "slides:59",
+        "slides:49",
+        "slides:61",
+        "slides:48",
+        "slides:45",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:291",
+      "text": "There is no point in having weights for pooling layers because there is nothing to train; they perform a fixed operation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:61",
+        "slides:58",
+        "slides:49",
+        "slides:60",
+        "slides:53",
+        "slides:50",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:292",
+      "text": "In the example convolutional network, the next pooling layer outputs a 6x14x14 tensor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:53",
+        "slides:49",
+        "slides:60",
+        "slides:45",
+        "slides:58",
+        "slides:62",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:293",
+      "text": "In the example network, the following convolutional layer outputs a tensor of size 16x10x10.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:45",
+        "slides:61",
+        "slides:62",
+        "slides:17",
+        "slides:51",
+        "slides:52",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:294",
+      "text": "This convolutional layer uses a 5x5 kernel.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:17",
+        "slides:26",
+        "slides:45",
+        "slides:52",
+        "slides:55",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:295",
+      "text": "This convolutional layer takes 6 input features and produces 16 output features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:53",
+        "slides:17",
+        "slides:45",
+        "slides:26",
+        "slides:63",
+        "slides:55",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:296",
+      "text": "The number of trainable weights in this convolutional layer is 2400 (6 × 5 × 5 × 16).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:45",
+        "slides:26",
+        "slides:17",
+        "slides:29",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:297",
+      "text": "After another pooling layer, the tensor size becomes 16x5x5.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:60",
+        "slides:59",
+        "slides:49",
+        "slides:53",
+        "slides:61",
+        "slides:48",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:298",
+      "text": "When the input tensor is 5x5 with depth 16, applying a 5x5 convolution covers the entire tensor, making it equivalent to a fully connected layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:45",
+        "slides:63",
+        "slides:17",
+        "slides:26",
+        "slides:29",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:299",
+      "text": "In the example network, the next layer converts the tensor to 120 features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:62",
+        "slides:45",
+        "slides:53",
+        "slides:29",
+        "slides:63",
+        "slides:17",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:300",
+      "text": "Then a fully connected layer goes to 84 features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:26",
+        "slides:63",
+        "slides:50",
+        "slides:34",
+        "slides:61",
+        "slides:29",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "transcript:301",
+      "text": "Then a final output layer (possibly softmax) produces 10 values.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:49",
+        "slides:61",
+        "slides:26",
+        "slides:58",
+        "slides:55",
+        "slides:50",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:302",
+      "text": "The fully connected layer that takes the flattened 16x5x5 input (400 elements) and outputs 120 features has 48,000 weights (400 × 120).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:49",
+        "slides:45",
+        "slides:26",
+        "slides:63",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:303",
+      "text": "This step compresses the input into a vector, losing spatial geometry.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:55",
+        "slides:40",
+        "slides:33",
+        "slides:30",
+        "slides:26",
+        "slides:35",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:304",
+      "text": "The features become global numbers about the input image.",
+      "entailed": true,
+      "evidence": "slides:36",
+      "top": [
+        "slides:36",
+        "slides:51",
+        "slides:30",
+        "slides:40",
+        "slides:45",
+        "slides:46",
+        "slides:26",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:305",
+      "text": "In classical convolutional networks, after downsampling through multiple layers, there are usually a couple of fully connected layers at the end.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:61",
+        "slides:17",
+        "slides:63",
+        "slides:51",
+        "slides:50",
+        "slides:57",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:306",
+      "text": "This part of the network is often called the \"head\".",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:47",
+        "slides:25",
+        "slides:62",
+        "slides:26",
+        "slides:49",
+        "slides:46",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:307",
+      "text": "Networks can have multiple heads that perform different tasks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:21",
+        "slides:45",
+        "slides:62",
+        "slides:49",
+        "slides:26",
+        "slides:25",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:308",
+      "text": "In the example network, there is a classification head with a couple of fully connected layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:26",
+        "slides:25",
+        "slides:49",
+        "slides:62",
+        "slides:51",
+        "slides:36",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:309",
+      "text": "In the example network, the classification head holds the vast majority of all weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:62",
+        "slides:47",
+        "slides:29",
+        "slides:49",
+        "slides:51",
+        "slides:45",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:310",
+      "text": "The next fully connected layer (from 120 to 84 features) has about 10,080 weights (120 × 84).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:52",
+        "slides:49",
+        "slides:61",
+        "slides:58",
+        "slides:29",
+        "slides:50",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:311",
+      "text": "The total number of weights in the entire example network is about 60,000.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:52",
+        "slides:53",
+        "slides:45",
+        "slides:62",
+        "slides:61",
+        "slides:59",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "transcript:312",
+      "text": "About 57,000 to 58,000 of these weights are in the classification head.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:52",
+        "slides:29",
+        "slides:39",
+        "slides:61",
+        "slides:26",
+        "slides:36",
+        "slides:59",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:313",
+      "text": "Only about 2,500 weights are in the convolutional layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:52",
+        "slides:45",
+        "slides:17",
+        "slides:50",
+        "slides:63",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:314",
+      "text": "In the example network, the convolutional layers perform the most important job: they are the Fisher extractors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:17",
+        "slides:51",
+        "slides:62",
+        "slides:61",
+        "slides:63",
+        "slides:18",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:315",
+      "text": "In backpropagation, if a single input goes to multiple places, the partial derivative at that node is the sum of the gradients along all paths (by the chain rule).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:54",
+        "slides:51",
+        "slides:56",
+        "slides:52",
+        "slides:36",
+        "slides:47",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:316",
+      "text": "In a convolutional network, each weight in the convolution matrix appears many times in the computational graph.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:53",
+        "slides:45",
+        "slides:52",
+        "slides:61",
+        "slides:17",
+        "slides:51",
+        "slides:57",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:317",
+      "text": "A given weight is multiplied by different input pixels as the window slides.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "slides:52",
+        "slides:47",
+        "slides:48",
+        "slides:46",
+        "slides:53",
+        "slides:55",
+        "slides:45",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:318",
+      "text": "The same weight appears in the computation for every tile, many times.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:52",
+        "slides:59",
+        "slides:53",
+        "slides:48",
+        "slides:47",
+        "slides:51",
+        "slides:45",
+        "slides:38"
+      ]
+    },
+    {
+      "claim": "transcript:319",
+      "text": "ReLU activations are well-suited for convolutional networks because they introduce sparsity.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:57",
+        "slides:17",
+        "slides:45",
+        "slides:50",
+        "slides:63",
+        "slides:51",
+        "slides:61",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:320",
+      "text": "Sparsity is problematic when signal is limited but beneficial when signal is abundant.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:24",
+        "slides:48",
+        "slides:58",
+        "slides:28",
+        "slides:57",
+        "slides:23",
+        "slides:30",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:321",
+      "text": "Sparsity saves time and does not hurt training when there are many computational paths.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:50",
+        "slides:32",
+        "slides:63",
+        "slides:18",
+        "slides:17",
+        "slides:28",
+        "slides:33",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "transcript:322",
+      "text": "With ReLU, when a neuron outputs zero, that part of the graph does not contribute, but the weight still receives updates from other active tiles.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:57",
+        "slides:51",
+        "slides:20",
+        "slides:21",
+        "slides:52",
+        "slides:29",
+        "slides:18",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "transcript:323",
+      "text": "When a weight occurs in many places, adding sparsity (e.g., via ReLU) is a good idea.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:57",
+        "slides:50",
+        "slides:59",
+        "slides:58",
+        "slides:52",
+        "slides:61",
+        "slides:45",
+        "slides:53"
+      ]
+    },
+    {
+      "claim": "transcript:324",
+      "text": "The lecturer discussed that convolutional networks slide a filter across the input.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:45",
+        "slides:17",
+        "slides:61",
+        "slides:55",
+        "slides:44",
+        "slides:57",
+        "slides:52",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:325",
+      "text": "The lecturer discussed that the receptive field grows over layers but not fast enough, necessitating pooling layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:25",
+        "slides:61",
+        "slides:18",
+        "slides:26",
+        "slides:58",
+        "slides:63",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:326",
+      "text": "The lecturer discussed that convolutions can be applied to inputs of any dimension or nature, as long as they can be tiled.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:61",
+        "slides:17",
+        "slides:53",
+        "slides:42",
+        "slides:44",
+        "slides:43",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:327",
+      "text": "The lecturer discussed a specific example network.",
+      "entailed": true,
+      "evidence": "slides:62",
+      "top": [
+        "slides:62",
+        "slides:45",
+        "slides:47",
+        "slides:49",
+        "slides:26",
+        "slides:29",
+        "slides:51",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "transcript:328",
+      "text": "When applying a 3x3 convolution without padding, not every pixel can be the center of a 3x3 window.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:46",
+        "slides:52",
+        "slides:53",
+        "slides:45",
+        "slides:32",
+        "slides:55",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:329",
+      "text": "Fitting as many tiles as possible results in fewer output tiles than the number of input pixels.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:47",
+        "slides:52",
+        "slides:63",
+        "slides:45",
+        "slides:55",
+        "slides:28",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "transcript:330",
+      "text": "This reduction in spatial dimensions can be inconvenient.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:33",
+        "slides:30",
+        "slides:28",
+        "slides:50",
+        "slides:31",
+        "slides:58",
+        "slides:36",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:331",
+      "text": "Without padding, a convolution with kernel size K reduces spatial dimensions from W and H to W−K and H−K.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:55",
+        "slides:52",
+        "slides:61",
+        "slides:17",
+        "slides:48",
+        "slides:45",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:332",
+      "text": "Sometimes it is desirable to preserve the spatial dimensions, outputting a tensor of the same size (D × W × H).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:53",
+        "slides:33",
+        "slides:36",
+        "slides:52",
+        "slides:25",
+        "slides:24",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:333",
+      "text": "Padding is a technique to preserve spatial dimensions by allowing every pixel to be the center of a window.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:52",
+        "slides:47",
+        "slides:32",
+        "slides:33",
+        "slides:36",
+        "slides:46",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "transcript:334",
+      "text": "Zero padding sets values outside the image to zero.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:46",
+        "slides:36",
+        "slides:32",
+        "slides:51",
+        "slides:45",
+        "slides:52",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:335",
+      "text": "Zero padding enables preserving the output size.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:55",
+        "slides:58",
+        "slides:33",
+        "slides:47",
+        "slides:59",
+        "slides:52",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:336",
+      "text": "Padding allows fitting more tiles.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:32",
+        "slides:50",
+        "slides:59",
+        "slides:33",
+        "slides:52",
+        "slides:34",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:337",
+      "text": "Two common padding methods are zero padding and mirror padding.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:59",
+        "slides:33",
+        "slides:52",
+        "slides:32",
+        "slides:36",
+        "slides:62",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "transcript:338",
+      "text": "Zero padding can create border effects where features are influenced by many zeros, leading to implausible features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:33",
+        "slides:30",
+        "slides:32",
+        "slides:48",
+        "slides:20",
+        "slides:28",
+        "slides:36",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:339",
+      "text": "Mirror padding reflects the image at the border to avoid zero-padding artifacts.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:46",
+        "slides:33",
+        "slides:32",
+        "slides:51",
+        "slides:31",
+        "slides:36",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:340",
+      "text": "The purpose of padding is to allow any input pixel to be the center of a tile, thereby fitting more tiles.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:32",
+        "slides:52",
+        "slides:45",
+        "slides:33",
+        "slides:18",
+        "slides:59",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:341",
+      "text": "Using a stride (e.g., taking every second pixel as the center of the window) reduces the number of tiles.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:52",
+        "slides:47",
+        "slides:63",
+        "slides:46",
+        "slides:58",
+        "slides:59",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:342",
+      "text": "With a stride of 2, the number of tiles is halved in each spatial dimension.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:58",
+        "slides:48",
+        "slides:52",
+        "slides:21",
+        "slides:60",
+        "slides:61",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:343",
+      "text": "With stride 2, the output tensor has spatial dimensions approximately W/2 and H/2.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:31",
+        "slides:55",
+        "slides:54",
+        "slides:33",
+        "slides:30",
+        "slides:26",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "transcript:344",
+      "text": "This stride technique achieves geometric reduction by a factor of 2, similar to pooling layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:61",
+        "slides:59",
+        "slides:60",
+        "slides:53",
+        "slides:48",
+        "slides:26",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:345",
+      "text": "When striding is used, every pixel is still covered.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:46",
+        "slides:63",
+        "slides:33",
+        "slides:50",
+        "slides:32",
+        "slides:34",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:346",
+      "text": "When striding is used, pixels are covered fewer times than with full tiling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:33",
+        "slides:59",
+        "slides:32",
+        "slides:46",
+        "slides:63",
+        "slides:52",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:347",
+      "text": "With full tiling (stride 1), a pixel is part of many overlapping windows.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:52",
+        "slides:47",
+        "slides:46",
+        "slides:32",
+        "slides:33",
+        "slides:36",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "transcript:348",
+      "text": "With striding, the maximum number of windows covering a pixel can be 4.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:47",
+        "slides:52",
+        "slides:46",
+        "slides:63",
+        "slides:33",
+        "slides:26",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:349",
+      "text": "With striding, a pixel may be covered by only two tiles.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:46",
+        "slides:52",
+        "slides:61",
+        "slides:45",
+        "slides:32",
+        "slides:35",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:350",
+      "text": "Striding does not cause any loss of information.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "slides:24",
+        "slides:12",
+        "slides:8",
+        "slides:28",
+        "slides:57",
+        "slides:30",
+        "slides:38"
+      ]
+    },
+    {
+      "claim": "transcript:351",
+      "text": "A neural network can still process all information when striding is used.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:45",
+        "slides:42",
+        "slides:51",
+        "slides:57",
+        "slides:29",
+        "slides:18",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:352",
+      "text": "Striding is a reasonable way to reduce geometry.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:33",
+        "slides:58",
+        "slides:50",
+        "slides:34",
+        "slides:63",
+        "slides:40",
+        "slides:59",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:353",
+      "text": "When this geometry reduction is performed, it is called using a stride.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:40",
+        "slides:41",
+        "slides:33",
+        "slides:58",
+        "slides:59",
+        "slides:36",
+        "slides:26",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:354",
+      "text": "An example of stride 2 corresponds to skipping windows.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "slides:62",
+        "slides:31",
+        "slides:52",
+        "slides:48",
+        "slides:41",
+        "slides:33",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:355",
+      "text": "Without striding (tiling with every possible tile), the stride is 1.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:59",
+        "slides:20",
+        "slides:41",
+        "slides:60",
+        "slides:35",
+        "slides:26",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:356",
+      "text": "When defining a convolutional layer, one defines a tensor shape d × w × h × d'.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:61",
+        "slides:45",
+        "slides:17",
+        "slides:62",
+        "slides:29",
+        "slides:52",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:357",
+      "text": "In that tensor shape, d is the depth of the input.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:40",
+        "slides:21",
+        "slides:33",
+        "slides:54",
+        "slides:20",
+        "slides:26",
+        "slides:36",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:358",
+      "text": "In that tensor shape, d' is the depth of the output.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:55",
+        "slides:60",
+        "slides:33",
+        "slides:36",
+        "slides:53",
+        "slides:40",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:359",
+      "text": "Padding is defined optionally to pad the input, e.g., with zeros.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:48",
+        "slides:58",
+        "slides:32",
+        "slides:62",
+        "slides:60",
+        "slides:33",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "transcript:360",
+      "text": "The stride parameter is also defined.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:40",
+        "slides:59",
+        "slides:35",
+        "slides:55",
+        "slides:30",
+        "slides:36",
+        "slides:60"
+      ]
+    },
+    {
+      "claim": "transcript:361",
+      "text": "Formally, stride is two-dimensional because it consists of two numbers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:31",
+        "slides:61",
+        "slides:40",
+        "slides:33",
+        "slides:62",
+        "slides:30",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "transcript:362",
+      "text": "The stride can be different along x and y axes, e.g., stride 2 in x and stride 3 in y.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:40",
+        "slides:31",
+        "slides:32",
+        "slides:35",
+        "slides:33",
+        "slides:30",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:363",
+      "text": "Formally, stride consists of two potentially different numbers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:40",
+        "slides:35",
+        "slides:26",
+        "slides:36",
+        "slides:59",
+        "slides:30",
+        "slides:38"
+      ]
+    },
+    {
+      "claim": "transcript:364",
+      "text": "In practice, the two stride numbers are usually equal.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:41",
+        "slides:31",
+        "slides:36",
+        "slides:55",
+        "slides:40",
+        "slides:30",
+        "slides:38"
+      ]
+    },
+    {
+      "claim": "transcript:365",
+      "text": "The stride parameter defines the tiling pattern.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:40",
+        "slides:26",
+        "slides:33",
+        "slides:32",
+        "slides:36",
+        "slides:60",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "transcript:366",
+      "text": "The size of the convolutional tensor (d') defines the number of output features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:55",
+        "slides:61",
+        "slides:17",
+        "slides:45",
+        "slides:36",
+        "slides:54",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:367",
+      "text": "With strides, every pixel participates in processing fewer times.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:48",
+        "slides:17",
+        "slides:33",
+        "slides:35",
+        "slides:45",
+        "slides:28",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:368",
+      "text": "The general trend in convolutional network development is that pooling was used less and less often over time.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:49",
+        "slides:17",
+        "slides:59",
+        "slides:44",
+        "slides:45",
+        "slides:63",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "transcript:369",
+      "text": "Pooling has undesirable properties.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:59",
+        "slides:49",
+        "slides:60",
+        "slides:61",
+        "slides:48",
+        "slides:28",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:370",
+      "text": "Pooling cuts off lots of computational paths.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:49",
+        "slides:60",
+        "slides:59",
+        "slides:61",
+        "slides:63",
+        "slides:48",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:371",
+      "text": "Pooling distorts the gradients.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:58",
+        "slides:59",
+        "slides:61",
+        "slides:60",
+        "slides:49",
+        "slides:50",
+        "slides:48",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "transcript:372",
+      "text": "Pooling has bad side effects.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:59",
+        "slides:58",
+        "slides:60",
+        "slides:49",
+        "slides:61",
+        "slides:28",
+        "slides:27",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "transcript:373",
+      "text": "Modern architectures like Inception ResNet reduce spatial geometry.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:63",
+        "slides:62",
+        "slides:45",
+        "slides:33",
+        "slides:50",
+        "slides:18",
+        "slides:17",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:374",
+      "text": "Modern architectures reduce geometry using a complex subnetwork, not exactly with a simple stride.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:63",
+        "slides:62",
+        "slides:45",
+        "slides:50",
+        "slides:33",
+        "slides:25",
+        "slides:18",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:375",
+      "text": "This complex subnetwork includes strided convolution at some point.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "slides:44",
+        "slides:45",
+        "slides:62",
+        "slides:55",
+        "slides:17",
+        "slides:63",
+        "slides:57"
+      ]
+    },
+    {
+      "claim": "transcript:376",
+      "text": "This complex subnetwork also performs other operations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "slides:49",
+        "slides:62",
+        "slides:63",
+        "slides:51",
+        "slides:52",
+        "slides:47",
+        "slides:26"
+      ]
+    }
+  ]
+}

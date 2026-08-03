@@ -1,0 +1,1753 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "slides": [
+    {
+      "text": "On June 12, 1550, King Gustav I of Sweden founded Helsinki as a rival trading town to Reval (now Tallinn) across the gulf."
+    },
+    {
+      "text": "Helsinki stayed a small fishing village for centuries."
+    },
+    {
+      "text": "Helsinki only became a real capital after Russia took Finland in 1809."
+    },
+    {
+      "text": "On June 12, 1817, Karl von Drais first rode his Laufmaschine, the 'dandy horse' ancestor of the bicycle."
+    },
+    {
+      "text": "Karl von Drais was spurred on by a mass die-off of horses."
+    },
+    {
+      "text": "The mass die-off of horses occurred after the 1815 eruption of Mount Tambora."
+    },
+    {
+      "text": "The 1815 eruption of Mount Tambora caused the 'Year Without a Summer'."
+    },
+    {
+      "text": "On June 12, 1898, General Emilio Aguinaldo proclaimed Philippine independence from Spain."
+    },
+    {
+      "text": "The Philippines did not actually become independent until 1946."
+    },
+    {
+      "text": "Before 1946, the Philippines experienced Spanish, then American, then Japanese, then again American rule."
+    },
+    {
+      "text": "On June 12, 1939, the Baseball Hall of Fame opened in Cooperstown, New York."
+    },
+    {
+      "text": "The opening of the Baseball Hall of Fame was based on the myth that Abner Doubleday invented baseball in Cooperstown in 1839."
+    },
+    {
+      "text": "Abner Doubleday did not actually invent baseball."
+    },
+    {
+      "text": "On June 12, 1979, Bryan Allen pedalled the Gossamer Albatross across the English Channel."
+    },
+    {
+      "text": "Bryan Allen's flight across the English Channel took 2 hours and 49 minutes."
+    },
+    {
+      "text": "Bryan Allen's flight was the first human-powered flight across the English Channel."
+    },
+    {
+      "text": "Bryan Allen won the second Kremer prize for crossing the English Channel in the Gossamer Albatross."
+    },
+    {
+      "text": "Convolutional neural networks are an important part of the deep learning revolution."
+    },
+    {
+      "text": "CNNs are partly motivated by the visual cortex."
+    },
+    {
+      "text": "Hubel and Wiesel conducted famous studies of the visual cortex."
+    },
+    {
+      "text": "Hubel and Wiesel showed that first-level neurons activate for simple shapes."
+    },
+    {
+      "text": "Hubel and Wiesel showed that second-level neurons activate for combinations of these simple shapes."
+    },
+    {
+      "text": "Hubel and Wiesel did not investigate neurons beyond the second level."
+    },
+    {
+      "text": "Information from the retina goes to the lateral geniculate nucleus (LGN)."
+    },
+    {
+      "text": "From the LGN, information goes to the visual cortex."
+    },
+    {
+      "text": "The visual cortex is neatly organized into layers."
+    },
+    {
+      "text": "The visual cortex is organized into layers V1 to V4, and then either to V5 or to V6."
+    },
+    {
+      "text": "The brain is complicated."
+    },
+    {
+      "text": "The visual cortex is very complicated."
+    },
+    {
+      "text": "There are layers in the visual cortex."
+    },
+    {
+      "text": "In the visual cortex, V1 handles local features."
+    },
+    {
+      "text": "In the visual cortex, V2 handles more local features and binocular vision."
+    },
+    {
+      "text": "In the visual cortex, V3 handles color, texture, and the first results of segmentation."
+    },
+    {
+      "text": "In the visual cortex, V4 handles geometric shapes and silhouettes."
+    },
+    {
+      "text": "V4 is the most important layer for attention."
+    },
+    {
+      "text": "In the visual cortex, V5 recognizes motion of objects segmented in V4."
+    },
+    {
+      "text": "In the visual cortex, V6 generalizes data from the whole image."
+    },
+    {
+      "text": "V6 is involved in wide-field stimulation."
+    },
+    {
+      "text": "V6 processes changes due to our own movement."
+    },
+    {
+      "text": "In the visual cortex, V7 (controversial) is involved in recognition of complex objects, such as human faces."
+    },
+    {
+      "text": "The 'what pathway' goes from V2 to V4 and is involved in recognition of shapes and objects."
+    },
+    {
+      "text": "The 'where pathway' goes from V2 to V5 and V6 and is involved in motion recognition and control over eyes and hands."
+    },
+    {
+      "text": "The ideas from the visual cortex were reflected in artificial neural networks in the form of convolutional networks."
+    },
+    {
+      "text": "Convolutions appeared in the Neocognitron (Fukushima, 1979; 1980)."
+    },
+    {
+      "text": "In modern form, convolutions appeared in LeCunn's group in the late 1980s."
+    },
+    {
+      "text": "The main idea of convolutional networks is to apply the same operation to every part of the image."
+    },
+    {
+      "text": "In CNNs, the picture is broken into windows."
+    },
+    {
+      "text": "A small neural network is applied to every window."
+    },
+    {
+      "text": "The image is compressed by max-pooling over small windows."
+    },
+    {
+      "text": "After max-pooling, prediction is done with a fully connected network."
+    },
+    {
+      "text": "Adding new layers improves generalization in CNNs."
+    },
+    {
+      "text": "In CNNs, we can see exactly which parts of the picture cause activation of individual neurons."
+    },
+    {
+      "text": "In CNNs, a single small matrix (weight matrix) is applied to every window."
+    },
+    {
+      "text": "If $x^l$ is the feature map in layer $l$, then the two-dimensional convolution uses a weight matrix $W$ of size $(2d+1) \\times (2d+1)$, with size $2d+1$."
+    },
+    {
+      "text": "The output $y^l_{i,j}$ is computed as $y^l_{i,j} = \\sum_{-d \\le a,b \\le d} W_{a,b} x^l_{i+a,j+b}$."
+    },
+    {
+      "text": "The convolution output is usually followed by a nonlinearity."
+    },
+    {
+      "text": "The nonlinearity is defined as $z^l_{i,j} = h(y^l_{i,j})$."
+    },
+    {
+      "text": "In modern convolutional networks, the nonlinearity is almost always ReLU."
+    },
+    {
+      "text": "After the nonlinearity, max-pooling is applied."
+    },
+    {
+      "text": "Sometimes average-pooling is used instead, but usually max-pooling."
+    },
+    {
+      "text": "The max-pooling operation is defined as $x^{l+1}_{i,j} = \\max_{-d \\le a,b \\le d} z^l_{i+a,j+b}$."
+    },
+    {
+      "text": "The combination of convolution, nonlinearity, and pooling constitutes a single convolutional layer."
+    },
+    {
+      "text": "The classical LeNet architecture is an example of a CNN."
+    },
+    {
+      "text": "Modern CNNs can get very deep due to a number of architectural tricks and advances."
+    }
+  ],
+  "transcript": [
+    {
+      "text": "We are continuing our discussions of deep learning."
+    },
+    {
+      "text": "The speaker is in a very noisy and not really comfortable place."
+    },
+    {
+      "text": "The speaker hopes that the combination of modern deep learning based noise removal techniques will work."
+    },
+    {
+      "text": "The speaker hopes you will hear him fine."
+    },
+    {
+      "text": "The speaker hopes the recording will be fine."
+    },
+    {
+      "text": "The previous lecture stopped at stochastic gradient descent algorithms."
+    },
+    {
+      "text": "On the previous lecture, it was discussed that a neural network is a big composition of little things."
+    },
+    {
+      "text": "On the previous lecture, it was discussed that a neural network is a huge computational graph."
+    },
+    {
+      "text": "There are two different kinds of inputs for a neural network."
+    },
+    {
+      "text": "The actual input acts like a picture."
+    },
+    {
+      "text": "Today the class will be switching to pictures mostly."
+    },
+    {
+      "text": "The weights are the other kind of input."
+    },
+    {
+      "text": "Two days ago, the class discussed that the output of the whole computational graph would be the loss function."
+    },
+    {
+      "text": "The loss function is a function of x, y, and w."
+    },
+    {
+      "text": "There is also the correct answer that comes in probably at the end somewhere."
+    },
+    {
+      "text": "The overall loss function L(w) is like the sum or the average of the losses on every step along the way."
+    },
+    {
+      "text": "Then we do gradient descent."
+    },
+    {
+      "text": "The speaker started with the recap because some people might need it."
+    },
+    {
+      "text": "In practice, we use something much more involved and complicated than a simple weight update formula, like the A-demovers."
+    },
+    {
+      "text": "Deep learning works in general by using sophisticated optimization algorithms like A-demovers."
+    },
+    {
+      "text": "There are still a few general remarks that the speaker wants to make."
+    },
+    {
+      "text": "The speaker will probably postpone those remarks to the beginning of next week."
+    },
+    {
+      "text": "The speaker wants to discuss weight initialization."
+    },
+    {
+      "text": "Weight initialization is a pretty interesting and nice topic."
+    },
+    {
+      "text": "The speaker wants to discuss normalization layers."
+    },
+    {
+      "text": "Batch normalization is an example of a normalization layer."
+    },
+    {
+      "text": "There are several different flavors of normalization layers."
+    },
+    {
+      "text": "What normalization layers do and why they are necessary is a pretty interesting topic."
+    },
+    {
+      "text": "Today the class starts talking about architectures of neural networks."
+    },
+    {
+      "text": "Previously the loss function was treated as a black box; today the class discusses what happens inside it."
+    },
+    {
+      "text": "The word 'architecture' means the structure of the computational graph."
+    },
+    {
+      "text": "The computational graph can be any directed acyclic graph."
+    },
+    {
+      "text": "The only requirement is that there are no cycles in the graph."
+    },
+    {
+      "text": "You need to be able to traverse the graph in topological order in one direction and then in the opposite direction."
+    },
+    {
+      "text": "You need to be able to do forward propagation and backward propagation inside every node."
+    },
+    {
+      "text": "The general picture: you have elementary nodes constituting a graph; you do one pass of forward propagation, one pass of web propagation; then you have your gradient; then you can use the algorithms discussed last time."
+    },
+    {
+      "text": "The graph can be organized in a layered architecture."
+    },
+    {
+      "text": "Usually people use a layered architecture."
+    },
+    {
+      "text": "In a layered architecture, as you go left to right, the components of a layer talk mostly to the components of the next layer, and so on until the end."
+    },
+    {
+      "text": "Layers are sequential slices of the computational graph."
+    },
+    {
+      "text": "The concept of layers is murky."
+    },
+    {
+      "text": "Sometimes a layer is characterized exactly like that."
+    },
+    {
+      "text": "Sometimes you have skip connections, which go around layers."
+    },
+    {
+      "text": "We will see networks where there are connections that go around the layers from layer 1 to layer 3."
+    },
+    {
+      "text": "We will see connections that go around a given layer and not touch it, called residual connections."
+    },
+    {
+      "text": "Residual connections are one of the most important ideas."
+    },
+    {
+      "text": "The notion of layers is useful."
+    },
+    {
+      "text": "The most straightforward class of architectures is feed-forward networks, also called fully connected networks."
+    },
+    {
+      "text": "There is really nothing to say about fully connected networks."
+    },
+    {
+      "text": "In a fully connected network, you have layers."
+    },
+    {
+      "text": "Every layer is a set of perceptrons."
+    },
+    {
+      "text": "Perceptrons inside a layer don't talk to each other."
+    },
+    {
+      "text": "Perceptrons receive inputs from the previous layer."
+    },
+    {
+      "text": "Perceptrons send outputs to all neurons of the next layer."
+    },
+    {
+      "text": "'Fully connected' means that it is a fully connected bipartite graph between every pair of layers."
+    },
+    {
+      "text": "It is not a fully connected graph overall."
+    },
+    {
+      "text": "It all comes together in a single or smaller amount of perceptrons on the other end, giving the output Y."
+    },
+    {
+      "text": "Fully connected networks were important."
+    },
+    {
+      "text": "Fully connected layers are still important."
+    },
+    {
+      "text": "You will see a fully connected layer inside the transformer."
+    },
+    {
+      "text": "Today the class starts discussing convolutional neural networks, a more interesting and more involved kind of architecture."
+    },
+    {
+      "text": "This is one of the last times in class when the speaker will go back to the biological motivation."
+    },
+    {
+      "text": "Artificial neural networks were inspired by the human brain or animal brain."
+    },
+    {
+      "text": "The principle of connectionism was discussed."
+    },
+    {
+      "text": "The speaker takes a detour to remark on gradient descent and the brain."
+    },
+    {
+      "text": "All artificial neural networks today are trained with gradient descent in one way or another."
+    },
+    {
+      "text": "The difference between neural networks is not in the basic principle of solving an optimization problem."
+    },
+    {
+      "text": "The difference is in the form of the loss function, the training set, and the architecture."
+    },
+    {
+      "text": "To optimize, you have a loss function, a way to compute its gradients, and you use the gradients."
+    },
+    {
+      "text": "The human brain cannot work this way at all."
+    },
+    {
+      "text": "This is obvious from the biological structure."
+    },
+    {
+      "text": "Even without understanding the mechanism, you can definitely say it's not gradient descent."
+    },
+    {
+      "text": "A biological neuron has many dendrites coming out."
+    },
+    {
+      "text": "A biological neuron has a single axon that is its output."
+    },
+    {
+      "text": "A biological neuron can compute only one function."
+    },
+    {
+      "text": "To have gradient descent, every node in a network needs to compute at least two different functions: forward and backward."
+    },
+    {
+      "text": "Implementing a custom node in PyTorch requires implementing two procedures: forward propagation and backward propagation."
+    },
+    {
+      "text": "Biological neurons cannot compute two functions; they only have one output."
+    },
+    {
+      "text": "Therefore, biological neurons cannot do gradient descent."
+    },
+    {
+      "text": "They have to do something else."
+    },
+    {
+      "text": "That something else must send the signal back from the end where the loss function is computed."
+    },
+    {
+      "text": "The speaker does not think the loss function is explicitly computed in our brains."
+    },
+    {
+      "text": "There needs to be a connection from the end goal to every neuron."
+    },
+    {
+      "text": "You need to have loops in the human brain."
+    },
+    {
+      "text": "In the biological brain, you absolutely have to have connections that go back."
+    },
+    {
+      "text": "You have to have a lot of feedback in the brain in order to train."
+    },
+    {
+      "text": "The brain does have feedback."
+    },
+    {
+      "text": "Here is where the analogy between artificial neural networks and biological brains totally ends."
+    },
+    {
+      "text": "One perceptron is a pretty good model of a biological neuron, especially with real activations."
+    },
+    {
+      "text": "The brain works on the principle of connectionism: a huge composition of simple functions can give something very complicated."
+    },
+    {
+      "text": "But the brain cannot run on gradient descent."
+    },
+    {
+      "text": "The architecture cannot be similar at all."
+    },
+    {
+      "text": "The brain also has layers."
+    },
+    {
+      "text": "Between every two layers in the brain, there are feedback connections that go back."
+    },
+    {
+      "text": "From later layers, there are feedback connections that go all the way back."
+    },
+    {
+      "text": "The brain's fine structure is very difficult to understand."
+    },
+    {
+      "text": "The visual cortex has layers."
+    },
+    {
+      "text": "We understand the brain generally in terms of regions like the visual cortex."
+    },
+    {
+      "text": "Hubel and Weasel (Thorsten Weasel and the speaker forgets Hubel's first name) got a Nobel Prize for studying the visual cortex."
+    },
+    {
+      "text": "Convolutional networks are partly motivated by the visual cortex."
+    },
+    {
+      "text": "There will be a point where the analogy stops."
+    },
+    {
+      "text": "In the 1960s-70s, Hubel and Weasel made their famous studies of the visual cortex."
+    },
+    {
+      "text": "Their truly novel thing was having a new device."
+    },
+    {
+      "text": "Their advantage was that they could make tiny electrodes to attach to a single neuron and read off the activation of a single neuron on a live brain."
+    },
+    {
+      "text": "Prior to the development of techniques to attach electrodes to individual neurons, the only way to study brain function was through natural experiments such as strokes caused by motorcycle accidents."
+    },
+    {
+      "text": "A stroke can provide information about which part of the brain performs which function."
+    },
+    {
+      "text": "Hubel and Wiesel used cats in their experiments."
+    },
+    {
+      "text": "They surgically opened the cat's head while the cat was under painkillers."
+    },
+    {
+      "text": "They attached electrodes to individual neurons in the cat's brain."
+    },
+    {
+      "text": "They were able to observe what individual neurons respond to."
+    },
+    {
+      "text": "It was known that the visual cortex is located in the occipital lobe in mammals, including humans and cats."
+    },
+    {
+      "text": "The speaker states that the location of the visual cortex is a very bad decision of nature."
+    },
+    {
+      "text": "The visual cortex is fragile."
+    },
+    {
+      "text": "It makes no sense for the visual cortex to be in the back because the eyes are in front."
+    },
+    {
+      "text": "The optical nerve is a large bundle of connections that goes backward through the skull from the eyes to the visual cortex."
+    },
+    {
+      "text": "It would be easier to have the visual cortex in front."
+    },
+    {
+      "text": "One evolutionary explanation is that distant ancestors had proto-eyes on top of the head."
+    },
+    {
+      "text": "Then the eyes moved forward, but the visual processing part of the brain remained in the back."
+    },
+    {
+      "text": "The speaker does not know why this evolutionary change occurred."
+    },
+    {
+      "text": "The visual cortex processes visual input."
+    },
+    {
+      "text": "It is easy to identify the first layer of the visual cortex."
+    },
+    {
+      "text": "The first layer is where the optical nerve attaches."
+    },
+    {
+      "text": "Neurons in the first layer receive immediate inputs from the eyes."
+    },
+    {
+      "text": "A single neuron in the first layer of the visual cortex has a small receptive field."
+    },
+    {
+      "text": "It only sees a small portion of the visual scene."
+    },
+    {
+      "text": "It detects very simple features within that region."
+    },
+    {
+      "text": "A sample neuron shown on the slide recognizes vertical lines."
+    },
+    {
+      "text": "When this neuron sees a bright vertical line in its receptive field, it strongly activates."
+    },
+    {
+      "text": "If the line is rotated away from vertical, the neuron's activation decreases."
+    },
+    {
+      "text": "As the line rotates further, the activation eventually goes to zero."
+    },
+    {
+      "text": "One would expect a second layer of the visual cortex that receives outputs from the first layer."
+    },
+    {
+      "text": "The second layer would combine simple shapes into more complex features."
+    },
+    {
+      "text": "A second-layer neuron could combine a vertical-line detector and a horizontal-line detector to recognize a cross shape."
+    },
+    {
+      "text": "Hubel and Wiesel studied the first and second layers of the visual cortex."
+    },
+    {
+      "text": "They discovered neurons in the second layer that combine simple features."
+    },
+    {
+      "text": "They did not study layers beyond the second, moving on to other research."
+    },
+    {
+      "text": "This was a wise decision because the brain is very complicated."
+    },
+    {
+      "text": "A simplified representation of the visual cortex shows layers named V1, V2, V3, V4, V5, V6, etc."
+    },
+    {
+      "text": "The actual visual cortex is not structured like a simple artificial neural network."
+    },
+    {
+      "text": "Its actual structure is much more complex."
+    },
+    {
+      "text": "There are feedback connections that go backward."
+    },
+    {
+      "text": "There are many different kinds of connections."
+    },
+    {
+      "text": "The speaker has been showing a particular picture of the visual cortex for about 10 years."
+    },
+    {
+      "text": "Over the last 10 years, the understanding of the visual cortex's complexity has increased."
+    },
+    {
+      "text": "The picture is from a survey."
+    },
+    {
+      "text": "The picture is titled 'the most important neural pathways in the early layers of the visual cortex.'"
+    },
+    {
+      "text": "The first layer of the visual cortex is well-defined."
+    },
+    {
+      "text": "The first layer is easier to study because the optical nerve enters there."
+    },
+    {
+      "text": "The second layer is also somewhat clear."
+    },
+    {
+      "text": "Beyond the second layer, the structure is a messy network of interconnected components doing different things."
+    },
+    {
+      "text": "Researchers observed that simple geometric shapes are processed in lower layers of the visual cortex, with complexity increasing layer by layer."
+    },
+    {
+      "text": "At that time, there was no clear understanding of what happens in higher layers."
+    },
+    {
+      "text": "It is clear that at some higher layer, functions like face recognition occur."
+    },
+    {
+      "text": "The human brain can solve complex computer vision problems like face recognition very quickly."
+    },
+    {
+      "text": "People tried to imitate the hierarchical processing of the visual cortex in computers."
+    },
+    {
+      "text": "Convolutions and convolutional networks are an old idea."
+    },
+    {
+      "text": "They date back at least to the neocognitron architecture by Kunihiko Fukushima in the late 1970s."
+    },
+    {
+      "text": "The neocognitron paper is short, about two pages, and not complicated."
+    },
+    {
+      "text": "In 1979, Fukushima's neocognitron was a deep neural network with several layers."
+    },
+    {
+      "text": "It was a convolutional network."
+    },
+    {
+      "text": "It used ReLU-like activations (hinge activations)."
+    },
+    {
+      "text": "Hinge activations only became common in practice around 2011-2012."
+    },
+    {
+      "text": "The neocognitron did not have learning; the convolutions used fixed, non-trainable filters."
+    },
+    {
+      "text": "Modern convolutional networks were developed by Yann LeCun's group."
+    },
+    {
+      "text": "Yann LeCun is famous for developing convolutional networks over several decades."
+    },
+    {
+      "text": "By the late 1980s, convolutional networks existed in their modern form with training and convolutions."
+    },
+    {
+      "text": "The speaker will explain how convolutional networks work using images."
+    },
+    {
+      "text": "The idea behind convolutional networks is brilliant."
+    },
+    {
+      "text": "It is a form of structural regularization."
+    },
+    {
+      "text": "An example computer vision task is finding a boy's head in an image, which is object detection."
+    },
+    {
+      "text": "The main assumption behind CNNs is that a feature detection function can be applied identically across the entire image."
+    },
+    {
+      "text": "If a function can detect a boy's head in a small window, the same function can be applied to every part of the image."
+    },
+    {
+      "text": "The function's output depends on the input, but the function itself is invariant across the image."
+    },
+    {
+      "text": "In CNNs, the input (e.g., an image) is divided into small, overlapping windows."
+    },
+    {
+      "text": "A small neural network is applied to each window."
+    },
+    {
+      "text": "The small neural network is trained using gradient descent and has learnable weights."
+    },
+    {
+      "text": "It processes only a small tile of a few pixels."
+    },
+    {
+      "text": "The same neural network is applied to every tile of the input."
+    },
+    {
+      "text": "The output for each tile is a vector of features (multiple numbers)."
+    },
+    {
+      "text": "The result of applying the network to all windows is a grid of feature vectors."
+    },
+    {
+      "text": "These feature vectors are arranged spatially according to the window positions."
+    },
+    {
+      "text": "For example, the top-right window produces a feature vector in the top-right position of the output grid."
+    },
+    {
+      "text": "The overall output is a three-dimensional tensor, with spatial dimensions (width and height) and a depth dimension for the features."
+    },
+    {
+      "text": "Color images have three input channels (depth 3)."
+    },
+    {
+      "text": "A convolutional layer always outputs a 3D tensor."
+    },
+    {
+      "text": "The process can be repeated, applying another convolutional layer to the output tensor."
+    },
+    {
+      "text": "In subsequent layers, the input tensor is tiled into sub-tensors, and another neural network is applied to each sub-tensor to produce a new 3D tensor."
+    },
+    {
+      "text": "Many convolutional layers can be chained in this way."
+    },
+    {
+      "text": "Each convolutional operation tiles its input into small windows."
+    },
+    {
+      "text": "The input can be the original image or an intermediate 3D tensor."
+    },
+    {
+      "text": "Convolutional layers can be chained to form a deep sequence."
+    },
+    {
+      "text": "Classical convolutional neural networks include a type of layer called the pooling layer."
+    },
+    {
+      "text": "Many architectures discussed in today's lecture include pooling layers."
+    },
+    {
+      "text": "In convolutional neural networks, input images are divided into small tiles."
+    },
+    {
+      "text": "A common tile size is 3x3 pixels."
+    },
+    {
+      "text": "For a color image, each tile has a depth of 3."
+    },
+    {
+      "text": "Each tile is processed by a small neural network to produce a vector of features."
+    },
+    {
+      "text": "The feature vector for a tile depends only on that specific tile."
+    },
+    {
+      "text": "A feature computed from a 3x3 tile has a receptive field of 3x3 pixels."
+    },
+    {
+      "text": "The term 'receptive field' refers to the region of the input that influences a feature."
+    },
+    {
+      "text": "After one convolutional layer with 3x3 tiles, the output is a 3D tensor."
+    },
+    {
+      "text": "A second convolutional layer with 3x3 tiles applied to the first layer's output results in features."
+    },
+    {
+      "text": "A feature in the second convolutional layer has a receptive field of 5x5 pixels in the original image."
+    },
+    {
+      "text": "Each 3x3 convolutional layer adds 2 to the width and height of the receptive field."
+    },
+    {
+      "text": "Processing a 256x256 image using only successive 3x3 convolutional layers would require approximately 130 layers, which is impractical."
+    },
+    {
+      "text": "A method to reduce spatial dimensions more quickly is needed in convolutional networks."
+    },
+    {
+      "text": "Pooling layers were introduced in original CNNs to quickly reduce spatial geometry."
+    },
+    {
+      "text": "Pooling layers are still used in some modern architectures."
+    },
+    {
+      "text": "Pooling layers reduce spatial dimensions by dividing the tensor into non-overlapping windows."
+    },
+    {
+      "text": "A typical pooling window size is 2x2."
+    },
+    {
+      "text": "In pooling, from each 2x2 window, only one value is kept, discarding three features."
+    },
+    {
+      "text": "Max pooling takes the maximum value in the window."
+    },
+    {
+      "text": "Average pooling takes the average of the values in the window."
+    },
+    {
+      "text": "In practice, max pooling is more commonly used than average pooling."
+    },
+    {
+      "text": "Max pooling is preferred because it generally yields better performance."
+    },
+    {
+      "text": "A justification for max pooling is that it encourages convolutional layers to extract more meaningful features."
+    },
+    {
+      "text": "For object detection features, max pooling is more appropriate because only the relevant small tile has a high activation."
+    },
+    {
+      "text": "For average-type features like color, average pooling is more appropriate."
+    },
+    {
+      "text": "Combining convolutional and pooling layers allows rapid reduction of spatial dimensions."
+    },
+    {
+      "text": "A 2x2 pooling layer halves both the width and height of the tensor."
+    },
+    {
+      "text": "A 2x2 pooling layer reduces the total number of features by a factor of 4."
+    },
+    {
+      "text": "The term 'convolution' in this context means tiling the input with small tiles and applying a shared transformation to each tile."
+    },
+    {
+      "text": "The specific transformation is not defined by the term 'convolution'."
+    },
+    {
+      "text": "In typical convolutional layers, the transformation is a single fully connected layer."
+    },
+    {
+      "text": "The input to a convolutional layer is a 3D tensor of dimensions W (width) x H (height) x D (depth)."
+    },
+    {
+      "text": "The convolutional transformation operates on a tile of size w x h x D, where the tile always spans the full depth D."
+    },
+    {
+      "text": "The tile (w x h x D) is flattened into a vector of length D * w * h."
+    },
+    {
+      "text": "This flattened vector is multiplied by a weight matrix."
+    },
+    {
+      "text": "The output of the transformation is a vector of size d' (number of output features)."
+    },
+    {
+      "text": "The weight matrix has dimensions (D * w * h) x d'."
+    },
+    {
+      "text": "In a convolutional layer, the same weight matrix is applied to every tile of the input."
+    },
+    {
+      "text": "The total number of weights in a convolutional layer depends only on the tile size (w, h, D) and the number of output features d', not on the input image dimensions (W, H)."
+    },
+    {
+      "text": "Convolutional layers can process inputs of any size without changing the number of weights."
+    },
+    {
+      "text": "In practice (e.g., in PyTorch), the weights of a convolutional layer are stored as a 4D tensor of shape D x w x h x d'."
+    },
+    {
+      "text": "The input to the convolutional layer is a 3D tensor that matches the first three dimensions of the weight tensor."
+    },
+    {
+      "text": "In practice, four-dimensional tensors are used when setting up convolutional layers."
+    },
+    {
+      "text": "It does not matter that the input is specifically a picture represented as a $3D$ tensor with width, height, and depth."
+    },
+    {
+      "text": "Convolutional networks can be used for other kinds of inputs besides images."
+    },
+    {
+      "text": "CNNs were designed for text processing at some point."
+    },
+    {
+      "text": "Text is a sequence of tokens."
+    },
+    {
+      "text": "Every token is represented by some vector."
+    },
+    {
+      "text": "Text is a sequence of vectors."
+    },
+    {
+      "text": "Text is a 1D object that produces a 2D input tensor."
+    },
+    {
+      "text": "One-dimensional convolutions can be used for text."
+    },
+    {
+      "text": "In 1D convolutions, windows are sliding windows that take a number of neighboring vectors."
+    },
+    {
+      "text": "The small input for a 1D convolution window is of size $d \\times l$, where $d$ is the depth and $l$ is the length of the window."
+    },
+    {
+      "text": "The weight matrix $W$ for a 1D convolution is a three-dimensional tensor of size $d \\times l \\times d'$, where $d'$ is the output depth."
+    },
+    {
+      "text": "The result of the 1D convolution is a vector of size $d'$."
+    },
+    {
+      "text": "There is almost no difference from 2D convolutions, except all dimensions change by one."
+    },
+    {
+      "text": "For a video, which is a sequence of images, the input is a tensor of dimensions $d \\times w \\times h \\times t$ (time)."
+    },
+    {
+      "text": "Every image in a video is a $w \\times h \\times d$ tensor."
+    },
+    {
+      "text": "You can multiply the video input by a five-dimensional tensor $W$ of dimensions $t \\times w \\times h \\times t \\times d'$."
+    },
+    {
+      "text": "The idea of cutting input into small tiles and processing each tile separately can be applied to any kind of input."
+    },
+    {
+      "text": "Convolutional networks were especially productive for images."
+    },
+    {
+      "text": "In this computer vision class, all examples will be images."
+    },
+    {
+      "text": "The specific example discussed is a LeNet architecture from around 2001."
+    },
+    {
+      "text": "The LeNet architecture is very small and has very small input."
+    },
+    {
+      "text": "The LeNet architecture is not very powerful."
+    },
+    {
+      "text": "The purpose of going through the LeNet architecture is to count weights and understand convolutional networks."
+    },
+    {
+      "text": "The input to the LeNet architecture is a $32 \\times 32$ picture."
+    },
+    {
+      "text": "The input picture is grayscale with depth 1."
+    },
+    {
+      "text": "The input is a tensor of size $1 \\times 32 \\times 32$."
+    },
+    {
+      "text": "The slide shows intermediate results, not the weights or layers themselves."
+    },
+    {
+      "text": "After the first convolutional layer, the result is a $28 \\times 28$ tensor with 6 feature maps."
+    },
+    {
+      "text": "Feature maps are the same as channels or depth."
+    },
+    {
+      "text": "The resulting tensor after the first layer is $6 \\times 28 \\times 28$."
+    },
+    {
+      "text": "The input size was $32 \\times 32 \\times 1$, and after the convolutional layer it became $6 \\times 28 \\times 28$."
+    },
+    {
+      "text": "Going from $32 \\times 32$ to $28 \\times 28$ indicates that the convolution window was likely $5 \\times 5$ because the reduction in each dimension is 4 pixels."
+    },
+    {
+      "text": "If you cover a $32 \\times 32$ image with overlapping $3 \\times 3$ tiles and no padding, the output would be $30 \\times 30$ because you lose one pixel on each side per convolution dimension."
+    },
+    {
+      "text": "The most plausible version is that the first convolutional layer used $5 \\times 5$ tiles."
+    },
+    {
+      "text": "The size of the weight tensor for a convolutional layer is $\\text{input\\_channels} \\times \\text{window\\_width} \\times \\text{window\\_height} \\times \\text{output\\_channels}$."
+    },
+    {
+      "text": "For the first convolutional layer, the weight tensor size is $1 \\times 5 \\times 5 \\times 6$."
+    },
+    {
+      "text": "The number of weights in the first convolutional layer is $1 \\times 5 \\times 5 \\times 6 = 150$."
+    },
+    {
+      "text": "The first convolutional layer has 150 trainable weights."
+    },
+    {
+      "text": "The convolutional idea saves a huge amount of weights compared to a fully connected layer."
+    },
+    {
+      "text": "A fully connected layer from a $32 \\times 32 \\times 1$ input to a $28 \\times 28 \\times 6$ output would have $32 \\times 32 \\times 1 \\times 28 \\times 28 \\times 6$ weights, which is several million."
+    },
+    {
+      "text": "The convolutional layer in this example reduces the weight count from several million to 150."
+    },
+    {
+      "text": "The main power of convolutions is that they save a lot of weights."
+    },
+    {
+      "text": "Convolutions are an excellent technique of structural regularization."
+    },
+    {
+      "text": "Regularization compresses or reduces the set of weights from which the model can choose."
+    },
+    {
+      "text": "Structural regularization imposes constraints on the weights, such as weight sharing and sparsification."
+    },
+    {
+      "text": "In a convolutional layer, weight sharing means processing every window with the exact same weights."
+    },
+    {
+      "text": "After the first convolutional layer, there is a pooling layer (subsampling)."
+    },
+    {
+      "text": "Subsampling is the same as pooling layers."
+    },
+    {
+      "text": "The pooling layer uses $2 \\times 2$ windows."
+    },
+    {
+      "text": "The pooling layer reduces the size from $28 \\times 28$ to $14 \\times 14$."
+    },
+    {
+      "text": "Max pooling has no trainable weights."
+    },
+    {
+      "text": "Max pooling takes a $2 \\times 2$ window and replaces it with the maximum of its four numbers."
+    },
+    {
+      "text": "The pooling transformation cuts the input into tiles and, for each tile, takes the numbers and leaves only the maximum."
+    },
+    {
+      "text": "Pooling layers have no trainable weights."
+    },
+    {
+      "text": "Pooling is a deterministic function that takes the maximum."
+    },
+    {
+      "text": "There is no point in having weights for pooling layers because there is nothing to train; they perform a fixed operation."
+    },
+    {
+      "text": "In the example convolutional network, the next pooling layer outputs a 6x14x14 tensor."
+    },
+    {
+      "text": "In the example network, the following convolutional layer outputs a tensor of size 16x10x10."
+    },
+    {
+      "text": "This convolutional layer uses a 5x5 kernel."
+    },
+    {
+      "text": "This convolutional layer takes 6 input features and produces 16 output features."
+    },
+    {
+      "text": "The number of trainable weights in this convolutional layer is 2400 (6 × 5 × 5 × 16)."
+    },
+    {
+      "text": "After another pooling layer, the tensor size becomes 16x5x5."
+    },
+    {
+      "text": "When the input tensor is 5x5 with depth 16, applying a 5x5 convolution covers the entire tensor, making it equivalent to a fully connected layer."
+    },
+    {
+      "text": "In the example network, the next layer converts the tensor to 120 features."
+    },
+    {
+      "text": "Then a fully connected layer goes to 84 features."
+    },
+    {
+      "text": "Then a final output layer (possibly softmax) produces 10 values."
+    },
+    {
+      "text": "The fully connected layer that takes the flattened 16x5x5 input (400 elements) and outputs 120 features has 48,000 weights (400 × 120)."
+    },
+    {
+      "text": "This step compresses the input into a vector, losing spatial geometry."
+    },
+    {
+      "text": "The features become global numbers about the input image."
+    },
+    {
+      "text": "In classical convolutional networks, after downsampling through multiple layers, there are usually a couple of fully connected layers at the end."
+    },
+    {
+      "text": "This part of the network is often called the \"head\"."
+    },
+    {
+      "text": "Networks can have multiple heads that perform different tasks."
+    },
+    {
+      "text": "In the example network, there is a classification head with a couple of fully connected layers."
+    },
+    {
+      "text": "In the example network, the classification head holds the vast majority of all weights."
+    },
+    {
+      "text": "The next fully connected layer (from 120 to 84 features) has about 10,080 weights (120 × 84)."
+    },
+    {
+      "text": "The total number of weights in the entire example network is about 60,000."
+    },
+    {
+      "text": "About 57,000 to 58,000 of these weights are in the classification head."
+    },
+    {
+      "text": "Only about 2,500 weights are in the convolutional layers."
+    },
+    {
+      "text": "In the example network, the convolutional layers perform the most important job: they are the Fisher extractors."
+    },
+    {
+      "text": "In backpropagation, if a single input goes to multiple places, the partial derivative at that node is the sum of the gradients along all paths (by the chain rule)."
+    },
+    {
+      "text": "In a convolutional network, each weight in the convolution matrix appears many times in the computational graph."
+    },
+    {
+      "text": "A given weight is multiplied by different input pixels as the window slides."
+    },
+    {
+      "text": "The same weight appears in the computation for every tile, many times."
+    },
+    {
+      "text": "ReLU activations are well-suited for convolutional networks because they introduce sparsity."
+    },
+    {
+      "text": "Sparsity is problematic when signal is limited but beneficial when signal is abundant."
+    },
+    {
+      "text": "Sparsity saves time and does not hurt training when there are many computational paths."
+    },
+    {
+      "text": "With ReLU, when a neuron outputs zero, that part of the graph does not contribute, but the weight still receives updates from other active tiles."
+    },
+    {
+      "text": "When a weight occurs in many places, adding sparsity (e.g., via ReLU) is a good idea."
+    },
+    {
+      "text": "The lecturer discussed that convolutional networks slide a filter across the input."
+    },
+    {
+      "text": "The lecturer discussed that the receptive field grows over layers but not fast enough, necessitating pooling layers."
+    },
+    {
+      "text": "The lecturer discussed that convolutions can be applied to inputs of any dimension or nature, as long as they can be tiled."
+    },
+    {
+      "text": "The lecturer discussed a specific example network."
+    },
+    {
+      "text": "When applying a 3x3 convolution without padding, not every pixel can be the center of a 3x3 window."
+    },
+    {
+      "text": "Fitting as many tiles as possible results in fewer output tiles than the number of input pixels."
+    },
+    {
+      "text": "This reduction in spatial dimensions can be inconvenient."
+    },
+    {
+      "text": "Without padding, a convolution with kernel size K reduces spatial dimensions from W and H to W−K and H−K."
+    },
+    {
+      "text": "Sometimes it is desirable to preserve the spatial dimensions, outputting a tensor of the same size (D × W × H)."
+    },
+    {
+      "text": "Padding is a technique to preserve spatial dimensions by allowing every pixel to be the center of a window."
+    },
+    {
+      "text": "Zero padding sets values outside the image to zero."
+    },
+    {
+      "text": "Zero padding enables preserving the output size."
+    },
+    {
+      "text": "Padding allows fitting more tiles."
+    },
+    {
+      "text": "Two common padding methods are zero padding and mirror padding."
+    },
+    {
+      "text": "Zero padding can create border effects where features are influenced by many zeros, leading to implausible features."
+    },
+    {
+      "text": "Mirror padding reflects the image at the border to avoid zero-padding artifacts."
+    },
+    {
+      "text": "The purpose of padding is to allow any input pixel to be the center of a tile, thereby fitting more tiles."
+    },
+    {
+      "text": "Using a stride (e.g., taking every second pixel as the center of the window) reduces the number of tiles."
+    },
+    {
+      "text": "With a stride of 2, the number of tiles is halved in each spatial dimension."
+    },
+    {
+      "text": "With stride 2, the output tensor has spatial dimensions approximately W/2 and H/2."
+    },
+    {
+      "text": "This stride technique achieves geometric reduction by a factor of 2, similar to pooling layers."
+    },
+    {
+      "text": "When striding is used, every pixel is still covered."
+    },
+    {
+      "text": "When striding is used, pixels are covered fewer times than with full tiling."
+    },
+    {
+      "text": "With full tiling (stride 1), a pixel is part of many overlapping windows."
+    },
+    {
+      "text": "With striding, the maximum number of windows covering a pixel can be 4."
+    },
+    {
+      "text": "With striding, a pixel may be covered by only two tiles."
+    },
+    {
+      "text": "Striding does not cause any loss of information."
+    },
+    {
+      "text": "A neural network can still process all information when striding is used."
+    },
+    {
+      "text": "Striding is a reasonable way to reduce geometry."
+    },
+    {
+      "text": "When this geometry reduction is performed, it is called using a stride."
+    },
+    {
+      "text": "An example of stride 2 corresponds to skipping windows."
+    },
+    {
+      "text": "Without striding (tiling with every possible tile), the stride is 1."
+    },
+    {
+      "text": "When defining a convolutional layer, one defines a tensor shape d × w × h × d'."
+    },
+    {
+      "text": "In that tensor shape, d is the depth of the input."
+    },
+    {
+      "text": "In that tensor shape, d' is the depth of the output."
+    },
+    {
+      "text": "Padding is defined optionally to pad the input, e.g., with zeros."
+    },
+    {
+      "text": "The stride parameter is also defined."
+    },
+    {
+      "text": "Formally, stride is two-dimensional because it consists of two numbers."
+    },
+    {
+      "text": "The stride can be different along x and y axes, e.g., stride 2 in x and stride 3 in y."
+    },
+    {
+      "text": "Formally, stride consists of two potentially different numbers."
+    },
+    {
+      "text": "In practice, the two stride numbers are usually equal."
+    },
+    {
+      "text": "The stride parameter defines the tiling pattern."
+    },
+    {
+      "text": "The size of the convolutional tensor (d') defines the number of output features."
+    },
+    {
+      "text": "With strides, every pixel participates in processing fewer times."
+    },
+    {
+      "text": "The general trend in convolutional network development is that pooling was used less and less often over time."
+    },
+    {
+      "text": "Pooling has undesirable properties."
+    },
+    {
+      "text": "Pooling cuts off lots of computational paths."
+    },
+    {
+      "text": "Pooling distorts the gradients."
+    },
+    {
+      "text": "Pooling has bad side effects."
+    },
+    {
+      "text": "Modern architectures like Inception ResNet reduce spatial geometry."
+    },
+    {
+      "text": "Modern architectures reduce geometry using a complex subnetwork, not exactly with a simple stride."
+    },
+    {
+      "text": "This complex subnetwork includes strided convolution at some point."
+    },
+    {
+      "text": "This complex subnetwork also performs other operations."
+    }
+  ],
+  "summary": [
+    {
+      "text": "Convolutional neural networks (CNNs) are a cornerstone of the deep learning revolution."
+    },
+    {
+      "text": "The design of CNNs was partly inspired by the structure of the mammalian visual cortex."
+    },
+    {
+      "text": "The seminal work by Hubel and Wiesel revealed how the brain processes visual information through a hierarchy of simple feature detectors."
+    },
+    {
+      "text": "Hubel and Wiesel received the Nobel Prize for these studies."
+    },
+    {
+      "text": "Hubel and Wiesel's key experimental breakthrough was the ability to fabricate micro-electrodes fine enough to record the activity of a single neuron in a living brain."
+    },
+    {
+      "text": "The brain used in these experiments was often that of a cat."
+    },
+    {
+      "text": "Using these micro-electrodes, Hubel and Wiesel discovered that neurons in the very first processing stage (the primary visual cortex, V1) do not see the whole image."
+    },
+    {
+      "text": "Each neuron in V1 has a small receptive field."
+    },
+    {
+      "text": "Each neuron in V1 responds only to extremely simple patterns inside its receptive field."
+    },
+    {
+      "text": "For instance, a neuron in V1 might fire intensely for a bright vertical line."
+    },
+    {
+      "text": "The same neuron becomes almost silent as the line is rotated."
+    },
+    {
+      "text": "The observed properties of V1 neurons suggest a hierarchical organisation where the first layer extracts local primitives (edges, orientations)."
+    },
+    {
+      "text": "In this hierarchical organisation, a second layer would combine these primitives into more complex shapes (e.g., a corner from a horizontal and a vertical line)."
+    },
+    {
+      "text": "Hubel and Wiesel did identify neurons in the second visual area (V2) that responded to combinations of primitives (e.g., corners from horizontal and vertical lines)."
+    },
+    {
+      "text": "Hubel and Wiesel wisely stopped at identifying V2 neurons; they did not claim to understand the full visual cortex hierarchy."
+    },
+    {
+      "text": "The true structure of the visual cortex is immensely more complicated than a simple hierarchy."
+    },
+    {
+      "text": "A simplified picture of the visual cortex shows a sequence of layers: V1 → V2 → V3 → V4 → V5/V6."
+    },
+    {
+      "text": "In reality, the visual cortex is a dense mesh of feed-forward, feedback and lateral connections."
+    },
+    {
+      "text": "The biological brain is not a clean feed-forward network."
+    },
+    {
+      "text": "A single biological neuron has exactly one output: its axon."
+    },
+    {
+      "text": "To perform gradient descent, every node in a computational graph must implement at least a forward computation and a backward gradient computation."
+    },
+    {
+      "text": "Implementing both forward and backward gradient computation is fundamentally impossible for a single biological neuron."
+    },
+    {
+      "text": "Therefore, the human brain cannot train itself by gradient descent."
+    },
+    {
+      "text": "The human brain must rely on massive feedback loops and a different, still unknown learning mechanism."
+    },
+    {
+      "text": "The analogy between artificial and biological neurons stops at the connectionist principle (a large composition of simple units can yield complex behaviour) and at the layered hierarchical organisation."
+    },
+    {
+      "text": "Nevertheless, the observed hierarchy of simple-to-complex features in the visual cortex was the conceptual seed for convolutional networks."
+    },
+    {
+      "text": "Building on the inspiration from the visual cortex hierarchy, Kunihiko Fukushima proposed the Neocognitron in 1979."
+    },
+    {
+      "text": "The Neocognitron was a deep, multi-layer architecture that used fixed filters (convolutions) to extract features across an image."
+    },
+    {
+      "text": "The Neocognitron employed activations very similar to modern ReLU (the hinge-shaped activation) decades before ReLU became standard."
+    },
+    {
+      "text": "The Neocognitron lacked learning; its filters were hand-designed, not trained."
+    },
+    {
+      "text": "Convolutional networks in their modern, trainable form were developed in the late 1980s by Yann LeCun and his group."
+    },
+    {
+      "text": "Yann LeCun's key contribution was making the convolution kernels learnable via backpropagation."
+    },
+    {
+      "text": "Yann LeCun's architectures (such as LeNet) demonstrated the power of learnable convolution kernels on practical tasks like handwritten digit recognition."
+    },
+    {
+      "text": "The fundamental assumption behind CNNs is translation invariance of feature detectors."
+    },
+    {
+      "text": "Translation invariance means that if you are looking for a specific pattern (e.g., a boy's face, a digit, a corner), exactly the same detector should be applied everywhere across the image."
+    },
+    {
+      "text": "The location of a pattern changes the input, but the function that detects the pattern remains identical."
+    },
+    {
+      "text": "The translation invariance assumption leads to a specific pipeline in CNNs."
+    },
+    {
+      "text": "In the CNN pipeline, the input (an image, or any multi-dimensional array) is divided into small, overlapping windows (tiles)."
+    },
+    {
+      "text": "Typically odd-sized tiles such as 3x3 or 5x5 are used."
+    },
+    {
+      "text": "In the CNN pipeline, a small neural network (in practice just a single fully-connected layer) is applied to every tile."
+    },
+    {
+      "text": "This small neural network receives the tile's pixel values (flattened into a vector) and outputs a vector of new features."
+    },
+    {
+      "text": "Because each tile yields a feature vector and the tiles form a spatial grid, the output of a convolutional layer is a three-dimensional tensor of dimensions height × width × number of features."
+    },
+    {
+      "text": "The number of features is often called channels or feature maps."
+    },
+    {
+      "text": "The spatial dimensions of the output tensor may shrink unless special measures like padding are taken."
+    },
+    {
+      "text": "The process of convolution can be repeated: the output tensor of one layer becomes the input of the next layer, which again is tiled, processed with a new small network, and so on."
+    },
+    {
+      "text": "By stacking convolution layers, the network builds a hierarchy of features, from simple edges to complex shapes."
+    },
+    {
+      "text": "The crucial gain of convolutional layers is weight sharing: the same small weight matrix is reused for every tile."
+    },
+    {
+      "text": "Weight sharing means that the number of trainable parameters does not depend on the size of the input image, only on the tile (kernel) size and the number of input/output channels."
+    },
+    {
+      "text": "Weight sharing drastically reduces the number of parameters compared to a fully-connected layer."
+    },
+    {
+      "text": "Weight sharing acts as a powerful structural regulariser."
+    },
+    {
+      "text": "Weight sharing encodes the prior knowledge of translation invariance by explicitly imposing that the same operation must be performed everywhere."
+    },
+    {
+      "text": "A drawback of stacking only convolutional layers is that the receptive field grows very slowly."
+    },
+    {
+      "text": "With 3x3 kernels, each convolutional layer adds only 2 pixels to the effective field of view."
+    },
+    {
+      "text": "To reach a receptive field covering a 256x256 image, about 130 convolutional layers would be needed, which is impractical."
+    },
+    {
+      "text": "Therefore, classical CNNs introduce pooling layers to aggressively reduce the spatial dimensions."
+    },
+    {
+      "text": "A pooling layer operates on the output of a convolutional layer."
+    },
+    {
+      "text": "A pooling layer partitions the feature maps into small, non-overlapping windows, almost always 2x2."
+    },
+    {
+      "text": "For each 2x2 window, the pooling layer replaces the four values with a single summary statistic."
+    },
+    {
+      "text": "In max-pooling, the summary statistic is the maximum of the four values."
+    },
+    {
+      "text": "In average-pooling, the summary statistic is the mean of the four values."
+    },
+    {
+      "text": "Max-pooling is overwhelmingly the standard choice in CNNs."
+    },
+    {
+      "text": "For \"presence\" features such as whether a face, a corner, or an edge is present, the maximum across the window is the correct composition."
+    },
+    {
+      "text": "If any tile in the window detects the object, the whole window should report its presence."
+    },
+    {
+      "text": "Average-pooling tends to dilute strong presence signals."
+    },
+    {
+      "text": "Features that measure continuous quantities (e.g., colour saturation) may benefit from averaging."
+    },
+    {
+      "text": "Object-oriented features obey the max law."
+    },
+    {
+      "text": "Empirically, max-pooling works better than average-pooling."
+    },
+    {
+      "text": "With 2x2 pooling, the width and height of the feature maps are halved, reducing the number of features by a factor of four."
+    },
+    {
+      "text": "Pooling layers have zero trainable parameters."
+    },
+    {
+      "text": "Pooling layers are deterministic down-sampling operations."
+    },
+    {
+      "text": "Let x^l be the input feature map at layer l, with spatial dimensions and depth D."
+    },
+    {
+      "text": "A two-dimensional convolution uses a kernel of size (2d+1)x(2d+1)."
+    },
+    {
+      "text": "The weight tensor W for a convolution has shape (2d+1)x(2d+1)x D x D', where D' is the desired number of output features."
+    },
+    {
+      "text": "For each output position (i,j) and each output channel c', the convolution operation is: y^l_{i,j,c'} = \\sum_{c=1}^{D} \\sum_{-d \\le a,b \\le d} W_{a,b,c,c'} x^l_{i+a, j+b, c}."
+    },
+    {
+      "text": "In simpler notation, the per-channel convolution is written as: y^l_{i,j} = \\sum_{-d \\le a,b \\le d} W_{a,b} x^l_{i+a, j+b}, implicitly summing over input channels and using a separate kernel for each output channel."
+    },
+    {
+      "text": "After the convolution, a nonlinearity is applied element-wise: z^l_{i,j} = h(y^l_{i,j})."
+    },
+    {
+      "text": "In almost all modern CNNs, the nonlinearity h is the ReLU function: h(u) = \\max(0,u)."
+    },
+    {
+      "text": "Max-pooling over a (2d+1)x(2d+1) window is defined as: x^{l+1}_{i,j} = \\max_{-d \\le a,b \\le d} z^l_{i+a, j+b}."
+    },
+    {
+      "text": "Average-pooling replaces the maximum with the arithmetic mean in the pooling operation."
+    },
+    {
+      "text": "After several convolution-pooling blocks, the spatial dimensions become small enough that the whole tensor can be flattened and fed into one or more fully-connected layers (the classification head)."
+    },
+    {
+      "text": "To appreciate the parameter savings, consider a classical LeNet-style network for grayscale 32x32 input (depth 1)."
+    },
+    {
+      "text": "The architecture of this LeNet-style network proceeds in a specific sequence of layers."
+    },
+    {
+      "text": "Input: 1 x 32 x 32."
+    },
+    {
+      "text": "Conv1: 5x5 kernel, 6 output features → output 6 x 28 x 28."
+    },
+    {
+      "text": "Conv1 has weights: 1 x 5 x 5 x 6 = 150."
+    },
+    {
+      "text": "Max-pooling1: 2x2 → output 6 x 14 x 14."
+    },
+    {
+      "text": "Max-pooling1 has 0 weights because it is deterministic."
+    },
+    {
+      "text": "Conv2: 5x5 kernel, 16 output features → output 16 x 10 x 10."
+    },
+    {
+      "text": "Conv2 has weights: 6 x 5 x 5 x 16 = 2400."
+    },
+    {
+      "text": "Max-pooling2: 2x2 → output 16 x 5 x 5."
+    },
+    {
+      "text": "Max-pooling2 has 0 weights."
+    },
+    {
+      "text": "Fully-connected 1: The 16x5x5 = 400 values are flattened and mapped to 120 neurons."
+    },
+    {
+      "text": "Fully-connected 1 weights: 400 x 120 = 48,000 (plus biases)."
+    },
+    {
+      "text": "Fully-connected 2: 120 → 84."
+    },
+    {
+      "text": "Fully-connected 2 weights: 120 x 84 = 10,080."
+    },
+    {
+      "text": "Output (softmax) layer: 84 → 10."
+    },
+    {
+      "text": "Output layer weights: 84 x 10 = 840."
+    },
+    {
+      "text": "Total trainable parameters ≈ 150 + 2400 + 48,000 + 10,080 + 840 ≈ 61,470."
+    },
+    {
+      "text": "Of these 61,470 total trainable parameters, only about 2,550 (roughly 4%) belong to the convolutional layers."
+    },
+    {
+      "text": "Had the first layer been a naive fully-connected transformation from 32x32 = 1024 pixels to a 28x28x6 output, it would have required around five million weights."
+    },
+    {
+      "text": "The convolutional structure slashes the first layer's parameter count from around five million to 150."
+    },
+    {
+      "text": "This parameter reduction directly encodes the intuition that a feature detector should be location independent."
+    },
+    {
+      "text": "This is structural regularisation—hard-coding equality constraints on weights."
+    },
+    {
+      "text": "Structural regularisation is the primary reason CNNs can scale to high-resolution images."
+    },
+    {
+      "text": "In a CNN, every weight in the kernel is reused across every spatial tile."
+    },
+    {
+      "text": "In the backward pass, the gradient for a kernel weight is the sum (by the chain rule) of all the individual gradients from each tile in which that weight participates."
+    },
+    {
+      "text": "In a CNN, a single weight receives gradient information from the entire image."
+    },
+    {
+      "text": "The fact that a single weight receives gradient information from the entire image makes optimisation extremely stable."
+    },
+    {
+      "text": "The abundance of gradient signal points makes sparsity desirable."
+    },
+    {
+      "text": "With ReLU activations, many neurons output exactly zero for a given input window."
+    },
+    {
+      "text": "A zero ReLU activation stops gradient flow through that part of the graph for that tile."
+    },
+    {
+      "text": "However, the kernel weight still receives updates from all the other tiles where the activation was positive."
+    },
+    {
+      "text": "Sparsity accelerates computation without harming learning."
+    },
+    {
+      "text": "Sparsity acts as a mild regulariser."
+    },
+    {
+      "text": "ReLU and convolutional weight sharing are an exceptionally well-matched pair."
+    },
+    {
+      "text": "Applying a K x K convolution reduces the spatial dimensions by K-1."
+    },
+    {
+      "text": "This reduction occurs because border pixels cannot serve as the centre of a full window."
+    },
+    {
+      "text": "To preserve the spatial size (often desired when stacking many layers), the input can be padded with extra values before the convolution."
+    },
+    {
+      "text": "The two most common padding strategies are zero padding and mirror padding."
+    },
+    {
+      "text": "Zero padding fills out-of-bounds values with 0."
+    },
+    {
+      "text": "Mirror padding reflects the border pixels outward."
+    },
+    {
+      "text": "Zero padding sometimes creates artefacts near the border because windows near the border see many zeros."
+    },
+    {
+      "text": "Mirror padding mitigates border artefacts but is slightly more expensive."
+    },
+    {
+      "text": "The main goal of padding is to let every original pixel be the centre of a window, so that the output has the same height and width as the input."
+    },
+    {
+      "text": "Instead of a pooling layer, one can reduce spatial dimensions by using a stride (skipping pixels when placing windows)."
+    },
+    {
+      "text": "If windows are centred only on every second pixel (stride 2), the number of tiles is halved in each direction, and the output dimensions become roughly W/2 x H/2."
+    },
+    {
+      "text": "With stride 2, no information is lost because every pixel is still covered by at least one window (often by two)."
+    },
+    {
+      "text": "Stride 2 gives the same geometric down-sampling as a 2x2 pooling layer, but without an explicit separate pooling operation."
+    },
+    {
+      "text": "The stride can be set independently for height and width (a pair of numbers)."
+    },
+    {
+      "text": "Usually, the stride is the same in both directions."
+    },
+    {
+      "text": "While pooling was standard in early CNNs, it has undesirable side-effects."
+    },
+    {
+      "text": "Pooling eliminates many computational paths."
+    },
+    {
+      "text": "Pooling can distort gradients."
+    },
+    {
+      "text": "Modern architectures such as Inception and ResNet tend to replace explicit pooling with strided convolutions or small sub-networks."
+    },
+    {
+      "text": "These strided convolutions or sub-networks accomplish spatial reduction while learning the best way to combine features."
+    },
+    {
+      "text": "Pooling is far from obsolete."
+    },
+    {
+      "text": "The trend is to let the network learn its own down-sampling rather than imposing a fixed max or average pooling operation."
+    }
+  ]
+}

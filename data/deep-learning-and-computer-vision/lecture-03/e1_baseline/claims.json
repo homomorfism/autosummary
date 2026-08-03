@@ -1,0 +1,3583 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "slides": [
+    {
+      "text": "The title of the presentation is 'GRADIENT DESCENT AND GENERAL DL REMARKS'."
+    },
+    {
+      "text": "The presenter is Sergey Nikolenko."
+    },
+    {
+      "text": "The presentation is for Harbour Space University."
+    },
+    {
+      "text": "The presentation is on June 10, 2026."
+    },
+    {
+      "text": "June 10 is the World Art Nouveau Day."
+    },
+    {
+      "text": "World Art Nouveau Day is celebrated on the anniversary of the death of Antoni Gaudí and Ödön Lechner."
+    },
+    {
+      "text": "On June 10, 1692, Bridget Bishop was hanged at Gallows Hill near Salem, Massachusetts."
+    },
+    {
+      "text": "Bridget Bishop was hanged for 'certaine Detestable Arts called Witchcraft and Sorceries'."
+    },
+    {
+      "text": "On June 10, 1829, the first boat race between the Universities of Oxford and Cambridge took place on the Thames."
+    },
+    {
+      "text": "Cambridge challenged Oxford to the race."
+    },
+    {
+      "text": "Cambridge lost the race easily."
+    },
+    {
+      "text": "On June 10, 1935, surgeon Robert Smith drank his last drink."
+    },
+    {
+      "text": "Robert Smith stayed sober afterwards with the help of another alcoholic, Bill Wilson."
+    },
+    {
+      "text": "The date June 10, 1935, marks the birth of Alcoholics Anonymous."
+    },
+    {
+      "text": "On June 10, 1886, a government commission arrived at Neuschwanstein."
+    },
+    {
+      "text": "The government commission formally pronounced King Ludwig II of Bavaria insane."
+    },
+    {
+      "text": "The government commission deposed King Ludwig II of Bavaria."
+    },
+    {
+      "text": "On June 10, 1967, Israel and Syria agreed to a cease-fire."
+    },
+    {
+      "text": "The cease-fire ended the Six-Day War."
+    },
+    {
+      "text": "On June 10, 1987, the June Democratic Struggle started in South Korea."
+    },
+    {
+      "text": "People protested against the government during the June Democratic Struggle."
+    },
+    {
+      "text": "The demonstrations forced the military regime under president Chun Doo-hwan to institute democratic reforms."
+    },
+    {
+      "text": "The democratic reforms led to the Sixth Republic."
+    },
+    {
+      "text": "The section is titled 'GRADIENT DESCENT AND COMPUTATIONAL GRAPHS'."
+    },
+    {
+      "text": "Gradient descent involves taking the gradient with respect to weights and moving in that direction."
+    },
+    {
+      "text": "Formally, for an error function $E$, targets $y$, and model $f$ with parameters $\\theta$, $E(\\theta) = \\sum_{(x,y)\\in D} E(f(x, \\theta), y)$."
+    },
+    {
+      "text": "$\\theta_t = \\theta_{t-1} - \\eta \\nabla E(\\theta_{t-1}) = \\theta_{t-1} - \\eta \\sum_{(x,y)\\in D} \\nabla E(f(x, \\theta_{t-1}), y)$."
+    },
+    {
+      "text": "It is necessary to sum over the entire dataset for every step of gradient descent."
+    },
+    {
+      "text": "Stochastic gradient descent updates after every training sample: $\\theta_t = \\theta_{t-1} - \\eta \\nabla E(f(x_t, \\theta_{t-1}), y_t)$."
+    },
+    {
+      "text": "In practice, people usually use mini-batches."
+    },
+    {
+      "text": "Mini-batches are easy to parallelize."
+    },
+    {
+      "text": "Mini-batches smooth out excessive stochasticity."
+    },
+    {
+      "text": "So far, the only parameter is the learning rate $\\eta$."
+    },
+    {
+      "text": "There are lots of problems with the learning rate $\\eta$."
+    },
+    {
+      "text": "The lecture will address the problems with $\\eta$ later."
+    },
+    {
+      "text": "For now, the lecture concentrates on the computation of derivatives."
+    },
+    {
+      "text": "A function can be represented as a composition of simple functions."
+    },
+    {
+      "text": "'Simple' functions are functions for which we can take derivatives."
+    },
+    {
+      "text": "An example function is $f(x, y) = x^2 + xy + (x + y)^2$."
+    },
+    {
+      "text": "Using the representation as a composition of simple functions, we can take the gradient with the chain rule: $(f \\circ g)'(x) = (f(g(x)))' = f'(g(x)) g'(x)$."
+    },
+    {
+      "text": "An increment $\\delta x$ results in $\\delta f = f'(g(x)) \\delta g = f'(g(x)) g'(x) \\delta x$."
+    },
+    {
+      "text": "We only need to be able to take gradients, i.e., derivatives with respect to vectors."
+    },
+    {
+      "text": "The gradient of $f$ with respect to $x$ is $\\nabla_x f = \\begin{pmatrix} \\frac{\\partial f}{\\partial x_1} \\\\ \\vdots \\\\ \\frac{\\partial f}{\\partial x_n} \\end{pmatrix}$."
+    },
+    {
+      "text": "The gradient of the composition $f \\circ g$ is $\\nabla_x (f \\circ g) = \\begin{pmatrix} \\frac{\\partial f \\circ g}{\\partial x_1} \\\\ \\vdots \\\\ \\frac{\\partial f \\circ g}{\\partial x_n} \\end{pmatrix} = \\begin{pmatrix} \\frac{\\partial f}{\\partial g} \\frac{\\partial g}{\\partial x_1} \\\\ \\vdots \\\\ \\frac{\\partial f}{\\partial g} \\frac{\\partial g}{\\partial x_n} \\end{pmatrix} = \\frac{\\partial f}{\\partial g} \\nabla_x g$."
+    },
+    {
+      "text": "If $f$ depends on $x$ via multiple functions $f = f(g_1(x), g_2(x), \\ldots, g_k(x))$, then the increment $\\delta x$ appears in the chain rule multiple times."
+    },
+    {
+      "text": "In that case, $\\frac{\\partial f}{\\partial x} = \\sum_{i=1}^k \\frac{\\partial f}{\\partial g_i} \\frac{\\partial g_i}{\\partial x}$."
+    },
+    {
+      "text": "The gradient with respect to $x$ is $\\nabla_x f = \\sum_{i=1}^k \\frac{\\partial f}{\\partial g_i} \\nabla_x g_i$."
+    },
+    {
+      "text": "This results in matrix multiplication for the Jacobian: $\\nabla_x f = \\nabla_x \\mathbf{g} \\nabla_{\\mathbf{g}} f$."
+    },
+    {
+      "text": "The Jacobian matrix $\\nabla_x \\mathbf{g}$ is $\\begin{pmatrix} \\frac{\\partial g_1}{\\partial x_1} & \\ldots & \\frac{\\partial g_k}{\\partial x_1} \\\\ \\vdots & & \\vdots \\\\ \\frac{\\partial g_1}{\\partial x_n} & \\ldots & \\frac{\\partial g_k}{\\partial x_n} \\end{pmatrix}$."
+    },
+    {
+      "text": "Forward propagation computes $\\frac{\\partial f}{\\partial x}$ using the chain rule."
+    },
+    {
+      "text": "Backpropagation computes gradients by starting from the end node and moving backward."
+    },
+    {
+      "text": "The gradient with respect to a node $g$ is given by $\\frac{\\partial f}{\\partial g} = \\sum_{g' \\in \\text{Children}(g)} \\frac{\\partial f}{\\partial g'} \\frac{\\partial g'}{\\partial g}$."
+    },
+    {
+      "text": "Backpropagation is much better than forward propagation because it computes all derivatives in a single pass through the graph."
+    },
+    {
+      "text": "With backpropagation, we can now compute the gradients of any complicated composition of simple functions."
+    },
+    {
+      "text": "Computing gradients of any composition of simple functions is all we need to apply gradient descent."
+    },
+    {
+      "text": "Libraries such as PyTorch, TensorFlow, and Theano are actually automatic differentiation libraries."
+    },
+    {
+      "text": "The main function of PyTorch, TensorFlow, and Theano is automatic differentiation."
+    },
+    {
+      "text": "Many 'classical' models can be implemented in TensorFlow and trained by gradient descent."
+    },
+    {
+      "text": "Live neurons cannot compute both the value and the derivative because they would need two different outputs."
+    },
+    {
+      "text": "The next section covers activation functions."
+    },
+    {
+      "text": "There are many different nonlinearities."
+    },
+    {
+      "text": "The lecture provides a brief survey of activation functions."
+    },
+    {
+      "text": "The logistic sigmoid is defined as $\\sigma(x) = \\frac{1}{1 + e^{-x}}$."
+    },
+    {
+      "text": "The hyperbolic tangent is defined as $\\tanh(x) = \\frac{e^x - e^{-x}}{e^x + e^{-x}}$."
+    },
+    {
+      "text": "The hyperbolic tangent is very similar to the logistic sigmoid."
+    },
+    {
+      "text": "For the hyperbolic tangent, zero is not a saturation point."
+    },
+    {
+      "text": "The Heaviside step function is defined as $\\text{step}(x) = \\begin{cases} 0, & \\text{if } x < 0 \\\\ 1, & \\text{if } x > 0 \\end{cases}$."
+    },
+    {
+      "text": "The Rectified Linear Unit (ReLU) is defined as $\\text{ReLU}(x) = \\begin{cases} 0, & \\text{if } x < 0 \\\\ x, & \\text{if } x \\ge 0 \\end{cases}$."
+    },
+    {
+      "text": "There is a mathematical motivation for ReLU."
+    },
+    {
+      "text": "The mathematical motivation for ReLU involves the sum $\\sigma(x + \\frac{1}{2}) + \\sigma(x - \\frac{1}{2}) + \\sigma(x - \\frac{3}{2}) + \\sigma(x - \\frac{5}{2}) + \\ldots$ where $\\sigma$ is the logistic sigmoid."
+    },
+    {
+      "text": "There is a biological motivation for ReLU."
+    },
+    {
+      "text": "The biological motivation for ReLU is a function $f(I)$ defined as $f(I) = \\begin{cases} \\left( \\tau \\log \\frac{E + R I - V_{\\text{reset}}}{E + R I - V_{th}} \\right)^{-1}, & \\text{if } E + R I > V_{th} \\\\ 0, & \\text{if } E + R I \\le V_{th} \\end{cases}$."
+    },
+    {
+      "text": "There are several ReLU variations."
+    },
+    {
+      "text": "Softplus is defined as $\\text{softplus}(x) = \\ln(1 + e^x)$."
+    },
+    {
+      "text": "Leaky ReLU (LReLU) is defined as $\\text{LReLU}(x) = \\begin{cases} a x, & \\text{if } x < 0 \\\\ x, & \\text{if } x > 0 \\end{cases}$."
+    },
+    {
+      "text": "Exponential Linear Unit (ELU) is defined as $\\text{ELU}(x) = \\begin{cases} \\alpha (e^x - 1), & x < 0 \\\\ x, & x \\ge 0 \\end{cases}$."
+    },
+    {
+      "text": "The slide includes a plot comparing ReLU, Softplus, Leaky ReLU with different parameters, and ELU with different $\\alpha$ values."
+    },
+    {
+      "text": "The activation functions mentioned so far are only a beginning."
+    },
+    {
+      "text": "Ramachandran et al. (2017) performed an automated search over function space."
+    },
+    {
+      "text": "Ramachandran et al. (2017) discovered the Swish activation function."
+    },
+    {
+      "text": "Swish is defined as $\\text{Swish}(x) = x \\sigma(\\beta x) = \\frac{x}{1 + e^{-\\beta x}}$."
+    },
+    {
+      "text": "Misra (2019) proposed Mish activation function."
+    },
+    {
+      "text": "Mish is defined as $\\text{Mish}(x) = x \\tanh(\\text{softplus}(x)) = x \\tanh(\\ln(1 + e^x))$."
+    },
+    {
+      "text": "A plot in the slide compares ReLU, Swish with different $\\beta$, and Mish."
+    },
+    {
+      "text": "The most interesting development in activation functions happened in 2020."
+    },
+    {
+      "text": "Ma et al. (2020) proposed a smooth generalization of the maximum, $S_\\beta(x_1, \\ldots, x_n) = \\frac{\\sum_{i=1}^n x_i e^{\\beta x_i}}{\\sum_{i=1}^n e^{\\beta x_i}}$."
+    },
+    {
+      "text": "Substituting two functions of $x$ into $S_\\beta$, to approximate $\\max(g(x), h(x))$, yields $S_\\beta(g(x), h(x)) = g(x) \\frac{e^{\\beta g(x)}}{e^{\\beta g(x)} + e^{\\beta h(x)}} + h(x) \\frac{e^{\\beta h(x)}}{e^{\\beta g(x)} + e^{\\beta h(x)}}$."
+    },
+    {
+      "text": "The expression $S_\\beta(g(x), h(x))$ simplifies to $(g(x) - h(x)) \\sigma(\\beta (g(x) - h(x))) + h(x)$."
+    },
+    {
+      "text": "Ma et al. (2020) named the construction ActivateOrNot (ACON)."
+    },
+    {
+      "text": "The ACON construction generalizes previous activation functions."
+    },
+    {
+      "text": "For $g(x) = x$ and $h(x) = 0$, the hard maximum is $\\text{ReLU}(x) = \\max(x, 0)$, and the soft maximum becomes $f_{ACON-A}(x) = S_\\beta(x, 0) = x \\sigma(\\beta x)$, which is exactly Swish."
+    },
+    {
+      "text": "For $g(x) = x$ and $h(x) = a x$ with $a < 1$, the hard maximum is LReLU, and the soft maximum is $f_{ACON-B} = S_\\beta(x, a x) = (1 - a) x \\sigma(\\beta (1 - a) x) + a x$."
+    },
+    {
+      "text": "The ACON construction can be further generalized to $f_{ACON-C} = S_\\beta(a_1 x, a_2 x) = (a_1 - a_2) x \\sigma(\\beta (a_1 - a_2) x) + a_2 x$."
+    },
+    {
+      "text": "In ACON-C, $a_1$ and $a_2$ can be learnable parameters."
+    },
+    {
+      "text": "Intuitively, $a_1$ and $a_2$ represent the limits of the derivative on both sides: $\\lim_{x \\to \\infty} \\frac{d f_{ACON-C}}{dx} = a_1$, $\\lim_{x \\to -\\infty} \\frac{d f_{ACON-C}}{dx} = a_2$."
+    },
+    {
+      "text": "The slide shows a plot of ACON-C for various parameter values: $(a_1=1, a_2=0, \\beta=1)$, $(a_1=1.2, a_2=-0.1, \\beta=1)$, $(a_1=1, a_2=-0.8, \\beta=1)$, $(a_1=1, a_2=-0.8, \\beta=0.1)$, $(a_1=1, a_2=-0.8, \\beta=0.01)$."
+    },
+    {
+      "text": "Ma et al. (2020) show that by tuning the parameters one can win a lot even in standard tasks."
+    },
+    {
+      "text": "The author has not seen much of ACON-C in actual practice."
+    },
+    {
+      "text": "This just goes to show that deep learning has a lot of not-very-hidden depths even in the simplest things."
+    },
+    {
+      "text": "The next section covers variations of gradient descent."
+    },
+    {
+      "text": "'Vanilla' gradient descent update is $x_k = x_{k-1} - \\alpha \\nabla f(x_k)$."
+    },
+    {
+      "text": "Much depends on the learning rate $\\alpha$ in gradient descent."
+    },
+    {
+      "text": "One idea is to let the learning rate $\\alpha$ decrease with time."
+    },
+    {
+      "text": "Linear decay of learning rate: $\\alpha = \\alpha_0 (1 - \\frac{t}{T})$."
+    },
+    {
+      "text": "Exponential decay of learning rate: $\\alpha = \\alpha_0 e^{-t/T}$."
+    },
+    {
+      "text": "There are many results regarding step size selection, including the Wolfe conditions."
+    },
+    {
+      "text": "In the minimization problem $\\min_x f(x)$, at step $k$, given a descent direction $p_k$ (e.g., $p_k = \\nabla_x f(x_k)$), we need to solve $\\min_{\\alpha} f(x_k + \\alpha p_k)$."
+    },
+    {
+      "text": "Define $\\phi_k(\\alpha) = f(x_k + \\alpha p_k)$, then $\\phi_k'(\\alpha) = \\nabla f(x_k + \\alpha p_k)^\\top p_k$."
+    },
+    {
+      "text": "If $p_k$ is a descent direction, then $\\phi_k'(0) < 0$."
+    },
+    {
+      "text": "The Armijo rule requires the step size $\\alpha$ to satisfy $\\phi_k(\\alpha) \\le \\phi_k(0) + c_1 \\alpha \\phi_k'(0)$ for some $c_1 \\in (0, \\frac{1}{2})$."
+    },
+    {
+      "text": "The Wolfe conditions include the stronger Wolfe's rule: Armijo rule plus $|\\phi_k'(\\alpha)| \\le c_2 |\\phi_k'(0)|$."
+    },
+    {
+      "text": "Wolfe's rule aims to ensure a decrease in the projection of the gradient."
+    },
+    {
+      "text": "The optimization process stops when $\\|\\nabla_x f(x_k)\\|_2 \\le \\epsilon$ or $\\|\\nabla_x f(x_k)\\|_2 \\le \\epsilon \\|\\nabla_x f(x_0)\\|_2$."
+    },
+    {
+      "text": "An example function to consider scale effects is $f(x, y) = \\frac{1}{2} x^2 + \\frac{\\rho}{2} y^2$ to be minimized."
+    },
+    {
+      "text": "When variables have different scales (elongated 'valleys'), gradient descent takes many superfluous iterations and is very slow."
+    },
+    {
+      "text": "It would be much better to use an adaptive method."
+    },
+    {
+      "text": "Newton's method scales the gradient with the inverse Hessian."
+    },
+    {
+      "text": "In Newton's method, $g_k = \\nabla_x f(x_k)$, $H_k = \\nabla^2_x f(x_k)$, and the update is $x_{k+1} = x_k - \\alpha_k H_k^{-1} g_k$."
+    },
+    {
+      "text": "The Armijo rule can be applied to Newton's method: choose $\\alpha_k$ such that $f(x_{k+1}) \\le f(x_k) - c_1 \\alpha_k g_k^\\top H_k^{-1} g_k$ with $c_1 \\approx 10^{-4}$."
+    },
+    {
+      "text": "Newton's method would be very nice, but one cannot simply compute the Hessian $H_k$."
+    },
+    {
+      "text": "There are approximations to Newton's method."
+    },
+    {
+      "text": "Conjugate gradients and quasi-Newton methods are among the approximations."
+    },
+    {
+      "text": "L-BFGS (limited memory Broyden–Fletcher–Goldfarb–Shanno) is one such approximation method."
+    },
+    {
+      "text": "L-BFGS constructs an approximation to the inverse Hessian $H^{-1}$."
+    },
+    {
+      "text": "L-BFGS saves updates of the arguments and then expresses $H^{-1}$ through them."
+    },
+    {
+      "text": "An important open question is whether L-BFGS or similar methods can work for deep learning."
+    },
+    {
+      "text": "So far, L-BFGS does not work for deep learning."
+    },
+    {
+      "text": "The main reason L-BFGS does not work is that it requires computing the gradient, and in deep learning we are not computing the full gradient."
+    },
+    {
+      "text": "Stochastic gradient descent uses the update $x_t = x_{t-1} - \\alpha \\nabla f(x_t, x_{t-1}, y_t)$."
+    },
+    {
+      "text": "Mini-batches are also used in stochastic gradient descent."
+    },
+    {
+      "text": "Stochastic gradient descent can be understood formally via stochastic optimization problems."
+    },
+    {
+      "text": "A stochastic optimization problem is of the form $F(x) = \\mathbb{E}_{q(y)} f(x, y) \\to \\min_x$."
+    },
+    {
+      "text": "Empirical risk minimization is a special case: $F(x) = \\frac{1}{N} \\sum_{i=1}^N f_i(x) = \\mathbb{E}_{i \\sim U(1,\\ldots,N)} f_i(x) \\to \\min_x$."
+    },
+    {
+      "text": "Another example is variational lower bound (ELBO) minimization, which will be discussed later."
+    },
+    {
+      "text": "Empirical estimates of a random function from a sample are given by $\\hat{F}(x) = \\frac{1}{m} \\sum_{i=1}^m f(x, y_i)$ and $\\hat{g}(x) = \\frac{1}{m} \\sum_{i=1}^m \\nabla_x f(x, y_i)$."
+    },
+    {
+      "text": "These estimates are unbiased, converge (albeit slowly), and are easy to compute."
+    },
+    {
+      "text": "Stochastic gradient descent (SGD) is motivated as a Monte-Carlo approach."
+    },
+    {
+      "text": "SGD has problems."
+    },
+    {
+      "text": "One problem with SGD is that it never goes in the exact right direction."
+    },
+    {
+      "text": "Another problem is that even at the exact optimum of $F(x)$, the step is nonzero, so SGD cannot converge with a constant step size."
+    },
+    {
+      "text": "We know neither 𝐹(x) nor ∇𝐹(x), so we cannot use Armijo and Wolfe’s rules."
+    },
+    {
+      "text": "We can try to analyze an SGD iteration for 𝐹(x) = 𝔼_{q(y)} 𝑓(x, y) to minimize x."
+    },
+    {
+      "text": "The SGD iteration is: x_{k+1} = x_k - α_k ĝ_k, where ĝ_k is a stochastic gradient estimate."
+    },
+    {
+      "text": "The expected value of the stochastic gradient estimate ĝ_k equals the true gradient g_k = ∇𝐹(x_k)."
+    },
+    {
+      "text": "The squared distance to the optimum after one SGD update is ‖x_{k+1} - x_{\\text{opt}}‖^2 = ‖x_k - α_k ĝ_k - x_{\\text{opt}}‖^2 = ‖x_k - x_{\\text{opt}}‖^2 - 2α_k ĝ_k^{\\top}(x_k - x_{\\text{opt}}) + α_k^2 ‖ĝ_k‖^2."
+    },
+    {
+      "text": "Taking expectation with respect to q(y) at time k gives: 𝔼‖x_{k+1} - x_{\\text{opt}}‖^2 = ‖x_k - x_{\\text{opt}}‖^2 - 2α_k g_k^{\\top}(x_k - x_{\\text{opt}}) + α_k^2 𝔼‖ĝ_k‖^2, where g_k = ∇𝐹(x_k)."
+    },
+    {
+      "text": "Assuming 𝐹 is convex, we have 𝐹(x_{\\text{opt}}) ≥ 𝐹(x_k) + g_k^{\\top}(x_k - x_{\\text{opt}})."
+    },
+    {
+      "text": "From the two previous equations we derive: α_k(𝐹(x_k) - 𝐹(x_{\\text{opt}})) ≤ \\frac{1}{2} ‖x_k - x_{\\text{opt}}‖^2 + \\frac{1}{2} α_k^2 𝔼‖ĝ_k‖^2 - \\frac{1}{2} 𝔼‖x_{k+1} - x_{\\text{opt}}‖^2."
+    },
+    {
+      "text": "Summing these inequalities from i = 0 to k and taking expectation yields: ∑_{i=0}^k α_i(𝔼𝐹(x_i) - 𝐹(x_{\\text{opt}})) ≤ \\frac{1}{2} ‖x_0 - x_{\\text{opt}}‖^2 + \\frac{1}{2} ∑_{i=0}^k α_i^2 𝔼‖ĝ_i‖^2 - \\frac{1}{2} 𝔼‖x_{k+1} - x_{\\text{opt}}‖^2 ≤ \\frac{1}{2} ‖x_0 - x_{\\text{opt}}‖^2 + \\frac{1}{2} ∑_{i=0}^k α_i^2 𝔼‖ĝ_i‖^2."
+    },
+    {
+      "text": "Using convexity, we obtain 𝔼𝐹(∑_i α_i x_i / ∑_i α_i) - 𝐹(x_{\\text{opt}}) ≤ \\frac{\\frac{1}{2} ‖x_0 - x_{\\text{opt}}‖^2 + \\frac{1}{2} ∑_{i=0}^k α_i^2 𝔼‖ĝ_i‖^2}{∑_i α_i}."
+    },
+    {
+      "text": "The estimate is on the value at a linear combination of points; in practice it is equivalent or better to take the last point."
+    },
+    {
+      "text": "If the initial distance is bounded by R (‖x_0 - x_{\\text{opt}}‖ ≤ R) and the expected squared norm of the stochastic gradient is bounded by G^2 (𝔼‖ĝ_k‖^2 ≤ G^2), then 𝔼𝐹(X_k) - 𝐹(x_{\\text{opt}}) ≤ (R^2 + G^2 ∑_{i=0}^k α_i^2) / (2 ∑_{i=0}^k α_i), where X_k = ∑_i α_i x_i / ∑_i α_i."
+    },
+    {
+      "text": "The main bound for SGD is 𝔼𝐹(X_k) - 𝐹(x_{\\text{opt}}) ≤ (R^2 + G^2 ∑_{i=0}^k α_i^2) / (2 ∑_{i=0}^k α_i)."
+    },
+    {
+      "text": "R is an estimate of the initial distance to the optimum, and G is an estimate of something like the variance (or second moment) of the stochastic gradient."
+    },
+    {
+      "text": "For constant step size α_i = h, 𝔼𝐹(X_k) - 𝐹(x_{\\text{opt}}) ≤ R^2/(2h(k+1)) + G^2 h/2, which tends to G^2 h/2 as k → ∞."
+    },
+    {
+      "text": "SGD converges to an \"uncertainty region\" of radius (1/2) G^2 h, which is proportional to the step size h."
+    },
+    {
+      "text": "The faster the learning (larger step size), the faster SGD reaches the uncertainty region, but the larger that region becomes; therefore, the learning rate should be decreased over time."
+    },
+    {
+      "text": "For convex functions, full gradient descent has convergence rate O(1/k) (in terms of residue), while SGD has rate O(1/√k)."
+    },
+    {
+      "text": "Far from the uncertainty region, SGD with constant learning rate still achieves O(1/k) convergence in residue; it slows down only near the optimum, and the practical goal is to reach the uncertainty region."
+    },
+    {
+      "text": "The convergence depends on G (the bound on the second moment of the stochastic gradient), which is especially important for neurobayesian approaches."
+    },
+    {
+      "text": "There is a need for improvements to SGD, particularly regarding the learning rate."
+    },
+    {
+      "text": "It is better not to decrease the learning rate too quickly."
+    },
+    {
+      "text": "However, standard SGD does not directly account for the objective function 𝐹 itself in its adaptation."
+    },
+    {
+      "text": "SGD with momentum keeps part of the previous velocity, analogous to inertia in physics."
+    },
+    {
+      "text": "The momentum update rule is: u_t = γ u_{t-1} + η ∇_{\\text{x}} 𝐹(\\text{x}), and \\text{x} ← \\text{x} - u_t."
+    },
+    {
+      "text": "The term γ u_{t-1} is preserved from the previous step."
+    },
+    {
+      "text": "We already know that we will move to the intermediate point γ u_{t-1}."
+    },
+    {
+      "text": "The suggestion is to compute the gradient at that intermediate point."
+    },
+    {
+      "text": "Nesterov's momentum (Nesterov accelerated gradient) uses the update rule: u_t = γ u_{t-1} + η ∇_{\\text{x}} 𝐹(\\text{x} - γ u_{t-1})."
+    },
+    {
+      "text": "Previously, gradient descent used the same learning rate for all parameter directions."
+    },
+    {
+      "text": "The idea of adaptive gradient descent is to move faster along parameter axes that change slowly and slower along those that change rapidly."
+    },
+    {
+      "text": "Adagrad takes into account the history of gradient updates."
+    },
+    {
+      "text": "The Adagrad update for parameter i is: w_{t+1,i} = w_{t,i} - (η / √(G_{t,ii} + ϵ)) · g_{t,i}, where G_t is a diagonal matrix with G_{t,ii} = G_{t-1,ii} + g_{t,i}^2, accumulating the sum of squared gradients over the entire history."
+    },
+    {
+      "text": "Thus, the effective learning rate keeps decreasing over time, but at different rates for different parameters."
+    },
+    {
+      "text": "A problem with Adagrad is that G keeps increasing, so the learning rate monotonically decreases and never recovers."
+    },
+    {
+      "text": "Adadelta (Zeiler, 2012) is a modification of Adagrad with two changes."
+    },
+    {
+      "text": "First, Adadelta uses an exponential moving average of squared gradients: G_{t,ii} = ρ G_{t-1,ii} + (1 - ρ) g_{t,i}^2."
+    },
+    {
+      "text": "Then the update is similar: u_t = - (η / √(G_{t-1} + ϵ)) g_{t-1}."
+    },
+    {
+      "text": "Second, Adadelta addresses the issue of unit compatibility between parameter updates and gradients."
+    },
+    {
+      "text": "In regular gradient descent or momentum, the units of parameter updates are the units of the gradient, leading to a mismatch in scales (e.g., weights in seconds, gradient in meters per second, subtracting meters per second from seconds)."
+    },
+    {
+      "text": "In Adagrad, the parameter updates are dimensionless because they come from ratios of gradients, which is also problematic."
+    },
+    {
+      "text": "In second-order optimization, the parameter update Δw is proportional to the inverse Hessian times the gradient, and naturally has the same dimension as w."
+    },
+    {
+      "text": "To fix the unit issue in Adadelta, an exponential moving average of squared parameter updates is introduced."
+    },
+    {
+      "text": "The exponential moving average of squared parameter updates is computed as 𝔼[Δw^2]_t = ρ 𝔼[Δw^2]_{t-1} + (1 - ρ) Δw^2, and the update becomes u_t = - (√(𝔼[Δw^2]_{t-1} + ϵ) / √(G_{t-1} + ϵ)) · g_{t-1}."
+    },
+    {
+      "text": "RMSprop is a variant often mentioned, with no formal publication, originating from Hinton's lectures."
+    },
+    {
+      "text": "RMSprop is essentially Adadelta without the unit correction; its update is u_t = - (η / √(G_{t-1} + ϵ)) · g_{t-1}."
+    },
+    {
+      "text": "Adam (Kingma and Ba, 2014) is another adaptive optimization algorithm."
+    },
+    {
+      "text": "Adam uses smoothed (exponential moving average) versions of the gradient (first moment) and squared gradient (second moment)."
+    },
+    {
+      "text": "The moment estimates are: m_t = β_1 m_{t-1} + (1 - β_1) g_t, v_t = β_2 v_{t-1} + (1 - β_2) g_t^2."
+    },
+    {
+      "text": "The parameter update is: u_t = η / (√v_t + ϵ) m_t."
+    },
+    {
+      "text": "The recommended Adam hyperparameters are β_1 = 0.9, β_2 = 0.999, ϵ = 10^{-8}."
+    },
+    {
+      "text": "Adam requires little hyperparameter tuning and is widely used in practice."
+    },
+    {
+      "text": "Nadam (Dozat, 2016) is a combination of Adam and Nesterov momentum."
+    },
+    {
+      "text": "Vanilla SGD update is w_{k+1} = w_k - α_k ṻ f(w_k), where ṻ f(w_k) is the stochastic gradient computed on data point x_{i_k}."
+    },
+    {
+      "text": "SGD with momentum update is w_{k+1} = w_k - α_k ṻ f(w_k + γ_k (w_k - w_{k-1})) + β_k (w_k - w_{k-1})."
+    },
+    {
+      "text": "Adaptive SGD generalizes to w_{k+1} = w_k - α_k H_k^{-1} ṻ f(w_k + γ_k (w_k - w_{k-1})) + β_k H_k^{-1} H_{k-1} (w_k - w_{k-1}), where H_k = \\text{diag}([\\sum_{i=1}^k η_i g_i ∘ g_i]^{1/2}), with g_k = ṻ f(w_k + γ_k (w_k - w_{k-1}))."
+    },
+    {
+      "text": "Adaptive methods attempt to adapt to the data space geometry, whereas basic SGD uses the standard Euclidean (L2) geometry with H_k = I."
+    },
+    {
+      "text": "When Adam was introduced, it generated significant excitement."
+    },
+    {
+      "text": "When multiple global minima exist, different optimization algorithms can converge to different solutions from the same initial point."
+    },
+    {
+      "text": "Adaptive methods can lead to overfitting, finding solutions that generalize poorly."
+    },
+    {
+      "text": "This overfitting behavior of adaptive methods is not just a theoretical worst-case scenario; it occurs in practice."
+    },
+    {
+      "text": "Adam still performs very well in the early stages of training."
+    },
+    {
+      "text": "Some researchers suggest switching from Adam to SGD at an appropriate moment (Keskar and Socher, Dec 2017)."
+    },
+    {
+      "text": "Weight decay is commonly assumed to be equivalent to L2 regularization."
+    },
+    {
+      "text": "However, this equivalence does not hold exactly for adaptive methods."
+    },
+    {
+      "text": "The original weight decay update (Hanson and Pratt, 1988) is: x_{t+1} = (1 - w) x_t - η ∇f_t(x_t), with weight decay rate w and learning rate η."
+    },
+    {
+      "text": "This weight decay is equivalent to adding an L2 regularization term (w/2)‖x_t‖^2 to the objective function."
+    },
+    {
+      "text": "Equivalently, the gradient of the regularized objective is ∇f_t(x) + w x_t."
+    },
+    {
+      "text": "With momentum, weight decay does not behave as intended because the decay term becomes scaled by the learning rate, leading to a coupling between the learning rate and weight decay hyperparameters."
+    },
+    {
+      "text": "One solution is to apply weight decay directly to the parameter update, decoupling it from the adaptive learning rate scaling."
+    },
+    {
+      "text": "In standard Adam, parameters with large gradients experience less weight decay, which can be detrimental."
+    },
+    {
+      "text": "AdamW restores the original weight decay behavior by decoupling it from the adaptive gradient scaling."
+    },
+    {
+      "text": "AdamW decouples the weight decay hyperparameter from the learning rate, leading to better disentanglement."
+    },
+    {
+      "text": "AdamW achieves better generalization compared to standard Adam."
+    },
+    {
+      "text": "Two more interesting ideas are super-convergence and AMSGrad."
+    },
+    {
+      "text": "Super-convergence (Smith and Topin, 2017) proposes cyclical learning rate schedules."
+    },
+    {
+      "text": "Super-convergence combines ideas from curriculum learning (Bengio et al., 2009) and classical simulated annealing."
+    },
+    {
+      "text": "However, super-convergence does not consistently reproduce results across settings."
+    },
+    {
+      "text": "AMSGrad (Reddi et al., 2018) won the ICLR 2018 best paper award."
+    },
+    {
+      "text": "The exponential moving average in Adam and RMSprop can hurt convergence."
+    },
+    {
+      "text": "The original proof of Adam's convergence was incorrect."
+    },
+    {
+      "text": "AMSGrad keeps the maximum of past squared gradients (instead of exponential moving average), which theoretically improves convergence."
+    },
+    {
+      "text": "However, the practical benefits of AMSGrad over Adam are not clearly confirmed."
+    }
+  ],
+  "transcript": [
+    {
+      "text": "The class continues its investigations of machine learning."
+    },
+    {
+      "text": "Yesterday the class got to the topic of neural networks."
+    },
+    {
+      "text": "The main topic of the class is neural networks."
+    },
+    {
+      "text": "The class will discuss neural networks for the remaining time."
+    },
+    {
+      "text": "Yesterday the class discussed linear models and more complicated classical machine learning models such as regression tree boosting, Gaussian processes, and probabilistic models with variational clustering."
+    },
+    {
+      "text": "All of these classical machine learning models follow the same pattern or structure."
+    },
+    {
+      "text": "Classical machine learning models have a high-dimensional input such as images, sound, or videos."
+    },
+    {
+      "text": "In classical machine learning, feature extraction is performed on the input."
+    },
+    {
+      "text": "The feature extraction produces a vector of features."
+    },
+    {
+      "text": "The ML model takes the vector of features as input."
+    },
+    {
+      "text": "The ML model produces the desired output."
+    },
+    {
+      "text": "In the classical machine learning framework, Y denotes the output and X denotes the input."
+    },
+    {
+      "text": "In classical machine learning, feature extraction was done manually."
+    },
+    {
+      "text": "Deep learning introduced many advantages."
+    },
+    {
+      "text": "The main revolution of deep learning in the late 2000s or early 2010s was switching from manual feature extraction to end-to-end learning of a single model."
+    },
+    {
+      "text": "The single model used in deep learning is the neural network."
+    },
+    {
+      "text": "In deep learning, the entire model is generally a large neural network."
+    },
+    {
+      "text": "When a neural network is implemented and run, it appears as a single entity."
+    },
+    {
+      "text": "Internally, the first part of the neural network performs feature extraction."
+    },
+    {
+      "text": "The first part of the neural network produces semantically relevant features."
+    },
+    {
+      "text": "By virtue of training, the features produced are the most meaningful for the desired output."
+    },
+    {
+      "text": "The final layer of the neural network is usually a linear model."
+    },
+    {
+      "text": "For predicting a number, the final layer is linear regression."
+    },
+    {
+      "text": "For classification, the final layer is logistic regression."
+    },
+    {
+      "text": "The class usually does classification."
+    },
+    {
+      "text": "It is rare to have numerical outputs in neural network applications."
+    },
+    {
+      "text": "The class will have examples with numerical outputs, but such examples are not common."
+    },
+    {
+      "text": "Yesterday the class started discussing the structure of neural networks."
+    },
+    {
+      "text": "Yesterday the class only got as far as discussing individual perceptrons (artificial neurons)."
+    },
+    {
+      "text": "The class stopped at discussing the perceptron."
+    },
+    {
+      "text": "A perceptron (single unit in a neural network) commonly has a structure consisting of a linear combination of inputs followed by a non-linearity."
+    },
+    {
+      "text": "Yesterday the class did not do a survey of activation functions."
+    },
+    {
+      "text": "The topic of activation functions is short."
+    },
+    {
+      "text": "The class will now cover activation functions."
+    },
+    {
+      "text": "The class discussed yesterday that the whole point of neural networks is to take small elementary functions and build a computational graph based on them."
+    },
+    {
+      "text": "Building a computational graph based on elementary functions means creating compositions of simple things."
+    },
+    {
+      "text": "The connectionism principle asserts that composing many simple things can yield very complicated results."
+    },
+    {
+      "text": "The connectionism principle is essentially true."
+    },
+    {
+      "text": "The whole point of deep learning is training large compositions (neural networks) by finding/learning their weights."
+    },
+    {
+      "text": "Theoretically, with any non-linearity in the network, one can more or less approximate any function."
+    },
+    {
+      "text": "The first topic today is the non-linearities (activation functions) that people actually use."
+    },
+    {
+      "text": "In the original 1943 McCulloch-Pitts paper, threshold functions were used as activation functions."
+    },
+    {
+      "text": "In Frank Rosenblatt's 1958 Perceptron, threshold functions were used as activation functions."
+    },
+    {
+      "text": "A threshold activation function uses a threshold value A."
+    },
+    {
+      "text": "The rule for a threshold activation function is: if the weighted sum (W times X) is greater than A, output 1; otherwise output 0."
+    },
+    {
+      "text": "A threshold activation function works fine for a single perceptron."
+    },
+    {
+      "text": "Learning can be done on a single perceptron with a threshold activation function."
+    },
+    {
+      "text": "The original perceptron worked with a threshold activation function."
+    },
+    {
+      "text": "Threshold activation functions cannot be used effectively in networks of perceptrons."
+    },
+    {
+      "text": "Yesterday the speaker said that networks of linear perceptrons are pointless."
+    },
+    {
+      "text": "If perceptrons are linear, a composition of linear functions is linear again."
+    },
+    {
+      "text": "A network of linear perceptrons is equivalent to a single perceptron."
+    },
+    {
+      "text": "With threshold activation functions, it is not true that a network is equivalent to a single perceptron."
+    },
+    {
+      "text": "There are universal approximation theorems for networks with threshold activation functions."
+    },
+    {
+      "text": "Networks with threshold activation functions can theoretically approximate any function."
+    },
+    {
+      "text": "Finding the approximation is not possible with current training methods."
+    },
+    {
+      "text": "The main topic for today is training methods for large compositions (neural networks)."
+    },
+    {
+      "text": "The only way to train large neural network compositions is gradient descent and similar techniques."
+    },
+    {
+      "text": "Gradient descent and related techniques are based on local movements of weights and local properties of the loss function."
+    },
+    {
+      "text": "With a piecewise constant activation function, gradients do not work effectively."
+    },
+    {
+      "text": "Formally, the derivative of a piecewise constant activation function is zero in flat regions."
+    },
+    {
+      "text": "If the derivative is zero, small changes in weights do not change the output."
+    },
+    {
+      "text": "Threshold activation functions definitely do not work for training networks with gradient-based methods."
+    },
+    {
+      "text": "People wanted to keep the idea of threshold activation where a neuron is either activated or not."
+    },
+    {
+      "text": "The goal was to have a large composition of neurons in various activation states."
+    },
+    {
+      "text": "Since a strict jump in activation is problematic, a soft approximation was sought."
+    },
+    {
+      "text": "Throughout the classical phase of early neural networks up until around 2011-2012, sigmoid activation functions were mostly used."
+    },
+    {
+      "text": "A sigmoid function is defined as having a horizontal asymptote on the left, a horizontal asymptote on the right, and being monotonically increasing from negative infinity to positive infinity."
+    },
+    {
+      "text": "The logistic sigmoid is the prototypical example of a sigmoid function."
+    },
+    {
+      "text": "The logistic sigmoid function is defined as sigma(a) = 1/(1 + e^{-a})."
+    },
+    {
+      "text": "The logistic sigmoid goes from 0 to 1."
+    },
+    {
+      "text": "The logistic sigmoid is symmetrical."
+    },
+    {
+      "text": "The logistic sigmoid does not have zero derivative anywhere."
+    },
+    {
+      "text": "Many neural networks in the 1980s, 1990s, and 2000s used sigmoid activation functions, including the logistic sigmoid and other sigmoids."
+    },
+    {
+      "text": "For technical reasons, it is not desirable that a sigmoid saturates at zero."
+    },
+    {
+      "text": "A better sigmoid for internal layers would be one that goes from -1 to 1 and is symmetric around zero."
+    },
+    {
+      "text": "A more common sigmoid function for neural networks was the hyperbolic tangent (tanh)."
+    },
+    {
+      "text": "The hyperbolic tangent function goes to 1 at positive infinity."
+    },
+    {
+      "text": "The hyperbolic tangent function goes to -1 at negative infinity."
+    },
+    {
+      "text": "The hyperbolic tangent is symmetrical."
+    },
+    {
+      "text": "Sigmoid functions were used until about 2011 or 2012."
+    },
+    {
+      "text": "Around 2011-2012, a very influential paper proposed a completely different activation function that was very simple and worked extremely well."
+    },
+    {
+      "text": "The activation function is called ReLU (Rectified Linear Unit)."
+    },
+    {
+      "text": "The ReLU function outputs 0 for negative inputs."
+    },
+    {
+      "text": "The ReLU function outputs the input itself for positive inputs."
+    },
+    {
+      "text": "Formally, ReLU(A) = max(0, A)."
+    },
+    {
+      "text": "Alternatively, ReLU(A) equals A if A > 0, else 0."
+    },
+    {
+      "text": "ReLU proved to be a very effective activation function."
+    },
+    {
+      "text": "One benefit is that having piecewise constant activation functions where gradients are zero is acceptable in some cases."
+    },
+    {
+      "text": "If a unit with ReLU receives a negative input (W*X < 0), its output is zero and no learning occurs (gradients stop at that unit)."
+    },
+    {
+      "text": "In many architectures, having sparsity (many zero outputs) is acceptable and even desirable."
+    },
+    {
+      "text": "In convolutional architectures, the same weights are reused across the input."
+    },
+    {
+      "text": "In convolutional architectures, it is desirable to have about half of the outputs zeroed out."
+    },
+    {
+      "text": "Unbounded activations like ReLU are a good property."
+    },
+    {
+      "text": "Sigmoid functions have the problem of saturation: their derivatives go to zero for large positive and negative inputs."
+    },
+    {
+      "text": "ReLU's derivative goes to zero for negative inputs, but not for positive inputs."
+    },
+    {
+      "text": "Sigmoid functions cannot distinguish between moderately activated and highly activated states; they just indicate activation."
+    },
+    {
+      "text": "When the input to a sigmoid function becomes large in absolute value, its derivative becomes very close to zero, causing the gradient to effectively stop (saturation)."
+    },
+    {
+      "text": "With ReLU, learning explicitly stops for negative inputs, but for positive inputs, learning never stops because the derivative is constant."
+    },
+    {
+      "text": "There exists a mathematical result regarding the properties of activation functions like ReLU."
+    },
+    {
+      "text": "If you take a few sigmoids and stack them together, like an infinite series of sigmoids, what you get is more or less the ReLU activation function."
+    },
+    {
+      "text": "Adding up the infinite series of sigmoids does not produce the exact kink at zero that ReLU has."
+    },
+    {
+      "text": "The resulting function from adding sigmoids will be smooth."
+    },
+    {
+      "text": "After adding, the function asymptotically becomes just y = x."
+    },
+    {
+      "text": "The function goes to a straight line and stays a straight line."
+    },
+    {
+      "text": "The ReLU activation is like stacking many sigmoids and looking at how many of them activate, which provides more information."
+    },
+    {
+      "text": "The property of ReLU providing more information is a good thing."
+    },
+    {
+      "text": "A remark connects back to what was discussed yesterday about brains."
+    },
+    {
+      "text": "The activation of biological neurons looks like a ReLU activation function."
+    },
+    {
+      "text": "The ReLU activation function is a good model of the firing rates of neurons (their activation strength, how much they're excited)."
+    },
+    {
+      "text": "The activation curve (of biological neurons or the model) looks like the black curve shown."
+    },
+    {
+      "text": "At first, the activation does not go negative."
+    },
+    {
+      "text": "From zero, for a while, the activation stays non-active (not activated at all)."
+    },
+    {
+      "text": "Then there is a complicated phase transition."
+    },
+    {
+      "text": "After the complicated phase transition, the activation basically becomes a straight line."
+    },
+    {
+      "text": "It is interesting and unexpected that the activation becomes a straight line."
+    },
+    {
+      "text": "The activation is indeed a straight line after the phase transition."
+    },
+    {
+      "text": "The activation in biology does not go to infinity."
+    },
+    {
+      "text": "If you apply a thousand volts to your brain, you will not think faster and better."
+    },
+    {
+      "text": "Applying a thousand volts to your brain will not end well."
+    },
+    {
+      "text": "In real life and biology, the activation saturates."
+    },
+    {
+      "text": "In a computer, the activation does not have to saturate."
+    },
+    {
+      "text": "In a computer, we can stretch the straight line however far we want."
+    },
+    {
+      "text": "ReLU activations existed since the 1970s or something."
+    },
+    {
+      "text": "ReLU was not a new idea."
+    },
+    {
+      "text": "The real bonus of ReLU was that it worked very well."
+    },
+    {
+      "text": "People tried ReLU activations with real networks, especially convolutional networks, around 2011-2012."
+    },
+    {
+      "text": "The results were seen around 2011-2012."
+    },
+    {
+      "text": "Mostly everyone switched to ReLUs after seeing the results."
+    },
+    {
+      "text": "There has been a lot of further research on activation functions."
+    },
+    {
+      "text": "There have been interesting results from further research on activation functions."
+    },
+    {
+      "text": "The first next step after ReLU was straightforward."
+    },
+    {
+      "text": "In some situations, it is desirable to have sparse activations."
+    },
+    {
+      "text": "In some situations, zeroing out some activations is a good thing."
+    },
+    {
+      "text": "In other situations, zeroing out activations is not desirable."
+    },
+    {
+      "text": "When you don't want to lose gradient flow through the network, and you don't want to be sparse, you'd want something non-zero on the left side of the activation function."
+    },
+    {
+      "text": "The immediate modification was called leaky ReLU."
+    },
+    {
+      "text": "Leaky ReLU is basically the same as ReLU, but on the left side it also has a straight line."
+    },
+    {
+      "text": "The straight line on the left of leaky ReLU has a smaller slope than the line on the right."
+    },
+    {
+      "text": "Leaky ReLU is still just a single hinge, a connection of two straight lines at zero."
+    },
+    {
+      "text": "Leaky ReLU is non-zero on the left side."
+    },
+    {
+      "text": "Around 2017, people ran an automated search for the best possible activation function."
+    },
+    {
+      "text": "Activation functions are straightforward mathematical functions of one variable."
+    },
+    {
+      "text": "Activation functions are defined by formulas."
+    },
+    {
+      "text": "What a formula is, is a mathematical object: a computational graph."
+    },
+    {
+      "text": "A computational graph is composed of elementary functions and operations that constitute the formula."
+    },
+    {
+      "text": "ReLU's computational graph: you have input x, a constant zero, a maximum operation, and output."
+    },
+    {
+      "text": "ReLU's computational graph has two inputs, one of which is a constant."
+    },
+    {
+      "text": "For logistic sigmoid (sigma of x), a computational graph example: x, the constant 1, a unary function e^(-x), then plus 1, then the inverse (1 over)."
+    },
+    {
+      "text": "For hyperbolic tangent, the computational graph involves x, e to the power, e to the negative power, subtraction, addition, and division."
+    },
+    {
+      "text": "When you write a function as a formula, the formula is a graph."
+    },
+    {
+      "text": "The graph is composed of elementary functions and operations."
+    },
+    {
+      "text": "You can search through these graphs."
+    },
+    {
+      "text": "At some point, researchers ran a very expensive search over a lot of graphs of activation functions."
+    },
+    {
+      "text": "In such a search, you cannot prove anything mathematically; it's all empirical."
+    },
+    {
+      "text": "You try different activation functions and see what works better on a set of data sets and architectures."
+    },
+    {
+      "text": "You progress by mutating the graphs a little bit."
+    },
+    {
+      "text": "This is usually an evolutionary algorithm."
+    },
+    {
+      "text": "You can't take a gradient on the graph structure."
+    },
+    {
+      "text": "Evolutionary algorithms involve crossover (copying parts of one graph to another) and small mutations."
+    },
+    {
+      "text": "You see what works, and go to the population of things that work."
+    },
+    {
+      "text": "As a result of the search, they came up with the Swish activation function."
+    },
+    {
+      "text": "The Swish activation function was developed in 2017 by Google."
+    },
+    {
+      "text": "Swish is empirically better than other activations, though the reason is unexplained."
+    },
+    {
+      "text": "Swish looks like a leaky ReLU."
+    },
+    {
+      "text": "Swish is very similar to ReLU on the right side."
+    },
+    {
+      "text": "All these activation functions are very similar to ReLU on the right side."
+    },
+    {
+      "text": "On the left side, Swish at first goes like something, but then goes back to zero."
+    },
+    {
+      "text": "Swish is not monotone."
+    },
+    {
+      "text": "Swish proved to work better for some reason."
+    },
+    {
+      "text": "A lot of standard architectures, especially in computer vision, use Swish activations."
+    },
+    {
+      "text": "The end of the story is not yet reached; people keep researching activation functions."
+    },
+    {
+      "text": "The speaker will publish the notebook containing experiments on activation functions."
+    },
+    {
+      "text": "Standard activation functions include threshold, logistic sigmoid, hyperbolic tangent, and ReLU."
+    },
+    {
+      "text": "Different leaky ReLUs are all the same on the right side."
+    },
+    {
+      "text": "Exponential linear units (ELU) have a straight line on the right side."
+    },
+    {
+      "text": "On the left side, exponential linear units asymptotically go to some curve."
+    },
+    {
+      "text": "There are Swish and Mish activation functions; Mish is a variant of Swish."
+    },
+    {
+      "text": "There is the GELU (Gaussian Error Linear Unit) function."
+    },
+    {
+      "text": "The GELU function is based on the cumulative distribution function (CDF) of a standard Gaussian."
+    },
+    {
+      "text": "GELU looks pretty much like Swish, but a little different."
+    },
+    {
+      "text": "The formula for GELU is basically CDF of Gaussian times X."
+    },
+    {
+      "text": "GELU works better in many modern architectures."
+    },
+    {
+      "text": "Modern large language models (LLMs) mostly use GELU activations."
+    },
+    {
+      "text": "People are still working on ideas like activation functions."
+    },
+    {
+      "text": "Wherever you look in activation function research, you can find a long series of works."
+    },
+    {
+      "text": "You can find a lot of different ideas in activation function research."
+    },
+    {
+      "text": "For every idea in activation function research, there are some confirming experiments (otherwise it wouldn't be published)."
+    },
+    {
+      "text": "Some ideas in activation function research have theoretical reasoning supporting why they are good."
+    },
+    {
+      "text": "Some ideas work out, and some ideas disappear."
+    },
+    {
+      "text": "For activation functions, the sequence of activations to try is ReLU, then Swish, then maybe GELU (Gaussian linear unit), and maybe Leaky ReLU as a variation."
+    },
+    {
+      "text": "A neural network is basically a huge function."
+    },
+    {
+      "text": "This function computes the loss function for some input."
+    },
+    {
+      "text": "The neural network has weights, which constitute part of the inputs."
+    },
+    {
+      "text": "There are inputs like the picture that is being classified (denoted as x)."
+    },
+    {
+      "text": "There is the correct answer (denoted as y)."
+    },
+    {
+      "text": "The final output of the neural network is the value of the loss function (denoted as small l on x, y, and w)."
+    },
+    {
+      "text": "In distinguishing between cats and dogs, x is the input image, and y is the cat class."
+    },
+    {
+      "text": "If there are only two classes, the cat class is represented as 1 and the dog class as 0."
+    },
+    {
+      "text": "The input image goes through a complicated neural network to produce a prediction ŷ (y hat)."
+    },
+    {
+      "text": "The prediction ŷ is the estimated probability of the cat class."
+    },
+    {
+      "text": "There is probably a logistic sigmoid at the end of the network (as discussed yesterday)."
+    },
+    {
+      "text": "You can't take the gradient of the output ŷ directly because you don't know where to go for optimization."
+    },
+    {
+      "text": "To compute the loss, you combine the prediction of your network with the correct answer."
+    },
+    {
+      "text": "The loss output would be something like $-\\log \\hat{y}$."
+    },
+    {
+      "text": "We minimize $-\\log \\hat{y}$ so that $\\hat{y}$ would grow and become closer to 1."
+    },
+    {
+      "text": "Minimization is done with respect to the weights."
+    },
+    {
+      "text": "The neural network has weights inside."
+    },
+    {
+      "text": "The loss function probably doesn't have weights inside."
+    },
+    {
+      "text": "We want to minimize the loss with respect to the weights."
+    },
+    {
+      "text": "In machine learning, we don't have only one data point."
+    },
+    {
+      "text": "In machine learning, we have lots of data points."
+    },
+    {
+      "text": "In machine learning, we have a whole data set."
+    },
+    {
+      "text": "The actual loss function is denoted as $L(W)$."
+    },
+    {
+      "text": "$L(W)$ is a function of $W$ only, not of $X$ and $Y$ specifically."
+    },
+    {
+      "text": "$L(W)$ is something like the sum or the average of the small loss functions for every element in the dataset."
+    },
+    {
+      "text": "When we train, we are minimizing the average loss function on the dataset."
+    },
+    {
+      "text": "We want to minimize the total loss over the whole dataset."
+    },
+    {
+      "text": "We are minimizing the total loss with respect to $W$."
+    },
+    {
+      "text": "The loss function $L(W)$ is a very complicated function of $W$."
+    },
+    {
+      "text": "Every architecture is a huge composition of different stuff."
+    },
+    {
+      "text": "In the formula, $L(W)$ is like a sum over the dataset."
+    },
+    {
+      "text": "The sum over the dataset consists of a million terms."
+    },
+    {
+      "text": "Every term in the sum is a pretty complicated function."
+    },
+    {
+      "text": "$L(W)$ is very complex."
+    },
+    {
+      "text": "In practice, there are many weights, and the size of the weight vector $W$ is large."
+    },
+    {
+      "text": "We operate in high dimensions almost inevitably."
+    },
+    {
+      "text": "$L(W)$ is hopelessly non-convex."
+    },
+    {
+      "text": "$L(W)$ is hopelessly complicated."
+    },
+    {
+      "text": "We cannot enumerate all possible $W$s to find the minimum."
+    },
+    {
+      "text": "We cannot do some complicated procedure to find the minimum."
+    },
+    {
+      "text": "Almost all we can do is some form of gradient descent."
+    },
+    {
+      "text": "Later today, the speaker will explain why even slightly more complicated things than gradient descent fail."
+    },
+    {
+      "text": "The only thing that works is gradient descent."
+    },
+    {
+      "text": "Gradient descent updates weights locally using the rule $W_{k+1} = W_k - \\eta \\nabla L(W_k)$."
+    },
+    {
+      "text": "At iteration $k$, we have a checkpoint with weights $W_k$."
+    },
+    {
+      "text": "To get $W_{k+1}$, we subtract a step in the direction opposite to the gradient."
+    },
+    {
+      "text": "The direction opposite to the gradient is where the loss function decreases quickest."
+    },
+    {
+      "text": "We compute the gradient at $W_k$."
+    },
+    {
+      "text": "We take a step in the direction of steepest descent."
+    },
+    {
+      "text": "This is the idea of gradient descent."
+    },
+    {
+      "text": "To implement gradient descent, the only thing we need is to be able to compute the gradient."
+    },
+    {
+      "text": "We need an algorithm to compute gradients of big complicated functions."
+    },
+    {
+      "text": "We cannot have a generic procedure for any function however it is defined."
+    },
+    {
+      "text": "In neural networks and deep learning, a complicated function is defined as a computational graph."
+    },
+    {
+      "text": "A computational graph is a directed acyclic graph that does the computation from left to right."
+    },
+    {
+      "text": "The graph takes inputs such as $X$, $Y$, and weights, and produces $L$."
+    },
+    {
+      "text": "The assumption is that the function is a very big composition, but every node in the graph is simple."
+    },
+    {
+      "text": "Each node is simple enough that we can compute its values and all derivatives locally in that node."
+    },
+    {
+      "text": "A single node is an elementary function, for example, a dot product between two vectors."
+    },
+    {
+      "text": "For a dot product node, we understand what the derivatives are and what the value is."
+    },
+    {
+      "text": "Another node example is an activation function, which is a fixed, known function of one variable."
+    },
+    {
+      "text": "For an activation function, we know its derivative."
+    },
+    {
+      "text": "The complex function is computed through a computational graph of simple functions."
+    },
+    {
+      "text": "The task is to compute the gradient of this function with respect to a part of the inputs."
+    },
+    {
+      "text": "The weights are also part of the inputs for this computational graph."
+    },
+    {
+      "text": "We want to compute this gradient at some specific point."
+    },
+    {
+      "text": "Backpropagation is a way to compute that gradient."
+    },
+    {
+      "text": "To explain backpropagation, an example is used."
+    },
+    {
+      "text": "The example function is $f(x,y) = (x+y)^2 \\cdot (x-y) + y^3$."
+    },
+    {
+      "text": "Writing the function as a formula means writing it as a graph."
+    },
+    {
+      "text": "The graph is a computational graph with elementary functions like plus, minus, squared, and cube."
+    },
+    {
+      "text": "The graph has intermediate nodes: $a = x+y$, $b = x-y$, $c = y^3$, $d = a^2$, $e = d \\cdot b$, $f = e + c$."
+    },
+    {
+      "text": "Every single function in this graph is very simple."
+    },
+    {
+      "text": "We know everything about taking the cube, including the derivative and the result."
+    },
+    {
+      "text": "We don't yet know the global result of $f$ from the graph alone."
+    },
+    {
+      "text": "We can use the graph to compute values, for example, for $x=2, y=-1$, $f$ evaluates to 2."
+    },
+    {
+      "text": "Going bottom-up from inputs to output is called forward propagation."
+    },
+    {
+      "text": "Forward propagation can compute the value of the function."
+    },
+    {
+      "text": "Forward propagation can also compute derivatives."
+    },
+    {
+      "text": "To compute $df/dx$ with forward propagation, we start with $dx/dx=1$ and $dy/dx=0$."
+    },
+    {
+      "text": "Then we compute derivatives of intermediate nodes: $da/dx = dx/dx + dy/dx = 1$, $db/dx = dx/dx - dy/dx = 1$, $dc/dx = 3y^2 \\cdot dy/dx = 0$, $dd/dx = 2a \\cdot da/dx$, and so on."
+    },
+    {
+      "text": "For the specific values $x=2, y=-1$, the intermediate values are $a=1$, $b=3$, $c=-1$, $d=1$, $e=3$, $f=2$."
+    },
+    {
+      "text": "In general, $dd/dx = 2(x+y)$."
+    },
+    {
+      "text": "For $e = d \\cdot b$, $de/dx = dd/dx \\cdot b + db/dx \\cdot d = 2(x+y)(x-y) + (x+y)^2$."
+    },
+    {
+      "text": "$df/dx = de/dx + dc/dx$, and since $dc/dx = 0$, $df/dx = 2(x+y)(x-y) + (x+y)^2$."
+    },
+    {
+      "text": "The derivative of f with respect to x is \\( (x+y)^2 + 2(x+y)(x-y) \\)."
+    },
+    {
+      "text": "In practice, one would compute the numerical values of these derivatives rather than carrying symbolic formulas."
+    },
+    {
+      "text": "In the forward propagation approach, the initial derivative values are dx/dx = 1 and dy/dx = 0."
+    },
+    {
+      "text": "The initial derivative value dc/dx is 0 (since c = y^3, independent of x)."
+    },
+    {
+      "text": "For the input nodes x and y, the derivative formulas dx/dx and dy/dx are constants, so the formula and the numerical value are the same."
+    },
+    {
+      "text": "For node a (where a = x+y), the derivative formula da/dx = 1, and the numerical value is also 1."
+    },
+    {
+      "text": "For node b (where b = x-y), the derivative formula db/dx = 1, and the numerical value is also 1."
+    },
+    {
+      "text": "For node d (where d = a^2), one would not have a symbolic formula for dd/dx like 2a, but only the numerical value because a is known numerically."
+    },
+    {
+      "text": "Inside a node of the computational graph, the algorithm does not have access to the values of x and y; it only knows the incoming values (e.g., a is the input to node d)."
+    },
+    {
+      "text": "Given a = 1 (since x=2, y=-1 leads to a=1), the numerical value of dd/dx is 2."
+    },
+    {
+      "text": "The computation to propagate derivatives forward uses the rule: for an operation like e = d * b, the derivative de/dx = dd/dx * b + db/dx * d."
+    },
+    {
+      "text": "Plugging in numerical values b=3, d=1, dd/dx=2, db/dx=1 yields de/dx = 2*3 + 1*1 = 7."
+    },
+    {
+      "text": "The derivative df/dx is then obtained by adding de/dx (7) and dc/dx (0), giving 7."
+    },
+    {
+      "text": "Substituting x=2 and y=-1 into the formula \\( (x+y)^2 + 2(x+y)(x-y) \\) yields 7, confirming the numerical computation."
+    },
+    {
+      "text": "The forward propagation method traverses the computational graph from inputs to output (bottom-up) exactly once."
+    },
+    {
+      "text": "During this single pass, the method computes both the function value and the derivative with respect to x at each node."
+    },
+    {
+      "text": "At the end of the pass, the method yields both the value of f and the value of df/dx."
+    },
+    {
+      "text": "The method correctly computes df/dx."
+    },
+    {
+      "text": "To obtain df/dy, one can perform a separate forward pass starting with dx/dy = 0 and dy/dy = 1."
+    },
+    {
+      "text": "Alternatively, one can compute all partial derivatives simultaneously in a single pass, maintaining vectors for d(node)/dx and d(node)/dy."
+    },
+    {
+      "text": "Both approaches (multiple passes or parallel) are impractical for large-scale neural networks."
+    },
+    {
+      "text": "In modern neural networks, the number of parameters (weights) can be in the millions or billions, so the gradient vector length is correspondingly large."
+    },
+    {
+      "text": "To compute gradients for a million parameters using the forward method, one would need either a million passes over the graph or a single pass where each node stores a vector of size a million."
+    },
+    {
+      "text": "The memory required for the parallel approach is roughly a million times the memory of the computational graph, which is prohibitively large."
+    },
+    {
+      "text": "Modern GPUs can barely fit a single copy of a large neural network, so fitting a million copies is infeasible."
+    },
+    {
+      "text": "Running a million passes would take too much time to be practical."
+    },
+    {
+      "text": "Therefore, neither the time nor the memory cost of the forward approach is acceptable for real neural networks."
+    },
+    {
+      "text": "Backpropagation provides a much more efficient method."
+    },
+    {
+      "text": "Backpropagation involves traversing the computational graph from output to inputs (top-down)."
+    },
+    {
+      "text": "In backpropagation, the computation starts with df/df = 1."
+    },
+    {
+      "text": "For the graph where f = e + c, df/de = 1."
+    },
+    {
+      "text": "For the graph where f = e + c, df/dc = 1."
+    },
+    {
+      "text": "For node d connected to f only through e, df/dd = (df/de) * (de/dd) = 1 * b (since e = d*b, de/dd = b)."
+    },
+    {
+      "text": "For node b connected to f only through e, df/db = (df/de) * (de/db) = d (since e = d*b, de/db = d)."
+    },
+    {
+      "text": "For node a connected to f only through d, df/da = (df/dd) * (dd/da) = (b) * (2a) = 2ab (since d = a^2, dd/da = 2a)."
+    },
+    {
+      "text": "Since x affects both a and b, df/dx = (df/da)*(da/dx) + (df/db)*(db/dx) = 2ab * 1 + d * 1 = 2ab + d."
+    },
+    {
+      "text": "The expression 2ab + d simplifies to \\( (x+y)^2 + 2(x+y)(x-y) \\), matching the direct forward computation."
+    },
+    {
+      "text": "For df/dy, since y affects a, b, and c, df/dy = (df/da)*(da/dy) + (df/db)*(db/dy) + (df/dc)*(dc/dy) = 2ab * 1 + d * (-1) + 1 * 3y^2."
+    },
+    {
+      "text": "That expression simplifies to \\( 2(x+y)(x-y) - (x+y)^2 + 3y^2 \\)."
+    },
+    {
+      "text": "The backpropagation method allows computing df/dx and df/dy without recomputing the derivatives for the higher-level nodes (like df/dd, df/de) multiple times."
+    },
+    {
+      "text": "The forward and backward modes of differentiation are dual to each other; they are mathematically symmetrical when computing the gradient of a scalar function."
+    },
+    {
+      "text": "In neural networks, the function of interest is typically a scalar loss with a single output, and there are many inputs/parameters."
+    },
+    {
+      "text": "For a scalar-output function with many inputs, the backward mode (backpropagation) is more efficient because it computes the gradient in a number of operations proportional to the graph size, rather than proportional to the number of inputs."
+    },
+    {
+      "text": "First, you need to compose the outputs into a single function."
+    },
+    {
+      "text": "You always have only one output at the end."
+    },
+    {
+      "text": "You have millions of inputs."
+    },
+    {
+      "text": "Composing into a single function scales well when you have lots of outputs and few inputs."
+    },
+    {
+      "text": "Composing into a single function is the proper way when you have lots of outputs and few inputs."
+    },
+    {
+      "text": "Our situation is the opposite: we have lots of inputs and one output."
+    },
+    {
+      "text": "In real neural networks, we have lots of inputs and one output."
+    },
+    {
+      "text": "We use backpropagation in real neural networks."
+    },
+    {
+      "text": "I wrote down formulas because they are easier to follow than just numbers."
+    },
+    {
+      "text": "Numbers don't mean anything."
+    },
+    {
+      "text": "In actual computation, the values would be numbers."
+    },
+    {
+      "text": "When you start out with \\( \\frac{df}{df} \\), it's always one."
+    },
+    {
+      "text": "To compute \\( \\frac{df}{dd} \\), we needed not only \\( \\frac{df}{de} \\) (which we got from above), but we also needed \\( \\frac{de}{dd} \\)."
+    },
+    {
+      "text": "To compute \\( \\frac{de}{dd} \\), we needed the value of \\( b \\)."
+    },
+    {
+      "text": "We needed to know the values of these intermediate nodes."
+    },
+    {
+      "text": "The computation is local."
+    },
+    {
+      "text": "To compute the gradient with respect to \\( d \\), I only need the nodes that go into \\( e \\)."
+    },
+    {
+      "text": "I need to know the values of the nodes, not only the derivatives."
+    },
+    {
+      "text": "To compute the derivatives, I need to know the values."
+    },
+    {
+      "text": "Backpropagation involves two passes through the graph."
+    },
+    {
+      "text": "First, you do forward propagation to compute values of intermediate nodes."
+    },
+    {
+      "text": "You need to store these values."
+    },
+    {
+      "text": "You need to store two numbers on every edge of this graph."
+    },
+    {
+      "text": "Then you do backpropagation to compute the derivative of \\( f \\) with respect to every intermediate node."
+    },
+    {
+      "text": "Backpropagation is a very efficient and pretty straightforward way to compute gradients."
+    },
+    {
+      "text": "The main job of any deep learning library (e.g., PyTorch) is to perform the two passes (forward and backward propagation) through the graph."
+    },
+    {
+      "text": "The key functions that the library needs to implement are the forward and backward propagation procedures."
+    },
+    {
+      "text": "Everything else is basically just syntactic sugar on top of that."
+    },
+    {
+      "text": "PyTorch has thousands of classes with different layers and components."
+    },
+    {
+      "text": "All of these components are only needed to set up the computational graph."
+    },
+    {
+      "text": "These components can be relatively inefficient."
+    },
+    {
+      "text": "It doesn't matter if these components are inefficient."
+    },
+    {
+      "text": "These components are only run once."
+    },
+    {
+      "text": "These components don't do much."
+    },
+    {
+      "text": "What actually has to be efficient is computing the gradient along the graph."
+    },
+    {
+      "text": "PyTorch and TensorFlow are essentially automatic differentiation libraries."
+    },
+    {
+      "text": "Deep learning is an afterthought in these libraries."
+    },
+    {
+      "text": "What actually has to be extremely efficient is the forward and backward propagation procedures."
+    },
+    {
+      "text": "The rest can be done in any way."
+    },
+    {
+      "text": "I have some examples of computational graphs available."
+    },
+    {
+      "text": "You can play with these examples."
+    },
+    {
+      "text": "You can define a different computational graph and see how values propagate through the network."
+    },
+    {
+      "text": "When asked what the input to a neural network is, the default intuition is that the input is \\( X \\) (or sometimes \\( X \\) and \\( Y \\))."
+    },
+    {
+      "text": "For a neural network that distinguishes cats from dogs, the input is an image."
+    },
+    {
+      "text": "If you think of the network as a computational graph, it has two different sorts of inputs."
+    },
+    {
+      "text": "One sort of inputs are fixed and not optimized, such as images and correct answers (the \\( x \\)'s and \\( y \\)'s)."
+    },
+    {
+      "text": "The weights are also inputs to the computational graph."
+    },
+    {
+      "text": "The weights are not computed from anywhere; they are variables that appear in the formula."
+    },
+    {
+      "text": "During training of neural networks, we are interested in gradients with respect to the weights."
+    },
+    {
+      "text": "There are different kinds of inputs to a neural network, and the weights are also inputs."
+    },
+    {
+      "text": "In the example, there was no fixed input."
+    },
+    {
+      "text": "\\( x \\) and \\( y \\) in the example are both weights."
+    },
+    {
+      "text": "We need to compute the gradient with respect to \\( x \\) and \\( y \\)."
+    },
+    {
+      "text": "Before the break, I will motivate and introduce stochastic gradient descent."
+    },
+    {
+      "text": "After the break, we will discuss the actual algorithms of stochastic gradient descent."
+    },
+    {
+      "text": "Many problems in practical deep learning arise from using gradient descent."
+    },
+    {
+      "text": "We will discuss some of these problems in class."
+    },
+    {
+      "text": "We are just beginning to look at these topics."
+    },
+    {
+      "text": "Gradient descent is a first-order algorithm."
+    },
+    {
+      "text": "Gradient descent is a pretty stupid algorithm."
+    },
+    {
+      "text": "Gradient descent comes from the first-order approximation to the loss."
+    },
+    {
+      "text": "We consider the loss function \\( L(W) \\)."
+    },
+    {
+      "text": "At point \\( W_k \\), the first-order Taylor series is \\( L(W_k) + (W - W_k) \\cdot \\nabla L(W_k) \\)."
+    },
+    {
+      "text": "Gradient descent uses only the first-order approximation."
+    },
+    {
+      "text": "The gradient is the direction of steepest increase."
+    },
+    {
+      "text": "The opposite direction of the gradient is the direction of steepest decrease."
+    },
+    {
+      "text": "Gradient descent moves in the opposite direction of the gradient to minimize the loss."
+    },
+    {
+      "text": "Gradient descent could have been done by Newton and Leibniz."
+    },
+    {
+      "text": "Since then, many more involved and better optimization techniques have been developed."
+    },
+    {
+      "text": "A straightforward idea is to include the second-order term in the Taylor series."
+    },
+    {
+      "text": "The second-order term involves the Hessian matrix \\( H_k \\): \\( (W - W_k)^T H_k (W - W_k) \\)."
+    },
+    {
+      "text": "The first-order approximation uses a linear surface."
+    },
+    {
+      "text": "Approximating by a linear surface is naive but can work."
+    },
+    {
+      "text": "In one dimension, the derivative only tells you the direction to go."
+    },
+    {
+      "text": "The derivative does not tell you how far to go."
+    },
+    {
+      "text": "The main problem of gradient descent is determining how far to go along the gradient direction."
+    },
+    {
+      "text": "Optimization theory has focused a lot on the step size or learning rate."
+    },
+    {
+      "text": "Including the second-order term approximates the function locally with a quadratic surface."
+    },
+    {
+      "text": "With a quadratic approximation, you can go directly to the minimum of the quadratic surface."
+    },
+    {
+      "text": "There is a simple formula for the minimum of the quadratic approximation."
+    },
+    {
+      "text": "To minimize the quadratic approximation, you set the gradient with respect to \\( W \\) to zero."
+    },
+    {
+      "text": "The gradient of the quadratic approximation is \\( G_k + H_k (W - W_k) \\)."
+    },
+    {
+      "text": "Setting the gradient to zero gives \\( W = W_k - H_k^{-1} G_k \\)."
+    },
+    {
+      "text": "This formula gives the next point \\( W \\)."
+    },
+    {
+      "text": "This procedure (Newton's method) has no problem with step size."
+    },
+    {
+      "text": "Newton's method is more robust and stable than gradient descent."
+    },
+    {
+      "text": "Newton's method almost never goes to bad parts of the search space."
+    },
+    {
+      "text": "Newton's method converges in far fewer iterations than gradient descent."
+    },
+    {
+      "text": "Newton's method is better all around."
+    },
+    {
+      "text": "This method is called Newton's method (or second-order optimization)."
+    },
+    {
+      "text": "We cannot use Newton's method for gradient descent in deep learning because it is too computationally expensive."
+    },
+    {
+      "text": "In deep learning, \\( W \\) is a vector of size about one million."
+    },
+    {
+      "text": "The Hessian matrix \\( H_k \\) has size one million by one million."
+    },
+    {
+      "text": "We would need to compute and invert the Hessian matrix, which is computationally infeasible."
+    },
+    {
+      "text": "In classical optimization theory (1960s-1980s), people also considered when second-order methods were too difficult computationally."
+    },
+    {
+      "text": "There were no huge neural networks at that time, but there were difficult functions to optimize."
+    },
+    {
+      "text": "There is a field of quasi-Newton algorithms that approximate Newton's method."
+    },
+    {
+      "text": "The most famous quasi-Newton algorithm is L-BFGS."
+    },
+    {
+      "text": "L-BFGS stands for Limited-memory BFGS, named after Broyden, Fletcher, Goldfarb, and Shanno."
+    },
+    {
+      "text": "The LBFGS algorithm is a very famous algorithm."
+    },
+    {
+      "text": "LBFGS maintains an approximation to the second-order update."
+    },
+    {
+      "text": "LBFGS provides a very good approximation of the second-order update."
+    },
+    {
+      "text": "LBFGS only uses the weight vectors (W1, W2, ...) and gradient vectors to maintain its approximation."
+    },
+    {
+      "text": "When moving from step K to K+1, LBFGS updates an approximation of the inverse Hessian."
+    },
+    {
+      "text": "The LBFGS update procedure is quick."
+    },
+    {
+      "text": "The LBFGS update procedure never involves matrices of size millions by millions."
+    },
+    {
+      "text": "The LBFGS approximation is a low-rank approximation."
+    },
+    {
+      "text": "Quasi-Newton methods such as LBFGS approximate second-order optimization using only gradient vectors with low computational complexity."
+    },
+    {
+      "text": "We would be happy to use Newton's method for deep learning."
+    },
+    {
+      "text": "We would be happy to use second-order optimization for deep learning."
+    },
+    {
+      "text": "We would be nearly as happy to use LBFGS for neural networks."
+    },
+    {
+      "text": "We cannot use LBFGS for neural networks."
+    },
+    {
+      "text": "The LBFGS algorithm only requires knowledge of gradients at individual points and function values at those points."
+    },
+    {
+      "text": "In deep learning, we cannot compute the full gradient."
+    },
+    {
+      "text": "We can compute the full gradient only once or a few times, not at every optimization step."
+    },
+    {
+      "text": "The objective function L(W) is the average over the dataset of per-sample loss functions L(X_n, Y_n, W)."
+    },
+    {
+      "text": "L(W) can be interpreted as the negative log likelihood or negative log posterior."
+    },
+    {
+      "text": "A neural network with a million weights computes the loss for a single training sample at a time."
+    },
+    {
+      "text": "To compute the full objective function L(W), you must iterate over the entire dataset."
+    },
+    {
+      "text": "The true gradient GK at point WK is the average of the gradients of the per-sample loss functions over the entire dataset."
+    },
+    {
+      "text": "Computing the true gradient vector for each optimization step requires iterating over the entire dataset."
+    },
+    {
+      "text": "Iterating over the entire dataset at every step is impractical."
+    },
+    {
+      "text": "In practice, we go over the entire dataset only once or twice, not at every optimization step."
+    },
+    {
+      "text": "The optimization method used in practice is stochastic gradient descent."
+    },
+    {
+      "text": "The objective function L(W) can be viewed as the expectation of the per-sample loss function over the uniform distribution on the dataset."
+    },
+    {
+      "text": "If x and y are sampled uniformly from the dataset, the expectation of the per-sample loss equals the average loss over the dataset."
+    },
+    {
+      "text": "L(W) is the expectation over (x,y) of the per-sample loss, and we want to minimize it with respect to W."
+    },
+    {
+      "text": "This problem is called stochastic optimization."
+    },
+    {
+      "text": "The standard way to approximate an expectation in stochastic optimization is to use a sample."
+    },
+    {
+      "text": "In practice, at each step, we approximate the true gradient GK with ĝK, which is the average of the per-sample gradients over a small subsample (mini-batch) of size m: ĝK = (1/m) ∑ ∇l(x_i, y_i, W)."
+    },
+    {
+      "text": "When training machine learning models, we compute the loss on mini-batches rather than the entire dataset."
+    },
+    {
+      "text": "A mini-batch is a sample from the dataset."
+    },
+    {
+      "text": "Stochastic gradient descent approximates the true gradient with a sampled estimate."
+    },
+    {
+      "text": "The mini-batch gradient estimate is an unbiased estimator of the true gradient."
+    },
+    {
+      "text": "Sample-based approximation of expectations converges, is unbiased, and has many known theoretical results."
+    },
+    {
+      "text": "The mini-batch gradient approximation is the best achievable approximation for the gradient."
+    },
+    {
+      "text": "At each step of SGD, we sample a mini-batch from the dataset."
+    },
+    {
+      "text": "We compute the gradients of the loss on that mini-batch."
+    },
+    {
+      "text": "We update the weights using only those mini-batch gradients."
+    },
+    {
+      "text": "Stochastic gradient descent can reach the neighborhood of a minimum."
+    },
+    {
+      "text": "The mini-batch gradient approximation has high variance in practice."
+    },
+    {
+      "text": "Typical dataset sizes are in the millions."
+    },
+    {
+      "text": "Typical mini-batch sizes are 4 or 8."
+    },
+    {
+      "text": "The mini-batch size is limited by GPU memory, constrained to fit that many network copies."
+    },
+    {
+      "text": "The mini-batch size is small."
+    },
+    {
+      "text": "The dataset is large."
+    },
+    {
+      "text": "Approximating the average of millions of numbers with 1, 4, or 8 random samples is mathematically the best possible approach."
+    },
+    {
+      "text": "This approximation still has large error."
+    },
+    {
+      "text": "The mini-batch gradient estimator has a large variance."
+    },
+    {
+      "text": "The high variance of SGD makes algorithms like LBFGS fail."
+    },
+    {
+      "text": "LBFGS performs its own approximations."
+    },
+    {
+      "text": "For LBFGS to work, it requires accurate gradient values or very good approximations."
+    },
+    {
+      "text": "We cannot replace true gradients with high-variance sampled gradients and expect LBFGS to work."
+    },
+    {
+      "text": "It is an open problem in deep learning to modify quasi-Newton methods to work with stochastic gradients."
+    },
+    {
+      "text": "As of now, no solution exists for adapting quasi-Newton methods to stochastic gradients."
+    },
+    {
+      "text": "Many smart people have worked on this problem without success."
+    },
+    {
+      "text": "The SGD update formula is W_{k+1} = W_k - η * ĝ_k."
+    },
+    {
+      "text": "SGD is the simplest optimization algorithm for neural networks."
+    },
+    {
+      "text": "Many modifications and improvements of SGD exist."
+    },
+    {
+      "text": "Variations of SGD are central to deep learning."
+    },
+    {
+      "text": "The next topic will be SGD variations used in practice."
+    },
+    {
+      "text": "Classical optimization theory has analyzed stochastic gradient descent in detail."
+    },
+    {
+      "text": "Gradient descent provides a direction in which to update the weights."
+    },
+    {
+      "text": "Gradient descent does not specify the optimal step size (how far to move in that direction)."
+    },
+    {
+      "text": "Optimization theory focuses on the problem of determining the optimal step size along a given descent direction."
+    },
+    {
+      "text": "Many classical results, such as Wolff's rule and Micho's rule, address the problem of determining how far to move in each step of an iterative optimization procedure."
+    },
+    {
+      "text": "These classical results do not easily carry over to stochastic gradient descent."
+    },
+    {
+      "text": "Stochastic gradient descent first quickly reaches a neighborhood of the optimum."
+    },
+    {
+      "text": "In the initial phase, stochastic gradient descent moves in the correct direction for a long time."
+    },
+    {
+      "text": "With a constant step size and no schedule of decaying step sizes to zero, stochastic gradient descent will oscillate around the optimum after reaching its neighborhood."
+    },
+    {
+      "text": "Stochastic gradient descent cannot recognize when it is at the optimum because at the optimum the true gradient is zero, but the algorithm uses random gradient samples that are not zero."
+    },
+    {
+      "text": "Because of random sampling, we can never know the exact location of the optimum; we can only reach its neighborhood and then wander around it."
+    },
+    {
+      "text": "Mathematical analysis yields a bound on the expected function value after k iterations of stochastic gradient descent."
+    },
+    {
+      "text": "The bound involves the initial distance from the optimum, denoted r squared."
+    },
+    {
+      "text": "The bound involves step sizes; the numerator contains the sum over i of (the norm of the stochastic gradient at step i squared times step size i squared), and the denominator contains the sum of step sizes."
+    },
+    {
+      "text": "If the stochastic gradients are bounded, the bound simplifies by plugging in the bound on gradient norms."
+    },
+    {
+      "text": "This bound explains the behavior of stochastic gradient descent."
+    },
+    {
+      "text": "With constant step size h, the bound splits into two terms: one term proportional to 1/(h*k) that decays to zero as k increases, and a constant term."
+    },
+    {
+      "text": "With constant step size, stochastic gradient descent converges to a region determined by the constant term."
+    },
+    {
+      "text": "To make stochastic gradient descent converge to the optimum, the step size sequence should be chosen such that the sum of step sizes goes to infinity and the sum of squared step sizes does not go to infinity."
+    },
+    {
+      "text": "A step size schedule of 1/k satisfies the convergence condition."
+    },
+    {
+      "text": "In practice, the bound is not very informative for estimating the size of the convergence neighborhood because it involves g-squared, which is a bound on the norm of sampled gradients and is unknown in practice."
+    },
+    {
+      "text": "The bound still provides useful insights about stochastic gradient descent."
+    },
+    {
+      "text": "The second part of the class addresses a different problem of stochastic gradient descent."
+    },
+    {
+      "text": "An example optimization problem is minimizing the function f(x,y)=x^2 + \\rho y^2."
+    },
+    {
+      "text": "This function is quadratic."
+    },
+    {
+      "text": "The minimum of this function is at (0,0)."
+    },
+    {
+      "text": "This function is convex."
+    },
+    {
+      "text": "Newton's method converges to the minimum in one step for this function because the second-order approximation is exact."
+    },
+    {
+      "text": "Gradient descent's performance on this function depends significantly on the constant \\rho."
+    },
+    {
+      "text": "When \\rho = 1/2, the function is nearly a circle, and gradient descent works well with various learning rates."
+    },
+    {
+      "text": "With \\rho = 1/2, a learning rate of 0.01 was too slow to reach zero, but larger learning rates succeeded."
+    },
+    {
+      "text": "The example uses plain gradient descent, not stochastic gradient descent."
+    },
+    {
+      "text": "When \\rho is reduced to 1/20, the coordinates become more imbalanced; y changes 50 times slower than x."
+    },
+    {
+      "text": "For \\rho = 1/20, gradient descent still quickly minimizes x, but minimizing y takes longer."
+    },
+    {
+      "text": "As \\rho is reduced, the range of effective learning rates for gradient descent shrinks."
+    },
+    {
+      "text": "For \\rho = 1/20, a learning rate of 0.1 is too slow, and only a learning rate of 0.5 reaches zero within 200 iterations."
+    },
+    {
+      "text": "Further reducing \\rho will make all reasonable learning rates too slow."
+    },
+    {
+      "text": "If the learning rate goes over one, even a little bit, the x coordinate starts to diverge."
+    },
+    {
+      "text": "Along the x coordinate, the coefficient is still one."
+    },
+    {
+      "text": "The problem is not that y changes slowly in absolute values."
+    },
+    {
+      "text": "The problem is that x and y are changing at very different rates."
+    },
+    {
+      "text": "x and y have very different scales."
+    },
+    {
+      "text": "Even for something like a 500-200 fold difference between x and y, there is no good learning rate for gradient descent."
+    },
+    {
+      "text": "With no good learning rate, gradient descent either diverges or takes hopelessly long to go anywhere."
+    },
+    {
+      "text": "With 2,000 iterations of gradient descent, we will probably reach the optimum."
+    },
+    {
+      "text": "2,000 iterations of gradient descent for a quadratic function starting from (0.1, 1.5) and going to 0 is nonsensical."
+    },
+    {
+      "text": "The problem is that when different variables in the optimization function begin to differ in scale and have different rates at which we should move along them, everything fails."
+    },
+    {
+      "text": "Gradient descent cannot have a single unified learning rate."
+    },
+    {
+      "text": "This is the problem we are solving."
+    },
+    {
+      "text": "We will go through several different ideas that people had while solving this problem."
+    },
+    {
+      "text": "The ideas we discuss are still real and useful."
+    },
+    {
+      "text": "In the optimization notation, we go from x_{k-1} to x_k."
+    },
+    {
+      "text": "We are optimizing a function f(x)."
+    },
+    {
+      "text": "x is the vector of optimization variables."
+    },
+    {
+      "text": "The update from x_{k-1} to x_k is denoted as u_{k-1}."
+    },
+    {
+      "text": "u_{k-1} = x_k - x_{k-1}."
+    },
+    {
+      "text": "At point x_k, we have a gradient g_k."
+    },
+    {
+      "text": "g_k could be a stochastic estimate or the true gradient; for the current discussion, it doesn't matter."
+    },
+    {
+      "text": "In classical SGD (or GD), the update is x_{k+1} = x_k - α g_k."
+    },
+    {
+      "text": "In the simplest SGD, the step u_k = -α g_k."
+    },
+    {
+      "text": "Idea number 1 is called momentum."
+    },
+    {
+      "text": "In physics, momentum is m*v (mass times velocity)."
+    },
+    {
+      "text": "The momentum method views gradient descent as a ball rolling down a slope."
+    },
+    {
+      "text": "In the momentum method, we add inertia (conservation of momentum) from Newtonian physics."
+    },
+    {
+      "text": "If a ball goes down a slope and the slope suddenly changes, the ball follows its current velocity for a while due to momentum."
+    },
+    {
+      "text": "Formally, in the momentum method, at point x_k, we conserve a part of the previous update u_{k-1} by adding γ u_{k-1}."
+    },
+    {
+      "text": "The momentum update is: x_{k+1} = x_k + γ u_{k-1} - α g_k."
+    },
+    {
+      "text": "The new update vector u_k is γ u_{k-1} - α g_k."
+    },
+    {
+      "text": "In practice, the momentum parameter γ is typically around 0.95, 0.99, or even more."
+    },
+    {
+      "text": "In practice, we keep a very large part of the momentum, meaning little friction."
+    },
+    {
+      "text": "The momentum method keeps moving forward along the direction of the accumulated update."
+    },
+    {
+      "text": "If the slope direction doesn't change, the method gradually speeds up, like a ball rolling down a slope."
+    },
+    {
+      "text": "Along the x-direction (steep slope), the ball oscillates and stabilizes at zero."
+    },
+    {
+      "text": "Along the y-axis (shallow slope), the ball speeds up as it goes."
+    },
+    {
+      "text": "This is the original motivation for the momentum method."
+    },
+    {
+      "text": "The second approach is Nesterov accelerated gradients, also known as NAG or Nesterov's method."
+    },
+    {
+      "text": "Yuri Nesterov invented Nesterov's method in the 1980s."
+    },
+    {
+      "text": "Nesterov's idea is a small but very useful modification of the momentum approach."
+    },
+    {
+      "text": "In the momentum method, the next update has two components: the gradient component and the momentum component."
+    },
+    {
+      "text": "In standard momentum, we compute the gradient at the current point and combine it with the momentum component to form the update."
+    },
+    {
+      "text": "When we arrive at the current point, we already know a large part of the next update from the momentum."
+    },
+    {
+      "text": "Nesterov's method suggests moving to an intermediate look-ahead point x_k + γ u_{k-1} and computing the gradient there."
+    },
+    {
+      "text": "The Nesterov gradient is g'_k = ∇f(x_k + γ u_{k-1})."
+    },
+    {
+      "text": "The Nesterov update is x_{k+1} = x_k + γ u_{k-1} - α g'_k."
+    },
+    {
+      "text": "The new step u_k in Nesterov's method is γ u_{k-1} - α g'_k."
+    },
+    {
+      "text": "Nesterov's method has beautiful underlying mathematics and converges asymptotically faster than regular momentum."
+    },
+    {
+      "text": "The intuitive motivation for Nesterov's method is that it looks ahead in time, predicting the future and updating based on the future, not the present."
+    },
+    {
+      "text": "If a ball is rolling down a slope and speeds up, regular momentum would cause it to continue and go further up the opposite wall."
+    },
+    {
+      "text": "In Nesterov's method, looking ahead reveals that the gradient points opposite, so it slows down early, reducing overshoot."
+    },
+    {
+      "text": "In the example figure, the green line (Nesterov's momentum) shows much less oscillation along the x-axis compared to the orange line (regular momentum)."
+    },
+    {
+      "text": "Nesterov's momentum looks ahead along the x-axis slope, sees the opposite gradient, and starts slowing down, resulting in better contained oscillations."
+    },
+    {
+      "text": "The classical momentum method dates back to the 1960s."
+    },
+    {
+      "text": "Nesterov gradients dates back to the 1980s."
+    },
+    {
+      "text": "Both the classical momentum method and Nesterov gradients come from classical optimization theory."
+    },
+    {
+      "text": "The classical momentum method and Nesterov gradients are not special to deep learning."
+    },
+    {
+      "text": "In deep learning, optimization is performed in a generic Euclidean space of the vector x."
+    },
+    {
+      "text": "In the method of momentum, all directions are treated equally."
+    },
+    {
+      "text": "The method of momentum does not treat different components of x differently."
+    },
+    {
+      "text": "It is possible to improve optimization by treating different components of x differently."
+    },
+    {
+      "text": "Treating different components differently involves picking a separate learning rate for each component of x."
+    },
+    {
+      "text": "This approach is called adaptive gradient descent."
+    },
+    {
+      "text": "In deep learning, adaptive gradient descent is almost always stochastic, so it is called adaptive stochastic gradient descent."
+    },
+    {
+      "text": "Adaptive stochastic gradient descent approaches are what are used in practice for deep learning optimization."
+    },
+    {
+      "text": "The line of adaptive SGD algorithms culminates in Adam."
+    },
+    {
+      "text": "To get to Adam, some ideas along the way need to be discussed."
+    },
+    {
+      "text": "The first variation of adaptive SGD is called AdaGrad."
+    },
+    {
+      "text": "AdaGrad is the original adaptive SGD version."
+    },
+    {
+      "text": "AdaGrad means adaptive gradient."
+    },
+    {
+      "text": "The logic behind AdaGrad is that on a shallow slope, one should go quickly."
+    },
+    {
+      "text": "On a steep slope, one should slow down because the local optimum is close."
+    },
+    {
+      "text": "AdaGrad's update rule for a specific component i is: x_{k+1,i} = x_{k,i} - (alpha / sqrt(G_{k,i} + epsilon)) * g_{k,i}."
+    },
+    {
+      "text": "In AdaGrad, epsilon is a small number added to prevent division by zero."
+    },
+    {
+      "text": "In AdaGrad, capital G_{k,i} is defined as G_{k-1,i} + g_{k,i}^2."
+    },
+    {
+      "text": "G_{k,i} accumulates the sum of squares of the gradient components."
+    },
+    {
+      "text": "If gradients are large, G_{k,i} becomes large."
+    },
+    {
+      "text": "If all gradients are small, G_{k,i} remains small."
+    },
+    {
+      "text": "On a shallow slope, g_{k,i} is small, so G_{k,i} does not grow much, and the adaptive learning rate stays high, resulting in fast progress."
+    },
+    {
+      "text": "On a steep slope, g_{k,i} is high, so G_{k,i} becomes large, and the adaptive learning rate shrinks, resulting in slow progress."
+    },
+    {
+      "text": "A drawback of AdaGrad is that the denominator sqrt(G_{k,i} + epsilon) grows with time."
+    },
+    {
+      "text": "Once a steep slope is encountered, the learning rate cannot increase again."
+    },
+    {
+      "text": "If the optimization landscape becomes shallow again, AdaGrad cannot speed up."
+    },
+    {
+      "text": "A solution to AdaGrad's drawback is to use recent history of gradients instead of the full sum."
+    },
+    {
+      "text": "Using a sliding window is impractical because it requires storing the whole window."
+    },
+    {
+      "text": "Instead, an exponential moving average (EMA) is used."
+    },
+    {
+      "text": "EMA formula for G_{k,i} is: G_{k,i} = gamma * G_{k-1,i} + (1 - gamma) * g_{k,i}^2."
+    },
+    {
+      "text": "In EMA, weights decrease exponentially as one goes further back in history."
+    },
+    {
+      "text": "Recent history has high weights, faraway history has exponentially small weights."
+    },
+    {
+      "text": "EMA requires storing only one value per weight, making it more efficient than a sliding window."
+    },
+    {
+      "text": "Replacing the sum of squares with EMA in AdaGrad yields an algorithm known as RMSprop."
+    },
+    {
+      "text": "RMSprop was popularized by Geoffrey Hinton."
+    },
+    {
+      "text": "RMSprop is one standard approach for stochastic gradient descent."
+    },
+    {
+      "text": "Another perspective on optimization is to look at the physical metaphor of points rolling downhill."
+    },
+    {
+      "text": "This physical metaphor has a direct correspondence to gradient descent."
+    },
+    {
+      "text": "The only difference is that the physical process is in continuous time, while gradient descent is in discrete time."
+    },
+    {
+      "text": "From this perspective, one can consider the measurement units of the variables."
+    },
+    {
+      "text": "If the gradient is interpreted as velocity, its units are meters per second."
+    },
+    {
+      "text": "Then x (the variable) has units of seconds, and f(x) has units of meters."
+    },
+    {
+      "text": "In gradient descent, the update x = x - alpha * g subtracts velocity from time, which does not make physical sense."
+    },
+    {
+      "text": "This physical mismatch means the scales of variables can be very different."
+    },
+    {
+      "text": "In AdaGrad, the update has x - (alpha / sqrt(G)) * g, which after unit analysis also does not match physically (subtracts a dimensionless constant from time)."
+    },
+    {
+      "text": "Newton's method, being second-order optimization, has matching units."
+    },
+    {
+      "text": "Newton's method update is x - H^{-1} g, where H is the Hessian matrix of second derivatives."
+    },
+    {
+      "text": "H has units of acceleration (meters per second squared)."
+    },
+    {
+      "text": "H^{-1} g has units of seconds, so the units match and the update makes physical sense."
+    },
+    {
+      "text": "Newton's method scales the gradient properly because the units match."
+    },
+    {
+      "text": "Newton's method provides the locally appropriate step size."
+    },
+    {
+      "text": "Second-order optimization techniques automatically scale their step sizes to match the dimensions of the problem."
+    },
+    {
+      "text": "The AdaDelta method was derived from the idea of matching measurement units of different quantities."
+    },
+    {
+      "text": "AdaDelta is similar to AdaGrad, but multiplies the learning rate by the square root of a quantity u, where u is something like the sum of squared updates."
+    },
+    {
+      "text": "AdaDelta was not a very successful algorithm and did not become widely adopted."
+    },
+    {
+      "text": "Despite its lack of success, the basic idea behind AdaDelta—matching the measurement units of different quantities—is interesting."
+    },
+    {
+      "text": "ADAM is the most popular optimization algorithm in deep learning."
+    },
+    {
+      "text": "ADAM is similar to previously discussed adaptive methods but with slight modifications."
+    },
+    {
+      "text": "The ADAM update for the i-th component is $x_{k+1}^i = x_k^i - \\frac{\\alpha}{\\sqrt{G_k^i} + \\epsilon} m_k^i$."
+    },
+    {
+      "text": "$G_k^i$ is an exponential moving average of squared gradients, computed as $G_k^i = \\beta_2 G_{k-1}^i + (1-\\beta_2) (g_k^i)^2$."
+    },
+    {
+      "text": "$m_k^i$ is an exponential moving average of the gradients, computed as $m_k^i = \\beta_1 m_{k-1}^i + (1-\\beta_1) g_k^i$."
+    },
+    {
+      "text": "ADAM is essentially RMSprop with the additional feature of smoothing the gradients via an exponential moving average."
+    },
+    {
+      "text": "In ADAM, instead of using the instantaneous stochastic gradient, a moving average over recent history is used."
+    },
+    {
+      "text": "This smoothing reduces the variance of the gradients."
+    },
+    {
+      "text": "Smoothing makes the gradients less erratic when sampling different mini-batches."
+    },
+    {
+      "text": "The smoothing effect is a key factor in ADAM's excellent performance."
+    },
+    {
+      "text": "ADAM appears to have many hyperparameters: $\\beta_1$, $\\beta_2$, and $\\epsilon$."
+    },
+    {
+      "text": "ADAM is very robust to its hyperparameter settings."
+    },
+    {
+      "text": "The standard hyperparameters recommended in the original ADAM paper can be used without tuning."
+    },
+    {
+      "text": "The standard value for $\\beta_2$ is something like 0.995."
+    },
+    {
+      "text": "$\\epsilon$ is a very small constant, like $10^{-8}$ or similar."
+    },
+    {
+      "text": "You do not need to tune $\\beta_1$, $\\beta_2$, and $\\epsilon$ for ADAM; the default values work well."
+    },
+    {
+      "text": "ADAM is a very good algorithm and is still widely used."
+    },
+    {
+      "text": "Adaptive optimization algorithms treat different components of the parameter vector differently."
+    },
+    {
+      "text": "The advantage of adaptive algorithms is most apparent in high-dimensional problems where different dimensions have different optimization landscapes."
+    },
+    {
+      "text": "It is not possible to effectively illustrate the difference between ADAM and RMSprop in a 2D example because the benefits of adaptive methods emerge in higher dimensions."
+    },
+    {
+      "text": "Examples demonstrating the difference between ADAM and RMSprop will be provided in the practical part of the course."
+    },
+    {
+      "text": "The lecture includes some nice pictures, but they are not very meaningful for illustrating the differences between algorithms."
+    },
+    {
+      "text": "Beale's function (or Rosenbrock's function) is a standard test function in classical optimization theory."
+    },
+    {
+      "text": "Beale's function is a complicated polynomial with constants tuned to create an interesting optimization landscape."
+    },
+    {
+      "text": "In Beale's function, there is a steep slope near the minimum, indicated by closely spaced contour lines."
+    },
+    {
+      "text": "The steep slope transitions suddenly into a very shallow slope."
+    },
+    {
+      "text": "An optimization algorithm can easily descend the steep slope quickly, but then needs to speed up on the shallow slope."
+    },
+    {
+      "text": "Some algorithms struggle to adapt to the changing slope, making Beale's function a good test case."
+    },
+    {
+      "text": "The lecturer cannot clearly illustrate the real differences between ADAM and other adaptive variants."
+    },
+    {
+      "text": "Stochastic Gradient Descent (SGD) generally moves in the correct direction, unless the learning rate is too high causing divergence."
+    },
+    {
+      "text": "If the learning rate is not too high, SGD proceeds in the necessary direction; higher learning rates get closer to the optimum faster but risk divergence."
+    },
+    {
+      "text": "The key challenge with SGD is finding the optimal learning rate."
+    },
+    {
+      "text": "Standard SGD makes progress but still has a long way to go to reach the minimum."
+    },
+    {
+      "text": "SGD with momentum almost left the basin of the minimum, but managed to return and reached the optimum."
+    },
+    {
+      "text": "In the illustration, SGD with momentum disappears to the right and has not returned within 200 steps."
+    },
+    {
+      "text": "Nesterov's momentum is already coming back and is the best of the three methods (SGD, SGD with momentum, Nesterov momentum)."
+    },
+    {
+      "text": "Other discussed algorithms such as AdaDelta and AdaGrad do not show a significant difference in performance on this test function."
+    },
+    {
+      "text": "AdaDelta appears worse on this example, but one should not draw general conclusions."
+    },
+    {
+      "text": "AdaGrad and ADAM both perform well on this test function with no significant difference."
+    },
+    {
+      "text": "Optimization behavior in 2D is not a good guide to optimization in 100 dimensions."
+    },
+    {
+      "text": "The lecturer cannot plot a 100-dimensional optimization landscape."
+    },
+    {
+      "text": "There is a practical version of ADAM that is used in deep learning and has an interesting motivation."
+    },
+    {
+      "text": "The motivation for this ADAM variant comes from a different regularization approach called weight decay."
+    },
+    {
+      "text": "In classical neural networks from the 1980s and 1990s, regularization was commonly done via weight decay."
+    },
+    {
+      "text": "Regular regularization (e.g., L2 or L1) involves adding a regularization term to the loss function: $L(W) = \\text{loss}(W) + \\alpha \\cdot \\text{regularizer}$."
+    },
+    {
+      "text": "L2 and L1 regularization are very easy to implement in deep learning because they only require a slight modification of the loss function without changing the optimization algorithm."
+    },
+    {
+      "text": "Implementing L2 or L1 regularization adds a few nodes to the computational graph."
+    },
+    {
+      "text": "In classical neural networks, weight decay was implemented by shrinking the weights by a constant factor less than 1 before applying the gradient update: $W_{k+1} = (1-\\gamma) W_k - \\alpha \\nabla L(W_k)$."
+    },
+    {
+      "text": "Weight decay gets its name because the weights are decayed slightly before the gradient step."
+    },
+    {
+      "text": "It was realized that weight decay in standard gradient descent is exactly equivalent to L2 regularization with an appropriate constant."
+    },
+    {
+      "text": "The equivalence can be shown algebraically: $W_{k+1} = (1-\\gamma) W_k - \\alpha G_k = W_k - \\alpha (G_k + \\frac{\\gamma}{\\alpha} W_k)$, which corresponds to the gradient of the loss plus an L2 penalty on $W$."
+    },
+    {
+      "text": "At the beginning of the deep learning revolution, weight decay was largely forgotten in favor of L2 regularization."
+    },
+    {
+      "text": "It was later realized that the equivalence between weight decay and L2 regularization does not hold for adaptive optimization algorithms like ADAM."
+    },
+    {
+      "text": "For complex update rules like ADAM's, the simple equivalence breaks down."
+    },
+    {
+      "text": "Researchers derived a modified version of ADAM that properly incorporates weight decay instead of L2 regularization."
+    },
+    {
+      "text": "The modification required a simple tweak, but the necessary math had to be worked out."
+    },
+    {
+      "text": "The resulting algorithm is called ADAM-W."
+    },
+    {
+      "text": "ADAM-W is a popular gradient descent variant."
+    },
+    {
+      "text": "Research on optimization algorithms has continued beyond ADAM and ADAM-W, yielding newer algorithms such as Lion and Muon."
+    },
+    {
+      "text": "Lion and Muon have their own interesting properties."
+    },
+    {
+      "text": "One of the new algorithms (Lion or Muon) was discovered through automated search, similar to the automated search that produced the Swish activation function."
+    },
+    {
+      "text": "The other algorithm among the new ones exploits special properties of transformers and is particularly useful for the internal layers of language models."
+    },
+    {
+      "text": "Research continues."
+    },
+    {
+      "text": "In 2026, the standard algorithm would be something like ADM or ADM-W."
+    },
+    {
+      "text": "Classical SGD is still very useful."
+    },
+    {
+      "text": "SGD is still a reasonable algorithm if you can tweak the learning rate."
+    },
+    {
+      "text": "There is a version of ADM with Nesterov momentum called NAIDM."
+    },
+    {
+      "text": "ADM W fixes weight decay regularization in ADM."
+    },
+    {
+      "text": "ADM W has some good properties."
+    },
+    {
+      "text": "Back in 2017, there was a very famous paper called Superconvergence."
+    },
+    {
+      "text": "The Superconvergence paper proposed to use a cyclic learning rate schedule."
+    },
+    {
+      "text": "A cyclic learning rate schedule involves slowing down the training by decreasing the learning rate, and then at some point speeding it back up again to do a large update, then slowing down again."
+    },
+    {
+      "text": "The Superconvergence paper showed through experiments that training with a cyclic learning rate schedule can converge to approximately the same results, but much faster (like 10x, 20x faster)."
+    },
+    {
+      "text": "There were no theorems about the cyclic learning rate schedule."
+    },
+    {
+      "text": "In 2017, the Superconvergence paper was very popular, but now it is rarely mentioned."
+    },
+    {
+      "text": "Cyclical learning rates are still a thing, but they are not universally accepted."
+    },
+    {
+      "text": "You probably are not going to use cyclical learning rates in practice."
+    },
+    {
+      "text": "The other example is the AMSGrad paper."
+    },
+    {
+      "text": "The AMSGrad paper won the ICLR 2018 Best Paper Award in 2018."
+    },
+    {
+      "text": "The AMSGrad paper had a great idea."
+    },
+    {
+      "text": "The ADEM paper had a convergence proof that ADEM converges."
+    },
+    {
+      "text": "The ADEM convergence proof could not estimate the rate of convergence."
+    },
+    {
+      "text": "The authors of the AMSGrad paper found a mistake in the ADEM convergence proof."
+    },
+    {
+      "text": "The authors of the AMSGrad paper showed counterexamples where ADEM can diverge, i.e., not converge or not work at all."
+    },
+    {
+      "text": "The authors of the AMSGrad paper proposed a small modification of ADEM called AMSGrad."
+    },
+    {
+      "text": "AMSGrad replaces the sum with the max somewhere in the algorithm."
+    },
+    {
+      "text": "For AMSGrad, the authors could prove convergence, and the proof was correct."
+    },
+    {
+      "text": "The AMSGrad paper fixed the mistake in the ADEM convergence proof."
+    },
+    {
+      "text": "For eight years (since 2018), there has been an algorithm, AMSGrad, that is probably better than ADEM."
+    },
+    {
+      "text": "Nobody uses AMSGrad."
+    },
+    {
+      "text": "The speaker has never heard about anybody using AMSGrad in practice."
+    },
+    {
+      "text": "AMSGrad is probably implemented in all the libraries."
+    },
+    {
+      "text": "If you try AMSGrad, it will probably be exactly the same as ADEM or even worse."
+    },
+    {
+      "text": "Even good ideas that are confirmed by experiments and theory may not become universally accepted algorithms."
+    },
+    {
+      "text": "There is indeed a mistake in the ADEM paper."
+    },
+    {
+      "text": "The AMSGrad paper does not have a mistake."
+    },
+    {
+      "text": "The AMSGrad paper fixed the mistake in the ADEM paper."
+    },
+    {
+      "text": "Practice is the final arbiter."
+    },
+    {
+      "text": "The field of artificial intelligence, and deep learning specifically, is very applied and practical."
+    },
+    {
+      "text": "Ultimately, people are going to use what works."
+    },
+    {
+      "text": "ADM still works."
+    },
+    {
+      "text": "The speaker wants feedback about the lectures."
+    },
+    {
+      "text": "The speaker is surprised that gradient descent and backpropagation are new for the audience."
+    },
+    {
+      "text": "It is good that gradient descent and backpropagation were repeated."
+    },
+    {
+      "text": "The students have been listening to online lectures for three days straight."
+    },
+    {
+      "text": "The speaker cedes the floor to Alex."
+    },
+    {
+      "text": "The students will meet Alex tomorrow."
+    },
+    {
+      "text": "Practice starts tomorrow."
+    },
+    {
+      "text": "Next week, the speaker has scheduling difficulties because they will be traveling."
+    },
+    {
+      "text": "The speaker hopes there will be a few lectures next week, but cannot promise which days."
+    },
+    {
+      "text": "Tomorrow (from the day of this lecture) is practice day with two practices."
+    },
+    {
+      "text": "Hopefully, on Friday, there will be one practice and one lecture."
+    },
+    {
+      "text": "Next week's schedule is wide open; the speaker does not know about next week yet."
+    },
+    {
+      "text": "The speaker will upload everything as usual."
+    }
+  ],
+  "summary": [
+    {
+      "text": "Deep learning replaced the manual feature extraction of classical machine learning with a single end-to-end trainable model – the neural network."
+    },
+    {
+      "text": "Inside every neural network, there is a feature-extraction part, followed by a final linear layer."
+    },
+    {
+      "text": "The final linear layer can be linear regression or logistic regression, with logistic regression being much more common."
+    },
+    {
+      "text": "Training any neural network amounts to minimizing a loss function with respect to its millions of weights."
+    },
+    {
+      "text": "The only practical tool for minimizing the loss function in neural networks is gradient descent."
+    },
+    {
+      "text": "The key algorithmic ingredient that makes gradient descent possible in neural networks is backpropagation."
+    },
+    {
+      "text": "A single artificial neuron computes a linear combination of its inputs."
+    },
+    {
+      "text": "A single artificial neuron then applies a non-linear activation function to the result of the linear combination."
+    },
+    {
+      "text": "Composing many neurons can approximate arbitrarily complex behaviour."
+    },
+    {
+      "text": "The activation function must be chosen so that gradients can flow backwards through the network."
+    },
+    {
+      "text": "The original McCulloch–Pitts neuron used a threshold (Heaviside step) function."
+    },
+    {
+      "text": "The Rosenblatt perceptron used a threshold (Heaviside step) function."
+    },
+    {
+      "text": "The threshold function is defined as step(x) = 0 if x<0, 1 if x>=0."
+    },
+    {
+      "text": "With a single perceptron, using a threshold function can work."
+    },
+    {
+      "text": "In a multi-layer network, the derivative of the threshold function is zero almost everywhere."
+    },
+    {
+      "text": "With a zero derivative almost everywhere, the gradient would be identically zero, and no learning can happen."
+    },
+    {
+      "text": "The natural fix to the zero derivative problem is a smooth approximation to the threshold function."
+    },
+    {
+      "text": "For decades, neural networks used sigmoid functions as activation functions."
+    },
+    {
+      "text": "Sigmoid functions are monotonically increasing from a low horizontal asymptote to a high one."
+    },
+    {
+      "text": "The most common sigmoid choices were the logistic sigmoid and the hyperbolic tangent."
+    },
+    {
+      "text": "The logistic sigmoid is defined as $\\sigma(x) = \\frac{1}{1 + e^{-x}}$ and saturates at 0 and 1."
+    },
+    {
+      "text": "The hyperbolic tangent is defined as $\\tanh(x) = \\frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}$ and saturates at –1 and +1."
+    },
+    {
+      "text": "The hyperbolic tangent is symmetric around zero, which made it preferred for hidden layers."
+    },
+    {
+      "text": "Both logistic sigmoid and hyperbolic tangent suffer from saturation."
+    },
+    {
+      "text": "Saturation occurs when the input to the neuron becomes large in absolute value, making the derivative of the activation very close to zero."
+    },
+    {
+      "text": "When saturation happens, the gradients effectively stop."
+    },
+    {
+      "text": "Around 2011–2012, the rectified linear unit (ReLU) activation function was tried."
+    },
+    {
+      "text": "ReLU proved extremely effective."
+    },
+    {
+      "text": "ReLU is defined as ReLU(x) = max(0, x), i.e., 0 if x<0, x if x>=0."
+    },
+    {
+      "text": "On the negative side, ReLU's gradient is zero, introducing sparsity."
+    },
+    {
+      "text": "Sparsity is often desirable, e.g., in convolutional networks where weights are reused across the input."
+    },
+    {
+      "text": "In convolutional networks, having half of the activations zero is fine and even acts as a regularizer."
+    },
+    {
+      "text": "On the positive side, ReLU is unbounded."
+    },
+    {
+      "text": "On the positive side, ReLU's derivative is constant (1)."
+    },
+    {
+      "text": "Unlike sigmoids, a ReLU neuron can distinguish between “activated” and “strongly activated”."
+    },
+    {
+      "text": "In ReLU, there is no saturation on the right, so gradients never vanish just because the neuron is very sure."
+    },
+    {
+      "text": "There is a mathematical intuition: $\\text{ReLU}(x)$ can be seen as an infinite sum of shifted sigmoids $\\sum_i \\sigma(x + \\frac{1}{2} - i)$."
+    },
+    {
+      "text": "This infinite sum, after smoothing, asymptotically approaches a straight line with slope 1."
+    },
+    {
+      "text": "There is a biological justification: the firing rate of real biological neurons as a function of input current looks like a curve that first stays quiet, goes through a phase transition, and then becomes roughly linear."
+    },
+    {
+      "text": "This biological firing rate curve is very similar to ReLU."
+    },
+    {
+      "text": "Leaky ReLU is defined as $\\text{LReLU}(x) = \\max(ax, x)$, with a small slope $a$ on the negative side (e.g., $a=0.01$)."
+    },
+    {
+      "text": "Leaky ReLU prevents complete gradient loss on negative inputs."
+    },
+    {
+      "text": "Softplus is defined as $\\text{softplus}(x) = \\ln(1+e^x)$."
+    },
+    {
+      "text": "Softplus is a smooth approximation of ReLU."
+    },
+    {
+      "text": "Exponential Linear Unit (ELU) is defined as $\\text{ELU}(x) = x$ for $x\\ge 0$, and $\\text{ELU}(x) = \\alpha(e^x-1)$ for $x<0$."
+    },
+    {
+      "text": "Around 2017, researchers at Google ran an automated search over the space of activation functions represented as computational graphs."
+    },
+    {
+      "text": "The search was evolutionary, using mutations and cross-overs of graph structures."
+    },
+    {
+      "text": "The search was purely empirical: it simply tried many candidate functions on a suite of architectures and datasets."
+    },
+    {
+      "text": "The winner of the automated search was the Swish activation function."
+    },
+    {
+      "text": "Swish is defined as $\\text{Swish}(x) = x \\sigma(\\beta x) = \\frac{x}{1 + e^{-\\beta x}}$."
+    },
+    {
+      "text": "Swish looks similar to ReLU on the right but has a non-monotonic bump on the left, where it dips below zero and then returns to zero."
+    },
+    {
+      "text": "Swish consistently outperformed ReLU in many vision architectures."
+    },
+    {
+      "text": "A later variant, Mish, defined as $\\text{Mish}(x) = x \\tanh(\\text{softplus}(x))$, also became popular."
+    },
+    {
+      "text": "In 2020, Ma et al. introduced ACON (ActivateOrNot), a family that generalizes many activations through a smooth maximum operator."
+    },
+    {
+      "text": "The smooth maximum operator $S_\\beta(x_1,\\dots,x_n)$ is defined as $\\frac{\\sum_{i=1}^n x_i e^{\\beta x_i}}{\\sum_{i=1}^n e^{\\beta x_i}}$."
+    },
+    {
+      "text": "By setting $g(x)$ and $h(x)$ as two functions of $x$, the ACON activation $f_{\\text{ACON}} = S_\\beta(g(x), h(x))$ is given by $(g(x)-h(x)) \\sigma(\\beta(g(x)-h(x))) + h(x)$."
+    },
+    {
+      "text": "ACON recovers Swish when $g(x)=x$ and $h(x)=0$."
+    },
+    {
+      "text": "ACON recovers Leaky ReLU variants when $g(x)=x$ and $h(x)=ax$."
+    },
+    {
+      "text": "ACON-C has learnable parameters $a_1$ and $a_2$."
+    },
+    {
+      "text": "Despite interesting properties, ACON is rarely seen in practice."
+    },
+    {
+      "text": "Modern large language models often use the Gaussian Error Linear Unit (GELU)."
+    },
+    {
+      "text": "GELU is defined as $x \\Phi(x)$, where $\\Phi$ is the CDF of a standard Gaussian."
+    },
+    {
+      "text": "GELU resembles a smooth Swish."
+    },
+    {
+      "text": "A practical recommendation: start with ReLU, try Swish or GELU, and perhaps a Leaky ReLU variant as a fallback."
+    },
+    {
+      "text": "The network computes a scalar loss $l(\\mathbf{x}, y, \\mathbf{w})$ for one training sample."
+    },
+    {
+      "text": "The total loss for the whole dataset is $L(\\mathbf{w}) = \\frac{1}{N}\\sum_{n=1}^N l(\\mathbf{x}_n, y_n, \\mathbf{w})$, the average or sum."
+    },
+    {
+      "text": "Training means finding $\\mathbf{w}$ that minimizes $L(\\mathbf{w})$."
+    },
+    {
+      "text": "The network is a massive composition of simple operations, i.e., a computational graph."
+    },
+    {
+      "text": "The only realistic way to obtain the gradient $\\nabla_{\\mathbf{w}} L$ is to differentiate through that computational graph automatically."
+    },
+    {
+      "text": "Any formula can be drawn as a directed acyclic graph whose nodes are elementary operations such as addition, multiplication, exponentiation, etc."
+    },
+    {
+      "text": "An example formula is $f(x,y) = (x+y)^2 (x-y) + y^3$."
+    },
+    {
+      "text": "In the computational graph for $f$, intermediate nodes are $a=x+y$, $b=x-y$, $c=y^3$, $d=a^2$, $e=d\\cdot b$, $f=e+c$."
+    },
+    {
+      "text": "By going bottom-up in the computational graph, one can compute both the function values and a partial derivative like $\\partial f/\\partial x$."
+    },
+    {
+      "text": "For the example with $x=2, y=-1$, the node values are $a=1$, $b=3$, $c=-1$, $d=1$, $e=3$, $f=2$."
+    },
+    {
+      "text": "$\\partial f/\\partial x = \\partial e/\\partial x + \\partial c/\\partial x$."
+    },
+    {
+      "text": "$\\partial c/\\partial x = 0$."
+    },
+    {
+      "text": "$\\partial e/\\partial x = \\partial d/\\partial x \\, b + d \\, \\partial b/\\partial x$."
+    },
+    {
+      "text": "$\\partial d/\\partial x = 2a \\cdot 1$."
+    },
+    {
+      "text": "$\\partial b/\\partial x = 1$."
+    },
+    {
+      "text": "$\\partial e/\\partial x = (2a\\cdot 1)b + d = 2ab + d = 2\\cdot 1\\cdot 3 + 1 = 7$."
+    },
+    {
+      "text": "Both $f$ and $\\partial f/\\partial x$ can be obtained in one single forward pass."
+    },
+    {
+      "text": "To get $\\partial f/\\partial y$, one could either make a second pass or compute all derivatives simultaneously."
+    },
+    {
+      "text": "In a real neural network, the number of learnable weights $|\\mathbf{w}|$ is in the millions or billions."
+    },
+    {
+      "text": "Forward-propagating derivatives with respect to every weight would require either $|\\mathbf{w}|$ separate passes through the graph or a single pass carrying a vector of size $|\\mathbf{w}|$ on every edge."
+    },
+    {
+      "text": "$|\\mathbf{w}|$ separate passes are completely infeasible time-wise."
+    },
+    {
+      "text": "A single pass carrying a vector of size $|\\mathbf{w}|$ on every edge causes a memory blow-up (a million copies of the network)."
+    },
+    {
+      "text": "Neither forward-propagation approach is practical."
+    },
+    {
+      "text": "The solution to forward-propagation impracticality is backpropagation."
+    },
+    {
+      "text": "In backpropagation, instead of starting from inputs to compute $\\partial(\\text{everything})/\\partial x$, we start from the output and compute $\\partial f/\\partial(\\text{everything})$ moving top-down."
+    },
+    {
+      "text": "In backpropagation, the base case is $\\partial f/\\partial f = 1$."
+    },
+    {
+      "text": "For the example, $\\partial f/\\partial e = 1$, $\\partial f/\\partial c = 1$."
+    },
+    {
+      "text": "$\\partial f/\\partial d = \\partial f/\\partial e \\, \\partial e/\\partial d = 1 \\cdot b = 3$."
+    },
+    {
+      "text": "$\\partial f/\\partial b = \\partial f/\\partial e \\, \\partial e/\\partial b = 1 \\cdot d = 1$."
+    },
+    {
+      "text": "$\\partial f/\\partial a = \\partial f/\\partial d \\, \\partial d/\\partial a = 3 \\cdot 2a = 6$."
+    },
+    {
+      "text": "When a node has multiple outgoing edges, contributions to the partial derivative from those edges are summed."
+    },
+    {
+      "text": "$\\partial f/\\partial x = \\partial f/\\partial a \\, \\partial a/\\partial x + \\partial f/\\partial b \\, \\partial b/\\partial x = 6 \\cdot 1 + 1 \\cdot 1 = 7$."
+    },
+    {
+      "text": "$\\partial f/\\partial y = \\partial f/\\partial a \\, \\partial a/\\partial y + \\partial f/\\partial b \\, \\partial b/\\partial y + \\partial f/\\partial c \\, \\partial c/\\partial y = 6 \\cdot 1 + 1 \\cdot (-1) + 1 \\cdot 3y^2 = 6 - 1 + 3 = 8$."
+    },
+    {
+      "text": "Backpropagation obtains all partial derivatives in a single backward pass without recomputing shared sub-expressions."
+    },
+    {
+      "text": "Neural networks always have one scalar loss and many inputs (weights)."
+    },
+    {
+      "text": "Backpropagation is perfectly suited to the asymmetry of one scalar loss and many inputs."
+    },
+    {
+      "text": "In practice, backpropagation requires two passes: a forward pass and a backward pass."
+    },
+    {
+      "text": "In the forward pass, the numerical values of every intermediate node are computed and stored because local derivatives depend on those values."
+    },
+    {
+      "text": "In the backward pass, starting from the output, $\\partial f/\\partial(\\text{everything})$ is computed recursively using the chain rule and the stored values from the forward pass."
+    },
+    {
+      "text": "Modern frameworks like PyTorch, TensorFlow, and JAX are, at their core, automatic differentiation engines."
+    },
+    {
+      "text": "The most performance-critical job of these frameworks is to run forward and backward passes efficiently."
+    },
+    {
+      "text": "All the layers, modules, and high-level APIs are syntactic sugar built on top of the graph-tracing machinery."
+    },
+    {
+      "text": "In these frameworks, weights are a special kind of input to the computational graph."
+    },
+    {
+      "text": "During training, gradients are computed with respect to the weights."
+    },
+    {
+      "text": "Gradient descent updates weights using the first-order Taylor expansion: $L(\\mathbf{w}) \\approx L(\\mathbf{w}_k) + (\\mathbf{w} - \\mathbf{w}_k)^\\top \\nabla L(\\mathbf{w}_k)$."
+    },
+    {
+      "text": "Gradient descent moves in the negative gradient direction: $\\mathbf{w}_{k+1} = \\mathbf{w}_k - \\alpha \\nabla L(\\mathbf{w}_k)$."
+    },
+    {
+      "text": "Gradient descent only tells a direction, not how far to go."
+    },
+    {
+      "text": "The learning rate $\\alpha$ must be chosen externally."
+    },
+    {
+      "text": "Centuries of optimisation theory have produced better techniques than gradient descent."
+    },
+    {
+      "text": "Newton's method uses a quadratic approximation of the loss: $L(\\mathbf{w}) \\approx L(\\mathbf{w}_k) + (\\mathbf{w}-\\mathbf{w}_k)^\\top \\mathbf{g}_k + \\frac{1}{2} (\\mathbf{w}-\\mathbf{w}_k)^\\top \\mathbf{H}_k (\\mathbf{w}-\\mathbf{w}_k)$."
+    },
+    {
+      "text": "The gradient of the quadratic approximation set to zero gives $\\mathbf{w}_{k+1} = \\mathbf{w}_k - \\mathbf{H}_k^{-1} \\mathbf{g}_k$."
+    },
+    {
+      "text": "Newton's method automatically determines the step size."
+    },
+    {
+      "text": "Newton's method is far more robust than gradient descent."
+    },
+    {
+      "text": "Newton's method converges in fewer iterations than gradient descent."
+    },
+    {
+      "text": "The computational problem of Newton's method is that for $10^6$ parameters, the Hessian is a $10^6 \\times 10^6$ matrix that must be stored and inverted, which is impossible."
+    },
+    {
+      "text": "Quasi-Newton methods like L-BFGS keep a low-rank approximation of the Hessian."
+    },
+    {
+      "text": "Quasi-Newton methods fail in deep learning because they rely on accurate gradient evaluations."
+    },
+    {
+      "text": "The actual loss $L(\\mathbf{w})$ is an average over the whole training set."
+    },
+    {
+      "text": "Computing the true gradient $\\nabla L$ requires a full pass over the entire dataset on every optimisation step."
+    },
+    {
+      "text": "A full pass over the entire dataset on every step is prohibitively expensive."
+    },
+    {
+      "text": "In practice, $L$ is viewed as an expectation over the data distribution."
+    },
+    {
+      "text": "$L$ is approximated with a small random subset called a mini-batch of size $m$."
+    },
+    {
+      "text": "The stochastic gradient estimate is $\\hat{\\mathbf{g}}_k = \\frac{1}{m} \\sum_{i=1}^{m} \\nabla_{\\mathbf{w}} l(\\mathbf{x}_{i_k}, y_{i_k}, \\mathbf{w}_k)$."
+    },
+    {
+      "text": "The stochastic gradient estimate is an unbiased Monte-Carlo estimate of the true gradient."
+    },
+    {
+      "text": "The SGD update is $\\mathbf{w}_{k+1} = \\mathbf{w}_k - \\alpha_k \\hat{\\mathbf{g}}_k$."
+    },
+    {
+      "text": "Mini-batch sizes are usually small (e.g., 4, 8, 16) because the network must fit into GPU memory."
+    },
+    {
+      "text": "The variance of the stochastic gradient estimate is substantial."
+    },
+    {
+      "text": "The stochastic gradient estimate is the best approximation that can be afforded."
+    },
+    {
+      "text": "The substantial variance is the reason second-order methods break down."
+    },
+    {
+      "text": "Second-order methods need reliable gradient values, and stochastic samples with high variance destroy the delicate quasi-Newton approximations."
+    },
+    {
+      "text": "A standard analysis assuming convex $F$ yields the bound: $\\mathbb{E}F(\\hat{\\mathbf{w}}_k) - F(\\mathbf{w}_{\\text{opt}}) \\le \\frac{R^2 + G^2 \\sum_{i=0}^k \\alpha_i^2}{2 \\sum_{i=0}^k \\alpha_i}$, where $R$ bounds the initial distance to the optimum and $G$ bounds the expected squared norm of the stochastic gradients."
+    },
+    {
+      "text": "For a constant step size $h$, the bound becomes $\\mathbb{E}F(\\hat{\\mathbf{w}}_k) - F(\\mathbf{w}_{\\text{opt}}) \\le \\frac{R^2}{2h(k+1)} + \\frac{G^2 h}{2}$."
+    },
+    {
+      "text": "As $k \\to \\infty$, the bound tends to $\\frac{G^2 h}{2}$."
+    },
+    {
+      "text": "SGD quickly reaches a neighbourhood of the optimum."
+    },
+    {
+      "text": "With a constant learning rate, SGD never converges exactly; it oscillates inside a “noisy ball” whose radius is proportional to $G^2 h$."
+    },
+    {
+      "text": "To converge to the true optimum, one must let the step sizes go to zero, e.g., $\\alpha_k \\sim 1/k$, such that $\\sum \\alpha_k = \\infty$ but $\\sum \\alpha_k^2 < \\infty$."
+    },
+    {
+      "text": "Far from the optimum, the convergence can still be $O(1/k)$."
+    },
+    {
+      "text": "The slowdown only occurs near the optimum."
+    },
+    {
+      "text": "Even for a trivial quadratic function $f(\\mathbf{w}) = \\frac{1}{2} x^2 + \\frac{\\rho}{2} y^2$, gradient descent suffers when the coordinates have very different scales (i.e., $\\rho \\ll 1$)."
+    },
+    {
+      "text": "The learning rate cannot be increased beyond the limit set by the fastest-changing coordinate (x) without causing divergence."
+    },
+    {
+      "text": "Progress along the slow axis (y) becomes excruciatingly slow."
+    },
+    {
+      "text": "The problem of coordinate scales motivates adaptive and momentum-based methods."
+    },
+    {
+      "text": "Momentum draws on the physical intuition of a ball rolling down a slope."
+    },
+    {
+      "text": "Momentum accumulates velocity in directions where the gradient consistently points."
+    },
+    {
+      "text": "The momentum update rule for the velocity $\\mathbf{u}_k$ is $\\mathbf{u}_k = \\gamma \\mathbf{u}_{k-1} - \\alpha \\hat{\\mathbf{g}}_k$, and the weight update is $\\mathbf{w}_{k+1} = \\mathbf{w}_k + \\mathbf{u}_k$."
+    },
+    {
+      "text": "The typical value of $\\gamma$ in momentum is between 0.95 and 0.99."
+    },
+    {
+      "text": "Momentum speeds up movement along shallow but consistent slopes."
+    },
+    {
+      "text": "Momentum dampens oscillations across steep ravines."
+    },
+    {
+      "text": "Nesterov (1983) proposed a 'look-ahead' variant of momentum."
+    },
+    {
+      "text": "In Nesterov's variant, the gradient is computed at $\\mathbf{w}_k + \\gamma \\mathbf{u}_{k-1}$ instead of at the current point."
+    },
+    {
+      "text": "The Nesterov Accelerated Gradient update rule for $\\mathbf{u}_k$ is $\\mathbf{u}_k = \\gamma \\mathbf{u}_{k-1} - \\alpha \\nabla L(\\mathbf{w}_k + \\gamma \\mathbf{u}_{k-1})$, and the weight update is $\\mathbf{w}_{k+1} = \\mathbf{w}_k + \\mathbf{u}_k$."
+    },
+    {
+      "text": "NAG anticipates the upcoming slope and naturally slows down before hitting a wall."
+    },
+    {
+      "text": "NAG reduces oscillations more than plain momentum."
+    },
+    {
+      "text": "NAG often converges asymptotically faster than plain momentum."
+    },
+    {
+      "text": "The previously discussed optimization methods (SGD, momentum, NAG) treat every coordinate equally."
+    },
+    {
+      "text": "In a high-dimensional space, different weights may need very different effective learning rates."
+    },
+    {
+      "text": "Adaptive algorithms scale the learning rate per-parameter based on the history of gradients."
+    },
+    {
+      "text": "Adagrad maintains a running sum of squared gradients per parameter, updated as $G_{k,i} = G_{k-1,i} + g_{k,i}^2$, and updates the parameter as $w_{k+1,i} = w_{k,i} - \\frac{\\eta}{\\sqrt{G_{k,i} + \\epsilon}} g_{k,i}$."
+    },
+    {
+      "text": "In Adagrad, parameters that experienced large gradients have their effective learning rate shrink quickly."
+    },
+    {
+      "text": "In Adagrad, parameters with small gradients keep a higher effective learning rate."
+    },
+    {
+      "text": "A drawback of Adagrad is that $G_{k,i}$ only grows."
+    },
+    {
+      "text": "Because $G_{k,i}$ only grows, the learning rate can never rebound after passing through a steep region."
+    },
+    {
+      "text": "Eventually, the learning rate in Adagrad becomes too small."
+    },
+    {
+      "text": "RMSprop updates a per-parameter moving average of squared gradients as $G_{k,i} = \\rho G_{k-1,i} + (1-\\rho) g_{k,i}^2$ and updates the parameters as $w_{k+1,i} = w_{k,i} - \\frac{\\eta}{\\sqrt{G_{k,i} + \\epsilon}} g_{k,i}$."
+    },
+    {
+      "text": "The exponential moving average in RMSprop forgets old gradients."
+    },
+    {
+      "text": "This forgetting property allows the learning rate to grow again when gradients become small."
+    },
+    {
+      "text": "RMSprop was popularized by Hinton."
+    },
+    {
+      "text": "RMSprop is essentially Adagrad with an exponential moving average."
+    },
+    {
+      "text": "Adadelta introduces the idea of correcting the units of measurement in the update."
+    },
+    {
+      "text": "In plain SGD, the update subtracts a quantity with units of $\\partial L/\\partial w$ (velocity-like) from $w$ (position-like)."
+    },
+    {
+      "text": "The dimensions of the subtracted quantity and $w$ do not match, reflecting the scale-mismatch problem."
+    },
+    {
+      "text": "Second-order methods (using $\\mathbf{H}^{-1}\\mathbf{g}$) have correct dimensions because $\\mathbf{H}^{-1}\\mathbf{g}$ has the same units as $w$."
+    },
+    {
+      "text": "Adadelta keeps an exponential moving average of the squared parameter updates $\\mathbb{E}[\\Delta w^2]_t$."
+    },
+    {
+      "text": "The Adadelta update rule is $w_{k+1,i} = w_{k,i} - \\frac{\\sqrt{\\mathbb{E}[\\Delta w^2]_{k-1} + \\epsilon}}{\\sqrt{G_{k,i} + \\epsilon}} g_{k,i}$."
+    },
+    {
+      "text": "Adadelta removes the need to manually set a learning rate."
+    },
+    {
+      "text": "In practice, Adadelta is less common than Adam."
+    },
+    {
+      "text": "Adam was introduced by Kingma and Ba in 2014."
+    },
+    {
+      "text": "Adam combines an exponential moving average of squared gradients (like RMSprop) with an exponential moving average of the gradients themselves (like momentum)."
+    },
+    {
+      "text": "The Adam update rule computes the first moment estimate as $m_t = \\beta_1 m_{t-1} + (1-\\beta_1) g_t$ and the second moment estimate as $v_t = \\beta_2 v_{t-1} + (1-\\beta_2) g_t^2$, and updates the parameter as $w_{t+1,i} = w_{t,i} - \\frac{\\eta}{\\sqrt{v_t + \\epsilon}} m_t$."
+    },
+    {
+      "text": "The typical hyperparameters for Adam are $\\beta_1 = 0.9$, $\\beta_2 = 0.999$, and $\\epsilon = 10^{-8}$."
+    },
+    {
+      "text": "Adam is extremely robust."
+    },
+    {
+      "text": "The default hyperparameter values of Adam work well across a wide range of problems."
+    },
+    {
+      "text": "Adam became the most popular optimization algorithm in deep learning."
+    },
+    {
+      "text": "Smoothing the gradient using the first moment $m_t$ significantly reduces the variance of noisy mini-batch gradient estimates."
+    },
+    {
+      "text": "This variance reduction is a major reason for Adam's good performance."
+    },
+    {
+      "text": "In classical neural networks, weight decay was implemented by the update $\\mathbf{w}_{k+1} = (1 - \\lambda)\\mathbf{w}_k - \\alpha \\mathbf{g}_k$."
+    },
+    {
+      "text": "In vanilla SGD, the weight decay update $\\mathbf{w}_{k+1} = (1 - \\lambda)\\mathbf{w}_k - \\alpha \\mathbf{g}_k$ is exactly equivalent to $L_2$ regularization."
+    },
+    {
+      "text": "In adaptive methods like Adam, the equivalence between weight decay and $L_2$ regularization breaks."
+    },
+    {
+      "text": "In adaptive methods, the adaptively scaled update does not correspond to a simple $\\lambda \\mathbf{w}$ term in the loss."
+    },
+    {
+      "text": "In adaptive methods with incorrect weight decay, weights with large gradients decay less."
+    },
+    {
+      "text": "This leads to suboptimal regularization."
+    },
+    {
+      "text": "AdamW was introduced by Loshchilov and Hutter in 2018."
+    },
+    {
+      "text": "AdamW reintroduces weight decay directly in the parameter update."
+    },
+    {
+      "text": "AdamW decouples weight decay from the adaptive scaling of the learning rates."
+    },
+    {
+      "text": "AdamW leads to better generalization."
+    },
+    {
+      "text": "AdamW makes the hyperparameters more interpretable."
+    },
+    {
+      "text": "AdamW is now a standard optimization algorithm, used alongside plain Adam."
+    },
+    {
+      "text": "Super-convergence was proposed by Smith and Topin in 2017."
+    },
+    {
+      "text": "Super-convergence uses cyclic learning rates, where the learning rate is periodically raised after being decayed."
+    },
+    {
+      "text": "Experiments with cyclic learning rates showed dramatically faster convergence, by a factor of 10 to 20."
+    },
+    {
+      "text": "These experiments still reached similar final accuracy."
+    },
+    {
+      "text": "Despite initial excitement, cyclic learning rate schedules are not universally adopted."
+    },
+    {
+      "text": "Cyclic schedules can be unstable."
+    },
+    {
+      "text": "Cyclic schedules are rarely used in practice today."
+    },
+    {
+      "text": "AMSGrad was proposed by Reddi et al. in 2018."
+    },
+    {
+      "text": "AMSGrad identified a flaw in the original convergence proof of Adam."
+    },
+    {
+      "text": "AMSGrad provided a counterexample where Adam can diverge."
+    },
+    {
+      "text": "The AMSGrad fix replaces the exponential moving average $v_t$ with a maximum over past values."
+    },
+    {
+      "text": "The resulting AMSGrad algorithm has a correct convergence proof."
+    },
+    {
+      "text": "AMSGrad won the ICLR 2018 Best Paper award."
+    },
+    {
+      "text": "After eight years, AMSGrad is not used in practice."
+    },
+    {
+      "text": "Empirically, AMSGrad performs no better than Adam and sometimes worse."
+    },
+    {
+      "text": "The stories of Super-convergence and AMSGrad illustrate that deep learning is an intensely empirical field."
+    },
+    {
+      "text": "A theorem-backed improvement in deep learning does not guarantee adoption if it does not win on practical benchmarks."
+    },
+    {
+      "text": "Adam and AdamW remain the workhorses of optimization in deep learning."
+    },
+    {
+      "text": "Plain SGD with momentum is still a solid, widely used baseline."
+    }
+  ]
+}

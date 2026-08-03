@@ -1,0 +1,3223 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "slides": [
+    {
+      "text": "On June 17, 1631, Mumtaz Mahal died giving birth to her fourteenth child."
+    },
+    {
+      "text": "Mumtaz Mahal's grief-stricken husband, the Mughal emperor Shah Jahan, spent the next two decades building her tomb, the Taj Mahal."
+    },
+    {
+      "text": "On June 17, 1885, the Statue of Liberty arrived in New York Harbor from France, dismantled into 350 pieces packed in 214 crates."
+    },
+    {
+      "text": "The Statue of Liberty then sat boxed up for months while Joseph Pulitzer's newspaper shamed the public into paying for the pedestal it was to stand on."
+    },
+    {
+      "text": "On June 17, 1972, five White House operatives were arrested for burgling the offices of the Democratic National Committee."
+    },
+    {
+      "text": "The burglary occurred during an attempt by members of the Richard Nixon administration to illegally wiretap the political opposition."
+    },
+    {
+      "text": "This event became known as the Watergate scandal."
+    },
+    {
+      "text": "On June 17, 1939, France carried out its last public guillotining, of the murderer Eugen Weidmann at Versailles."
+    },
+    {
+      "text": "The crowd at the guillotining was so unruly and the smuggled film footage so scandalous that all further executions were moved behind prison walls."
+    },
+    {
+      "text": "On June 17, 1972, five men were caught breaking into the Democratic National Committee headquarters at the Watergate complex in Washington."
+    },
+    {
+      "text": "The Watergate break-in was first dismissed as a \"third-rate burglary\"."
+    },
+    {
+      "text": "Two years later, the Watergate scandal forced a sitting U.S. president to resign."
+    },
+    {
+      "text": "Vanishing gradients in RNNs are caused by repeatedly multiplying by the weight matrix W."
+    },
+    {
+      "text": "Vanishing gradients make it impossible for RNNs to have long-term memory."
+    },
+    {
+      "text": "The basic idea of providing a shortcut for gradients, called the \"constant error carousel\", has been seen in ResNet."
+    },
+    {
+      "text": "In the mid-1990s, Schmidhuber proposed constructing RNNs from a more complex unit that has a shortcut for gradients and controls memory explicitly."
+    },
+    {
+      "text": "LSTM stands for long short-term memory."
+    },
+    {
+      "text": "In vanilla LSTM, c_t is the cell state and h_t is the hidden state."
+    },
+    {
+      "text": "The input gate and forget gate control whether the cell state c_t is changed to the new candidate cell state."
+    },
+    {
+      "text": "In LSTM, the candidate cell state c'_t is given by c'_t = tanh(W_{xc} x_t + W_{hc} h_{t-1} + b_{c'})."
+    },
+    {
+      "text": "The input gate i_t is given by i_t = σ(W_{xi} x_t + W_{hi} h_{t-1} + b_i)."
+    },
+    {
+      "text": "The forget gate f_t is given by f_t = σ(W_{xf} x_t + W_{hf} h_{t-1} + b_f)."
+    },
+    {
+      "text": "The output gate o_t is given by o_t = σ(W_{xo} x_t + W_{ho} h_{t-1} + b_o)."
+    },
+    {
+      "text": "The cell state c_t is updated as c_t = f_t ⊙ c_{t-1} + i_t ⊙ c'_t."
+    },
+    {
+      "text": "The block output h_t is given by h_t = o_t ⊙ tanh(c_t)."
+    },
+    {
+      "text": "The LSTM cell can control the cell state using the hidden state and weights."
+    },
+    {
+      "text": "When the forget gate is closed (f_t = 1), the cell state update becomes c_t = c_{t-1} + i_t ⊙ c'_t, resulting in ∂c_t/∂c_{t-1} = 1."
+    },
+    {
+      "text": "This property is known as the constant error carousel."
+    },
+    {
+      "text": "LSTM was developed in the mid-1990s by Hochreiter and Schmidhuber, as described in their 1995 and 1997 works."
+    },
+    {
+      "text": "LSTM appeared completely in its modern form in the 2000 work by Gers and Schmidhuber."
+    },
+    {
+      "text": "A problem with LSTM is that the gates cannot access the cell state c directly because they only see h_{t-1} = o_{t-1} ⊙ tanh(c_{t-1})."
+    },
+    {
+      "text": "If the output gate is closed, the behaviour of the LSTM does not depend on the cell state at all."
+    },
+    {
+      "text": "To address this problem, additional weight matrices called peepholes are added to the LSTM."
+    },
+    {
+      "text": "In peephole LSTM, the input gate is i_t = σ(W_{xi} x_t + W_{hi} h_{t-1} + W_{pi} c_{t-1} + b_i)."
+    },
+    {
+      "text": "In peephole LSTM, the forget gate is f_t = σ(W_{xf} x_t + W_{hf} h_{t-1} + W_{pf} c_{t-1} + b_f)."
+    },
+    {
+      "text": "In peephole LSTM, the output gate is o_t = σ(W_{xo} x_t + W_{ho} h_{t-1} + W_{po} c_{t-1} + b_o)."
+    },
+    {
+      "text": "There exist a huge number of LSTM variations, obtained by removing any kind of gate, adding or removing each peephole, or adding or removing activation functions."
+    },
+    {
+      "text": "The paper \"LSTM: a Search Space Odyssey\" by Greff et al. (2015) provides an experimental comparison of many LSTM variations."
+    },
+    {
+      "text": "Some significantly simpler LSTM architectures with one less gate performed comparably to vanilla LSTM."
+    },
+    {
+      "text": "Gated Recurrent Units (GRU) were developed in Cho et al. (2014)."
+    },
+    {
+      "text": "GRU also implements the constant error carousel and is simpler than LSTM."
+    },
+    {
+      "text": "In GRU, the update gate u_t is given by u_t = σ(W_{xu} x_t + W_{hu} h_{t-1} + b_u)."
+    },
+    {
+      "text": "In GRU, the reset gate r_t is given by r_t = σ(W_{xr} x_t + W_{hr} h_{t-1} + b_r)."
+    },
+    {
+      "text": "In GRU, the candidate hidden state h'_t is given by h'_t = tanh(W_{xh'} x_t + W_{hh'} (r_t ⊙ h_{t-1}))."
+    },
+    {
+      "text": "In GRU, the new hidden state is h_t = (1 - u_t) ⊙ h'_t + u_t ⊙ h_{t-1}."
+    },
+    {
+      "text": "In GRU, there is no distinction between cell state and hidden state; it uses an update gate and a reset gate."
+    },
+    {
+      "text": "GRU has fewer matrices (6 compared to 8 or 11 with peepholes in LSTM) and fewer weights, but performs only very slightly worse than LSTM."
+    },
+    {
+      "text": "Because GRU has fewer parameters, you can fit more GRUs and achieve better networks within a given computational budget."
+    },
+    {
+      "text": "There exist other RNN variations beyond LSTM and GRU."
+    },
+    {
+      "text": "Józefowicz, Zaremba, and Sutskever (2015) conducted a huge experimental comparison of RNN architectures using an evolutionary approach."
+    },
+    {
+      "text": "They identified three interesting architectures."
+    },
+    {
+      "text": "The human visual system processes images through something akin to a CNN, and then attention is paid to a part while the rest is ignored."
+    },
+    {
+      "text": "The question of what attention means is a difficult question."
+    },
+    {
+      "text": "A.R. Luria studied attention, memory, and cognitive functions."
+    },
+    {
+      "text": "According to Knudsen (2007), attention is mostly about the interaction with working memory."
+    },
+    {
+      "text": "In images, humans do not see much at any given moment of time, illustrating unconscious attention."
+    },
+    {
+      "text": "The fovea is small."
+    },
+    {
+      "text": "Human eyes work in saccades, and this movement does not always help with attention."
+    },
+    {
+      "text": "A neural network might also need to consciously understand what to look at."
+    },
+    {
+      "text": "One of the first works in this area was by Larochelle and Hinton in 2010."
+    },
+    {
+      "text": "They modeled the positions of saccades and learned to perform a sequence of glimpses."
+    },
+    {
+      "text": "The development of recurrent visual attention models occurred with Mnih et al. (2014) in their work \"Recurrent Models of Visual Attention\"."
+    },
+    {
+      "text": "In the model, from the previous hidden state vector h_{t-1} and a new glimpse location l_t, the function f_g produces g_t, the input for step t."
+    },
+    {
+      "text": "From h_{t-1} and g_t, the function f_h obtains the new hidden state h_t."
+    },
+    {
+      "text": "From h_t, the action a_t is given by f_a(h_t) and the next glimpse location l_{t+1} is given by f_l(h_t)."
+    },
+    {
+      "text": "The model integrates many machine learning ideas."
+    },
+    {
+      "text": "Formally, the glimpse feature is g_t = f_g(x_t, l_{t-1}; θ_g)."
+    },
+    {
+      "text": "The hidden state update is h_t = f_h(h_{t-1}, g_t; θ_h)."
+    },
+    {
+      "text": "The glimpse location l_t is sampled from p(⋅ | f_l(h_t; θ_l))."
+    },
+    {
+      "text": "The action a_t is sampled from p(⋅ | f_a(h_t; θ_a))."
+    },
+    {
+      "text": "After an action, a new observation x_{t+1} is obtained, and a reward r_t is given at the end for correct classification."
+    },
+    {
+      "text": "The problem formulation is similar to reinforcement learning."
+    },
+    {
+      "text": "The model requires training a stochastic policy π((l_t, a_t) | s_{1:t}; θ) that outputs the next action based on the history of states."
+    },
+    {
+      "text": "The policy π is defined via an RNN, and the objective to optimize is J(θ) = E_{p(s_{1:T};θ)} [∑_{t=1}^T r_t]."
+    },
+    {
+      "text": "Reinforcement learning is about optimizing such complicated functions, and methods like the REINFORCE algorithm and other policy gradient approaches can be used."
+    },
+    {
+      "text": "The results show the attention mechanism walking around the picture."
+    },
+    {
+      "text": "Ba et al. (2015) developed a deep model for recurrent visual attention."
+    },
+    {
+      "text": "They trained the model using variational approximations, which are also used in deep learning."
+    },
+    {
+      "text": "In the work by Ba et al. (2015), the model performed a task of recognizing two numbers."
+    },
+    {
+      "text": "The attention pattern for addition was different from that for recognition."
+    },
+    {
+      "text": "Gregor et al. (2015) introduced DRAW, a recurrent neural network for image generation."
+    },
+    {
+      "text": "DRAW is a next step in visual attention development and is a variation of the variational autoencoder."
+    },
+    {
+      "text": "Machine translation is an excellent test problem."
+    },
+    {
+      "text": "Machine translation is essentially a sequence-to-sequence problem, making it natural to use RNNs."
+    },
+    {
+      "text": "An RNN models a sequence X = (x_1, x_2, ..., x_T) by the chain rule: p(X) = ∏_{t=1}^T p(x_t | x_{<t})."
+    },
+    {
+      "text": "RNNs are used in language models to predict the next word from the previous word and hidden state."
+    },
+    {
+      "text": "Encoder-decoder architectures were introduced by Sutskever et al. (2014) and Cho et al. (2014)."
+    },
+    {
+      "text": "In encoder-decoder architectures, the input is first encoded into a vector, then decoded back."
+    },
+    {
+      "text": "Encoder-decoder architectures can be applied to machine translation."
+    },
+    {
+      "text": "A problem with the encoder-decoder approach is that all information must be compressed into a single fixed-length vector."
+    },
+    {
+      "text": "This compression does not work well with long sequences, even for relatively long individual sentences."
+    },
+    {
+      "text": "A solution to the compression problem is to train special weights that indicate the importance of each part of the input for the current output."
+    },
+    {
+      "text": "A direct application of this idea is the use of a bidirectional LSTM with attention, as introduced by Bahdanau et al. (2014)."
+    },
+    {
+      "text": "Soft attention methods were developed by Luong et al. (2015a; 2015b) and Jean et al. (2015)."
+    },
+    {
+      "text": "In these soft attention models, the encoder is a bidirectional RNN, providing both forward and backward contexts."
+    },
+    {
+      "text": "The attention network estimates the relevance of each input word for the current translation step."
+    },
+    {
+      "text": "Formally, attention weights α_{tj} are computed and used to re-weigh context vectors."
+    },
+    {
+      "text": "The attention score is e_{tj} = a(z_{t-1}, j)."
+    },
+    {
+      "text": "The attention weights are α_{tj} = softmax(e_{tj}; e_{t*})."
+    },
+    {
+      "text": "The context vector is c_t = ∑_j α_{tj} h_j."
+    },
+    {
+      "text": "The next state is z_t = f(s_{t-1}, y_{t-1}, c_i)."
+    },
+    {
+      "text": "The attention weights can be visualized to show what the network is looking at."
+    },
+    {
+      "text": "Using attention results in a much better word order in translations."
+    },
+    {
+      "text": "One unusual application of attention is in the work \"Grammar as a Foreign Language\" by Vinyals et al. (2015)."
+    },
+    {
+      "text": "Wu et al. (2016) described Google's Neural Machine Translation System, which aimed to bridge the gap between human and machine translation."
+    },
+    {
+      "text": "The basic architecture of Google Translate consisted of an encoder, a decoder, and attention."
+    },
+    {
+      "text": "The RNNs in Google's system were much deeper, with 8 layers in both the encoder and decoder."
+    },
+    {
+      "text": "Stacked LSTMs stop working well beyond 4-5 layers."
+    },
+    {
+      "text": "To address this, they added residual connections similar to those in ResNet."
+    },
+    {
+      "text": "The bottom layer of the encoder is bidirectional."
+    },
+    {
+      "text": "The task of generating subtitles for images is considered."
+    },
+    {
+      "text": "The first work on image captioning was \"Show and Tell\" by Vinyals et al. (2015)."
+    },
+    {
+      "text": "The architecture of \"Show and Tell\" is straightforward."
+    },
+    {
+      "text": "The objective function is ∑_{(I,S)} log p(S | I; θ), where I is the image and S is the description."
+    },
+    {
+      "text": "The probability p(S_t | I, S_0, ..., S_{t-1}) is decomposed and modeled with an LSTM-based RNN."
+    },
+    {
+      "text": "A CNN is used to extract image features."
+    },
+    {
+      "text": "The \"Show and Tell\" model was reasonable but not very good."
+    },
+    {
+      "text": "Xu et al. (2015) introduced \"Show, Attend, and Tell\"."
+    },
+    {
+      "text": "The paper distinguishes between soft attention and hard attention."
+    },
+    {
+      "text": "In soft attention, an annotation is created by computing a weighted sum: φ({a}_i, {α_i}) = ∑_{i=1}^L α_{t,i} a_i."
+    },
+    {
+      "text": "Hard attention is trained by maximizing a variational lower bound: L_s = ∑_s p(s|a) log p(y | s, a) ≤ log p(y | a)."
+    },
+    {
+      "text": "The derivative of L_s with respect to parameters W is ∂L_s/∂W = ∑_s p(s|a) [ ∂ log p(y | s, a)/∂W + log p(y | s, a) ∂ log p(s|a)/∂W ]."
+    },
+    {
+      "text": "In practice, the expectation is approximated by sampling s_t with probabilities α_i."
+    },
+    {
+      "text": "The 'Show, Attend, and Tell' model often performs very well."
+    },
+    {
+      "text": "When the 'Show, Attend, and Tell' model fails, we can attempt to understand the reasons."
+    },
+    {
+      "text": "In 2017, attention-based encoder-decoder architectures were found to be easier and more interesting."
+    },
+    {
+      "text": "The Transformer was introduced in the paper 'Attention is all you need' by Vaswani et al. (2017)."
+    },
+    {
+      "text": "Self-attention is very effective for various sequence-to-sequence problems."
+    },
+    {
+      "text": "The primary motivation for the Transformer is to avoid encoding sequences with a fixed-size vector."
+    },
+    {
+      "text": "The Transformer is based on an encoder-decoder architecture."
+    },
+    {
+      "text": "Each block of the Transformer consists of a self-attention layer followed by a feedforward layer."
+    },
+    {
+      "text": "In the Transformer, the feedforward layer is applied independently to each input position."
+    },
+    {
+      "text": "In the Transformer, words are represented by vectors."
+    },
+    {
+      "text": "In the Transformer, the feedforward layer processes all positions in parallel."
+    },
+    {
+      "text": "In information retrieval, both queries and documents share the same latent space."
+    },
+    {
+      "text": "The methods of encoding queries and documents into this latent space may be different."
+    },
+    {
+      "text": "A search query is encoded into the latent space via a query encoder."
+    },
+    {
+      "text": "Documents are encoded into the same latent space via a different encoder."
+    },
+    {
+      "text": "To find the most relevant documents, we find the nearest neighbors for the query in the latent space among the documents."
+    },
+    {
+      "text": "One often assumes that the latent space is linear and the distance metric is the scalar product of vectors: dist(q, d) = Enc_q(q)^T Enc_d(d)."
+    },
+    {
+      "text": "The self-attention layer receives as input a sequence of vectors x1, x2, ..., xL, which can be represented as a matrix X ∈ ℝ^{d×L}."
+    },
+    {
+      "text": "Queries, keys, and documents come from the input vectors x_i themselves."
+    },
+    {
+      "text": "The query vector q1 is obtained by multiplying x1 by a weight matrix W_Q: q1 = W_Q x1."
+    },
+    {
+      "text": "The query vectors q_i have dimension q, which may differ from the input dimension d (usually q < d)."
+    },
+    {
+      "text": "The key vectors k_i are obtained by multiplying x_i by W_K: k_i = W_K x_i for i=1,...,L."
+    },
+    {
+      "text": "The key vectors k_i have dimension q, the same as the query vectors."
+    },
+    {
+      "text": "The value vectors v_i are obtained by multiplying x_i by W_V: v_i = W_V x_i for i=1,...,L."
+    },
+    {
+      "text": "The value vectors v_i have dimension v, and W_V ∈ ℝ^{v×d}."
+    },
+    {
+      "text": "In practice, v is usually equal to q."
+    },
+    {
+      "text": "Attention scores are computed as scalar products between queries and documents."
+    },
+    {
+      "text": "The scalar product q_i^T v_j is rescaled by dividing by √q."
+    },
+    {
+      "text": "The scores are turned into probabilities using softmax: α_{ij} = softmax( (1/√q) q_i K^T )_j."
+    },
+    {
+      "text": "K ∈ ℝ^{q×L} is the matrix of all keys, with K = W_K X."
+    },
+    {
+      "text": "The attention coefficients α_{ij} are used to form a convex combination of the value vectors v_j."
+    },
+    {
+      "text": "The output vector z_i is computed as z_i = softmax( (1/√q) q_i K^T ) V, where V ∈ ℝ^{q×L} is the value matrix V = W_V X."
+    },
+    {
+      "text": "The self-attention computation can be expressed in matrix form as Z = softmax( (1/√q) Q K^T ) V."
+    },
+    {
+      "text": "The defined operation constitutes a single self-attention head, not the full self-attention layer."
+    },
+    {
+      "text": "Multi-head attention runs H parallel self-attention heads, each with its own weight matrices W_Q^h, W_K^h, W_V^h."
+    },
+    {
+      "text": "After the H parallel heads, we obtain output matrices Z_1, ..., Z_H, each of size v×L."
+    },
+    {
+      "text": "These matrices are concatenated into Z_concat ∈ ℝ^{L×Hv}."
+    },
+    {
+      "text": "A weight matrix W_O ∈ ℝ^{Hv×d} is applied to compress the concatenated result: Z = (Z_concat W_O)^T."
+    },
+    {
+      "text": "W_O allows the self-attention layer to mix representations from different attention heads."
+    },
+    {
+      "text": "This mixing adds flexibility and expressiveness to the architecture."
+    },
+    {
+      "text": "The Transformer decoder includes masked self-attention and encoder-decoder attention layers."
+    },
+    {
+      "text": "Masked self-attention prevents the decoder from attending to future tokens, as it generates tokens autoregressively."
+    },
+    {
+      "text": "Masking is achieved by inputting the full sequence and masking future positions within the self-attention layers."
+    },
+    {
+      "text": "Formally, masking sets the softmax arguments for future tokens to −∞, resulting in zero attention weights."
+    },
+    {
+      "text": "Encoder-decoder attention is a variant of self-attention that conditions on the encoder's output."
+    },
+    {
+      "text": "In encoder-decoder attention, the queries come from the previous decoder layer, representing already generated output tokens."
+    },
+    {
+      "text": "In encoder-decoder attention, the key and value vectors come from the decoder."
+    },
+    {
+      "text": "Informally, encoder-decoder attention performs retrieval on the encoder's output using queries from already generated tokens."
+    },
+    {
+      "text": "Formally, in encoder-decoder attention, there are L terms in the softmax argument per vector, and the number of outputs equals the number of inputs."
+    },
+    {
+      "text": "Byte-pair encoding is based on Huffman coding."
+    },
+    {
+      "text": "An example vocabulary for byte-pair encoding is: {cat:10, pet:12, mat:5, rat:8, eats:4}."
+    },
+    {
+      "text": "In byte-pair encoding, the vocabulary is split into individual symbols, and pairs of symbols are counted."
+    },
+    {
+      "text": "From the example, the symbol counts are: c:10, a:27, t:39, p:12, e:16, m:5, r:8, s:4."
+    },
+    {
+      "text": "The pair counts are: ca:10, at:27, pe:12, et:12, ma:5, ra:8, ea:4, ts:4."
+    },
+    {
+      "text": "The most frequent pair 'at' is replaced with a new symbol Z, updating the vocabulary."
+    },
+    {
+      "text": "After replacement, the word forms become: {cZ:10, pet:12, mZ:5, rZ:8, eZs:4}."
+    },
+    {
+      "text": "The updated symbol counts are: c:10, Z:27, t:12, p:12, e:16, m:5, r:8, s:4."
+    },
+    {
+      "text": "The updated pair counts are: cZ:10, pe:12, et:12, mZ:5, rZ:8, eZ:4, Zs:4."
+    },
+    {
+      "text": "The next most frequent pair (pe or et, count 12) is replaced with symbol Y."
+    },
+    {
+      "text": "After replacing with Y, the word forms are: {cZ:10, Yt:12, mZ:5, rZ:8, eZs:4}."
+    },
+    {
+      "text": "This process is repeated until the desired vocabulary size is achieved."
+    },
+    {
+      "text": "In the Transformer, each token can directly attend to any other token, ignoring the distance between them."
+    },
+    {
+      "text": "This is advantageous compared to RNNs."
+    },
+    {
+      "text": "The Transformer has a fixed bounded context window."
+    },
+    {
+      "text": "Since attention weights are uniform across positions, the self-attention layer loses sequence order information (e.g., which tokens are adjacent)."
+    },
+    {
+      "text": "Positional encodings are added to provide the Transformer with artificial sequence information."
+    },
+    {
+      "text": "Positional encodings are vectors added to token embeddings to indicate the token's position."
+    },
+    {
+      "text": "Using an increasing integer sequence (1,2,3,...) for positional encoding fails to generalize to longer sequences and causes ill-defined behavior for large values."
+    },
+    {
+      "text": "Using a fixed interval like [0,1] divided into pieces does not convey the actual number of tokens between positions (e.g., the distance 0 to 0.5 could represent 1 or 100 tokens)."
+    },
+    {
+      "text": "Positional encodings are computed using sine and cosine functions of different frequencies: PE(pos,2i) = sin(pos/10000^{2i/d}) and PE(pos,2i+1) = cos(pos/10000^{2i/d})."
+    },
+    {
+      "text": "In these formulas, pos is the token position and d is the embedding dimension."
+    },
+    {
+      "text": "Self-attention is computationally important."
+    },
+    {
+      "text": "Self-attention reduces path lengths between words."
+    },
+    {
+      "text": "Self-attention potentially adds interpretability."
+    },
+    {
+      "text": "The Transformer achieves better performance than previous models."
+    },
+    {
+      "text": "The Transformer trains 100 times faster than previous models."
+    }
+  ],
+  "transcript": [
+    {
+      "text": "The class session is a lecture day."
+    },
+    {
+      "text": "The lecture will discuss transformers."
+    },
+    {
+      "text": "This lecture on transformers is probably the single most important lecture in the class."
+    },
+    {
+      "text": "Before discussing transformers, the lecture needs to finish the previous day's topic on recurrent neural networks."
+    },
+    {
+      "text": "Then the lecture needs to discuss attention mechanisms."
+    },
+    {
+      "text": "From recurrent attention, the lecture will get to self-attention."
+    },
+    {
+      "text": "From self-attention, the lecture will get to transformers."
+    },
+    {
+      "text": "Transformers will indeed transform the entire field of deep learning."
+    },
+    {
+      "text": "Transformers transformed the entire field of deep learning 10 years ago."
+    },
+    {
+      "text": "The previous lecture stopped at the main problems of recurrent networks."
+    },
+    {
+      "text": "The speaker did not make a particular point yesterday about the main problems of recurrent networks."
+    },
+    {
+      "text": "The main problems of recurrent networks are exactly the same problems as in deep networks in general."
+    },
+    {
+      "text": "The same problems occur in networks with a lot of layers, like convolutional networks."
+    },
+    {
+      "text": "The problem is that the signal gets saturated."
+    },
+    {
+      "text": "The problem with deep neural networks was that as you go through the layers, and especially as gradients go through the layers, you start losing signal when some of the layers get saturated."
+    },
+    {
+      "text": "When a layer doesn't want to train anymore, its derivatives become zero."
+    },
+    {
+      "text": "You multiply by that zero and nothing below it trains."
+    },
+    {
+      "text": "A recurrent neural network is in a way a very deep network."
+    },
+    {
+      "text": "Usually, the input of a recurrent neural network is thought of as a single thing."
+    },
+    {
+      "text": "When processing the input, the activations go through as many layers as elements in the sequence."
+    },
+    {
+      "text": "These layers are real physical neural layers with trainable weights."
+    },
+    {
+      "text": "Any recurrent network is, by default, a very deep network."
+    },
+    {
+      "text": "When people talk about deep recurrent networks, they usually mean several layers of processing for the recurrences."
+    },
+    {
+      "text": "A three-layered recurrent network is an example of a deep recurrent network."
+    },
+    {
+      "text": "If you look at the computational graph, any recurrent network, even one with only one level of cells, is actually a very deep network."
+    },
+    {
+      "text": "A recurrent network is as deep as the input sequence, which is probably very deep."
+    },
+    {
+      "text": "The problem is exactly the same: as you go back with the gradients or forward with activations, strange stuff begins to happen because you keep multiplying by the same matrix of weights."
+    },
+    {
+      "text": "In recurrent networks, you have the same weight matrix for every cell."
+    },
+    {
+      "text": "The weight matrix sharing gives even more problems."
+    },
+    {
+      "text": "The vanishing gradients problem is more or less the same."
+    },
+    {
+      "text": "If the weight matrix W has a spectral radius under 1, then as you go from left to right with the gradients, you keep multiplying by a number less than 1, and the gradients shrink to 0."
+    },
+    {
+      "text": "Gradients shrinking to 0 is a bad thing."
+    },
+    {
+      "text": "An additional problem is that you can notice vanishing gradients if you look inside your network, but from the behavior or the graph of the loss function, you will never notice it because it's not like exploding gradients."
+    },
+    {
+      "text": "When gradients explode, everything is a huge mess and nothing works."
+    },
+    {
+      "text": "When gradients explode, you see things like numerical overflows in your code, and it's completely obvious that everything has broken down."
+    },
+    {
+      "text": "When vanishing gradients become smaller when going from right to left, it does not mean that W stops training; W still trains."
+    },
+    {
+      "text": "W still trains because it participates in the last cells of the network."
+    },
+    {
+      "text": "Even if gradients become exactly zero after the second step on their way back from the loss function, W will still train."
+    },
+    {
+      "text": "W will still look fine at first glance because it will still participate in the last cells."
+    },
+    {
+      "text": "W will still give some signal."
+    },
+    {
+      "text": "The gradients with respect to the weights will not be zero."
+    },
+    {
+      "text": "You will not notice the vanishing gradients problem by looking at the gradients with respect to W."
+    },
+    {
+      "text": "Everything will be fine (meaning the training seems fine), but the network will make its decisions based only on the last two elements of the sequence."
+    },
+    {
+      "text": "The network will not be able to have long-term memory for the rest of the sequence."
+    },
+    {
+      "text": "The actual problem with vanishing gradients is that networks cannot have long-term memory."
+    },
+    {
+      "text": "The network cannot have x1 influence the output at step t."
+    },
+    {
+      "text": "The solution is to do exactly the same thing as with ResNets: add something like residual connections."
+    },
+    {
+      "text": "Recurrent networks pioneered the idea of residual connections because recurrent networks simply do not work without this idea."
+    },
+    {
+      "text": "The idea originated in the 1990s in Juergen Schmidhuber's group."
+    },
+    {
+      "text": "These constructions have been known for a long time."
+    },
+    {
+      "text": "Only around 2015 were they actually applied to deep neural networks, because we did not have so deep neural networks before."
+    },
+    {
+      "text": "The idea is the same: you need to have a way for gradients to flow around multiplying them by weight matrices."
+    },
+    {
+      "text": "You need to have a highway for the gradient to go through (sometimes called highways)."
+    },
+    {
+      "text": "You will change what's happening on the highway, but not by multiplying directly by a weight matrix that could go to zero."
+    },
+    {
+      "text": "The very famous and still very important construction LSTM will be explained."
+    },
+    {
+      "text": "LSTM stands for long short-term memory."
+    },
+    {
+      "text": "The basic idea of LSTMs is that you do have this highway for memory to flow."
+    },
+    {
+      "text": "One cell of the LSTM will be drawn."
+    },
+    {
+      "text": "The inputs to an LSTM cell are the hidden state and the current x."
+    },
+    {
+      "text": "The output of an LSTM cell should be the next hidden state."
+    },
+    {
+      "text": "In LSTMs, the hidden state is artificially split in two."
+    },
+    {
+      "text": "Formally the hidden state is just a single vector, but we treat two halves of this vector very differently."
+    },
+    {
+      "text": "The LSTM hidden state halves will be drawn as two different vectors."
+    },
+    {
+      "text": "One half is the long-term memory C."
+    },
+    {
+      "text": "The long-term memory C is the part that will stay on the highway."
+    },
+    {
+      "text": "The long-term memory C is the highway."
+    },
+    {
+      "text": "The long-term memory C will not stay unchanged; we will write to memory and read from memory."
+    },
+    {
+      "text": "The long-term memory C is the part that we don't want to multiply by weight matrices."
+    },
+    {
+      "text": "The long-term memory C is the equivalent of the path around the layers."
+    },
+    {
+      "text": "The other half is h, the regular hidden state."
+    },
+    {
+      "text": "The regular hidden state ht will participate in everything that happens in the LSTM."
+    },
+    {
+      "text": "As output, we will need to produce this vector for the next step."
+    },
+    {
+      "text": "C is the long-term memory, and this is the correct intuition."
+    },
+    {
+      "text": "C is like a memory cell where you write stuff and read stuff from."
+    },
+    {
+      "text": "The whole LSTM is devoted to operations with this long-term memory."
+    },
+    {
+      "text": "x_t is also an input."
+    },
+    {
+      "text": "The LSTM consists of gates."
+    },
+    {
+      "text": "Gates are a pretty important concept in many modern architectures."
+    },
+    {
+      "text": "A gate can have two inputs, x and y, each multiplied by a weight matrix, added together, and passed through an activation function f: f(a*x + b*y) plus possibly a bias."
+    },
+    {
+      "text": "This gate structure is a linear cell."
+    },
+    {
+      "text": "The gates will be used in many different and creative ways."
+    },
+    {
+      "text": "The first gate described is the forget gate."
+    },
+    {
+      "text": "The forget gate receives as input H with weight matrix W_HF and X with weight matrix W_XF."
+    },
+    {
+      "text": "The output of the forget gate, F_t, is a vector produced by passing the combined input through a logistic sigmoid function."
+    },
+    {
+      "text": "C_t is multiplied component-wise by F_t."
+    },
+    {
+      "text": "The logistic sigmoid function goes from 0 to 1, converting scores to probabilities."
+    },
+    {
+      "text": "The output F_t is a vector of values between 0 and 1 (exclusive)."
+    },
+    {
+      "text": "This vector is multiplied component-wise by the memory cell C_t."
+    },
+    {
+      "text": "The intuition of the forget gate is to be able to erase something from memory by multiplying by 0."
+    },
+    {
+      "text": "If the forget gate output is close to 1, it means keep the cell state in memory."
+    },
+    {
+      "text": "If the forget gate output is close to 0, it means erase the cell state from memory."
+    },
+    {
+      "text": "In modern architectures like mixtures of experts, gating mechanisms often involve a small part of the network producing a control vector that controls other parts."
+    },
+    {
+      "text": "The control vector (like F_t) is not treated as regular data; its meaning is which memory cells to erase."
+    },
+    {
+      "text": "Real logic gates cannot be used because they are piecewise constant and cannot be trained through."
+    },
+    {
+      "text": "Continuous approximations to logic gates can be used."
+    },
+    {
+      "text": "The forget gate is about erasing from memory."
+    },
+    {
+      "text": "After the forget gate, there is the candidate cell state."
+    },
+    {
+      "text": "The candidate cell state ($C'$) produces new numbers to write to memory."
+    },
+    {
+      "text": "The candidate cell state is denoted $C'$ and is something that may be written to memory."
+    },
+    {
+      "text": "The candidate cell state is produced from the same inputs as the gates."
+    },
+    {
+      "text": "The candidate cell state is computed using weight matrices $W_{HC}$ and $W_{XC}$."
+    },
+    {
+      "text": "For control gates such as the forget gate, it is important to have the sigmoid function at the end."
+    },
+    {
+      "text": "The sigmoid function outputs numbers between 0 and 1."
+    },
+    {
+      "text": "For control gates, the outputs should be saturated, i.e., close to 0 or 1."
+    },
+    {
+      "text": "The candidate cell state does not require saturated outputs; it just produces new numbers to store in memory."
+    },
+    {
+      "text": "The sigmoid activation function in the forget gate is essential and cannot be replaced."
+    },
+    {
+      "text": "The hyperbolic tangent activation in the candidate cell state comes from the classical LSTM construction but can be modified."
+    },
+    {
+      "text": "After computing $C'$, the input gate decides which parts of $C'$ to write to memory."
+    },
+    {
+      "text": "The input gate is a control gate that uses the sigmoid function."
+    },
+    {
+      "text": "The input gate output is multiplied component-wise with the candidate cell state $C'$."
+    },
+    {
+      "text": "Writing to memory in the LSTM is done by addition."
+    },
+    {
+      "text": "The input gate is computed using weight matrices $W_{HI}$ and $W_{XI}$."
+    },
+    {
+      "text": "At this point, the LSTM cell has mechanisms to erase from memory and write to memory."
+    },
+    {
+      "text": "The addition operation in the LSTM cell update is conceptually about writing to memory, not learning arithmetic addition."
+    },
+    {
+      "text": "To erase from memory, the forget gate multiplies the cell state by a value close to 0, resulting in 0 in that position."
+    },
+    {
+      "text": "After erasing, adding new information effectively writes new content to that cell."
+    },
+    {
+      "text": "The hidden state $H$ for the next step needs to be defined."
+    },
+    {
+      "text": "The hidden state $H$ is produced by applying a hyperbolic tangent to the cell state $C$."
+    },
+    {
+      "text": "The hidden state is essentially a copy of long-term memory (cell state) passed through $\\tanh$."
+    },
+    {
+      "text": "The output gate controls which parts of the cell state are read to produce the hidden state."
+    },
+    {
+      "text": "The output gate uses the sigmoid function."
+    },
+    {
+      "text": "The output gate produces a vector that decides what to read from memory for the next hidden state $H$."
+    },
+    {
+      "text": "The output gate is computed using weight matrices $W_{HO}$ and $W_{XO}$."
+    },
+    {
+      "text": "The LSTM cell includes a forget gate, an input gate, a candidate cell state, and an output gate."
+    },
+    {
+      "text": "The LSTM is like a program for memory manipulation: it can delete from memory, write to memory, and uses the candidate cell state to decide what to write."
+    },
+    {
+      "text": "The LSTM is an extremely successful construction."
+    },
+    {
+      "text": "The LSTM is still relevant today."
+    },
+    {
+      "text": "The first LSTM paper appeared in 1995."
+    },
+    {
+      "text": "By the year 2000, the LSTM had reached its modern construction."
+    },
+    {
+      "text": "The first LSTM construction was simpler than the modern one."
+    },
+    {
+      "text": "By 2000, Schmidhuber's group had developed the modern LSTM."
+    },
+    {
+      "text": "LSTMs are widely used in recurrent networks today."
+    },
+    {
+      "text": "The LSTM is the most important recurrent neural network construction."
+    },
+    {
+      "text": "The LSTM provides a straight path (highway) for gradient flow, with interruptions only when intended (e.g., when erasing memory)."
+    },
+    {
+      "text": "Erasing from memory intentionally interrupts gradient flow."
+    },
+    {
+      "text": "The LSTM has a large number of weight parameters."
+    },
+    {
+      "text": "The LSTM cell as drawn (in the lecture) has eight weight matrices."
+    },
+    {
+      "text": "If input dimension is $d'$ and hidden/cell dimension is $d$, then about half the matrices are $d \\times d$ and half are $d \\times d'$."
+    },
+    {
+      "text": "The cell dimension $d$ must be large; an LSTM with cell size 2 is not meaningful."
+    },
+    {
+      "text": "In practice, $d$ is at least 256, with small cases around 64 and large around 1000."
+    },
+    {
+      "text": "The input dimension $d'$ is usually of similar magnitude as $d$."
+    },
+    {
+      "text": "For a long time, training large LSTMs was difficult."
+    },
+    {
+      "text": "LSTMs worked well on toy examples but training large ones was infeasible."
+    },
+    {
+      "text": "Training large LSTMs became possible around 2015."
+    },
+    {
+      "text": "Since around 2015, large LSTMs are used for large recurrent networks."
+    },
+    {
+      "text": "AlphaStar, the StarCraft-playing network, used LSTMs as its recurrent architecture."
+    },
+    {
+      "text": "The LSTM was the first successful architecture for memory manipulation in neural networks."
+    },
+    {
+      "text": "The LSTM was created about 25 years ago and remains the best."
+    },
+    {
+      "text": "There have been many attempts to improve upon the LSTM."
+    },
+    {
+      "text": "The modern LSTM form appeared in the year 2000."
+    },
+    {
+      "text": "One modification to the LSTM is adding \"peepholes\" (connections from the cell state to the gates)."
+    },
+    {
+      "text": "In the standard LSTM, the gates do not have direct access to the memory cell state and cannot see what they are erasing."
+    },
+    {
+      "text": "Adding peepholes increases the number of weight matrices."
+    },
+    {
+      "text": "Some attempts tried to simplify the LSTM by removing gates or matrices."
+    },
+    {
+      "text": "A paper titled \"LSTM: A Search Space Odyssey\" found that on some examples, removing a gate did not significantly change performance."
+    },
+    {
+      "text": "Later attempts aimed to keep the gradient highway while improving efficiency."
+    },
+    {
+      "text": "People have successfully created more efficient recurrent cell structures."
+    },
+    {
+      "text": "The Gated Recurrent Unit (GRU) was developed in 2014."
+    },
+    {
+      "text": "The GRU is similar to the LSTM but has fewer weight matrices."
+    },
+    {
+      "text": "The GRU does not distinguish between cell state and hidden state; it has a single hidden state."
+    },
+    {
+      "text": "In the GRU, the update gate controls both erasing and writing at once."
+    },
+    {
+      "text": "The GRU update gate uses a sigmoid and outputs numbers between 0 and 1."
+    },
+    {
+      "text": "The update gate outputs are used as coefficients for a convex combination."
+    },
+    {
+      "text": "In the GRU, the new hidden state is a convex combination of the current hidden state $H$ and the candidate $H'$, weighted by $U$ and $(1-U)$ respectively."
+    },
+    {
+      "text": "Combining erasing and writing into one gate makes sense because LSTM addition is about erasing then writing."
+    },
+    {
+      "text": "The GRU saves about two weight matrices compared to LSTM."
+    },
+    {
+      "text": "The GRU has a reset gate that decides which parts of the memory go into the candidate cell state."
+    },
+    {
+      "text": "The GRU has 6 weight matrices, while the LSTM has 8 (or 11 with peepholes)."
+    },
+    {
+      "text": "GRUs do not need peepholes."
+    },
+    {
+      "text": "GRUs are more efficient than LSTMs."
+    },
+    {
+      "text": "In 2015-2016, NLP papers predominantly used GRUs."
+    },
+    {
+      "text": "Later, the NLP field switched back to using LSTMs."
+    },
+    {
+      "text": "AlphaStar (around 2020) used LSTM."
+    },
+    {
+      "text": "Currently, recurrent networks are more likely to be LSTM than GRU."
+    },
+    {
+      "text": "Schmidt-Huber's construction is better."
+    },
+    {
+      "text": "The actual decision-making regarding recurrent cell choice is empirical."
+    },
+    {
+      "text": "In practice, LSTMs work better than GRUs."
+    },
+    {
+      "text": "The computational costs of LSTMs are considered acceptable."
+    },
+    {
+      "text": "The speaker has no idea why LSTMs perform better."
+    },
+    {
+      "text": "The speaker does not know what makes the LSTM architecture special."
+    },
+    {
+      "text": "The speaker finds it interesting and beautiful that the LSTM architecture has remained effective for a long time."
+    },
+    {
+      "text": "Google used neural architecture search to develop EfficientNet."
+    },
+    {
+      "text": "EfficientNet is better than prior architectures."
+    },
+    {
+      "text": "Swish is a great activation function."
+    },
+    {
+      "text": "At the time of its introduction, Swish was the best activation function."
+    },
+    {
+      "text": "Google applied neural architecture search to recurrent cells."
+    },
+    {
+      "text": "There is a paper from Google developing more efficient recurrent cells."
+    },
+    {
+      "text": "The paper aimed to make recurrent cells more efficient."
+    },
+    {
+      "text": "On the test datasets, the Google recurrent cells outperform LSTMs and GRUs."
+    },
+    {
+      "text": "The example Google recurrent cell has only four weight matrices."
+    },
+    {
+      "text": "The example Google recurrent cell is similar to a GRU."
+    },
+    {
+      "text": "The example Google recurrent cell is better than a GRU."
+    },
+    {
+      "text": "The example Google recurrent cell is more efficient than a GRU."
+    },
+    {
+      "text": "These Google recurrent cells are not widely known."
+    },
+    {
+      "text": "The Google recurrent cells probably work well only on their development datasets and do not generalize to other situations."
+    },
+    {
+      "text": "LSTM remains the best recurrent architecture."
+    },
+    {
+      "text": "The provided code illustrates exploding and vanishing gradients."
+    },
+    {
+      "text": "The illustration does not use a real recurrent network."
+    },
+    {
+      "text": "Repeated multiplication by a factor less than one causes vanishing gradients."
+    },
+    {
+      "text": "Repeated multiplication by a factor greater than one causes exploding gradients."
+    },
+    {
+      "text": "The real experiment is the classic LSTM benchmark from Hohreiter and Schmidhuber."
+    },
+    {
+      "text": "The benchmark input has two channels."
+    },
+    {
+      "text": "The first channel consists of random numbers from 0 to 1."
+    },
+    {
+      "text": "The second channel consists of zeros except for exactly two ones."
+    },
+    {
+      "text": "The task is to compute the sum of the two highlighted numbers."
+    },
+    {
+      "text": "The task requires memorizing the value at the first marker and later adding the memorized value to the value at the second marker."
+    },
+    {
+      "text": "LSTMs and GRUs both perform well on this benchmark."
+    },
+    {
+      "text": "Because the problem is simple, it serves as a good example for GRUs."
+    },
+    {
+      "text": "A simple linear RNN fails on this task."
+    },
+    {
+      "text": "The simple linear RNN shows no learning, staying at baseline performance."
+    },
+    {
+      "text": "LSTMs eventually start learning but after 600 iterations they have not yet fully trained."
+    },
+    {
+      "text": "GRUs train much faster than LSTMs on this task."
+    },
+    {
+      "text": "On this very easy problem, GRUs appear better than LSTMs."
+    },
+    {
+      "text": "A more efficient cell like GRU performs better on very easy problems."
+    },
+    {
+      "text": "This efficiency advantage probably does not scale to really difficult problems."
+    },
+    {
+      "text": "When the LSTM encounters a marker, the write gate activity spikes."
+    },
+    {
+      "text": "The LSTM's cell state reaches the correct sum value after the second marker."
+    },
+    {
+      "text": "The LSTM's output prediction tracks the true sum and converges to the correct sum after the second marker."
+    },
+    {
+      "text": "The LSTM works correctly on this simple problem."
+    },
+    {
+      "text": "Simple linear recurrent networks cannot solve this memory task."
+    },
+    {
+      "text": "The key idea behind advanced recurrent cells is to enable long-term memory that can recall past information when needed."
+    },
+    {
+      "text": "The next topic will be the last topic introduced via neurobiological motivation."
+    },
+    {
+      "text": "This time, the neurobiological motivation will be superficial, focusing on how we think in general rather than neuronal details."
+    },
+    {
+      "text": "The topic is attention."
+    },
+    {
+      "text": "The speaker finds the mechanism of attention and lack of attention to be unclear."
+    },
+    {
+      "text": "The brain's attention mechanism differs fundamentally from how artificial neural networks operate."
+    },
+    {
+      "text": "The visual cortex is similar in spirit to convolutional neural networks."
+    },
+    {
+      "text": "Both the visual cortex and CNNs extract local features and combine them into more global, semantically richer features."
+    },
+    {
+      "text": "Humans can miss events occurring in their field of vision if they are not paying attention to them."
+    },
+    {
+      "text": "While looking at a computer, attention is focused on the board, reducing awareness of peripheral events."
+    },
+    {
+      "text": "Convolutional neural networks extract features from every part of an image, regardless of its size."
+    },
+    {
+      "text": "These features are then combined into global features in subsequent layers."
+    },
+    {
+      "text": "CNNs do not inherently lose objects; all parts of the image are processed and their features combined."
+    },
+    {
+      "text": "A CNN's cat neuron will still activate on cats, regardless of the image size."
+    },
+    {
+      "text": "It is impossible for a standard CNN to completely miss a cat in the image."
+    },
+    {
+      "text": "The difference between human vision and CNNs is the presence of an attention mechanism in humans."
+    },
+    {
+      "text": "Alexander Luria was a neurobiologist active in the 1930s and 1940s."
+    },
+    {
+      "text": "He lived in Italianist Russia."
+    },
+    {
+      "text": "He traveled to international conferences and published in international journals."
+    },
+    {
+      "text": "He was an internationally recognized father of neurobiology."
+    },
+    {
+      "text": "Alexander Luria identified attention, memory, and cognitive functions as the three main pillars of neurobiology."
+    },
+    {
+      "text": "Attention is considered a fundamental component of neurobiology, on par with memory and cognition."
+    },
+    {
+      "text": "Since Luria, there has been progress in understanding how attention works in the brain."
+    },
+    {
+      "text": "From a computer science perspective, the biological details are less important because attention in the brain operates via memory mechanisms."
+    },
+    {
+      "text": "The brain has working memory, which stores a few recent items for a very short time."
+    },
+    {
+      "text": "Even when not paying attention, a person can recall approximately the last five words spoken."
+    },
+    {
+      "text": "Without attention, information from 30 seconds ago is typically not retained."
+    },
+    {
+      "text": "Working memory holds recent information temporarily, and a filtering process selects the important items for further processing."
+    },
+    {
+      "text": "Loss of information occurs when items are not selected as important by this filter."
+    },
+    {
+      "text": "The speaker recommends watching a classic attention experiment video with two teams of players passing basketballs."
+    },
+    {
+      "text": "In the video, viewers are asked to count passes by the team in white."
+    },
+    {
+      "text": "In the 1990s, people who watched the video and counted passes often failed to notice an unexpected element."
+    },
+    {
+      "text": "The speaker is unsure if modern viewers still experience the same inattentional blindness."
+    },
+    {
+      "text": "The speaker suggests that human attention mechanisms may have changed over time."
+    },
+    {
+      "text": "If you are looking directly at something, you still do not have to process it."
+    },
+    {
+      "text": "Information that you look directly at may still be lost."
+    },
+    {
+      "text": "Very early in the brain, you can decide to drop processing of what you look at."
+    },
+    {
+      "text": "Human vision does not process the whole field of view."
+    },
+    {
+      "text": "The VL Spotlight is a small part of the field of vision where we can see very clearly in high definition."
+    },
+    {
+      "text": "Vision becomes blurrier outside the VL Spotlight."
+    },
+    {
+      "text": "We do not notice the blurriness because our gaze constantly wanders (saccadic motion)."
+    },
+    {
+      "text": "Even when looking at a computer, saccadic motion causes constant gaze shifts, giving different snippets of the whole picture."
+    },
+    {
+      "text": "The brain constructs the whole picture from these relatively blurry components."
+    },
+    {
+      "text": "This process is like several photographs of the same scene with focus on different parts."
+    },
+    {
+      "text": "The original motivation to add attention mechanisms to deep learning was to emulate how humans see, including the blurriness in peripheral vision."
+    },
+    {
+      "text": "It sounds strange to intentionally make things blurry in machine learning."
+    },
+    {
+      "text": "In a convolutional network in computer vision, you can input the whole picture without blurring anything."
+    },
+    {
+      "text": "Human eyes evolved to do what they do, possibly limited by energy or capabilities."
+    },
+    {
+      "text": "The original answer for using attention in computers was to save weights, reduce input size, and make processing more efficient."
+    },
+    {
+      "text": "Instead of looking at a big image, you can use three snippets of the big image where you only use pixels from a few small parts, and the rest can be blurrier."
+    },
+    {
+      "text": "Being blurrier means there are fewer pixels, so the input size becomes much smaller."
+    },
+    {
+      "text": "If you have three glimpses each looking at a small part of the input, the total input size will be much smaller."
+    },
+    {
+      "text": "Originally, people wanted to save processing by using attention mechanisms."
+    },
+    {
+      "text": "In addition to recognizing from blurred images, you also need to choose where to look (the positions of the glimpses)."
+    },
+    {
+      "text": "The positions of the glimpses form a sequence."
+    },
+    {
+      "text": "The next glimpse can depend on what you see in the previous glimpse."
+    },
+    {
+      "text": "The first position can be chosen generally, and the second position depends on what is seen in the first."
+    },
+    {
+      "text": "Early models of attention were recurrent."
+    },
+    {
+      "text": "The field of recurrent visual attention involved recurrent models."
+    },
+    {
+      "text": "The point of recurrent visual attention was: given a relatively big picture, walk around it and choose where to look while blurring the rest, to be more accurate and more efficient."
+    },
+    {
+      "text": "These early recurrent attention models are outdated."
+    },
+    {
+      "text": "What is more relevant is what happened when attention got applied to encoder-decoder mechanisms."
+    },
+    {
+      "text": "This part of the lecture covers encoder-decoder with attention."
+    },
+    {
+      "text": "Machine translation is an example problem for recurrent encoder-decoder architectures."
+    },
+    {
+      "text": "In a basic architecture, the input sequence is read into a hidden state, and the last hidden state (possibly after an output head) gives an intermediate representation vector z."
+    },
+    {
+      "text": "The vector z represents the input sentence."
+    },
+    {
+      "text": "The decoder takes z and decodes it into the output sequence."
+    },
+    {
+      "text": "The example output for 'Hello world!' in Russian is 'Privyet, mir!'."
+    },
+    {
+      "text": "The decoder likely has a hidden state h', and z is the input to every decoder cell."
+    },
+    {
+      "text": "When people applied LSTMs and GRUs with such architectures to machine translation, they realized an unsolvable problem."
+    },
+    {
+      "text": "The basic encoder-decoder architecture works and defined state-of-the-art in 2014 for short sentences."
+    },
+    {
+      "text": "The architecture gives good results with short sentences like 'hello world'."
+    },
+    {
+      "text": "The architecture does not scale to longer sentences."
+    },
+    {
+      "text": "The problem is the dimension of the intermediate representation Z."
+    },
+    {
+      "text": "You cannot have a good dimension for Z: it will be either too small or too big."
+    },
+    {
+      "text": "If Z is too small (dimension D is too small), training is fine but Z cannot encode enough meaning for long sentences."
+    },
+    {
+      "text": "For 'hello world', a small Z works, but for long sentences it breaks down."
+    },
+    {
+      "text": "If you try to fix the problem by making Z longer, training becomes harder."
+    },
+    {
+      "text": "A longer Z means the hidden states or decoder inputs become longer, leading to quadratically more weights, making training impossible due to insufficient data and compute."
+    },
+    {
+      "text": "The problem of the dimension of Z cannot be solved within this architecture."
+    },
+    {
+      "text": "You can either have a good encoder-decoder LSTM with small Z that does not scale up, or have a large Z that makes training impossible."
+    },
+    {
+      "text": "In these architectures, a quality metric graph shows very good performance for short sentences, then a sharp drop for longer sentences."
+    },
+    {
+      "text": "The desired graph would show a graceful drop in quality as sentences get longer."
+    },
+    {
+      "text": "Attention mechanisms for encoder-decoder recurrent networks were designed to fix this scaling issue."
+    },
+    {
+      "text": "The problem with Z is that it is only one vector for the whole input sequence."
+    },
+    {
+      "text": "In transformers, there is also not a single vector for the whole input."
+    },
+    {
+      "text": "When translating specific words (e.g., 'world' to 'mir'), that input word should be more important than others."
+    },
+    {
+      "text": "In the basic architecture, there is no way to express varying importance; all information must be crammed into a single vector."
+    },
+    {
+      "text": "The first step in encoder-decoder with attention is to remove the assumption that everything must be in a single vector."
+    },
+    {
+      "text": "The encoder in encoder-decoder with attention is still a recurrent network, likely bidirectional."
+    },
+    {
+      "text": "The encoder produces output vectors for every input token (e.g., z1, z2, z3)."
+    },
+    {
+      "text": "These per-token vectors can be produced by taking the two hidden states at each step and passing them through a feedforward layer."
+    },
+    {
+      "text": "You cannot simply concatenate all encoder output vectors and feed them to the decoder because that would make the input too long."
+    },
+    {
+      "text": "At each decoder step, you want a single vector of a fixed size as input."
+    },
+    {
+      "text": "The attention mechanism combines the encoder outputs into a single vector for the current decoder step."
+    },
+    {
+      "text": "The attention network is a small network that takes as input an encoder output vector and the current decoder hidden state."
+    },
+    {
+      "text": "The attention network produces a score for each input token indicating how important that token is at the current decoding step."
+    },
+    {
+      "text": "The scores (a vector a) are converted into probabilities using a softmax, forming a convex combination."
+    },
+    {
+      "text": "Softmax is used not just as the output layer but also to convert a set of numbers to a convex combination summing to 1."
+    },
+    {
+      "text": "The coefficients (attention weights) are between 0 and 1 and sum to 1."
+    },
+    {
+      "text": "U_t (originally called Z_t) is the sum of alpha_i times Z_i, where alpha_i are attention weights and Z_i are token representations."
+    },
+    {
+      "text": "The input for the decoder at time step t is a linear combination of the representations of every token."
+    },
+    {
+      "text": "The weights for this linear combination are determined by a separate attention network."
+    },
+    {
+      "text": "The attention mechanism is designed to indicate which specific tokens are being translated at the current time step."
+    },
+    {
+      "text": "During translation, the attention weight for a token being translated should be high."
+    },
+    {
+      "text": "The attention network is not provided with explicit labels indicating which token is being translated at each time step."
+    },
+    {
+      "text": "The training dataset does not contain annotations of which source token corresponds to each target token during translation."
+    },
+    {
+      "text": "The training dataset consists of sentence pairs in English and Russian that are translations of each other."
+    },
+    {
+      "text": "The number of training sentence pairs is 100,000."
+    },
+    {
+      "text": "After training, the attention network learns to assign high weights to the relevant input tokens without explicit supervision."
+    },
+    {
+      "text": "The attention network is not explicitly trained with target outputs."
+    },
+    {
+      "text": "The attention network has relatively few weights compared to the LSTM components of the model."
+    },
+    {
+      "text": "Approximately 2% of the total network weights belong to the attention mechanism."
+    },
+    {
+      "text": "The attention mechanism is a small component relative to the rest of the network."
+    },
+    {
+      "text": "The attention mechanism is the key component that drives the performance improvement, as evidenced by the difference between the red curve (without attention) and the purple curve (with attention)."
+    },
+    {
+      "text": "The attention mechanism learns to identify which tokens are being translated and to produce appropriate weights."
+    },
+    {
+      "text": "In deep learning, it is often sufficient to introduce components with the potential to perform a desired function, without providing explicit training data for those components."
+    },
+    {
+      "text": "If a network is structurally designed to allow a component to perform a function, it can sometimes learn to utilize that component correctly."
+    },
+    {
+      "text": "Encoder-decoder architectures with attention became prominent around 2015."
+    },
+    {
+      "text": "Before 2014, the state-of-the-art encoder-decoder models did not include attention mechanisms."
+    },
+    {
+      "text": "In late 2014, Badenow and colleagues introduced an attention mechanism for encoder-decoder models."
+    },
+    {
+      "text": "The attention network takes as input the current decoder state and a token representation from the input, and outputs a score."
+    },
+    {
+      "text": "A softmax function is applied to the attention scores to obtain the attention weights."
+    },
+    {
+      "text": "Attention mechanisms produce interpretable attention weights that can be visualized."
+    },
+    {
+      "text": "In French-to-English machine translation, attention weights often form a diagonal matrix, indicating largely word-by-word translation."
+    },
+    {
+      "text": "When translating 'la destruction' to English as 'destruction', the attention weights are high for both 'la' and 'destruction' while generating 'destruction'."
+    },
+    {
+      "text": "In that case, two French words correspond to one English word."
+    },
+    {
+      "text": "When translating 'arm chemique' to 'chemical weapons', the attention weights show a swap due to the different word order in French and English."
+    },
+    {
+      "text": "In French, the adjective follows the noun; in English, the adjective precedes the noun."
+    },
+    {
+      "text": "This difference results in an off-diagonal attention pattern."
+    },
+    {
+      "text": "A simple recurrent network with attention can learn to reverse an input sequence."
+    },
+    {
+      "text": "For example, given input sequence [3, 4, 0, 5, 7], the network outputs [7, 5, 0, 4, 3]."
+    },
+    {
+      "text": "Without an attention mechanism, a recurrent encoder-decoder must memorize the entire input sequence in a fixed-size vector to reverse it, which is very difficult for long sequences."
+    },
+    {
+      "text": "With attention, the network does not need to memorize the sequence; it learns a reverse diagonal attention matrix to directly access the relevant input positions."
+    },
+    {
+      "text": "The attention matrix for sequence reversal has a reverse diagonal structure."
+    },
+    {
+      "text": "Special tokens (like end-of-sequence) may cause deviations from a perfect reverse diagonal."
+    },
+    {
+      "text": "A recurrent network with attention can be trained to sort a sequence of numbers."
+    },
+    {
+      "text": "In the sorting task, at decoder time step t, the attention mechanism focuses on the t-th smallest value in the input."
+    },
+    {
+      "text": "For instance, in a sequence containing 1, 3, 4, 6, at step 1 attention is on the position of 1, at step 2 on the position of 3, and so on."
+    },
+    {
+      "text": "The attention mechanism became a major development in 2015."
+    },
+    {
+      "text": "Attention mechanisms improve handling of word order in translation."
+    },
+    {
+      "text": "Attention mechanisms can be applied to tasks like grammar parsing, where the output is a tree structure."
+    },
+    {
+      "text": "For tasks like syntax tree generation, the output structure (a tree) is not a sequence but can be represented as a string."
+    },
+    {
+      "text": "A recurrent network can generate a tree by treating the tree string as a translation target."
+    },
+    {
+      "text": "Transformer models are expected to perform even better on such string-to-tree translation tasks."
+    },
+    {
+      "text": "In 2016, a paper from Google described Google's neural machine translation system as using an encoder-decoder architecture with attention."
+    },
+    {
+      "text": "Around 2015-2016, Google Translate switched to an encoder-decoder with attention architecture, leading to a significant improvement in translation quality."
+    },
+    {
+      "text": "Before 2016, Google Translate was not useful for translating Russian research papers to English, as post-editing its output took more time than translating manually."
+    },
+    {
+      "text": "After the switch, it became more efficient to post-edit Google Translate's output than to translate from scratch."
+    },
+    {
+      "text": "This transition marked the moment when machine translation became practically useful for the speaker."
+    },
+    {
+      "text": "Encoder-decoder architectures are not restricted to having the same type of network for encoder and decoder."
+    },
+    {
+      "text": "The encoder and decoder can be different network types handling different modalities (e.g., image encoder and text decoder)."
+    },
+    {
+      "text": "In 2015, the image captioning problem was addressed using a straightforward encoder-decoder model with a googling net encoder and an LSTM decoder."
+    },
+    {
+      "text": "Adding an attention mechanism significantly improved the image captioning model's performance."
+    },
+    {
+      "text": "Attention mechanisms can be applied to non-text inputs, such as images, to highlight specific parts of the input."
+    },
+    {
+      "text": "In this approach for a picture, we do not compress the whole picture to a single feature vector."
+    },
+    {
+      "text": "In a straightforward encoder-to-coder architecture, the whole picture would be compressed to a single feature vector."
+    },
+    {
+      "text": "The approach uses the same CNN that would be used in a straightforward encoder-to-coder."
+    },
+    {
+      "text": "In this approach, the CNN feature extraction is stopped short of the end, preserving some spatial geometry."
+    },
+    {
+      "text": "In this example, the input size is 256 by 256."
+    },
+    {
+      "text": "In this example, the feature extraction is stopped when the feature map size is 14 by 14."
+    },
+    {
+      "text": "After stopping feature extraction, we have elements of the feature map vectors (like \"pixels\")."
+    },
+    {
+      "text": "We can apply attention over these vectors."
+    },
+    {
+      "text": "The attention network produces coefficients to combine these vectors."
+    },
+    {
+      "text": "There are 196 (14 by 14) vectors."
+    },
+    {
+      "text": "The approach works."
+    },
+    {
+      "text": "The approach provides the actual attention weights."
+    },
+    {
+      "text": "One can look at and interpret the attention weights."
+    },
+    {
+      "text": "In transformers, attention weights are also present but less clear and more complicated."
+    },
+    {
+      "text": "In this approach, it is very clear and straightforward to see what the network is attending to as it generates each piece of the output."
+    },
+    {
+      "text": "In the example, a woman is throwing a frisbee in the park."
+    },
+    {
+      "text": "When generating the word \"woman\", the model attends to the people in the image."
+    },
+    {
+      "text": "When generating \"throwing\", the model starts concentrating on the throwing action."
+    },
+    {
+      "text": "When generating \"frisbee\", the model concentrates on the frisbee."
+    },
+    {
+      "text": "When generating the word \"park\", the model attends to the background rather than the people."
+    },
+    {
+      "text": "Transformers appeared in 2017."
+    },
+    {
+      "text": "The transformer paper \"Attention is All You Need\" appeared at the end of 2017."
+    },
+    {
+      "text": "The speaker doubts that the authors of the \"Attention is All You Need\" paper fully understood the implications of their work at the time."
+    },
+    {
+      "text": "The original transformer paper was not very ambitious."
+    },
+    {
+      "text": "The original transformer results showed a different way that provides approximately the same results."
+    },
+    {
+      "text": "The transformer approach is more efficient."
+    },
+    {
+      "text": "The paper's message was to switch to this more efficient way."
+    },
+    {
+      "text": "After the paper, the whole field of machine learning switched to transformers."
+    },
+    {
+      "text": "Much of the rest of the class will be built on transformers."
+    },
+    {
+      "text": "The main positive qualities of the transformer that the original paper could not notice from its experiments are two things."
+    },
+    {
+      "text": "The transformer is very general."
+    },
+    {
+      "text": "The transformer is very good at noticing internal correlations within complicated data."
+    },
+    {
+      "text": "The transformer works with sequences of vectors regardless of the data modality (text, images, etc.)."
+    },
+    {
+      "text": "The transformer does not care about the origin of the vectors."
+    },
+    {
+      "text": "Transformers are extremely scalable."
+    },
+    {
+      "text": "Scaling up a transformer makes it work better."
+    },
+    {
+      "text": "Scaling up a transformer can be done without changing the internal architecture."
+    },
+    {
+      "text": "Modern transformers are slightly different from the original transformer."
+    },
+    {
+      "text": "Modern transformers are mostly the same as the original."
+    },
+    {
+      "text": "Scaling up transformers leads to continued improvement without saturation."
+    },
+    {
+      "text": "Large language models have grown from tens of millions to trillions of parameters."
+    },
+    {
+      "text": "Large language models keep getting better as they scale."
+    },
+    {
+      "text": "This unprecedented scalability has not happened before with other models."
+    },
+    {
+      "text": "LSTMs cannot be scaled in the same way."
+    },
+    {
+      "text": "LSTMs either have complexity growing too fast or saturate, stopping providing benefit."
+    },
+    {
+      "text": "The transformer architecture brings these qualities together."
+    },
+    {
+      "text": "The basic structure of the transformer is similar to previously discussed architectures."
+    },
+    {
+      "text": "The main core of the transformer is the self-attention mechanism."
+    },
+    {
+      "text": "The self-attention mechanism is completely new."
+    },
+    {
+      "text": "The speaker finds the original picture from the transformer paper hard to understand."
+    },
+    {
+      "text": "The general structure of the original transformer is very straightforward."
+    },
+    {
+      "text": "The general structure is very similar to recurrent encoder-decoder with attention architectures."
+    },
+    {
+      "text": "The original transformer is an encoder-decoder architecture."
+    },
+    {
+      "text": "The original transformer was doing machine translation."
+    },
+    {
+      "text": "The encoder consists of six identical layers."
+    },
+    {
+      "text": "The decoder consists of six identical layers."
+    },
+    {
+      "text": "The encoder receives text in one language."
+    },
+    {
+      "text": "The decoder produces text in another language."
+    },
+    {
+      "text": "The input to the encoder layers is not just a sequence of tokens."
+    },
+    {
+      "text": "It has been common in NLP for at least ten years to convert one-hot word representations to continuous embeddings."
+    },
+    {
+      "text": "Using embeddings is very common and straightforward throughout deep learning."
+    },
+    {
+      "text": "For a large vocabulary, the common approach is to first convert tokens to dense vectors."
+    },
+    {
+      "text": "There is a line of work in NLP on embeddings, including word2vec, GloVe, fastText."
+    },
+    {
+      "text": "In the transformer, the embeddings are straightforward and essentially a matrix of vectors."
+    },
+    {
+      "text": "There is one interesting technical detail about the embeddings that will be discussed later."
+    },
+    {
+      "text": "For each input token, a corresponding vector is looked up from the embedding matrix and placed as the token's representation."
+    },
+    {
+      "text": "The embedding layer is not a fixed external representation like word2vec; it is trained jointly with the rest of the network."
+    },
+    {
+      "text": "The embedding vectors are trained along with other network weights."
+    },
+    {
+      "text": "After the embedding layer, the input sequence is a sequence of vectors."
+    },
+    {
+      "text": "The transformer rewrites sequences of vectors into sequences of vectors."
+    },
+    {
+      "text": "Each encoder layer takes a sequence of vectors as input and produces a sequence of vectors of the same size as output."
+    },
+    {
+      "text": "In the original transformer, the encoder repeats this rewriting six times (six layers)."
+    },
+    {
+      "text": "After encoding, we obtain a vector for each input token."
+    },
+    {
+      "text": "These encoded vectors represent the token in the context of all other tokens."
+    },
+    {
+      "text": "The encoding process involves looking at all other tokens multiple times."
+    },
+    {
+      "text": "At the top of the encoder, the representations are semantically rich."
+    },
+    {
+      "text": "The decoder is a language model."
+    },
+    {
+      "text": "The decoder produces output tokens one by one in an autoregressive manner."
+    },
+    {
+      "text": "The decoder's input is the history of previously generated output tokens."
+    },
+    {
+      "text": "The decoder's output is the next token."
+    },
+    {
+      "text": "The transformer decoder must be run as many times as the number of output tokens to produce."
+    },
+    {
+      "text": "The autoregressive nature is a restriction in modern language models."
+    },
+    {
+      "text": "There are methods like speculative decoding to work around this restriction, but they won't be covered."
+    },
+    {
+      "text": "By default, the transformer decoder generates output token by token."
+    },
+    {
+      "text": "The encoder outputs are used in every layer of the decoder."
+    },
+    {
+      "text": "This high-level structure is very similar to the previously discussed architecture."
+    },
+    {
+      "text": "In the transformer, there is no separate external attention network; attention is integrated into the encoder and decoder."
+    },
+    {
+      "text": "An encoder layer consists of a self-attention layer, followed by layer normalization, then a feed-forward (fully connected) layer, and another layer normalization."
+    },
+    {
+      "text": "Self-attention is the first layer in the encoder layer and is the most interesting part to be discussed in detail."
+    },
+    {
+      "text": "The other components (like layer normalization, feedforward) are also currently used in modern architectures."
+    },
+    {
+      "text": "There is a residual connection around the self-attention layer."
+    },
+    {
+      "text": "The residual connection leads to the layer normalization layer."
+    },
+    {
+      "text": "Layer normalization is similar to batch normalization but normalizes across the outputs of the current layer rather than across the mini-batch."
+    },
+    {
+      "text": "The encoder layer uses layer normalization at the output of self-attention."
+    },
+    {
+      "text": "Layer normalization helps average out gradients, keep the loss landscape smooth, and control the absolute values of outputs."
+    },
+    {
+      "text": "Transformers are large, so batch normalization is not practical because only one copy fits in memory, so layer normalization is used instead."
+    },
+    {
+      "text": "The feedforward layer in the transformer is very important."
+    },
+    {
+      "text": "The feed-forward layer has a lot of weights."
+    },
+    {
+      "text": "The feed-forward layer takes up quite a big fraction of the entire weights of the transformer."
+    },
+    {
+      "text": "The feed-forward layer rearranges the features."
+    },
+    {
+      "text": "The feed-forward layer mixes together the features in every vector separately."
+    },
+    {
+      "text": "The feed-forward layer is applied to every Z' individually."
+    },
+    {
+      "text": "The decoder has self-attention."
+    },
+    {
+      "text": "The self-attention in the decoder is exactly the same as the self-attention in the encoder, except for the word 'masked'."
+    },
+    {
+      "text": "The decoder also has a feed-forward layer."
+    },
+    {
+      "text": "The decoder also has layer norms after everything."
+    },
+    {
+      "text": "The only difference between the decoder and the encoder is the encoder-decoder attention layer."
+    },
+    {
+      "text": "The outputs of the encoder go to the encoder-decoder attention layer."
+    },
+    {
+      "text": "After processing through the decoder, classification is necessary."
+    },
+    {
+      "text": "There is a linear layer followed by a softmax layer."
+    },
+    {
+      "text": "The softmax layer produces probabilities."
+    },
+    {
+      "text": "With these probabilities, the next token is sampled."
+    },
+    {
+      "text": "The final linear and softmax layers form a logistic regression."
+    },
+    {
+      "text": "Self-attention is item number three for today."
+    },
+    {
+      "text": "To discuss self-attention, the speaker discusses information retrieval."
+    },
+    {
+      "text": "Information retrieval is not the subject of the class, but is relevant."
+    },
+    {
+      "text": "In information retrieval, there are queries and documents."
+    },
+    {
+      "text": "In information retrieval, a similarity is established between queries and documents."
+    },
+    {
+      "text": "This similarity is called relevance."
+    },
+    {
+      "text": "The relevance is trained to be higher when a document is relevant to a query."
+    },
+    {
+      "text": "In deep learning information retrieval, documents are passed through an encoder to become vectors."
+    },
+    {
+      "text": "Queries are passed through their own encoder to become vectors."
+    },
+    {
+      "text": "The document vectors and query vectors should live in the same latent space."
+    },
+    {
+      "text": "The encoders for documents and queries are different."
+    },
+    {
+      "text": "The encoders cannot be the same because documents can be of different modalities, such as images."
+    },
+    {
+      "text": "The encoders produce vectors in the same latent space."
+    },
+    {
+      "text": "The system is trained so that representations of relevant documents are close to representations of queries in the latent space."
+    },
+    {
+      "text": "In the latent space, nearest neighbors to a query are good answers to the search query."
+    },
+    {
+      "text": "The similarity between a query and a document can be computed as the dot product of their vectors."
+    },
+    {
+      "text": "This approach allows storing vectors and is fast in low-dimensional space."
+    },
+    {
+      "text": "Self-attention draws on this information retrieval intuition."
+    },
+    {
+      "text": "In self-attention, the same set of vectors serves as both queries and documents."
+    },
+    {
+      "text": "Every layer of the transformer receives a sequence of vectors as input, denoted x1, x2, ..., xn."
+    },
+    {
+      "text": "From each input vector xi, a query qi, a key ki, and a value vi are produced."
+    },
+    {
+      "text": "The query qi is produced by multiplying xi by a matrix called w cube."
+    },
+    {
+      "text": "The keys ki are produced by multiplying all inputs by a matrix w, k."
+    },
+    {
+      "text": "The values vi are produced by multiplying all inputs by a matrix WV."
+    },
+    {
+      "text": "Queries and keys live in the same latent space of dimension d."
+    },
+    {
+      "text": "The similarity between a query qi and a key kj is computed as the dot product."
+    },
+    {
+      "text": "This dot product serves as the attention score aij."
+    },
+    {
+      "text": "The attention scores for a query are rescaled by dividing by sqrt(d)."
+    },
+    {
+      "text": "The rescaled scores are passed through a softmax."
+    },
+    {
+      "text": "The softmax outputs attention weights αij that sum to 1 and are between 0 and 1."
+    },
+    {
+      "text": "The output zi for query i is the weighted sum of the values: zi = Σj αij vj."
+    },
+    {
+      "text": "The process is repeated for each xi to produce z1, z2, ..., zn."
+    },
+    {
+      "text": "Formally, queries Q = X * W_Q (or W_Q * X), keys K = X * W_K, and values V = X * W_V."
+    },
+    {
+      "text": "The matrix of dot products between queries and keys is Q K^T."
+    },
+    {
+      "text": "The attention weights matrix is softmax( (1/√d) Q K^T )."
+    },
+    {
+      "text": "The output Z is softmax( (1/√d) Q K^T ) V."
+    },
+    {
+      "text": "This formula is from the 'Attention is All You Need' paper."
+    },
+    {
+      "text": "The input vectors x have dimension D."
+    },
+    {
+      "text": "Queries and keys have dimension d, which is smaller than D."
+    },
+    {
+      "text": "The projection matrices for queries and keys are of size D × d (or d × D)."
+    },
+    {
+      "text": "Values can have a different dimension, since no dot product is taken between values and queries or keys."
+    },
+    {
+      "text": "In the terminology, the query is just called the query, and the document representation is called the key."
+    },
+    {
+      "text": "In practice, the key dimension d' is often equal to the query dimension d."
+    },
+    {
+      "text": "The dimensions of the projection matrices are d × D and d' × D."
+    },
+    {
+      "text": "The raw affinities between queries and keys are dot products between vectors of length d."
+    },
+    {
+      "text": "If queries and keys are considered as random vectors, then each component of Q_i has standard deviation about 1 around 0."
+    },
+    {
+      "text": "Similarly, each component of K_j has standard deviation about 1 around 0."
+    },
+    {
+      "text": "The dot product between Q_i and K_j is the sum of d numbers, each with deviation 1."
+    },
+    {
+      "text": "The sum of d such random variables has a variance on the order of the square root of d."
+    },
+    {
+      "text": "This scaling behavior is analogous to a random walk on a line, where after n steps, the expected distance from zero is √n."
+    },
+    {
+      "text": "Without rescaling, the dot products become large."
+    },
+    {
+      "text": "In the first transformer, the dimension d of the attention head was 64."
+    },
+    {
+      "text": "Adding 64 numbers (each with deviation 1) yields numbers on the order of ±8."
+    },
+    {
+      "text": "When logits are around ±8, the softmax output approximates a one-hot vector (all zeros except one near 1)."
+    },
+    {
+      "text": "The desired softmax output should be smoother than a one-hot vector."
+    },
+    {
+      "text": "The rescaling factor 1/√d brings the variance back to approximately 1, smoothing the softmax output."
+    },
+    {
+      "text": "Computing self-attention requires forming an n × n matrix, where n is the input sequence length."
+    },
+    {
+      "text": "This matrix computation leads to quadratic complexity with respect to input length."
+    },
+    {
+      "text": "This quadratic complexity is the main computational problem of transformers."
+    },
+    {
+      "text": "Without special tricks, transformers cannot scale to long input sequences due to quadratic complexity."
+    },
+    {
+      "text": "Around three years ago, some language models boasted context sizes of 128,000 tokens."
+    },
+    {
+      "text": "Some language models boasted context sizes of 512,000 tokens."
+    },
+    {
+      "text": "Some language models claimed a context window of 1 million tokens."
+    },
+    {
+      "text": "A context window of 1 million tokens implies a complexity proportional to (1 million)^2, which is prohibitively large."
+    },
+    {
+      "text": "Achieving long context windows requires inventive tricks beyond straightforward matrix computation."
+    },
+    {
+      "text": "There is a significant research field dedicated to overcoming this quadratic complexity."
+    },
+    {
+      "text": "A model called Opus has a version with a 1 million token context, which is more expensive and complicated than the standard version."
+    },
+    {
+      "text": "Long context length remains a difficult problem for transformers."
+    },
+    {
+      "text": "In self-attention, the input vectors x are projected to a lower-dimensional space in two different ways to produce queries and keys."
+    },
+    {
+      "text": "The query and key projections have the same dimensionality."
+    },
+    {
+      "text": "Values are obtained by a third projection, which can have a different dimension."
+    },
+    {
+      "text": "In practice, the model dimension D might be 256 or 512, and the attention head dimension d might be 64."
+    },
+    {
+      "text": "The reason the original high-dimensional vectors x are needed is that a transformer uses multiple attention heads, each with different projections."
+    },
+    {
+      "text": "Each attention head has its own learnable matrices W^Q, W^K, and W^V."
+    },
+    {
+      "text": "Each attention head produces its own output z_i by attending to the input in a different way."
+    },
+    {
+      "text": "In a Transformer, the input is a set of vectors."
+    },
+    {
+      "text": "Each input vector is transformed by multiplying with W^Q to get a query, W^K to get a key, and W^V to get a value."
+    },
+    {
+      "text": "Queries and keys lie in the same latent space."
+    },
+    {
+      "text": "The affinity between a query and a key is computed as their dot product (not cosine similarity)."
+    },
+    {
+      "text": "The affinities are scaled by dividing by the square root of the dimension (√d)."
+    },
+    {
+      "text": "The softmax function is applied to the scaled affinities to obtain convex weights (non-negative, sum to 1)."
+    },
+    {
+      "text": "The output is a convex combination of the value vectors, weighted by these softmax weights."
+    },
+    {
+      "text": "In self-attention, each query attends to all tokens in the input, including itself."
+    },
+    {
+      "text": "This allows any token to directly relate to any other token, regardless of distance."
+    },
+    {
+      "text": "Recurrent networks require information to flow step-by-step through intermediate vectors, with no token-skipping paths."
+    },
+    {
+      "text": "Even LSTMs with constant error carousels still process tokens sequentially."
+    },
+    {
+      "text": "Transformers enable direct connection from any token to any token in a single step."
+    },
+    {
+      "text": "This direct connection is a major advantage (big plus) of transformers."
+    },
+    {
+      "text": "The cost of this advantage is quadratic complexity (big minus)."
+    },
+    {
+      "text": "Recurrent neural networks have linear complexity with respect to sequence length."
+    },
+    {
+      "text": "Transformers have quadratic complexity with respect to sequence length."
+    },
+    {
+      "text": "Transformers can capture long-range dependencies more freely because they process the whole sequence at once."
+    },
+    {
+      "text": "In self-attention, the length of the value vector V determines the size of the output."
+    },
+    {
+      "text": "The output in self-attention is a combination of value vectors (Vs)."
+    },
+    {
+      "text": "The length of an attention head's output Z equals the length of the value vector V."
+    },
+    {
+      "text": "Using many Z matrices of the same size as the input X, then combining and compressing them into a single X, would be inefficient and require too many weights."
+    },
+    {
+      "text": "This inefficiency motivates the use of multi-head attention."
+    },
+    {
+      "text": "Using X directly as the input would make multi-head attention too difficult."
+    },
+    {
+      "text": "Multi-head attention is needed."
+    },
+    {
+      "text": "There are multiple attention heads, denoted head 1, head 2, ..., head H."
+    },
+    {
+      "text": "Each attention head produces a matrix Z."
+    },
+    {
+      "text": "The outputs of multiple attention heads are combined."
+    },
+    {
+      "text": "The final combined output matrix Z has the same size as the input matrix X."
+    },
+    {
+      "text": "Matching input and output sizes allows stacking multiple identical layers."
+    },
+    {
+      "text": "The intermediate per-head output matrices are larger than the final output."
+    },
+    {
+      "text": "The input matrix X has dimensions L×D, where L is the number of tokens and D is the feature dimension."
+    },
+    {
+      "text": "X is processed by H attention heads, producing matrices Z₁ through Z_H."
+    },
+    {
+      "text": "Each head output Z_i is a matrix of size L×d, where d is the per-head dimension."
+    },
+    {
+      "text": "Concatenating all Z_i matrices yields a matrix of size L×(H·d)."
+    },
+    {
+      "text": "H·d is larger than D."
+    },
+    {
+      "text": "The concatenated matrix is passed through a feedforward layer (multiplication by a weight matrix) to produce the final Z."
+    },
+    {
+      "text": "This feedforward layer produces a final Z matrix of size L×D."
+    },
+    {
+      "text": "Multi-head attention provides variety because different heads produce different projections of the input vectors."
+    },
+    {
+      "text": "This variety increases the model's expressive power."
+    },
+    {
+      "text": "If the per-head dimension d were equal to the model dimension D, multi-head attention would be infeasible to train due to its size."
+    },
+    {
+      "text": "The encoder consists of self-attention, layer normalization, and a feed-forward network."
+    },
+    {
+      "text": "The decoder involves additional components beyond the encoder."
+    },
+    {
+      "text": "During inference, when predicting the next token, masked self-attention operates as regular self-attention on the current prefix."
+    },
+    {
+      "text": "Training a transformer on a sequence of length N can be viewed as N separate training samples, each predicting the next token from a prefix."
+    },
+    {
+      "text": "Running the decoder separately for each prefix is inefficient."
+    },
+    {
+      "text": "In practice, the entire sequence is processed at once, using masks to prevent attending to future tokens."
+    },
+    {
+      "text": "Masked self-attention enforces causality: each position can only attend to previous positions."
+    },
+    {
+      "text": "Masks are implemented by setting attention weights to zero for positions that should not be attended to."
+    },
+    {
+      "text": "In encoder-decoder attention, the query matrix Q is derived from the decoder input X by multiplying with W^Q."
+    },
+    {
+      "text": "In encoder-decoder attention, the key matrix K and value matrix V are derived from the encoder outputs by multiplying with W^K and W^V respectively."
+    },
+    {
+      "text": "In encoder-decoder attention, the queries and the keys/values come from different sources, unlike self-attention where all come from the same X."
+    },
+    {
+      "text": "In encoder-decoder attention, the attention matrix is not necessarily square because the number of queries can differ from the number of keys."
+    },
+    {
+      "text": "The number of keys must equal the number of values, but the number of queries can be different."
+    },
+    {
+      "text": "Having queries from one source and keys/values from another is a standard design in transformers, dating back to the original transformer decoder."
+    },
+    {
+      "text": "A value vector is a projection."
+    },
+    {
+      "text": "The projection is trained for the input vectors."
+    },
+    {
+      "text": "Input vectors are abstract representations of tokens."
+    },
+    {
+      "text": "After training, attention heads often perform understandable, interpretable, and intuitive operations."
+    },
+    {
+      "text": "There is an example of a one-layer self-attention head designed to output the matching key for the input."
+    },
+    {
+      "text": "In this example, the attention matrix shows that the attention head attends to the correct position."
+    },
+    {
+      "text": "Another example illustrates that the attention weight matrix does not have to select a single token."
+    },
+    {
+      "text": "Attention matrices often resemble permutation matrices."
+    },
+    {
+      "text": "When attention matrices resemble permutation matrices, they encode pairwise relationships between tokens, matching each input to another input."
+    },
+    {
+      "text": "Attention matrices do not have to be permutation matrices."
+    },
+    {
+      "text": "Attention matrices can have more complicated patterns, such as an orientation matrix where queries attend to all tokens."
+    },
+    {
+      "text": "In one example, tokens are split into groups of sizes 3, 3, 3, 1, and 3, and tokens within each group attend uniformly to each other."
+    },
+    {
+      "text": "Widely distributed attention is possible, where a token attends to all tokens."
+    },
+    {
+      "text": "Tokenization is not the main subject of the lecture because the focus is on computer vision."
+    },
+    {
+      "text": "Tokenization connects to coding theory and Huffman coding."
+    },
+    {
+      "text": "Intuitively, a token might be thought of as a word in text."
+    },
+    {
+      "text": "Tokens cannot simply be words because there are too many words."
+    },
+    {
+      "text": "Lemmatization would lose grammatical information."
+    },
+    {
+      "text": "Different grammatical forms must be treated as separate words."
+    },
+    {
+      "text": "There are typos in real text."
+    },
+    {
+      "text": "Dropping out-of-vocabulary words would cause loss of information."
+    },
+    {
+      "text": "Including all typo variants would make the dictionary enormous, with millions of words."
+    },
+    {
+      "text": "A smaller vocabulary is needed."
+    },
+    {
+      "text": "Characters can be used as tokens."
+    },
+    {
+      "text": "Text can be viewed as a sequence of characters."
+    },
+    {
+      "text": "Character sequences are a natural partition for most languages."
+    },
+    {
+      "text": "Character-level tokenization is too fine-grained."
+    },
+    {
+      "text": "There are at most a couple hundred characters, including punctuation and capitals."
+    },
+    {
+      "text": "With characters, one can have an embedding matrix of several hundred vectors."
+    },
+    {
+      "text": "Character-level tokenization leads to very long sequences."
+    },
+    {
+      "text": "The practical limit on context size is about one million tokens."
+    },
+    {
+      "text": "One million tokens represent many more words if they are word tokens rather than character tokens."
+    },
+    {
+      "text": "It is desirable to have tokenization closer to word-level than character-level."
+    },
+    {
+      "text": "The problem is how to choose intermediate tokenization between characters and words."
+    },
+    {
+      "text": "The algorithm is byte-pair encoding (BPE)."
+    },
+    {
+      "text": "BPE is commonly used in machine learning."
+    },
+    {
+      "text": "BPE has nothing to do with machine learning."
+    },
+    {
+      "text": "BPE is essentially Huffman coding from information theory."
+    },
+    {
+      "text": "In BPE, starting from characters, the most frequent pair of characters is merged into a new token."
+    },
+    {
+      "text": "In an example, the pair \"@\" is chosen as a new token Z."
+    },
+    {
+      "text": "All occurrences of the pair are replaced with the new token."
+    },
+    {
+      "text": "Original characters cannot be deleted from the vocabulary because they may appear separately."
+    },
+    {
+      "text": "The replacement reduces word length."
+    },
+    {
+      "text": "The process adds a token in an optimal way."
+    },
+    {
+      "text": "The merging process is repeated."
+    },
+    {
+      "text": "After replacement, counts and pairs are updated only for affected tokens."
+    },
+    {
+      "text": "The next most frequent pair is chosen and replaced."
+    },
+    {
+      "text": "BPE is simple and straightforward."
+    },
+    {
+      "text": "BPE can be stopped at any desired vocabulary size."
+    },
+    {
+      "text": "By running BPE until the vocabulary reaches 100,000 tokens, one obtains a size between character-level and full word-level."
+    },
+    {
+      "text": "BPE first captures common suffixes like \"-ed\" and \"-tion\"."
+    },
+    {
+      "text": "In the resulting tokenization, common words become single tokens and uncommon words become multiple tokens."
+    },
+    {
+      "text": "Transformers can connect any token to any token in one step, which is their biggest strength."
+    },
+    {
+      "text": "Transformers lose word order."
+    },
+    {
+      "text": "Recurrent networks naturally incorporate word order because adjacent tokens are processed in sequence."
+    },
+    {
+      "text": "The attention weight matrix does not inherently encode adjacency or distance."
+    },
+    {
+      "text": "Transformers are invariant to token order, which is problematic."
+    },
+    {
+      "text": "It is desirable to preserve word order."
+    },
+    {
+      "text": "In practice, positional encodings are added to token embeddings to encode token position."
+    },
+    {
+      "text": "A naive approach is to use one-hot encoding of position indices."
+    },
+    {
+      "text": "A desired property of positional encodings is that the difference vector between positions i and j is similar to the difference vector between positions i+k and j+k for any k."
+    },
+    {
+      "text": "For any pair of positions the same distance apart, the difference in their positional encodings should be consistent."
+    },
+    {
+      "text": "The original Transformer used a positional encoding based on a counting system analogous to binary numbers."
+    },
+    {
+      "text": "In binary numbers, digits oscillate with increasing periods."
+    },
+    {
+      "text": "The original Transformer used sinusoidal functions with different frequencies to encode positions."
+    },
+    {
+      "text": "The original approach to positional encodings was a positional system for counting."
+    },
+    {
+      "text": "The current approach to positional encodings is called RoPE (rotary positional encodings)."
+    },
+    {
+      "text": "Rotary positional encodings involve rotation, which is a kind of circular motion."
+    },
+    {
+      "text": "In RoPE, you take the vector x and consider its components in pairs (two by two)."
+    },
+    {
+      "text": "In RoPE, you break x into pieces of two numbers, which are like two-dimensional vectors."
+    },
+    {
+      "text": "In RoPE, the pairs are denoted as (x1, x2), (x11, x12), (x21, x22), and so on."
+    },
+    {
+      "text": "In RoPE, each two-dimensional part can be rotated by various angles."
+    },
+    {
+      "text": "Rotating a single number is not meaningful."
+    },
+    {
+      "text": "A vector of two numbers can be rotated because it is a vector on a plane."
+    },
+    {
+      "text": "Rotary encodings take a two-dimensional vector and multiply it by rotation matrices."
+    },
+    {
+      "text": "The positions are encoded as coefficients to these rotations."
+    },
+    {
+      "text": "The rotation matrix used in RoPE is [[cos(kθ), sin(kθ)], [-sin(kθ), cos(kθ)]]."
+    },
+    {
+      "text": "There is a basic angle θ in RoPE."
+    },
+    {
+      "text": "In RoPE, vectors are rotated by multiples of θ."
+    },
+    {
+      "text": "Rotating a vector by kθ and then by Lθ is equivalent to rotating it by (k+L)θ."
+    },
+    {
+      "text": "Rotary positional encodings provide nice arithmetic properties and seem to have better properties."
+    },
+    {
+      "text": "In sinusoidal positional encoding, the dot product between two positional encoding vectors depends only on the offset (i - j)."
+    },
+    {
+      "text": "That the dot product depends only on the distance is a desired property."
+    },
+    {
+      "text": "Rotary positional encodings also yield a matrix with a diagonal structure."
+    },
+    {
+      "text": "Along each diagonal, the distance between positions is the same, leading to the same dot product between positional encodings."
+    },
+    {
+      "text": "Scaling by the square root of d is necessary to prevent getting closer and closer to one-hot representations."
+    },
+    {
+      "text": "Without scaling, entropy is lost after the softmax."
+    }
+  ],
+  "summary": [
+    {
+      "text": "Any recurrent neural network (RNN) is effectively a very deep network."
+    },
+    {
+      "text": "The depth of an RNN equals the input sequence length."
+    },
+    {
+      "text": "As activations and gradients propagate through time in an RNN, we repeatedly multiply by the same weight matrix W."
+    },
+    {
+      "text": "If the spectral radius of W is less than 1, the gradients shrink exponentially (vanishing gradients)."
+    },
+    {
+      "text": "If the spectral radius of W is greater than 1, the gradients explode."
+    },
+    {
+      "text": "Exploding gradients cause numerical overflows and obvious failure."
+    },
+    {
+      "text": "Vanishing gradients are far more dangerous than exploding gradients."
+    },
+    {
+      "text": "With vanishing gradients, the loss still decreases."
+    },
+    {
+      "text": "Gradients with respect to W do not vanish because W participates in the most recent steps."
+    },
+    {
+      "text": "The network still trains, yet it makes its decisions based only on the last few elements of the sequence."
+    },
+    {
+      "text": "The network loses the ability to have long-term memory."
+    },
+    {
+      "text": "To give the gradient a shortcut past the repeated multiplications, we introduce a constant error carousel."
+    },
+    {
+      "text": "The constant error carousel is exactly the same idea as residual connections in ResNet."
+    },
+    {
+      "text": "This was pioneered in the 1990s (Hochreiter & Schmidhuber, 1995/1997; Gers & Schmidhuber, 2000)."
+    },
+    {
+      "text": "This gave rise to the most important recurrent unit."
+    },
+    {
+      "text": "An LSTM maintains two separate vectors: the cell state c_t (the “highway” for long-term memory) and the hidden state h_t (the normal working memory)."
+    },
+    {
+      "text": "The whole LSTM cell is organized around gates."
+    },
+    {
+      "text": "Gates are tiny linear classifiers that output a vector of values in (0,1) via a sigmoid and act as a control signal, deciding what to erase, write, or read."
+    },
+    {
+      "text": "The candidate cell state is computed as c'_t = \\tanh(W_{xc}x_t + W_{hc}h_{t-1} + b_{c'})."
+    },
+    {
+      "text": "The input gate is computed as i_t = \\sigma(W_{xi}x_t + W_{hi}h_{t-1} + b_i)."
+    },
+    {
+      "text": "The forget gate is computed as f_t = \\sigma(W_{xf}x_t + W_{hf}h_{t-1} + b_f)."
+    },
+    {
+      "text": "The output gate is computed as o_t = \\sigma(W_{xo}x_t + W_{ho}h_{t-1} + b_o)."
+    },
+    {
+      "text": "The new cell state is computed as c_t = f_t \\odot c_{t-1} + i_t \\odot c'_t."
+    },
+    {
+      "text": "The new hidden state is computed as h_t = o_t \\odot \\tanh(c_t)."
+    },
+    {
+      "text": "The forget gate f_t multiplies the old cell state element-wise: values near 1 “keep”, near 0 “erase”."
+    },
+    {
+      "text": "The candidate c'_t proposes new numbers to write."
+    },
+    {
+      "text": "The input gate i_t selects which parts of c'_t are actually written."
+    },
+    {
+      "text": "Because the forget gate already erased the corresponding cells, writing is simply addition."
+    },
+    {
+      "text": "The output gate o_t decides which parts of the updated cell state should be exposed to the next hidden state (and used by the rest of the network)."
+    },
+    {
+      "text": "Crucially, when the forget gate is fully open (f_t → 1), we obtain c_t = c_{t-1} + i_t \\odot c'_t."
+    },
+    {
+      "text": "Hence, ∂c_t/∂c_{t-1} = 1, which provides the constant error carousel."
+    },
+    {
+      "text": "The constant error carousel is a highway for gradients that is only interrupted when we explicitly choose to erase."
+    },
+    {
+      "text": "LSTM has many weight matrices (eight in the vanilla version, up to eleven with peepholes)."
+    },
+    {
+      "text": "LSTM requires large memory sizes (d ≥ 256 typically)."
+    },
+    {
+      "text": "LSTM is expensive to train."
+    },
+    {
+      "text": "Only around 2015 did sufficient compute become available to train huge LSTMs."
+    },
+    {
+      "text": "Yet LSTM still stands – modern recurrent systems (e.g. AlphaStar) consistently prefer LSTM over other recurrent units."
+    },
+    {
+      "text": "A known issue is that the gates only see h_{t-1}, which is o_{t-1} \\odot \\tanh(c_{t-1})."
+    },
+    {
+      "text": "If the output gate is closed, the gates have no direct information about the cell state."
+    },
+    {
+      "text": "The fix is to add direct peepholes – extra weight matrices that multiply c_{t-1} in the gate equations."
+    },
+    {
+      "text": "With peepholes, the input gate becomes i_t = \\sigma(W_{xi}x_t + W_{hi}h_{t-1} + W_{pi}c_{t-1} + b_i)."
+    },
+    {
+      "text": "The forget gate becomes f_t = \\sigma(W_{xf}x_t + W_{hf}h_{t-1} + W_{pf}c_{t-1} + b_f)."
+    },
+    {
+      "text": "The output gate becomes o_t = \\sigma(W_{xo}x_t + W_{ho}h_{t-1} + W_{po}c_{t-1} + b_o)."
+    },
+    {
+      "text": "Many LSTM variations exist."
+    },
+    {
+      "text": "The survey “LSTM: A Search Space Odyssey” (Greff et al., 2015) showed that you can even remove an entire gate without much performance loss."
+    },
+    {
+      "text": "The GRU (Gated Recurrent Unit) was developed by Cho et al. (2014)."
+    },
+    {
+      "text": "The GRU simplifies LSTM while preserving the error carousel."
+    },
+    {
+      "text": "There is no separate cell state in GRU; everything is in the hidden state h_t."
+    },
+    {
+      "text": "Instead of separate forget and input gates, a single update gate u_t produces a convex combination of the old state and a candidate."
+    },
+    {
+      "text": "The update gate is computed as u_t = \\sigma(W_{xu}x_t + W_{hu}h_{t-1} + b_u)."
+    },
+    {
+      "text": "The reset gate is computed as r_t = \\sigma(W_{xr}x_t + W_{hr}h_{t-1} + b_r)."
+    },
+    {
+      "text": "The candidate hidden state is computed as h'_t = \\tanh(W_{xh'}x_t + W_{hh'}(r_t \\odot h_{t-1}))."
+    },
+    {
+      "text": "The new hidden state is computed as h_t = (1 - u_t) \\odot h'_t + u_t \\odot h_{t-1}."
+    },
+    {
+      "text": "u_t close to 1 keeps the old memory; u_t close to 0 replaces it with the candidate."
+    },
+    {
+      "text": "The reset gate r_t selects which parts of the previous state to use when computing the candidate."
+    },
+    {
+      "text": "GRU has only 6 weight matrices (vs. 8 for vanilla LSTM, 11 with peepholes)."
+    },
+    {
+      "text": "In 2015–2016 NLP papers almost universally adopted GRU because it is more efficient."
+    },
+    {
+      "text": "Today, large-scale practice has switched back to LSTM for reasons that are mostly empirical: LSTM seems to scale better to truly hard problems."
+    },
+    {
+      "text": "Take-away: Both LSTM and GRU implement the constant error carousel, enabling gradient flow through arbitrarily long sequences."
+    },
+    {
+      "text": "LSTM remains the gold standard for large recurrent networks."
+    },
+    {
+      "text": "Neurobiologically, attention is as fundamental as memory and cognition (A.R. Luria)."
+    },
+    {
+      "text": "Attention acts as a filter between a very short-term working memory (a few seconds) and further processing."
+    },
+    {
+      "text": "Crucially, unlike a convolutional network that processes every pixel equally, humans can completely miss objects in their field of view if attention is directed elsewhere (the famous “invisible gorilla” experiment)."
+    },
+    {
+      "text": "Human vision is structured around foveal glimpses."
+    },
+    {
+      "text": "In foveal glimpses, high resolution is only at the centre of gaze; the rest is blurry."
+    },
+    {
+      "text": "The brain stitches these glimpses together by rapid saccadic eye movements."
+    },
+    {
+      "text": "The original motivation for attention in neural networks was to mimic this efficiency: look at a few small, high-resolution patches of a large image, choose where to look next, and make a decision, thus drastically reducing input size."
+    },
+    {
+      "text": "Early works (Mnih et al., 2014; Ba et al., 2015) used an RNN to select a sequence of glimpse locations."
+    },
+    {
+      "text": "At each step, g_t = f_g(\\mathbf{x}_t, l_{t-1})."
+    },
+    {
+      "text": "h_t = f_h(h_{t-1}, g_t)."
+    },
+    {
+      "text": "l_t is sampled from a distribution p(\\cdot \\mid f_l(h_t))."
+    },
+    {
+      "text": "a_t is sampled from a distribution p(\\cdot \\mid f_a(h_t))."
+    },
+    {
+      "text": "The network received a reward only at the end (e.g. correct classification), so training was done with reinforcement learning (e.g. REINFORCE)."
+    },
+    {
+      "text": "Later models like DRAW used variational inference."
+    },
+    {
+      "text": "These models are now outdated, but they established the principle of looking at parts of the input sequentially."
+    },
+    {
+      "text": "The real breakthrough came by applying attention to encoder–decoder sequence‑to‑sequence models."
+    },
+    {
+      "text": "A standard RNN encoder compresses the entire input sentence into a single vector z."
+    },
+    {
+      "text": "For short sentences this works, but: if z is too small, it cannot hold enough information for long inputs."
+    },
+    {
+      "text": "If z is made very large, the decoder LSTM becomes gigantic and requires quadratic numbers of weights that cannot be trained."
+    },
+    {
+      "text": "As a result, quality is good for short sentences and collapses for long ones."
+    },
+    {
+      "text": "The solution is to produce a representation for every input token and let the decoder reweigh them at each step."
+    },
+    {
+      "text": "A bidirectional encoder produces a vector z_i for every input token i."
+    },
+    {
+      "text": "At decoder step t (hidden state s_{t-1}), an attention network a scores each input position: e_{t j} = a(s_{t-1}, z_j)."
+    },
+    {
+      "text": "Softmax turns the scores into a convex combination: \\alpha_{t j} = \\operatorname{softmax}(e_{t1}, e_{t2}, \\dots)."
+    },
+    {
+      "text": "The context vector is the weighted sum: c_t = \\sum_j \\alpha_{t j} z_j."
+    },
+    {
+      "text": "The decoder now uses c_t along with the previous output y_{t-1} and its hidden state to produce the next token."
+    },
+    {
+      "text": "The attention network is tiny – typically around 2% of the total parameters – yet it drives the results."
+    },
+    {
+      "text": "The attention network is never explicitly supervised (we don’t know which source word aligns to which target word)."
+    },
+    {
+      "text": "The whole model is trained end‑to‑end on parallel sentences."
+    },
+    {
+      "text": "The attention weights emerge as meaningful alignments."
+    },
+    {
+      "text": "Interpretable attention matrices are a hallmark of this approach: for translation, they usually form a diagonal, with off‑diagonal spikes for reordered words or multi‑word phrases (e.g. French “la destruction” → English “destruction”)."
+    },
+    {
+      "text": "Around 2015‑2016, Google Translate switched to such an architecture."
+    },
+    {
+      "text": "This switch caused a phase transition in translation quality."
+    },
+    {
+      "text": "The translation became good enough that post‑editing was faster than translating from scratch."
+    },
+    {
+      "text": "The same attention idea works for images: instead of compressing a CNN’s output into a single vector, we keep a 14×14 feature map and compute attention over these spatial locations."
+    },
+    {
+      "text": "The caption generator can then look at different parts of the image while generating each word (e.g. “woman”, “throwing”, “frisbee”)."
+    },
+    {
+      "text": "Hard attention (sampling a single location) and soft attention (convex combination) were both explored (Xu et al., 2015)."
+    },
+    {
+      "text": "Vaswani et al. (2017) proposed the Transformer architecture, built entirely on attention, discarding recurrence."
+    },
+    {
+      "text": "The original paper modestly aimed for comparable performance with higher efficiency."
+    },
+    {
+      "text": "The transformer turned out to be extremely general and scalable."
+    },
+    {
+      "text": "The transformer now underlies nearly all state‑of‑the‑art models."
+    },
+    {
+      "text": "The transformer is an encoder–decoder design for machine translation."
+    },
+    {
+      "text": "The encoder consists of 6 identical layers, each containing a self‑attention sublayer and a feed‑forward sublayer, with residual connections and layer normalization."
+    },
+    {
+      "text": "The decoder consists of 6 identical layers, each containing a masked self‑attention, an encoder–decoder attention, and a feed‑forward sublayer (again with residuals and layer norm)."
+    },
+    {
+      "text": "Input tokens are first passed through a learned embedding layer, becoming vectors."
+    },
+    {
+      "text": "The whole transformer operates on sequences of vectors, rewriting them into context‑aware representations."
+    },
+    {
+      "text": "The decoder is autoregressive: it generates one token at a time."
+    },
+    {
+      "text": "A final linear + softmax layer produces output token probabilities."
+    },
+    {
+      "text": "In neural search, documents and queries are encoded into a shared latent space, and relevance is measured by the dot product."
+    },
+    {
+      "text": "Self-attention applies this idea to the same set of vectors: each input vector is simultaneously the query and a “document”."
+    },
+    {
+      "text": "From an input sequence X = [x_1, ..., x_L] (each x_i \\in \\mathbb{R}^D) we compute three projections."
+    },
+    {
+      "text": "Queries Q are computed as Q = X W_Q, where W_Q \\in \\mathbb{R}^{D \\times d_k}."
+    },
+    {
+      "text": "Keys K are computed as K = X W_K, where W_K \\in \\mathbb{R}^{D \\times d_k}."
+    },
+    {
+      "text": "Values V are computed as V = X W_V, where W_V \\in \\mathbb{R}^{D \\times d_v}."
+    },
+    {
+      "text": "Queries Q and keys K live in the same space (dimension d_k)."
+    },
+    {
+      "text": "Values V can have a different dimension d_v (often d_v = d_k)."
+    },
+    {
+      "text": "The attention weights are computed as scaled dot-products: \\operatorname{Attention}(Q, K, V) = \\operatorname{softmax}\\!\\left(\\frac{Q K^T}{\\sqrt{d_k}}\\right) V."
+    },
+    {
+      "text": "Dot products Q K^T yield a matrix of raw affinities between every query and every key."
+    },
+    {
+      "text": "Scaling by \\sqrt{d_k} prevents the dot products from growing too large."
+    },
+    {
+      "text": "With random vectors, the variance of the dot product is approximately d_k."
+    },
+    {
+      "text": "Without scaling, the softmax would saturate into one‑hot vectors, losing gradient signal."
+    },
+    {
+      "text": "Softmax converts each row into a convex combination."
+    },
+    {
+      "text": "Multiplying by V produces the output as a weighted sum of the value vectors."
+    },
+    {
+      "text": "Every output position is directly connected to every input position in a single step – the path length is 1, regardless of distance in the sequence."
+    },
+    {
+      "text": "This is a huge advantage over RNNs."
+    },
+    {
+      "text": "The cost is a quadratic complexity O(L^2) in the sequence length."
+    },
+    {
+      "text": "This quadratic complexity is the central computational challenge of transformers."
+    },
+    {
+      "text": "A single attention head projects the input into a small space (d_k \\approx 64), which is too small to capture all relevant relationships."
+    },
+    {
+      "text": "Instead, we run H independent heads in parallel, each with its own W_Q^{(h)}, W_K^{(h)}, W_V^{(h)}."
+    },
+    {
+      "text": "MultiHead(Q, K, V) = \\operatorname{Concat}(\\text{head}_1, \\dots, \\text{head}_H) W_O, where \\text{head}_h = \\operatorname{Attention}(X W_Q^{(h)}, X W_K^{(h)}, X W_V^{(h)})."
+    },
+    {
+      "text": "W_O \\in \\mathbb{R}^{H d_v \\times D} projects the concatenated result back to the model dimension D."
+    },
+    {
+      "text": "This gives the model multiple “ways of looking” at the data and mixes the different perspectives."
+    },
+    {
+      "text": "The Transformer decoder is trained to predict the next token given the prefix."
+    },
+    {
+      "text": "For efficiency, the whole output sequence is fed to the Transformer decoder at once during training."
+    },
+    {
+      "text": "During training, future tokens must not influence the prediction of the current token."
+    },
+    {
+      "text": "Causal masking zeros out the softmax inputs for future positions, setting the attention weights for those positions to zero."
+    },
+    {
+      "text": "The encoder-decoder attention mechanism in the Transformer is a cross-attention layer."
+    },
+    {
+      "text": "In the encoder-decoder attention, the queries come from the decoder’s previous layer, which represents the tokens produced so far."
+    },
+    {
+      "text": "In the encoder-decoder attention, the keys and values come from the encoder’s output, which is the full source representation."
+    },
+    {
+      "text": "The encoder-decoder attention is essentially the same self-attention mechanism, but with Q, K, V originating from two different sequences."
+    },
+    {
+      "text": "The attention matrix resulting from encoder-decoder attention is not square."
+    },
+    {
+      "text": "Encoder-decoder attention gives the decoder a direct window into the source."
+    },
+    {
+      "text": "Using full words as tokens would require a vocabulary of millions, including typos and inflected forms."
+    },
+    {
+      "text": "Using characters as tokens would make sequences too long."
+    },
+    {
+      "text": "Byte-Pair Encoding (BPE) is a deterministic Huffman-coding procedure that builds a subword vocabulary."
+    },
+    {
+      "text": "The BPE procedure starts with individual characters as the initial vocabulary."
+    },
+    {
+      "text": "In BPE, all adjacent pairs of tokens in the corpus are counted."
+    },
+    {
+      "text": "In BPE, the most frequent pair of tokens is replaced with a new token (for example, ‘a’ + ‘t’ becomes ‘Z’)."
+    },
+    {
+      "text": "BPE repeats the steps of counting pairs and replacing the most frequent pair until the desired vocabulary size is reached."
+    },
+    {
+      "text": "In BPE, common morphemes such as '-ed' and '-tion' become single tokens, while rare words stay as multiple subword tokens."
+    },
+    {
+      "text": "Because the self-attention layer treats the input as an unordered set, position information must be injected."
+    },
+    {
+      "text": "In the original Transformer, sinusoidal positional encodings are defined as \\(PE_{(pos, 2i)} = \\sin\\!\\left(\\frac{pos}{10000^{2i/d}}\\right)\\) and \\(PE_{(pos, 2i+1)} = \\cos\\!\\left(\\frac{pos}{10000^{2i/d}}\\right)\\), where \\(pos\\) is the position and \\(i\\) is the dimension index."
+    },
+    {
+      "text": "Different dimensions of the sinusoidal positional encodings oscillate at different frequencies, mimicking a positional numeral system in a continuous way."
+    },
+    {
+      "text": "The dot product of two sinusoidal positional encodings depends only on their relative distance \\(i-j\\)."
+    },
+    {
+      "text": "Rotary Positional Encodings (RoPE) treat the embedding vector in pairs \\((x_{2k}, x_{2k+1})\\) as 2D vectors."
+    },
+    {
+      "text": "In RoPE, each pair is transformed by applying a rotation matrix: \\(\\begin{pmatrix} x'_{2k} \\\\ x'_{2k+1} \\end{pmatrix} = \\begin{pmatrix} \\cos(k\\theta) & -\\sin(k\\theta) \\\\ \\sin(k\\theta) & \\cos(k\\theta) \\end{pmatrix} \\begin{pmatrix} x_{2k} \\\\ x_{2k+1} \\end{pmatrix}\\)."
+    },
+    {
+      "text": "Because rotations add (\\(k\\theta + l\\theta = (k+l)\\theta\\)), the dot product between two RoPE-encoded vectors depends only on the offset \\(k-l\\), giving a perfect distance-preserving arithmetic."
+    },
+    {
+      "text": "Transformers replace recurrence with self-attention."
+    },
+    {
+      "text": "Self-attention in Transformers achieves direct connections between all positions."
+    },
+    {
+      "text": "Self-attention in Transformers enables massive parallelisation."
+    },
+    {
+      "text": "Transformers scale far better than LSTMs."
+    },
+    {
+      "text": "Doubling the number of parameters in Transformers reliably improves performance."
+    },
+    {
+      "text": "Transformers underlie modern Large Language Models (LLMs) with trillions of parameters."
+    },
+    {
+      "text": "The main weakness of Transformers is the quadratic \\(O(L^2)\\) complexity in sequence length."
+    },
+    {
+      "text": "The quadratic \\(O(L^2)\\) complexity of Transformers in sequence length has motivated an entire field of efficient attention variants."
+    }
+  ]
+}

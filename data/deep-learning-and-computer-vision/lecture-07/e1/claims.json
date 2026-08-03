@@ -1,0 +1,2266 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "chunk_words": 2000,
+    "top_k": 16,
+    "limit": null,
+    "max_chunks": null
+  },
+  "slides": [
+    {
+      "text": "Visual BERT models captions and images jointly.",
+      "salience": "core"
+    },
+    {
+      "text": "Visual BERT uses a fixed pretrained object detection system such as Faster R-CNN to cut out objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Visual BERT embeds the cut-out objects into vectors via CNNs and special positional embeddings.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Visual BERT feeds the object vectors along with the caption into a single Transformer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Visual BERT is pretrained using masked language modeling.",
+      "salience": "core"
+    },
+    {
+      "text": "Visual BERT is pretrained using sentence-image prediction.",
+      "salience": "core"
+    },
+    {
+      "text": "Sentence-image prediction distinguishes whether a given caption matches the image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Sample attention heads in Visual BERT show how words from the caption attend to corresponding objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Vision Transformer (ViT; Dosovitsky et al., 2020) is the most successful Transformer-based architecture for images.",
+      "salience": "core"
+    },
+    {
+      "text": "ViT is a straightforward modification of BERT.",
+      "salience": "core"
+    },
+    {
+      "text": "ViT uses only image-based tokens as input (no text).",
+      "salience": "core"
+    },
+    {
+      "text": "In ViT, the input image is cut into small patches.",
+      "salience": "core"
+    },
+    {
+      "text": "The original image in ViT has dimensions $H \\times W$ and $C$ channels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The image is transformed into a sequence of patches of size $P \\times P$ in ViT.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The number of patches $N$ in ViT is $HW/P^2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The patch sequence tensor in ViT has shape $N \\times P^2 \\times C$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In ViT, patches are turned into embeddings via a simple linear projection.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The sequence of patch embeddings in ViT is fed into a Transformer encoder.",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer encoder in ViT is identical to BERT's encoder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ViT is pretrained using masked patch modeling.",
+      "salience": "core"
+    },
+    {
+      "text": "Masked patch modeling replaces half of the input embeddings with a learnable `[mask]` embedding.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Masked patch modeling is analogous to masked language modeling.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ViT uses positional encodings.",
+      "salience": "core"
+    },
+    {
+      "text": "ViT uses the same absolute positional encoding as the original Transformer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Experiments using 2D positional encodings in ViT showed no difference in results.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Swin Transformer (Liu et al., 2021) is similar to ViT.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Swin Transformer is built in a hierarchical fashion.",
+      "salience": "core"
+    },
+    {
+      "text": "Swin Transformer processes image patches on several scales.",
+      "salience": "core"
+    },
+    {
+      "text": "Swin Transformer computes self-attention across patches in a convolutional-like architecture.",
+      "salience": "core"
+    },
+    {
+      "text": "In Swin Transformer, windows shift between self-attention layers.",
+      "salience": "core"
+    },
+    {
+      "text": "The shifting windows provide connections between different parts of the image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Swin Transformer architecture progressively reduces the spatial geometry.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The progressive reduction of spatial geometry in Swin Transformer is analogous to classical CNN backbones.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Swin Transformer can scale up to larger input resolutions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Swin Transformer is suitable for dense recognition tasks such as image segmentation.",
+      "salience": "core"
+    },
+    {
+      "text": "Swin Transformer v2 is a later iteration of Swin Transformer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Swin Transformer v2 scaled up to 3 billion parameters.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Swin Transformer v2 allowed training with images up to $1536 \\times 1536$ pixels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Swin Transformer v2 improved state of the art across image processing tasks.",
+      "salience": "core"
+    },
+    {
+      "text": "DeepMind's Perceiver (Jaegle et al., 2021a) is a general-purpose architecture.",
+      "salience": "core"
+    },
+    {
+      "text": "Perceiver can process numerous modalities without modality-specific encoders.",
+      "salience": "core"
+    },
+    {
+      "text": "The main idea of Perceiver is to avoid the quadratic bottleneck of self-attention.",
+      "salience": "core"
+    },
+    {
+      "text": "Perceiver uses lower-dimensional latent units as queries.",
+      "salience": "core"
+    },
+    {
+      "text": "In Perceiver, a small vector of latents attends to large byte arrays for keys and values.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Perceiver can be trained on images, point clouds, audio, and video with no change to the architecture.",
+      "salience": "core"
+    },
+    {
+      "text": "Perceiver's attention maps can go down to individual pixels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Perceiver IO extends Perceiver to handle high-dimensional outputs.",
+      "salience": "core"
+    },
+    {
+      "text": "Perceiver IO handles multi-task language understanding.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Perceiver IO handles dense visual tasks such as optical flow.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Perceiver IO handles hybrid dense/sparse multimodal tasks, such as video+audio+class autoencoding.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Perceiver IO handles tasks with symbolic outputs, such as StarCraft II.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In Perceiver IO, output queries are constructed automatically by combining vectors describing properties of the current output (e.g., position coordinates).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Basic classification architectures are insufficient for computer vision tasks.",
+      "salience": "core"
+    },
+    {
+      "text": "Object detection is the problem of determining the locations of objects using CNNs.",
+      "salience": "core"
+    },
+    {
+      "text": "R-CNN looks for bounding boxes using an external algorithm, such as selective search.",
+      "salience": "core"
+    },
+    {
+      "text": "R-CNN extracts CNN features for each proposed bounding box.",
+      "salience": "core"
+    },
+    {
+      "text": "The CNN in R-CNN is pretrained on ImageNet and fine-tuned on the target dataset.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN classifies each proposed region.",
+      "salience": "core"
+    },
+    {
+      "text": "Visualisations of R-CNN show regions of activation for a neuron from a high layer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN additionally uses bounding box regression to localise objects.",
+      "salience": "core"
+    },
+    {
+      "text": "The bounding box regression in R-CNN uses a linear regression on features from the last pooling layer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN was excellent for its time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN won the ILSVRC 2013 detection challenge.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The ILSVRC 2013 detection challenge had 200 classes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN required multiple training stages: training a CNN, then an SVM on CNN features, then bounding box regressors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN training was very long because features had to be extracted for every region proposal and written to disk.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN recognition was slow, taking about 47 seconds per image even on a GPU.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The slowness of R-CNN was because a full CNN forward pass was needed for each proposal.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Fast R-CNN addresses the problems of R-CNN.",
+      "salience": "core"
+    },
+    {
+      "text": "Fast R-CNN uses RoI (Region of Interest) projection.",
+      "salience": "core"
+    },
+    {
+      "text": "In Fast R-CNN, only one pass of the main CNN is done over the whole image.",
+      "salience": "core"
+    },
+    {
+      "text": "Fast R-CNN then crops and pools features for each region.",
+      "salience": "core"
+    },
+    {
+      "text": "The loss function in Fast R-CNN is the sum of classification error and bounding box regression error.",
+      "salience": "core"
+    },
+    {
+      "text": "Fast R-CNN is two orders of magnitude faster than R-CNN with no loss of quality.",
+      "salience": "core"
+    },
+    {
+      "text": "Fast R-CNN still uses selective search for region proposals.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adding more region proposal candidates in Fast R-CNN did not help much.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In R-CNN and Fast R-CNN, selective search for generating proposals was a bottleneck.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Faster R-CNN embeds proposal generation inside the network.",
+      "salience": "core"
+    },
+    {
+      "text": "Faster R-CNN adds a separate Region Proposal Network (RPN).",
+      "salience": "core"
+    },
+    {
+      "text": "The RPN evaluates each possibility from a set of predefined anchor boxes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Faster R-CNN was a very strong detector.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Faster R-CNN was the best across all evaluation metrics on Pascal VOC 2007 and 2012 at the time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Faster R-CNN is still relevant today.",
+      "salience": "supporting"
+    },
+    {
+      "text": "YOLO detects both bounding boxes and object classes in a single pass.",
+      "salience": "core"
+    },
+    {
+      "text": "In YOLO, the image is split into an $S \\times S$ grid.",
+      "salience": "core"
+    },
+    {
+      "text": "In YOLO, each grid cell predicts bounding boxes and class probabilities.",
+      "salience": "core"
+    },
+    {
+      "text": "In the original YOLO, the predictions are combined as $p(\\text{class}_i \\mid \\text{obj}) \\cdot p(\\text{obj}) \\cdot \\text{IOU}_{\\text{bbox}}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In later refinements of YOLO, the combined score simplifies to $p(\\text{class}_i) \\cdot \\text{IOU}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The output tensor in YOLO has size $S \\times S \\times (5B + C)$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Each bounding box prediction in YOLO consists of $(x, y, w, h)$ and a confidence score.",
+      "salience": "supporting"
+    },
+    {
+      "text": "YOLO is trained end-to-end with a single loss function.",
+      "salience": "core"
+    },
+    {
+      "text": "The YOLO loss function uses an indicator $\\mathbb{1}_{\\text{obj}}^{ij}$ which is 1 if the $j$-th bounding box predictor in cell $i$ is responsible for an object that is present.",
+      "salience": "supporting"
+    },
+    {
+      "text": "YOLO has slightly lower accuracy than Faster R-CNN.",
+      "salience": "supporting"
+    },
+    {
+      "text": "YOLO is much faster than Faster R-CNN.",
+      "salience": "supporting"
+    },
+    {
+      "text": "YOLO works out-of-the-box.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Classical object detectors (R-CNN, Faster R-CNN, YOLO, SSD) rely on hand-designed components.",
+      "salience": "core"
+    },
+    {
+      "text": "The hand-designed components include a dense grid of anchor boxes, region proposals, and non-maximum suppression (NMS) to remove duplicate predictions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In classical detectors, anchors and NMS are not learned end-to-end.",
+      "salience": "core"
+    },
+    {
+      "text": "Anchors and NMS require careful manual tuning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "NMS is a non-differentiable post-processing step bolted on after the network.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Treating object detection as a direct set prediction problem means using a Transformer to predict the whole set of objects at once, with no anchors and no NMS.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR is based on the idea of set prediction.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR opened the door to Transformer-based detectors that currently dominate the field.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR is a direct adaptation of Transformers for object detection.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR treats object detection as a set prediction task.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR uses a set-based global loss.",
+      "salience": "core"
+    },
+    {
+      "text": "The set-based global loss enforces unique predictions through bipartite matching.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR uses an encoder-decoder Transformer architecture.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR uses a conventional convolutional backbone, such as ResNet.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR flattens the features from the backbone.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR adds positional encoding to the flattened features.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The flattened and encoded features are processed by a Transformer encoder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In DETR, the decoder receives a small fixed number of learnable object queries.",
+      "salience": "core"
+    },
+    {
+      "text": "The object queries are positional embeddings that attend to the encoder output.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In DETR, a small feedforward network on top of the decoder outputs class labels and bounding boxes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The class labels include a “no object” class.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR's loss function uses a set of predictions $\\hat{y}$ of size $N$ and ground-truth objects $y$ padded with $\\varnothing$ to size $N$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The optimal permutation $\\sigma^*$ in DETR's loss is found by minimizing the sum of matching costs via the Hungarian algorithm.",
+      "salience": "core"
+    },
+    {
+      "text": "The matching cost is $-\\mathbf{1}[c_i \\neq \\varnothing] \\hat{p}_{\\sigma(i)}(c_i) + \\mathbf{1}[c_i \\neq \\varnothing] \\ell_{\\text{box}}(b_i, \\hat{b}_{\\sigma(i)})$.",
+      "salience": "core"
+    },
+    {
+      "text": "In the matching cost, $\\ell_{\\text{box}}$ combines IoU and $L_1$ losses.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The training loss in DETR is $\\sum_{i=1}^N \\left( -\\log \\hat{p}_{\\sigma^*(i)}(c_i) + \\mathbf{1}[c_i \\neq \\varnothing] \\ell_{\\text{box}}(b_i, \\hat{b}_{\\sigma(i)}) \\right)$.",
+      "salience": "core"
+    },
+    {
+      "text": "In practice, the “no object” predictions are down-weighted in the loss.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR provides good detection results.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR distributes object instances across attention heads.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In DETR, decoder attention for each object is localised to object boundaries.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR likely separates object instances via global attention in the encoder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The decoder in DETR handles class and boundary refinement.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR struggles with small objects.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR's quadratic complexity makes multi-scale detection difficult.",
+      "salience": "core"
+    },
+    {
+      "text": "Deformable DETR replaces standard self-attention with deformable attention.",
+      "salience": "core"
+    },
+    {
+      "text": "Deformable attention attends only to a few sampling points around a reference location.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deformable attention dramatically reduces complexity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deformable attention enables multi-scale feature processing.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DAB-DETR reintroduces the idea of anchor boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "In DAB-DETR, the anchor boxes are learnable.",
+      "salience": "core"
+    },
+    {
+      "text": "The anchor boxes in DAB-DETR are gradually refined from layer to layer in the decoder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In DAB-DETR, the anchor box width and height modulate cross-attention.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This modulation leads to better localised attention.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This modulation leads to faster training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "SMCA DETR modulates attention weights through spatial priors.",
+      "salience": "core"
+    },
+    {
+      "text": "In SMCA DETR, nearby locations are given higher importance based on predicted offsets relative to reference points.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Optimal bipartite matching in DETR is unstable early in training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Small weight changes can cause completely different assignments.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DN-DETR adds a training objective to reconstruct noisy ground truth boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "The noisy ground truth boxes in DN-DETR are fed via additional denoising queries.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The denoising objective in DN-DETR improves offset prediction.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Denoising queries serve as “good anchors” for learning offsets, keeping anchors closer to their targets.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO adds negative examples: anchors with large noise that have no nearby ground-truth objects.",
+      "salience": "core"
+    },
+    {
+      "text": "These negative examples force the model to reject them.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO uses mixed query selection: positional queries are initialised from encoder proposals.",
+      "salience": "core"
+    },
+    {
+      "text": "In DINO, content queries remain learnable and independent.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO introduces two-step lookahead.",
+      "salience": "core"
+    },
+    {
+      "text": "In two-step lookahead, bounding box quality depends on the current anchor and the current offset prediction.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deformable DETR blocked gradient backpropagation to stabilise training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO blocks gradients one step further, updating layer $i$ parameters based on auxiliary losses from boxes $b_i$ and $b_{i+1}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO achieves very good results with fast training using a ResNet-50 backbone.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In H-Deformable-DETR, during training, the few positive examples are copied by adding additional queries that predict the same ground truth boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "Attention masks separate query groups in H-Deformable-DETR.",
+      "salience": "supporting"
+    },
+    {
+      "text": "UP-DETR adds unsupervised pretraining.",
+      "salience": "core"
+    },
+    {
+      "text": "In UP-DETR's pretraining, a random patch is taken and DETR must predict its position and reconstruct its features.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This pretraining preserves semantics without needing classification labels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETReg uses objects or regions found by external algorithms (e.g., selective search) instead of random crops during self-supervised pretraining.",
+      "salience": "core"
+    },
+    {
+      "text": "DETReg predicts embeddings for these pseudo-objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Co-DETR attaches several auxiliary heads from other object detection models.",
+      "salience": "core"
+    },
+    {
+      "text": "These auxiliary heads introduce new positive examples through matching to improve training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A survey by Shehzadi et al. (2023) provides an overview of the DETR family of methods.",
+      "salience": "supporting"
+    }
+  ],
+  "transcript": [
+    {
+      "text": "Object detection is one of the most interesting and hardest problems in computer vision.",
+      "salience": "core"
+    },
+    {
+      "text": "Object detection's output structure is quite unusual compared to segmentation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Usually, in vision tasks, the Transformer just replaces some part of the architecture and serves as a better feature extractor, without conceptually changing the architecture.",
+      "salience": "core"
+    },
+    {
+      "text": "In segmentation, the UNet architecture from 2015 is still used; modern versions simply replace convolutional layers with self-attention layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Transformer did not make UNet obsolete.",
+      "salience": "supporting"
+    },
+    {
+      "text": "VisualBERT was one of the first more or less successful approaches to handling pictures with Transformers.",
+      "salience": "aside"
+    },
+    {
+      "text": "VisualBERT was mostly used for captioning.",
+      "salience": "aside"
+    },
+    {
+      "text": "To use VisualBERT, one would first solve object detection to obtain rectangles corresponding to objects in the image.",
+      "salience": "aside"
+    },
+    {
+      "text": "Then, one would pass the rectangles through a simple embedding layer to get a feature vector.",
+      "salience": "aside"
+    },
+    {
+      "text": "For the Transformer, it matters little whether the input came from text or images, as long as it is a sequence of vectors.",
+      "salience": "core"
+    },
+    {
+      "text": "The Transformer is great at finding internal correlations and structure among these vectors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The most striking feature of the Vision Transformer (ViT) is its simplicity.",
+      "salience": "core"
+    },
+    {
+      "text": "There is absolutely no change in the Transformer architecture in ViT just because the input is an image.",
+      "salience": "core"
+    },
+    {
+      "text": "In the original ViT paper, the authors show that they tried several ideas for positional encodings and none of them help.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ViT can simply treat the image patches as a sequence and use standard positional encodings from text Transformers.",
+      "salience": "core"
+    },
+    {
+      "text": "ViT revolutionized computer vision and image processing.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers extract better, more semantically rich features compared to convolutional networks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In many applications, one can replace a convolutional network with ViT, reuse the same top layers, and achieve better performance.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Hundreds of papers did exactly this after 2020.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ViT and any Transformer have quadratic complexity.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention weights form a token-by-token matrix of size L×L, where L is the input length.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ViT’s complexity is quadratic in the number of patches.",
+      "salience": "core"
+    },
+    {
+      "text": "If the image has height h, width w, and k×k patches, the number of patches is (h/k)(w/k), and the attention matrix scales as the square of that number.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ViT cannot go down to the level of individual pixels because a million pixels squared is too heavy.",
+      "salience": "core"
+    },
+    {
+      "text": "ViT must use relatively big patches, which makes it hard to capture small details.",
+      "salience": "core"
+    },
+    {
+      "text": "In object detection, if a small object like a cat is entirely inside one patch or on the boundary, details get lost when flattening patches into vectors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "There is no correct patch size: too big loses detail, too small is computationally infeasible.",
+      "salience": "core"
+    },
+    {
+      "text": "The Swin Transformer is one of the most popular backbones today, alongside ViT.",
+      "salience": "core"
+    },
+    {
+      "text": "Swin stands for shifted windows.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Swin Transformer breaks down the image into parts and processes each part with patches.",
+      "salience": "core"
+    },
+    {
+      "text": "Dividing into smaller windows significantly reduces computation because complexity is quadratic in the number of patches.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For example, a 2×2 grid of windows, each with a 3×3 patch grid, yields a local complexity of 9², 6², etc., summing to a few hundred, whereas a 25×25 patch grid would cost 25².",
+      "salience": "supporting"
+    },
+    {
+      "text": "Quadratic complexity in Swin becomes effectively linear in the total size, quadratic only in the window size.",
+      "salience": "core"
+    },
+    {
+      "text": "Swin uses a hierarchical structure: first cut the large image into small pieces (e.g., a 4×4 grid), process each part with a ViT, then combine them, process again, and finally process globally with ViT layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The SWIN transformer deals with 16 tokens at the input (4×4 grids).",
+      "salience": "supporting"
+    },
+    {
+      "text": "In three steps, SWIN goes from a 16×16 image to a 4×4 image, which is then compressed into features or a single vector.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Shifted windows addresses the problem that when looking at small parts of an image, global context is often needed to understand what is happening.",
+      "salience": "core"
+    },
+    {
+      "text": "For example, a small patch showing a vehicle could be a car on a highway or a boat in a lagoon; without global context, classification is ambiguous.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Shifted windows expands the receptive field by shifting the grid of windows between self-attention layers.",
+      "salience": "core"
+    },
+    {
+      "text": "On one layer there is a regular grid of patches; on the next layer, the grid is shifted by half the patch size, but the transformer sees the same input size with different subsets of features.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Doing this after every layer expands the receptive field of the patches.",
+      "salience": "core"
+    },
+    {
+      "text": "A patch that originally saw a small part of the image will, after two layers, collect information from a much larger area because each shifted window aggregates features from adjacent patches.",
+      "salience": "supporting"
+    },
+    {
+      "text": "At the edges, shifting the grid causes patches near the image borders to be incomplete squares.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To handle edges, Swin rolls the image into a torus: leftover edge pieces are paired with complementary pieces so that every window remains complete.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This torus handling only affects the edges and ultimately does not matter much, but it is a lot of hassle.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Implementing a 3D SWIN transformer with shifted cubes resulted in convoluted code with many hard-coded shifts and constants.",
+      "salience": "aside"
+    },
+    {
+      "text": "Both the SWIN transformer and the ViT can serve as good backbones.",
+      "salience": "core"
+    },
+    {
+      "text": "A backbone is the largest part of the network that does feature extraction.",
+      "salience": "core"
+    },
+    {
+      "text": "By default, the ViT is trained on classification: it extracts features, collects them into a single vector at the end, and does global reasoning about the whole image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Object detection requires mapping outputs to specific pixels, which is more difficult than global classification.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Object detection involves an image that may contain multiple objects, and for each object you must output the class label and a bounding box.",
+      "salience": "core"
+    },
+    {
+      "text": "A bounding box is the rectangle identifying an object's location, usually abbreviated BBox.",
+      "salience": "core"
+    },
+    {
+      "text": "Bounding boxes can overlap in any way.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A bounding box is formalized by four numbers: typically x, y for one corner (e.g., bottom-left) and width and height.",
+      "salience": "core"
+    },
+    {
+      "text": "A neural network must produce multiple outputs for object detection—one per object.",
+      "salience": "core"
+    },
+    {
+      "text": "For each object, the output includes a probability distribution over classes and the four bounding-box numbers.",
+      "salience": "core"
+    },
+    {
+      "text": "A neural network cannot have a variable number of outputs; the total number of outputs must be fixed.",
+      "salience": "core"
+    },
+    {
+      "text": "If we knew the exact number of objects, the output size would be known, but we do not know the number of objects in advance.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The number of objects in an image can range from a few to hundreds, and it is never known in advance.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To handle variable object counts, we fix a maximal number of objects we expect and provide that many output slots.",
+      "salience": "core"
+    },
+    {
+      "text": "When there are fewer objects than the maximum slots, we need a way to mark unused outputs as irrelevant.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The usual fix is to add a confidence output—a probability between zero and one—indicating how sure we are that an object exists in a given slot.",
+      "salience": "core"
+    },
+    {
+      "text": "Each output slot consists of a confidence, a class label, and a bounding box.",
+      "salience": "core"
+    },
+    {
+      "text": "With two real objects, the desired output is confidence one for those slots and zero for all others.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A loss function is needed to compare the network's fixed-size output to the ground-truth objects.",
+      "salience": "core"
+    },
+    {
+      "text": "The ground-truth consists of objects, each with a class and bounding box.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Objects have no natural order, so the network should not be forced to assign specific slots to specific objects; it only matters that real objects appear somewhere with high confidence and other slots have low confidence.",
+      "salience": "core"
+    },
+    {
+      "text": "This requires a matching between the ground-truth set and the predicted slots, which is an assignment problem.",
+      "salience": "core"
+    },
+    {
+      "text": "By padding the ground truth with “no object” labels up to the fixed number of slots, we can find a bipartite matching that minimizes a cost.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Hungarian algorithm computes this one-to-one matching, assigning each ground-truth box to the best predictor.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The loss function usually has three components: confidence loss, classification loss, and bounding box loss.",
+      "salience": "core"
+    },
+    {
+      "text": "For the confidence loss, confidence should be one for real objects and zero otherwise, typically implemented as log-loss.",
+      "salience": "core"
+    },
+    {
+      "text": "Log-loss uses -log(confidence) for present objects and -log(1-confidence) for absent objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The classification loss is applied only when an object is present and is the cross-entropy between the predicted class distribution and the ground-truth class.",
+      "salience": "core"
+    },
+    {
+      "text": "The bounding box loss is applied only when an object is present and compares the predicted box coordinates to the true rectangle.",
+      "salience": "core"
+    },
+    {
+      "text": "Coordinate-based losses treat large and small objects very differently.",
+      "salience": "core"
+    },
+    {
+      "text": "For a large object, a moderate coordinate error still yields a lot of overlap and an acceptable prediction.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a very small object, the same coordinate error can produce zero overlap, making the prediction terrible even though the numerical loss value is similar.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We want the loss to respect perceptual quality and penalize small-object mistakes more.",
+      "salience": "core"
+    },
+    {
+      "text": "Some approaches, including the original YOLO, simply accept a coordinate loss.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A more common solution for bounding box loss is to use a loss based on the Intersection over Union (IoU) metric.",
+      "salience": "core"
+    },
+    {
+      "text": "IoU between two boxes is the area of their intersection divided by the area of their union.",
+      "salience": "core"
+    },
+    {
+      "text": "For the large object, IoU might be 0.6–0.7 (a good match); for the non‑overlapping small object, IoU is exactly zero.",
+      "salience": "supporting"
+    },
+    {
+      "text": "IoU is the default metric for measuring box suitability.",
+      "salience": "core"
+    },
+    {
+      "text": "IoU is differentiable when the boxes overlap, giving meaningful gradients because small coordinate changes cause small IoU changes.",
+      "salience": "core"
+    },
+    {
+      "text": "When boxes are disjoint, IoU stays zero and the gradient vanishes, providing no learning signal.",
+      "salience": "core"
+    },
+    {
+      "text": "Generalized IoU (GIoU) was introduced to provide a useful gradient even without overlap.",
+      "salience": "core"
+    },
+    {
+      "text": "The GIoU loss function computes the percentage of the joint bounding box not covered by both predicted and ground-truth boxes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Moving predictions in the right direction shrinks the joint box and increases the overlap percentage.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Architectures come and go, but loss functions are separate objects that only require gradients to flow through.",
+      "salience": "core"
+    },
+    {
+      "text": "Loss functions evolve independently, with dedicated lines of work optimizing losses and architectures separately.",
+      "salience": "core"
+    },
+    {
+      "text": "After finding the best assignment between ground-truth and predicted boxes, one must decide which predictions correspond to actual objects.",
+      "salience": "core"
+    },
+    {
+      "text": "For a predicted box overlapping a cat, the desired outcome is either to make it the cat box with confidence 1 or treat it as spurious with confidence 0.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In a typical image with few objects, most of the many output boxes should have low confidence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In practice, this is done with an IoU threshold (e.g., 0.5): predictions above the threshold are counted as ground-truth objects, while those below are ignored.",
+      "salience": "core"
+    },
+    {
+      "text": "For clear, easy objects, a detection network often produces multiple bounding boxes around the same object.",
+      "salience": "supporting"
+    },
+    {
+      "text": "At inference time, multiple hypotheses around the same object must be merged into a single box.",
+      "salience": "core"
+    },
+    {
+      "text": "The standard merging method is non-maximum suppression (NMS), used only at inference; during training, only the best matching is performed.",
+      "salience": "core"
+    },
+    {
+      "text": "The first successful deep learning approach for object detection emerged in 2014 after AlexNet, called R-CNN by Ross Girshick.",
+      "salience": "core"
+    },
+    {
+      "text": "R-CNN used an external algorithm, selective search, to generate class-agnostic candidate bounding boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "In R-CNN, each proposed box was warped into a square and passed through a CNN pre-trained on ImageNet to predict its class.",
+      "salience": "core"
+    },
+    {
+      "text": "The R-CNN classification CNN always assumed the presence of an object and could not explicitly reject background.",
+      "salience": "core"
+    },
+    {
+      "text": "The geometric warping in R-CNN to resize proposals was crude.",
+      "salience": "core"
+    },
+    {
+      "text": "R-CNN had a third step that took the CNN outputs and passed them through a separate model to classify whether each proposal was a real object.",
+      "salience": "core"
+    },
+    {
+      "text": "R-CNN was fragile but the best at the time, running at about a minute per image on a GPU.",
+      "salience": "core"
+    },
+    {
+      "text": "All the ideas of two-stage object detection are already present in the original R-CNN architecture.",
+      "salience": "core"
+    },
+    {
+      "text": "The core idea of two-stage object detection is to use a backbone network to extract features from a specific part of the input.",
+      "salience": "core"
+    },
+    {
+      "text": "In R-CNN, candidate bounding boxes come from an external algorithm, providing a relatively small set of proposals.",
+      "salience": "core"
+    },
+    {
+      "text": "Each candidate bounding box is processed through a CNN to extract features and classify its content.",
+      "salience": "core"
+    },
+    {
+      "text": "Processing every bounding box completely independently is very slow.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN required running the CNN forward pass 2,000 times per image, making it impractical.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Fast R-CNN processes the whole image only once.",
+      "salience": "core"
+    },
+    {
+      "text": "Fast R-CNN runs the image through a convolutional network but stops earlier than the final classification layer to preserve spatial geometry in the feature tensor.",
+      "salience": "core"
+    },
+    {
+      "text": "Candidate bounding boxes are projected onto the feature tensor using a non-trainable region-of-interest (ROI) projection that maps each box to a corresponding spatial region in the feature map.",
+      "salience": "core"
+    },
+    {
+      "text": "From each projected ROI, a small detection head containing a classifier and a bounding box regressor is run.",
+      "salience": "core"
+    },
+    {
+      "text": "The bounding box regressor can refine the proposal boxes and is trainable because ground truth is available.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Fast R-CNN is orders of magnitude faster than R-CNN because the heavy backbone is run only once and only the tiny detection head is applied per proposal.",
+      "salience": "core"
+    },
+    {
+      "text": "A technical challenge in Fast R-CNN is that different proposals have different sizes, while the detection head expects a fixed-size input.",
+      "salience": "core"
+    },
+    {
+      "text": "This challenge is solved by ROI pooling.",
+      "salience": "core"
+    },
+    {
+      "text": "ROI pooling works by dividing the feature map region into a fixed number of sub-windows and max-pooling within each sub-window.",
+      "salience": "core"
+    },
+    {
+      "text": "ROI pooling normalizes the input size and became a standard building block for object detectors.",
+      "salience": "core"
+    },
+    {
+      "text": "In Fast R-CNN, the remaining bottleneck was the external algorithm that generated candidate boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "Faster R-CNN moves proposal generation inside the network via a region proposal network (RPN).",
+      "salience": "core"
+    },
+    {
+      "text": "The RPN operates on the same feature map by sliding a small window and directly predicting plausible bounding boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "The RPN outputs a few hundred top proposals, which are then processed by ROI pooling and the detection head for classification and refinement.",
+      "salience": "core"
+    },
+    {
+      "text": "Faster R-CNN is a two-stage detector where proposals come from a learned component (the RPN).",
+      "salience": "core"
+    },
+    {
+      "text": "Faster R-CNN became the standard object detection approach for many years, until Transformers reshaped the field.",
+      "salience": "core"
+    },
+    {
+      "text": "In Faster R-CNN, you can plug in a better backbone without changing the rest of the pipeline to immediately get a better object detector.",
+      "salience": "core"
+    },
+    {
+      "text": "Two-stage detection is accurate but relatively slow, and it illustrates key principles of object detection.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Object detection architectures are meta-architectures where a neural network extracts features and performs region proposals, while the detection heads are basically fixed.",
+      "salience": "core"
+    },
+    {
+      "text": "The feature extractor can be swapped out, and whenever a better feature extractor appears, object detection improves for free.",
+      "salience": "core"
+    },
+    {
+      "text": "One-stage object detection processes the image in a single pass.",
+      "salience": "core"
+    },
+    {
+      "text": "In two-stage detection, you first generate proposals, rank them, and apply heavy processing only to the top proposals.",
+      "salience": "core"
+    },
+    {
+      "text": "In one-stage detection, you evaluate a set of candidate bounding boxes directly, but you cannot consider every possible rectangle because it would be quadratic in pixels.",
+      "salience": "core"
+    },
+    {
+      "text": "Instead, one-stage detectors sample reasonable candidate bounding boxes at a fixed granularity.",
+      "salience": "core"
+    },
+    {
+      "text": "The YOLO family best exemplifies one-stage detection with sampling at fixed granularity.",
+      "salience": "core"
+    },
+    {
+      "text": "The YOLO family uses a single neural architecture that takes an image, evaluates many candidates in parallel, outputs results, and then ranks them to keep the top predictions.",
+      "salience": "core"
+    },
+    {
+      "text": "The original YOLO was followed by YOLOv2, YOLO9000, and YOLOv3.",
+      "salience": "supporting"
+    },
+    {
+      "text": "YOLO9000 handled many classes and introduced hierarchical softmax.",
+      "salience": "supporting"
+    },
+    {
+      "text": "YOLO architectures improve through many small tweaks that each add a few percent to accuracy, collectively yielding a large overall gain.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The central problem of object detection is detecting small objects.",
+      "salience": "core"
+    },
+    {
+      "text": "A large object is easily recognized by any architecture.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Detecting small objects exposes a fundamental trade-off.",
+      "salience": "core"
+    },
+    {
+      "text": "In a CNN-based detector, you stop at some intermediate feature map.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If you stop too late, the feature grid is coarse, and a small object may lie entirely inside one feature vector, losing its information.",
+      "salience": "core"
+    },
+    {
+      "text": "If you stop too early, the grid is fine enough to detect small objects, but then you must search over a huge number of candidate boxes, which is computationally infeasible.",
+      "salience": "core"
+    },
+    {
+      "text": "If you restrict fine-scale detection to only small objects, the quadratic complexity disappears.",
+      "salience": "core"
+    },
+    {
+      "text": "Multi-stage object detection uses early CNN layers for small objects, later layers for medium objects, and final layers for large objects.",
+      "salience": "core"
+    },
+    {
+      "text": "The three scales respectively detect large, medium, and small objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Small objects still need global context to be recognized reliably.",
+      "salience": "core"
+    },
+    {
+      "text": "One of the most fruitful ideas after Faster R-CNN was the Feature Pyramid Network (FPN).",
+      "salience": "core"
+    },
+    {
+      "text": "FPN takes a bottom-up CNN pathway for multi-scale detection and adds top-down connections that fuse features from coarser scales into finer scales.",
+      "salience": "core"
+    },
+    {
+      "text": "In FPN, features from the coarsest scale are copied and fused with medium-scale features, which are then fused with fine-scale features.",
+      "salience": "core"
+    },
+    {
+      "text": "This injects global context into the fine-scale detector, greatly improving small-object detection.",
+      "salience": "core"
+    },
+    {
+      "text": "FPN gave the network the ability to capture global context and became highly influential.",
+      "salience": "core"
+    },
+    {
+      "text": "Many subsequent works explored multi-scale, multi-stage object detection.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The EfficientNet family used neural architecture search to find efficient backbones for object detection.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Another family of works searched for optimal post-processing, experimenting with bidirectional feature flow and skip connections.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The appearance of Vision Transformers (ViT) prompted the question whether transformers could simplify object detection.",
+      "salience": "core"
+    },
+    {
+      "text": "The lesson of transformers is that often a single excellent architecture can handle a problem if we just let it learn.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers can handle object detection, leading to a family of transformer-based approaches.",
+      "salience": "core"
+    },
+    {
+      "text": "The first architecture in this direction is DETR (Detection Transformer).",
+      "salience": "core"
+    },
+    {
+      "text": "DETR uses a CNN backbone to extract image features, adds positional encodings, and feeds the resulting sequence of vectors into a transformer encoder.",
+      "salience": "core"
+    },
+    {
+      "text": "In DETR, the transformer encoder processes features, and detection happens in the decoder, which is a full encoder-decoder transformer.",
+      "salience": "core"
+    },
+    {
+      "text": "The DETR decoder takes a fixed set of object queries (trained vectors or fixed random ones) and passes them through self-attention and cross-attention with encoder outputs.",
+      "salience": "core"
+    },
+    {
+      "text": "Each output vector from the DETR decoder is sent to a detection head for classification and bounding box regression.",
+      "salience": "core"
+    },
+    {
+      "text": "In DETR, the number of detected objects equals the number of object queries (typically around 100), and most queries learn to output very low confidence.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR queries specialize by location rather than class, and because they interact via self-attention, they do not duplicate detections, removing the need for non-maximum suppression.",
+      "salience": "core"
+    },
+    {
+      "text": "A major limitation of DETR is its single-scale operation: the CNN backbone produces one feature map, and small objects lost during downsampling cannot be recovered.",
+      "salience": "core"
+    },
+    {
+      "text": "Visualizations show that DETR's decoder attention localizes on object boundaries and separates objects cleanly, but the single scale hampers small-object detection.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deformable DETR addresses the limitations of standard DETR.",
+      "salience": "core"
+    },
+    {
+      "text": "Deformable DETR runs on multiple feature scales, like earlier multi-scale methods.",
+      "salience": "core"
+    },
+    {
+      "text": "Deformable DETR introduces deformable attention.",
+      "salience": "core"
+    },
+    {
+      "text": "In standard DETR, attention concentrates on object boundaries.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deformable attention avoids the quadratic complexity of global attention.",
+      "salience": "core"
+    },
+    {
+      "text": "Deformable attention works by having each attention head look at a small, learned set of positions on the image.",
+      "salience": "core"
+    },
+    {
+      "text": "The learned positions are trained jointly with the rest of the network.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deformable attention allows the transformer to process fine, multi-scale feature maps efficiently without prohibitive cost.",
+      "salience": "core"
+    },
+    {
+      "text": "Deformable DETR reduces attention to a small subset of the input tokens.",
+      "salience": "core"
+    },
+    {
+      "text": "Subsequent research on DETR variants focused on improving the object queries.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In standard DETR, object queries tend to specialize, with predicted boxes separating over the input image on average.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The specialization learning of object queries happens slowly and is unstable.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The separation of object query predictions does not appear difficult to produce from the start of training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The next research step used the idea of taking a grid or sampling random points to initialize object queries.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deformable DETR and Dynamic Anchor Box DETR use anchor boxes as object queries.",
+      "salience": "core"
+    },
+    {
+      "text": "In anchor-based DETR variants, object queries are initialized as bounding boxes with coordinates (X, Y, H, W) rather than abstract vectors.",
+      "salience": "core"
+    },
+    {
+      "text": "Anchor box initialization allows object queries to be separate from the beginning of training.",
+      "salience": "core"
+    },
+    {
+      "text": "Anchor-based object queries provide clear semantics between decoder layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Anchor-based object queries enable smarter refinement across decoder layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Anchor-based initialization yields better object queries and better anchors in less training time.",
+      "salience": "core"
+    },
+    {
+      "text": "Currently, the best object detectors include DINO, its modifications, and Deformable DETR.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO, Deformable DETR, and similar architectures share the basic idea of the original DETR.",
+      "salience": "core"
+    },
+    {
+      "text": "In the original DETR paradigm, queries representing objects or bounding boxes are inputs to a transformer decoder.",
+      "salience": "core"
+    },
+    {
+      "text": "The transformer decoder fills the object queries with content based on the image.",
+      "salience": "core"
+    },
+    {
+      "text": "There is a large body of research on DETR variants with many results and architectures.",
+      "salience": "aside"
+    }
+  ],
+  "summary": [
+    {
+      "text": "Transformers were originally designed for sequences.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Transformers have been successfully adapted to images.",
+      "salience": "core"
+    },
+    {
+      "text": "An image can be treated as a sequence of patches.",
+      "salience": "core"
+    },
+    {
+      "text": "Treating an image as a sequence of patches allows a Transformer to process visual information without fundamental architectural changes.",
+      "salience": "core"
+    },
+    {
+      "text": "VisualBERT was one of the earliest attempts to jointly model images and text with a Transformer.",
+      "salience": "core"
+    },
+    {
+      "text": "VisualBERT addresses tasks like image captioning by combining text tokens with object queries extracted from the image.",
+      "salience": "core"
+    },
+    {
+      "text": "The VisualBERT approach relies on a pretrained object detector (e.g., Faster R-CNN) to crop out objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The cropped objects are embedded into vectors via CNNs with special positional embeddings.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The embedded vectors are fed together with the caption words into a single Transformer.",
+      "salience": "core"
+    },
+    {
+      "text": "Pretraining of VisualBERT uses masked language modeling and a sentence-image prediction task.",
+      "salience": "core"
+    },
+    {
+      "text": "The sentence-image prediction task involves classifying whether a given caption matches the image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Attention heads in VisualBERT show clear alignment between words and the corresponding visual objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Vision Transformer (ViT) (Dosovitsky et al., 2020) applies the Transformer directly to images without any text input.",
+      "salience": "core"
+    },
+    {
+      "text": "ViT is essentially BERT but with image patches instead of word tokens.",
+      "salience": "core"
+    },
+    {
+      "text": "ViT keeps the standard Transformer architecture entirely unchanged.",
+      "salience": "core"
+    },
+    {
+      "text": "An input image $x \\in \\mathbb{R}^{H \\times W \\times C}$ is cut into $P \\times P$ patches.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This produces a sequence of $N = HW/P^2$ flattened tokens $x_p \\in \\mathbb{R}^{N \\times P^2 \\times C}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Patches are linearly projected to embeddings.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The embeddings are concatenated with a learnable `[class]` token.",
+      "salience": "core"
+    },
+    {
+      "text": "Positional encodings (the same absolute encodings as in the original Transformer) are added.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The sequence is fed into a standard Transformer encoder.",
+      "salience": "core"
+    },
+    {
+      "text": "Pretraining of ViT is performed via masked patch modeling.",
+      "salience": "core"
+    },
+    {
+      "text": "Masked patch modeling replaces a random subset of patches with a learnable `[mask]` embedding and the model must reconstruct them.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Despite the two-dimensional structure of an image, experiments showed no benefit from using 2D positional encodings for ViT.",
+      "salience": "core"
+    },
+    {
+      "text": "Simple sequence-like positional encodings work just as well as 2D positional encodings for ViT.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ViT revolutionized computer vision because its self-attention extracts semantically richer features than convolutional networks.",
+      "salience": "core"
+    },
+    {
+      "text": "In many applications, replacing a CNN backbone with a ViT backbone while keeping the top layers unchanged leads to immediate improvements.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The main limitation of ViT is the quadratic complexity of self-attention.",
+      "salience": "core"
+    },
+    {
+      "text": "The attention map of ViT is an $L \\times L$ matrix, where $L = N$ is the number of patches.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The number of patches grows as $(h/k)(w/k)$ for patch size $k \\times k$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Handling high-resolution details becomes infeasible due to the quadratic complexity.",
+      "salience": "core"
+    },
+    {
+      "text": "For a $1000 \\times 1000$ image with $16 \\times 16$ patches, the number of tokens is approximately $62 \\times 62 \\approx 3844$, and the attention matrix has about 15 million entries.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With $4 \\times 4$ patches on the same image, the number of tokens would be $250 \\times 250 = 62500$, and the attention matrix would have about 4 billion entries.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ViTs are forced to use relatively large patches, losing fine details.",
+      "salience": "core"
+    },
+    {
+      "text": "The loss of fine details is especially problematic for detecting small objects.",
+      "salience": "core"
+    },
+    {
+      "text": "This trade-off sparked research into hierarchical and window-based transformers.",
+      "salience": "core"
+    },
+    {
+      "text": "The Swin Transformer (Liu et al., 2021) addresses the quadratic cost by restricting self-attention to local windows.",
+      "salience": "core"
+    },
+    {
+      "text": "Swin Transformer builds a hierarchical pyramid of features, similar to classical CNN backbones.",
+      "salience": "core"
+    },
+    {
+      "text": "In Swin Transformer, the image is partitioned into a grid of non-overlapping windows (e.g., $4 \\times 4$ patches per window).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Self-attention is computed only within each window.",
+      "salience": "core"
+    },
+    {
+      "text": "This reduces the complexity from $O(N^2)$ to $O(W^2)$, where $W$ is the window size.",
+      "salience": "core"
+    },
+    {
+      "text": "The overall cost becomes linear in the number of patches.",
+      "salience": "core"
+    },
+    {
+      "text": "In Swin Transformer, early stages work on small windows, later stages merge adjacent windows to form coarser feature maps, eventually producing a global representation.",
+      "salience": "core"
+    },
+    {
+      "text": "The multi-scale structure allows the model to handle varying object sizes.",
+      "salience": "core"
+    },
+    {
+      "text": "Between consecutive layers in Swin Transformer, the window grid is shifted by half the window size (shifted windows).",
+      "salience": "core"
+    },
+    {
+      "text": "Shifted windows expand the receptive field without increasing computational cost.",
+      "salience": "core"
+    },
+    {
+      "text": "A patch that initially only sees a small region gradually aggregates context from a much larger area after a few layers due to shifted windows.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Shifting the window grid creates a boundary problem near image edges, where windows are no longer regular rectangles.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The solution in Swin Transformer is to 'roll' the image into a torus, pairing leftover edge pieces so that every window remains complete.",
+      "salience": "core"
+    },
+    {
+      "text": "This boundary handling is implementationally messy.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It is only a minor edge effect and does not impact performance.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Swin Transformer can scale to very large resolutions (up to $1536 \\times 1536$ with Swin v2, 3 B parameters).",
+      "salience": "core"
+    },
+    {
+      "text": "The Swin Transformer has become one of the most popular backbones for dense prediction tasks such as object detection and segmentation.",
+      "salience": "core"
+    },
+    {
+      "text": "DeepMind’s Perceiver (Jaegle et al., 2021a) is a general-purpose architecture that processes many modalities (images, point clouds, audio, video) without modality-specific encoders.",
+      "salience": "core"
+    },
+    {
+      "text": "Perceiver uses a small set of latent vectors as queries that attend to a large array of input bytes (keys and values) to avoid the quadratic bottleneck.",
+      "salience": "core"
+    },
+    {
+      "text": "This allows attention to operate at the level of individual pixels, even for high-resolution inputs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Perceiver IO (Jaegle et al., 2021b) extends the Perceiver architecture to produce high-dimensional structured outputs.",
+      "salience": "core"
+    },
+    {
+      "text": "Perceiver IO handles tasks such as optical flow, multi-task language understanding, and StarCraft II.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In Perceiver IO, output queries can be constructed using position coordinates and other properties, enabling the model to produce dense outputs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Object detection is the task of identifying objects in an image and localizing them with bounding boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "Classification only produces a single class label per image.",
+      "salience": "core"
+    },
+    {
+      "text": "Object detection must handle a variable number of objects.",
+      "salience": "core"
+    },
+    {
+      "text": "Each object in detection has a class label and four box coordinates.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A bounding box is defined by four numbers: typically the coordinates of one corner (e.g., bottom-left) and the width and height.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Each object output consists of a probability distribution over classes and a bounding box vector.",
+      "salience": "core"
+    },
+    {
+      "text": "The object detection network must have a fixed number of outputs.",
+      "salience": "core"
+    },
+    {
+      "text": "Since we do not know in advance how many objects are present, we fix a maximal number of slots (say 100).",
+      "salience": "core"
+    },
+    {
+      "text": "Each slot produces a confidence score, a class prediction, and a bounding box.",
+      "salience": "core"
+    },
+    {
+      "text": "The confidence score is the probability that an object exists in that slot.",
+      "salience": "supporting"
+    },
+    {
+      "text": "At inference, slots with high confidence are kept and the rest are discarded.",
+      "salience": "core"
+    },
+    {
+      "text": "Training an object detector requires comparing the network’s fixed-size set of predictions to the ground-truth set of objects.",
+      "salience": "core"
+    },
+    {
+      "text": "Because objects have no natural order, we cannot simply align output slot i with ground-truth object i.",
+      "salience": "core"
+    },
+    {
+      "text": "Instead, we solve an assignment problem.",
+      "salience": "core"
+    },
+    {
+      "text": "The set of ground-truth objects is padded with 'no object' ($\\varnothing$) labels up to the fixed number of output slots N.",
+      "salience": "core"
+    },
+    {
+      "text": "A one-to-one matching is found between the padded ground-truth and the predictions that minimizes a total matching cost.",
+      "salience": "core"
+    },
+    {
+      "text": "The matching problem is a bipartite matching problem.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Hungarian algorithm provides the optimal permutation for the matching.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Once the matching $\\sigma^*$ is determined, a training loss is computed over the matched pairs.",
+      "salience": "core"
+    },
+    {
+      "text": "The overall training loss has three components: confidence loss, classification loss, and bounding box loss.",
+      "salience": "core"
+    },
+    {
+      "text": "Confidence loss is a binary cross-entropy loss that encourages confidence to be 1 for slots matched to real objects and 0 for slots matched to $\\varnothing$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Classification loss is cross-entropy between the predicted class distribution and the true class, applied only to slots matched to a real object.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Bounding box loss measures the discrepancy between predicted and ground-truth box coordinates, again only for matched objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A naive coordinate loss (e.g., L2 on x, y, w, h) treats large and small objects equally.",
+      "salience": "core"
+    },
+    {
+      "text": "For a large object, a moderate coordinate error still yields a decent overlap.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a small object, the same coordinate error can result in zero overlap.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The numerical loss may be similar for large and small objects despite different overlap qualities.",
+      "salience": "core"
+    },
+    {
+      "text": "To better reflect perceptual quality, modern detectors use Intersection over Union (IoU).",
+      "salience": "core"
+    },
+    {
+      "text": "IoU is defined as area of intersection over area of union.",
+      "salience": "core"
+    },
+    {
+      "text": "IoU is differentiable when boxes overlap, providing meaningful gradients.",
+      "salience": "core"
+    },
+    {
+      "text": "When boxes are disjoint, IoU is 0 and its gradient vanishes, halting learning.",
+      "salience": "core"
+    },
+    {
+      "text": "Many detectors use Generalized IoU (GIoU) to address vanishing gradient in disjoint boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "GIoU extends the metric to non-overlapping boxes and yields a gradient even when the intersection is zero.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The first successful deep-learning-based object detector was R-CNN (Girshick et al., 2014).",
+      "salience": "core"
+    },
+    {
+      "text": "R-CNN uses an external algorithm, selective search, to generate around 2000 class-agnostic region proposals.",
+      "salience": "core"
+    },
+    {
+      "text": "Each proposed region is warped to a fixed size and fed through a CNN to extract features.",
+      "salience": "core"
+    },
+    {
+      "text": "The CNN used in R-CNN is pretrained on ImageNet and fine-tuned on the detection dataset.",
+      "salience": "supporting"
+    },
+    {
+      "text": "An SVM classifies the features into object classes (or background).",
+      "salience": "core"
+    },
+    {
+      "text": "A bounding box regressor refines the box coordinates.",
+      "salience": "core"
+    },
+    {
+      "text": "R-CNN won the ILSVRC 2013 detection challenge.",
+      "salience": "supporting"
+    },
+    {
+      "text": "R-CNN was extremely slow, about 47 seconds per image on a GPU.",
+      "salience": "core"
+    },
+    {
+      "text": "The slowness was because the full CNN forward pass had to be run for every proposal independently.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Fast R-CNN (Girshick, 2014) solves the speed problem of R-CNN by sharing computation.",
+      "salience": "core"
+    },
+    {
+      "text": "In Fast R-CNN, the whole image is passed through a CNN backbone once to obtain a high-level feature map.",
+      "salience": "core"
+    },
+    {
+      "text": "For each region proposal, a small patch of the feature map is cropped via Region-of-Interest (RoI) projection, a non-trainable geometric mapping.",
+      "salience": "core"
+    },
+    {
+      "text": "Each cropped feature region is pooled to a fixed size using RoI pooling.",
+      "salience": "core"
+    },
+    {
+      "text": "In RoI pooling, the region is divided into a fixed grid (e.g., 2x2) and max-pooling is applied within each cell.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A lightweight detection head (a small neural network) classifies the pooled features and refines the bounding box.",
+      "salience": "core"
+    },
+    {
+      "text": "Fast R-CNN is roughly two orders of magnitude faster than R-CNN, with no loss of accuracy.",
+      "salience": "core"
+    },
+    {
+      "text": "The proposals in Fast R-CNN still come from the external selective search.",
+      "salience": "core"
+    },
+    {
+      "text": "The next bottleneck after Fast R-CNN was the external proposal generator.",
+      "salience": "core"
+    },
+    {
+      "text": "Faster R-CNN (Ren et al., 2015) integrates proposal generation into the network via a Region Proposal Network (RPN).",
+      "salience": "core"
+    },
+    {
+      "text": "The RPN operates on the same feature map from the backbone.",
+      "salience": "core"
+    },
+    {
+      "text": "The RPN slides a small window and predicts, for each location, a set of predefined anchor boxes along with an objectness score and rough coordinates.",
+      "salience": "core"
+    },
+    {
+      "text": "Anchor boxes are boxes of various scales and aspect ratios.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The top-scoring proposals (e.g., 300) are passed to the RoI pooling + detection head pipeline (as in Fast R-CNN).",
+      "salience": "core"
+    },
+    {
+      "text": "Faster R-CNN makes the entire detector trainable end-to-end.",
+      "salience": "core"
+    },
+    {
+      "text": "Faster R-CNN became the standard two-stage detector for years.",
+      "salience": "core"
+    },
+    {
+      "text": "Faster R-CNN's architecture exemplifies the modular separation between the backbone (feature extraction) and the detection head.",
+      "salience": "core"
+    },
+    {
+      "text": "YOLO (You Only Look Once; Redmon et al., 2016) takes a one-stage approach, performing both box proposal and classification in a single forward pass.",
+      "salience": "core"
+    },
+    {
+      "text": "In YOLO, the image is divided into an S x S grid.",
+      "salience": "core"
+    },
+    {
+      "text": "Each grid cell predicts B bounding boxes and class probabilities.",
+      "salience": "core"
+    },
+    {
+      "text": "The output is a tensor of shape S x S x (5B + C).",
+      "salience": "core"
+    },
+    {
+      "text": "Each box in YOLO has 5 components: (x, y, w, h, confidence), and C class probabilities.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The final score for a box containing a specific class is p(class_i) * IoU (originally p(class_i | obj) * p(obj) * IoU_bbox).",
+      "salience": "core"
+    },
+    {
+      "text": "Training is done with a single loss function using an indicator 1_{obj}^{ij} that specifies whether the j-th box in cell i is responsible for a given object.",
+      "salience": "core"
+    },
+    {
+      "text": "YOLO is slightly less accurate than Faster R-CNN but significantly faster and works out-of-the-box.",
+      "salience": "core"
+    },
+    {
+      "text": "The YOLO family evolved through many versions (YOLOv2, YOLO9000, YOLOv3, etc.), accumulating small improvements that collectively yield large gains.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Classical detectors (R‑CNN, Faster R‑CNN, YOLO, SSD) rely on dense grids of anchor boxes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Classical detectors rely on region proposals.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Classical detectors rely on non‑maximum suppression (NMS) to eliminate duplicate detections.",
+      "salience": "supporting"
+    },
+    {
+      "text": "NMS is a non‑differentiable post‑processing step.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Anchors require careful manual tuning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The DETR family of detectors treats object detection as a direct set prediction problem.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR (DEtection TRansformer) was introduced by Carion et al. in 2020.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR reformulates object detection as a set prediction task.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR uses a Transformer encoder‑decoder architecture.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR uses a bipartite matching loss.",
+      "salience": "core"
+    },
+    {
+      "text": "DETR learns to predict a fixed‑size set of objects.",
+      "salience": "core"
+    },
+    {
+      "text": "In DETR, a conventional CNN backbone (e.g., ResNet) extracts feature maps.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The feature maps are flattened and combined with positional encodings.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The resulting sequence is processed by a Transformer encoder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The decoder receives a small fixed number of learnable object queries.",
+      "salience": "core"
+    },
+    {
+      "text": "Object queries are vectors that act as input anchors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Object queries interact via self‑attention and cross‑attention with encoder outputs.",
+      "salience": "core"
+    },
+    {
+      "text": "Each query produces one detection (or a “no object”).",
+      "salience": "core"
+    },
+    {
+      "text": "A feed‑forward network on top of the decoder outputs class labels (including a special $\\varnothing$ class) and bounding boxes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Training of DETR relies on the Hungarian algorithm to find the optimal one‑to‑one matching between $N$ predictions and $N$ ground‑truth objects (padded with $\\varnothing$).",
+      "salience": "core"
+    },
+    {
+      "text": "In the matching cost, $\\hat{p}_{\\sigma(i)}(c_i)$ is the predicted class probability for the true class $c_i$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "$\\ell_{\\text{box}}$ combines $L_1$ and GIoU losses.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The final training loss is the sum over matched pairs of negative log‑likelihood for the class and the bounding box loss for non‑empty objects.",
+      "salience": "core"
+    },
+    {
+      "text": "“no object” predictions are down‑weighted by a factor (e.g., 0.1) to balance the loss.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Object queries in DETR naturally avoid predicting the same object multiple times due to self‑attention interaction.",
+      "salience": "core"
+    },
+    {
+      "text": "No non‑maximum suppression is needed in DETR.",
+      "salience": "core"
+    },
+    {
+      "text": "Visualizations show that each query tends to specialise on a particular location.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Decoder attention localises around object boundaries.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR operates on a single feature map scale.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This makes DETR weak at detecting small objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The global attention in the encoder has quadratic complexity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This limits the use of multi‑scale feature pyramids.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deformable DETR (Zhu et al., 2021) uses multi‑scale feature maps from several backbone layers, enabling detection of objects at different sizes.",
+      "salience": "core"
+    },
+    {
+      "text": "Deformable DETR uses deformable attention.",
+      "salience": "core"
+    },
+    {
+      "text": "In deformable attention, each attention head learns to sample only a small, fixed number of points around a reference location.",
+      "salience": "core"
+    },
+    {
+      "text": "This reduces complexity from $O(N^2)$ to linear in the number of tokens.",
+      "salience": "core"
+    },
+    {
+      "text": "This makes multi‑scale processing computationally feasible.",
+      "salience": "core"
+    },
+    {
+      "text": "The sampling offsets are learned jointly with the rest of the network.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DAB‑DETR (Dynamic Anchor Box DETR; Liu et al., 2022) brings back anchor boxes but makes them learnable.",
+      "salience": "core"
+    },
+    {
+      "text": "In DAB‑DETR, anchor boxes are part of the query design.",
+      "salience": "core"
+    },
+    {
+      "text": "Each object query in DAB‑DETR is parameterised as a bounding box $(x, y, w, h)$, which is gradually refined from decoder layer to layer.",
+      "salience": "core"
+    },
+    {
+      "text": "The width and height of the anchor box modulate the cross‑attention.",
+      "salience": "core"
+    },
+    {
+      "text": "This leads to better localised attention and much faster training convergence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This turns abstract object queries into meaningful geometric entities from the start, helping the model separate queries across the image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "SMCA DETR (Spatially Modulated Co‑Attention; Gao et al., 2021) modulates the decoder’s cross‑attention weights by spatial priors, biasing attention towards locations close to predicted reference points, improving detection accuracy.",
+      "salience": "core"
+    },
+    {
+      "text": "Early training stages of DETR suffer from unstable bipartite matching.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Small changes in the network can cause completely different assignments in the matching.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DN‑DETR (Li et al., 2022) stabilises training by adding a denoising objective.",
+      "salience": "core"
+    },
+    {
+      "text": "In DN‑DETR, a subset of ground‑truth boxes is copied, noise is added, and they are fed as additional denoising queries.",
+      "salience": "core"
+    },
+    {
+      "text": "The denoising queries must reconstruct the original boxes.",
+      "salience": "core"
+    },
+    {
+      "text": "This provides a strong anchor signal, helping the network learn accurate offsets.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO (Zhang et al., 2022) introduces anchors far from any object as negative examples.",
+      "salience": "core"
+    },
+    {
+      "text": "Forcing the model to learn to reject these strengthens “no object” predictions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In DINO’s mixed query selection, positional parts of object queries are initialised from encoder‑generated region proposals, while content parts remain learnable.",
+      "salience": "core"
+    },
+    {
+      "text": "This provides location priors from the first layer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETR updates the box using the current anchor box and predicted offset.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO’s two‑step lookahead blocks gradient flow one additional step, updating layer $i$ parameters based on auxiliary losses from two consecutive predicted boxes ($b_i$ and $b_{i+1}$).",
+      "salience": "core"
+    },
+    {
+      "text": "This loosens the tight coupling between the anchor and offset and stabilises gradient propagation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DINO achieves strong results with fast convergence on a ResNet‑50 backbone, making it a top‑performing detector at the time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Training DETR suffers from only a few positive matches per image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "H‑Deformable‑DETR (Jia et al., 2023) duplicates positive queries.",
+      "salience": "core"
+    },
+    {
+      "text": "For each ground‑truth object, extra queries are added and matched to the same object.",
+      "salience": "core"
+    },
+    {
+      "text": "Attention masks separate the different query groups to prevent them from interfering.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Increasing the number of positive examples improves training efficiency.",
+      "salience": "supporting"
+    },
+    {
+      "text": "UP‑DETR (Dai et al., 2021) introduces unsupervised pretraining for DETR.",
+      "salience": "core"
+    },
+    {
+      "text": "During UP‑DETR pretraining, the model randomly extracts patches from an image, predicts the patch’s location, and reconstructs its features.",
+      "salience": "core"
+    },
+    {
+      "text": "This task encourages the encoder to build semantically meaningful representations without needing classification labels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DETReg (Bar et al., 2022) replaces random crops with pseudo‑objects obtained from external algorithms during self‑supervised pretraining.",
+      "salience": "core"
+    },
+    {
+      "text": "The model learns to predict embeddings for these regions, providing a better initialization.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Co‑DETR (Zong et al., 2023) attaches additional auxiliary detection heads from other object detection frameworks, which introduce new positive examples through their own matching procedures.",
+      "salience": "core"
+    },
+    {
+      "text": "This injects more training signal and improves the DETR‑style training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The DETR family has evolved rapidly, as surveyed by Shehzadi et al. (2023).",
+      "salience": "aside"
+    },
+    {
+      "text": "The core idea of the DETR family remains that a Transformer decoder processes a set of object queries to predict a set of objects, eliminating the need for hand‑designed anchor boxes and NMS.",
+      "salience": "core"
+    },
+    {
+      "text": "Subsequent works have focused on improving training stability, multi‑scale handling, query initialisation, and computational efficiency, resulting in state‑of‑the‑art detectors.",
+      "salience": "supporting"
+    }
+  ]
+}

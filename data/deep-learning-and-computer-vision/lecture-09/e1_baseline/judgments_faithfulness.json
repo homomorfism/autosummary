@@ -1,0 +1,1807 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "summary:0",
+      "text": "An autoencoder maps an input $x$ through an encoder to a low-dimensional latent code $z$, then through a decoder to a reconstruction $\\hat{x}$.",
+      "entailed": true,
+      "evidence": "transcript:26",
+      "top": [
+        "transcript:23",
+        "transcript:239",
+        "slides:22",
+        "transcript:26",
+        "transcript:21",
+        "transcript:242",
+        "transcript:214",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "summary:1",
+      "text": "Training an autoencoder minimizes a reconstruction loss between the input $x$ and its reconstruction $\\hat{x}$.",
+      "entailed": true,
+      "evidence": "transcript:97",
+      "top": [
+        "transcript:242",
+        "transcript:214",
+        "transcript:21",
+        "transcript:215",
+        "transcript:74",
+        "transcript:250",
+        "transcript:97",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "summary:2",
+      "text": "Autoencoder training uses only unlabelled data.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:35",
+        "transcript:235",
+        "transcript:27",
+        "slides:19",
+        "transcript:20",
+        "transcript:49",
+        "transcript:21",
+        "transcript:23"
+      ]
+    },
+    {
+      "claim": "summary:3",
+      "text": "In autoencoder training, each $x$ is its own target.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "transcript:21",
+        "transcript:22",
+        "transcript:23",
+        "transcript:27",
+        "transcript:111",
+        "transcript:235",
+        "slides:22",
+        "transcript:26"
+      ]
+    },
+    {
+      "claim": "summary:4",
+      "text": "The decoder of a standard autoencoder cannot simply be used as a generative model.",
+      "entailed": true,
+      "evidence": "transcript:20",
+      "top": [
+        "transcript:20",
+        "slides:19",
+        "transcript:27",
+        "transcript:58",
+        "transcript:26",
+        "slides:20",
+        "transcript:235",
+        "transcript:252"
+      ]
+    },
+    {
+      "claim": "summary:5",
+      "text": "The latent codes of an autoencoder lie on a manifold that is much simpler than the original data space.",
+      "entailed": true,
+      "evidence": "transcript:40",
+      "top": [
+        "transcript:40",
+        "transcript:52",
+        "transcript:26",
+        "transcript:431",
+        "transcript:23",
+        "transcript:255",
+        "transcript:262",
+        "transcript:240"
+      ]
+    },
+    {
+      "claim": "summary:6",
+      "text": "These latent codes do not cover the whole latent space.",
+      "entailed": true,
+      "evidence": "transcript:42",
+      "top": [
+        "transcript:42",
+        "slides:18",
+        "transcript:40",
+        "transcript:52",
+        "transcript:62",
+        "transcript:255",
+        "transcript:51",
+        "transcript:44"
+      ]
+    },
+    {
+      "claim": "summary:7",
+      "text": "A randomly sampled latent code $z$ almost certainly falls outside the manifold of good latent codes.",
+      "entailed": true,
+      "evidence": "transcript:44",
+      "top": [
+        "transcript:44",
+        "transcript:64",
+        "transcript:42",
+        "transcript:52",
+        "slides:25",
+        "transcript:125",
+        "transcript:40",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "summary:8",
+      "text": "If $z$ falls outside that manifold, the decoder produces a meaningless output.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:16",
+        "transcript:118",
+        "transcript:64",
+        "transcript:244",
+        "transcript:146",
+        "slides:26",
+        "transcript:136",
+        "transcript:44"
+      ]
+    },
+    {
+      "claim": "summary:9",
+      "text": "One solution is the adversarial autoencoder, which regularizes the latent space with a discriminator, similar to a GAN.",
+      "entailed": true,
+      "evidence": "transcript:50",
+      "top": [
+        "transcript:50",
+        "transcript:51",
+        "transcript:263",
+        "transcript:46",
+        "transcript:262",
+        "transcript:94",
+        "transcript:254",
+        "transcript:56"
+      ]
+    },
+    {
+      "claim": "summary:10",
+      "text": "The variational autoencoder (VAE) takes a different approach from the adversarial autoencoder.",
+      "entailed": true,
+      "evidence": "transcript:56",
+      "top": [
+        "transcript:263",
+        "transcript:56",
+        "transcript:57",
+        "transcript:252",
+        "transcript:58",
+        "transcript:94",
+        "transcript:407",
+        "transcript:264"
+      ]
+    },
+    {
+      "claim": "summary:11",
+      "text": "The VAE approach is ultimately more successful than the adversarial autoencoder approach.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:263",
+        "transcript:56",
+        "transcript:50",
+        "transcript:49",
+        "transcript:264",
+        "transcript:46",
+        "transcript:57",
+        "transcript:53"
+      ]
+    },
+    {
+      "claim": "summary:12",
+      "text": "In a standard autoencoder, every training point $x$ maps to a single latent code $z$.",
+      "entailed": true,
+      "evidence": "transcript:61",
+      "top": [
+        "transcript:23",
+        "transcript:61",
+        "slides:22",
+        "transcript:239",
+        "slides:15",
+        "transcript:67",
+        "transcript:21",
+        "transcript:254"
+      ]
+    },
+    {
+      "claim": "summary:13",
+      "text": "Mapping each $x$ to a single $z$ causes dramatic overfitting of the latent manifold.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:64",
+        "transcript:61",
+        "transcript:44",
+        "transcript:63",
+        "transcript:52",
+        "transcript:42",
+        "transcript:40",
+        "transcript:51"
+      ]
+    },
+    {
+      "claim": "summary:14",
+      "text": "Shifting $z$ slightly causes it to fall off the manifold.",
+      "entailed": true,
+      "evidence": "transcript:64",
+      "top": [
+        "transcript:64",
+        "transcript:66",
+        "transcript:43",
+        "transcript:44",
+        "transcript:24",
+        "transcript:288",
+        "transcript:42",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "summary:15",
+      "text": "The VAE's key idea is that the encoder outputs a distribution $p(z \\mid x)$ instead of a single point.",
+      "entailed": true,
+      "evidence": "transcript:67",
+      "top": [
+        "transcript:116",
+        "transcript:129",
+        "transcript:155",
+        "transcript:117",
+        "transcript:67",
+        "slides:31",
+        "slides:26",
+        "transcript:147"
+      ]
+    },
+    {
+      "claim": "summary:16",
+      "text": "For a given input $x$, the encoder produces parameters of a Gaussian distribution.",
+      "entailed": true,
+      "evidence": "transcript:77",
+      "top": [
+        "transcript:130",
+        "transcript:73",
+        "transcript:129",
+        "transcript:77",
+        "transcript:85",
+        "transcript:154",
+        "transcript:247",
+        "transcript:147"
+      ]
+    },
+    {
+      "claim": "summary:17",
+      "text": "The parameters are a mean vector $\\mu(x)$ and a diagonal covariance matrix with vector $\\sigma(x)$.",
+      "entailed": true,
+      "evidence": "transcript:79",
+      "top": [
+        "transcript:77",
+        "transcript:79",
+        "transcript:209",
+        "transcript:80",
+        "transcript:228",
+        "transcript:73",
+        "transcript:78",
+        "slides:98"
+      ]
+    },
+    {
+      "claim": "summary:18",
+      "text": "Then a latent code $z$ is sampled from $\\mathcal N(\\mu(x), \\operatorname{diag}(\\sigma^2(x)))$.",
+      "entailed": true,
+      "evidence": "transcript:232",
+      "top": [
+        "transcript:125",
+        "slides:25",
+        "transcript:112",
+        "transcript:232",
+        "transcript:23",
+        "transcript:42",
+        "transcript:52",
+        "transcript:106"
+      ]
+    },
+    {
+      "claim": "summary:19",
+      "text": "This sampled $z$ is fed to the decoder.",
+      "entailed": true,
+      "evidence": "transcript:118",
+      "top": [
+        "transcript:118",
+        "slides:16",
+        "slides:26",
+        "transcript:244",
+        "transcript:203",
+        "transcript:136",
+        "transcript:117",
+        "transcript:129"
+      ]
+    },
+    {
+      "claim": "summary:20",
+      "text": "The decoder must still reconstruct the original input $x$.",
+      "entailed": true,
+      "evidence": "transcript:25",
+      "top": [
+        "transcript:25",
+        "transcript:119",
+        "transcript:118",
+        "transcript:120",
+        "transcript:138",
+        "transcript:22",
+        "transcript:131",
+        "slides:16"
+      ]
+    },
+    {
+      "claim": "summary:21",
+      "text": "The intuition is to cover the latent space with wide enough Gaussians that overlap, so any point sampled from a simple prior (e.g., $\\mathcal N(0,I)$) lands in a region the decoder understands.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:246",
+        "transcript:239",
+        "transcript:136",
+        "slides:16",
+        "transcript:232",
+        "transcript:141",
+        "transcript:140",
+        "transcript:121"
+      ]
+    },
+    {
+      "claim": "summary:22",
+      "text": "If left unconstrained, the VAE model will cheat.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:477",
+        "transcript:263",
+        "transcript:266",
+        "transcript:264",
+        "transcript:270",
+        "transcript:267",
+        "slides:31",
+        "transcript:333"
+      ]
+    },
+    {
+      "claim": "summary:23",
+      "text": "One cheat is driving $\\sigma \\to 0$, which collapses the model to a standard autoencoder.",
+      "entailed": true,
+      "evidence": "slides:20",
+      "top": [
+        "slides:20",
+        "transcript:20",
+        "transcript:407",
+        "transcript:84",
+        "transcript:85",
+        "slides:19",
+        "transcript:77",
+        "transcript:23"
+      ]
+    },
+    {
+      "claim": "summary:24",
+      "text": "Another cheat is pushing the means far apart while keeping $\\sigma$ fixed, which effectively keeps points isolated.",
+      "entailed": true,
+      "evidence": "transcript:91",
+      "top": [
+        "transcript:91",
+        "transcript:88",
+        "transcript:90",
+        "transcript:98",
+        "transcript:87",
+        "transcript:230",
+        "transcript:241",
+        "transcript:81"
+      ]
+    },
+    {
+      "claim": "summary:25",
+      "text": "Therefore, a regularizer must be added that keeps the encoder distributions close to a standard Gaussian $\\mathcal N(0,I)$, preventing collapse and ensuring coverage.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:85",
+        "transcript:130",
+        "transcript:84",
+        "transcript:247",
+        "transcript:242",
+        "transcript:250",
+        "transcript:129",
+        "transcript:98"
+      ]
+    },
+    {
+      "claim": "summary:26",
+      "text": "The VAE model involves two variables: data $x$ and latent $z$.",
+      "entailed": true,
+      "evidence": "transcript:110",
+      "top": [
+        "transcript:110",
+        "slides:42",
+        "transcript:267",
+        "transcript:477",
+        "transcript:263",
+        "transcript:476",
+        "transcript:270",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "summary:27",
+      "text": "The joint distribution $p(x,z)$ can be factorized as $p(z)p(x \\mid z)$.",
+      "entailed": true,
+      "evidence": "transcript:115",
+      "top": [
+        "transcript:115",
+        "transcript:114",
+        "slides:23",
+        "transcript:191",
+        "slides:35",
+        "transcript:187",
+        "transcript:179",
+        "transcript:156"
+      ]
+    },
+    {
+      "claim": "summary:28",
+      "text": "The joint distribution can also be factorized as $p(x)p(z \\mid x)$.",
+      "entailed": true,
+      "evidence": "transcript:114",
+      "top": [
+        "transcript:114",
+        "transcript:115",
+        "slides:23",
+        "transcript:191",
+        "slides:35",
+        "transcript:179",
+        "transcript:187",
+        "transcript:156"
+      ]
+    },
+    {
+      "claim": "summary:29",
+      "text": "$p(z \\mid x)$ is the encoder distribution, which is complex and unknown.",
+      "entailed": true,
+      "evidence": "transcript:156",
+      "top": [
+        "transcript:116",
+        "transcript:117",
+        "slides:26",
+        "transcript:203",
+        "transcript:155",
+        "transcript:179",
+        "transcript:156",
+        "transcript:129"
+      ]
+    },
+    {
+      "claim": "summary:30",
+      "text": "$p(x \\mid z)$ is the decoder distribution, which is modeled as simple (e.g., Gaussian noise around $\\hat{x}$).",
+      "entailed": true,
+      "evidence": "transcript:203",
+      "top": [
+        "transcript:203",
+        "transcript:116",
+        "transcript:202",
+        "slides:26",
+        "slides:25",
+        "transcript:117",
+        "transcript:155",
+        "transcript:125"
+      ]
+    },
+    {
+      "claim": "summary:31",
+      "text": "$p(z)$ is the prior on latent codes, which is fixed to $\\mathcal N(0,I)$.",
+      "entailed": true,
+      "evidence": "transcript:196",
+      "top": [
+        "transcript:125",
+        "slides:25",
+        "transcript:196",
+        "transcript:112",
+        "transcript:203",
+        "transcript:133",
+        "transcript:116",
+        "transcript:155"
+      ]
+    },
+    {
+      "claim": "summary:32",
+      "text": "$p(x)$ is the true data distribution, which is extremely complex (e.g., cat pictures).",
+      "entailed": true,
+      "evidence": "transcript:123",
+      "top": [
+        "transcript:123",
+        "slides:24",
+        "transcript:124",
+        "transcript:143",
+        "transcript:145",
+        "transcript:116",
+        "transcript:156",
+        "transcript:203"
+      ]
+    },
+    {
+      "claim": "summary:33",
+      "text": "If both $p(x \\mid z)$ and $p(z \\mid x)$ were simple (e.g., Gaussians), their product would be a Gaussian, but $p(x)$ is not a Gaussian.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:142",
+        "slides:30",
+        "transcript:147",
+        "slides:32",
+        "slides:29",
+        "transcript:134",
+        "slides:35",
+        "transcript:179"
+      ]
+    },
+    {
+      "claim": "summary:34",
+      "text": "Hence, $p(x \\mid z)$ and $p(z \\mid x)$ cannot both be simple.",
+      "entailed": true,
+      "evidence": "slides:29",
+      "top": [
+        "slides:30",
+        "slides:29",
+        "slides:35",
+        "transcript:135",
+        "transcript:179",
+        "slides:28",
+        "transcript:156",
+        "slides:23"
+      ]
+    },
+    {
+      "claim": "summary:35",
+      "text": "VAE chooses to keep the decoder $p(x \\mid z)$ simple (Gaussian noise).",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:31",
+        "transcript:203",
+        "slides:26",
+        "transcript:116",
+        "transcript:147",
+        "transcript:189",
+        "transcript:140",
+        "transcript:202"
+      ]
+    },
+    {
+      "claim": "summary:36",
+      "text": "VAE approximates the intractable true encoder $p(z \\mid x)$ with a simple variational distribution $q(z) = \\mathcal N(\\mu(x), \\operatorname{diag}(\\sigma^2(x)))$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:247",
+        "slides:31",
+        "transcript:476",
+        "transcript:153",
+        "transcript:155",
+        "transcript:67",
+        "transcript:154",
+        "transcript:477"
+      ]
+    },
+    {
+      "claim": "summary:37",
+      "text": "The goal is to make $q(z)$ close to $p(z \\mid x)$ by minimizing $\\mathrm{KL}(q \\| p(z \\mid x))$.",
+      "entailed": true,
+      "evidence": "transcript:178",
+      "top": [
+        "transcript:178",
+        "slides:41",
+        "transcript:158",
+        "transcript:177",
+        "transcript:157",
+        "transcript:171",
+        "slides:40",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "summary:38",
+      "text": "$p(z \\mid x)$ is unknown.",
+      "entailed": true,
+      "evidence": "transcript:156",
+      "top": [
+        "slides:29",
+        "transcript:156",
+        "transcript:179",
+        "slides:35",
+        "slides:30",
+        "slides:33",
+        "slides:23",
+        "transcript:114"
+      ]
+    },
+    {
+      "claim": "summary:39",
+      "text": "The identity $\\log p(x) = \\mathcal L(q) + \\mathrm{KL}(q(z)\\,\\|\\,p(z \\mid x))$ holds for any $q$.",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:40",
+        "slides:81",
+        "slides:43",
+        "transcript:192",
+        "slides:39",
+        "slides:46",
+        "transcript:185",
+        "transcript:166"
+      ]
+    },
+    {
+      "claim": "summary:40",
+      "text": "$\\mathcal L(q) = \\int q(z)\\log\\frac{p(x,z)}{q(z)}\\,dz$.",
+      "entailed": true,
+      "evidence": "transcript:185",
+      "top": [
+        "transcript:185",
+        "slides:39",
+        "slides:40",
+        "slides:43",
+        "slides:81",
+        "transcript:192",
+        "transcript:194",
+        "transcript:167"
+      ]
+    },
+    {
+      "claim": "summary:41",
+      "text": "$\\mathrm{KL}(q(z)\\,\\|\\,p(z \\mid x)) = \\int q(z)\\log\\frac{q(z)}{p(z \\mid x)}\\,dz$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:40",
+        "slides:46",
+        "slides:81",
+        "transcript:177",
+        "slides:43",
+        "slides:39",
+        "transcript:197",
+        "transcript:192"
+      ]
+    },
+    {
+      "claim": "summary:42",
+      "text": "Since $\\log p(x)$ is constant with respect to $q$, maximizing $\\mathcal L(q)$ is equivalent to minimizing $\\mathrm{KL}(q\\|p(z \\mid x))$.",
+      "entailed": true,
+      "evidence": "transcript:182",
+      "top": [
+        "slides:41",
+        "slides:40",
+        "transcript:178",
+        "transcript:182",
+        "slides:81",
+        "transcript:192",
+        "slides:43",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "summary:43",
+      "text": "$\\mathcal L(q)$ is called the variational lower bound or evidence lower bound (ELBO).",
+      "entailed": true,
+      "evidence": "transcript:183",
+      "top": [
+        "transcript:183",
+        "transcript:184",
+        "transcript:186",
+        "transcript:174",
+        "transcript:481",
+        "slides:34",
+        "transcript:168",
+        "transcript:248"
+      ]
+    },
+    {
+      "claim": "summary:44",
+      "text": "$\\mathcal L(q)$ only requires the joint distribution $p(x,z)$ and the approximating distribution $q$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:186",
+        "slides:41",
+        "transcript:185",
+        "transcript:171",
+        "transcript:174",
+        "transcript:157",
+        "transcript:158",
+        "transcript:188"
+      ]
+    },
+    {
+      "claim": "summary:45",
+      "text": "In the VAE, $p(x,z)$ factorises as $p(z)p(x \\mid z)$, both Gaussians.",
+      "entailed": true,
+      "evidence": "transcript:190",
+      "top": [
+        "slides:32",
+        "transcript:134",
+        "transcript:190",
+        "transcript:476",
+        "slides:35",
+        "transcript:147",
+        "slides:23",
+        "transcript:133"
+      ]
+    },
+    {
+      "claim": "summary:46",
+      "text": "$\\mathcal L(q)$ completely avoids $p(z \\mid x)$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "transcript:157",
+        "transcript:158",
+        "transcript:192",
+        "transcript:171",
+        "transcript:174",
+        "transcript:186",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "summary:47",
+      "text": "Substituting $p(x,z) = p(z)p(x \\mid z)$ yields $\\mathcal L(q) = \\mathbb E_{q(z)}[\\log p(x \\mid z)] - \\mathrm{KL}(q(z) \\| p(z))$.",
+      "entailed": true,
+      "evidence": "transcript:192",
+      "top": [
+        "slides:40",
+        "transcript:192",
+        "slides:37",
+        "slides:81",
+        "transcript:164",
+        "slides:46",
+        "transcript:166",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "summary:48",
+      "text": "The reconstruction term $\\mathbb E_{q(z)}[\\log p(x \\mid z)]$ evaluates to $-\\frac{1}{2c} \\mathbb E_{q(z)}[\\|x - f_\\theta(z)\\|^2] + \\text{const}$, assuming $p(x \\mid z) = \\mathcal N(f_\\theta(z), \\sigma^2 I)$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:202",
+        "transcript:192",
+        "slides:37",
+        "transcript:194",
+        "transcript:164",
+        "transcript:166",
+        "slides:80",
+        "transcript:193"
+      ]
+    },
+    {
+      "claim": "summary:49",
+      "text": "In practice, the expectation is approximated by averaging over a mini-batch, yielding a least-squares reconstruction loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:206",
+        "transcript:205",
+        "transcript:215",
+        "transcript:210",
+        "transcript:30",
+        "transcript:250",
+        "transcript:122",
+        "transcript:60"
+      ]
+    },
+    {
+      "claim": "summary:50",
+      "text": "The regularisation term $\\mathrm{KL}(q(z) \\| p(z))$ for $q(z) = \\mathcal N(\\mu,\\Sigma)$ with diagonal $\\Sigma$ and prior $p(z) = \\mathcal N(0,I)$ has a closed form: $\\frac12 \\sum_{j=1}^{d} (\\sigma^2_{x,j} + \\mu^2_{x,j} - \\log\\sigma^2_{x,j} - 1)$.",
+      "entailed": true,
+      "evidence": "slides:46",
+      "top": [
+        "slides:46",
+        "transcript:197",
+        "slides:40",
+        "transcript:199",
+        "slides:81",
+        "transcript:194",
+        "slides:80",
+        "transcript:93"
+      ]
+    },
+    {
+      "claim": "summary:51",
+      "text": "This term penalizes deviations from the standard Gaussian, serving as the required regularizer.",
+      "entailed": true,
+      "evidence": "transcript:93",
+      "top": [
+        "transcript:93",
+        "transcript:319",
+        "transcript:230",
+        "transcript:211",
+        "transcript:210",
+        "transcript:291",
+        "transcript:247",
+        "transcript:199"
+      ]
+    },
+    {
+      "claim": "summary:52",
+      "text": "The VAE loss (negative ELBO to minimize) is $\\mathcal L_{\\text{VAE}} = \\frac{1}{2c}\\,\\mathbb E_{q(z)}[\\|x - f_\\theta(z)\\|^2] + \\frac12 \\sum_{j=1}^{d} (\\sigma^2_{x,j} + \\mu^2_{x,j} - \\log\\sigma^2_{x,j} - 1)$.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:86",
+        "transcript:207",
+        "transcript:477",
+        "transcript:320",
+        "slides:77",
+        "transcript:317",
+        "transcript:221"
+      ]
+    },
+    {
+      "claim": "summary:53",
+      "text": "The variational approximation simultaneously derives both the reconstruction loss and the exact form of the regularizer.",
+      "entailed": true,
+      "evidence": "transcript:250",
+      "top": [
+        "transcript:250",
+        "transcript:207",
+        "transcript:208",
+        "transcript:242",
+        "transcript:199",
+        "transcript:96",
+        "transcript:217",
+        "transcript:210"
+      ]
+    },
+    {
+      "claim": "summary:54",
+      "text": "Without the variational approximation, the reconstruction loss and regularizer would be arbitrary.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:250",
+        "transcript:207",
+        "transcript:208",
+        "transcript:242",
+        "transcript:96",
+        "transcript:214",
+        "transcript:210",
+        "transcript:60"
+      ]
+    },
+    {
+      "claim": "summary:55",
+      "text": "Sampling $z \\sim \\mathcal N(\\mu,\\sigma^2)$ blocks gradient flow during backpropagation.",
+      "entailed": true,
+      "evidence": "transcript:107",
+      "top": [
+        "transcript:107",
+        "slides:49",
+        "transcript:108",
+        "transcript:106",
+        "transcript:226",
+        "transcript:219",
+        "transcript:243",
+        "transcript:232"
+      ]
+    },
+    {
+      "claim": "summary:56",
+      "text": "The reparametrization trick circumvents this for Gaussians.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:251",
+        "transcript:233",
+        "transcript:224",
+        "slides:50",
+        "transcript:229",
+        "transcript:230",
+        "transcript:232",
+        "transcript:81"
+      ]
+    },
+    {
+      "claim": "summary:57",
+      "text": "The trick involves sampling auxiliary noise $u \\sim \\mathcal N(0,I)$ independent of $\\mu,\\sigma$, then computing $z = \\mu + \\sigma \\odot u$ (element-wise product).",
+      "entailed": true,
+      "evidence": "transcript:227",
+      "top": [
+        "transcript:228",
+        "transcript:80",
+        "transcript:232",
+        "slides:32",
+        "transcript:48",
+        "transcript:285",
+        "transcript:227",
+        "transcript:251"
+      ]
+    },
+    {
+      "claim": "summary:58",
+      "text": "After this transformation, the randomness is externalized, and $\\mu$ and $\\sigma$ are differentiable transformations of $u$, allowing gradients to pass normally.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:289",
+        "transcript:106",
+        "transcript:107",
+        "transcript:300",
+        "transcript:325",
+        "transcript:228",
+        "transcript:229",
+        "transcript:231"
+      ]
+    },
+    {
+      "claim": "summary:59",
+      "text": "The reparametrization trick is essential for training VAEs end-to-end.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:234",
+        "transcript:222",
+        "slides:50",
+        "transcript:221",
+        "transcript:201",
+        "transcript:477",
+        "transcript:264",
+        "transcript:263"
+      ]
+    },
+    {
+      "claim": "summary:60",
+      "text": "The core concept of diffusion models comes from non-equilibrium statistical physics, but reduces to a Markov chain insight.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:279",
+        "transcript:17",
+        "transcript:268",
+        "transcript:271",
+        "slides:124",
+        "transcript:272",
+        "transcript:15",
+        "slides:127"
+      ]
+    },
+    {
+      "claim": "summary:61",
+      "text": "The forward process (noising) starts with a clean image $x_0$ and repeatedly adds small amounts of Gaussian noise according to $q(x_t \\mid x_{t-1}) = \\mathcal N(x_t \\mid \\sqrt{1-\\beta_t}x_{t-1}, \\beta_t I)$ with $0<\\beta_t\\ll 1$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:57",
+        "slides:58",
+        "slides:102",
+        "slides:132",
+        "transcript:289",
+        "slides:72",
+        "slides:67",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "summary:62",
+      "text": "After $T$ steps (typically hundreds), the image becomes indistinguishable from pure noise $\\mathcal N(0,I)$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:289",
+        "transcript:299",
+        "transcript:401",
+        "transcript:283",
+        "slides:147",
+        "transcript:313",
+        "slides:139",
+        "transcript:284"
+      ]
+    },
+    {
+      "claim": "summary:63",
+      "text": "The reverse process (denoising) learns a Markov chain $p_\\theta(x_{t-1} \\mid x_t) = \\mathcal N(x_{t-1} \\mid \\mu_\\theta(x_t,t), \\Sigma_\\theta(x_t,t))$ that gradually removes noise.",
+      "entailed": true,
+      "evidence": "slides:67",
+      "top": [
+        "transcript:401",
+        "transcript:403",
+        "slides:67",
+        "transcript:324",
+        "transcript:298",
+        "slides:130",
+        "transcript:290",
+        "transcript:287"
+      ]
+    },
+    {
+      "claim": "summary:64",
+      "text": "A generative model is obtained by sampling $x_T \\sim \\mathcal N(0,I)$ and running the reverse chain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:65",
+        "slides:59",
+        "transcript:326",
+        "slides:67",
+        "slides:27",
+        "transcript:461",
+        "transcript:300",
+        "transcript:106"
+      ]
+    },
+    {
+      "claim": "summary:65",
+      "text": "Let $\\alpha_t = 1-\\beta_t$ and $\\bar A_t = \\prod_{i=1}^t \\alpha_i$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:60",
+        "slides:64",
+        "slides:61",
+        "slides:72",
+        "slides:73",
+        "slides:100",
+        "slides:102",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "summary:66",
+      "text": "By iterating the forward step, a direct closed-form expression for $x_t$ given $x_0$ is obtained: $q(x_t \\mid x_0) = \\mathcal N(x_t \\mid \\sqrt{\\bar A_t}x_0, (1-\\bar A_t)I)$.",
+      "entailed": true,
+      "evidence": "slides:62",
+      "top": [
+        "slides:62",
+        "slides:72",
+        "slides:70",
+        "slides:69",
+        "slides:61",
+        "slides:73",
+        "slides:76",
+        "slides:99"
+      ]
+    },
+    {
+      "claim": "summary:67",
+      "text": "Equivalently, $x_t = \\sqrt{\\bar A_t}x_0 + \\sqrt{1-\\bar A_t}\\epsilon$ with $\\epsilon\\sim\\mathcal N(0,I)$.",
+      "entailed": true,
+      "evidence": "slides:61",
+      "top": [
+        "slides:73",
+        "slides:60",
+        "slides:62",
+        "slides:100",
+        "slides:72",
+        "slides:61",
+        "slides:102",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "summary:68",
+      "text": "If both $x_t$ and $x_0$ are known, the reverse step is analytically solvable: $q(x_{t-1} \\mid x_t, x_0) = \\mathcal N(x_{t-1} \\mid \\tilde\\mu(x_t,x_0), \\tilde\\beta_t I)$ with known formulas.",
+      "entailed": true,
+      "evidence": "slides:72",
+      "top": [
+        "slides:72",
+        "slides:69",
+        "slides:76",
+        "slides:62",
+        "slides:70",
+        "slides:78",
+        "slides:99",
+        "slides:73"
+      ]
+    },
+    {
+      "claim": "summary:69",
+      "text": "$\\tilde\\mu$ can be expressed in terms of the noise $\\epsilon_t$ that would take $x_0$ to $x_t$, showing that predicting the added noise is the key task.",
+      "entailed": true,
+      "evidence": "slides:73",
+      "top": [
+        "slides:132",
+        "slides:73",
+        "slides:100",
+        "slides:58",
+        "slides:101",
+        "slides:102",
+        "slides:135",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "summary:70",
+      "text": "The training objective for diffusion models is a variational lower bound (ELBO) applied to the whole trajectory of $T$ steps.",
+      "entailed": true,
+      "evidence": "slides:82",
+      "top": [
+        "slides:82",
+        "transcript:270",
+        "slides:124",
+        "slides:105",
+        "transcript:59",
+        "slides:79",
+        "slides:52",
+        "transcript:273"
+      ]
+    },
+    {
+      "claim": "summary:71",
+      "text": "Minimizing this bound yields a loss that decomposes into per-step KL divergences between the true reverse conditional $q(x_{t-1}\\mid x_t,x_0)$ (tractable) and the model $p_\\theta(x_{t-1}\\mid x_t)$.",
+      "entailed": true,
+      "evidence": "slides:95",
+      "top": [
+        "slides:86",
+        "slides:76",
+        "slides:95",
+        "slides:94",
+        "slides:99",
+        "transcript:249",
+        "slides:78",
+        "slides:125"
+      ]
+    },
+    {
+      "claim": "summary:72",
+      "text": "In practice, the model is often parametrized to predict the noise $\\epsilon_\\theta(x_t,t)$, leading to a simple mean-squared error: $L_t = \\mathbb E_{x_0,\\epsilon}[\\|\\epsilon - \\epsilon_\\theta(\\sqrt{\\bar A_t}x_0 + \\sqrt{1-\\bar A_t}\\epsilon, t)\\|^2]$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:102",
+        "slides:100",
+        "slides:132",
+        "slides:72",
+        "slides:70",
+        "slides:98",
+        "slides:73",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "summary:73",
+      "text": "Ho et al. (2020) introduced practical improvements in DDPM that made diffusion competitive with GANs.",
+      "entailed": true,
+      "evidence": "transcript:342",
+      "top": [
+        "transcript:342",
+        "transcript:340",
+        "slides:117",
+        "transcript:376",
+        "transcript:341",
+        "transcript:372",
+        "slides:104",
+        "transcript:377"
+      ]
+    },
+    {
+      "claim": "summary:74",
+      "text": "DDPM improvements include a fixed, pre-defined $\\beta_t$ schedule with no training of the forward process.",
+      "entailed": true,
+      "evidence": "slides:105",
+      "top": [
+        "slides:105",
+        "transcript:360",
+        "transcript:364",
+        "transcript:365",
+        "transcript:350",
+        "transcript:340",
+        "transcript:349",
+        "slides:141"
+      ]
+    },
+    {
+      "claim": "summary:75",
+      "text": "DDPM uses a fixed variance $\\Sigma_\\theta$ for reverse steps; only the mean (i.e., the noise prediction) is learned.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:105",
+        "slides:141",
+        "slides:113",
+        "transcript:360",
+        "slides:104",
+        "transcript:357",
+        "transcript:340",
+        "transcript:339"
+      ]
+    },
+    {
+      "claim": "summary:76",
+      "text": "DDPM uses a special discrete likelihood model at the final step $p_\\theta(x_0\\mid x_1)$ that handles discretized image intensities (e.g., $[-1,1]$ scaled from $\\{0,\\dots,255\\}$).",
+      "entailed": true,
+      "evidence": "slides:113",
+      "top": [
+        "slides:113",
+        "transcript:360",
+        "transcript:357",
+        "transcript:340",
+        "slides:104",
+        "slides:111",
+        "transcript:354",
+        "transcript:361"
+      ]
+    },
+    {
+      "claim": "summary:77",
+      "text": "DDPM achieves excellent image quality, but generation is extremely slow — one image required hundreds of sequential neural-network passes.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:351",
+        "transcript:342",
+        "transcript:348",
+        "slides:117",
+        "transcript:350",
+        "slides:123",
+        "slides:137",
+        "transcript:452"
+      ]
+    },
+    {
+      "claim": "summary:78",
+      "text": "DDIM (Song et al., 2020) observation: the ELBO depends only on the marginal distributions $q(x_t \\mid x_0)$, not on the full joint $q(x_{1:T}\\mid x_0)$.",
+      "entailed": true,
+      "evidence": "slides:125",
+      "top": [
+        "slides:125",
+        "slides:88",
+        "slides:78",
+        "slides:69",
+        "transcript:183",
+        "slides:135",
+        "slides:76",
+        "slides:91"
+      ]
+    },
+    {
+      "claim": "summary:79",
+      "text": "Therefore, a different forward process can be chosen that shares the same marginals, enabling non-Markovian and implicit formulations.",
+      "entailed": true,
+      "evidence": "slides:130",
+      "top": [
+        "slides:127",
+        "slides:130",
+        "transcript:303",
+        "slides:129",
+        "transcript:386",
+        "slides:122",
+        "transcript:361",
+        "slides:67"
+      ]
+    },
+    {
+      "claim": "summary:80",
+      "text": "DDIM key idea: instead of approximating the direction to the previous step $x_{t-1}$, the model directly predicts the direction to the original $x_0$ at every step.",
+      "entailed": true,
+      "evidence": "transcript:361",
+      "top": [
+        "transcript:361",
+        "slides:76",
+        "transcript:354",
+        "slides:133",
+        "transcript:367",
+        "slides:135",
+        "transcript:366",
+        "slides:132"
+      ]
+    },
+    {
+      "claim": "summary:81",
+      "text": "This decoupling allows larger jumps — skip intermediate steps — accelerating generation by 10×–100× with no quality loss.",
+      "entailed": true,
+      "evidence": "slides:137",
+      "top": [
+        "transcript:373",
+        "transcript:367",
+        "transcript:368",
+        "transcript:363",
+        "transcript:375",
+        "transcript:366",
+        "slides:137",
+        "transcript:372"
+      ]
+    },
+    {
+      "claim": "summary:82",
+      "text": "DDIM's reverse process can be made deterministic (zero variance), making the model a true implicit model where each noise $x_T$ maps to exactly one image.",
+      "entailed": true,
+      "evidence": "slides:138",
+      "top": [
+        "slides:138",
+        "slides:128",
+        "transcript:361",
+        "transcript:362",
+        "slides:135",
+        "transcript:370",
+        "slides:159",
+        "transcript:360"
+      ]
+    },
+    {
+      "claim": "summary:83",
+      "text": "DDIMs provide a smoothly structured latent space, enabling interpolations that were impossible with standard DDPMs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:140",
+        "slides:141",
+        "transcript:364",
+        "transcript:339",
+        "slides:158",
+        "transcript:340",
+        "transcript:351",
+        "transcript:348"
+      ]
+    },
+    {
+      "claim": "summary:84",
+      "text": "A further breakthrough is to run the diffusion process in the latent space of a pretrained autoencoder rather than on raw pixels.",
+      "entailed": true,
+      "evidence": "transcript:380",
+      "top": [
+        "transcript:380",
+        "transcript:431",
+        "transcript:460",
+        "transcript:262",
+        "transcript:59",
+        "transcript:239",
+        "transcript:259",
+        "transcript:415"
+      ]
+    },
+    {
+      "claim": "summary:85",
+      "text": "A modern VAE (often a VQ-VAE with adversarial patch-based losses) compresses images into a compact latent representation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:263",
+        "transcript:264",
+        "transcript:265",
+        "transcript:242",
+        "transcript:239",
+        "transcript:477",
+        "transcript:94",
+        "transcript:12"
+      ]
+    },
+    {
+      "claim": "summary:86",
+      "text": "A diffusion model then operates on these latent codes, making training and sampling far more efficient.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:460",
+        "transcript:431",
+        "transcript:262",
+        "slides:149",
+        "transcript:59",
+        "slides:18",
+        "transcript:267",
+        "transcript:259"
+      ]
+    },
+    {
+      "claim": "summary:87",
+      "text": "Stable Diffusion (Rombach, Blattmann et al., 2022) popularized this latent diffusion architecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:143",
+        "transcript:388",
+        "transcript:387",
+        "slides:142",
+        "transcript:381",
+        "transcript:386",
+        "transcript:267",
+        "slides:124"
+      ]
+    },
+    {
+      "claim": "summary:88",
+      "text": "Crucially, conditioning (e.g., text prompts) is injected at every denoising step, typically via cross-attention with a transformer-encoded text vector.",
+      "entailed": true,
+      "evidence": "transcript:397",
+      "top": [
+        "transcript:397",
+        "transcript:396",
+        "transcript:395",
+        "slides:17",
+        "transcript:324",
+        "transcript:398",
+        "transcript:415",
+        "slides:146"
+      ]
+    },
+    {
+      "claim": "summary:89",
+      "text": "The reversed latent code is finally decoded back to an image by the VAE decoder.",
+      "entailed": true,
+      "evidence": "transcript:405",
+      "top": [
+        "transcript:23",
+        "transcript:380",
+        "slides:22",
+        "slides:139",
+        "transcript:405",
+        "transcript:25",
+        "transcript:122",
+        "transcript:239"
+      ]
+    },
+    {
+      "claim": "summary:90",
+      "text": "DALL‑E 2 (unCLIP) uses a CLIP joint text–image embedding space: a prior model generates a CLIP image embedding from text, and a diffusion decoder turns that embedding into an image.",
+      "entailed": true,
+      "evidence": "transcript:414",
+      "top": [
+        "transcript:414",
+        "transcript:409",
+        "transcript:415",
+        "transcript:411",
+        "transcript:412",
+        "slides:144",
+        "slides:146",
+        "transcript:408"
+      ]
+    },
+    {
+      "claim": "summary:91",
+      "text": "Diffusion in DALL‑E 2 happens in a semantic latent space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:416",
+        "transcript:415",
+        "transcript:262",
+        "transcript:431",
+        "transcript:460",
+        "transcript:259",
+        "transcript:267",
+        "slides:142"
+      ]
+    },
+    {
+      "claim": "summary:92",
+      "text": "Midjourney (proprietary) is believed to follow a similar latent-diffusion design.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:458",
+        "slides:142",
+        "transcript:426",
+        "transcript:430",
+        "transcript:455",
+        "transcript:340",
+        "transcript:457",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "summary:93",
+      "text": "Peebles & Xie (2022) replaced the U-Net backbone of latent diffusion with a transformer (DiT).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:149",
+        "transcript:425",
+        "transcript:426",
+        "transcript:430",
+        "slides:142",
+        "transcript:267",
+        "transcript:379",
+        "transcript:416"
+      ]
+    },
+    {
+      "claim": "summary:94",
+      "text": "In DiT, the input latent feature map is “patchified” into a sequence, processed by transformer blocks, and conditioned on time and (optionally) class/text via adaptive layer normalization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:149",
+        "slides:153",
+        "slides:150",
+        "transcript:255",
+        "transcript:426",
+        "transcript:256",
+        "transcript:52",
+        "transcript:430"
+      ]
+    },
+    {
+      "claim": "summary:95",
+      "text": "DiTs show strong correlation between compute (GFLOPs) and generation quality, scaling more efficiently than earlier architectures.",
+      "entailed": true,
+      "evidence": "slides:156",
+      "top": [
+        "slides:155",
+        "slides:157",
+        "slides:156",
+        "transcript:348",
+        "transcript:342",
+        "transcript:429",
+        "transcript:350",
+        "slides:148"
+      ]
+    },
+    {
+      "claim": "summary:96",
+      "text": "Flux (successor to Stable Diffusion, by the same team) further refined the architecture and produced state-of-the-art local text-to-image generation at its time.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:444",
+        "transcript:443",
+        "transcript:459",
+        "transcript:437",
+        "transcript:382",
+        "transcript:436",
+        "transcript:447",
+        "transcript:441"
+      ]
+    },
+    {
+      "claim": "summary:97",
+      "text": "Since Flux, the frontier has moved to closed, large-scale models (GPT‑image, Gemini), but the underlying principles remain latent diffusion with transformer backbones.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:436",
+        "slides:149",
+        "transcript:267",
+        "transcript:437",
+        "transcript:271",
+        "transcript:430",
+        "transcript:425",
+        "transcript:426"
+      ]
+    },
+    {
+      "claim": "summary:98",
+      "text": "DPM‑Solver++ frames DDIM as a first-order ODE solver and replaces it with higher-order multi-step schemes, reducing required sampling steps further with greater stability.",
+      "entailed": true,
+      "evidence": "slides:158",
+      "top": [
+        "slides:160",
+        "slides:159",
+        "slides:163",
+        "slides:158",
+        "transcript:364",
+        "slides:141",
+        "slides:111",
+        "transcript:360"
+      ]
+    },
+    {
+      "claim": "summary:99",
+      "text": "UniPC introduces a predictor–corrector framework that universally increases the accuracy order without extra model evaluations.",
+      "entailed": true,
+      "evidence": "slides:165",
+      "top": [
+        "slides:165",
+        "slides:164",
+        "slides:166",
+        "transcript:27",
+        "slides:144",
+        "transcript:235",
+        "transcript:222",
+        "transcript:62"
+      ]
+    },
+    {
+      "claim": "summary:100",
+      "text": "Flow matching generalizes diffusion and has become the foundation of many modern generative models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:168",
+        "transcript:59",
+        "transcript:461",
+        "transcript:4",
+        "transcript:472",
+        "transcript:460",
+        "transcript:58",
+        "transcript:326"
+      ]
+    },
+    {
+      "claim": "summary:101",
+      "text": "Deep generative models can be categorized into implicit density, explicit-autoregressive, explicit-flow-based, and explicit-approximate density (variational) methods.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:461",
+        "transcript:463",
+        "transcript:58",
+        "transcript:474",
+        "slides:168",
+        "transcript:4",
+        "transcript:59",
+        "transcript:466"
+      ]
+    },
+    {
+      "claim": "summary:102",
+      "text": "GANs are implicit density models that compete a generator against a discriminator and do not provide an explicit likelihood.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:463",
+        "transcript:461",
+        "transcript:345",
+        "transcript:343",
+        "transcript:464",
+        "transcript:465",
+        "transcript:4",
+        "transcript:50"
+      ]
+    },
+    {
+      "claim": "summary:103",
+      "text": "Autoregressive models like WaveNet and LLMs factorize the joint distribution as $p(x)=\\prod_t p(x_t\\mid x_{<t})$ and generate sequentially.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:467",
+        "transcript:113",
+        "slides:53",
+        "slides:65",
+        "slides:67",
+        "slides:78",
+        "transcript:190",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "summary:104",
+      "text": "Flow-based models like RealNVP and Glow use invertible transforms from a simple base density.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:472",
+        "transcript:260",
+        "transcript:340",
+        "transcript:268",
+        "transcript:459",
+        "transcript:425",
+        "transcript:311",
+        "transcript:461"
+      ]
+    },
+    {
+      "claim": "summary:105",
+      "text": "VAE and diffusion models are explicit-approximate density (variational) models that optimize a bound (ELBO) by approximating an intractable posterior.",
+      "entailed": true,
+      "evidence": "transcript:474",
+      "top": [
+        "transcript:270",
+        "transcript:474",
+        "transcript:478",
+        "transcript:248",
+        "transcript:267",
+        "slides:82",
+        "transcript:59",
+        "slides:124"
+      ]
+    },
+    {
+      "claim": "summary:106",
+      "text": "VAEs and diffusion models do not assume the true reverse/encoder distribution is simple; they approximate it.",
+      "entailed": true,
+      "evidence": "transcript:245",
+      "top": [
+        "transcript:148",
+        "transcript:270",
+        "transcript:460",
+        "transcript:474",
+        "transcript:267",
+        "transcript:130",
+        "transcript:245",
+        "transcript:59"
+      ]
+    },
+    {
+      "claim": "summary:107",
+      "text": "They make assumptions only on the approximating distribution.",
+      "entailed": true,
+      "evidence": "transcript:473",
+      "top": [
+        "transcript:473",
+        "transcript:480",
+        "slides:75",
+        "transcript:75",
+        "transcript:479",
+        "transcript:478",
+        "transcript:476",
+        "transcript:171"
+      ]
+    },
+    {
+      "claim": "summary:108",
+      "text": "The variational lower bound provides a principled objective for these models.",
+      "entailed": true,
+      "evidence": "transcript:208",
+      "top": [
+        "transcript:160",
+        "transcript:208",
+        "slides:34",
+        "transcript:481",
+        "transcript:249",
+        "slides:82",
+        "transcript:11",
+        "transcript:248"
+      ]
+    },
+    {
+      "claim": "summary:109",
+      "text": "The variational principle first appeared in its simplest form in VAEs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:477",
+        "transcript:270",
+        "slides:34",
+        "transcript:12",
+        "transcript:269",
+        "transcript:168",
+        "transcript:160",
+        "transcript:11"
+      ]
+    },
+    {
+      "claim": "summary:110",
+      "text": "The variational principle recurs in more elaborate forms throughout generative modeling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:58",
+        "transcript:326",
+        "transcript:4",
+        "transcript:6",
+        "slides:168",
+        "transcript:38",
+        "transcript:160",
+        "transcript:461"
+      ]
+    },
+    {
+      "claim": "summary:111",
+      "text": "The variational principle is one of the truly fundamental ideas in machine learning.",
+      "entailed": true,
+      "evidence": "transcript:159",
+      "top": [
+        "transcript:159",
+        "slides:34",
+        "transcript:201",
+        "transcript:12",
+        "transcript:218",
+        "transcript:109",
+        "transcript:160",
+        "transcript:269"
+      ]
+    }
+  ]
+}

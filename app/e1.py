@@ -88,6 +88,16 @@ class ExtractedClaims(BaseModel):
     claims: list[ExtractedClaim] = Field(description="Atomic, self-contained factual claims extracted from the text.")
 
 
+class BaselineClaim(BaseModel):
+    text: str = Field(description="An atomic, self-contained factual claim extracted from the text.")
+
+
+class BaselineClaims(BaseModel):
+    """Baseline decomposition output: atomic claims without salience labels."""
+
+    claims: list[BaselineClaim] = Field(description="Atomic, self-contained factual claims extracted from the text.")
+
+
 class JudgeVerdict(BaseModel):
     id: int = Field(description="The item id this verdict is for, copied verbatim.")
     entailed: bool = Field(description="Whether the claim is fully supported by the item's premises.")
@@ -145,6 +155,35 @@ SOURCE_DESCRIPTIONS = {
     "summary": "the final study conspect (summary) built from a lecture",
 }
 
+# The baseline (run 1 in docs/experiments/e1.md) decomposed with neither
+# salience labels nor the off-topic filtering rules; both were added later.
+BASELINE_DECOMPOSE_SYSTEM_PROMPT = """\
+You are an expert annotator preparing texts for claim-level evaluation of
+lecture materials. Decompose the given text into ATOMIC FACTUAL CLAIMS.
+
+## Rules
+
+- **Atomic**: exactly one verifiable statement per claim. Split sentences that
+  join several independent facts.
+- **Self-contained**: resolve pronouns and references so each claim is
+  understandable with no surrounding context ("this method" → its name,
+  "he" → the person's name, "the previous formula" → the formula itself).
+- **Faithful**: state only what the text states — no outside knowledge, no
+  corrections of substance. Keep mathematics as LaTeX, as written.
+- Write claims in the language of the source text; keep established English
+  technical terms as-is.
+
+The text is {source_desc}."""
+
+BASELINE_SOURCE_DESCRIPTIONS = {
+    "slides": "the text extracted from the lecture slides (PDF)",
+    "transcript": (
+        "a raw speech-recognition transcript of a lecture; recognition errors "
+        "are possible — extract only what it clearly says"
+    ),
+    "summary": "the final study conspect (summary) built from a lecture",
+}
+
 DECOMPOSE_USER_TEMPLATE = """\
 Decompose the following text into atomic factual claims.{part_note}
 
@@ -193,13 +232,37 @@ def _load_transcript_text(path: Path) -> str:
     return "\n".join(lines).strip()
 
 
-def _read_texts(lecture_dir: Path, stt_provider: str) -> dict[str, str]:
+def _read_texts(lecture_dir: Path, stt_provider: str, *, baseline: bool = False) -> dict[str, str]:
     """Load the three texts to decompose: slides, transcript, summary.
 
     The transcript side prefers the LLM-cleaned ``transcription_reconstructed.md``
     (see ``app.reconstruct_transcript``) — the same source the conspect was
     built from — falling back to the raw ASR output with a warning.
+
+    ``baseline=True`` evaluates the baseline pipeline instead: the raw ASR
+    ``transcription.md``, the raw extracted ``slides.md``, and the baseline
+    conspect (``conspect_baseline.md``, from ``app.conspect --baseline``).
     """
+    if baseline:
+        transcript_path = lecture_dir / stt_provider / "transcription.md"
+        if not transcript_path.exists():
+            raise FileNotFoundError(
+                f"No transcript at {transcript_path} — run `python -m app.transcribe {lecture_dir}` first."
+            )
+        slides_path = lecture_dir / "slides_extracted" / "slides.md"
+        if not slides_path.exists():
+            raise FileNotFoundError(f"No raw slides at {slides_path} — run `python -m app.extract_slides` first.")
+        conspect_path = lecture_dir / "conspect_baseline.md"
+        if not conspect_path.exists():
+            raise FileNotFoundError(
+                f"No baseline conspect at {conspect_path} — run `python -m app.conspect {lecture_dir} --baseline`."
+            )
+        return {
+            "slides": slides_path.read_text(encoding="utf-8"),
+            "transcript": _load_transcript_text(transcript_path),
+            "summary": conspect_path.read_text(encoding="utf-8"),
+        }
+
     transcript_path = lecture_dir / stt_provider / "transcription_reconstructed.md"
     if not transcript_path.exists():
         fallback_transcript = lecture_dir / stt_provider / "transcription.md"
@@ -358,17 +421,27 @@ def decompose_source(
     chunk_words: int = DEFAULT_CHUNK_WORDS,
     max_chunks: int | None = None,
     workers: int = DEFAULT_WORKERS,
+    baseline: bool = False,
 ) -> list[dict]:
-    """Decompose one source text into atomic claims (with salience), chunk by chunk."""
+    """Decompose one source text into atomic claims (with salience), chunk by chunk.
+
+    ``baseline=True`` uses the run-1 prompt: no salience labels, no off-topic
+    filtering rules (claims come back as ``{"text": ...}`` only).
+    """
     chunks = _chunk_text(text, chunk_words)
     if max_chunks is not None:
         chunks = chunks[:max_chunks]
-    system = DECOMPOSE_SYSTEM_PROMPT.format(source_desc=SOURCE_DESCRIPTIONS[source])
+    if baseline:
+        system = BASELINE_DECOMPOSE_SYSTEM_PROMPT.format(source_desc=BASELINE_SOURCE_DESCRIPTIONS[source])
+        schema = BaselineClaims
+    else:
+        system = DECOMPOSE_SYSTEM_PROMPT.format(source_desc=SOURCE_DESCRIPTIONS[source])
+        schema = ExtractedClaims
 
-    def decompose_chunk(chunk: str, part_note: str) -> list[ExtractedClaim]:
+    def decompose_chunk(chunk: str, part_note: str) -> list[ExtractedClaim | BaselineClaim]:
         user_msg = DECOMPOSE_USER_TEMPLATE.format(part_note=part_note, text=chunk)
         try:
-            return gen.complete_structured(system, user_msg, ExtractedClaims).claims
+            return gen.complete_structured(system, user_msg, schema).claims
         except RuntimeError:
             # Dense chunks can produce more claims than fit in the completion
             # budget, truncating the JSON — halve the chunk and retry.
@@ -393,16 +466,19 @@ def decompose_source(
     with ThreadPoolExecutor(max_workers=workers) as pool:
         per_chunk = list(pool.map(one, enumerate(chunks)))
     claims = [
-        {"text": claim.text.strip(), "salience": claim.salience}
+        {"text": claim.text.strip(), **({} if baseline else {"salience": claim.salience})}
         for chunk_claims in per_chunk
         for claim in chunk_claims
         if claim.text.strip()
     ]
-    by_salience = {label: sum(c["salience"] == label for c in claims) for label in ("core", "supporting", "aside")}
-    print(
-        f"           {source}: {len(chunks)} chunk(s) -> {len(claims)} claims "
-        f"(core {by_salience['core']} / supporting {by_salience['supporting']} / aside {by_salience['aside']})"
-    )
+    if baseline:
+        print(f"           {source}: {len(chunks)} chunk(s) -> {len(claims)} claims")
+    else:
+        by_salience = {label: sum(c["salience"] == label for c in claims) for label in ("core", "supporting", "aside")}
+        print(
+            f"           {source}: {len(chunks)} chunk(s) -> {len(claims)} claims "
+            f"(core {by_salience['core']} / supporting {by_salience['supporting']} / aside {by_salience['aside']})"
+        )
     return claims
 
 
@@ -648,9 +724,16 @@ def process_lecture(
     limit: int | None = None,
     max_chunks: int | None = None,
     force: bool = False,
+    baseline: bool = False,
 ) -> dict:
-    """Run (or resume) the full E1 pipeline for one lecture; returns the metrics."""
-    e1_dir = lecture_dir / "e1"
+    """Run (or resume) the full E1 pipeline for one lecture; returns the metrics.
+
+    ``baseline=True`` evaluates the baseline pipeline (raw transcript, raw
+    slides, ``conspect_baseline.md``, salience-free decomposition) and keeps
+    its artifacts in ``<lecture-dir>/e1_baseline/`` so the main run's cache
+    survives.
+    """
+    e1_dir = lecture_dir / ("e1_baseline" if baseline else "e1")
     gen = QuizGenerator(model=model, provider=provider, max_tokens=max_tokens)
     fingerprint = {
         # bump when the prompts or the claims.json format change incompatibly
@@ -663,8 +746,11 @@ def process_lecture(
         "limit": limit,
         "max_chunks": max_chunks,
     }
+    if baseline:
+        # only added in baseline mode so pre-existing e1/ caches keep matching
+        fingerprint["baseline"] = True
     print(
-        f"[{lecture_dir.name}] E1 ({fingerprint['model']}, stt={stt_provider}, "
+        f"[{lecture_dir.name}] E1{' baseline' if baseline else ''} ({fingerprint['model']}, stt={stt_provider}, "
         f"retriever={retriever_backend}, k={top_k})"
     )
     t0 = time.monotonic()
@@ -676,10 +762,16 @@ def process_lecture(
         claims = {source: cached[source] for source in SOURCE_KEYS}
         print("           claims.json: cached")
     else:
-        texts = _read_texts(lecture_dir, stt_provider)
+        texts = _read_texts(lecture_dir, stt_provider, baseline=baseline)
         claims = {
             source: decompose_source(
-                gen, source, texts[source], chunk_words=chunk_words, max_chunks=max_chunks, workers=workers
+                gen,
+                source,
+                texts[source],
+                chunk_words=chunk_words,
+                max_chunks=max_chunks,
+                workers=workers,
+                baseline=baseline,
             )
             for source in SOURCE_KEYS
         }
@@ -690,7 +782,9 @@ def process_lecture(
     refs = {
         source: [(f"{source}:{i}", claim["text"]) for i, claim in enumerate(claims[source])] for source in SOURCE_KEYS
     }
-    salience = {f"{source}:{i}": claim["salience"] for source in SOURCE_KEYS for i, claim in enumerate(claims[source])}
+    salience = {
+        f"{source}:{i}": claim.get("salience") for source in SOURCE_KEYS for i, claim in enumerate(claims[source])
+    }
     source_refs = refs["slides"] + refs["transcript"]
 
     # 2. three judged directions
@@ -810,6 +904,15 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--force", action="store_true", help="Recompute all stages, ignoring caches")
     parser.add_argument(
+        "--baseline",
+        action="store_true",
+        help=(
+            "Evaluate the baseline pipeline: raw ASR transcript, raw slides.md, conspect_baseline.md, "
+            "salience-free decomposition; artifacts go to <lecture-dir>/e1_baseline/ "
+            "(combine with --top-k 8 and E1_EMBED_MODEL=sentence-transformers/all-MiniLM-L6-v2)"
+        ),
+    )
+    parser.add_argument(
         "--sample-labels",
         type=int,
         default=None,
@@ -838,11 +941,13 @@ def main(argv: list[str] | None = None) -> int:
             limit=args.limit,
             max_chunks=args.max_chunks,
             force=args.force,
+            baseline=args.baseline,
         )
+        e1_dir = lecture_dir / ("e1_baseline" if args.baseline else "e1")
         if args.sample_labels:
-            write_labels_sample(lecture_dir / "e1", args.sample_labels, args.seed)
+            write_labels_sample(e1_dir, args.sample_labels, args.seed)
         if args.agreement:
-            report_agreement(lecture_dir / "e1")
+            report_agreement(e1_dir)
 
     print("Done.")
     return 0

@@ -1,0 +1,30 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "chunk_words": 2000,
+    "top_k": 16,
+    "limit": null,
+    "max_chunks": null
+  },
+  "counts": {
+    "slides": 104,
+    "transcript": 191,
+    "summary": 122
+  },
+  "metrics": {
+    "coverage": 0.6881,
+    "coverage_core": 0.7619,
+    "coverage_slides": 0.7308,
+    "coverage_transcript": 0.6649,
+    "coverage_transcript_core": 0.8,
+    "faithfulness": 0.8443,
+    "f1": 0.7582,
+    "transcript_only_claims": 98,
+    "transcript_only_coverage": 0.4286,
+    "transcript_only_core_claims": 39,
+    "transcript_only_core_coverage": 0.5897
+  }
+}

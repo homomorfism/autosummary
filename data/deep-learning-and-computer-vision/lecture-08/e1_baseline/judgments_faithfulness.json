@@ -1,0 +1,2607 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "summary:0",
+      "text": "Generative models produce objects of high dimensionality and complex structure — images, text, music, video.",
+      "entailed": true,
+      "evidence": "transcript:12",
+      "top": [
+        "transcript:13",
+        "transcript:12",
+        "transcript:17",
+        "transcript:16",
+        "transcript:23",
+        "transcript:8",
+        "transcript:22",
+        "transcript:21"
+      ]
+    },
+    {
+      "claim": "summary:1",
+      "text": "In deep learning, the first major divide lies between explicit density models and implicit density models.",
+      "entailed": true,
+      "evidence": "transcript:20",
+      "top": [
+        "transcript:20",
+        "transcript:31",
+        "transcript:34",
+        "transcript:78",
+        "transcript:81",
+        "transcript:88",
+        "transcript:80",
+        "transcript:84"
+      ]
+    },
+    {
+      "claim": "summary:2",
+      "text": "An explicit density model provides a formula for $p(x)$, the probability density of the data.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:32",
+        "transcript:30",
+        "transcript:31",
+        "transcript:35",
+        "transcript:36",
+        "transcript:82",
+        "transcript:71",
+        "transcript:70"
+      ]
+    },
+    {
+      "claim": "summary:3",
+      "text": "Even though the true distribution of, for example, cat photos in a multi-million-dimensional pixel space is impossibly complicated, an explicit approximation can be built.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:33",
+        "transcript:273",
+        "transcript:27",
+        "transcript:480",
+        "transcript:476",
+        "transcript:28",
+        "transcript:274",
+        "transcript:174"
+      ]
+    },
+    {
+      "claim": "summary:4",
+      "text": "Tractable density models can write down $p(x)$ as a closed-form product of conditional distributions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:36",
+        "transcript:35",
+        "transcript:32",
+        "transcript:34",
+        "transcript:37",
+        "transcript:70",
+        "transcript:30",
+        "transcript:71"
+      ]
+    },
+    {
+      "claim": "summary:5",
+      "text": "The classic example of a tractable density model is an autoregressive model, which decomposes $p(x_1, x_2, \\dots, x_n) = p(x_1) p(x_2 \\mid x_1) p(x_3 \\mid x_1, x_2) \\cdots p(x_n \\mid x_1, \\dots, x_{n-1})$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:37",
+        "transcript:34",
+        "transcript:36",
+        "transcript:35",
+        "transcript:70",
+        "transcript:72",
+        "transcript:62",
+        "transcript:31"
+      ]
+    },
+    {
+      "claim": "summary:6",
+      "text": "The autoregressive decomposition identity is always true.",
+      "entailed": true,
+      "evidence": "transcript:40",
+      "top": [
+        "transcript:38",
+        "transcript:40",
+        "transcript:43",
+        "transcript:41",
+        "transcript:47",
+        "transcript:59",
+        "transcript:61",
+        "transcript:60"
+      ]
+    },
+    {
+      "claim": "summary:7",
+      "text": "To make the decomposition useful, simplifying assumptions are introduced, such as a Markov chain, an RNN with a hidden state, or a Transformer that conditions each next token on the preceding context.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:46",
+        "transcript:43",
+        "transcript:45",
+        "transcript:67",
+        "transcript:42",
+        "transcript:41",
+        "transcript:65",
+        "transcript:475"
+      ]
+    },
+    {
+      "claim": "summary:8",
+      "text": "All large language models (LLMs) are autoregressive models that generate text one token at a time.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:48",
+        "transcript:49",
+        "transcript:61",
+        "transcript:52",
+        "transcript:47",
+        "transcript:446",
+        "transcript:75",
+        "transcript:16"
+      ]
+    },
+    {
+      "claim": "summary:9",
+      "text": "Pixel-wise autoregressive models for images, such as PixelCNN, exist.",
+      "entailed": true,
+      "evidence": "transcript:59",
+      "top": [
+        "transcript:54",
+        "transcript:59",
+        "transcript:60",
+        "transcript:53",
+        "transcript:57",
+        "transcript:58",
+        "transcript:55",
+        "transcript:56"
+      ]
+    },
+    {
+      "claim": "summary:10",
+      "text": "Generating a million pixels a million times with pixel-wise autoregressive models is prohibitively slow.",
+      "entailed": true,
+      "evidence": "transcript:56",
+      "top": [
+        "transcript:56",
+        "transcript:59",
+        "transcript:57",
+        "transcript:60",
+        "transcript:54",
+        "transcript:58",
+        "transcript:53",
+        "transcript:345"
+      ]
+    },
+    {
+      "claim": "summary:11",
+      "text": "In approximate density models, instead of forcing $p(x)$ itself to be tractable, $p(x)$ is approximated with a simpler distribution $q(x)$ that is easy to handle.",
+      "entailed": true,
+      "evidence": "transcript:71",
+      "top": [
+        "transcript:71",
+        "transcript:36",
+        "transcript:30",
+        "transcript:32",
+        "transcript:70",
+        "transcript:35",
+        "transcript:34",
+        "transcript:72"
+      ]
+    },
+    {
+      "claim": "summary:12",
+      "text": "The most important family of approximate density models are Variational Autoencoders (VAEs).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:72",
+        "transcript:74",
+        "transcript:75",
+        "transcript:510",
+        "transcript:524",
+        "transcript:77",
+        "transcript:70",
+        "transcript:474"
+      ]
+    },
+    {
+      "claim": "summary:13",
+      "text": "VAEs use variational inference to build a learnable lower bound on the log-likelihood.",
+      "entailed": true,
+      "evidence": "transcript:74",
+      "top": [
+        "transcript:510",
+        "slides:98",
+        "transcript:74",
+        "transcript:75",
+        "transcript:524",
+        "transcript:511",
+        "transcript:523",
+        "slides:107"
+      ]
+    },
+    {
+      "claim": "summary:14",
+      "text": "VAEs are a cornerstone of generative modelling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:16",
+        "transcript:13",
+        "transcript:8",
+        "transcript:21",
+        "transcript:17",
+        "transcript:510",
+        "slides:153",
+        "transcript:475"
+      ]
+    },
+    {
+      "claim": "summary:15",
+      "text": "Diffusion models typically operate in the latent space of a VAE.",
+      "entailed": true,
+      "evidence": "transcript:77",
+      "top": [
+        "transcript:77",
+        "transcript:76",
+        "transcript:543",
+        "transcript:135",
+        "transcript:544",
+        "transcript:134",
+        "transcript:72",
+        "transcript:510"
+      ]
+    },
+    {
+      "claim": "summary:16",
+      "text": "Flow-based models are an alternative approach that composes many simple, invertible transformations so that the density $p(x)$ can be computed by the change-of-variables formula.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:65",
+        "transcript:62",
+        "transcript:32",
+        "transcript:36",
+        "transcript:67",
+        "transcript:31",
+        "transcript:64",
+        "transcript:70"
+      ]
+    },
+    {
+      "claim": "summary:17",
+      "text": "Flow-based models belong to explicit density models.",
+      "entailed": true,
+      "evidence": "transcript:62",
+      "top": [
+        "transcript:62",
+        "transcript:31",
+        "transcript:70",
+        "transcript:78",
+        "transcript:34",
+        "transcript:72",
+        "transcript:20",
+        "transcript:65"
+      ]
+    },
+    {
+      "claim": "summary:18",
+      "text": "Flow-based models are not covered in this lecture.",
+      "entailed": true,
+      "evidence": "transcript:69",
+      "top": [
+        "transcript:69",
+        "transcript:62",
+        "transcript:65",
+        "transcript:58",
+        "transcript:89",
+        "transcript:543",
+        "transcript:80",
+        "transcript:76"
+      ]
+    },
+    {
+      "claim": "summary:19",
+      "text": "An implicit density model never provides a formula for $p(x)$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:32",
+        "transcript:82",
+        "transcript:36",
+        "transcript:80",
+        "transcript:449",
+        "transcript:84",
+        "transcript:31",
+        "transcript:79"
+      ]
+    },
+    {
+      "claim": "summary:20",
+      "text": "An implicit density model is just a sampler: you feed in random noise and get out a sample $\\hat{x}$ that should look like it came from the data distribution.",
+      "entailed": true,
+      "evidence": "transcript:82",
+      "top": [
+        "transcript:82",
+        "transcript:84",
+        "transcript:80",
+        "transcript:449",
+        "transcript:31",
+        "transcript:81",
+        "transcript:88",
+        "transcript:79"
+      ]
+    },
+    {
+      "claim": "summary:21",
+      "text": "There is no way to read off a density from a trained implicit density network; you can only draw from it.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:31",
+        "transcript:80",
+        "transcript:88",
+        "transcript:450",
+        "transcript:83",
+        "transcript:84",
+        "transcript:20",
+        "transcript:453"
+      ]
+    },
+    {
+      "claim": "summary:22",
+      "text": "The main example of implicit density models is Generative Adversarial Networks (GANs).",
+      "entailed": true,
+      "evidence": "transcript:81",
+      "top": [
+        "transcript:81",
+        "transcript:88",
+        "transcript:20",
+        "transcript:80",
+        "transcript:84",
+        "transcript:72",
+        "transcript:79",
+        "transcript:453"
+      ]
+    },
+    {
+      "claim": "summary:23",
+      "text": "A generator $G$ maps a random noise vector $z$ drawn from $p_z(z)$, such as a standard Gaussian, to an output $\\hat{x}$ that should resemble a real image.",
+      "entailed": true,
+      "evidence": "transcript:277",
+      "top": [
+        "transcript:272",
+        "transcript:278",
+        "transcript:277",
+        "transcript:434",
+        "transcript:96",
+        "slides:91",
+        "transcript:105",
+        "transcript:186"
+      ]
+    },
+    {
+      "claim": "summary:24",
+      "text": "In the generator's training, there is no paired supervision; there is no mapping that specifies which $z$ should produce which particular $x$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:282",
+        "transcript:230",
+        "slides:95",
+        "transcript:231",
+        "transcript:396",
+        "transcript:127",
+        "transcript:175",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "summary:25",
+      "text": "There is no obvious loss function that directly evaluates the quality of a generated image.",
+      "entailed": true,
+      "evidence": "transcript:159",
+      "top": [
+        "transcript:159",
+        "transcript:476",
+        "slides:143",
+        "transcript:191",
+        "transcript:185",
+        "transcript:208",
+        "transcript:55",
+        "transcript:117"
+      ]
+    },
+    {
+      "claim": "summary:26",
+      "text": "The central challenge of generative adversarial networks is how to score the generator's output.",
+      "entailed": true,
+      "evidence": "transcript:94",
+      "top": [
+        "transcript:91",
+        "transcript:92",
+        "transcript:473",
+        "transcript:94",
+        "transcript:3",
+        "transcript:115",
+        "slides:78",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "summary:27",
+      "text": "The GAN solution is to learn the loss function itself.",
+      "entailed": true,
+      "evidence": "transcript:115",
+      "top": [
+        "transcript:115",
+        "transcript:468",
+        "transcript:454",
+        "transcript:473",
+        "slides:20",
+        "transcript:92",
+        "transcript:467",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "summary:28",
+      "text": "A second network, the discriminator $D$, is introduced; its job is binary classification: it determines whether an image came from the real data distribution $p_{\\text{data}}$ (output 1) or from the generator $p_g$ (output 0).",
+      "entailed": true,
+      "evidence": "transcript:129",
+      "top": [
+        "transcript:118",
+        "transcript:120",
+        "transcript:129",
+        "slides:99",
+        "slides:82",
+        "transcript:123",
+        "transcript:119",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "summary:29",
+      "text": "The generator and discriminator have opposing objectives: $D$ wants to tell real from fake, and $G$ wants to fool $D$.",
+      "entailed": true,
+      "evidence": "transcript:127",
+      "top": [
+        "transcript:130",
+        "transcript:192",
+        "slides:83",
+        "transcript:155",
+        "transcript:190",
+        "transcript:175",
+        "transcript:129",
+        "transcript:127"
+      ]
+    },
+    {
+      "claim": "summary:30",
+      "text": "This is called adversarial training.",
+      "entailed": true,
+      "evidence": "transcript:131",
+      "top": [
+        "transcript:131",
+        "transcript:140",
+        "transcript:512",
+        "transcript:137",
+        "transcript:139",
+        "transcript:517",
+        "transcript:136",
+        "transcript:472"
+      ]
+    },
+    {
+      "claim": "summary:31",
+      "text": "The generator is defined as $G(z; \\theta_g): Z \\to X$ and the discriminator as $D(x; \\theta_d): X \\to [0,1]$.",
+      "entailed": true,
+      "evidence": "slides:28",
+      "top": [
+        "slides:28",
+        "slides:29",
+        "slides:33",
+        "slides:36",
+        "transcript:130",
+        "transcript:272",
+        "transcript:195",
+        "transcript:176"
+      ]
+    },
+    {
+      "claim": "summary:32",
+      "text": "The discriminator maximizes the log-likelihood of correct classification given by $L_D = \\mathbb{E}_{x \\sim p_{\\text{data}}(x)}[\\log D(x)] + \\mathbb{E}_{x \\sim p_g(x)}[\\log(1 - D(x))]$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:30",
+        "slides:47",
+        "slides:36",
+        "slides:33",
+        "transcript:120",
+        "transcript:188",
+        "transcript:210",
+        "transcript:181"
+      ]
+    },
+    {
+      "claim": "summary:33",
+      "text": "The generator wants to minimize the same quantity, trying to push $D(G(z))$ towards 1, i.e., fool the discriminator.",
+      "entailed": true,
+      "evidence": "transcript:197",
+      "top": [
+        "slides:33",
+        "transcript:197",
+        "transcript:130",
+        "slides:36",
+        "slides:39",
+        "transcript:236",
+        "transcript:176",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "summary:34",
+      "text": "The combined objective is the minimax game $\\min_G \\max_D V(D, G) = \\mathbb{E}_{x \\sim p_{\\text{data}}(x)}[\\log D(x)] + \\mathbb{E}_{z \\sim p_z(z)}[\\log(1 - D(G(z)))]$.",
+      "entailed": true,
+      "evidence": "slides:34",
+      "top": [
+        "slides:34",
+        "slides:35",
+        "slides:41",
+        "slides:38",
+        "slides:45",
+        "slides:30",
+        "slides:33",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "summary:35",
+      "text": "This is not ordinary optimisation; it is a zero-sum game where two players are competing.",
+      "entailed": true,
+      "evidence": "slides:34",
+      "top": [
+        "transcript:205",
+        "transcript:198",
+        "transcript:201",
+        "slides:34",
+        "transcript:202",
+        "transcript:199",
+        "transcript:204",
+        "transcript:217"
+      ]
+    },
+    {
+      "claim": "summary:36",
+      "text": "In principle, finding an equilibrium in a zero-sum game is much harder than a simple minimisation.",
+      "entailed": true,
+      "evidence": "transcript:202",
+      "top": [
+        "transcript:205",
+        "transcript:202",
+        "transcript:204",
+        "transcript:198",
+        "transcript:199",
+        "slides:34",
+        "transcript:201",
+        "transcript:217"
+      ]
+    },
+    {
+      "claim": "summary:37",
+      "text": "However, the structure of the GAN problem makes finding an equilibrium feasible.",
+      "entailed": true,
+      "evidence": "transcript:375",
+      "top": [
+        "transcript:92",
+        "slides:20",
+        "transcript:200",
+        "transcript:375",
+        "transcript:143",
+        "transcript:369",
+        "transcript:296",
+        "transcript:138"
+      ]
+    },
+    {
+      "claim": "summary:38",
+      "text": "For a fixed generator, the optimal discriminator is given by $D^*_G(x) = \\frac{p_{\\text{data}}(x)}{p_{\\text{data}}(x) + p_g(x)}$.",
+      "entailed": true,
+      "evidence": "slides:36",
+      "top": [
+        "slides:36",
+        "transcript:210",
+        "slides:33",
+        "transcript:211",
+        "slides:30",
+        "transcript:214",
+        "transcript:189",
+        "transcript:197"
+      ]
+    },
+    {
+      "claim": "summary:39",
+      "text": "Plugging the optimal discriminator into the value function yields the Jensen–Shannon divergence between $p_{\\text{data}}$ and $p_g$.",
+      "entailed": true,
+      "evidence": "slides:38",
+      "top": [
+        "slides:38",
+        "transcript:214",
+        "slides:47",
+        "slides:36",
+        "slides:30",
+        "transcript:215",
+        "slides:35",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "summary:40",
+      "text": "The Jensen–Shannon divergence is defined as $\\mathrm{JSD}(p_{\\text{data}} \\| p_g) = \\frac{1}{2} \\mathrm{KL}\\!\\left(p_{\\text{data}} \\;\\middle\\|\\; \\frac{p_{\\text{data}}+p_g}{2}\\right) + \\frac{1}{2} \\mathrm{KL}\\!\\left(p_g \\;\\middle\\|\\; \\frac{p_{\\text{data}}+p_g}{2}\\right)$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:215",
+        "slides:38",
+        "transcript:214",
+        "transcript:382",
+        "transcript:383",
+        "transcript:436",
+        "slides:107",
+        "transcript:398"
+      ]
+    },
+    {
+      "claim": "summary:41",
+      "text": "At the global minimum of the GAN game, the generator's distribution equals the data distribution: $p_g = p_{\\text{data}}$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:20",
+        "slides:156",
+        "slides:21",
+        "slides:91",
+        "slides:78",
+        "transcript:367",
+        "transcript:296",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "summary:42",
+      "text": "The theoretical generator loss $\\mathbb{E}_z[\\log(1 - D(G(z)))]$ is very poor for training the generator in practice.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:39",
+        "slides:33",
+        "slides:48",
+        "slides:41",
+        "slides:165",
+        "slides:81",
+        "transcript:211",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "summary:43",
+      "text": "The problem is sigmoid-saturated cross-entropy.",
+      "entailed": true,
+      "evidence": "transcript:224",
+      "top": [
+        "transcript:224",
+        "transcript:223",
+        "transcript:221",
+        "transcript:184",
+        "slides:146",
+        "transcript:370",
+        "slides:98",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "summary:44",
+      "text": "When the discriminator becomes good at separating real from fake, it gives confident predictions with $D(G(z)) \\approx 0$.",
+      "entailed": true,
+      "evidence": "transcript:182",
+      "top": [
+        "transcript:235",
+        "slides:33",
+        "slides:82",
+        "transcript:152",
+        "transcript:182",
+        "transcript:229",
+        "slides:36",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "summary:45",
+      "text": "In that case, the gradient of $\\log(1-D)$ saturates and nearly vanishes.",
+      "entailed": true,
+      "evidence": "transcript:232",
+      "top": [
+        "slides:41",
+        "transcript:232",
+        "transcript:185",
+        "transcript:235",
+        "transcript:383",
+        "slides:47",
+        "transcript:224",
+        "transcript:371"
+      ]
+    },
+    {
+      "claim": "summary:46",
+      "text": "Then backpropagation through $D$ provides almost no signal to $G$, exactly when the generator needs to improve the most.",
+      "entailed": true,
+      "evidence": "transcript:231",
+      "top": [
+        "transcript:231",
+        "transcript:236",
+        "slides:44",
+        "transcript:230",
+        "transcript:237",
+        "transcript:197",
+        "transcript:194",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "summary:47",
+      "text": "The practical fix is to use a non-saturating loss for the generator: minimize $-\\mathbb{E}_{z \\sim p_z(z)}[\\log D(G(z))]$.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:39",
+        "slides:48",
+        "slides:33",
+        "slides:41",
+        "slides:45",
+        "transcript:176",
+        "slides:81",
+        "transcript:211"
+      ]
+    },
+    {
+      "claim": "summary:48",
+      "text": "This means maximizing the probability that the discriminator makes a mistake, rather than minimizing the probability of its correct answer.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "transcript:188",
+        "transcript:197",
+        "transcript:226",
+        "transcript:151",
+        "slides:49",
+        "transcript:181",
+        "transcript:225",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "summary:49",
+      "text": "This non-saturating loss keeps the gradient alive when the discriminator is strong.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:232",
+        "transcript:235",
+        "transcript:188",
+        "slides:43",
+        "transcript:197",
+        "transcript:236",
+        "transcript:195",
+        "transcript:218"
+      ]
+    },
+    {
+      "claim": "summary:50",
+      "text": "Training of GANs proceeds in alternation, much like an EM algorithm.",
+      "entailed": true,
+      "evidence": "slides:46",
+      "top": [
+        "slides:46",
+        "transcript:234",
+        "slides:20",
+        "transcript:468",
+        "slides:25",
+        "slides:78",
+        "transcript:200",
+        "slides:22"
+      ]
+    },
+    {
+      "claim": "summary:51",
+      "text": "Step 1: Fix $G$ and update $D$ by improving the binary cross-entropy on mini-batches of real data and generated data.",
+      "entailed": true,
+      "evidence": "slides:47",
+      "top": [
+        "slides:47",
+        "slides:48",
+        "slides:33",
+        "slides:36",
+        "transcript:220",
+        "slides:34",
+        "slides:35",
+        "transcript:211"
+      ]
+    },
+    {
+      "claim": "summary:52",
+      "text": "Step 2: Fix $D$ and update $G$ using the non-saturating loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:47",
+        "transcript:239",
+        "slides:35",
+        "slides:48",
+        "slides:39",
+        "transcript:188",
+        "transcript:181",
+        "transcript:224"
+      ]
+    },
+    {
+      "claim": "summary:53",
+      "text": "In practice, the discriminator is often updated more frequently, or the updates are carefully balanced to avoid one network overpowering the other too quickly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:118",
+        "slides:99",
+        "transcript:226",
+        "transcript:162",
+        "transcript:154",
+        "transcript:188",
+        "transcript:120",
+        "transcript:232"
+      ]
+    },
+    {
+      "claim": "summary:54",
+      "text": "The original GAN (2014) produced reasonable digits on MNIST but struggled with diverse, natural images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:289",
+        "transcript:298",
+        "transcript:250",
+        "transcript:535",
+        "transcript:542",
+        "transcript:469",
+        "slides:132",
+        "transcript:133"
+      ]
+    },
+    {
+      "claim": "summary:55",
+      "text": "A major advance was Deep Convolutional GANs (DCGANs).",
+      "entailed": true,
+      "evidence": "transcript:289",
+      "top": [
+        "transcript:249",
+        "transcript:289",
+        "slides:52",
+        "slides:63",
+        "slides:64",
+        "transcript:535",
+        "slides:142",
+        "slides:53"
+      ]
+    },
+    {
+      "claim": "summary:56",
+      "text": "DCGANs replaced fully-connected layers with convolutional/deconvolutional architectures.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "slides:53",
+        "transcript:249",
+        "slides:52",
+        "slides:56",
+        "transcript:289",
+        "transcript:250",
+        "transcript:468",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "summary:57",
+      "text": "DCGANs used strided convolutions instead of pooling.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "slides:53",
+        "transcript:249",
+        "slides:52",
+        "transcript:263",
+        "slides:56",
+        "transcript:289",
+        "transcript:264",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "summary:58",
+      "text": "DCGANs added batch normalization everywhere.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "slides:53",
+        "transcript:264",
+        "transcript:250",
+        "slides:61",
+        "slides:52",
+        "transcript:263",
+        "slides:56",
+        "transcript:249"
+      ]
+    },
+    {
+      "claim": "summary:59",
+      "text": "DCGANs were trained with the Adam optimizer.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "transcript:264",
+        "slides:53",
+        "transcript:289",
+        "transcript:263",
+        "slides:52",
+        "slides:75",
+        "transcript:254",
+        "transcript:290"
+      ]
+    },
+    {
+      "claim": "summary:60",
+      "text": "After only a few epochs on a dataset such as LSUN bedrooms, DCGAN could produce recognizable images of size 64×64 or 128×128.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:250",
+        "slides:55",
+        "slides:54",
+        "transcript:249",
+        "transcript:289",
+        "transcript:251",
+        "slides:52",
+        "slides:56"
+      ]
+    },
+    {
+      "claim": "summary:61",
+      "text": "These DCGAN results were state-of-the-art a decade ago.",
+      "entailed": true,
+      "evidence": "transcript:254",
+      "top": [
+        "transcript:254",
+        "transcript:248",
+        "transcript:250",
+        "transcript:264",
+        "transcript:252",
+        "slides:61",
+        "transcript:289",
+        "slides:56"
+      ]
+    },
+    {
+      "claim": "summary:62",
+      "text": "These results already hinted at the latent space structure.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:495",
+        "transcript:269",
+        "transcript:275",
+        "transcript:364",
+        "transcript:525",
+        "transcript:507",
+        "transcript:494",
+        "transcript:285"
+      ]
+    },
+    {
+      "claim": "summary:63",
+      "text": "To tell if a generator has learned a meaningful mapping and not just memorized training examples, a visual test is used.",
+      "entailed": true,
+      "evidence": "transcript:279",
+      "top": [
+        "transcript:279",
+        "transcript:283",
+        "transcript:243",
+        "transcript:163",
+        "transcript:282",
+        "transcript:129",
+        "transcript:144",
+        "transcript:105"
+      ]
+    },
+    {
+      "claim": "summary:64",
+      "text": "The discriminator cannot answer whether the generator has learned a meaningful mapping.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:127",
+        "transcript:228",
+        "transcript:236",
+        "transcript:175",
+        "transcript:230",
+        "transcript:130",
+        "transcript:155",
+        "transcript:156"
+      ]
+    },
+    {
+      "claim": "summary:65",
+      "text": "The discriminator's inability to distinguish real from generated merely indicates it is not powerful enough or not well trained.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:190",
+        "transcript:129",
+        "transcript:270",
+        "transcript:152",
+        "transcript:268",
+        "transcript:127",
+        "transcript:267",
+        "transcript:228"
+      ]
+    },
+    {
+      "claim": "summary:66",
+      "text": "A widely used visual test is a linear walk in the latent space.",
+      "entailed": true,
+      "evidence": "transcript:279",
+      "top": [
+        "transcript:279",
+        "transcript:364",
+        "transcript:285",
+        "transcript:516",
+        "transcript:287",
+        "transcript:525",
+        "transcript:286",
+        "transcript:495"
+      ]
+    },
+    {
+      "claim": "summary:67",
+      "text": "The generator can be thought of as a map from a simple latent distribution $Z$, such as a standard Gaussian, to a point $X$ on the complicated manifold of real images.",
+      "entailed": true,
+      "evidence": "transcript:277",
+      "top": [
+        "transcript:272",
+        "transcript:278",
+        "transcript:277",
+        "transcript:390",
+        "transcript:434",
+        "transcript:190",
+        "transcript:105",
+        "transcript:271"
+      ]
+    },
+    {
+      "claim": "summary:68",
+      "text": "To generate new images, we need to be able to sample a random $z$ and land reliably on the real image manifold.",
+      "entailed": true,
+      "evidence": "transcript:277",
+      "top": [
+        "transcript:277",
+        "transcript:278",
+        "transcript:504",
+        "transcript:276",
+        "transcript:316",
+        "transcript:321",
+        "transcript:338",
+        "transcript:124"
+      ]
+    },
+    {
+      "claim": "summary:69",
+      "text": "In a linear walk, two latent vectors $z_1$ and $z_2$ that both produce plausible images are interpolated linearly.",
+      "entailed": true,
+      "evidence": "transcript:281",
+      "top": [
+        "transcript:280",
+        "transcript:286",
+        "transcript:285",
+        "transcript:284",
+        "transcript:281",
+        "transcript:279",
+        "transcript:283",
+        "transcript:288"
+      ]
+    },
+    {
+      "claim": "summary:70",
+      "text": "Every intermediate point of the linear interpolation should also produce a plausible image.",
+      "entailed": true,
+      "evidence": "transcript:281",
+      "top": [
+        "transcript:470",
+        "transcript:284",
+        "transcript:286",
+        "transcript:134",
+        "transcript:60",
+        "transcript:174",
+        "transcript:281",
+        "transcript:53"
+      ]
+    },
+    {
+      "claim": "summary:71",
+      "text": "If the images blur or morph unrealistically during interpolation, the manifold is not well flattened.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:28",
+        "transcript:275",
+        "transcript:274",
+        "transcript:505",
+        "transcript:26",
+        "transcript:391",
+        "transcript:174",
+        "transcript:451"
+      ]
+    },
+    {
+      "claim": "summary:72",
+      "text": "Good DCGANs show smooth, realistic transitions during linear walks in latent space.",
+      "entailed": true,
+      "evidence": "transcript:364",
+      "top": [
+        "transcript:285",
+        "slides:56",
+        "transcript:364",
+        "transcript:279",
+        "transcript:250",
+        "transcript:287",
+        "transcript:286",
+        "transcript:138"
+      ]
+    },
+    {
+      "claim": "summary:73",
+      "text": "Smooth latent walks confirm that the latent space is well-behaved and that sampling from the prior yields reasonable outputs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:285",
+        "transcript:364",
+        "transcript:269",
+        "transcript:495",
+        "transcript:525",
+        "transcript:279",
+        "transcript:286",
+        "transcript:494"
+      ]
+    },
+    {
+      "claim": "summary:74",
+      "text": "Early GANs, including DCGAN, exhibited characteristic failures stemming from the local receptive fields of convolution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:289",
+        "transcript:249",
+        "slides:52",
+        "slides:63",
+        "transcript:535",
+        "transcript:296",
+        "transcript:468",
+        "slides:142"
+      ]
+    },
+    {
+      "claim": "summary:75",
+      "text": "The generator builds an image part by part with limited global context.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:144",
+        "slides:50",
+        "transcript:166",
+        "transcript:190",
+        "slides:139",
+        "transcript:278",
+        "transcript:192",
+        "transcript:271"
+      ]
+    },
+    {
+      "claim": "summary:76",
+      "text": "One failure mode is counting problems, such as three-headed dogs or multiple eyes.",
+      "entailed": true,
+      "evidence": "transcript:301",
+      "top": [
+        "transcript:297",
+        "transcript:301",
+        "transcript:302",
+        "transcript:313",
+        "transcript:308",
+        "slides:86",
+        "transcript:114",
+        "transcript:296"
+      ]
+    },
+    {
+      "claim": "summary:77",
+      "text": "Counting problems occur because the model does not know how many of a repeated feature to produce, since it only sees a small neighborhood.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:301",
+        "transcript:298",
+        "transcript:419",
+        "transcript:412",
+        "transcript:243",
+        "transcript:267",
+        "transcript:358",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "summary:78",
+      "text": "Another failure mode is perspective inconsistencies, where different halves of an object may be rendered from different viewpoints.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:297",
+        "transcript:302",
+        "transcript:312",
+        "slides:62",
+        "transcript:296",
+        "transcript:317",
+        "slides:86",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "summary:79",
+      "text": "Perspective inconsistencies occur because the generator has no global 3D understanding.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:322",
+        "transcript:312",
+        "transcript:191",
+        "transcript:177",
+        "transcript:396",
+        "transcript:237",
+        "transcript:271",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "summary:80",
+      "text": "These mistakes are easy for humans to spot.",
+      "entailed": true,
+      "evidence": "transcript:317",
+      "top": [
+        "transcript:317",
+        "transcript:319",
+        "transcript:318",
+        "transcript:301",
+        "transcript:335",
+        "transcript:320",
+        "transcript:439",
+        "transcript:328"
+      ]
+    },
+    {
+      "claim": "summary:81",
+      "text": "These mistakes reflect the difficulty of enforcing global coherence with purely local operations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:373",
+        "transcript:409",
+        "transcript:297",
+        "transcript:317",
+        "transcript:312",
+        "transcript:216",
+        "slides:95",
+        "transcript:290"
+      ]
+    },
+    {
+      "claim": "summary:82",
+      "text": "A crucial idea for scaling up resolution in GANs is to not generate the whole image at once.",
+      "entailed": true,
+      "evidence": "slides:68",
+      "top": [
+        "transcript:536",
+        "slides:68",
+        "transcript:542",
+        "transcript:289",
+        "transcript:133",
+        "transcript:375",
+        "transcript:298",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "summary:83",
+      "text": "Progressive Growing GAN (ProGAN) trains a GAN in stages.",
+      "entailed": true,
+      "evidence": "slides:68",
+      "top": [
+        "slides:67",
+        "slides:68",
+        "slides:20",
+        "slides:27",
+        "transcript:353",
+        "slides:167",
+        "transcript:289",
+        "slides:64"
+      ]
+    },
+    {
+      "claim": "summary:84",
+      "text": "ProGAN starts from $4 \\times 4$ pixels and progressively adds layers that quadruple the resolution up to $1024 \\times 1024$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:68",
+        "slides:74",
+        "slides:70",
+        "transcript:353",
+        "transcript:470",
+        "transcript:343",
+        "slides:67",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "summary:85",
+      "text": "At each stage, new convolutional layers are added smoothly to both the generator and the discriminator.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:230",
+        "transcript:236",
+        "transcript:194",
+        "transcript:175",
+        "transcript:129",
+        "transcript:190",
+        "transcript:231",
+        "transcript:197"
+      ]
+    },
+    {
+      "claim": "summary:86",
+      "text": "This approach allows the model to first learn large-scale structure and then refine it.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:68",
+        "transcript:243",
+        "transcript:67",
+        "transcript:439",
+        "transcript:358",
+        "transcript:16",
+        "transcript:17",
+        "transcript:256"
+      ]
+    },
+    {
+      "claim": "summary:87",
+      "text": "Training time is saved because the early stages see many more lower-resolution images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:361",
+        "slides:72",
+        "transcript:243",
+        "transcript:358",
+        "transcript:154",
+        "transcript:345",
+        "transcript:342",
+        "transcript:242"
+      ]
+    },
+    {
+      "claim": "summary:88",
+      "text": "After about two weeks of training on powerful hardware, ProGAN produced the first high-resolution, photo-realistic human faces.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:349",
+        "transcript:352",
+        "transcript:353",
+        "slides:68",
+        "transcript:250",
+        "slides:74",
+        "transcript:289",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "summary:89",
+      "text": "These faces are known from the website \"ThisPersonDoesNotExist\".",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:350",
+        "transcript:332",
+        "transcript:351",
+        "transcript:349",
+        "slides:104",
+        "transcript:354",
+        "transcript:352",
+        "slides:157"
+      ]
+    },
+    {
+      "claim": "summary:90",
+      "text": "At the time, ProGAN incorporated improved loss functions.",
+      "entailed": true,
+      "evidence": "slides:75",
+      "top": [
+        "transcript:366",
+        "slides:75",
+        "slides:72",
+        "transcript:367",
+        "slides:67",
+        "slides:70",
+        "transcript:468",
+        "slides:73"
+      ]
+    },
+    {
+      "claim": "summary:91",
+      "text": "One improved loss function was the Least Squares GAN (LSGAN).",
+      "entailed": true,
+      "evidence": "transcript:368",
+      "top": [
+        "transcript:368",
+        "transcript:370",
+        "slides:77",
+        "transcript:467",
+        "slides:75",
+        "transcript:454",
+        "transcript:369",
+        "transcript:473"
+      ]
+    },
+    {
+      "claim": "summary:92",
+      "text": "LSGAN replaces the sigmoid cross-entropy with a squared-deviation target.",
+      "entailed": true,
+      "evidence": "transcript:370",
+      "top": [
+        "transcript:223",
+        "transcript:224",
+        "slides:81",
+        "slides:80",
+        "transcript:370",
+        "slides:77",
+        "transcript:172",
+        "transcript:219"
+      ]
+    },
+    {
+      "claim": "summary:93",
+      "text": "The LSGAN discriminator loss is $\\min_D \\frac{1}{2}\\,\\mathbb{E}_{p_{\\text{data}}}[(D(x)-b)^2] + \\frac{1}{2}\\,\\mathbb{E}_{p_z}[(D(G(z))-a)^2]$.",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "slides:80",
+        "slides:47",
+        "slides:81",
+        "transcript:181",
+        "transcript:188",
+        "transcript:195",
+        "transcript:196",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "summary:94",
+      "text": "The LSGAN generator loss is $\\min_G \\frac{1}{2}\\,\\mathbb{E}_{p_z}[(D(G(z))-c)^2]$.",
+      "entailed": true,
+      "evidence": "slides:81",
+      "top": [
+        "slides:81",
+        "slides:39",
+        "slides:80",
+        "slides:48",
+        "transcript:196",
+        "transcript:211",
+        "slides:33",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "summary:95",
+      "text": "Typical choices for LSGAN are $a=0$, $b=c=1$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:81",
+        "slides:77",
+        "slides:80",
+        "slides:85",
+        "slides:86",
+        "transcript:384",
+        "transcript:181",
+        "slides:95"
+      ]
+    },
+    {
+      "claim": "summary:96",
+      "text": "Because the LSGAN loss penalizes overshooting, nothing explodes to infinity, and gradients remain useful.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:81",
+        "slides:80",
+        "slides:86",
+        "slides:44",
+        "slides:85",
+        "slides:77",
+        "slides:134",
+        "transcript:239"
+      ]
+    },
+    {
+      "claim": "summary:97",
+      "text": "The deeper reason why standard divergences cause trouble in generative modeling is that $p_{\\text{data}}$ and $p_g$ are concentrated on low-dimensional manifolds inside the high-dimensional pixel space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:20",
+        "slides:78",
+        "slides:21",
+        "transcript:380",
+        "transcript:475",
+        "transcript:81",
+        "transcript:17",
+        "transcript:247"
+      ]
+    },
+    {
+      "claim": "summary:98",
+      "text": "The support of a realistic cat photo set is a tiny, intricate surface in $\\mathbb{R}^{3\\mathrm{M}}$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:323",
+        "transcript:33",
+        "transcript:112",
+        "transcript:506",
+        "transcript:111",
+        "transcript:327",
+        "transcript:324",
+        "transcript:83"
+      ]
+    },
+    {
+      "claim": "summary:99",
+      "text": "The generator maps a low-dimensional noise vector to an image, so its distribution $p_g$ also lies on some low-dimensional manifold.",
+      "entailed": true,
+      "evidence": "transcript:390",
+      "top": [
+        "transcript:390",
+        "transcript:278",
+        "transcript:272",
+        "transcript:434",
+        "transcript:277",
+        "slides:31",
+        "transcript:96",
+        "slides:91"
+      ]
+    },
+    {
+      "claim": "summary:100",
+      "text": "In the beginning of training, these two manifolds almost surely do not intersect; their overlap has measure zero.",
+      "entailed": true,
+      "evidence": "transcript:393",
+      "top": [
+        "slides:109",
+        "transcript:393",
+        "slides:110",
+        "transcript:396",
+        "transcript:29",
+        "transcript:505",
+        "transcript:418",
+        "transcript:386"
+      ]
+    },
+    {
+      "claim": "summary:101",
+      "text": "In the Kullback-Leibler divergence $\\mathrm{KL}(p_{\\text{data}} \\| p_g) = \\int p_{\\text{data}}(x) \\log \\frac{p_{\\text{data}}(x)}{p_g(x)}\\,dx$, where $p_{\\text{data}}(x) > 0$, we typically have $p_g(x) = 0$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:382",
+        "transcript:383",
+        "transcript:215",
+        "transcript:398",
+        "slides:107",
+        "slides:38",
+        "transcript:436",
+        "transcript:401"
+      ]
+    },
+    {
+      "claim": "summary:102",
+      "text": "Thus the logarithm becomes infinite, making the KL divergence undefined or infinite.",
+      "entailed": true,
+      "evidence": "transcript:400",
+      "top": [
+        "transcript:383",
+        "transcript:382",
+        "transcript:400",
+        "transcript:398",
+        "slides:108",
+        "slides:110",
+        "transcript:215",
+        "transcript:401"
+      ]
+    },
+    {
+      "claim": "summary:103",
+      "text": "This yields no useful gradient to move $p_g$ towards $p_{\\text{data}}$.",
+      "entailed": true,
+      "evidence": "slides:44",
+      "top": [
+        "slides:35",
+        "slides:37",
+        "slides:21",
+        "slides:31",
+        "slides:47",
+        "transcript:424",
+        "slides:44",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "summary:104",
+      "text": "Classical machine learning avoids this problem by adding Gaussian noise to the model, smoothing its support everywhere.",
+      "entailed": true,
+      "evidence": "slides:111",
+      "top": [
+        "transcript:433",
+        "transcript:424",
+        "slides:111",
+        "transcript:422",
+        "transcript:409",
+        "transcript:453",
+        "transcript:435",
+        "transcript:509"
+      ]
+    },
+    {
+      "claim": "summary:105",
+      "text": "But in implicit generative models, we cannot remove that noise during generation, because adding noise blurs the images and defeats the purpose.",
+      "entailed": true,
+      "evidence": "transcript:437",
+      "top": [
+        "transcript:451",
+        "transcript:437",
+        "slides:112",
+        "transcript:453",
+        "transcript:452",
+        "transcript:450",
+        "transcript:21",
+        "transcript:81"
+      ]
+    },
+    {
+      "claim": "summary:106",
+      "text": "The Earth Mover distance (Wasserstein-1) provides a solution to the manifold mismatch problem.",
+      "entailed": true,
+      "evidence": "transcript:466",
+      "top": [
+        "slides:115",
+        "transcript:456",
+        "transcript:464",
+        "transcript:462",
+        "transcript:463",
+        "transcript:466",
+        "transcript:455",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "summary:107",
+      "text": "Intuitively, think of the two probability distributions as piles of earth of total volume 1.",
+      "entailed": true,
+      "evidence": "transcript:457",
+      "top": [
+        "transcript:458",
+        "transcript:457",
+        "transcript:459",
+        "transcript:461",
+        "transcript:393",
+        "transcript:460",
+        "transcript:494",
+        "transcript:395"
+      ]
+    },
+    {
+      "claim": "summary:108",
+      "text": "The Wasserstein distance is the minimum amount of work needed to turn one pile into the other, where work is approximately mass times distance moved.",
+      "entailed": true,
+      "evidence": "transcript:461",
+      "top": [
+        "transcript:456",
+        "slides:115",
+        "transcript:461",
+        "transcript:455",
+        "transcript:462",
+        "transcript:460",
+        "slides:121",
+        "slides:127"
+      ]
+    },
+    {
+      "claim": "summary:109",
+      "text": "Formally, $W(p_{\\text{data}}, p_g) = \\inf_{\\gamma \\in \\Pi(p_{\\text{data}}, p_g)} \\mathbb{E}_{(x,y) \\sim \\gamma}[\\|x - y\\|]$, where $\\Pi(p_{\\text{data}}, p_g)$ is the set of joint distributions whose marginals are $p_{\\text{data}}$ and $p_g$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:31",
+        "slides:117",
+        "slides:38",
+        "slides:116",
+        "transcript:168",
+        "transcript:411",
+        "slides:97",
+        "slides:107"
+      ]
+    },
+    {
+      "claim": "summary:110",
+      "text": "Crucially, the Wasserstein distance remains continuous and provides meaningful gradients even when the supports of the distributions are disjoint.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:121",
+        "slides:122",
+        "slides:114",
+        "transcript:455",
+        "slides:127",
+        "slides:115",
+        "transcript:467",
+        "transcript:402"
+      ]
+    },
+    {
+      "claim": "summary:111",
+      "text": "Moving a distribution a little bit closer always reduces the Earth Mover distance, whereas the KL divergence would still be infinite.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:398",
+        "transcript:401",
+        "transcript:381",
+        "slides:108",
+        "transcript:405",
+        "transcript:457",
+        "transcript:382",
+        "transcript:466"
+      ]
+    },
+    {
+      "claim": "summary:112",
+      "text": "Computing the infimum over joint distributions in the Wasserstein distance seems intractable.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:121",
+        "slides:122",
+        "transcript:455",
+        "slides:127",
+        "slides:115",
+        "slides:114",
+        "transcript:454",
+        "slides:131"
+      ]
+    },
+    {
+      "claim": "summary:113",
+      "text": "The Kantorovich-Rubinstein duality transforms the Wasserstein distance into a supremum over 1-Lipschitz functions: $W(p_{\\text{data}}, p_g) = \\sup_{\\|f\\|_L \\le 1} (\\mathbb{E}_{x \\sim p_{\\text{data}}}[f(x)] - \\mathbb{E}_{x \\sim p_g}[f(x)])$.",
+      "entailed": true,
+      "evidence": "slides:122",
+      "top": [
+        "slides:122",
+        "slides:121",
+        "transcript:455",
+        "slides:127",
+        "slides:114",
+        "slides:115",
+        "transcript:454",
+        "transcript:467"
+      ]
+    },
+    {
+      "claim": "summary:114",
+      "text": "We can parametrize $f$ with a neural network $f_w$, called the critic, because it no longer does binary classification.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:129",
+        "slides:125",
+        "slides:124",
+        "slides:98",
+        "slides:134",
+        "transcript:68",
+        "slides:128",
+        "slides:126"
+      ]
+    },
+    {
+      "claim": "summary:115",
+      "text": "Originally, the Lipschitz constraint was enforced by weight clipping to a small range.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:128",
+        "slides:135",
+        "slides:98",
+        "slides:134",
+        "transcript:371",
+        "slides:97",
+        "slides:122",
+        "transcript:373"
+      ]
+    },
+    {
+      "claim": "summary:116",
+      "text": "In WGAN training, for a fixed generator, the critic is trained to maximize the difference of expectations, approximating the Wasserstein distance.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:129",
+        "slides:127",
+        "transcript:468",
+        "slides:131",
+        "slides:75",
+        "slides:133",
+        "transcript:454",
+        "transcript:455"
+      ]
+    },
+    {
+      "claim": "summary:117",
+      "text": "For a fixed critic, the generator's gradient is computed as $-\\mathbb{E}_{z}[\\nabla_\\theta f_w(G_\\theta(z))]$, and the generator is updated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:127",
+        "slides:28",
+        "slides:44",
+        "slides:126",
+        "transcript:231",
+        "slides:39",
+        "transcript:237",
+        "slides:91"
+      ]
+    },
+    {
+      "claim": "summary:118",
+      "text": "The WGAN loss correlates much better with image quality than the standard GAN loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:468",
+        "slides:131",
+        "slides:75",
+        "transcript:289",
+        "transcript:249",
+        "slides:52",
+        "transcript:263",
+        "transcript:138"
+      ]
+    },
+    {
+      "claim": "summary:119",
+      "text": "The WGAN critic can be trained to convergence, unlike the discriminator in a standard GAN.",
+      "entailed": true,
+      "evidence": "slides:129",
+      "top": [
+        "slides:129",
+        "slides:130",
+        "slides:75",
+        "transcript:468",
+        "slides:25",
+        "transcript:249",
+        "transcript:234",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "summary:120",
+      "text": "Weight clipping can cause the critic to learn over-simplified functions and may lead to exploding or vanishing gradients.",
+      "entailed": true,
+      "evidence": "slides:134",
+      "top": [
+        "slides:134",
+        "slides:128",
+        "slides:135",
+        "slides:126",
+        "transcript:237",
+        "slides:129",
+        "transcript:235",
+        "slides:98"
+      ]
+    },
+    {
+      "claim": "summary:121",
+      "text": "Improved WGAN (WGAN-GP) replaces weight clipping with a soft gradient penalty.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:135",
+        "slides:53",
+        "slides:128",
+        "slides:56",
+        "slides:52",
+        "transcript:468",
+        "transcript:470",
+        "transcript:249"
+      ]
+    },
+    {
+      "claim": "summary:122",
+      "text": "The gradient penalty term is $\\lambda \\mathbb{E}_{\\hat{x} \\sim P_{\\hat{x}}}[(\\|\\nabla_{\\hat{x}} D(\\hat{x})\\|_2 - 1)^2]$, where $\\hat{x}$ is sampled uniformly along straight lines between real and generated samples.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:135",
+        "slides:128",
+        "slides:98",
+        "slides:127",
+        "transcript:487",
+        "slides:44",
+        "transcript:235",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "summary:123",
+      "text": "This gradient penalty encourages the critic's gradient norm to stay close to 1 everywhere.",
+      "entailed": true,
+      "evidence": "slides:135",
+      "top": [
+        "slides:128",
+        "slides:134",
+        "slides:135",
+        "slides:127",
+        "slides:98",
+        "slides:126",
+        "transcript:235",
+        "slides:129"
+      ]
+    },
+    {
+      "claim": "summary:124",
+      "text": "This enforces the Lipschitz condition in a gentler way and yields more stable training.",
+      "entailed": true,
+      "evidence": "slides:135",
+      "top": [
+        "slides:128",
+        "transcript:433",
+        "slides:135",
+        "transcript:237",
+        "slides:98",
+        "slides:72",
+        "slides:134",
+        "slides:129"
+      ]
+    },
+    {
+      "claim": "summary:125",
+      "text": "Further improvements in GANs addressed the locality of convolutions and scaled up the models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:249",
+        "transcript:536",
+        "transcript:92",
+        "slides:137",
+        "slides:159",
+        "slides:132",
+        "slides:20",
+        "slides:142"
+      ]
+    },
+    {
+      "claim": "summary:126",
+      "text": "Self‑Attention GAN (SAGAN) adds a Transformer‑like self‑attention mechanism over image features.",
+      "entailed": true,
+      "evidence": "slides:138",
+      "top": [
+        "slides:136",
+        "slides:138",
+        "slides:142",
+        "slides:137",
+        "slides:139",
+        "transcript:542",
+        "slides:20",
+        "transcript:249"
+      ]
+    },
+    {
+      "claim": "summary:127",
+      "text": "This self‑attention mechanism lets the generator capture long‑range dependencies.",
+      "entailed": true,
+      "evidence": "slides:139",
+      "top": [
+        "transcript:175",
+        "slides:139",
+        "transcript:230",
+        "slides:50",
+        "transcript:148",
+        "transcript:193",
+        "transcript:144",
+        "transcript:271"
+      ]
+    },
+    {
+      "claim": "summary:128",
+      "text": "The attention maps of SAGAN show that the network looks far across the image when synthesising fine details.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:138",
+        "slides:137",
+        "slides:140",
+        "transcript:306",
+        "slides:136",
+        "slides:142",
+        "transcript:305"
+      ]
+    },
+    {
+      "claim": "summary:129",
+      "text": "BigGAN combined self‑attention with very large architectures and careful regularisation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:136",
+        "slides:137",
+        "slides:141",
+        "transcript:469",
+        "transcript:470",
+        "transcript:353",
+        "slides:53"
+      ]
+    },
+    {
+      "claim": "summary:130",
+      "text": "BigGAN improved the Inception score threefold.",
+      "entailed": true,
+      "evidence": "slides:141",
+      "top": [
+        "slides:141",
+        "slides:144",
+        "slides:142",
+        "slides:145",
+        "transcript:469",
+        "slides:148",
+        "transcript:470",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "summary:131",
+      "text": "BigGAN produced high‑fidelity interpolations, such as smoothly morphing a bird into a dog with plausible intermediate hybrids.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:471",
+        "transcript:470",
+        "slides:142",
+        "transcript:469",
+        "slides:67",
+        "slides:68",
+        "transcript:353",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "summary:132",
+      "text": "Evaluating image quality itself is non‑trivial.",
+      "entailed": true,
+      "evidence": "slides:143",
+      "top": [
+        "slides:143",
+        "transcript:159",
+        "transcript:476",
+        "transcript:328",
+        "transcript:55",
+        "transcript:117",
+        "transcript:450",
+        "transcript:112"
+      ]
+    },
+    {
+      "claim": "summary:133",
+      "text": "The Inception score is a commonly used metric.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:144",
+        "slides:148",
+        "slides:147",
+        "slides:145",
+        "slides:141",
+        "slides:146",
+        "transcript:94",
+        "transcript:243"
+      ]
+    },
+    {
+      "claim": "summary:134",
+      "text": "To compute the Inception score, one takes a generated image $x$ and runs a pre‑trained Inception classifier to get $p(y \\mid x)$.",
+      "entailed": true,
+      "evidence": "slides:145",
+      "top": [
+        "slides:145",
+        "slides:147",
+        "slides:146",
+        "slides:144",
+        "slides:148",
+        "slides:141",
+        "transcript:184",
+        "transcript:94"
+      ]
+    },
+    {
+      "claim": "summary:135",
+      "text": "The Inception score is defined as $\\mathrm{IS} = \\exp\\!\\Bigl( \\mathbb{E}_x \\,\\mathrm{KL}\\bigl(p(y \\mid x) \\,\\|\\, p(y)\\bigr) \\Bigr)$.",
+      "entailed": true,
+      "evidence": "slides:147",
+      "top": [
+        "slides:147",
+        "slides:146",
+        "slides:145",
+        "slides:144",
+        "slides:148",
+        "slides:141",
+        "transcript:184",
+        "transcript:94"
+      ]
+    },
+    {
+      "claim": "summary:136",
+      "text": "In the Inception score formula, $p(y)$ is defined as $p(y) = \\int p(y \\mid G(z))\\, dz$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:146",
+        "slides:144",
+        "slides:145",
+        "slides:31",
+        "slides:148",
+        "slides:39",
+        "transcript:94"
+      ]
+    },
+    {
+      "claim": "summary:137",
+      "text": "The Inception score rewards images that are confidently classified as a particular class (low entropy in $p(y \\mid x)$) while the generated set as a whole is diverse across classes (high entropy in $p(y)$).",
+      "entailed": true,
+      "evidence": "slides:146",
+      "top": [
+        "slides:146",
+        "slides:145",
+        "slides:144",
+        "slides:147",
+        "slides:148",
+        "transcript:184",
+        "slides:141",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "summary:138",
+      "text": "A natural way to obtain a loss function for generation is to train an autoencoder.",
+      "entailed": true,
+      "evidence": "transcript:477",
+      "top": [
+        "transcript:477",
+        "transcript:484",
+        "transcript:94",
+        "transcript:74",
+        "transcript:115",
+        "transcript:475",
+        "transcript:196",
+        "slides:163"
+      ]
+    },
+    {
+      "claim": "summary:139",
+      "text": "In an autoencoder, an encoder maps an image $x$ to a latent code $z$.",
+      "entailed": true,
+      "evidence": "transcript:481",
+      "top": [
+        "transcript:481",
+        "transcript:482",
+        "transcript:491",
+        "transcript:513",
+        "transcript:490",
+        "transcript:493",
+        "transcript:518",
+        "transcript:483"
+      ]
+    },
+    {
+      "claim": "summary:140",
+      "text": "In an autoencoder, a decoder maps $z$ back to a reconstruction $\\hat{x}$.",
+      "entailed": true,
+      "evidence": "transcript:482",
+      "top": [
+        "transcript:482",
+        "transcript:481",
+        "transcript:483",
+        "transcript:491",
+        "transcript:489",
+        "transcript:503",
+        "transcript:486",
+        "transcript:490"
+      ]
+    },
+    {
+      "claim": "summary:141",
+      "text": "Training an autoencoder minimises $\\|x - \\hat{x}\\|^2$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:487",
+        "transcript:74",
+        "transcript:491",
+        "transcript:484",
+        "transcript:75",
+        "transcript:477",
+        "transcript:524",
+        "transcript:103"
+      ]
+    },
+    {
+      "claim": "summary:142",
+      "text": "After training an autoencoder, the decoder alone can function as a generator by feeding it a latent code $z$ to get an image.",
+      "entailed": true,
+      "evidence": "transcript:482",
+      "top": [
+        "transcript:491",
+        "transcript:482",
+        "transcript:503",
+        "transcript:493",
+        "transcript:490",
+        "transcript:474",
+        "transcript:492",
+        "transcript:481"
+      ]
+    },
+    {
+      "claim": "summary:143",
+      "text": "The aggregated posterior distribution of latent codes produced by the autoencoder's encoder on real data is complicated and not easy to sample from.",
+      "entailed": true,
+      "evidence": "transcript:495",
+      "top": [
+        "transcript:518",
+        "transcript:481",
+        "transcript:516",
+        "transcript:491",
+        "transcript:513",
+        "transcript:495",
+        "transcript:75",
+        "transcript:507"
+      ]
+    },
+    {
+      "claim": "summary:144",
+      "text": "Simply drawing $z$ from a standard Gaussian and feeding it to the autoencoder's decoder will almost certainly miss the correct manifold, producing garbage.",
+      "entailed": true,
+      "evidence": "transcript:504",
+      "top": [
+        "transcript:483",
+        "transcript:482",
+        "transcript:277",
+        "transcript:519",
+        "transcript:489",
+        "transcript:491",
+        "transcript:481",
+        "transcript:504"
+      ]
+    },
+    {
+      "claim": "summary:145",
+      "text": "An Adversarial Autoencoder (AAE) solves the sampling problem by adding a discriminator in the latent space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:149",
+        "transcript:525",
+        "transcript:517",
+        "transcript:474",
+        "transcript:472",
+        "transcript:527",
+        "transcript:507",
+        "transcript:526"
+      ]
+    },
+    {
+      "claim": "summary:146",
+      "text": "In an AAE, the discriminator learns to distinguish between latent codes from the encoder (from real data) and samples from a simple prior (e.g., a standard Gaussian).",
+      "entailed": true,
+      "evidence": "transcript:516",
+      "top": [
+        "slides:150",
+        "transcript:516",
+        "slides:82",
+        "transcript:519",
+        "transcript:527",
+        "transcript:481",
+        "transcript:120",
+        "transcript:482"
+      ]
+    },
+    {
+      "claim": "summary:147",
+      "text": "In an AAE, the encoder is simultaneously trained to fool the discriminator, pushing its output distribution to match the prior.",
+      "entailed": true,
+      "evidence": "transcript:175",
+      "top": [
+        "slides:150",
+        "transcript:526",
+        "slides:149",
+        "transcript:527",
+        "transcript:175",
+        "transcript:120",
+        "transcript:481",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "summary:148",
+      "text": "Once an AAE is trained, sampling $z$ from the Gaussian and passing it through the decoder yields plausible images.",
+      "entailed": true,
+      "evidence": "transcript:519",
+      "top": [
+        "transcript:503",
+        "transcript:519",
+        "transcript:482",
+        "transcript:483",
+        "slides:150",
+        "transcript:513",
+        "transcript:516",
+        "transcript:527"
+      ]
+    },
+    {
+      "claim": "summary:149",
+      "text": "AAEs can be extended to conditional generation by providing a label to the encoder and decoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:527",
+        "transcript:339",
+        "slides:149",
+        "slides:151",
+        "transcript:526",
+        "transcript:340",
+        "slides:150",
+        "slides:163"
+      ]
+    },
+    {
+      "claim": "summary:150",
+      "text": "AAEs can be extended to semi‑supervised learning.",
+      "entailed": true,
+      "evidence": "slides:151",
+      "top": [
+        "slides:151",
+        "transcript:527",
+        "transcript:526",
+        "slides:149",
+        "transcript:108",
+        "transcript:433",
+        "transcript:139",
+        "transcript:509"
+      ]
+    },
+    {
+      "claim": "summary:151",
+      "text": "VAEs offer a cleaner probabilistic regularisation compared to AAEs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:527",
+        "transcript:509",
+        "transcript:511",
+        "slides:151",
+        "transcript:510",
+        "transcript:75",
+        "transcript:526",
+        "transcript:433"
+      ]
+    },
+    {
+      "claim": "summary:152",
+      "text": "AAEs are a direct, adversarial alternative to VAEs.",
+      "entailed": true,
+      "evidence": "transcript:527",
+      "top": [
+        "transcript:526",
+        "slides:149",
+        "transcript:527",
+        "transcript:511",
+        "transcript:140",
+        "transcript:512",
+        "slides:150",
+        "transcript:139"
+      ]
+    },
+    {
+      "claim": "summary:153",
+      "text": "AAEs still see use.",
+      "entailed": true,
+      "evidence": "transcript:526",
+      "top": [
+        "transcript:527",
+        "transcript:526",
+        "slides:149",
+        "slides:150",
+        "transcript:293",
+        "transcript:132",
+        "transcript:520",
+        "transcript:522"
+      ]
+    },
+    {
+      "claim": "summary:154",
+      "text": "In Conditional GANs, the generator receives both a noise vector and a conditioning input (e.g., a class label, a low‑resolution image, or an age descriptor).",
+      "entailed": true,
+      "evidence": "slides:156",
+      "top": [
+        "slides:156",
+        "slides:91",
+        "slides:20",
+        "transcript:234",
+        "slides:78",
+        "slides:19",
+        "transcript:367",
+        "transcript:21"
+      ]
+    },
+    {
+      "claim": "summary:155",
+      "text": "Conditional GANs enable tasks such as face ageing and super‑resolution (e.g., ESRGAN).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:536",
+        "slides:157",
+        "transcript:375",
+        "transcript:92",
+        "slides:155",
+        "transcript:353",
+        "transcript:535",
+        "slides:159"
+      ]
+    },
+    {
+      "claim": "summary:156",
+      "text": "Stacked GANs (SGAN) are a chain of GANs where later stages condition on the output of earlier ones, progressively refining the representation through a hierarchy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:159",
+        "slides:160",
+        "slides:167",
+        "slides:162",
+        "slides:164",
+        "slides:161",
+        "slides:20",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "summary:157",
+      "text": "GANs were the state‑of‑the‑art for unconditional image generation until around 2020.",
+      "entailed": true,
+      "evidence": "transcript:291",
+      "top": [
+        "transcript:535",
+        "transcript:133",
+        "transcript:289",
+        "transcript:542",
+        "transcript:536",
+        "transcript:534",
+        "transcript:291",
+        "slides:64"
+      ]
+    },
+    {
+      "claim": "summary:158",
+      "text": "GANs remain strong in specific niches, such as super‑resolution, style transfer, and any domain where an explicit density is not needed.",
+      "entailed": true,
+      "evidence": "transcript:536",
+      "top": [
+        "transcript:536",
+        "transcript:539",
+        "transcript:133",
+        "transcript:375",
+        "transcript:132",
+        "slides:64",
+        "transcript:88",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "summary:159",
+      "text": "For text‑to‑image generation and large‑scale prompted image synthesis, diffusion models have taken over.",
+      "entailed": true,
+      "evidence": "transcript:542",
+      "top": [
+        "transcript:542",
+        "transcript:134",
+        "transcript:330",
+        "transcript:316",
+        "transcript:321",
+        "transcript:276",
+        "transcript:100",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "summary:160",
+      "text": "The principle of adversarial training is still embedded in many modern pipelines.",
+      "entailed": true,
+      "evidence": "transcript:137",
+      "top": [
+        "transcript:139",
+        "transcript:140",
+        "transcript:136",
+        "transcript:137",
+        "transcript:131",
+        "transcript:517",
+        "transcript:512",
+        "transcript:525"
+      ]
+    },
+    {
+      "claim": "summary:161",
+      "text": "The next lecture will introduce diffusion models and show how they connect to the ideas discussed today.",
+      "entailed": true,
+      "evidence": "transcript:138",
+      "top": [
+        "transcript:543",
+        "transcript:76",
+        "transcript:135",
+        "transcript:544",
+        "transcript:134",
+        "transcript:77",
+        "transcript:138",
+        "transcript:62"
+      ]
+    }
+  ]
+}

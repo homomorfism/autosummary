@@ -1,0 +1,2207 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "summary:0",
+      "text": "Convolutional neural networks (CNNs) are a cornerstone of the deep learning revolution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:17",
+        "transcript:167",
+        "transcript:155",
+        "transcript:237",
+        "slides:45",
+        "transcript:60",
+        "slides:63",
+        "transcript:0"
+      ]
+    },
+    {
+      "claim": "summary:1",
+      "text": "The design of CNNs was partly inspired by the structure of the mammalian visual cortex.",
+      "entailed": true,
+      "evidence": "slides:18",
+      "top": [
+        "slides:18",
+        "transcript:99",
+        "slides:42",
+        "slides:25",
+        "transcript:96",
+        "slides:29",
+        "transcript:138",
+        "transcript:154"
+      ]
+    },
+    {
+      "claim": "summary:2",
+      "text": "The seminal work by Hubel and Wiesel revealed how the brain processes visual information through a hierarchy of simple feature detectors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:133",
+        "slides:19",
+        "slides:24",
+        "slides:25",
+        "slides:28",
+        "transcript:96",
+        "transcript:99",
+        "transcript:120"
+      ]
+    },
+    {
+      "claim": "summary:3",
+      "text": "Hubel and Wiesel received the Nobel Prize for these studies.",
+      "entailed": true,
+      "evidence": "transcript:98",
+      "top": [
+        "slides:19",
+        "transcript:98",
+        "transcript:106",
+        "transcript:133",
+        "slides:22",
+        "transcript:101",
+        "slides:21",
+        "slides:20"
+      ]
+    },
+    {
+      "claim": "summary:4",
+      "text": "Hubel and Wiesel's key experimental breakthrough was the ability to fabricate micro-electrodes fine enough to record the activity of a single neuron in a living brain.",
+      "entailed": true,
+      "evidence": "transcript:103",
+      "top": [
+        "transcript:103",
+        "transcript:108",
+        "transcript:104",
+        "transcript:109",
+        "slides:20",
+        "slides:21",
+        "slides:19",
+        "transcript:88"
+      ]
+    },
+    {
+      "claim": "summary:5",
+      "text": "The brain used in these experiments was often that of a cat.",
+      "entailed": true,
+      "evidence": "transcript:106",
+      "top": [
+        "transcript:108",
+        "transcript:106",
+        "transcript:109",
+        "transcript:107",
+        "transcript:104",
+        "transcript:62",
+        "transcript:103",
+        "transcript:101"
+      ]
+    },
+    {
+      "claim": "summary:6",
+      "text": "Using these micro-electrodes, Hubel and Wiesel discovered that neurons in the very first processing stage (the primary visual cortex, V1) do not see the whole image.",
+      "entailed": true,
+      "evidence": "transcript:123",
+      "top": [
+        "transcript:133",
+        "transcript:146",
+        "slides:29",
+        "transcript:120",
+        "transcript:96",
+        "transcript:123",
+        "slides:20",
+        "slides:19"
+      ]
+    },
+    {
+      "claim": "summary:7",
+      "text": "Each neuron in V1 has a small receptive field.",
+      "entailed": true,
+      "evidence": "transcript:123",
+      "top": [
+        "transcript:123",
+        "slides:30",
+        "slides:31",
+        "transcript:137",
+        "transcript:127",
+        "slides:32",
+        "slides:35",
+        "transcript:122"
+      ]
+    },
+    {
+      "claim": "summary:8",
+      "text": "Each neuron in V1 responds only to extremely simple patterns inside its receptive field.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:123",
+        "slides:30",
+        "transcript:122",
+        "slides:20",
+        "transcript:127",
+        "slides:21",
+        "transcript:137",
+        "transcript:120"
+      ]
+    },
+    {
+      "claim": "summary:9",
+      "text": "For instance, a neuron in V1 might fire intensely for a bright vertical line.",
+      "entailed": true,
+      "evidence": "transcript:127",
+      "top": [
+        "transcript:127",
+        "transcript:126",
+        "transcript:128",
+        "slides:30",
+        "slides:31",
+        "slides:20",
+        "transcript:82",
+        "transcript:122"
+      ]
+    },
+    {
+      "claim": "summary:10",
+      "text": "The same neuron becomes almost silent as the line is rotated.",
+      "entailed": true,
+      "evidence": "transcript:129",
+      "top": [
+        "transcript:128",
+        "transcript:127",
+        "transcript:126",
+        "transcript:129",
+        "transcript:86",
+        "transcript:122",
+        "transcript:93",
+        "transcript:82"
+      ]
+    },
+    {
+      "claim": "summary:11",
+      "text": "The observed properties of V1 neurons suggest a hierarchical organisation where the first layer extracts local primitives (edges, orientations).",
+      "entailed": true,
+      "evidence": "slides:30",
+      "top": [
+        "transcript:137",
+        "transcript:134",
+        "slides:30",
+        "transcript:120",
+        "slides:20",
+        "transcript:122",
+        "transcript:146",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "summary:12",
+      "text": "In this hierarchical organisation, a second layer would combine these primitives into more complex shapes (e.g., a corner from a horizontal and a vertical line).",
+      "entailed": true,
+      "evidence": "transcript:131",
+      "top": [
+        "transcript:131",
+        "transcript:149",
+        "transcript:46",
+        "transcript:37",
+        "transcript:36",
+        "transcript:192",
+        "transcript:134",
+        "transcript:148"
+      ]
+    },
+    {
+      "claim": "summary:13",
+      "text": "Hubel and Wiesel did identify neurons in the second visual area (V2) that responded to combinations of primitives (e.g., corners from horizontal and vertical lines).",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:21",
+        "transcript:133",
+        "slides:20",
+        "transcript:134",
+        "slides:19",
+        "transcript:109",
+        "transcript:96",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "summary:14",
+      "text": "Hubel and Wiesel wisely stopped at identifying V2 neurons; they did not claim to understand the full visual cortex hierarchy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:133",
+        "slides:22",
+        "slides:19",
+        "slides:21",
+        "slides:28",
+        "slides:20",
+        "transcript:138",
+        "transcript:137"
+      ]
+    },
+    {
+      "claim": "summary:15",
+      "text": "The true structure of the visual cortex is immensely more complicated than a simple hierarchy.",
+      "entailed": true,
+      "evidence": "transcript:138",
+      "top": [
+        "slides:28",
+        "slides:25",
+        "transcript:138",
+        "transcript:96",
+        "slides:29",
+        "transcript:143",
+        "transcript:120",
+        "transcript:150"
+      ]
+    },
+    {
+      "claim": "summary:16",
+      "text": "A simplified picture of the visual cortex shows a sequence of layers: V1 → V2 → V3 → V4 → V5/V6.",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:26",
+        "transcript:137",
+        "slides:29",
+        "transcript:96",
+        "slides:25",
+        "transcript:146",
+        "transcript:130",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "summary:17",
+      "text": "In reality, the visual cortex is a dense mesh of feed-forward, feedback and lateral connections.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:96",
+        "slides:29",
+        "slides:25",
+        "transcript:119",
+        "transcript:130",
+        "slides:28",
+        "transcript:146",
+        "transcript:150"
+      ]
+    },
+    {
+      "claim": "summary:18",
+      "text": "The biological brain is not a clean feed-forward network.",
+      "entailed": true,
+      "evidence": "transcript:84",
+      "top": [
+        "transcript:82",
+        "transcript:69",
+        "transcript:84",
+        "transcript:89",
+        "transcript:90",
+        "transcript:92",
+        "transcript:93",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "summary:19",
+      "text": "A single biological neuron has exactly one output: its axon.",
+      "entailed": true,
+      "evidence": "transcript:73",
+      "top": [
+        "transcript:73",
+        "transcript:74",
+        "transcript:77",
+        "transcript:88",
+        "transcript:53",
+        "transcript:82",
+        "transcript:123",
+        "transcript:72"
+      ]
+    },
+    {
+      "claim": "summary:20",
+      "text": "To perform gradient descent, every node in a computational graph must implement at least a forward computation and a backward gradient computation.",
+      "entailed": true,
+      "evidence": "transcript:75",
+      "top": [
+        "transcript:75",
+        "transcript:35",
+        "transcript:65",
+        "transcript:71",
+        "transcript:7",
+        "transcript:78",
+        "transcript:90",
+        "transcript:16"
+      ]
+    },
+    {
+      "claim": "summary:21",
+      "text": "Implementing both forward and backward gradient computation is fundamentally impossible for a single biological neuron.",
+      "entailed": true,
+      "evidence": "transcript:78",
+      "top": [
+        "transcript:78",
+        "transcript:90",
+        "transcript:74",
+        "transcript:75",
+        "transcript:77",
+        "transcript:65",
+        "transcript:88",
+        "transcript:71"
+      ]
+    },
+    {
+      "claim": "summary:22",
+      "text": "Therefore, the human brain cannot train itself by gradient descent.",
+      "entailed": true,
+      "evidence": "transcript:90",
+      "top": [
+        "transcript:90",
+        "transcript:78",
+        "transcript:69",
+        "transcript:71",
+        "transcript:64",
+        "transcript:85",
+        "transcript:16",
+        "transcript:65"
+      ]
+    },
+    {
+      "claim": "summary:23",
+      "text": "The human brain must rely on massive feedback loops and a different, still unknown learning mechanism.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:86",
+        "transcript:83",
+        "transcript:85",
+        "transcript:93",
+        "transcript:89",
+        "transcript:90",
+        "slides:27",
+        "transcript:82"
+      ]
+    },
+    {
+      "claim": "summary:24",
+      "text": "The analogy between artificial and biological neurons stops at the connectionist principle (a large composition of simple units can yield complex behaviour) and at the layered hierarchical organisation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:87",
+        "transcript:62",
+        "transcript:82",
+        "transcript:89",
+        "transcript:138",
+        "transcript:78",
+        "transcript:28",
+        "transcript:6"
+      ]
+    },
+    {
+      "claim": "summary:25",
+      "text": "Nevertheless, the observed hierarchy of simple-to-complex features in the visual cortex was the conceptual seed for convolutional networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:99",
+        "slides:42",
+        "slides:25",
+        "transcript:96",
+        "slides:29",
+        "slides:18",
+        "slides:28",
+        "transcript:120"
+      ]
+    },
+    {
+      "claim": "summary:26",
+      "text": "Building on the inspiration from the visual cortex hierarchy, Kunihiko Fukushima proposed the Neocognitron in 1979.",
+      "entailed": true,
+      "evidence": "transcript:154",
+      "top": [
+        "transcript:158",
+        "slides:43",
+        "transcript:154",
+        "transcript:156",
+        "transcript:96",
+        "slides:29",
+        "slides:25",
+        "transcript:119"
+      ]
+    },
+    {
+      "claim": "summary:27",
+      "text": "The Neocognitron was a deep, multi-layer architecture that used fixed filters (convolutions) to extract features across an image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:162",
+        "transcript:158",
+        "slides:43",
+        "transcript:324",
+        "transcript:237",
+        "transcript:253",
+        "slides:36",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "summary:28",
+      "text": "The Neocognitron employed activations very similar to modern ReLU (the hinge-shaped activation) decades before ReLU became standard.",
+      "entailed": true,
+      "evidence": "transcript:160",
+      "top": [
+        "transcript:160",
+        "transcript:319",
+        "transcript:162",
+        "slides:43",
+        "slides:20",
+        "transcript:322",
+        "transcript:161",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "summary:29",
+      "text": "The Neocognitron lacked learning; its filters were hand-designed, not trained.",
+      "entailed": true,
+      "evidence": "transcript:162",
+      "top": [
+        "transcript:162",
+        "transcript:138",
+        "transcript:135",
+        "transcript:158",
+        "slides:43",
+        "slides:22",
+        "transcript:157",
+        "transcript:112"
+      ]
+    },
+    {
+      "claim": "summary:30",
+      "text": "Convolutional networks in their modern, trainable form were developed in the late 1980s by Yann LeCun and his group.",
+      "entailed": true,
+      "evidence": "transcript:165",
+      "top": [
+        "transcript:163",
+        "transcript:164",
+        "slides:44",
+        "transcript:165",
+        "transcript:155",
+        "transcript:159",
+        "transcript:324",
+        "transcript:167"
+      ]
+    },
+    {
+      "claim": "summary:31",
+      "text": "Yann LeCun's key contribution was making the convolution kernels learnable via backpropagation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:164",
+        "transcript:163",
+        "transcript:324",
+        "transcript:167",
+        "slides:17",
+        "transcript:237",
+        "transcript:155",
+        "transcript:190"
+      ]
+    },
+    {
+      "claim": "summary:32",
+      "text": "Yann LeCun's architectures (such as LeNet) demonstrated the power of learnable convolution kernels on practical tasks like handwritten digit recognition.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:164",
+        "transcript:163",
+        "transcript:258",
+        "transcript:237",
+        "slides:62",
+        "slides:17",
+        "transcript:167",
+        "transcript:155"
+      ]
+    },
+    {
+      "claim": "summary:33",
+      "text": "The fundamental assumption behind CNNs is translation invariance of feature detectors.",
+      "entailed": true,
+      "evidence": "transcript:170",
+      "top": [
+        "transcript:170",
+        "slides:51",
+        "slides:45",
+        "slides:18",
+        "transcript:167",
+        "transcript:237",
+        "transcript:166",
+        "transcript:99"
+      ]
+    },
+    {
+      "claim": "summary:34",
+      "text": "Translation invariance means that if you are looking for a specific pattern (e.g., a boy's face, a digit, a corner), exactly the same detector should be applied everywhere across the image.",
+      "entailed": true,
+      "evidence": "transcript:171",
+      "top": [
+        "transcript:169",
+        "transcript:304",
+        "transcript:171",
+        "transcript:172",
+        "transcript:170",
+        "transcript:254",
+        "transcript:189",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "summary:35",
+      "text": "The location of a pattern changes the input, but the function that detects the pattern remains identical.",
+      "entailed": true,
+      "evidence": "transcript:172",
+      "top": [
+        "transcript:172",
+        "transcript:177",
+        "transcript:365",
+        "transcript:8",
+        "transcript:303",
+        "transcript:80",
+        "transcript:52",
+        "transcript:199"
+      ]
+    },
+    {
+      "claim": "summary:36",
+      "text": "The translation invariance assumption leads to a specific pipeline in CNNs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:170",
+        "slides:45",
+        "slides:51",
+        "transcript:187",
+        "slides:18",
+        "transcript:223",
+        "transcript:237",
+        "transcript:324"
+      ]
+    },
+    {
+      "claim": "summary:37",
+      "text": "In the CNN pipeline, the input (an image, or any multi-dimensional array) is divided into small, overlapping windows (tiles).",
+      "entailed": true,
+      "evidence": "transcript:173",
+      "top": [
+        "transcript:173",
+        "transcript:193",
+        "transcript:188",
+        "slides:52",
+        "transcript:221",
+        "transcript:347",
+        "transcript:177",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "summary:38",
+      "text": "Typically odd-sized tiles such as 3x3 or 5x5 are used.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:194",
+        "transcript:336",
+        "transcript:269",
+        "transcript:176",
+        "transcript:195",
+        "transcript:252",
+        "transcript:341",
+        "transcript:347"
+      ]
+    },
+    {
+      "claim": "summary:39",
+      "text": "In the CNN pipeline, a small neural network (in practice just a single fully-connected layer) is applied to every tile.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "transcript:177",
+        "transcript:196",
+        "transcript:193",
+        "slides:52",
+        "transcript:230",
+        "transcript:188",
+        "slides:45",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "summary:40",
+      "text": "This small neural network receives the tile's pixel values (flattened into a vector) and outputs a vector of new features.",
+      "entailed": true,
+      "evidence": "transcript:196",
+      "top": [
+        "transcript:196",
+        "transcript:178",
+        "transcript:177",
+        "transcript:193",
+        "transcript:198",
+        "transcript:175",
+        "transcript:201",
+        "transcript:197"
+      ]
+    },
+    {
+      "claim": "summary:41",
+      "text": "Because each tile yields a feature vector and the tiles form a spatial grid, the output of a convolutional layer is a three-dimensional tensor of dimensions height × width × number of features.",
+      "entailed": true,
+      "evidence": "transcript:184",
+      "top": [
+        "transcript:200",
+        "transcript:201",
+        "transcript:224",
+        "transcript:184",
+        "transcript:221",
+        "transcript:178",
+        "transcript:225",
+        "transcript:234"
+      ]
+    },
+    {
+      "claim": "summary:42",
+      "text": "The number of features is often called channels or feature maps.",
+      "entailed": true,
+      "evidence": "transcript:264",
+      "top": [
+        "transcript:264",
+        "transcript:178",
+        "transcript:304",
+        "transcript:300",
+        "transcript:366",
+        "transcript:295",
+        "transcript:220",
+        "transcript:196"
+      ]
+    },
+    {
+      "claim": "summary:43",
+      "text": "The spatial dimensions of the output tensor may shrink unless special measures like padding are taken.",
+      "entailed": true,
+      "evidence": "transcript:335",
+      "top": [
+        "transcript:332",
+        "transcript:343",
+        "transcript:208",
+        "transcript:335",
+        "transcript:366",
+        "transcript:182",
+        "transcript:358",
+        "transcript:236"
+      ]
+    },
+    {
+      "claim": "summary:44",
+      "text": "The process of convolution can be repeated: the output tensor of one layer becomes the input of the next layer, which again is tiled, processed with a new small network, and so on.",
+      "entailed": true,
+      "evidence": "transcript:185",
+      "top": [
+        "transcript:185",
+        "transcript:221",
+        "transcript:230",
+        "slides:45",
+        "transcript:282",
+        "transcript:186",
+        "transcript:232",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "summary:45",
+      "text": "By stacking convolution layers, the network builds a hierarchy of features, from simple edges to complex shapes.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:45",
+        "transcript:187",
+        "transcript:274",
+        "transcript:308",
+        "transcript:131",
+        "transcript:36",
+        "transcript:167",
+        "transcript:316"
+      ]
+    },
+    {
+      "claim": "summary:46",
+      "text": "The crucial gain of convolutional layers is weight sharing: the same small weight matrix is reused for every tile.",
+      "entailed": true,
+      "evidence": "transcript:230",
+      "top": [
+        "transcript:230",
+        "transcript:274",
+        "transcript:281",
+        "transcript:231",
+        "transcript:277",
+        "transcript:269",
+        "transcript:221",
+        "transcript:276"
+      ]
+    },
+    {
+      "claim": "summary:47",
+      "text": "Weight sharing means that the number of trainable parameters does not depend on the size of the input image, only on the tile (kernel) size and the number of input/output channels.",
+      "entailed": true,
+      "evidence": "transcript:231",
+      "top": [
+        "transcript:281",
+        "transcript:231",
+        "transcript:230",
+        "transcript:318",
+        "transcript:311",
+        "transcript:232",
+        "transcript:317",
+        "transcript:280"
+      ]
+    },
+    {
+      "claim": "summary:48",
+      "text": "Weight sharing drastically reduces the number of parameters compared to a fully-connected layer.",
+      "entailed": true,
+      "evidence": "transcript:274",
+      "top": [
+        "transcript:274",
+        "transcript:281",
+        "transcript:276",
+        "transcript:280",
+        "transcript:291",
+        "transcript:310",
+        "transcript:311",
+        "transcript:302"
+      ]
+    },
+    {
+      "claim": "summary:49",
+      "text": "Weight sharing acts as a powerful structural regulariser.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:280",
+        "transcript:279",
+        "transcript:281",
+        "transcript:168",
+        "transcript:323",
+        "transcript:277",
+        "transcript:11",
+        "transcript:23"
+      ]
+    },
+    {
+      "claim": "summary:50",
+      "text": "Weight sharing encodes the prior knowledge of translation invariance by explicitly imposing that the same operation must be performed everywhere.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:281",
+        "transcript:280",
+        "transcript:22",
+        "transcript:11",
+        "transcript:23",
+        "transcript:318",
+        "transcript:18",
+        "transcript:277"
+      ]
+    },
+    {
+      "claim": "summary:51",
+      "text": "A drawback of stacking only convolutional layers is that the receptive field grows very slowly.",
+      "entailed": true,
+      "evidence": "transcript:325",
+      "top": [
+        "transcript:325",
+        "transcript:274",
+        "transcript:319",
+        "transcript:187",
+        "transcript:277",
+        "transcript:218",
+        "transcript:96",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "summary:52",
+      "text": "With 3x3 kernels, each convolutional layer adds only 2 pixels to the effective field of view.",
+      "entailed": true,
+      "evidence": "transcript:203",
+      "top": [
+        "transcript:203",
+        "transcript:294",
+        "transcript:328",
+        "transcript:204",
+        "transcript:267",
+        "transcript:248",
+        "transcript:202",
+        "transcript:200"
+      ]
+    },
+    {
+      "claim": "summary:53",
+      "text": "To reach a receptive field covering a 256x256 image, about 130 convolutional layers would be needed, which is impractical.",
+      "entailed": true,
+      "evidence": "transcript:204",
+      "top": [
+        "transcript:204",
+        "transcript:202",
+        "transcript:203",
+        "transcript:325",
+        "transcript:198",
+        "transcript:273",
+        "transcript:193",
+        "transcript:218"
+      ]
+    },
+    {
+      "claim": "summary:54",
+      "text": "Therefore, classical CNNs introduce pooling layers to aggressively reduce the spatial dimensions.",
+      "entailed": true,
+      "evidence": "transcript:206",
+      "top": [
+        "transcript:206",
+        "transcript:218",
+        "transcript:205",
+        "transcript:208",
+        "transcript:215",
+        "transcript:191",
+        "slides:50",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "summary:55",
+      "text": "A pooling layer operates on the output of a convolutional layer.",
+      "entailed": true,
+      "evidence": "transcript:282",
+      "top": [
+        "transcript:191",
+        "slides:61",
+        "transcript:282",
+        "transcript:292",
+        "transcript:192",
+        "transcript:215",
+        "transcript:206",
+        "transcript:368"
+      ]
+    },
+    {
+      "claim": "summary:56",
+      "text": "A pooling layer partitions the feature maps into small, non-overlapping windows, almost always 2x2.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:284",
+        "transcript:208",
+        "transcript:220",
+        "transcript:210",
+        "transcript:209",
+        "transcript:192",
+        "transcript:219",
+        "transcript:218"
+      ]
+    },
+    {
+      "claim": "summary:57",
+      "text": "For each 2x2 window, the pooling layer replaces the four values with a single summary statistic.",
+      "entailed": true,
+      "evidence": "transcript:210",
+      "top": [
+        "transcript:210",
+        "transcript:284",
+        "transcript:212",
+        "transcript:287",
+        "transcript:209",
+        "transcript:220",
+        "transcript:211",
+        "transcript:288"
+      ]
+    },
+    {
+      "claim": "summary:58",
+      "text": "In max-pooling, the summary statistic is the maximum of the four values.",
+      "entailed": true,
+      "evidence": "transcript:287",
+      "top": [
+        "transcript:287",
+        "transcript:211",
+        "transcript:290",
+        "slides:59",
+        "slides:60",
+        "transcript:213",
+        "transcript:212",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "summary:59",
+      "text": "In average-pooling, the summary statistic is the mean of the four values.",
+      "entailed": true,
+      "evidence": "transcript:212",
+      "top": [
+        "transcript:212",
+        "slides:59",
+        "transcript:217",
+        "transcript:213",
+        "transcript:287",
+        "transcript:210",
+        "transcript:220",
+        "transcript:290"
+      ]
+    },
+    {
+      "claim": "summary:60",
+      "text": "Max-pooling is overwhelmingly the standard choice in CNNs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:215",
+        "transcript:216",
+        "transcript:213",
+        "transcript:214",
+        "transcript:368",
+        "transcript:206",
+        "slides:49",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "summary:61",
+      "text": "For \"presence\" features such as whether a face, a corner, or an edge is present, the maximum across the window is the correct composition.",
+      "entailed": true,
+      "evidence": "transcript:216",
+      "top": [
+        "transcript:348",
+        "transcript:180",
+        "slides:47",
+        "transcript:152",
+        "transcript:174",
+        "transcript:216",
+        "transcript:211",
+        "transcript:171"
+      ]
+    },
+    {
+      "claim": "summary:62",
+      "text": "If any tile in the window detects the object, the whole window should report its presence.",
+      "entailed": true,
+      "evidence": "transcript:216",
+      "top": [
+        "transcript:176",
+        "transcript:349",
+        "transcript:341",
+        "transcript:197",
+        "transcript:171",
+        "transcript:216",
+        "slides:47",
+        "transcript:124"
+      ]
+    },
+    {
+      "claim": "summary:63",
+      "text": "Average-pooling tends to dilute strong presence signals.",
+      "entailed": true,
+      "evidence": "transcript:216",
+      "top": [
+        "transcript:325",
+        "transcript:320",
+        "slides:59",
+        "transcript:371",
+        "transcript:217",
+        "transcript:368",
+        "transcript:369",
+        "transcript:216"
+      ]
+    },
+    {
+      "claim": "summary:64",
+      "text": "Features that measure continuous quantities (e.g., colour saturation) may benefit from averaging.",
+      "entailed": true,
+      "evidence": "transcript:217",
+      "top": [
+        "transcript:217",
+        "slides:59",
+        "transcript:212",
+        "transcript:304",
+        "slides:36",
+        "transcript:27",
+        "transcript:26",
+        "transcript:367"
+      ]
+    },
+    {
+      "claim": "summary:65",
+      "text": "Object-oriented features obey the max law.",
+      "entailed": true,
+      "evidence": "transcript:216",
+      "top": [
+        "transcript:215",
+        "transcript:216",
+        "transcript:351",
+        "transcript:125",
+        "transcript:304",
+        "transcript:290",
+        "transcript:264",
+        "transcript:254"
+      ]
+    },
+    {
+      "claim": "summary:66",
+      "text": "Empirically, max-pooling works better than average-pooling.",
+      "entailed": true,
+      "evidence": "transcript:214",
+      "top": [
+        "slides:59",
+        "transcript:213",
+        "transcript:214",
+        "transcript:290",
+        "slides:58",
+        "transcript:217",
+        "transcript:370",
+        "transcript:212"
+      ]
+    },
+    {
+      "claim": "summary:67",
+      "text": "With 2x2 pooling, the width and height of the feature maps are halved, reducing the number of features by a factor of four.",
+      "entailed": true,
+      "evidence": "transcript:220",
+      "top": [
+        "transcript:220",
+        "transcript:210",
+        "transcript:219",
+        "transcript:297",
+        "transcript:208",
+        "transcript:344",
+        "transcript:215",
+        "transcript:218"
+      ]
+    },
+    {
+      "claim": "summary:68",
+      "text": "Pooling layers have zero trainable parameters.",
+      "entailed": true,
+      "evidence": "transcript:289",
+      "top": [
+        "transcript:289",
+        "transcript:286",
+        "transcript:369",
+        "transcript:291",
+        "transcript:290",
+        "transcript:207",
+        "transcript:211",
+        "transcript:192"
+      ]
+    },
+    {
+      "claim": "summary:69",
+      "text": "Pooling layers are deterministic down-sampling operations.",
+      "entailed": true,
+      "evidence": "transcript:283",
+      "top": [
+        "transcript:290",
+        "transcript:283",
+        "transcript:192",
+        "transcript:370",
+        "transcript:207",
+        "transcript:291",
+        "transcript:369",
+        "transcript:371"
+      ]
+    },
+    {
+      "claim": "summary:70",
+      "text": "Let x^l be the input feature map at layer l, with spatial dimensions and depth D.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "transcript:357",
+        "transcript:224",
+        "transcript:264",
+        "transcript:236",
+        "slides:53",
+        "transcript:358",
+        "transcript:182",
+        "transcript:189"
+      ]
+    },
+    {
+      "claim": "summary:71",
+      "text": "A two-dimensional convolution uses a kernel of size (2d+1)x(2d+1).",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "slides:53",
+        "transcript:248",
+        "transcript:247",
+        "transcript:331",
+        "transcript:294",
+        "transcript:326",
+        "transcript:225",
+        "transcript:245"
+      ]
+    },
+    {
+      "claim": "summary:72",
+      "text": "The weight tensor W for a convolution has shape (2d+1)x(2d+1)x D x D', where D' is the desired number of output features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:246",
+        "transcript:366",
+        "transcript:231",
+        "transcript:234",
+        "transcript:233",
+        "slides:53",
+        "transcript:270",
+        "transcript:271"
+      ]
+    },
+    {
+      "claim": "summary:73",
+      "text": "For each output position (i,j) and each output channel c', the convolution operation is: y^l_{i,j,c'} = \\sum_{c=1}^{D} \\sum_{-d \\le a,b \\le d} W_{a,b,c,c'} x^l_{i+a, j+b, c}.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "transcript:221",
+        "transcript:225",
+        "slides:55",
+        "transcript:246",
+        "slides:53",
+        "transcript:188",
+        "transcript:324"
+      ]
+    },
+    {
+      "claim": "summary:74",
+      "text": "In simpler notation, the per-channel convolution is written as: y^l_{i,j} = \\sum_{-d \\le a,b \\le d} W_{a,b} x^l_{i+a, j+b}, implicitly summing over input channels and using a separate kernel for each output channel.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "slides:53",
+        "transcript:221",
+        "transcript:270",
+        "transcript:281",
+        "transcript:246",
+        "transcript:230",
+        "transcript:231"
+      ]
+    },
+    {
+      "claim": "summary:75",
+      "text": "After the convolution, a nonlinearity is applied element-wise: z^l_{i,j} = h(y^l_{i,j}).",
+      "entailed": true,
+      "evidence": "slides:56",
+      "top": [
+        "slides:56",
+        "slides:55",
+        "slides:54",
+        "slides:57",
+        "slides:53",
+        "slides:61",
+        "transcript:278",
+        "transcript:225"
+      ]
+    },
+    {
+      "claim": "summary:76",
+      "text": "In almost all modern CNNs, the nonlinearity h is the ReLU function: h(u) = \\max(0,u).",
+      "entailed": true,
+      "evidence": "slides:57",
+      "top": [
+        "slides:57",
+        "slides:55",
+        "slides:56",
+        "transcript:319",
+        "slides:61",
+        "transcript:322",
+        "slides:51",
+        "transcript:223"
+      ]
+    },
+    {
+      "claim": "summary:77",
+      "text": "Max-pooling over a (2d+1)x(2d+1) window is defined as: x^{l+1}_{i,j} = \\max_{-d \\le a,b \\le d} z^l_{i+a, j+b}.",
+      "entailed": true,
+      "evidence": "slides:60",
+      "top": [
+        "slides:60",
+        "transcript:287",
+        "transcript:211",
+        "transcript:290",
+        "slides:58",
+        "transcript:284",
+        "transcript:288",
+        "transcript:209"
+      ]
+    },
+    {
+      "claim": "summary:78",
+      "text": "Average-pooling replaces the maximum with the arithmetic mean in the pooling operation.",
+      "entailed": true,
+      "evidence": "transcript:212",
+      "top": [
+        "slides:59",
+        "transcript:212",
+        "transcript:290",
+        "transcript:213",
+        "transcript:287",
+        "slides:60",
+        "transcript:211",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "summary:79",
+      "text": "After several convolution-pooling blocks, the spatial dimensions become small enough that the whole tensor can be flattened and fed into one or more fully-connected layers (the classification head).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:208",
+        "transcript:292",
+        "transcript:218",
+        "transcript:297",
+        "transcript:298",
+        "transcript:219",
+        "transcript:184",
+        "transcript:235"
+      ]
+    },
+    {
+      "claim": "summary:80",
+      "text": "To appreciate the parameter savings, consider a classical LeNet-style network for grayscale 32x32 input (depth 1).",
+      "entailed": true,
+      "evidence": "transcript:258",
+      "top": [
+        "transcript:183",
+        "transcript:260",
+        "transcript:205",
+        "transcript:298",
+        "transcript:266",
+        "transcript:218",
+        "transcript:259",
+        "transcript:258"
+      ]
+    },
+    {
+      "claim": "summary:81",
+      "text": "The architecture of this LeNet-style network proceeds in a specific sequence of layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:49",
+        "transcript:43",
+        "transcript:149",
+        "transcript:39",
+        "transcript:258",
+        "transcript:308",
+        "transcript:376",
+        "transcript:36"
+      ]
+    },
+    {
+      "claim": "summary:82",
+      "text": "Input: 1 x 32 x 32.",
+      "entailed": true,
+      "evidence": "transcript:261",
+      "top": [
+        "transcript:261",
+        "transcript:259",
+        "transcript:266",
+        "transcript:252",
+        "transcript:194",
+        "transcript:268",
+        "transcript:260",
+        "transcript:304"
+      ]
+    },
+    {
+      "claim": "summary:83",
+      "text": "Conv1: 5x5 kernel, 6 output features → output 6 x 28 x 28.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:295",
+        "transcript:294",
+        "transcript:366",
+        "transcript:263",
+        "transcript:266",
+        "transcript:293",
+        "transcript:204",
+        "transcript:292"
+      ]
+    },
+    {
+      "claim": "summary:84",
+      "text": "Conv1 has weights: 1 x 5 x 5 x 6 = 150.",
+      "entailed": true,
+      "evidence": "transcript:272",
+      "top": [
+        "transcript:272",
+        "transcript:271",
+        "transcript:273",
+        "transcript:313",
+        "transcript:296",
+        "transcript:318",
+        "transcript:231",
+        "transcript:276"
+      ]
+    },
+    {
+      "claim": "summary:85",
+      "text": "Max-pooling1: 2x2 → output 6 x 14 x 14.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:287",
+        "transcript:288",
+        "transcript:210",
+        "transcript:285",
+        "slides:60",
+        "transcript:220",
+        "transcript:211",
+        "transcript:290"
+      ]
+    },
+    {
+      "claim": "summary:86",
+      "text": "Max-pooling1 has 0 weights because it is deterministic.",
+      "entailed": true,
+      "evidence": "transcript:286",
+      "top": [
+        "transcript:290",
+        "transcript:286",
+        "transcript:211",
+        "transcript:289",
+        "transcript:287",
+        "slides:58",
+        "transcript:369",
+        "transcript:288"
+      ]
+    },
+    {
+      "claim": "summary:87",
+      "text": "Conv2: 5x5 kernel, 16 output features → output 16 x 10 x 10.",
+      "entailed": true,
+      "evidence": "transcript:293",
+      "top": [
+        "transcript:295",
+        "transcript:293",
+        "transcript:294",
+        "transcript:366",
+        "transcript:297",
+        "transcript:292",
+        "transcript:266",
+        "transcript:204"
+      ]
+    },
+    {
+      "claim": "summary:88",
+      "text": "Conv2 has weights: 6 x 5 x 5 x 16 = 2400.",
+      "entailed": true,
+      "evidence": "transcript:296",
+      "top": [
+        "transcript:296",
+        "transcript:313",
+        "transcript:310",
+        "transcript:271",
+        "transcript:302",
+        "transcript:231",
+        "transcript:297",
+        "transcript:272"
+      ]
+    },
+    {
+      "claim": "summary:89",
+      "text": "Max-pooling2: 2x2 → output 16 x 5 x 5.",
+      "entailed": true,
+      "evidence": "transcript:297",
+      "top": [
+        "transcript:287",
+        "transcript:220",
+        "transcript:297",
+        "transcript:219",
+        "transcript:288",
+        "transcript:210",
+        "transcript:211",
+        "transcript:285"
+      ]
+    },
+    {
+      "claim": "summary:90",
+      "text": "Max-pooling2 has 0 weights.",
+      "entailed": true,
+      "evidence": "transcript:286",
+      "top": [
+        "transcript:286",
+        "transcript:289",
+        "transcript:211",
+        "transcript:291",
+        "transcript:290",
+        "transcript:287",
+        "slides:58",
+        "transcript:369"
+      ]
+    },
+    {
+      "claim": "summary:91",
+      "text": "Fully-connected 1: The 16x5x5 = 400 values are flattened and mapped to 120 neurons.",
+      "entailed": true,
+      "evidence": "transcript:302",
+      "top": [
+        "transcript:302",
+        "transcript:82",
+        "transcript:134",
+        "slides:21",
+        "transcript:300",
+        "slides:26",
+        "transcript:137",
+        "transcript:73"
+      ]
+    },
+    {
+      "claim": "summary:92",
+      "text": "Fully-connected 1 weights: 400 x 120 = 48,000 (plus biases).",
+      "entailed": true,
+      "evidence": "transcript:302",
+      "top": [
+        "transcript:302",
+        "transcript:310",
+        "transcript:311",
+        "transcript:275",
+        "transcript:296",
+        "transcript:313",
+        "transcript:273",
+        "transcript:272"
+      ]
+    },
+    {
+      "claim": "summary:93",
+      "text": "Fully-connected 2: 120 → 84.",
+      "entailed": true,
+      "evidence": "transcript:310",
+      "top": [
+        "transcript:300",
+        "transcript:55",
+        "transcript:54",
+        "transcript:310",
+        "transcript:57",
+        "transcript:58",
+        "transcript:302",
+        "transcript:275"
+      ]
+    },
+    {
+      "claim": "summary:94",
+      "text": "Fully-connected 2 weights: 120 x 84 = 10,080.",
+      "entailed": true,
+      "evidence": "transcript:310",
+      "top": [
+        "transcript:310",
+        "transcript:302",
+        "transcript:311",
+        "transcript:296",
+        "transcript:275",
+        "transcript:231",
+        "transcript:11",
+        "transcript:272"
+      ]
+    },
+    {
+      "claim": "summary:95",
+      "text": "Output (softmax) layer: 84 → 10.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:301",
+        "transcript:299",
+        "transcript:295",
+        "transcript:300",
+        "transcript:296",
+        "transcript:293",
+        "transcript:178",
+        "transcript:302"
+      ]
+    },
+    {
+      "claim": "summary:96",
+      "text": "Output layer weights: 84 x 10 = 840.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:310",
+        "transcript:302",
+        "transcript:275",
+        "transcript:296",
+        "transcript:231",
+        "transcript:293",
+        "transcript:270",
+        "transcript:271"
+      ]
+    },
+    {
+      "claim": "summary:97",
+      "text": "Total trainable parameters ≈ 150 + 2400 + 48,000 + 10,080 + 840 ≈ 61,470.",
+      "entailed": true,
+      "evidence": "transcript:310",
+      "top": [
+        "transcript:296",
+        "transcript:273",
+        "transcript:311",
+        "transcript:302",
+        "transcript:310",
+        "transcript:301",
+        "transcript:275",
+        "transcript:313"
+      ]
+    },
+    {
+      "claim": "summary:98",
+      "text": "Of these 61,470 total trainable parameters, only about 2,550 (roughly 4%) belong to the convolutional layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:273",
+        "transcript:313",
+        "transcript:296",
+        "transcript:302",
+        "transcript:266",
+        "transcript:272",
+        "transcript:295",
+        "transcript:276"
+      ]
+    },
+    {
+      "claim": "summary:99",
+      "text": "Had the first layer been a naive fully-connected transformation from 32x32 = 1024 pixels to a 28x28x6 output, it would have required around five million weights.",
+      "entailed": true,
+      "evidence": "transcript:275",
+      "top": [
+        "transcript:275",
+        "transcript:302",
+        "transcript:273",
+        "transcript:266",
+        "transcript:313",
+        "transcript:310",
+        "transcript:276",
+        "transcript:272"
+      ]
+    },
+    {
+      "claim": "summary:100",
+      "text": "The convolutional structure slashes the first layer's parameter count from around five million to 150.",
+      "entailed": true,
+      "evidence": "transcript:276",
+      "top": [
+        "transcript:273",
+        "transcript:266",
+        "transcript:313",
+        "transcript:263",
+        "transcript:272",
+        "transcript:276",
+        "transcript:271",
+        "transcript:269"
+      ]
+    },
+    {
+      "claim": "summary:101",
+      "text": "This parameter reduction directly encodes the intuition that a feature detector should be location independent.",
+      "entailed": true,
+      "evidence": "transcript:170",
+      "top": [
+        "transcript:125",
+        "transcript:330",
+        "transcript:170",
+        "slides:30",
+        "transcript:218",
+        "transcript:303",
+        "transcript:264",
+        "transcript:205"
+      ]
+    },
+    {
+      "claim": "summary:102",
+      "text": "This is structural regularisation—hard-coding equality constraints on weights.",
+      "entailed": true,
+      "evidence": "transcript:278",
+      "top": [
+        "transcript:280",
+        "transcript:168",
+        "transcript:279",
+        "transcript:278",
+        "transcript:230",
+        "transcript:281",
+        "transcript:316",
+        "transcript:25"
+      ]
+    },
+    {
+      "claim": "summary:103",
+      "text": "Structural regularisation is the primary reason CNNs can scale to high-resolution images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:278",
+        "transcript:170",
+        "slides:63",
+        "slides:45",
+        "slides:50",
+        "transcript:253",
+        "transcript:205",
+        "transcript:173"
+      ]
+    },
+    {
+      "claim": "summary:104",
+      "text": "In a CNN, every weight in the kernel is reused across every spatial tile.",
+      "entailed": true,
+      "evidence": "transcript:230",
+      "top": [
+        "transcript:230",
+        "slides:52",
+        "transcript:177",
+        "transcript:316",
+        "transcript:281",
+        "transcript:318",
+        "transcript:274",
+        "transcript:322"
+      ]
+    },
+    {
+      "claim": "summary:105",
+      "text": "In the backward pass, the gradient for a kernel weight is the sum (by the chain rule) of all the individual gradients from each tile in which that weight participates.",
+      "entailed": true,
+      "evidence": "transcript:315",
+      "top": [
+        "transcript:315",
+        "transcript:230",
+        "transcript:75",
+        "transcript:35",
+        "transcript:318",
+        "transcript:71",
+        "transcript:231",
+        "transcript:234"
+      ]
+    },
+    {
+      "claim": "summary:106",
+      "text": "In a CNN, a single weight receives gradient information from the entire image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "transcript:230",
+        "slides:52",
+        "transcript:281",
+        "transcript:170",
+        "slides:45",
+        "transcript:166",
+        "transcript:274"
+      ]
+    },
+    {
+      "claim": "summary:107",
+      "text": "The fact that a single weight receives gradient information from the entire image makes optimisation extremely stable.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:371",
+        "transcript:274",
+        "transcript:71",
+        "transcript:68",
+        "transcript:90",
+        "transcript:280",
+        "transcript:318",
+        "transcript:230"
+      ]
+    },
+    {
+      "claim": "summary:108",
+      "text": "The abundance of gradient signal points makes sparsity desirable.",
+      "entailed": true,
+      "evidence": "transcript:320",
+      "top": [
+        "transcript:320",
+        "transcript:321",
+        "transcript:371",
+        "transcript:319",
+        "transcript:323",
+        "transcript:16",
+        "transcript:279",
+        "transcript:280"
+      ]
+    },
+    {
+      "claim": "summary:109",
+      "text": "With ReLU activations, many neurons output exactly zero for a given input window.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:322",
+        "transcript:53",
+        "slides:47",
+        "transcript:73",
+        "transcript:74",
+        "transcript:174",
+        "transcript:77",
+        "transcript:82"
+      ]
+    },
+    {
+      "claim": "summary:110",
+      "text": "A zero ReLU activation stops gradient flow through that part of the graph for that tile.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:322",
+        "transcript:319",
+        "transcript:129",
+        "transcript:230",
+        "transcript:269",
+        "transcript:355",
+        "transcript:177",
+        "transcript:225"
+      ]
+    },
+    {
+      "claim": "summary:111",
+      "text": "However, the kernel weight still receives updates from all the other tiles where the activation was positive.",
+      "entailed": true,
+      "evidence": "transcript:322",
+      "top": [
+        "transcript:318",
+        "transcript:322",
+        "transcript:230",
+        "transcript:197",
+        "transcript:231",
+        "transcript:276",
+        "transcript:313",
+        "transcript:262"
+      ]
+    },
+    {
+      "claim": "summary:112",
+      "text": "Sparsity accelerates computation without harming learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:321",
+        "transcript:320",
+        "transcript:319",
+        "transcript:330",
+        "transcript:16",
+        "transcript:19",
+        "transcript:90",
+        "transcript:218"
+      ]
+    },
+    {
+      "claim": "summary:113",
+      "text": "Sparsity acts as a mild regulariser.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:320",
+        "transcript:168",
+        "transcript:280",
+        "transcript:321",
+        "transcript:323",
+        "transcript:279",
+        "transcript:319",
+        "transcript:371"
+      ]
+    },
+    {
+      "claim": "summary:114",
+      "text": "ReLU and convolutional weight sharing are an exceptionally well-matched pair.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:281",
+        "transcript:277",
+        "transcript:319",
+        "transcript:274",
+        "transcript:323",
+        "transcript:167",
+        "slides:57",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "summary:115",
+      "text": "Applying a K x K convolution reduces the spatial dimensions by K-1.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:331",
+        "transcript:218",
+        "transcript:205",
+        "transcript:248",
+        "transcript:247",
+        "transcript:330",
+        "transcript:326",
+        "transcript:225"
+      ]
+    },
+    {
+      "claim": "summary:116",
+      "text": "This reduction occurs because border pixels cannot serve as the centre of a full window.",
+      "entailed": true,
+      "evidence": "transcript:328",
+      "top": [
+        "transcript:328",
+        "transcript:347",
+        "transcript:333",
+        "transcript:339",
+        "slides:48",
+        "transcript:346",
+        "transcript:341",
+        "transcript:348"
+      ]
+    },
+    {
+      "claim": "summary:117",
+      "text": "To preserve the spatial size (often desired when stacking many layers), the input can be padded with extra values before the convolution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:232",
+        "transcript:266",
+        "transcript:218",
+        "transcript:274",
+        "transcript:331",
+        "transcript:221",
+        "transcript:298",
+        "transcript:224"
+      ]
+    },
+    {
+      "claim": "summary:118",
+      "text": "The two most common padding strategies are zero padding and mirror padding.",
+      "entailed": true,
+      "evidence": "transcript:337",
+      "top": [
+        "transcript:337",
+        "transcript:359",
+        "transcript:335",
+        "transcript:338",
+        "transcript:333",
+        "transcript:339",
+        "transcript:334",
+        "transcript:336"
+      ]
+    },
+    {
+      "claim": "summary:119",
+      "text": "Zero padding fills out-of-bounds values with 0.",
+      "entailed": true,
+      "evidence": "transcript:334",
+      "top": [
+        "transcript:334",
+        "transcript:359",
+        "transcript:338",
+        "transcript:335",
+        "transcript:337",
+        "transcript:340",
+        "transcript:333",
+        "transcript:336"
+      ]
+    },
+    {
+      "claim": "summary:120",
+      "text": "Mirror padding reflects the border pixels outward.",
+      "entailed": true,
+      "evidence": "transcript:339",
+      "top": [
+        "transcript:339",
+        "transcript:337",
+        "transcript:333",
+        "transcript:340",
+        "transcript:347",
+        "transcript:334",
+        "transcript:336",
+        "transcript:346"
+      ]
+    },
+    {
+      "claim": "summary:121",
+      "text": "Zero padding sometimes creates artefacts near the border because windows near the border see many zeros.",
+      "entailed": true,
+      "evidence": "transcript:338",
+      "top": [
+        "transcript:338",
+        "transcript:334",
+        "transcript:359",
+        "transcript:333",
+        "transcript:337",
+        "transcript:339",
+        "transcript:335",
+        "transcript:340"
+      ]
+    },
+    {
+      "claim": "summary:122",
+      "text": "Mirror padding mitigates border artefacts but is slightly more expensive.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:339",
+        "transcript:337",
+        "transcript:336",
+        "transcript:333",
+        "transcript:340",
+        "transcript:338",
+        "transcript:346",
+        "transcript:335"
+      ]
+    },
+    {
+      "claim": "summary:123",
+      "text": "The main goal of padding is to let every original pixel be the centre of a window, so that the output has the same height and width as the input.",
+      "entailed": true,
+      "evidence": "transcript:333",
+      "top": [
+        "transcript:333",
+        "transcript:340",
+        "transcript:359",
+        "transcript:335",
+        "transcript:336",
+        "transcript:334",
+        "transcript:337",
+        "transcript:328"
+      ]
+    },
+    {
+      "claim": "summary:124",
+      "text": "Instead of a pooling layer, one can reduce spatial dimensions by using a stride (skipping pixels when placing windows).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:208",
+        "transcript:218",
+        "transcript:206",
+        "transcript:284",
+        "transcript:220",
+        "transcript:285",
+        "transcript:209",
+        "transcript:297"
+      ]
+    },
+    {
+      "claim": "summary:125",
+      "text": "If windows are centred only on every second pixel (stride 2), the number of tiles is halved in each direction, and the output dimensions become roughly W/2 x H/2.",
+      "entailed": true,
+      "evidence": "transcript:342",
+      "top": [
+        "transcript:347",
+        "transcript:341",
+        "transcript:342",
+        "transcript:329",
+        "transcript:367",
+        "transcript:355",
+        "transcript:343",
+        "transcript:194"
+      ]
+    },
+    {
+      "claim": "summary:126",
+      "text": "With stride 2, no information is lost because every pixel is still covered by at least one window (often by two).",
+      "entailed": true,
+      "evidence": "transcript:345",
+      "top": [
+        "transcript:347",
+        "transcript:354",
+        "transcript:367",
+        "transcript:341",
+        "transcript:345",
+        "transcript:363",
+        "transcript:355",
+        "transcript:349"
+      ]
+    },
+    {
+      "claim": "summary:127",
+      "text": "Stride 2 gives the same geometric down-sampling as a 2x2 pooling layer, but without an explicit separate pooling operation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:344",
+        "transcript:283",
+        "transcript:220",
+        "transcript:219",
+        "transcript:284",
+        "transcript:282",
+        "transcript:192",
+        "transcript:292"
+      ]
+    },
+    {
+      "claim": "summary:128",
+      "text": "The stride can be set independently for height and width (a pair of numbers).",
+      "entailed": true,
+      "evidence": "transcript:362",
+      "top": [
+        "transcript:363",
+        "transcript:362",
+        "transcript:364",
+        "transcript:361",
+        "transcript:360",
+        "transcript:355",
+        "transcript:365",
+        "transcript:343"
+      ]
+    },
+    {
+      "claim": "summary:129",
+      "text": "Usually, the stride is the same in both directions.",
+      "entailed": true,
+      "evidence": "transcript:364",
+      "top": [
+        "transcript:362",
+        "transcript:363",
+        "transcript:364",
+        "transcript:360",
+        "transcript:355",
+        "transcript:365",
+        "transcript:361",
+        "transcript:354"
+      ]
+    },
+    {
+      "claim": "summary:130",
+      "text": "While pooling was standard in early CNNs, it has undesirable side-effects.",
+      "entailed": true,
+      "evidence": "transcript:372",
+      "top": [
+        "transcript:372",
+        "transcript:368",
+        "transcript:369",
+        "transcript:206",
+        "transcript:215",
+        "transcript:371",
+        "transcript:325",
+        "transcript:289"
+      ]
+    },
+    {
+      "claim": "summary:131",
+      "text": "Pooling eliminates many computational paths.",
+      "entailed": true,
+      "evidence": "transcript:370",
+      "top": [
+        "transcript:370",
+        "transcript:290",
+        "transcript:369",
+        "slides:58",
+        "transcript:192",
+        "transcript:214",
+        "transcript:208",
+        "transcript:371"
+      ]
+    },
+    {
+      "claim": "summary:132",
+      "text": "Pooling can distort gradients.",
+      "entailed": true,
+      "evidence": "transcript:371",
+      "top": [
+        "transcript:371",
+        "transcript:369",
+        "transcript:290",
+        "slides:58",
+        "transcript:215",
+        "transcript:325",
+        "transcript:283",
+        "transcript:208"
+      ]
+    },
+    {
+      "claim": "summary:133",
+      "text": "Modern architectures such as Inception and ResNet tend to replace explicit pooling with strided convolutions or small sub-networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:368",
+        "transcript:206",
+        "transcript:215",
+        "transcript:191",
+        "transcript:373",
+        "transcript:292",
+        "transcript:375",
+        "transcript:192"
+      ]
+    },
+    {
+      "claim": "summary:134",
+      "text": "These strided convolutions or sub-networks accomplish spatial reduction while learning the best way to combine features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:218",
+        "transcript:205",
+        "transcript:206",
+        "slides:45",
+        "transcript:167",
+        "slides:17",
+        "transcript:237",
+        "transcript:155"
+      ]
+    },
+    {
+      "claim": "summary:135",
+      "text": "Pooling is far from obsolete.",
+      "entailed": true,
+      "evidence": "transcript:207",
+      "top": [
+        "transcript:369",
+        "transcript:207",
+        "transcript:214",
+        "transcript:370",
+        "transcript:289",
+        "transcript:368",
+        "transcript:372",
+        "transcript:290"
+      ]
+    },
+    {
+      "claim": "summary:136",
+      "text": "The trend is to let the network learn its own down-sampling rather than imposing a fixed max or average pooling operation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:368",
+        "slides:59",
+        "transcript:214",
+        "transcript:213",
+        "transcript:215",
+        "transcript:290",
+        "slides:49",
+        "transcript:283"
+      ]
+    }
+  ]
+}

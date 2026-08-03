@@ -1,0 +1,3535 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "summary:0",
+      "text": "Deep learning replaced the manual feature extraction of classical machine learning with a single end-to-end trainable model – the neural network.",
+      "entailed": true,
+      "evidence": "transcript:14",
+      "top": [
+        "transcript:14",
+        "transcript:12",
+        "transcript:7",
+        "transcript:15",
+        "slides:57",
+        "transcript:16",
+        "transcript:18",
+        "transcript:13"
+      ]
+    },
+    {
+      "claim": "summary:1",
+      "text": "Inside every neural network, there is a feature-extraction part, followed by a final linear layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:18",
+        "transcript:21",
+        "transcript:193",
+        "transcript:19",
+        "transcript:191",
+        "transcript:207",
+        "transcript:325",
+        "transcript:361"
+      ]
+    },
+    {
+      "claim": "summary:2",
+      "text": "The final linear layer can be linear regression or logistic regression, with logistic regression being much more common.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:22",
+        "transcript:23",
+        "transcript:21",
+        "transcript:196",
+        "transcript:2",
+        "transcript:30",
+        "transcript:193",
+        "transcript:73"
+      ]
+    },
+    {
+      "claim": "summary:3",
+      "text": "Training any neural network amounts to minimizing a loss function with respect to its millions of weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:436",
+        "transcript:191",
+        "transcript:317",
+        "transcript:216",
+        "transcript:449",
+        "transcript:374",
+        "transcript:207",
+        "transcript:231"
+      ]
+    },
+    {
+      "claim": "summary:4",
+      "text": "The only practical tool for minimizing the loss function in neural networks is gradient descent.",
+      "entailed": true,
+      "evidence": "transcript:233",
+      "top": [
+        "transcript:476",
+        "transcript:233",
+        "transcript:231",
+        "transcript:240",
+        "transcript:58",
+        "transcript:580",
+        "transcript:582",
+        "transcript:374"
+      ]
+    },
+    {
+      "claim": "summary:5",
+      "text": "The key algorithmic ingredient that makes gradient descent possible in neural networks is backpropagation.",
+      "entailed": true,
+      "evidence": "transcript:257",
+      "top": [
+        "transcript:241",
+        "transcript:326",
+        "transcript:231",
+        "slides:24",
+        "transcript:379",
+        "transcript:257",
+        "transcript:377",
+        "transcript:394"
+      ]
+    },
+    {
+      "claim": "summary:6",
+      "text": "A single artificial neuron computes a linear combination of its inputs.",
+      "entailed": true,
+      "evidence": "transcript:30",
+      "top": [
+        "transcript:325",
+        "transcript:193",
+        "transcript:30",
+        "slides:58",
+        "transcript:64",
+        "transcript:191",
+        "transcript:21",
+        "transcript:317"
+      ]
+    },
+    {
+      "claim": "summary:7",
+      "text": "A single artificial neuron then applies a non-linear activation function to the result of the linear combination.",
+      "entailed": true,
+      "evidence": "transcript:30",
+      "top": [
+        "transcript:21",
+        "transcript:142",
+        "transcript:30",
+        "transcript:40",
+        "transcript:81",
+        "transcript:64",
+        "transcript:50",
+        "slides:61"
+      ]
+    },
+    {
+      "claim": "summary:8",
+      "text": "Composing many neurons can approximate arbitrarily complex behaviour.",
+      "entailed": true,
+      "evidence": "transcript:36",
+      "top": [
+        "transcript:64",
+        "transcript:54",
+        "transcript:325",
+        "transcript:191",
+        "transcript:28",
+        "transcript:322",
+        "transcript:36",
+        "transcript:39"
+      ]
+    },
+    {
+      "claim": "summary:9",
+      "text": "The activation function must be chosen so that gradients can flow backwards through the network.",
+      "entailed": true,
+      "evidence": "transcript:135",
+      "top": [
+        "transcript:135",
+        "slides:50",
+        "transcript:59",
+        "transcript:338",
+        "transcript:32",
+        "transcript:385",
+        "transcript:304",
+        "transcript:142"
+      ]
+    },
+    {
+      "claim": "summary:10",
+      "text": "The original McCulloch–Pitts neuron used a threshold (Heaviside step) function.",
+      "entailed": true,
+      "evidence": "transcript:41",
+      "top": [
+        "transcript:41",
+        "transcript:42",
+        "transcript:47",
+        "transcript:63",
+        "transcript:48",
+        "transcript:45",
+        "transcript:173",
+        "transcript:110"
+      ]
+    },
+    {
+      "claim": "summary:11",
+      "text": "The Rosenblatt perceptron used a threshold (Heaviside step) function.",
+      "entailed": true,
+      "evidence": "transcript:42",
+      "top": [
+        "transcript:42",
+        "transcript:47",
+        "transcript:45",
+        "transcript:48",
+        "transcript:46",
+        "transcript:41",
+        "transcript:653",
+        "slides:66"
+      ]
+    },
+    {
+      "claim": "summary:12",
+      "text": "The threshold function is defined as step(x) = 0 if x<0, 1 if x>=0.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:44",
+        "transcript:43",
+        "slides:66",
+        "transcript:41",
+        "transcript:42",
+        "transcript:45",
+        "transcript:48",
+        "transcript:63"
+      ]
+    },
+    {
+      "claim": "summary:13",
+      "text": "With a single perceptron, using a threshold function can work.",
+      "entailed": true,
+      "evidence": "transcript:45",
+      "top": [
+        "transcript:45",
+        "transcript:46",
+        "transcript:47",
+        "transcript:48",
+        "transcript:52",
+        "transcript:42",
+        "transcript:233",
+        "transcript:51"
+      ]
+    },
+    {
+      "claim": "summary:14",
+      "text": "In a multi-layer network, the derivative of the threshold function is zero almost everywhere.",
+      "entailed": true,
+      "evidence": "transcript:60",
+      "top": [
+        "transcript:52",
+        "transcript:53",
+        "transcript:54",
+        "transcript:44",
+        "transcript:60",
+        "transcript:135",
+        "transcript:43",
+        "transcript:62"
+      ]
+    },
+    {
+      "claim": "summary:15",
+      "text": "With a zero derivative almost everywhere, the gradient would be identically zero, and no learning can happen.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:89",
+        "transcript:432",
+        "transcript:135",
+        "slides:41",
+        "transcript:98",
+        "transcript:523",
+        "transcript:433",
+        "transcript:382"
+      ]
+    },
+    {
+      "claim": "summary:16",
+      "text": "The natural fix to the zero derivative problem is a smooth approximation to the threshold function.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:60",
+        "transcript:53",
+        "transcript:54",
+        "transcript:72",
+        "transcript:458",
+        "slides:139",
+        "transcript:488",
+        "transcript:45"
+      ]
+    },
+    {
+      "claim": "summary:17",
+      "text": "For decades, neural networks used sigmoid functions as activation functions.",
+      "entailed": true,
+      "evidence": "transcript:73",
+      "top": [
+        "transcript:73",
+        "transcript:66",
+        "transcript:80",
+        "transcript:68",
+        "transcript:191",
+        "transcript:76",
+        "transcript:94",
+        "transcript:96"
+      ]
+    },
+    {
+      "claim": "summary:18",
+      "text": "Sigmoid functions are monotonically increasing from a low horizontal asymptote to a high one.",
+      "entailed": true,
+      "evidence": "transcript:67",
+      "top": [
+        "transcript:67",
+        "transcript:94",
+        "transcript:68",
+        "transcript:70",
+        "transcript:71",
+        "transcript:69",
+        "slides:62",
+        "transcript:102"
+      ]
+    },
+    {
+      "claim": "summary:19",
+      "text": "The most common sigmoid choices were the logistic sigmoid and the hyperbolic tangent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:64",
+        "transcript:71",
+        "transcript:76",
+        "transcript:68",
+        "transcript:70",
+        "transcript:73",
+        "slides:62",
+        "transcript:80"
+      ]
+    },
+    {
+      "claim": "summary:20",
+      "text": "The logistic sigmoid is defined as $\\sigma(x) = \\frac{1}{1 + e^{-x}}$ and saturates at 0 and 1.",
+      "entailed": true,
+      "evidence": "transcript:70",
+      "top": [
+        "slides:62",
+        "transcript:69",
+        "transcript:70",
+        "transcript:68",
+        "transcript:71",
+        "transcript:72",
+        "transcript:148",
+        "transcript:67"
+      ]
+    },
+    {
+      "claim": "summary:21",
+      "text": "The hyperbolic tangent is defined as $\\tanh(x) = \\frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}$ and saturates at –1 and +1.",
+      "entailed": true,
+      "evidence": "slides:63",
+      "top": [
+        "slides:63",
+        "transcript:78",
+        "transcript:77",
+        "transcript:79",
+        "transcript:149",
+        "slides:64",
+        "slides:82",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "summary:22",
+      "text": "The hyperbolic tangent is symmetric around zero, which made it preferred for hidden layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:79",
+        "slides:65",
+        "slides:64",
+        "slides:63",
+        "transcript:78",
+        "transcript:149",
+        "transcript:76",
+        "transcript:77"
+      ]
+    },
+    {
+      "claim": "summary:23",
+      "text": "Both logistic sigmoid and hyperbolic tangent suffer from saturation.",
+      "entailed": true,
+      "evidence": "transcript:94",
+      "top": [
+        "slides:64",
+        "transcript:94",
+        "transcript:71",
+        "transcript:70",
+        "transcript:76",
+        "transcript:97",
+        "transcript:68",
+        "transcript:72"
+      ]
+    },
+    {
+      "claim": "summary:24",
+      "text": "Saturation occurs when the input to the neuron becomes large in absolute value, making the derivative of the activation very close to zero.",
+      "entailed": true,
+      "evidence": "transcript:97",
+      "top": [
+        "transcript:97",
+        "transcript:94",
+        "transcript:63",
+        "transcript:135",
+        "transcript:110",
+        "transcript:120",
+        "transcript:44",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "summary:25",
+      "text": "When saturation happens, the gradients effectively stop.",
+      "entailed": true,
+      "evidence": "transcript:97",
+      "top": [
+        "transcript:97",
+        "transcript:94",
+        "transcript:383",
+        "transcript:679",
+        "transcript:638",
+        "transcript:385",
+        "transcript:232",
+        "transcript:433"
+      ]
+    },
+    {
+      "claim": "summary:26",
+      "text": "Around 2011–2012, the rectified linear unit (ReLU) activation function was tried.",
+      "entailed": true,
+      "evidence": "transcript:126",
+      "top": [
+        "transcript:82",
+        "transcript:87",
+        "slides:67",
+        "transcript:99",
+        "transcript:123",
+        "transcript:166",
+        "transcript:190",
+        "transcript:126"
+      ]
+    },
+    {
+      "claim": "summary:27",
+      "text": "ReLU proved extremely effective.",
+      "entailed": true,
+      "evidence": "transcript:87",
+      "top": [
+        "transcript:125",
+        "transcript:87",
+        "transcript:123",
+        "slides:70",
+        "transcript:131",
+        "transcript:106",
+        "slides:68",
+        "transcript:124"
+      ]
+    },
+    {
+      "claim": "summary:28",
+      "text": "ReLU is defined as ReLU(x) = max(0, x), i.e., 0 if x<0, x if x>=0.",
+      "entailed": true,
+      "evidence": "slides:67",
+      "top": [
+        "transcript:85",
+        "slides:67",
+        "transcript:84",
+        "transcript:86",
+        "transcript:83",
+        "transcript:146",
+        "slides:68",
+        "slides:71"
+      ]
+    },
+    {
+      "claim": "summary:29",
+      "text": "On the negative side, ReLU's gradient is zero, introducing sparsity.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:95",
+        "transcript:83",
+        "transcript:89",
+        "transcript:140",
+        "transcript:84",
+        "transcript:98",
+        "transcript:139",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "summary:30",
+      "text": "Sparsity is often desirable, e.g., in convolutional networks where weights are reused across the input.",
+      "entailed": true,
+      "evidence": "transcript:92",
+      "top": [
+        "transcript:132",
+        "transcript:91",
+        "transcript:90",
+        "transcript:135",
+        "transcript:674",
+        "transcript:92",
+        "transcript:317",
+        "slides:212"
+      ]
+    },
+    {
+      "claim": "summary:31",
+      "text": "In convolutional networks, having half of the activations zero is fine and even acts as a regularizer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:134",
+        "transcript:92",
+        "transcript:135",
+        "transcript:133",
+        "transcript:132",
+        "transcript:52",
+        "transcript:93",
+        "transcript:62"
+      ]
+    },
+    {
+      "claim": "summary:32",
+      "text": "On the positive side, ReLU is unbounded.",
+      "entailed": true,
+      "evidence": "transcript:84",
+      "top": [
+        "transcript:140",
+        "transcript:95",
+        "transcript:84",
+        "transcript:83",
+        "transcript:137",
+        "transcript:139",
+        "transcript:93",
+        "transcript:124"
+      ]
+    },
+    {
+      "claim": "summary:33",
+      "text": "On the positive side, ReLU's derivative is constant (1).",
+      "entailed": true,
+      "evidence": "transcript:84",
+      "top": [
+        "transcript:95",
+        "transcript:98",
+        "transcript:84",
+        "transcript:83",
+        "transcript:140",
+        "transcript:89",
+        "transcript:99",
+        "transcript:147"
+      ]
+    },
+    {
+      "claim": "summary:34",
+      "text": "Unlike sigmoids, a ReLU neuron can distinguish between “activated” and “strongly activated”.",
+      "entailed": true,
+      "evidence": "transcript:109",
+      "top": [
+        "transcript:100",
+        "transcript:105",
+        "transcript:108",
+        "transcript:96",
+        "transcript:109",
+        "transcript:87",
+        "transcript:166",
+        "transcript:99"
+      ]
+    },
+    {
+      "claim": "summary:35",
+      "text": "In ReLU, there is no saturation on the right, so gradients never vanish just because the neuron is very sure.",
+      "entailed": true,
+      "evidence": "transcript:98",
+      "top": [
+        "transcript:89",
+        "transcript:95",
+        "transcript:98",
+        "transcript:83",
+        "transcript:108",
+        "transcript:87",
+        "transcript:84",
+        "transcript:105"
+      ]
+    },
+    {
+      "claim": "summary:36",
+      "text": "There is a mathematical intuition: $\\text{ReLU}(x)$ can be seen as an infinite sum of shifted sigmoids $\\sum_i \\sigma(x + \\frac{1}{2} - i)$.",
+      "entailed": true,
+      "evidence": "slides:69",
+      "top": [
+        "slides:69",
+        "transcript:100",
+        "slides:71",
+        "slides:68",
+        "transcript:105",
+        "transcript:84",
+        "slides:67",
+        "transcript:99"
+      ]
+    },
+    {
+      "claim": "summary:37",
+      "text": "This infinite sum, after smoothing, asymptotically approaches a straight line with slope 1.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:176",
+        "transcript:103",
+        "transcript:223",
+        "transcript:551",
+        "transcript:656",
+        "transcript:77",
+        "transcript:499",
+        "transcript:388"
+      ]
+    },
+    {
+      "claim": "summary:38",
+      "text": "There is a biological justification: the firing rate of real biological neurons as a function of input current looks like a curve that first stays quiet, goes through a phase transition, and then becomes roughly linear.",
+      "entailed": true,
+      "evidence": "transcript:108",
+      "top": [
+        "transcript:109",
+        "transcript:63",
+        "slides:58",
+        "transcript:110",
+        "transcript:64",
+        "transcript:40",
+        "transcript:108",
+        "transcript:191"
+      ]
+    },
+    {
+      "claim": "summary:39",
+      "text": "This biological firing rate curve is very similar to ReLU.",
+      "entailed": true,
+      "evidence": "transcript:108",
+      "top": [
+        "transcript:109",
+        "slides:70",
+        "transcript:108",
+        "transcript:87",
+        "transcript:105",
+        "slides:71",
+        "transcript:166",
+        "slides:72"
+      ]
+    },
+    {
+      "claim": "summary:40",
+      "text": "Leaky ReLU is defined as $\\text{LReLU}(x) = \\max(ax, x)$, with a small slope $a$ on the negative side (e.g., $a=0.01$).",
+      "entailed": true,
+      "evidence": "slides:74",
+      "top": [
+        "slides:74",
+        "transcript:137",
+        "transcript:140",
+        "transcript:138",
+        "transcript:139",
+        "transcript:136",
+        "transcript:174",
+        "transcript:164"
+      ]
+    },
+    {
+      "claim": "summary:41",
+      "text": "Leaky ReLU prevents complete gradient loss on negative inputs.",
+      "entailed": true,
+      "evidence": "slides:74",
+      "top": [
+        "transcript:140",
+        "transcript:95",
+        "transcript:89",
+        "transcript:137",
+        "slides:74",
+        "transcript:83",
+        "transcript:139",
+        "transcript:98"
+      ]
+    },
+    {
+      "claim": "summary:42",
+      "text": "Softplus is defined as $\\text{softplus}(x) = \\ln(1+e^x)$.",
+      "entailed": true,
+      "evidence": "slides:73",
+      "top": [
+        "slides:73",
+        "slides:82",
+        "slides:62",
+        "transcript:69",
+        "slides:75",
+        "slides:80",
+        "transcript:68",
+        "transcript:70"
+      ]
+    },
+    {
+      "claim": "summary:43",
+      "text": "Softplus is a smooth approximation of ReLU.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:72",
+        "slides:73",
+        "transcript:137",
+        "slides:76",
+        "transcript:87",
+        "transcript:125",
+        "transcript:101",
+        "slides:68"
+      ]
+    },
+    {
+      "claim": "summary:44",
+      "text": "Exponential Linear Unit (ELU) is defined as $\\text{ELU}(x) = x$ for $x\\ge 0$, and $\\text{ELU}(x) = \\alpha(e^x-1)$ for $x<0$.",
+      "entailed": true,
+      "evidence": "slides:75",
+      "top": [
+        "slides:75",
+        "transcript:175",
+        "transcript:176",
+        "slides:104",
+        "slides:73",
+        "slides:67",
+        "transcript:178",
+        "slides:103"
+      ]
+    },
+    {
+      "claim": "summary:45",
+      "text": "Around 2017, researchers at Google ran an automated search over the space of activation functions represented as computational graphs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:153",
+        "slides:78",
+        "transcript:185",
+        "transcript:129",
+        "transcript:141",
+        "transcript:145",
+        "transcript:130",
+        "transcript:34"
+      ]
+    },
+    {
+      "claim": "summary:46",
+      "text": "The search was evolutionary, using mutations and cross-overs of graph structures.",
+      "entailed": true,
+      "evidence": "transcript:157",
+      "top": [
+        "transcript:159",
+        "transcript:153",
+        "transcript:157",
+        "transcript:245",
+        "transcript:261",
+        "transcript:152",
+        "transcript:35",
+        "transcript:151"
+      ]
+    },
+    {
+      "claim": "summary:47",
+      "text": "The search was purely empirical: it simply tried many candidate functions on a suite of architectures and datasets.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:78",
+        "transcript:153",
+        "transcript:141",
+        "transcript:691",
+        "transcript:154",
+        "transcript:414",
+        "transcript:418",
+        "transcript:185"
+      ]
+    },
+    {
+      "claim": "summary:48",
+      "text": "The winner of the automated search was the Swish activation function.",
+      "entailed": true,
+      "evidence": "transcript:161",
+      "top": [
+        "transcript:691",
+        "transcript:141",
+        "transcript:161",
+        "transcript:162",
+        "transcript:153",
+        "slides:79",
+        "transcript:163",
+        "transcript:171"
+      ]
+    },
+    {
+      "claim": "summary:49",
+      "text": "Swish is defined as $\\text{Swish}(x) = x \\sigma(\\beta x) = \\frac{x}{1 + e^{-\\beta x}}$.",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "slides:80",
+        "slides:79",
+        "transcript:163",
+        "transcript:168",
+        "transcript:165",
+        "transcript:167",
+        "transcript:177",
+        "transcript:69"
+      ]
+    },
+    {
+      "claim": "summary:50",
+      "text": "Swish looks similar to ReLU on the right but has a non-monotonic bump on the left, where it dips below zero and then returns to zero.",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "transcript:165",
+        "transcript:167",
+        "transcript:164",
+        "transcript:169",
+        "transcript:168",
+        "slides:83",
+        "transcript:163",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "summary:51",
+      "text": "Swish consistently outperformed ReLU in many vision architectures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:170",
+        "transcript:164",
+        "transcript:163",
+        "transcript:169",
+        "transcript:165",
+        "transcript:126",
+        "transcript:125",
+        "transcript:87"
+      ]
+    },
+    {
+      "claim": "summary:52",
+      "text": "A later variant, Mish, defined as $\\text{Mish}(x) = x \\tanh(\\text{softplus}(x))$, also became popular.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:82",
+        "transcript:76",
+        "transcript:177",
+        "slides:73",
+        "slides:64",
+        "slides:63",
+        "slides:81",
+        "transcript:149"
+      ]
+    },
+    {
+      "claim": "summary:53",
+      "text": "In 2020, Ma et al. introduced ACON (ActivateOrNot), a family that generalizes many activations through a smooth maximum operator.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:89",
+        "slides:88",
+        "transcript:141",
+        "slides:77",
+        "slides:93",
+        "slides:84",
+        "transcript:81",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "summary:54",
+      "text": "The smooth maximum operator $S_\\beta(x_1,\\dots,x_n)$ is defined as $\\frac{\\sum_{i=1}^n x_i e^{\\beta x_i}}{\\sum_{i=1}^n e^{\\beta x_i}}$.",
+      "entailed": true,
+      "evidence": "slides:85",
+      "top": [
+        "slides:85",
+        "slides:86",
+        "slides:90",
+        "slides:91",
+        "transcript:635",
+        "transcript:634",
+        "slides:87",
+        "transcript:531"
+      ]
+    },
+    {
+      "claim": "summary:55",
+      "text": "By setting $g(x)$ and $h(x)$ as two functions of $x$, the ACON activation $f_{\\text{ACON}} = S_\\beta(g(x), h(x))$ is given by $(g(x)-h(x)) \\sigma(\\beta(g(x)-h(x))) + h(x)$.",
+      "entailed": true,
+      "evidence": "slides:87",
+      "top": [
+        "slides:92",
+        "slides:89",
+        "slides:87",
+        "slides:90",
+        "slides:95",
+        "slides:93",
+        "slides:91",
+        "transcript:166"
+      ]
+    },
+    {
+      "claim": "summary:56",
+      "text": "ACON recovers Swish when $g(x)=x$ and $h(x)=0$.",
+      "entailed": true,
+      "evidence": "slides:90",
+      "top": [
+        "slides:90",
+        "slides:89",
+        "slides:97",
+        "slides:92",
+        "slides:93",
+        "slides:91",
+        "slides:95",
+        "transcript:95"
+      ]
+    },
+    {
+      "claim": "summary:57",
+      "text": "ACON recovers Leaky ReLU variants when $g(x)=x$ and $h(x)=ax$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:74",
+        "transcript:140",
+        "slides:89",
+        "transcript:136",
+        "transcript:137",
+        "transcript:139",
+        "slides:93",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "summary:58",
+      "text": "ACON-C has learnable parameters $a_1$ and $a_2$.",
+      "entailed": true,
+      "evidence": "slides:93",
+      "top": [
+        "slides:93",
+        "slides:92",
+        "slides:89",
+        "slides:95",
+        "slides:97",
+        "slides:94",
+        "transcript:51",
+        "transcript:30"
+      ]
+    },
+    {
+      "claim": "summary:59",
+      "text": "Despite interesting properties, ACON is rarely seen in practice.",
+      "entailed": true,
+      "evidence": "slides:97",
+      "top": [
+        "slides:97",
+        "slides:89",
+        "transcript:690",
+        "slides:93",
+        "slides:88",
+        "slides:92",
+        "transcript:629",
+        "transcript:721"
+      ]
+    },
+    {
+      "claim": "summary:60",
+      "text": "Modern large language models often use the Gaussian Error Linear Unit (GELU).",
+      "entailed": true,
+      "evidence": "transcript:183",
+      "top": [
+        "transcript:183",
+        "transcript:178",
+        "transcript:181",
+        "transcript:179",
+        "transcript:692",
+        "transcript:410",
+        "transcript:190",
+        "transcript:688"
+      ]
+    },
+    {
+      "claim": "summary:61",
+      "text": "GELU is defined as $x \\Phi(x)$, where $\\Phi$ is the CDF of a standard Gaussian.",
+      "entailed": true,
+      "evidence": "transcript:181",
+      "top": [
+        "transcript:181",
+        "transcript:179",
+        "transcript:178",
+        "transcript:180",
+        "transcript:182",
+        "transcript:183",
+        "transcript:190",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "summary:62",
+      "text": "GELU resembles a smooth Swish.",
+      "entailed": true,
+      "evidence": "transcript:180",
+      "top": [
+        "transcript:180",
+        "transcript:182",
+        "transcript:164",
+        "transcript:181",
+        "transcript:165",
+        "transcript:183",
+        "transcript:179",
+        "transcript:167"
+      ]
+    },
+    {
+      "claim": "summary:63",
+      "text": "A practical recommendation: start with ReLU, try Swish or GELU, and perhaps a Leaky ReLU variant as a fallback.",
+      "entailed": true,
+      "evidence": "transcript:190",
+      "top": [
+        "slides:72",
+        "transcript:125",
+        "transcript:164",
+        "transcript:165",
+        "transcript:137",
+        "transcript:136",
+        "transcript:190",
+        "transcript:140"
+      ]
+    },
+    {
+      "claim": "summary:64",
+      "text": "The network computes a scalar loss $l(\\mathbf{x}, y, \\mathbf{w})$ for one training sample.",
+      "entailed": true,
+      "evidence": "transcript:196",
+      "top": [
+        "transcript:436",
+        "transcript:203",
+        "transcript:196",
+        "transcript:216",
+        "transcript:213",
+        "transcript:449",
+        "transcript:317",
+        "transcript:219"
+      ]
+    },
+    {
+      "claim": "summary:65",
+      "text": "The total loss for the whole dataset is $L(\\mathbf{w}) = \\frac{1}{N}\\sum_{n=1}^N l(\\mathbf{x}_n, y_n, \\mathbf{w})$, the average or sum.",
+      "entailed": true,
+      "evidence": "transcript:215",
+      "top": [
+        "transcript:434",
+        "transcript:215",
+        "transcript:204",
+        "transcript:213",
+        "transcript:203",
+        "transcript:217",
+        "transcript:444",
+        "transcript:445"
+      ]
+    },
+    {
+      "claim": "summary:66",
+      "text": "Training means finding $\\mathbf{w}$ that minimizes $L(\\mathbf{w})$.",
+      "entailed": true,
+      "evidence": "transcript:216",
+      "top": [
+        "transcript:445",
+        "transcript:218",
+        "transcript:215",
+        "transcript:219",
+        "transcript:216",
+        "transcript:206",
+        "transcript:434",
+        "transcript:399"
+      ]
+    },
+    {
+      "claim": "summary:67",
+      "text": "The network is a massive composition of simple operations, i.e., a computational graph.",
+      "entailed": true,
+      "evidence": "transcript:244",
+      "top": [
+        "transcript:363",
+        "transcript:244",
+        "transcript:145",
+        "transcript:245",
+        "transcript:261",
+        "transcript:151",
+        "transcript:360",
+        "transcript:358"
+      ]
+    },
+    {
+      "claim": "summary:68",
+      "text": "The only realistic way to obtain the gradient $\\nabla_{\\mathbf{w}} L$ is to differentiate through that computational graph automatically.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:238",
+        "transcript:381",
+        "transcript:236",
+        "transcript:158",
+        "transcript:257",
+        "transcript:400",
+        "transcript:401",
+        "slides:207"
+      ]
+    },
+    {
+      "claim": "summary:69",
+      "text": "Any formula can be drawn as a directed acyclic graph whose nodes are elementary operations such as addition, multiplication, exponentiation, etc.",
+      "entailed": true,
+      "evidence": "transcript:144",
+      "top": [
+        "transcript:145",
+        "transcript:144",
+        "transcript:151",
+        "transcript:245",
+        "transcript:261",
+        "transcript:150",
+        "transcript:358",
+        "transcript:35"
+      ]
+    },
+    {
+      "claim": "summary:70",
+      "text": "An example formula is $f(x,y) = (x+y)^2 (x-y) + y^3$.",
+      "entailed": true,
+      "evidence": "transcript:259",
+      "top": [
+        "transcript:259",
+        "slides:38",
+        "transcript:266",
+        "transcript:260",
+        "transcript:503",
+        "transcript:150",
+        "transcript:276",
+        "slides:113"
+      ]
+    },
+    {
+      "claim": "summary:71",
+      "text": "In the computational graph for $f$, intermediate nodes are $a=x+y$, $b=x-y$, $c=y^3$, $d=a^2$, $e=d\\cdot b$, $f=e+c$.",
+      "entailed": true,
+      "evidence": "transcript:262",
+      "top": [
+        "transcript:262",
+        "transcript:272",
+        "transcript:261",
+        "transcript:145",
+        "transcript:306",
+        "transcript:151",
+        "transcript:307",
+        "transcript:333"
+      ]
+    },
+    {
+      "claim": "summary:72",
+      "text": "By going bottom-up in the computational graph, one can compute both the function values and a partial derivative like $\\partial f/\\partial x$.",
+      "entailed": true,
+      "evidence": "transcript:295",
+      "top": [
+        "transcript:266",
+        "transcript:248",
+        "transcript:244",
+        "transcript:265",
+        "transcript:337",
+        "transcript:295",
+        "transcript:336",
+        "transcript:261"
+      ]
+    },
+    {
+      "claim": "summary:73",
+      "text": "For the example with $x=2, y=-1$, the node values are $a=1$, $b=3$, $c=-1$, $d=1$, $e=3$, $f=2$.",
+      "entailed": true,
+      "evidence": "transcript:272",
+      "top": [
+        "transcript:262",
+        "transcript:272",
+        "transcript:308",
+        "transcript:306",
+        "transcript:307",
+        "transcript:310",
+        "transcript:309",
+        "transcript:266"
+      ]
+    },
+    {
+      "claim": "summary:74",
+      "text": "$\\partial f/\\partial x = \\partial e/\\partial x + \\partial c/\\partial x$.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:45",
+        "slides:42",
+        "slides:49",
+        "slides:46",
+        "transcript:307",
+        "transcript:306",
+        "slides:94",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "summary:75",
+      "text": "$\\partial c/\\partial x = 0$.",
+      "entailed": true,
+      "evidence": "transcript:279",
+      "top": [
+        "transcript:279",
+        "transcript:60",
+        "transcript:577",
+        "transcript:392",
+        "transcript:72",
+        "slides:48",
+        "transcript:307",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "summary:76",
+      "text": "$\\partial e/\\partial x = \\partial d/\\partial x \\, b + d \\, \\partial b/\\partial x$.",
+      "entailed": true,
+      "evidence": "transcript:286",
+      "top": [
+        "transcript:274",
+        "transcript:286",
+        "slides:45",
+        "transcript:335",
+        "transcript:311",
+        "slides:46",
+        "slides:48",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "summary:77",
+      "text": "$\\partial d/\\partial x = 2a \\cdot 1$.",
+      "entailed": true,
+      "evidence": "transcript:273",
+      "top": [
+        "transcript:285",
+        "transcript:273",
+        "transcript:311",
+        "transcript:337",
+        "transcript:393",
+        "transcript:392",
+        "transcript:274",
+        "transcript:330"
+      ]
+    },
+    {
+      "claim": "summary:78",
+      "text": "$\\partial b/\\partial x = 1$.",
+      "entailed": true,
+      "evidence": "transcript:282",
+      "top": [
+        "transcript:311",
+        "slides:42",
+        "slides:45",
+        "transcript:60",
+        "slides:48",
+        "transcript:392",
+        "transcript:256",
+        "transcript:282"
+      ]
+    },
+    {
+      "claim": "summary:79",
+      "text": "$\\partial e/\\partial x = (2a\\cdot 1)b + d = 2ab + d = 2\\cdot 1\\cdot 3 + 1 = 7$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:287",
+        "transcript:288",
+        "transcript:274",
+        "transcript:311",
+        "transcript:335",
+        "transcript:289",
+        "transcript:285",
+        "transcript:313"
+      ]
+    },
+    {
+      "claim": "summary:80",
+      "text": "Both $f$ and $\\partial f/\\partial x$ can be obtained in one single forward pass.",
+      "entailed": true,
+      "evidence": "transcript:292",
+      "top": [
+        "slides:49",
+        "transcript:294",
+        "transcript:269",
+        "transcript:295",
+        "transcript:270",
+        "slides:42",
+        "transcript:292",
+        "transcript:316"
+      ]
+    },
+    {
+      "claim": "summary:81",
+      "text": "To get $\\partial f/\\partial y$, one could either make a second pass or compute all derivatives simultaneously.",
+      "entailed": true,
+      "evidence": "transcript:294",
+      "top": [
+        "transcript:295",
+        "transcript:294",
+        "transcript:371",
+        "transcript:292",
+        "transcript:276",
+        "slides:49",
+        "slides:42",
+        "transcript:315"
+      ]
+    },
+    {
+      "claim": "summary:82",
+      "text": "In a real neural network, the number of learnable weights $|\\mathbf{w}|$ is in the millions or billions.",
+      "entailed": true,
+      "evidence": "transcript:297",
+      "top": [
+        "transcript:225",
+        "transcript:297",
+        "transcript:207",
+        "transcript:325",
+        "transcript:410",
+        "transcript:368",
+        "transcript:193",
+        "transcript:436"
+      ]
+    },
+    {
+      "claim": "summary:83",
+      "text": "Forward-propagating derivatives with respect to every weight would require either $|\\mathbf{w}|$ separate passes through the graph or a single pass carrying a vector of size $|\\mathbf{w}|$ on every edge.",
+      "entailed": true,
+      "evidence": "transcript:298",
+      "top": [
+        "transcript:269",
+        "slides:52",
+        "transcript:298",
+        "transcript:158",
+        "transcript:286",
+        "transcript:268",
+        "transcript:338",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "summary:84",
+      "text": "$|\\mathbf{w}|$ separate passes are completely infeasible time-wise.",
+      "entailed": true,
+      "evidence": "transcript:301",
+      "top": [
+        "transcript:218",
+        "transcript:296",
+        "transcript:301",
+        "transcript:228",
+        "transcript:225",
+        "transcript:219",
+        "transcript:380",
+        "transcript:224"
+      ]
+    },
+    {
+      "claim": "summary:85",
+      "text": "A single pass carrying a vector of size $|\\mathbf{w}|$ on every edge causes a memory blow-up (a million copies of the network).",
+      "entailed": true,
+      "evidence": "transcript:299",
+      "top": [
+        "transcript:410",
+        "transcript:299",
+        "transcript:296",
+        "transcript:225",
+        "transcript:298",
+        "transcript:235",
+        "transcript:462",
+        "transcript:338"
+      ]
+    },
+    {
+      "claim": "summary:86",
+      "text": "Neither forward-propagation approach is practical.",
+      "entailed": true,
+      "evidence": "transcript:302",
+      "top": [
+        "transcript:269",
+        "transcript:302",
+        "transcript:356",
+        "slides:52",
+        "transcript:574",
+        "transcript:290",
+        "transcript:485",
+        "transcript:629"
+      ]
+    },
+    {
+      "claim": "summary:87",
+      "text": "The solution to forward-propagation impracticality is backpropagation.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:52",
+        "transcript:258",
+        "transcript:269",
+        "transcript:356",
+        "transcript:304",
+        "transcript:338",
+        "transcript:326",
+        "transcript:290"
+      ]
+    },
+    {
+      "claim": "summary:88",
+      "text": "In backpropagation, instead of starting from inputs to compute $\\partial(\\text{everything})/\\partial x$, we start from the output and compute $\\partial f/\\partial(\\text{everything})$ moving top-down.",
+      "entailed": true,
+      "evidence": "slides:50",
+      "top": [
+        "transcript:305",
+        "transcript:257",
+        "slides:50",
+        "transcript:304",
+        "slides:49",
+        "transcript:315",
+        "transcript:342",
+        "slides:53"
+      ]
+    },
+    {
+      "claim": "summary:89",
+      "text": "In backpropagation, the base case is $\\partial f/\\partial f = 1$.",
+      "entailed": true,
+      "evidence": "transcript:305",
+      "top": [
+        "transcript:305",
+        "transcript:258",
+        "transcript:342",
+        "transcript:257",
+        "slides:50",
+        "transcript:315",
+        "slides:42",
+        "transcript:304"
+      ]
+    },
+    {
+      "claim": "summary:90",
+      "text": "For the example, $\\partial f/\\partial e = 1$, $\\partial f/\\partial c = 1$.",
+      "entailed": true,
+      "evidence": "transcript:306",
+      "top": [
+        "transcript:307",
+        "transcript:306",
+        "slides:45",
+        "transcript:330",
+        "transcript:60",
+        "slides:94",
+        "slides:42",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "summary:91",
+      "text": "$\\partial f/\\partial d = \\partial f/\\partial e \\, \\partial e/\\partial d = 1 \\cdot b = 3$.",
+      "entailed": true,
+      "evidence": "transcript:308",
+      "top": [
+        "transcript:308",
+        "transcript:335",
+        "transcript:274",
+        "transcript:306",
+        "transcript:307",
+        "transcript:309",
+        "transcript:287",
+        "transcript:272"
+      ]
+    },
+    {
+      "claim": "summary:92",
+      "text": "$\\partial f/\\partial b = \\partial f/\\partial e \\, \\partial e/\\partial b = 1 \\cdot d = 1$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:308",
+        "transcript:274",
+        "transcript:335",
+        "transcript:309",
+        "transcript:306",
+        "transcript:307",
+        "transcript:286",
+        "transcript:330"
+      ]
+    },
+    {
+      "claim": "summary:93",
+      "text": "$\\partial f/\\partial a = \\partial f/\\partial d \\, \\partial d/\\partial a = 3 \\cdot 2a = 6$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:310",
+        "transcript:288",
+        "transcript:337",
+        "transcript:276",
+        "transcript:331",
+        "transcript:311",
+        "transcript:313",
+        "transcript:335"
+      ]
+    },
+    {
+      "claim": "summary:94",
+      "text": "When a node has multiple outgoing edges, contributions to the partial derivative from those edges are summed.",
+      "entailed": true,
+      "evidence": "slides:51",
+      "top": [
+        "transcript:295",
+        "slides:51",
+        "transcript:342",
+        "transcript:248",
+        "transcript:291",
+        "transcript:281",
+        "transcript:315",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "summary:95",
+      "text": "$\\partial f/\\partial x = \\partial f/\\partial a \\, \\partial a/\\partial x + \\partial f/\\partial b \\, \\partial b/\\partial x = 6 \\cdot 1 + 1 \\cdot 1 = 7$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:288",
+        "slides:45",
+        "slides:42",
+        "transcript:337",
+        "transcript:287",
+        "slides:49",
+        "slides:46",
+        "transcript:311"
+      ]
+    },
+    {
+      "claim": "summary:96",
+      "text": "$\\partial f/\\partial y = \\partial f/\\partial a \\, \\partial a/\\partial y + \\partial f/\\partial b \\, \\partial b/\\partial y + \\partial f/\\partial c \\, \\partial c/\\partial y = 6 \\cdot 1 + 1 \\cdot (-1) + 1 \\cdot 3y^2 = 6 - 1 + 3 = 8$.",
+      "entailed": true,
+      "evidence": "transcript:313",
+      "top": [
+        "transcript:313",
+        "transcript:272",
+        "transcript:288",
+        "transcript:337",
+        "transcript:276",
+        "transcript:307",
+        "transcript:306",
+        "transcript:371"
+      ]
+    },
+    {
+      "claim": "summary:97",
+      "text": "Backpropagation obtains all partial derivatives in a single backward pass without recomputing shared sub-expressions.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:53",
+        "transcript:315",
+        "transcript:257",
+        "slides:50",
+        "slides:52",
+        "transcript:305",
+        "transcript:258",
+        "transcript:343"
+      ]
+    },
+    {
+      "claim": "summary:98",
+      "text": "Neural networks always have one scalar loss and many inputs (weights).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:317",
+        "transcript:325",
+        "transcript:368",
+        "transcript:193",
+        "transcript:436",
+        "transcript:191",
+        "transcript:207",
+        "transcript:15"
+      ]
+    },
+    {
+      "claim": "summary:99",
+      "text": "Backpropagation is perfectly suited to the asymmetry of one scalar loss and many inputs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:326",
+        "transcript:303",
+        "transcript:258",
+        "transcript:257",
+        "slides:53",
+        "slides:50",
+        "transcript:304",
+        "transcript:343"
+      ]
+    },
+    {
+      "claim": "summary:100",
+      "text": "In practice, backpropagation requires two passes: a forward pass and a backward pass.",
+      "entailed": true,
+      "evidence": "transcript:338",
+      "top": [
+        "transcript:338",
+        "transcript:258",
+        "slides:50",
+        "slides:52",
+        "transcript:304",
+        "transcript:326",
+        "transcript:257",
+        "transcript:305"
+      ]
+    },
+    {
+      "claim": "summary:101",
+      "text": "In the forward pass, the numerical values of every intermediate node are computed and stored because local derivatives depend on those values.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:291",
+        "transcript:339",
+        "transcript:248",
+        "transcript:268",
+        "transcript:290",
+        "transcript:278",
+        "transcript:298",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "summary:102",
+      "text": "In the backward pass, starting from the output, $\\partial f/\\partial(\\text{everything})$ is computed recursively using the chain rule and the stored values from the forward pass.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "transcript:305",
+        "transcript:342",
+        "transcript:295",
+        "slides:50",
+        "transcript:315",
+        "transcript:257",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "summary:103",
+      "text": "Modern frameworks like PyTorch, TensorFlow, and JAX are, at their core, automatic differentiation engines.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "transcript:354",
+        "slides:56",
+        "slides:57",
+        "transcript:242",
+        "transcript:231",
+        "transcript:386",
+        "transcript:688"
+      ]
+    },
+    {
+      "claim": "summary:104",
+      "text": "The most performance-critical job of these frameworks is to run forward and backward passes efficiently.",
+      "entailed": true,
+      "evidence": "transcript:356",
+      "top": [
+        "transcript:356",
+        "transcript:345",
+        "slides:96",
+        "transcript:387",
+        "transcript:344",
+        "slides:129",
+        "transcript:301",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "summary:105",
+      "text": "All the layers, modules, and high-level APIs are syntactic sugar built on top of the graph-tracing machinery.",
+      "entailed": true,
+      "evidence": "transcript:346",
+      "top": [
+        "transcript:35",
+        "transcript:346",
+        "transcript:358",
+        "transcript:151",
+        "transcript:261",
+        "transcript:245",
+        "transcript:145",
+        "transcript:344"
+      ]
+    },
+    {
+      "claim": "summary:106",
+      "text": "In these frameworks, weights are a special kind of input to the computational graph.",
+      "entailed": true,
+      "evidence": "transcript:363",
+      "top": [
+        "transcript:365",
+        "transcript:255",
+        "transcript:145",
+        "transcript:368",
+        "transcript:244",
+        "transcript:261",
+        "transcript:363",
+        "slides:23"
+      ]
+    },
+    {
+      "claim": "summary:107",
+      "text": "During training, gradients are computed with respect to the weights.",
+      "entailed": true,
+      "evidence": "transcript:367",
+      "top": [
+        "transcript:367",
+        "transcript:481",
+        "slides:24",
+        "transcript:257",
+        "transcript:438",
+        "slides:50",
+        "transcript:383",
+        "transcript:254"
+      ]
+    },
+    {
+      "claim": "summary:108",
+      "text": "Gradient descent updates weights using the first-order Taylor expansion: $L(\\mathbf{w}) \\approx L(\\mathbf{w}_k) + (\\mathbf{w} - \\mathbf{w}_k)^\\top \\nabla L(\\mathbf{w}_k)$.",
+      "entailed": true,
+      "evidence": "transcript:381",
+      "top": [
+        "transcript:234",
+        "transcript:481",
+        "transcript:379",
+        "transcript:381",
+        "transcript:382",
+        "slides:24",
+        "transcript:400",
+        "transcript:678"
+      ]
+    },
+    {
+      "claim": "summary:109",
+      "text": "Gradient descent moves in the negative gradient direction: $\\mathbf{w}_{k+1} = \\mathbf{w}_k - \\alpha \\nabla L(\\mathbf{w}_k)$.",
+      "entailed": true,
+      "evidence": "transcript:234",
+      "top": [
+        "transcript:236",
+        "transcript:234",
+        "transcript:385",
+        "transcript:238",
+        "transcript:681",
+        "slides:100",
+        "transcript:401",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "summary:110",
+      "text": "Gradient descent only tells a direction, not how far to go.",
+      "entailed": true,
+      "evidence": "transcript:482",
+      "top": [
+        "transcript:482",
+        "transcript:394",
+        "transcript:385",
+        "slides:24",
+        "transcript:379",
+        "transcript:378",
+        "transcript:232",
+        "transcript:382"
+      ]
+    },
+    {
+      "claim": "summary:111",
+      "text": "The learning rate $\\alpha$ must be chosen externally.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:102",
+        "slides:104",
+        "slides:33",
+        "slides:101",
+        "slides:103",
+        "slides:173",
+        "transcript:707",
+        "transcript:517"
+      ]
+    },
+    {
+      "claim": "summary:112",
+      "text": "Centuries of optimisation theory have produced better techniques than gradient descent.",
+      "entailed": true,
+      "evidence": "transcript:387",
+      "top": [
+        "transcript:387",
+        "transcript:231",
+        "transcript:442",
+        "transcript:404",
+        "transcript:377",
+        "transcript:378",
+        "transcript:386",
+        "transcript:232"
+      ]
+    },
+    {
+      "claim": "summary:113",
+      "text": "Newton's method uses a quadratic approximation of the loss: $L(\\mathbf{w}) \\approx L(\\mathbf{w}_k) + (\\mathbf{w}-\\mathbf{w}_k)^\\top \\mathbf{g}_k + \\frac{1}{2} (\\mathbf{w}-\\mathbf{w}_k)^\\top \\mathbf{H}_k (\\mathbf{w}-\\mathbf{w}_k)$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:406",
+        "slides:120",
+        "transcript:624",
+        "transcript:400",
+        "slides:116",
+        "transcript:404",
+        "transcript:507",
+        "transcript:621"
+      ]
+    },
+    {
+      "claim": "summary:114",
+      "text": "The gradient of the quadratic approximation set to zero gives $\\mathbf{w}_{k+1} = \\mathbf{w}_k - \\mathbf{H}_k^{-1} \\mathbf{g}_k$.",
+      "entailed": true,
+      "evidence": "transcript:401",
+      "top": [
+        "transcript:400",
+        "transcript:401",
+        "transcript:236",
+        "transcript:238",
+        "transcript:389",
+        "transcript:399",
+        "transcript:681",
+        "slides:195"
+      ]
+    },
+    {
+      "claim": "summary:115",
+      "text": "Newton's method automatically determines the step size.",
+      "entailed": true,
+      "evidence": "transcript:625",
+      "top": [
+        "transcript:625",
+        "transcript:403",
+        "transcript:626",
+        "transcript:624",
+        "slides:120",
+        "transcript:483",
+        "transcript:620",
+        "transcript:407"
+      ]
+    },
+    {
+      "claim": "summary:116",
+      "text": "Newton's method is far more robust than gradient descent.",
+      "entailed": true,
+      "evidence": "transcript:404",
+      "top": [
+        "transcript:404",
+        "transcript:406",
+        "transcript:409",
+        "transcript:407",
+        "transcript:378",
+        "slides:116",
+        "transcript:472",
+        "transcript:624"
+      ]
+    },
+    {
+      "claim": "summary:117",
+      "text": "Newton's method converges in fewer iterations than gradient descent.",
+      "entailed": true,
+      "evidence": "transcript:406",
+      "top": [
+        "transcript:406",
+        "transcript:404",
+        "transcript:507",
+        "transcript:409",
+        "transcript:407",
+        "slides:116",
+        "slides:120",
+        "transcript:624"
+      ]
+    },
+    {
+      "claim": "summary:118",
+      "text": "The computational problem of Newton's method is that for $10^6$ parameters, the Hessian is a $10^6 \\times 10^6$ matrix that must be stored and inverted, which is impossible.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:116",
+        "transcript:621",
+        "slides:119",
+        "transcript:412",
+        "slides:120",
+        "transcript:409",
+        "transcript:406",
+        "transcript:415"
+      ]
+    },
+    {
+      "claim": "summary:119",
+      "text": "Quasi-Newton methods like L-BFGS keep a low-rank approximation of the Hessian.",
+      "entailed": true,
+      "evidence": "transcript:425",
+      "top": [
+        "slides:123",
+        "transcript:426",
+        "slides:121",
+        "slides:116",
+        "transcript:416",
+        "transcript:473",
+        "transcript:415",
+        "transcript:425"
+      ]
+    },
+    {
+      "claim": "summary:120",
+      "text": "Quasi-Newton methods fail in deep learning because they rely on accurate gradient evaluations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:472",
+        "transcript:409",
+        "transcript:406",
+        "slides:121",
+        "transcript:473",
+        "transcript:415",
+        "transcript:426",
+        "transcript:374"
+      ]
+    },
+    {
+      "claim": "summary:121",
+      "text": "The actual loss $L(\\mathbf{w})$ is an average over the whole training set.",
+      "entailed": true,
+      "evidence": "transcript:445",
+      "top": [
+        "transcript:219",
+        "transcript:213",
+        "transcript:216",
+        "transcript:218",
+        "transcript:215",
+        "transcript:380",
+        "transcript:443",
+        "transcript:445"
+      ]
+    },
+    {
+      "claim": "summary:122",
+      "text": "Computing the true gradient $\\nabla L$ requires a full pass over the entire dataset on every optimisation step.",
+      "entailed": true,
+      "evidence": "transcript:439",
+      "top": [
+        "transcript:439",
+        "transcript:433",
+        "transcript:432",
+        "slides:27",
+        "transcript:298",
+        "transcript:448",
+        "transcript:454",
+        "transcript:382"
+      ]
+    },
+    {
+      "claim": "summary:123",
+      "text": "A full pass over the entire dataset on every step is prohibitively expensive.",
+      "entailed": true,
+      "evidence": "transcript:440",
+      "top": [
+        "transcript:440",
+        "transcript:441",
+        "transcript:464",
+        "transcript:217",
+        "transcript:153",
+        "transcript:301",
+        "transcript:439",
+        "transcript:296"
+      ]
+    },
+    {
+      "claim": "summary:124",
+      "text": "In practice, $L$ is viewed as an expectation over the data distribution.",
+      "entailed": true,
+      "evidence": "transcript:445",
+      "top": [
+        "transcript:435",
+        "transcript:215",
+        "transcript:221",
+        "transcript:443",
+        "transcript:445",
+        "transcript:213",
+        "transcript:380",
+        "transcript:219"
+      ]
+    },
+    {
+      "claim": "summary:125",
+      "text": "$L$ is approximated with a small random subset called a mini-batch of size $m$.",
+      "entailed": true,
+      "evidence": "transcript:449",
+      "top": [
+        "slides:31",
+        "slides:129",
+        "transcript:450",
+        "transcript:449",
+        "transcript:456",
+        "transcript:463",
+        "transcript:215",
+        "transcript:459"
+      ]
+    },
+    {
+      "claim": "summary:126",
+      "text": "The stochastic gradient estimate is $\\hat{\\mathbf{g}}_k = \\frac{1}{m} \\sum_{i=1}^{m} \\nabla_{\\mathbf{w}} l(\\mathbf{x}_{i_k}, y_{i_k}, \\mathbf{w}_k)$.",
+      "entailed": true,
+      "evidence": "transcript:448",
+      "top": [
+        "slides:143",
+        "transcript:537",
+        "transcript:448",
+        "slides:134",
+        "transcript:451",
+        "transcript:238",
+        "slides:193",
+        "slides:159"
+      ]
+    },
+    {
+      "claim": "summary:127",
+      "text": "The stochastic gradient estimate is an unbiased Monte-Carlo estimate of the true gradient.",
+      "entailed": true,
+      "evidence": "transcript:452",
+      "top": [
+        "transcript:452",
+        "transcript:451",
+        "slides:136",
+        "slides:143",
+        "transcript:501",
+        "transcript:373",
+        "slides:130",
+        "transcript:537"
+      ]
+    },
+    {
+      "claim": "summary:128",
+      "text": "The SGD update is $\\mathbf{w}_{k+1} = \\mathbf{w}_k - \\alpha_k \\hat{\\mathbf{g}}_k$.",
+      "entailed": true,
+      "evidence": "slides:142",
+      "top": [
+        "transcript:475",
+        "slides:194",
+        "slides:193",
+        "transcript:538",
+        "slides:195",
+        "slides:142",
+        "transcript:539",
+        "transcript:236"
+      ]
+    },
+    {
+      "claim": "summary:129",
+      "text": "Mini-batch sizes are usually small (e.g., 4, 8, 16) because the network must fit into GPU memory.",
+      "entailed": true,
+      "evidence": "transcript:462",
+      "top": [
+        "transcript:462",
+        "transcript:463",
+        "transcript:461",
+        "slides:29",
+        "slides:30",
+        "transcript:450",
+        "slides:31",
+        "slides:129"
+      ]
+    },
+    {
+      "claim": "summary:130",
+      "text": "The variance of the stochastic gradient estimate is substantial.",
+      "entailed": true,
+      "evidence": "transcript:467",
+      "top": [
+        "transcript:467",
+        "transcript:451",
+        "transcript:495",
+        "transcript:501",
+        "transcript:459",
+        "transcript:494",
+        "slides:143",
+        "transcript:452"
+      ]
+    },
+    {
+      "claim": "summary:131",
+      "text": "The stochastic gradient estimate is the best approximation that can be afforded.",
+      "entailed": true,
+      "evidence": "transcript:454",
+      "top": [
+        "transcript:454",
+        "transcript:451",
+        "transcript:610",
+        "slides:130",
+        "transcript:501",
+        "transcript:459",
+        "transcript:480",
+        "slides:136"
+      ]
+    },
+    {
+      "claim": "summary:132",
+      "text": "The substantial variance is the reason second-order methods break down.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:413",
+        "transcript:554",
+        "transcript:419",
+        "transcript:507",
+        "transcript:382",
+        "transcript:388",
+        "transcript:620",
+        "transcript:626"
+      ]
+    },
+    {
+      "claim": "summary:133",
+      "text": "Second-order methods need reliable gradient values, and stochastic samples with high variance destroy the delicate quasi-Newton approximations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:426",
+        "transcript:473",
+        "transcript:472",
+        "slides:121",
+        "transcript:507",
+        "transcript:406",
+        "transcript:415",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "summary:134",
+      "text": "A standard analysis assuming convex $F$ yields the bound: $\\mathbb{E}F(\\hat{\\mathbf{w}}_k) - F(\\mathbf{w}_{\\text{opt}}) \\le \\frac{R^2 + G^2 \\sum_{i=0}^k \\alpha_i^2}{2 \\sum_{i=0}^k \\alpha_i}$, where $R$ bounds the initial distance to the optimum and $G$ bounds the expected squared norm of the stochastic gradients.",
+      "entailed": true,
+      "evidence": "slides:151",
+      "top": [
+        "slides:151",
+        "transcript:491",
+        "transcript:495",
+        "transcript:494",
+        "slides:148",
+        "slides:152",
+        "transcript:501",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "summary:135",
+      "text": "For a constant step size $h$, the bound becomes $\\mathbb{E}F(\\hat{\\mathbf{w}}_k) - F(\\mathbf{w}_{\\text{opt}}) \\le \\frac{R^2}{2h(k+1)} + \\frac{G^2 h}{2}$.",
+      "entailed": true,
+      "evidence": "slides:154",
+      "top": [
+        "slides:154",
+        "slides:151",
+        "transcript:491",
+        "slides:152",
+        "slides:148",
+        "slides:145",
+        "transcript:495",
+        "transcript:493"
+      ]
+    },
+    {
+      "claim": "summary:136",
+      "text": "As $k \\to \\infty$, the bound tends to $\\frac{G^2 h}{2}$.",
+      "entailed": true,
+      "evidence": "slides:154",
+      "top": [
+        "transcript:496",
+        "slides:154",
+        "transcript:500",
+        "transcript:499",
+        "transcript:491",
+        "transcript:594",
+        "transcript:401",
+        "slides:152"
+      ]
+    },
+    {
+      "claim": "summary:137",
+      "text": "SGD quickly reaches a neighbourhood of the optimum.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:477",
+        "transcript:663",
+        "slides:138",
+        "transcript:662",
+        "transcript:664",
+        "transcript:478",
+        "slides:160",
+        "transcript:696"
+      ]
+    },
+    {
+      "claim": "summary:138",
+      "text": "With a constant learning rate, SGD never converges exactly; it oscillates inside a “noisy ball” whose radius is proportional to $G^2 h$.",
+      "entailed": true,
+      "evidence": "slides:155",
+      "top": [
+        "slides:155",
+        "slides:158",
+        "slides:159",
+        "slides:156",
+        "slides:142",
+        "transcript:662",
+        "transcript:478",
+        "slides:160"
+      ]
+    },
+    {
+      "claim": "summary:139",
+      "text": "To converge to the true optimum, one must let the step sizes go to zero, e.g., $\\alpha_k \\sim 1/k$, such that $\\sum \\alpha_k = \\infty$ but $\\sum \\alpha_k^2 < \\infty$.",
+      "entailed": true,
+      "evidence": "transcript:498",
+      "top": [
+        "transcript:498",
+        "slides:154",
+        "slides:139",
+        "transcript:499",
+        "transcript:483",
+        "transcript:482",
+        "transcript:488",
+        "transcript:524"
+      ]
+    },
+    {
+      "claim": "summary:140",
+      "text": "Far from the optimum, the convergence can still be $O(1/k)$.",
+      "entailed": true,
+      "evidence": "slides:158",
+      "top": [
+        "transcript:499",
+        "slides:158",
+        "transcript:524",
+        "transcript:491",
+        "slides:139",
+        "slides:157",
+        "slides:221",
+        "transcript:498"
+      ]
+    },
+    {
+      "claim": "summary:141",
+      "text": "The slowdown only occurs near the optimum.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:589",
+        "transcript:488",
+        "transcript:486",
+        "transcript:600",
+        "transcript:482",
+        "transcript:526",
+        "slides:173",
+        "transcript:385"
+      ]
+    },
+    {
+      "claim": "summary:142",
+      "text": "Even for a trivial quadratic function $f(\\mathbf{w}) = \\frac{1}{2} x^2 + \\frac{\\rho}{2} y^2$, gradient descent suffers when the coordinates have very different scales (i.e., $\\rho \\ll 1$).",
+      "entailed": true,
+      "evidence": "slides:114",
+      "top": [
+        "slides:114",
+        "transcript:513",
+        "transcript:509",
+        "transcript:508",
+        "transcript:382",
+        "transcript:482",
+        "transcript:525",
+        "transcript:379"
+      ]
+    },
+    {
+      "claim": "summary:143",
+      "text": "The learning rate cannot be increased beyond the limit set by the fastest-changing coordinate (x) without causing divergence.",
+      "entailed": true,
+      "evidence": "transcript:517",
+      "top": [
+        "transcript:517",
+        "transcript:599",
+        "transcript:523",
+        "slides:156",
+        "slides:173",
+        "transcript:527",
+        "transcript:661",
+        "transcript:703"
+      ]
+    },
+    {
+      "claim": "summary:144",
+      "text": "Progress along the slow axis (y) becomes excruciatingly slow.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:519",
+        "transcript:520",
+        "transcript:597",
+        "transcript:156",
+        "transcript:551",
+        "transcript:589",
+        "transcript:553",
+        "slides:114"
+      ]
+    },
+    {
+      "claim": "summary:145",
+      "text": "The problem of coordinate scales motivates adaptive and momentum-based methods.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:554",
+        "transcript:649",
+        "transcript:542",
+        "transcript:557",
+        "transcript:565",
+        "transcript:571",
+        "slides:196",
+        "transcript:648"
+      ]
+    },
+    {
+      "claim": "summary:146",
+      "text": "Momentum draws on the physical intuition of a ball rolling down a slope.",
+      "entailed": true,
+      "evidence": "transcript:542",
+      "top": [
+        "transcript:544",
+        "transcript:567",
+        "transcript:542",
+        "transcript:551",
+        "transcript:553",
+        "transcript:552",
+        "transcript:549",
+        "transcript:554"
+      ]
+    },
+    {
+      "claim": "summary:147",
+      "text": "Momentum accumulates velocity in directions where the gradient consistently points.",
+      "entailed": true,
+      "evidence": "transcript:550",
+      "top": [
+        "transcript:542",
+        "transcript:558",
+        "transcript:550",
+        "slides:163",
+        "transcript:559",
+        "transcript:383",
+        "transcript:576",
+        "transcript:544"
+      ]
+    },
+    {
+      "claim": "summary:148",
+      "text": "The momentum update rule for the velocity $\\mathbf{u}_k$ is $\\mathbf{u}_k = \\gamma \\mathbf{u}_{k-1} - \\alpha \\hat{\\mathbf{g}}_k$, and the weight update is $\\mathbf{w}_{k+1} = \\mathbf{w}_k + \\mathbf{u}_k$.",
+      "entailed": true,
+      "evidence": "transcript:547",
+      "top": [
+        "transcript:546",
+        "slides:194",
+        "transcript:547",
+        "slides:164",
+        "slides:168",
+        "transcript:545",
+        "transcript:558",
+        "transcript:559"
+      ]
+    },
+    {
+      "claim": "summary:149",
+      "text": "The typical value of $\\gamma$ in momentum is between 0.95 and 0.99.",
+      "entailed": true,
+      "evidence": "transcript:548",
+      "top": [
+        "transcript:548",
+        "transcript:546",
+        "transcript:644",
+        "slides:164",
+        "transcript:541",
+        "transcript:665",
+        "transcript:545",
+        "transcript:549"
+      ]
+    },
+    {
+      "claim": "summary:150",
+      "text": "Momentum speeds up movement along shallow but consistent slopes.",
+      "entailed": true,
+      "evidence": "transcript:553",
+      "top": [
+        "transcript:567",
+        "transcript:544",
+        "transcript:656",
+        "transcript:551",
+        "transcript:542",
+        "transcript:553",
+        "transcript:550",
+        "transcript:657"
+      ]
+    },
+    {
+      "claim": "summary:151",
+      "text": "Momentum dampens oscillations across steep ravines.",
+      "entailed": true,
+      "evidence": "transcript:570",
+      "top": [
+        "transcript:656",
+        "transcript:544",
+        "transcript:570",
+        "transcript:567",
+        "transcript:542",
+        "transcript:569",
+        "transcript:611",
+        "transcript:552"
+      ]
+    },
+    {
+      "claim": "summary:152",
+      "text": "Nesterov (1983) proposed a 'look-ahead' variant of momentum.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:557",
+        "transcript:666",
+        "transcript:565",
+        "transcript:571",
+        "transcript:554",
+        "transcript:573",
+        "transcript:540",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "summary:153",
+      "text": "In Nesterov's variant, the gradient is computed at $\\mathbf{w}_k + \\gamma \\mathbf{u}_{k-1}$ instead of at the current point.",
+      "entailed": true,
+      "evidence": "transcript:562",
+      "top": [
+        "transcript:562",
+        "transcript:561",
+        "slides:168",
+        "transcript:564",
+        "transcript:563",
+        "transcript:572",
+        "transcript:236",
+        "transcript:568"
+      ]
+    },
+    {
+      "claim": "summary:154",
+      "text": "The Nesterov Accelerated Gradient update rule for $\\mathbf{u}_k$ is $\\mathbf{u}_k = \\gamma \\mathbf{u}_{k-1} - \\alpha \\nabla L(\\mathbf{w}_k + \\gamma \\mathbf{u}_{k-1})$, and the weight update is $\\mathbf{w}_{k+1} = \\mathbf{w}_k + \\mathbf{u}_k$.",
+      "entailed": true,
+      "evidence": "transcript:564",
+      "top": [
+        "slides:168",
+        "transcript:562",
+        "transcript:563",
+        "transcript:234",
+        "transcript:564",
+        "transcript:561",
+        "slides:194",
+        "slides:195"
+      ]
+    },
+    {
+      "claim": "summary:155",
+      "text": "NAG anticipates the upcoming slope and naturally slows down before hitting a wall.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:589",
+        "transcript:656",
+        "transcript:551",
+        "transcript:588",
+        "transcript:567",
+        "transcript:657",
+        "transcript:239",
+        "transcript:383"
+      ]
+    },
+    {
+      "claim": "summary:156",
+      "text": "NAG reduces oscillations more than plain momentum.",
+      "entailed": true,
+      "evidence": "transcript:570",
+      "top": [
+        "transcript:570",
+        "transcript:549",
+        "transcript:697",
+        "transcript:569",
+        "transcript:554",
+        "transcript:550",
+        "slides:163",
+        "transcript:555"
+      ]
+    },
+    {
+      "claim": "summary:157",
+      "text": "NAG often converges asymptotically faster than plain momentum.",
+      "entailed": true,
+      "evidence": "transcript:565",
+      "top": [
+        "transcript:565",
+        "transcript:697",
+        "transcript:549",
+        "transcript:557",
+        "transcript:665",
+        "slides:163",
+        "transcript:666",
+        "transcript:554"
+      ]
+    },
+    {
+      "claim": "summary:158",
+      "text": "The previously discussed optimization methods (SGD, momentum, NAG) treat every coordinate equally.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:476",
+        "transcript:555",
+        "transcript:442",
+        "transcript:578",
+        "transcript:454",
+        "transcript:426",
+        "transcript:231",
+        "transcript:58"
+      ]
+    },
+    {
+      "claim": "summary:159",
+      "text": "In a high-dimensional space, different weights may need very different effective learning rates.",
+      "entailed": true,
+      "evidence": "transcript:649",
+      "top": [
+        "slides:173",
+        "transcript:514",
+        "transcript:527",
+        "slides:212",
+        "slides:169",
+        "transcript:649",
+        "transcript:516",
+        "transcript:522"
+      ]
+    },
+    {
+      "claim": "summary:160",
+      "text": "Adaptive algorithms scale the learning rate per-parameter based on the history of gradients.",
+      "entailed": true,
+      "evidence": "slides:170",
+      "top": [
+        "slides:169",
+        "slides:209",
+        "slides:170",
+        "transcript:648",
+        "transcript:580",
+        "slides:173",
+        "slides:186",
+        "transcript:395"
+      ]
+    },
+    {
+      "claim": "summary:161",
+      "text": "Adagrad maintains a running sum of squared gradients per parameter, updated as $G_{k,i} = G_{k-1,i} + g_{k,i}^2$, and updates the parameter as $w_{k+1,i} = w_{k,i} - \\frac{\\eta}{\\sqrt{G_{k,i} + \\epsilon}} g_{k,i}$.",
+      "entailed": true,
+      "evidence": "slides:172",
+      "top": [
+        "slides:172",
+        "transcript:601",
+        "transcript:587",
+        "transcript:598",
+        "transcript:590",
+        "slides:171",
+        "transcript:593",
+        "slides:180"
+      ]
+    },
+    {
+      "claim": "summary:162",
+      "text": "In Adagrad, parameters that experienced large gradients have their effective learning rate shrink quickly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:587",
+        "slides:174",
+        "slides:171",
+        "transcript:601",
+        "slides:180",
+        "slides:169",
+        "slides:173",
+        "transcript:514"
+      ]
+    },
+    {
+      "claim": "summary:163",
+      "text": "In Adagrad, parameters with small gradients keep a higher effective learning rate.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:587",
+        "slides:174",
+        "slides:171",
+        "transcript:601",
+        "slides:169",
+        "transcript:628",
+        "slides:180",
+        "transcript:600"
+      ]
+    },
+    {
+      "claim": "summary:164",
+      "text": "A drawback of Adagrad is that $G_{k,i}$ only grows.",
+      "entailed": true,
+      "evidence": "slides:174",
+      "top": [
+        "transcript:598",
+        "slides:174",
+        "transcript:592",
+        "transcript:594",
+        "transcript:601",
+        "transcript:595",
+        "transcript:600",
+        "transcript:590"
+      ]
+    },
+    {
+      "claim": "summary:165",
+      "text": "Because $G_{k,i}$ only grows, the learning rate can never rebound after passing through a steep region.",
+      "entailed": true,
+      "evidence": "transcript:599",
+      "top": [
+        "transcript:597",
+        "transcript:596",
+        "transcript:599",
+        "slides:174",
+        "transcript:594",
+        "slides:173",
+        "transcript:595",
+        "slides:156"
+      ]
+    },
+    {
+      "claim": "summary:166",
+      "text": "Eventually, the learning rate in Adagrad becomes too small.",
+      "entailed": true,
+      "evidence": "slides:174",
+      "top": [
+        "slides:174",
+        "transcript:600",
+        "slides:161",
+        "transcript:588",
+        "transcript:628",
+        "slides:33",
+        "transcript:601",
+        "transcript:598"
+      ]
+    },
+    {
+      "claim": "summary:167",
+      "text": "RMSprop updates a per-parameter moving average of squared gradients as $G_{k,i} = \\rho G_{k-1,i} + (1-\\rho) g_{k,i}^2$ and updates the parameters as $w_{k+1,i} = w_{k,i} - \\frac{\\eta}{\\sqrt{G_{k,i} + \\epsilon}} g_{k,i}$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:185",
+        "transcript:608",
+        "transcript:610",
+        "slides:172",
+        "slides:195",
+        "slides:183",
+        "transcript:475",
+        "transcript:636"
+      ]
+    },
+    {
+      "claim": "summary:168",
+      "text": "The exponential moving average in RMSprop forgets old gradients.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:219",
+        "transcript:636",
+        "slides:221",
+        "slides:185",
+        "transcript:610",
+        "transcript:608",
+        "transcript:637",
+        "transcript:603"
+      ]
+    },
+    {
+      "claim": "summary:169",
+      "text": "This forgetting property allows the learning rate to grow again when gradients become small.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:173",
+        "transcript:599",
+        "transcript:514",
+        "slides:156",
+        "slides:169",
+        "transcript:379",
+        "transcript:734",
+        "transcript:517"
+      ]
+    },
+    {
+      "claim": "summary:170",
+      "text": "RMSprop was popularized by Hinton.",
+      "entailed": true,
+      "evidence": "transcript:609",
+      "top": [
+        "transcript:609",
+        "slides:184",
+        "transcript:651",
+        "transcript:636",
+        "slides:185",
+        "transcript:610",
+        "transcript:650",
+        "transcript:608"
+      ]
+    },
+    {
+      "claim": "summary:171",
+      "text": "RMSprop is essentially Adagrad with an exponential moving average.",
+      "entailed": true,
+      "evidence": "transcript:608",
+      "top": [
+        "slides:185",
+        "transcript:608",
+        "slides:184",
+        "transcript:636",
+        "transcript:610",
+        "slides:219",
+        "transcript:609",
+        "transcript:651"
+      ]
+    },
+    {
+      "claim": "summary:172",
+      "text": "Adadelta introduces the idea of correcting the units of measurement in the update.",
+      "entailed": true,
+      "evidence": "transcript:627",
+      "top": [
+        "transcript:630",
+        "transcript:627",
+        "slides:182",
+        "slides:178",
+        "transcript:628",
+        "transcript:619",
+        "slides:175",
+        "slides:185"
+      ]
+    },
+    {
+      "claim": "summary:173",
+      "text": "In plain SGD, the update subtracts a quantity with units of $\\partial L/\\partial w$ (velocity-like) from $w$ (position-like).",
+      "entailed": true,
+      "evidence": "slides:179",
+      "top": [
+        "slides:193",
+        "transcript:475",
+        "transcript:538",
+        "slides:194",
+        "slides:179",
+        "transcript:617",
+        "transcript:585",
+        "transcript:477"
+      ]
+    },
+    {
+      "claim": "summary:174",
+      "text": "The dimensions of the subtracted quantity and $w$ do not match, reflecting the scale-mismatch problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:218",
+        "transcript:225",
+        "transcript:219",
+        "transcript:618",
+        "transcript:221",
+        "transcript:399",
+        "transcript:366",
+        "transcript:236"
+      ]
+    },
+    {
+      "claim": "summary:175",
+      "text": "Second-order methods (using $\\mathbf{H}^{-1}\\mathbf{g}$) have correct dimensions because $\\mathbf{H}^{-1}\\mathbf{g}$ has the same units as $w$.",
+      "entailed": true,
+      "evidence": "slides:181",
+      "top": [
+        "slides:181",
+        "transcript:389",
+        "slides:123",
+        "transcript:401",
+        "transcript:621",
+        "transcript:623",
+        "transcript:422",
+        "transcript:225"
+      ]
+    },
+    {
+      "claim": "summary:176",
+      "text": "Adadelta keeps an exponential moving average of the squared parameter updates $\\mathbb{E}[\\Delta w^2]_t$.",
+      "entailed": true,
+      "evidence": "slides:183",
+      "top": [
+        "slides:176",
+        "slides:182",
+        "slides:183",
+        "slides:172",
+        "transcript:628",
+        "slides:178",
+        "slides:175",
+        "transcript:630"
+      ]
+    },
+    {
+      "claim": "summary:177",
+      "text": "The Adadelta update rule is $w_{k+1,i} = w_{k,i} - \\frac{\\sqrt{\\mathbb{E}[\\Delta w^2]_{k-1} + \\epsilon}}{\\sqrt{G_{k,i} + \\epsilon}} g_{k,i}$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:176",
+        "transcript:590",
+        "transcript:475",
+        "slides:182",
+        "slides:172",
+        "transcript:598",
+        "slides:195",
+        "slides:193"
+      ]
+    },
+    {
+      "claim": "summary:178",
+      "text": "Adadelta removes the need to manually set a learning rate.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:628",
+        "slides:174",
+        "slides:178",
+        "slides:161",
+        "transcript:516",
+        "slides:175",
+        "transcript:630",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "summary:179",
+      "text": "In practice, Adadelta is less common than Adam.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:668",
+        "slides:213",
+        "slides:191",
+        "transcript:659",
+        "transcript:669",
+        "transcript:685",
+        "transcript:632",
+        "transcript:642"
+      ]
+    },
+    {
+      "claim": "summary:180",
+      "text": "Adam was introduced by Kingma and Ba in 2014.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:197",
+        "transcript:672",
+        "slides:213",
+        "transcript:584",
+        "transcript:685",
+        "transcript:632",
+        "transcript:647",
+        "slides:220"
+      ]
+    },
+    {
+      "claim": "summary:181",
+      "text": "Adam combines an exponential moving average of squared gradients (like RMSprop) with an exponential moving average of the gradients themselves (like momentum).",
+      "entailed": true,
+      "evidence": "transcript:636",
+      "top": [
+        "transcript:636",
+        "slides:187",
+        "slides:219",
+        "transcript:637",
+        "transcript:651",
+        "transcript:650",
+        "transcript:688",
+        "transcript:583"
+      ]
+    },
+    {
+      "claim": "summary:182",
+      "text": "The Adam update rule computes the first moment estimate as $m_t = \\beta_1 m_{t-1} + (1-\\beta_1) g_t$ and the second moment estimate as $v_t = \\beta_2 v_{t-1} + (1-\\beta_2) g_t^2$, and updates the parameter as $w_{t+1,i} = w_{t,i} - \\frac{\\eta}{\\sqrt{v_t + \\epsilon}} m_t$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:633",
+        "slides:188",
+        "slides:187",
+        "slides:219",
+        "transcript:641",
+        "transcript:636",
+        "transcript:646",
+        "slides:177"
+      ]
+    },
+    {
+      "claim": "summary:183",
+      "text": "The typical hyperparameters for Adam are $\\beta_1 = 0.9$, $\\beta_2 = 0.999$, and $\\epsilon = 10^{-8}$.",
+      "entailed": true,
+      "evidence": "slides:190",
+      "top": [
+        "slides:190",
+        "transcript:641",
+        "transcript:646",
+        "transcript:642",
+        "transcript:643",
+        "slides:191",
+        "slides:210",
+        "transcript:685"
+      ]
+    },
+    {
+      "claim": "summary:184",
+      "text": "Adam is extremely robust.",
+      "entailed": true,
+      "evidence": "transcript:642",
+      "top": [
+        "transcript:642",
+        "slides:191",
+        "slides:213",
+        "slides:201",
+        "transcript:640",
+        "transcript:672",
+        "transcript:583",
+        "transcript:632"
+      ]
+    },
+    {
+      "claim": "summary:185",
+      "text": "The default hyperparameter values of Adam work well across a wide range of problems.",
+      "entailed": true,
+      "evidence": "transcript:643",
+      "top": [
+        "transcript:642",
+        "slides:191",
+        "transcript:643",
+        "slides:190",
+        "transcript:641",
+        "slides:210",
+        "slides:213",
+        "transcript:685"
+      ]
+    },
+    {
+      "claim": "summary:186",
+      "text": "Adam became the most popular optimization algorithm in deep learning.",
+      "entailed": true,
+      "evidence": "transcript:631",
+      "top": [
+        "transcript:631",
+        "transcript:689",
+        "transcript:688",
+        "transcript:647",
+        "transcript:672",
+        "slides:186",
+        "slides:191",
+        "transcript:642"
+      ]
+    },
+    {
+      "claim": "summary:187",
+      "text": "Smoothing the gradient using the first moment $m_t$ significantly reduces the variance of noisy mini-batch gradient estimates.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:467",
+        "transcript:459",
+        "transcript:638",
+        "transcript:639",
+        "transcript:452",
+        "transcript:451",
+        "transcript:454",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "summary:188",
+      "text": "This variance reduction is a major reason for Adam's good performance.",
+      "entailed": true,
+      "evidence": "transcript:640",
+      "top": [
+        "transcript:640",
+        "slides:191",
+        "transcript:642",
+        "transcript:583",
+        "slides:213",
+        "slides:201",
+        "transcript:636",
+        "transcript:672"
+      ]
+    },
+    {
+      "claim": "summary:189",
+      "text": "In classical neural networks, weight decay was implemented by the update $\\mathbf{w}_{k+1} = (1 - \\lambda)\\mathbf{w}_k - \\alpha \\mathbf{g}_k$.",
+      "entailed": true,
+      "evidence": "transcript:678",
+      "top": [
+        "transcript:678",
+        "slides:205",
+        "transcript:674",
+        "transcript:680",
+        "slides:211",
+        "slides:208",
+        "transcript:682",
+        "transcript:679"
+      ]
+    },
+    {
+      "claim": "summary:190",
+      "text": "In vanilla SGD, the weight decay update $\\mathbf{w}_{k+1} = (1 - \\lambda)\\mathbf{w}_k - \\alpha \\mathbf{g}_k$ is exactly equivalent to $L_2$ regularization.",
+      "entailed": true,
+      "evidence": "transcript:680",
+      "top": [
+        "transcript:680",
+        "slides:203",
+        "slides:206",
+        "transcript:682",
+        "transcript:678",
+        "transcript:681",
+        "transcript:675",
+        "transcript:683"
+      ]
+    },
+    {
+      "claim": "summary:191",
+      "text": "In adaptive methods like Adam, the equivalence between weight decay and $L_2$ regularization breaks.",
+      "entailed": true,
+      "evidence": "transcript:683",
+      "top": [
+        "transcript:683",
+        "transcript:680",
+        "slides:203",
+        "transcript:685",
+        "transcript:673",
+        "transcript:682",
+        "transcript:674",
+        "slides:211"
+      ]
+    },
+    {
+      "claim": "summary:192",
+      "text": "In adaptive methods, the adaptively scaled update does not correspond to a simple $\\lambda \\mathbf{w}$ term in the loss.",
+      "entailed": true,
+      "evidence": "slides:204",
+      "top": [
+        "slides:204",
+        "slides:209",
+        "slides:195",
+        "transcript:234",
+        "transcript:648",
+        "transcript:218",
+        "slides:200",
+        "transcript:219"
+      ]
+    },
+    {
+      "claim": "summary:193",
+      "text": "In adaptive methods with incorrect weight decay, weights with large gradients decay less.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:680",
+        "transcript:678",
+        "transcript:683",
+        "slides:211",
+        "slides:209",
+        "slides:203",
+        "slides:205",
+        "transcript:674"
+      ]
+    },
+    {
+      "claim": "summary:194",
+      "text": "This leads to suboptimal regularization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:675",
+        "transcript:638",
+        "transcript:674",
+        "slides:207",
+        "transcript:240",
+        "transcript:680",
+        "transcript:102",
+        "slides:203"
+      ]
+    },
+    {
+      "claim": "summary:195",
+      "text": "AdamW was introduced by Loshchilov and Hutter in 2018.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:213",
+        "transcript:685",
+        "transcript:688",
+        "transcript:632",
+        "slides:197",
+        "transcript:672",
+        "transcript:673",
+        "slides:211"
+      ]
+    },
+    {
+      "claim": "summary:196",
+      "text": "AdamW reintroduces weight decay directly in the parameter update.",
+      "entailed": true,
+      "evidence": "slides:209",
+      "top": [
+        "slides:211",
+        "transcript:685",
+        "slides:212",
+        "slides:210",
+        "transcript:673",
+        "slides:209",
+        "transcript:683",
+        "transcript:698"
+      ]
+    },
+    {
+      "claim": "summary:197",
+      "text": "AdamW decouples weight decay from the adaptive scaling of the learning rates.",
+      "entailed": true,
+      "evidence": "slides:212",
+      "top": [
+        "slides:211",
+        "slides:212",
+        "transcript:685",
+        "slides:210",
+        "transcript:673",
+        "slides:209",
+        "transcript:683",
+        "transcript:583"
+      ]
+    },
+    {
+      "claim": "summary:198",
+      "text": "AdamW leads to better generalization.",
+      "entailed": true,
+      "evidence": "slides:213",
+      "top": [
+        "slides:213",
+        "transcript:688",
+        "transcript:672",
+        "transcript:632",
+        "transcript:631",
+        "transcript:642",
+        "slides:191",
+        "transcript:685"
+      ]
+    },
+    {
+      "claim": "summary:199",
+      "text": "AdamW makes the hyperparameters more interpretable.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:642",
+        "slides:191",
+        "transcript:641",
+        "slides:213",
+        "slides:212",
+        "transcript:643",
+        "slides:190",
+        "transcript:583"
+      ]
+    },
+    {
+      "claim": "summary:200",
+      "text": "AdamW is now a standard optimization algorithm, used alongside plain Adam.",
+      "entailed": true,
+      "evidence": "transcript:688",
+      "top": [
+        "transcript:631",
+        "slides:213",
+        "transcript:688",
+        "transcript:647",
+        "slides:186",
+        "transcript:689",
+        "transcript:687",
+        "transcript:632"
+      ]
+    },
+    {
+      "claim": "summary:201",
+      "text": "Super-convergence was proposed by Smith and Topin in 2017.",
+      "entailed": true,
+      "evidence": "slides:215",
+      "top": [
+        "slides:214",
+        "slides:217",
+        "slides:216",
+        "transcript:700",
+        "transcript:705",
+        "slides:215",
+        "slides:221",
+        "transcript:703"
+      ]
+    },
+    {
+      "claim": "summary:202",
+      "text": "Super-convergence uses cyclic learning rates, where the learning rate is periodically raised after being decayed.",
+      "entailed": true,
+      "evidence": "transcript:702",
+      "top": [
+        "slides:215",
+        "transcript:703",
+        "transcript:701",
+        "slides:173",
+        "slides:216",
+        "transcript:702",
+        "slides:217",
+        "transcript:706"
+      ]
+    },
+    {
+      "claim": "summary:203",
+      "text": "Experiments with cyclic learning rates showed dramatically faster convergence, by a factor of 10 to 20.",
+      "entailed": true,
+      "evidence": "transcript:703",
+      "top": [
+        "transcript:703",
+        "transcript:707",
+        "slides:215",
+        "transcript:706",
+        "transcript:701",
+        "transcript:702",
+        "slides:173",
+        "slides:156"
+      ]
+    },
+    {
+      "claim": "summary:204",
+      "text": "These experiments still reached similar final accuracy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:693",
+        "transcript:724",
+        "transcript:187",
+        "transcript:466",
+        "transcript:47",
+        "slides:217",
+        "transcript:469",
+        "transcript:734"
+      ]
+    },
+    {
+      "claim": "summary:205",
+      "text": "Despite initial excitement, cyclic learning rate schedules are not universally adopted.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:706",
+        "transcript:704",
+        "transcript:707",
+        "transcript:702",
+        "slides:215",
+        "transcript:701",
+        "slides:173",
+        "transcript:703"
+      ]
+    },
+    {
+      "claim": "summary:206",
+      "text": "Cyclic schedules can be unstable.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:702",
+        "slides:215",
+        "transcript:704",
+        "transcript:706",
+        "transcript:707",
+        "transcript:701",
+        "transcript:739",
+        "transcript:499"
+      ]
+    },
+    {
+      "claim": "summary:207",
+      "text": "Cyclic schedules are rarely used in practice today.",
+      "entailed": true,
+      "evidence": "transcript:707",
+      "top": [
+        "transcript:704",
+        "transcript:706",
+        "transcript:702",
+        "transcript:707",
+        "slides:215",
+        "transcript:721",
+        "transcript:743",
+        "transcript:424"
+      ]
+    },
+    {
+      "claim": "summary:208",
+      "text": "AMSGrad was proposed by Reddi et al. in 2018.",
+      "entailed": true,
+      "evidence": "slides:218",
+      "top": [
+        "transcript:722",
+        "slides:218",
+        "transcript:715",
+        "transcript:710",
+        "transcript:720",
+        "slides:222",
+        "transcript:723",
+        "transcript:726"
+      ]
+    },
+    {
+      "claim": "summary:209",
+      "text": "AMSGrad identified a flaw in the original convergence proof of Adam.",
+      "entailed": true,
+      "evidence": "transcript:713",
+      "top": [
+        "slides:220",
+        "slides:222",
+        "transcript:717",
+        "transcript:713",
+        "transcript:673",
+        "transcript:718",
+        "slides:213",
+        "transcript:685"
+      ]
+    },
+    {
+      "claim": "summary:210",
+      "text": "AMSGrad provided a counterexample where Adam can diverge.",
+      "entailed": true,
+      "evidence": "transcript:714",
+      "top": [
+        "slides:222",
+        "slides:220",
+        "transcript:714",
+        "transcript:659",
+        "slides:201",
+        "transcript:641",
+        "transcript:632",
+        "transcript:584"
+      ]
+    },
+    {
+      "claim": "summary:211",
+      "text": "The AMSGrad fix replaces the exponential moving average $v_t$ with a maximum over past values.",
+      "entailed": true,
+      "evidence": "slides:221",
+      "top": [
+        "slides:221",
+        "transcript:716",
+        "slides:189",
+        "slides:183",
+        "transcript:603",
+        "slides:219",
+        "slides:182",
+        "slides:177"
+      ]
+    },
+    {
+      "claim": "summary:212",
+      "text": "The resulting AMSGrad algorithm has a correct convergence proof.",
+      "entailed": true,
+      "evidence": "transcript:717",
+      "top": [
+        "transcript:717",
+        "transcript:713",
+        "slides:221",
+        "transcript:718",
+        "transcript:716",
+        "slides:214",
+        "transcript:722",
+        "transcript:727"
+      ]
+    },
+    {
+      "claim": "summary:213",
+      "text": "AMSGrad won the ICLR 2018 Best Paper award.",
+      "entailed": true,
+      "evidence": "transcript:709",
+      "top": [
+        "transcript:709",
+        "slides:218",
+        "transcript:710",
+        "transcript:722",
+        "transcript:715",
+        "transcript:720",
+        "transcript:726",
+        "transcript:708"
+      ]
+    },
+    {
+      "claim": "summary:214",
+      "text": "After eight years, AMSGrad is not used in practice.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:720",
+        "transcript:721",
+        "transcript:726",
+        "transcript:722",
+        "slides:222",
+        "slides:221",
+        "transcript:723",
+        "transcript:715"
+      ]
+    },
+    {
+      "claim": "summary:215",
+      "text": "Empirically, AMSGrad performs no better than Adam and sometimes worse.",
+      "entailed": true,
+      "evidence": "transcript:723",
+      "top": [
+        "slides:222",
+        "slides:201",
+        "transcript:640",
+        "slides:213",
+        "transcript:720",
+        "transcript:659",
+        "slides:191",
+        "transcript:723"
+      ]
+    },
+    {
+      "claim": "summary:216",
+      "text": "The stories of Super-convergence and AMSGrad illustrate that deep learning is an intensely empirical field.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:478",
+        "slides:216",
+        "transcript:13",
+        "slides:214",
+        "transcript:374",
+        "transcript:703",
+        "transcript:16",
+        "slides:98"
+      ]
+    },
+    {
+      "claim": "summary:217",
+      "text": "A theorem-backed improvement in deep learning does not guarantee adoption if it does not win on practical benchmarks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:374",
+        "transcript:13",
+        "transcript:574",
+        "transcript:409",
+        "slides:98",
+        "transcript:428",
+        "transcript:501",
+        "transcript:676"
+      ]
+    },
+    {
+      "claim": "summary:218",
+      "text": "Adam and AdamW remain the workhorses of optimization in deep learning.",
+      "entailed": true,
+      "evidence": "transcript:631",
+      "top": [
+        "transcript:631",
+        "transcript:688",
+        "transcript:672",
+        "slides:213",
+        "transcript:583",
+        "transcript:428",
+        "transcript:689",
+        "transcript:642"
+      ]
+    },
+    {
+      "claim": "summary:219",
+      "text": "Plain SGD with momentum is still a solid, widely used baseline.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:695",
+        "transcript:663",
+        "transcript:477",
+        "slides:138",
+        "transcript:664",
+        "transcript:666",
+        "slides:137",
+        "slides:163"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3122 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "chunk_words": 2000,
+    "top_k": 16,
+    "limit": null,
+    "max_chunks": null
+  },
+  "slides": [
+    {
+      "text": "Hephaestus created android robots for himself, such as the giant humanoid robot Talos.",
+      "salience": "aside"
+    },
+    {
+      "text": "Pygmalion brought Galatea to life.",
+      "salience": "aside"
+    },
+    {
+      "text": "Some religious traditions involve Jehovah or Allah creating beings from pieces of clay.",
+      "salience": "aside"
+    },
+    {
+      "text": "Some particularly wise rabbis could create golems.",
+      "salience": "aside"
+    },
+    {
+      "text": "Albertus Magnus crafted an artificial speaking head.",
+      "salience": "aside"
+    },
+    {
+      "text": "The artificial speaking head greatly upset Thomas Aquinas.",
+      "salience": "aside"
+    },
+    {
+      "text": "Al-Jazari created automata in the 12th century.",
+      "salience": "aside"
+    },
+    {
+      "text": "Robert II d'Artois had automata at Hesdin Castle.",
+      "salience": "aside"
+    },
+    {
+      "text": "Leonardo da Vinci designed a mechanical knight.",
+      "salience": "aside"
+    },
+    {
+      "text": "Jaquet-Droz created remarkable automata in the 18th century.",
+      "salience": "aside"
+    },
+    {
+      "text": "Early automata were purely mechanical.",
+      "salience": "aside"
+    },
+    {
+      "text": "Mathematical/logical AI remained rudimentary for a long time.",
+      "salience": "aside"
+    },
+    {
+      "text": "The logical machine by Ramon Llull (late 13th–early 14th century) was a notable early attempt at mathematical/logical AI.",
+      "salience": "aside"
+    },
+    {
+      "text": "Starting from the novel Frankenstein, AI has consistently appeared in literature.",
+      "salience": "aside"
+    },
+    {
+      "text": "AI as a science began with the Turing test in 1950.",
+      "salience": "core"
+    },
+    {
+      "text": "In the Turing test, a computer should successfully impersonate a human in a written dialogue between a judge, a human, and the computer.",
+      "salience": "core"
+    },
+    {
+      "text": "Building AI requires natural language processing.",
+      "salience": "core"
+    },
+    {
+      "text": "Building AI requires knowledge representation.",
+      "salience": "core"
+    },
+    {
+      "text": "Building AI requires reasoning from acquired knowledge.",
+      "salience": "core"
+    },
+    {
+      "text": "Building AI requires learning from experience, which is machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "Special efforts were required to try the Turing test with modern large language models.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Turing test was officially passed only very recently (by Jones and Bergen on March 31, 2025).",
+      "salience": "supporting"
+    },
+    {
+      "text": "AI as a field emerged in 1956 at the Dartmouth workshop.",
+      "salience": "core"
+    },
+    {
+      "text": "The Dartmouth workshop was organized by John McCarthy, Marvin Minsky, Claude Shannon, and Nathaniel Rochester.",
+      "salience": "core"
+    },
+    {
+      "text": "The workshop proposed a 2-month study of artificial intelligence by 10 people in summer 1956 at Dartmouth College.",
+      "salience": "core"
+    },
+    {
+      "text": "The study was based on the conjecture that every aspect of learning or any other feature of intelligence can be precisely described so that a machine can simulate it.",
+      "salience": "core"
+    },
+    {
+      "text": "The workshop aimed to find how to make machines use natural languages, form abstractions and concepts, solve problems reserved for humans, and improve themselves.",
+      "salience": "core"
+    },
+    {
+      "text": "The organizers thought significant advancement in one or more of these problems was possible in a summer.",
+      "salience": "core"
+    },
+    {
+      "text": "Allen Newell and Herbert Simon developed the Logic Theorist.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Logic Theorist successfully re-proved most of the theorems in Principia Mathematica.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Logic Theorist sometimes proved theorems more elegantly than Russell and Whitehead.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The General Problem Solver was a program that tried to think like a human.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Analogy program performed IQ tests for 'pick the odd one out'.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Student program solved algebraic word problems.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Blocks World program manipulated 3D blocks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The core idea of knowledge-based systems is to accumulate a large set of rules and domain knowledge, then draw conclusions.",
+      "salience": "core"
+    },
+    {
+      "text": "The first success of knowledge-based systems was the MYCIN system for blood infection diagnosis.",
+      "salience": "supporting"
+    },
+    {
+      "text": "MYCIN had about 450 rules.",
+      "salience": "supporting"
+    },
+    {
+      "text": "MYCIN performed as well as experienced physicians and significantly better than novices in diagnosing blood infections.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The first AI department was at DEC (Digital Equipment Corporation).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The AI department reportedly saved DEC about $10 million annually by 1986.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The AI boom ended by the late 1980s as many companies failed to meet overly high expectations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In recent decades, the main focus of AI shifted to machine learning and discovering patterns in data, especially with the development of the Internet.",
+      "salience": "core"
+    },
+    {
+      "text": "The field experienced a deep learning revolution and recently a large language model revolution.",
+      "salience": "core"
+    },
+    {
+      "text": "A computer program learns with accumulating experience regarding a class of tasks T and a performance measure P, if its performance on these tasks according to P improves as it gains new experience.",
+      "salience": "core"
+    },
+    {
+      "text": "Supervised learning involves learning with a set of labeled examples.",
+      "salience": "core"
+    },
+    {
+      "text": "A training set is a set of examples, each consisting of features (attributes).",
+      "salience": "core"
+    },
+    {
+      "text": "Each example in the training set has a correct answer, called the response variable.",
+      "salience": "core"
+    },
+    {
+      "text": "The response variable can be categorical, continuous, or ordinal.",
+      "salience": "core"
+    },
+    {
+      "text": "A model learns from the training set during the training phase.",
+      "salience": "core"
+    },
+    {
+      "text": "After training, the model can be applied to new examples in a test set.",
+      "salience": "core"
+    },
+    {
+      "text": "The main goal is to train a model that not only fits training data but also generalizes well to new data.",
+      "salience": "core"
+    },
+    {
+      "text": "If a model fits training data well but does not generalize, this is called overfitting.",
+      "salience": "core"
+    },
+    {
+      "text": "Cross-validation is a method to check model generalization by splitting data into training and validation sets.",
+      "salience": "core"
+    },
+    {
+      "text": "Preprocessing is typically performed before inputting data, including feature extraction to extract the most informative aspects.",
+      "salience": "core"
+    },
+    {
+      "text": "Classification is a supervised learning task where there is a discrete set of categories (classes) and new examples must be assigned to a class.",
+      "salience": "core"
+    },
+    {
+      "text": "Examples of classification include text classification by topics, spam filtering, and face/object/text recognition.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Regression is a supervised learning task where an unknown function's values must be predicted for new examples.",
+      "salience": "core"
+    },
+    {
+      "text": "Regression has applications in engineering (predicting temperature, robot position), finance (predicting stock prices), and speech recognition (with temporal changes).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Unsupervised learning involves learning without labeled data, using only raw data.",
+      "salience": "core"
+    },
+    {
+      "text": "Clustering is an unsupervised learning task that partitions data into unknown classes based on similarity.",
+      "salience": "core"
+    },
+    {
+      "text": "Clustering applications include identifying gene families from nucleotide sequences, user clustering and personalization, and clustering mass spectrometry images into segments with different compositions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Dimensionality reduction is an unsupervised learning task that reduces data dimensionality by selecting the most informative features to allow algorithms to run effectively.",
+      "salience": "core"
+    },
+    {
+      "text": "Matrix completion is an unsupervised learning task where missing values in a sparse matrix are predicted.",
+      "salience": "core"
+    },
+    {
+      "text": "Semi-supervised learning occurs when some data has labeled examples and others are unlabeled.",
+      "salience": "core"
+    },
+    {
+      "text": "Reinforcement learning is a learning paradigm where an agent learns from its own trials and errors.",
+      "salience": "core"
+    },
+    {
+      "text": "Multi-armed bandits is a reinforcement learning problem where an agent chooses from several actions, each with random outcomes, to maximize rewards.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Exploration vs. exploitation is the problem of deciding when to explore new options versus exploiting known ones in reinforcement learning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The credit assignment problem in reinforcement learning is assigning credit to each action that led to success when reward is delayed (e.g., winning a game).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Active learning is a paradigm where the model chooses the next, relatively expensive, test.",
+      "salience": "core"
+    },
+    {
+      "text": "Learning to rank is a paradigm that involves ordinal regression to produce ordered lists, such as in internet search.",
+      "salience": "core"
+    },
+    {
+      "text": "Bootstrapping is a paradigm where a model reuses its own results to improve itself.",
+      "salience": "core"
+    },
+    {
+      "text": "Model selection is the process of finding the balance between models with many or few parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "Methods benefit from approaches that estimate model confidence, data description quality, and anticipate changes with further experiments.",
+      "salience": "core"
+    },
+    {
+      "text": "Probability theory plays a central role in machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "For this course, we do not need mathematical definitions of sigma-algebras, probability measures, or Borel sets.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We need to understand discrete random variables where probabilities sum to one.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We need to understand continuous random variables where the integral of a non-negative density equals one.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Joint probability p(x,y) is the probability of two events occurring simultaneously.",
+      "salience": "core"
+    },
+    {
+      "text": "Marginalization is given by p(x) = sum_y p(x,y).",
+      "salience": "core"
+    },
+    {
+      "text": "Conditional probability p(x|y) is the probability of one event given another has occurred.",
+      "salience": "core"
+    },
+    {
+      "text": "The relationship between joint and conditional probability is p(x,y) = p(x|y) p(y) = p(y|x) p(x).",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes' theorem states that p(y|x) = p(x|y) p(y) / p(x) = p(x|y) p(y) / sum_{y'} p(x|y') p(y').",
+      "salience": "core"
+    },
+    {
+      "text": "Two variables x and y are independent if p(x,y) = p(x) p(y).",
+      "salience": "core"
+    },
+    {
+      "text": "In parameter estimation, Bayes' theorem gives the posterior p(θ|D) = p(θ) p(D|θ) / p(D).",
+      "salience": "core"
+    },
+    {
+      "text": "The prior probability is p(θ).",
+      "salience": "core"
+    },
+    {
+      "text": "The likelihood is p(D|θ).",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior probability is p(θ|D).",
+      "salience": "core"
+    },
+    {
+      "text": "The evidence is p(D) = ∫ p(D|θ) p(θ) dθ.",
+      "salience": "core"
+    },
+    {
+      "text": "The maximum likelihood hypothesis is θ_ML = arg max_θ p(D|θ).",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian approaches seek the posterior distribution p(θ|D) proportional to p(D|θ) p(θ).",
+      "salience": "core"
+    },
+    {
+      "text": "The maximum a posteriori hypothesis is θ_MAP = arg max_θ p(θ|D) = arg max_θ p(D|θ) p(θ).",
+      "salience": "core"
+    },
+    {
+      "text": "A direct problem example: an urn contains 10 balls, 3 black; what is the probability of drawing a black ball?",
+      "salience": "supporting"
+    },
+    {
+      "text": "Another direct problem example: an urn has 10 balls numbered 1 to 10; what is the probability that the sum of three consecutively drawn balls is 12?",
+      "salience": "supporting"
+    },
+    {
+      "text": "An inverse problem example: two urns with 10 balls each; one has 3 black, the other 6 black; a black ball is drawn; what is the probability it came from the first urn?",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the inverse problem, probabilities immediately become Bayesian.",
+      "salience": "core"
+    },
+    {
+      "text": "The inverse problem can also be reformulated through frequencies.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Direct probability problems describe a probabilistic model and ask to calculate a specific probability to predict behavior.",
+      "salience": "core"
+    },
+    {
+      "text": "Inverse problems contain hidden variables and often require building a probabilistic model from observed behavior.",
+      "salience": "core"
+    },
+    {
+      "text": "Machine learning problems typically belong to the category of inverse problems.",
+      "salience": "core"
+    },
+    {
+      "text": "Classical probability theory typically views probability as the limit of the ratio of occurrences of an outcome to the total number of experiments.",
+      "salience": "core"
+    },
+    {
+      "text": "Some events cannot be repeated infinitely, such as Spain winning the 2026 FIFA World Cup, the Odyssey having been written by a woman, or AGI taking over by 2030.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For events that cannot be repeated, probabilities become degrees of belief.",
+      "salience": "core"
+    },
+    {
+      "text": "The Bayesian interpretation of probability views probabilities as degrees of belief.",
+      "salience": "core"
+    },
+    {
+      "text": "Both the frequentist and Bayesian interpretations of probability follow the same laws.",
+      "salience": "core"
+    },
+    {
+      "text": "According to Cox, natural axioms of probabilistic logic lead to a very restricted class of functions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the two children problem, a person has two kids, each born boy or girl independently with probability 1/2.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the first subproblem of the two children problem, given that the person has at least one boy, we need to find the probability that they have a girl.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the second subproblem of the two children problem, given that a randomly encountered child is a boy, we need to find the probability the other child is a girl.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the prosecutor's fallacy scenario, a murder occurred, blood at the crime scene is the killer's, and it is a rare blood type with 1% prevalence, including the defendant.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor argues that the defendant has a 99% probability of guilt based on the 1% blood type prevalence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defense attorney argues that because 10,000 people in a city of 1 million share the blood type, the defendant's guilt probability is only 0.01%.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the O.J. Simpson case, the prosecutor presented evidence of domestic violence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defense attorney argued that only 1 in 2500 women subject to domestic violence get killed, so the evidence is irrelevant.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The court agreed with the defense in the O.J. Simpson case regarding the domestic violence evidence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the Sally Clark case, two babies died from SIDS.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor calculated the probability of two SIDS cases as 1 in 73 million using the single-case statistic in the Sally Clark case.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A simple inference problem: an unfair coin is flipped $N$ times, producing a sequence of results; the goal is to determine the coin's unfairness and predict the next outcome.",
+      "salience": "core"
+    },
+    {
+      "text": "If the probability of heads is $p_h = \\theta$ and tails probability $p_t = 1 - \\theta$, then the probability of a sequence $s$ with $n$ heads and $m$ tails is $p(s \\mid p_h = \\theta) = \\theta^n (1 - \\theta)^m$.",
+      "salience": "core"
+    },
+    {
+      "text": "Assume a uniform prior for the coin probability before the experiments, meaning no initial preference about $\\theta$.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes' theorem: $p(\\theta \\mid s) = \\frac{p(s \\mid \\theta) p(\\theta)}{p(s)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "$p(\\theta)$ should be understood as a continuous random variable defined on $[0,1]$; the uniform prior means $p(\\theta) = 1$ for $\\theta \\in [0,1]$.",
+      "salience": "core"
+    },
+    {
+      "text": "Thus, $p(\\theta \\mid s) = \\frac{\\theta^n (1 - \\theta)^m}{p(s)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The evidence $p(s)$ can be calculated as $p(s) = \\int_0^1 \\theta^n (1 - \\theta)^m \\, \\mathrm{d}\\theta = \\frac{\\Gamma(n+1)\\Gamma(m+1)}{\\Gamma(n+m+2)} = \\frac{n!\\,m!}{(n+m+1)!}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "$\\arg\\max_\\theta p(\\theta \\mid s) = \\frac{n}{n+m}$ can be found without evaluating the integral.",
+      "salience": "core"
+    },
+    {
+      "text": "The predictive probability for heads given the sequence $s$ is $p(\\text{heads} \\mid s) = \\frac{n+1}{n+m+2}$, which is Laplace's rule.",
+      "salience": "core"
+    },
+    {
+      "text": "This illustrates the first main task in Bayesian inference: finding the posterior distribution over hypotheses/parameters, $p(\\theta \\mid D) \\propto p(D \\mid \\theta)p(\\theta)$, and/or the maximum a posteriori hypothesis $\\theta_{\\text{MAP}} = \\arg\\max_\\theta p(\\theta \\mid D)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The second main task is finding the predictive distribution for outcomes of future experiments: $p(x \\mid D) \\propto \\int_{\\theta \\in \\Theta} p(x \\mid \\theta) \\, p(D \\mid \\theta) \\, p(\\theta) \\, \\mathrm{d}\\theta$.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian inference involves the likelihood $p(x \\mid \\theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian inference involves the prior distribution $p(\\theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian inference involves the marginal likelihood $p(x) = \\int_\\Theta p(x \\mid \\theta) p(\\theta) \\, \\mathrm{d}\\theta$.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian inference involves the posterior distribution $p(\\theta \\mid x) = \\frac{p(x \\mid \\theta) p(\\theta)}{p(x)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian inference involves the prediction for a new $x'$ as $p(x' \\mid x) = \\int_\\Theta p(x' \\mid \\theta) p(\\theta \\mid x) \\, \\mathrm{d}\\theta$.",
+      "salience": "core"
+    },
+    {
+      "text": "The task is usually to find $p(\\theta \\mid x)$ and/or $p(x' \\mid x)$.",
+      "salience": "core"
+    },
+    {
+      "text": "When doing Bayesian inference, besides the likelihood we must also have a prior distribution over all possible values of the parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "The choice of prior is very important.",
+      "salience": "core"
+    },
+    {
+      "text": "To compute $p(\\theta \\mid x)$ and/or $p(x' \\mid x)$, we first have to choose $p(\\theta)$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A reasonable goal is to choose distributions that keep the same form a posteriori.",
+      "salience": "core"
+    },
+    {
+      "text": "Before inference we have a prior $p(\\theta)$; after data, we have a posterior $p(\\theta \\mid x)$; we want $p(\\theta \\mid x)$ to have the same form as $p(\\theta)$, just with different parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "A family of distributions $p(\\theta \\mid \\alpha)$ is called a family of conjugate priors for a family of likelihoods $p(x \\mid \\theta)$ if, after multiplying by the likelihood, the posterior stays in the same family: $p(\\theta \\mid x, \\alpha) = p(\\theta \\mid \\alpha')$.",
+      "salience": "core"
+    },
+    {
+      "text": "The $\\alpha$ are called hyperparameters – the parameters of the distribution of the parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "A trivial example: the family of all distributions is conjugate to anything, but that is not very interesting.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The form of a good prior depends on the form of the data distribution itself, $p(x \\mid \\theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Conjugate priors have been computed for many distributions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The conjugate prior for tossing an unfair coin (Bernoulli trials) is the Beta distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "The density of the coin’s bias $\\theta$ is $p(\\theta \\mid \\alpha, \\beta) = \\frac{\\theta^{\\alpha-1}(1-\\theta)^{\\beta-1}}{B(\\alpha, \\beta)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "If we sample the coin and obtain $s$ heads and $f$ tails, then $p(s, f \\mid \\theta) = \\binom{s+f}{s} \\theta^s (1-\\theta)^f$.",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior becomes $p(\\theta \\mid s, f) = \\frac{\\theta^{s+\\alpha-1}(1-\\theta)^{f+\\beta-1}}{B(s+\\alpha, f+\\beta)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "After receiving new data with $s$ heads and $f$ tails, the hyperparameters update to $s+\\alpha$ and $f+\\beta$.",
+      "salience": "core"
+    },
+    {
+      "text": "A very simple learning rule emerges: updating the hyperparameters.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Consider a multinomial distribution with $n$ trials and $k$ categories, where $x_i$ trials fall into category $i$; the parameters $\\theta_i$ are the probabilities.",
+      "salience": "core"
+    },
+    {
+      "text": "The multinomial likelihood is $p(x \\mid \\theta) = \\binom{n}{x_1, \\dots, x_k} \\theta_1^{x_1} \\dots \\theta_k^{x_k}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The conjugate prior for the multinomial distribution is the Dirichlet distribution: $p(\\theta \\mid \\alpha) \\propto \\theta_1^{\\alpha_1-1} \\dots \\theta_k^{\\alpha_k-1}$.",
+      "salience": "core"
+    },
+    {
+      "text": "Upon receiving data $x_1, \\dots, x_k$, the hyperparameters update to $x_i + \\alpha_i$, giving posterior $p(\\theta \\mid x, \\alpha) \\propto \\theta_1^{x_1+\\alpha_1-1} \\dots \\theta_k^{x_k+\\alpha_k-1}$.",
+      "salience": "core"
+    }
+  ],
+  "transcript": [
+    {
+      "text": "The fundamental basis of machine learning is probability theory.",
+      "salience": "core"
+    },
+    {
+      "text": "Artificial intelligence as a field started in the 1950s.",
+      "salience": "supporting"
+    },
+    {
+      "text": "AI went through an 'AI winter' in the 1970s.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Neural networks reappeared in the 1980s.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Probabilistic models were prominent in the 1990s and 2000s.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The deep learning revolution defines AI today.",
+      "salience": "core"
+    },
+    {
+      "text": "Before 2022, AI progressed like a regular field of science with reasonable timelines.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The generative AI subfield had reasonable timelines before 2022.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After ChatGPT appeared in late 2022, AI progress became unexpectedly fast.",
+      "salience": "core"
+    },
+    {
+      "text": "In spring 2023, many AI developments appeared at once.",
+      "salience": "supporting"
+    },
+    {
+      "text": "On March 14, 2023, Google announced integration of LLMs into its workspace.",
+      "salience": "supporting"
+    },
+    {
+      "text": "At that time, Google's LLM was not yet called Gemini.",
+      "salience": "supporting"
+    },
+    {
+      "text": "On March 14, 2023, a startup that had split from OpenAI announced its own family of LLMs called Claude.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Both announcements were overshadowed by OpenAI's announcement of GPT-4.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The speaker called that moment 'the Spring of Artificial Intelligence'.",
+      "salience": "aside"
+    },
+    {
+      "text": "At that time, it was possible the fast progress would be a regular breakthrough that slows down.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The progress did not slow down.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The rate of AI progress continues to be fast, with major news every week and month.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It looks like progress is speeding up.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Frontier labs like OpenAI and Anthropic use their own models to make better models.",
+      "salience": "core"
+    },
+    {
+      "text": "This approaches a closed loop of recursive self-improvement.",
+      "salience": "core"
+    },
+    {
+      "text": "The fast AI progress was unexpected and predicted by very few.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In 2018, deep learning, LSTMs, and Transformers already existed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A 2018 book asked prominent researchers when human-level AI was expected.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The closest prediction for human-level AI was by Ray Kurzweil for 2029.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Less than ten years ago, most researchers predicted human-level AI 50 years away.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The rate of AI progress keeps accelerating.",
+      "salience": "core"
+    },
+    {
+      "text": "Artificial intelligence is a very old idea.",
+      "salience": "aside"
+    },
+    {
+      "text": "In many religious traditions, humans are considered artificial intelligence created by a deity with souls and intelligence.",
+      "salience": "aside"
+    },
+    {
+      "text": "In Greek mythology, Hephaestus created android robots.",
+      "salience": "aside"
+    },
+    {
+      "text": "The most famous robot was Talos, a giant humanoid.",
+      "salience": "aside"
+    },
+    {
+      "text": "Zeus gave Talos to the king of Crete.",
+      "salience": "aside"
+    },
+    {
+      "text": "Talos protected Crete by throwing giant rocks at enemy ships.",
+      "salience": "aside"
+    },
+    {
+      "text": "The difficulty of AI tasks turned out differently than expected: some hard things are easy, easy things hard.",
+      "salience": "core"
+    },
+    {
+      "text": "Ancient Greeks were skilled at hurling large rocks with catapults.",
+      "salience": "aside"
+    },
+    {
+      "text": "Catapults evolved into trebuchets, guns, and rocket launchers.",
+      "salience": "aside"
+    },
+    {
+      "text": "These weapons achieved great accuracy.",
+      "salience": "aside"
+    },
+    {
+      "text": "Automatically recognizing enemy ships proved harder than hurling rocks.",
+      "salience": "core"
+    },
+    {
+      "text": "Centuries ago, guns could sink ships.",
+      "salience": "aside"
+    },
+    {
+      "text": "Identifying a ship on the horizon as enemy or friendly remained a difficult computer vision task.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Automating ship recognition was more challenging for humanity than rock-throwing.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In Judean tradition, the golem concept involved creating a being that could understand and fulfill commands but could not speak.",
+      "salience": "aside"
+    },
+    {
+      "text": "The golem could not speak because speaking was thought to require a soul.",
+      "salience": "aside"
+    },
+    {
+      "text": "A rabbi could not create a soul.",
+      "salience": "aside"
+    },
+    {
+      "text": "In reality, speech synthesis turned out easier than speech recognition.",
+      "salience": "core"
+    },
+    {
+      "text": "Thomas Aquinas was a pupil of Albertus Magnus.",
+      "salience": "aside"
+    },
+    {
+      "text": "Albertus Magnus allegedly created an artificial speaking head.",
+      "salience": "aside"
+    },
+    {
+      "text": "The speaking head may have been a device that transmitted sound through a pipe.",
+      "salience": "aside"
+    },
+    {
+      "text": "Thomas Aquinas smashed the speaking head.",
+      "salience": "aside"
+    },
+    {
+      "text": "In the Middle Ages, many mechanical automata were created.",
+      "salience": "aside"
+    },
+    {
+      "text": "These automata performed simple tasks like pouring water.",
+      "salience": "aside"
+    },
+    {
+      "text": "They were purely mechanical and not directly relevant to AI.",
+      "salience": "aside"
+    },
+    {
+      "text": "Pierre Jaquet-Droz was a Swiss watchmaker.",
+      "salience": "aside"
+    },
+    {
+      "text": "His luxury watches are still sold today.",
+      "salience": "aside"
+    },
+    {
+      "text": "He built intricate human-like dolls.",
+      "salience": "aside"
+    },
+    {
+      "text": "One doll was a draftsman that drew several pictures.",
+      "salience": "aside"
+    },
+    {
+      "text": "Another doll was a calligrapher.",
+      "salience": "aside"
+    },
+    {
+      "text": "The calligrapher used a quill to write on paper.",
+      "salience": "aside"
+    },
+    {
+      "text": "The calligrapher was programmable via a system of levers on its back.",
+      "salience": "aside"
+    },
+    {
+      "text": "The levers allowed switching to produce different letters.",
+      "salience": "aside"
+    },
+    {
+      "text": "According to the speaker, this was the first programmable device.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It predated Jacquard looms and punch cards.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This was not AI as we understand it.",
+      "salience": "aside"
+    },
+    {
+      "text": "There was no real programming or mathematical AI in that device.",
+      "salience": "aside"
+    },
+    {
+      "text": "AI as a science has two main starting points.",
+      "salience": "core"
+    },
+    {
+      "text": "One starting point is the 1943 paper on mathematical models of neural activity.",
+      "salience": "core"
+    },
+    {
+      "text": "The other starting point is Alan Turing's 1950 paper introducing the Turing test.",
+      "salience": "core"
+    },
+    {
+      "text": "Alan Turing made numerous breakthroughs in computer science.",
+      "salience": "supporting"
+    },
+    {
+      "text": "He essentially invented artificial intelligence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In his 1950 essay \"Computing Machinery and Intelligence\", he posed the question \"Can machines think?\".",
+      "salience": "core"
+    },
+    {
+      "text": "Turing's essays are still interesting philosophical discussions.",
+      "salience": "aside"
+    },
+    {
+      "text": "The Turing test involves a judge chatting in writing with two unknown entities: a human and a computer.",
+      "salience": "core"
+    },
+    {
+      "text": "The judge tries to identify which entity is the human and which is the computer.",
+      "salience": "core"
+    },
+    {
+      "text": "A single run of the test is meaningless because the judge could guess correctly 50% of the time by chance.",
+      "salience": "core"
+    },
+    {
+      "text": "A computer program passes the Turing test only if it consistently makes it impossible for the judge to distinguish it from a human with probability significantly different from 1/2.",
+      "salience": "core"
+    },
+    {
+      "text": "This formulation places the test in the realm of probability theory and randomized algorithms.",
+      "salience": "core"
+    },
+    {
+      "text": "The Turing test survived for a very long time as a benchmark unlike other AI benchmarks.",
+      "salience": "core"
+    },
+    {
+      "text": "The Turing test was formally passed in 2025.",
+      "salience": "core"
+    },
+    {
+      "text": "With models like GPT-4, it was obvious they could pass the test in a short chat.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Running the original Turing test was non-trivial because frontier models would admit they are AI if asked directly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "They needed to stay in character.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Small models could stay in character but could not fool anyone.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Once the test was conducted properly, the models passed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "AI as a field has a long history of moving the goalposts after benchmarks are achieved.",
+      "salience": "core"
+    },
+    {
+      "text": "In the 1970s, Allen Newell wrote a position paper on the state of AI.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Newell argued the Turing test was not actionable at that time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "No AI could pass the test then.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Progress on the Turing test cannot be measured incrementally because you can't fool 5% of judges.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Newell called for alternative numerical tests that reflect something inherently important about intelligence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Passing the Turing test indicates progress toward AGI.",
+      "salience": "core"
+    },
+    {
+      "text": "Turing proposed chess as a good AI benchmark.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Chess is numerical, measurable via Elo rating, and easy to program as a finite game with fixed rules.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Chess is also deeply human because it requires understanding attack and defense and possibly modeling opponent's intentions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In 1997, Deep Blue beat Kasparov.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After 2001, humans had no chance against computers in chess.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By 2015, centaur chess (human+computer) was surpassed by computers alone.",
+      "salience": "supporting"
+    },
+    {
+      "text": "AI researchers did not declare AGI after chess was conquered; they dismissed chess as too easy.",
+      "salience": "core"
+    },
+    {
+      "text": "They argued tree search alone gets near the best players.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Go was proposed as a harder game with a branching factor of 50-100 plausible moves.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Exhaustive search is impossible in Go.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In 2016, AlphaGo and later AlphaZero made computers better than humans at Go.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After Go was conquered, people said Go doesn't count.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The pattern of moving goalposts continues.",
+      "salience": "core"
+    },
+    {
+      "text": "People still invent reasons why LLMs don't count despite their capabilities.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Turing test has withstood the pattern of moving goalposts.",
+      "salience": "core"
+    },
+    {
+      "text": "In the 1980s, no one claimed to pass the Turing test with a simple script.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Turing test is fundamentally about freeform natural language chat.",
+      "salience": "core"
+    },
+    {
+      "text": "In freeform chat, you can talk about anything, including computer vision or 3D world reasoning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Example questions: \"What's on your desk?\" \"What's on your left?\" \"Walk out and describe what you see.\"",
+      "salience": "supporting"
+    },
+    {
+      "text": "To maintain consistency in such chat, the system must understand the 3D world.",
+      "salience": "core"
+    },
+    {
+      "text": "Natural language is complete, meaning you can talk about any subject.",
+      "salience": "core"
+    },
+    {
+      "text": "Modern LLMs are powerful because they leverage the completeness of natural language.",
+      "salience": "core"
+    },
+    {
+      "text": "A base LLM is trained solely to predict the next token in text.",
+      "salience": "core"
+    },
+    {
+      "text": "To predict the next token well, the model must learn language structure and world knowledge.",
+      "salience": "core"
+    },
+    {
+      "text": "Example: If the text says \"theorem … proof,\" predicting the next token may require proving the theorem.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Example: If the text says \"I visited Paris and went to the museum,\" the model must know which museums are in Paris.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Natural language encodes vast information about virtually everything.",
+      "salience": "core"
+    },
+    {
+      "text": "An exception is robotics, where we lack massive text corpora describing joint angles for picking up a cup.",
+      "salience": "supporting"
+    },
+    {
+      "text": "LLMs keep surprising us with new capabilities that emerge from simple next-token prediction.",
+      "salience": "core"
+    },
+    {
+      "text": "The Turing test is completely unfair to computers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In a reverse Turing test, a human tries to pass as a computer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To expose the human, one can ask a difficult arithmetic question like \"What is 37 raised to the 23rd power?\".",
+      "salience": "supporting"
+    },
+    {
+      "text": "A human would need a long time to compute that, while a computer answers instantly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Humans would never pass the reverse Turing test, even against 1950s machines.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This unfairness is acceptable because the goal is to make computers human-like, not to make humans computer-like.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Another unfairness: in the standard Turing test, the computer must impersonate someone else, while the human can be themselves.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The original Turing test included a detail about distinguishing between a computer posing as a woman and a man posing as a woman.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This detail got lost in history.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the 1950s, there was no way to pass the Turing test.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Turing test got people thinking.",
+      "salience": "supporting"
+    },
+    {
+      "text": "AI as a positive field of science emerged in 1956 with the Dartmouth workshop.",
+      "salience": "core"
+    },
+    {
+      "text": "The workshop was organized by John McCarthy, Marvin Minsky, Claude Shannon, and Nathaniel Rochester.",
+      "salience": "supporting"
+    },
+    {
+      "text": "John McCarthy invented Lisp.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Marvin Minsky was a neural networks guru.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Claude Shannon founded information theory.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Nathaniel Rochester built an early IBM computer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The grant proposal for the Dartmouth workshop was extraordinarily ambitious.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The proposal aimed to make machines use natural languages, find abstractions and concepts, solve problems reserved for humans, and improve themselves.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The workshop happened but did not solve these problems.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The workshop mainly helped researchers grasp how difficult the problems were.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The 1950s and early 1960s were a golden age of science fiction with high expectations for AI.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The expectations included androids walking around and conversing soon.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Logic Theorist program successfully reproved many mathematical fundamentals.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This success fueled optimism that teaching AI logic and math was the key to AI.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We now see that approach does not work.",
+      "salience": "core"
+    },
+    {
+      "text": "Disillusionment in the 1960s came largely from the failed machine-translation project.",
+      "salience": "supporting"
+    },
+    {
+      "text": "People expected a Russian-to-English translator to work.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Early computer science could not achieve machine translation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A 1961/62 report declared machine translation insufficient.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Government grants dried up as a result.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Researchers moved on, creating the \"AI winter\" of the 1970s.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the 1970s, AI was viewed as too hard and inaccessible with existing techniques.",
+      "salience": "supporting"
+    },
+    {
+      "text": "During the period of reduced AI activity, the only active AI work was on expert systems.",
+      "salience": "aside"
+    },
+    {
+      "text": "Expert systems perform probabilistic reasoning on narrow domain knowledge.",
+      "salience": "supporting"
+    },
+    {
+      "text": "MYCIN is a 1970s medical-diagnosis system based on blood tests and is a prime example of an expert system.",
+      "salience": "aside"
+    },
+    {
+      "text": "A blood test gives a table of about 50 numbers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "An experienced physician can look at a blood test table and diagnose, but it is impossible for a human to write a single function of 50 variables that produces the diagnosis.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Human reasoning does not work by composing a single function of many variables.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Doctors formulate local heuristics like 'if red blood cell count is high and iron is low, then it's disease X'.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The AI problem in expert systems is how to combine many heuristic rules.",
+      "salience": "core"
+    },
+    {
+      "text": "In expert systems, there might be around 450 rules, with about 20 partially applicable at a time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Terms like 'high' in medical heuristics are fuzzy; there is no clear mathematical threshold and the function is likely continuous.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The core difficulty in expert systems was the combination of many fuzzy heuristic rules.",
+      "salience": "core"
+    },
+    {
+      "text": "In the 1980s, researchers returned to working on neural networks.",
+      "salience": "aside"
+    },
+    {
+      "text": "Convolutional, recurrent, and deep multilayer networks existed conceptually in the 1980s.",
+      "salience": "aside"
+    },
+    {
+      "text": "In the 1980s, neural networks did not work well due to insufficient data and compute.",
+      "salience": "aside"
+    },
+    {
+      "text": "The deep learning revolution was kick-started in the mid-2000s by labs such as Geoffrey Hinton's and Yoshua Bengio's.",
+      "salience": "aside"
+    },
+    {
+      "text": "By the mid-2000s, the internet provided enough data for neural networks.",
+      "salience": "aside"
+    },
+    {
+      "text": "By the mid-2000s, computational power had grown sufficiently for neural networks.",
+      "salience": "aside"
+    },
+    {
+      "text": "The final boost for deep learning came from switching from CPUs to GPUs.",
+      "salience": "aside"
+    },
+    {
+      "text": "CPUs have a few fast cores, while GPUs have hundreds or thousands of slower cores.",
+      "salience": "aside"
+    },
+    {
+      "text": "GPUs make the highly parallelizable operations of neural networks feasible.",
+      "salience": "aside"
+    },
+    {
+      "text": "Starting in the late 2000s, deep learning has set the state of the art in many fields.",
+      "salience": "aside"
+    },
+    {
+      "text": "A classic textbook definition of machine learning from the 1990s states: a computer program learns from experience E with respect to a class of tasks T and a performance measure P if its performance on tasks in T, as measured by P, improves with experience E.",
+      "salience": "core"
+    },
+    {
+      "text": "The key point of the machine learning definition is that a performance measure P is necessary.",
+      "salience": "core"
+    },
+    {
+      "text": "Without a performance measure, we will never know whether the program learned something.",
+      "salience": "core"
+    },
+    {
+      "text": "Approximately half of deep learning involves inventing loss functions (objectives).",
+      "salience": "core"
+    },
+    {
+      "text": "A central question in deep learning is: what is the number we want to minimize?",
+      "salience": "core"
+    },
+    {
+      "text": "A central question in deep learning is: how do we define the error so that minimizing it yields what we want?",
+      "salience": "core"
+    },
+    {
+      "text": "Defining the error can be straightforward sometimes, and non-trivial other times; it is part of the science of deep learning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The main taxonomy of machine learning problems consists of supervised learning, unsupervised learning, and reinforcement learning.",
+      "salience": "core"
+    },
+    {
+      "text": "Supervised learning is the paradigm we intuitively think of as machine learning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A typical supervised learning task is building a classifier that distinguishes cats from dogs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In supervised learning, you get a dataset of pictures, label each as cat or dog, and train a classifier to tell them apart.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In supervised learning, the dataset consists of input-output pairs (X, Y).",
+      "salience": "core"
+    },
+    {
+      "text": "X is the input, and Y is the desired output.",
+      "salience": "core"
+    },
+    {
+      "text": "The model takes X and produces a function f(X) meant to match Y.",
+      "salience": "core"
+    },
+    {
+      "text": "For binary classification, f(X) can be a number from 0 to 1 representing p(cat | X).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Mathematically, supervised learning aims to learn the conditional distribution p(y | x).",
+      "salience": "core"
+    },
+    {
+      "text": "In supervised learning, the model assumes the input is given and cannot generate new images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In computer vision, you receive a high-dimensional input (an image or video) and break it down into answers such as classification, detection, or segmentation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In computer vision, the input is complicated and the output is relatively simple.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Collecting a supervised dataset requires correct answers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Labeling in computer vision is often complicated and expensive.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Classification labeling is manageable.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For tasks like segmentation, proper labeling is extremely costly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because segmentation labeling is costly, we often work with relatively small datasets.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In unsupervised learning, there is no Y and no correct answer.",
+      "salience": "core"
+    },
+    {
+      "text": "In unsupervised learning, the dataset is a collection of unlabeled images.",
+      "salience": "core"
+    },
+    {
+      "text": "Unsupervised learning can pursue goals useful for downstream tasks such as classification.",
+      "salience": "core"
+    },
+    {
+      "text": "Typically, unsupervised learning performs dimensionality reduction: compressing X to a much smaller vector.",
+      "salience": "core"
+    },
+    {
+      "text": "A one-megapixel photo has roughly one million pixels, each with three numbers, totaling about 3 million numbers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The space of possible images is enormous, and nothing works in that dimension.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The set of real images is an extremely complicated manifold in the 3-million-dimensional space.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It is unknown what exactly distinguishes real photos from random noise, except that the set of real images is an open set (tiny per-pixel changes still yield a real photo).",
+      "salience": "aside"
+    },
+    {
+      "text": "Unsupervised learning attempts to map the real-image manifold to a more manageable dimension, e.g., 500.",
+      "salience": "core"
+    },
+    {
+      "text": "This dimensionality reduction is called feature extraction or representation learning.",
+      "salience": "core"
+    },
+    {
+      "text": "Feature extraction maps a large object like an image to a smaller vector while preserving important information.",
+      "salience": "core"
+    },
+    {
+      "text": "The mapping cannot be as simple as taking the first 100 pixels; it must preserve the ability to answer interesting questions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the compressed space, cats and dogs might become linearly separable, meaning a hyperplane can distinguish them.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the original high-dimensional space, cat and dog images are entangled.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The aim of unsupervised learning is to compress the data to make it manageable, hoping that simple models can then achieve desired tasks.",
+      "salience": "core"
+    },
+    {
+      "text": "Compression into a low-dimensional representation is never the end goal of unsupervised learning.",
+      "salience": "core"
+    },
+    {
+      "text": "In unsupervised learning, the purpose is not fixed; we just want to obtain good features.",
+      "salience": "core"
+    },
+    {
+      "text": "In deep learning, a common solution to the training-signal problem in unsupervised learning is the autoencoder.",
+      "salience": "core"
+    },
+    {
+      "text": "In unsupervised learning with autoencoders, there is no dataset of correct z vectors, so a loss function is needed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "An autoencoder consists of an encoder, which is a neural network that compresses input x to z.",
+      "salience": "core"
+    },
+    {
+      "text": "An autoencoder also consists of a decoder, which is another neural network that reconstructs x̂ from z.",
+      "salience": "core"
+    },
+    {
+      "text": "A meaningful compression should allow faithful decompression.",
+      "salience": "core"
+    },
+    {
+      "text": "The loss for an autoencoder can be defined as the squared deviation between x̂ and x in pixel space: (x̂ - x)².",
+      "salience": "core"
+    },
+    {
+      "text": "The model learns to encode in a way that preserves the information needed for reconstruction.",
+      "salience": "core"
+    },
+    {
+      "text": "Unsupervised learning is fundamentally about making sense of input data by finding structure.",
+      "salience": "core"
+    },
+    {
+      "text": "Finding structure often means projecting into a lower-dimensional space where patterns become clearer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Clustering is a classical example of unsupervised learning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Clustering can be viewed as an extreme form of dimensionality reduction.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Clustering compresses each point to a discrete cluster label, which is a zero-dimensional representation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Clustering then attempts to reconstruct the points as faithfully as possible, for example by replacing each point with its cluster center.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The compress-then-reconstruct philosophy is very natural in unsupervised learning.",
+      "salience": "core"
+    },
+    {
+      "text": "Supervised learning models the conditional distribution p(y | x).",
+      "salience": "core"
+    },
+    {
+      "text": "Unsupervised learning models the distribution p(x) itself.",
+      "salience": "core"
+    },
+    {
+      "text": "Learning p(x) frequently means learning a generative model that can produce new samples.",
+      "salience": "core"
+    },
+    {
+      "text": "In the autoencoder setting, a generative model can be created by feeding the decoder random noise z to generate outputs resembling the training distribution, such as new cat pictures.",
+      "salience": "aside"
+    },
+    {
+      "text": "Reinforcement learning is a third machine learning paradigm.",
+      "salience": "core"
+    },
+    {
+      "text": "Reinforcement learning will not be covered in this course.",
+      "salience": "aside"
+    },
+    {
+      "text": "In reinforcement learning, an agent interacts with an environment and learns from the experience of rewards.",
+      "salience": "core"
+    },
+    {
+      "text": "An example of reinforcement learning is a chess-playing agent that learns by playing games and receiving win/loss signals.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The chess-playing agent eventually discovers a policy that maximizes cumulative reward.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Reinforcement learning employs distinct techniques and is outside the scope of this course.",
+      "salience": "aside"
+    },
+    {
+      "text": "In the first part of the lecture, we discussed the history of artificial intelligence and early ideas like the Turing test.",
+      "salience": "aside"
+    },
+    {
+      "text": "In the first part, we discussed the most common taxonomy of machine learning problems: supervised, unsupervised, and reinforcement learning.",
+      "salience": "aside"
+    },
+    {
+      "text": "In the second part of the lecture, the topic is what learning actually means.",
+      "salience": "aside"
+    },
+    {
+      "text": "The speaker recommends understanding machine learning through the Bayesian, probabilistic perspective.",
+      "salience": "core"
+    },
+    {
+      "text": "Probability theory classes often involve difficult measure theory, including sigma algebras, Borel sets, probability as a measure, and abstract theorems.",
+      "salience": "aside"
+    },
+    {
+      "text": "In machine learning, we will not need measure theory or abstract theorems.",
+      "salience": "aside"
+    },
+    {
+      "text": "For machine learning, we need the basic intuition of probability that remains after forgetting the theorems.",
+      "salience": "core"
+    },
+    {
+      "text": "Probability is about random variables.",
+      "salience": "core"
+    },
+    {
+      "text": "Discrete random variables, such as coin tosses or die rolls, have probabilities of outcomes summing to one.",
+      "salience": "core"
+    },
+    {
+      "text": "Continuous random variables are characterized by a density function whose integral over the probability space equals one.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, we only deal with standard, easy probabilities that have densities.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, the probability spaces will only be the real line R to some power, i.e., Euclidean space, with no exotic spaces.",
+      "salience": "core"
+    },
+    {
+      "text": "If you have two random variables, they can happen together, giving a joint probability p(x,y).",
+      "salience": "core"
+    },
+    {
+      "text": "The marginal probability p(x) is obtained by summing (or integrating) over y.",
+      "salience": "core"
+    },
+    {
+      "text": "From the joint probability, we obtain the conditional probability p(x | y), which is the most important notion for machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "The conditional probability is defined by decomposing the joint: p(x,y) = p(x | y) p(y), so p(x | y) = p(x,y) / p(y).",
+      "salience": "core"
+    },
+    {
+      "text": "Decomposing the joint in the opposite order gives p(x,y) = p(y | x) p(x).",
+      "salience": "core"
+    },
+    {
+      "text": "Equating the two decompositions yields Bayes' rule: p(y | x) = p(x | y) p(y) / p(x).",
+      "salience": "core"
+    },
+    {
+      "text": "Although Bayes' rule follows trivially from the definition, it philosophically underlies real-world reasoning by balancing probabilities and weighing evidence because we seldom know facts for sure.",
+      "salience": "core"
+    },
+    {
+      "text": "Independence is an important notion in probability.",
+      "salience": "core"
+    },
+    {
+      "text": "Two random variables are independent if p(x,y) = p(x) p(y).",
+      "salience": "core"
+    },
+    {
+      "text": "If variables are independent, the conditional probability is trivial: p(x | y) = p(x).",
+      "salience": "core"
+    },
+    {
+      "text": "Independence means x does not depend on y, and they can be sampled separately.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes' formula is the main formula of machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning notation, Bayes' formula is p(θ | D) = p(D | θ) p(θ) / p(D).",
+      "salience": "core"
+    },
+    {
+      "text": "D is the dataset.",
+      "salience": "core"
+    },
+    {
+      "text": "θ represents the model parameters we want to learn.",
+      "salience": "core"
+    },
+    {
+      "text": "For a neural net, θ represents the weights, but as a distribution, not a single value.",
+      "salience": "core"
+    },
+    {
+      "text": "For now, θ can be the weights of a linear regression (as a first example), the weights of a neural network, or simply the probability of a coin we are trying to learn.",
+      "salience": "core"
+    },
+    {
+      "text": "The central idea of machine learning is to learn model parameters from data.",
+      "salience": "core"
+    },
+    {
+      "text": "Learning model parameters means understanding what parameters governed the stochastic process that produced the observed outcomes.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes' theorem is the main tool for learning model parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "p(θ | D) is the posterior distribution, representing how our understanding of θ has changed given the data.",
+      "salience": "core"
+    },
+    {
+      "text": "The intermediate goal in learning is to infer what we can about θ from D.",
+      "salience": "core"
+    },
+    {
+      "text": "The final goal is prediction, but reaching it requires the posterior.",
+      "salience": "core"
+    },
+    {
+      "text": "Usually there is no way to get the posterior distribution directly except through Bayes' rule.",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior is proportional to the product of the likelihood and the prior: p(θ | D) ∝ p(D | θ) p(θ).",
+      "salience": "core"
+    },
+    {
+      "text": "p(D | θ) is the likelihood: the probability/density of the observed dataset given the parameters, which follows directly from model assumptions.",
+      "salience": "core"
+    },
+    {
+      "text": "The likelihood is the easy part of Bayes' rule.",
+      "salience": "supporting"
+    },
+    {
+      "text": "p(θ) is the prior distribution, encoding prior beliefs about θ before seeing any data.",
+      "salience": "core"
+    },
+    {
+      "text": "p(D) is called the evidence, does not involve θ, is usually inaccessible, and acts only as a normalizing constant.",
+      "salience": "core"
+    },
+    {
+      "text": "When maximizing the posterior with respect to θ, the normalizing constant can be ignored.",
+      "salience": "core"
+    },
+    {
+      "text": "As an illustration, consider learning a coin's bias.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A coin can be modeled as a stochastic process (a random variable) yielding heads or tails.",
+      "salience": "core"
+    },
+    {
+      "text": "A coin has exactly one parameter: θ, the probability of heads, with probability of tails 1-θ.",
+      "salience": "core"
+    },
+    {
+      "text": "The data D is a sequence of outcomes from tossing the coin.",
+      "salience": "core"
+    },
+    {
+      "text": "Calculating the likelihood requires the assumption of conditional independence: given θ, the tosses are independent.",
+      "salience": "core"
+    },
+    {
+      "text": "Under conditional independence, p(D | θ) = ∏ᵢ p(d_i | θ), where p(d_i | θ) is θ for heads and 1-θ for tails.",
+      "salience": "core"
+    },
+    {
+      "text": "For D = {H, T, H, H, H, T, T}, the likelihood is θ⁴ (1-θ)³.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The likelihood for a coin is \\(\\theta^{N}(1-\\theta)^{M}\\), where \\(N\\) is the number of heads and \\(M\\) the number of tails.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, defining a model means writing down the assumptions that let us produce the likelihood formula.",
+      "salience": "core"
+    },
+    {
+      "text": "For a coin, the assumptions are two mutually exclusive outcomes, one with probability \\(\\theta\\) and the other \\(1-\\theta\\), and the tosses are conditionally independent given \\(\\theta\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "With only the likelihood, the main thing we can do is try to maximize it.",
+      "salience": "core"
+    },
+    {
+      "text": "The maximum likelihood hypothesis is \\(\\theta_{\\text{ML}} = \\arg\\max_\\theta P(D \\mid \\theta)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "When both heads and tails appear in the data, \\(\\theta=0\\) and \\(\\theta=1\\) give zero likelihood, so they are minima, not maxima.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The maximum likelihood estimate is \\(\\theta_{\\text{ML}} = \\frac{N}{N+M}\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The maximum likelihood estimate \\(\\frac{N}{N+M}\\) matches the classical frequentist definition that the fraction of heads converges to the true probability.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a coin, the maximum likelihood estimate is correct.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If you toss a coin once and get tails, the likelihood is \\(1-\\theta\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The likelihood function \\(1-\\theta\\) does not restrict \\(\\theta\\) to \\([0,1]\\), and without constraints would be maximized at \\(-\\infty\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Imposing the constraint \\(0 \\le \\theta \\le 1\\), the maximum likelihood estimate for a single tail is \\(\\theta=0\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The conclusion that after one tail the coin always lands tails is absurd.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We have the intuition that coins are approximately fair, so \\(\\theta\\) should be around \\(\\frac{1}{2}\\), not exactly but nearby.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After a single toss, the maximum likelihood estimate of \\(\\theta\\) will be either \\(0\\) or \\(1\\), implying that we will always observe only that result.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To get a precise estimate of \\(\\theta\\), you need more data.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Maximum likelihood converges to the true \\(\\theta\\) as \\(N\\) and \\(M\\) go to infinity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In machine learning, we usually start with a given dataset and there is no easy way to get more data.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, we have to assume the dataset is fixed.",
+      "salience": "core"
+    },
+    {
+      "text": "In real-world problems, we never quite get enough data.",
+      "salience": "core"
+    },
+    {
+      "text": "Tossing a coin 50 times allows reasonably sure estimates about its fairness with small confidence intervals.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A language model is a model that takes some text and predicts the next token.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The first GPT (half a transformer) trained on some dataset yields a pretty good language model.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It is easy to get orders of magnitude more text data by scraping the internet.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When collecting more data, one usually moves to a larger model (e.g., GPT-2) rather than retraining the original small model.",
+      "salience": "core"
+    },
+    {
+      "text": "GPT-2 had about \\(150\\) million parameters, roughly an order of magnitude more than GPT-1.",
+      "salience": "aside"
+    },
+    {
+      "text": "In practice, for difficult tasks like next-token prediction or image classification, you never have enough data.",
+      "salience": "core"
+    },
+    {
+      "text": "When you have enough data for your current model, it is better to switch to a bigger model for which you lack data, but it will still perform better.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, unless the problem is very simple (e.g., coin toss, linear regression with strict assumptions), getting significantly more data often warrants moving to a larger model (e.g., from linear to polynomial) to guard against overfitting.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, we usually operate with a fixed dataset and choose a model such that there is barely enough data to train.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, we are always in a situation where data is scarce.",
+      "salience": "core"
+    },
+    {
+      "text": "After one toss of tails, we should not conclude that the coin always lands tails.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A single data point is not enough to completely shift our beliefs about the coin.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The missing piece beyond the likelihood is our beliefs (the prior).",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior distribution represents belief about the probability of heads after observing data.",
+      "salience": "core"
+    },
+    {
+      "text": "To get the posterior, the prior (what you believed about \\(\\theta\\) before seeing any data) is needed.",
+      "salience": "core"
+    },
+    {
+      "text": "The prior distribution \\(P(\\theta)\\) for the coin toss is a distribution on \\(\\theta\\).",
+      "salience": "core"
+    },
+    {
+      "text": "In learning, even for discrete objects like a coin toss, we encounter continuous distributions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A firm belief is that \\(\\theta\\) must be between 0 and 1, so \\(P(\\theta) = 0\\) outside \\([0,1]\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prior constrains \\(\\theta\\) to \\([0,1]\\), explaining why the maximum likelihood estimate is not negative infinity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With one tail as data, the likelihood \\(P(D \\mid \\theta) = 1 - \\theta\\) is a straight line.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By Bayes' rule, the posterior is proportional to prior times likelihood: \\(P(\\theta \\mid D) \\propto P(\\theta) P(D \\mid \\theta)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "With a uniform prior (1 on \\([0,1]\\)), the unnormalized posterior is \\(1-\\theta\\) inside \\([0,1]\\) and 0 outside.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The area under \\(1-\\theta\\) on \\([0,1]\\) is \\(\\frac{1}{2}\\), so the normalized posterior is \\(2(1-\\theta)\\) on \\([0,1]\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The uniform prior represents complete ignorance: any \\(\\theta\\) in \\([0,1]\\) is equally likely.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a physical coin, the prior belief is that \\(\\theta\\) is close to \\(\\frac{1}{2}\\), not exactly due to imperfections.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A realistic prior for a coin is zero outside \\([0,1]\\) and bell-shaped peaking near \\(\\frac{1}{2}\\) inside.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The uniform prior is reasonable in many situations as a representation of no prior knowledge.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a new problem where a parameter is a probability, a uniform prior is a great starting point.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The maximum a posteriori (MAP) hypothesis is the \\(\\theta\\) that maximizes the posterior distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "With a uniform prior, the prior's only effect is to rule out degenerate solutions by constraining \\(\\theta\\) to \\([0,1]\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "With a uniform prior, the MAP estimate \\(\\theta_{\\text{MAP}}\\) equals the maximum likelihood estimate \\(N/(N+M)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, the final goal is not the parameters \\(\\theta\\) themselves.",
+      "salience": "core"
+    },
+    {
+      "text": "In neural networks, \\(\\theta\\) is the vector of weights, and point estimates like \\(\\theta_{\\text{MAP}}\\) are intermediate steps, not the final goal.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The ultimate goal in machine learning is to make predictions, such as distinguishing cats from dogs.",
+      "salience": "core"
+    },
+    {
+      "text": "The predictive distribution \\(P(X \\mid D)\\) is the probability of the next outcome given the data.",
+      "salience": "core"
+    },
+    {
+      "text": "To compute the predictive distribution, one must introduce \\(\\theta\\) and marginalize: \\(P(X \\mid D) = \\int P(X \\mid \\theta, D) P(\\theta \\mid D)\\, d\\theta\\).",
+      "salience": "core"
+    },
+    {
+      "text": "Given the parameters, future data points are independent of past data, so \\(P(X \\mid \\theta, D) = P(X \\mid \\theta)\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The predictive distribution simplifies to \\(\\int P(X \\mid \\theta) P(\\theta \\mid D)\\, d\\theta\\).",
+      "salience": "core"
+    },
+    {
+      "text": "Even with a uniform prior, the predictive distribution differs from using a point estimate like MAP.",
+      "salience": "core"
+    },
+    {
+      "text": "For the coin, \\(P(\\text{heads} \\mid D) = \\int_0^1 \\theta \\cdot P(\\theta \\mid D)\\, d\\theta\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Substituting the posterior \\(P(\\theta \\mid D) \\propto \\theta^N (1-\\theta)^M\\) yields \\(P(\\text{heads} \\mid D) = \\frac{\\int_0^1 \\theta^{N+1} (1-\\theta)^M d\\theta}{\\int_0^1 \\theta^N (1-\\theta)^M d\\theta}\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The integrals evaluate to \\(\\frac{N+1}{N+M+2}\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The formula \\(\\frac{N+1}{N+M+2}\\) is known as Laplace's rule of succession.",
+      "salience": "core"
+    },
+    {
+      "text": "The predictive distribution is the expectation of the likelihood over the posterior, integrating over all \\(\\theta\\) rather than using a point estimate.",
+      "salience": "core"
+    },
+    {
+      "text": "In the coin example with a uniform prior and a single tail, the MAP estimate is 0, but averaging over the posterior yields a predictive probability different from 0.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The predictive probability after one tail is approximately one third.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One should average the likelihood over all possible parameter values according to the posterior.",
+      "salience": "core"
+    },
+    {
+      "text": "Averaging over the posterior is central to machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, the loss function is often the negative log likelihood or negative log posterior.",
+      "salience": "core"
+    },
+    {
+      "text": "The log posterior is proportional to the log likelihood plus the log prior plus a constant.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In optimization, maximizing the log posterior is equivalent to maximizing log likelihood plus log prior, and the log prior acts as a regularizer.",
+      "salience": "core"
+    },
+    {
+      "text": "Regularization corresponds to putting a prior on the model parameters, which encodes beliefs about the parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "The coin-toss formulas used so far assumed a uniform prior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a real coin, we expect a bell-shaped prior near one half.",
+      "salience": "core"
+    },
+    {
+      "text": "To use a more realistic prior, we must define a specific prior density $p(\\theta)$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prior $p(\\theta)$ should be zero outside the interval $[0,1]$.",
+      "salience": "core"
+    },
+    {
+      "text": "The shape of $p(\\theta)$ inside $[0,1]$ is not obvious.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A natural candidate for $p(\\theta)$ is a normal distribution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The normal distribution has tails that never become zero.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One could truncate and renormalize the normal distribution to create a prior: $p(\\theta) = C \\exp\\left(-\\frac{1}{2\\sigma^2}(\\theta - \\frac12)^2\\right)$ on $[0,1]$, and zero elsewhere.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Multiplying that truncated normal prior by the likelihood $\\theta^n (1-\\theta)^m$ yields a posterior proportional to $C \\exp(-\\frac{1}{2\\sigma^2}(\\theta - \\frac12)^2) \\theta^n (1-\\theta)^m$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "That posterior is an exponent times a polynomial.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The truncated normal prior is inconvenient because the prior shape is Gaussian-like and the likelihood is polynomial, so they do not match.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The product of the truncated normal prior and the likelihood does not reduce to a simple closed form.",
+      "salience": "supporting"
+    },
+    {
+      "text": "While numerical methods can handle a one-dimensional parameter, the truncated normal prior is not mathematically convenient.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Intuition does not specify whether the bell-shaped prior should be normal, Student's t, or something else.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We can choose the prior for mathematical convenience.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The key is to select a prior whose functional form matches the likelihood.",
+      "salience": "core"
+    },
+    {
+      "text": "If the prior's functional form matches the likelihood, multiplication remains tractable.",
+      "salience": "core"
+    },
+    {
+      "text": "The likelihood, fixed by the data-generating process, is $\\theta^n (1-\\theta)^m$.",
+      "salience": "core"
+    },
+    {
+      "text": "The easiest function to multiply with $\\theta^n (1-\\theta)^m$ is one of the same form.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A prior proportional to $\\theta^{\\alpha-1}(1-\\theta)^{\\beta-1}$ is of the same form as the likelihood.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The normalizing constant of that prior is a Beta function.",
+      "salience": "supporting"
+    },
+    {
+      "text": "That prior is the Beta distribution with parameters $\\alpha$ and $\\beta$.",
+      "salience": "core"
+    },
+    {
+      "text": "Multiplying the Beta prior by the likelihood yields a posterior proportional to $\\theta^{\\alpha+n-1}(1-\\theta)^{\\beta+m-1}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior is again a Beta distribution, now with parameters $\\alpha+n$ and $\\beta+m$.",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior has the same form as the prior.",
+      "salience": "core"
+    },
+    {
+      "text": "This property is called a conjugate prior.",
+      "salience": "core"
+    },
+    {
+      "text": "Conjugacy trivializes Bayes' rule for the Beta prior: updating after seeing data reduces to adding the exponents to get $\\alpha+n$ and $\\beta+m$.",
+      "salience": "core"
+    },
+    {
+      "text": "With a conjugate prior, we can move from prior to posterior for any $n$ and $m$ without new math or numerical algorithms.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To confirm the Beta prior can be bell-shaped: a Beta distribution with $\\theta^{10} (1-\\theta)^{10}$ (equal large exponents) has a peak at one half.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The uniform distribution is a Beta distribution with parameters $(1,1)$, i.e., $\\theta^{1-1} (1-\\theta)^{1-1} = 1$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "As the Beta parameters $\\alpha$ and $\\beta$ increase, the distributions become more peaked.",
+      "salience": "supporting"
+    },
+    {
+      "text": "As $\\alpha$ and $\\beta$ increase, the variance of the Beta distribution decreases.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When $\\alpha = \\beta$, the maximum of the Beta distribution is at $1/2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In general, the maximum of the Beta distribution is at $\\alpha/(\\alpha+\\beta)$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The maximum of the Beta distribution corresponds to the maximum likelihood estimate.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Thus, the Beta family includes the desired bell-shaped curves and many other distributions that can appear as posteriors.",
+      "salience": "core"
+    },
+    {
+      "text": "Starting with a uniform prior, the likelihood for observing one tails is multiplied by the prior, renormalized, and gives the posterior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If the prior had Beta parameters $(2,2)$ instead, meaning $\\theta^1 (1-\\theta)^1$, the prior is a parabola.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Multiplying that $(2,2)$ prior by the same likelihood (one tails) yields a posterior that is a cubic curve shifted to the left with maximum at $1/3$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "You can become more sure a priori that the coin is fair, obtaining increasingly peaked Beta priors around $1/2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The more convinced you are in advance, the less a single experiment matters.",
+      "salience": "core"
+    },
+    {
+      "text": "If you are very sure the coin is fair, one tails will barely change the posterior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If you keep tossing and getting tails, 10 tails shifts the posterior noticeably to the left.",
+      "salience": "supporting"
+    },
+    {
+      "text": "100 tails shifts the posterior quite a lot to the left.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prior strongly influences how much evidence is needed to move your beliefs.",
+      "salience": "core"
+    },
+    {
+      "text": "A nice property of conjugate priors is that you can reuse the posterior as the prior for the next experiment.",
+      "salience": "core"
+    },
+    {
+      "text": "This enables sequential updating.",
+      "salience": "core"
+    },
+    {
+      "text": "Starting with a uniform Beta(1,1) prior, after observing one heads, the posterior is a straight line (Beta(2,1)).",
+      "salience": "supporting"
+    },
+    {
+      "text": "After an additional tails, the posterior becomes a parabola (Beta(2,2)).",
+      "salience": "supporting"
+    },
+    {
+      "text": "For three more observations, you can take that Beta(2,2) posterior as the new prior, multiply by the likelihood of the three new observations, and obtain the updated posterior without restarting from the original uniform prior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "You can discard the previous dataset and just use the current posterior as the next prior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Formally, you start with prior $p(\\theta)$, obtain posterior $p(\\theta \\mid D)$ from dataset $D$, and then for new data $D'$, compute $p(\\theta \\mid D, D')$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With a conjugate prior, you can treat $p(\\theta \\mid D)$ as the new prior and apply Bayes' rule again to obtain $p(\\theta \\mid D, D')$.",
+      "salience": "core"
+    },
+    {
+      "text": "Without conjugacy, updating would be much harder.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Without conjugacy, you would have to compute from scratch with the combined dataset $D \\cup D'$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the coin-toss demonstration, the blue line represents the maximum likelihood hypothesis.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The orange line represents Laplace's rule, which is the predictive distribution $\\frac{n+1}{n+m+2}$.",
+      "salience": "core"
+    },
+    {
+      "text": "In the beginning, Laplace's rule is less extreme than maximum likelihood.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After one toss, the maximum likelihood estimate is either $0$ or $1$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After one toss, Laplace's rule gives $1/3$ or $2/3$, which is much closer to $1/2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Laplace's rule moderates the extremes of maximum likelihood.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After about 50 tosses, maximum likelihood and Laplace's rule become indistinguishable.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Both maximum likelihood and Laplace's rule converge to the true probability.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The lecture covered Bayes' theorem and its use in machine learning.",
+      "salience": "aside"
+    },
+    {
+      "text": "Learning means saying something about the parameters of a model.",
+      "salience": "core"
+    },
+    {
+      "text": "One can just maximize the likelihood to learn parameters.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It usually makes more sense to obtain the full posterior distribution if possible, then maximize it if necessary.",
+      "salience": "core"
+    },
+    {
+      "text": "The lecture covered conjugate priors, specifically the Beta family.",
+      "salience": "aside"
+    },
+    {
+      "text": "The lecture covered Laplace's rule.",
+      "salience": "aside"
+    },
+    {
+      "text": "The most difficult problem in Bayesian inference is obtaining the predictive distribution of the next data point, regardless of the specific parameter value.",
+      "salience": "core"
+    },
+    {
+      "text": "Obtaining the predictive distribution requires averaging over $\\theta$.",
+      "salience": "core"
+    },
+    {
+      "text": "The lecture worked through the coin toss example.",
+      "salience": "aside"
+    },
+    {
+      "text": "The coin toss Bayesian updating extends to dice rolls with several outcomes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Laplace's rule is the predictive distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes' rule connects the likelihood, the prior, and the posterior.",
+      "salience": "core"
+    },
+    {
+      "text": "The model itself is usually the likelihood.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One can maximize the likelihood directly as a learning method.",
+      "salience": "supporting"
+    }
+  ],
+  "summary": [
+    {
+      "text": "A 2018 book asked prominent AI researchers when human-level AI might arrive; the closest predicted date was 2029, and most placed it fifty years away.",
+      "salience": "aside"
+    },
+    {
+      "text": "AI progress has accelerated since late 2022.",
+      "salience": "aside"
+    },
+    {
+      "text": "Frontier AI labs now use their own AI models to create better AI models.",
+      "salience": "aside"
+    },
+    {
+      "text": "In Greek mythology, Hephaestus built a bronze giant named Talos who guarded Crete by throwing rocks at enemy ships.",
+      "salience": "aside"
+    },
+    {
+      "text": "The ancient Greeks already had accurate long-range projectile weapons.",
+      "salience": "aside"
+    },
+    {
+      "text": "Automatically recognising an enemy ship is a classic computer vision problem that proved far harder for humanity than the rock-throwing part.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the Judean legend, wise rabbis created golems who could understand and obey but could not speak, because speech was thought to require a soul.",
+      "salience": "aside"
+    },
+    {
+      "text": "Today, speech synthesis is far easier than speech recognition, which is the opposite of the myth.",
+      "salience": "aside"
+    },
+    {
+      "text": "Al-Jazari (12th century), the automata at Hesdin Castle, and Leonardo da Vinci's mechanical knight were early automata.",
+      "salience": "aside"
+    },
+    {
+      "text": "Pierre Jaquet-Droz's 18th-century calligrapher was a programmable doll that wrote different letters via a system of levers on its back.",
+      "salience": "aside"
+    },
+    {
+      "text": "The 18th-century calligrapher automaton was the first programmable device, predating Jacquard looms and punched cards.",
+      "salience": "aside"
+    },
+    {
+      "text": "The calligrapher automaton was purely mechanical; mathematical or logical intelligence remained rudimentary for centuries.",
+      "salience": "aside"
+    },
+    {
+      "text": "Ramon Llull's logical machine was a notable early effort in logical intelligence, though its significance is stretched.",
+      "salience": "aside"
+    },
+    {
+      "text": "AI as a science began with Alan Turing's 1950 paper \"Computing Machinery and Intelligence\".",
+      "salience": "core"
+    },
+    {
+      "text": "The original Turing test involves a judge chatting in writing with two hidden entities—a human and a computer—and having to distinguish them.",
+      "salience": "core"
+    },
+    {
+      "text": "A single run of the Turing test is meaningless; the computer program passes only when, over many trials, the judge cannot distinguish it from a human with probability different from ½.",
+      "salience": "core"
+    },
+    {
+      "text": "The Turing test is placed in the realm of probability theory and randomized algorithms.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Turing test survived longer than almost any other AI benchmark.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Turing test was formally passed only in 2025, after models like GPT-4 could be made to stay in character and fool judges in extended conversations.",
+      "salience": "core"
+    },
+    {
+      "text": "AI has a long history of moving goalposts: when Deep Blue beat Kasparov, chess was dismissed as \"just tree search\"; when AlphaGo mastered Go, the bar shifted again.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Turing test resisted because it hinges on free-form natural language.",
+      "salience": "core"
+    },
+    {
+      "text": "A judge in the Turing test can ask anything—demand a drawing, describe a 3D scene, request a joke about a specific topic.",
+      "salience": "supporting"
+    },
+    {
+      "text": "To maintain consistency in the Turing test, the computer must understand the physical world and a vast range of human knowledge.",
+      "salience": "core"
+    },
+    {
+      "text": "Natural language is complete in the sense that it can express any query about the world.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Large language models are powerful because to predict the next token well they must internalise an enormous amount of world structure.",
+      "salience": "core"
+    },
+    {
+      "text": "Robotics is a notable exception to large language models' world understanding, because we lack large text corpora describing low-level motor actions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Turing test is fundamentally unfair to computers: in a reverse Turing test, a human would fail immediately because a 1950s computer could instantly compute $37^{23}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Turing's original essay included a detail about gender impersonation that has often been forgotten.",
+      "salience": "aside"
+    },
+    {
+      "text": "The Turing test got people thinking about what intelligence requires.",
+      "salience": "supporting"
+    },
+    {
+      "text": "AI as an academic field was born in 1956 at the Dartmouth workshop.",
+      "salience": "core"
+    },
+    {
+      "text": "The Dartmouth workshop was organized by John McCarthy, Marvin Minsky, Claude Shannon, and Nathaniel Rochester.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The grant proposal for the Dartmouth workshop is probably the most ambitious in computing history.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Dartmouth workshop proposal conjectured that every aspect of learning or any other feature of intelligence can be precisely described so that a machine can simulate it.",
+      "salience": "core"
+    },
+    {
+      "text": "The Dartmouth workshop proposal aimed to make machines use natural language, form abstractions and concepts, solve problems reserved for humans, and improve themselves.",
+      "salience": "core"
+    },
+    {
+      "text": "The Dartmouth workshop took place, but the participants mainly began to grasp how difficult the problems were.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Logic Theorist successfully re-proved most of Principia Mathematica, sometimes more elegantly than Russell and Whitehead.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The General Problem Solver was an early AI program that tried to think like a human.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Specialised early AI programs operated in microworlds: Analogy solved IQ tests, Student handled algebraic word problems, and Blocks World simulated 3D block manipulation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The 1960s ended with disappointment in AI, especially after the failure of machine-translation projects, leading to the first \"AI winter\".",
+      "salience": "supporting"
+    },
+    {
+      "text": "During the AI winter, the only active AI branch was expert systems.",
+      "salience": "supporting"
+    },
+    {
+      "text": "MYCIN was a medical diagnosis expert system for blood infections.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A blood test yields about 50 numerical indicators.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A physician uses local heuristics such as \"if red blood cell count is high and iron is low, then disease X\" to diagnose.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The challenge in expert systems is that terms like \"high\" are fuzzy and many rules partially apply.",
+      "salience": "supporting"
+    },
+    {
+      "text": "MYCIN had about 450 rules.",
+      "salience": "supporting"
+    },
+    {
+      "text": "MYCIN performed as well as experienced physicians and significantly better than novices.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The first AI department at DEC reportedly saved the company around $10 million annually by 1986.",
+      "salience": "aside"
+    },
+    {
+      "text": "The AI boom of the 1980s ended in the late 80s when many companies failed to meet inflated expectations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the 1990s, the focus of AI shifted to learning from data, accelerated by the growth of the Internet.",
+      "salience": "core"
+    },
+    {
+      "text": "Early neural networks (convolutional, recurrent, deep) existed conceptually but lacked data and compute.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The deep-learning revolution took off in the mid-2000s when labs, notably Geoffrey Hinton's and Yoshua Bengio's, gained access to internet-scale data and computational power, especially GPUs with thousands of cores.",
+      "salience": "core"
+    },
+    {
+      "text": "GPUs have thousands of cores that make the parallelisable operations of neural networks feasible.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deep learning has set the state of the art in many fields since the late 2000s, culminating in the LLM revolution.",
+      "salience": "core"
+    },
+    {
+      "text": "A computer program learns from experience $E$ with respect to a class of tasks $T$ and a performance measure $P$, if its performance on tasks in $T$ (measured by $P$) improves with experience $E$.",
+      "salience": "core"
+    },
+    {
+      "text": "The key to the definition of learning is having a number that goes up or down to measure performance.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Half of deep learning consists of inventing loss functions—deciding what number to minimise so that minimising it yields the desired behaviour.",
+      "salience": "core"
+    },
+    {
+      "text": "Supervised learning learns from a set of labelled examples, each consisting of features $X$ and a correct answer $Y$, the response variable to predict.",
+      "salience": "core"
+    },
+    {
+      "text": "The response variable $Y$ can be categorical, continuous, or ordinal.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The model learns a function $f(X)$ meant to match $Y$.",
+      "salience": "core"
+    },
+    {
+      "text": "Mathematically, supervised learning aims to learn the conditional distribution $p(y \\mid x)$.",
+      "salience": "core"
+    },
+    {
+      "text": "In supervised learning, the input vector $X$ is often high-dimensional, while the output $Y$ is relatively simple.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The main goal of supervised learning is generalisation to new examples; failure to generalise leads to overfitting.",
+      "salience": "core"
+    },
+    {
+      "text": "Generalisation is checked via cross-validation, which splits data into training and validation sets.",
+      "salience": "core"
+    },
+    {
+      "text": "Preprocessing and feature extraction often precede modelling in supervised learning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Classification is a supervised learning task that assigns a discrete class, e.g., spam filtering or face recognition.",
+      "salience": "core"
+    },
+    {
+      "text": "Regression is a supervised learning task that predicts the value of an unknown function, e.g., stock prices or speech recognition.",
+      "salience": "core"
+    },
+    {
+      "text": "Collecting labels, especially for tasks like image segmentation, is often extremely expensive, so supervised learning often works with relatively small labelled datasets.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Unsupervised learning learns from data without labels, using only raw data.",
+      "salience": "core"
+    },
+    {
+      "text": "Clustering is an unsupervised task that partitions data into groups based on similarity, with applications like gene families or user personalisation.",
+      "salience": "core"
+    },
+    {
+      "text": "Dimensionality reduction is an unsupervised task that selects or extracts the most informative features from high-dimensional data.",
+      "salience": "core"
+    },
+    {
+      "text": "An image of 1 megapixel with 3 colour channels is a point in a space of approximately 3 million dimensions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The set of real images forms a very complicated manifold in high-dimensional space.",
+      "salience": "core"
+    },
+    {
+      "text": "Unsupervised learning tries to compress the image manifold to a manageable size (e.g., 500 dimensions) while preserving the ability to answer interesting questions.",
+      "salience": "core"
+    },
+    {
+      "text": "In the compressed space, classes like cats and dogs might become linearly separable.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Matrix completion is an unsupervised task that predicts missing entries in a sparse matrix.",
+      "salience": "core"
+    },
+    {
+      "text": "A natural framework for unsupervised learning is the autoencoder: an encoder network compresses input $x$ to a low-dimensional code $z$, and a decoder network tries to reconstruct $\\hat{x}$ from $z$.",
+      "salience": "core"
+    },
+    {
+      "text": "The loss function in an autoencoder is simply the reconstruction error, e.g., $(\\hat{x} - x)^2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The autoencoder learns to encode information that matters for reconstruction.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Clustering can be viewed as an extreme case of autoencoding: compressing each point to a discrete label (zero-dimensional code) and reconstructing using the cluster centre.",
+      "salience": "core"
+    },
+    {
+      "text": "Supervised learning models $p(y \\mid x)$; unsupervised learning models $p(x)$ itself, often yielding generative models that can produce new samples from the data distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "Reinforcement learning involves an agent learning from its own trial-and-error interactions with an environment.",
+      "salience": "core"
+    },
+    {
+      "text": "Multi-armed bandits is a fundamental challenge in reinforcement learning: choosing actions that lead to random rewards to maximise cumulative reward.",
+      "salience": "core"
+    },
+    {
+      "text": "Exploration vs. exploitation is a fundamental challenge in reinforcement learning: deciding when to try new actions versus stick with known good ones.",
+      "salience": "core"
+    },
+    {
+      "text": "Credit assignment is a fundamental challenge in reinforcement learning: assigning credit to individual actions when the reward is delayed.",
+      "salience": "core"
+    },
+    {
+      "text": "This lecture course does not cover reinforcement learning.",
+      "salience": "aside"
+    },
+    {
+      "text": "Active learning involves choosing the next data point to label, often because labelling is expensive.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Learning to rank produces ordered lists, e.g., for internet search results.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Bootstrapping uses a model's own outputs to improve itself.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Model selection involves balancing models with few versus many parameters.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Methods that not only give an answer but also estimate confidence, describe data quality, and anticipate changes with further experiments rely on probability theory.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In machine learning, the probability spaces are Euclidean spaces $\\mathbb{R}^d$ with a density; no measure theory or exotic spaces are needed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Joint probability $p(x, y)$ is the probability of two events occurring simultaneously.",
+      "salience": "core"
+    },
+    {
+      "text": "Marginalisation computes $p(x) = \\sum_y p(x, y)$ (or an integral for continuous variables).",
+      "salience": "core"
+    },
+    {
+      "text": "Conditional probability is defined as $p(x \\mid y) = \\frac{p(x, y)}{p(y)}$, provided $p(y) > 0$.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes' theorem states $p(y \\mid x) = \\frac{p(x \\mid y)\\, p(y)}{p(x)} = \\frac{p(x \\mid y)\\, p(y)}{\\sum_{y'} p(x \\mid y')\\, p(y')}$.",
+      "salience": "core"
+    },
+    {
+      "text": "Random variables $x$ and $y$ are independent if $p(x, y) = p(x)\\, p(y)$, which implies $p(x \\mid y) = p(x)$.",
+      "salience": "core"
+    },
+    {
+      "text": "For parameter estimation, Bayes' theorem reads $p(\\theta \\mid D) = \\frac{p(\\theta)\\, p(D \\mid \\theta)}{p(D)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "$p(\\theta)$ is the prior distribution, representing beliefs about $\\theta$ before seeing data.",
+      "salience": "core"
+    },
+    {
+      "text": "$p(D \\mid \\theta)$ is the likelihood, the probability/density of the observed dataset given the parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "$p(\\theta \\mid D)$ is the posterior distribution, the updated belief after seeing data.",
+      "salience": "core"
+    },
+    {
+      "text": "$p(D) = \\int p(D \\mid \\theta)\\, p(\\theta)\\, \\mathrm{d}\\theta$ is the evidence, a normalising constant usually inaccessible.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because $p(D)$ does not involve $\\theta$, the posterior is proportional to the product of likelihood and prior: $p(\\theta \\mid D) \\propto p(D \\mid \\theta)\\, p(\\theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Maximum likelihood (ML) estimation selects $\\theta_{\\text{ML}} = \\arg\\max_\\theta p(D \\mid \\theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Maximum a posteriori (MAP) estimation selects $\\theta_{\\text{MAP}} = \\arg\\max_\\theta p(\\theta \\mid D) = \\arg\\max_\\theta p(D \\mid \\theta)\\, p(\\theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The logarithm of the posterior is $\\log p(D \\mid \\theta) + \\log p(\\theta) + \\text{constant}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In optimisation, $\\log p(\\theta)$ acts as a regulariser, penalising parameter values that are unlikely a priori.",
+      "salience": "core"
+    },
+    {
+      "text": "This provides a direct bridge from Bayesian inference to deep learning regularisation.",
+      "salience": "core"
+    },
+    {
+      "text": "A direct problem: given a probabilistic model, predict behaviour; e.g., an urn with 10 balls, 3 black, what is the probability of drawing a black ball?",
+      "salience": "supporting"
+    },
+    {
+      "text": "An inverse problem: observe behaviour and infer hidden parameters; e.g., an urn is known to have either 3 or 6 black balls, you draw a black ball, what is the probability it was the first urn?",
+      "salience": "supporting"
+    },
+    {
+      "text": "Machine learning problems are almost always inverse: we observe data and must build a probabilistic model of the hidden variables that generated it.",
+      "salience": "core"
+    },
+    {
+      "text": "Classical probability interprets probability as the limit of relative frequencies over repeated experiments, such as coin tosses.",
+      "salience": "core"
+    },
+    {
+      "text": "We often want to reason about unique events, such as 'Spain wins the 2026 World Cup' or 'the Odyssey was written by a woman', where infinite repetitions are meaningless.",
+      "salience": "core"
+    },
+    {
+      "text": "In such cases, probability becomes a degree of belief.",
+      "salience": "core"
+    },
+    {
+      "text": "The Bayesian interpretation of probability follows the same mathematical laws as frequency-based probability.",
+      "salience": "core"
+    },
+    {
+      "text": "In the two children problem, a person has two kids, each equally likely a boy or a girl.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One question in the two children problem: if the person answers 'yes' to 'Do you have any boys?', what is the probability of also having a girl?",
+      "salience": "supporting"
+    },
+    {
+      "text": "Another question in the two children problem: if you meet one of the kids and it's a boy, what is the probability the other is a girl?",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the prosecutor's fallacy example, a rare blood type with 1% prevalence is found at a crime scene and matches the defendant.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor might argue that there is only a 1% chance of a match if the defendant is innocent, so with 99% probability he is guilty.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor's argument is mistaken because the probability of guilt is not 1 minus the probability of a match given innocence; it requires the prior probability of guilt and consideration of all alternative suspects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defense might counter that a million people live in the city, so 10,000 have this blood type, and thus the blood only gives a 0.01% probability of guilt.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defense's argument is mistaken because all those 10,000 people together still account for only a small fraction of the city; the evidence is not worthless.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The O.J. Simpson trial and the Sally Clark case (involving two sudden infant death syndrome deaths) both involved misapplied probability where the court sometimes confused conditional probabilities and ignored base rates.",
+      "salience": "aside"
+    },
+    {
+      "text": "In the Bayesian inference for a coin, we have an unfair coin with unknown probability $p_h = \\theta$ of heads.",
+      "salience": "core"
+    },
+    {
+      "text": "Flipping the coin $N$ times yields a sequence $s$ with $n$ heads and $m$ tails.",
+      "salience": "core"
+    },
+    {
+      "text": "Assuming flips are independent given $\\theta$, the likelihood is $p(s \\mid \\theta) = \\theta^n (1 - \\theta)^m$.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, defining the model means writing down the likelihood, specifying the assumptions (mutually exclusive outcomes, conditional independence) that produce the formula.",
+      "salience": "core"
+    },
+    {
+      "text": "Defining the likelihood is the easy part of machine learning modeling.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Maximising the likelihood directly gives $\\theta_{\\text{ML}} = \\frac{n}{n+m}$.",
+      "salience": "core"
+    },
+    {
+      "text": "For a coin with many tosses, the maximum likelihood estimate matches the frequency limit and is correct.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If we toss the coin once and get tails, the maximum likelihood estimate is $\\theta = 0$, implying the coin always lands tails.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After a single toss, the conclusion that the coin always lands tails is absurd; the estimate is unreliable because we have almost no data.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In real machine learning, data is almost always insufficient.",
+      "salience": "core"
+    },
+    {
+      "text": "When you have enough data for your current model, it is often better to move to a larger model (e.g., from GPT-1 to GPT-2) for which you are again data-limited.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We constantly operate at the frontier where data is scarce.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A point estimate based on the likelihood alone is rarely enough in machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "We need to bring in prior beliefs.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes’ rule gives the posterior $p(\\theta \\mid s) = \\frac{p(s \\mid \\theta)\\, p(\\theta)}{p(s)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The prior $p(\\theta)$ represents what was believed about $\\theta$ before seeing the data.",
+      "salience": "core"
+    },
+    {
+      "text": "For a coin, the most basic reasonable belief is that $\\theta$ must lie in $[0,1]$, so $p(\\theta) = 0$ outside that interval.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A common uninformative choice is a uniform prior $p(\\theta) = 1$ for $\\theta \\in [0,1]$, expressing complete ignorance.",
+      "salience": "core"
+    },
+    {
+      "text": "With $n$ heads and $m$ tails, the posterior with a uniform prior is $p(\\theta \\mid s) = \\frac{\\theta^n (1 - \\theta)^m}{\\int_0^1 \\theta^n (1 - \\theta)^m \\, \\mathrm{d}\\theta}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The denominator in the posterior is a Beta integral, $B(n+1, m+1) = \\frac{n!\\, m!}{(n+m+1)!}$, but for point estimation only the proportionality is needed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Maximising the posterior with a uniform prior yields the same estimate as maximum likelihood: $\\theta_{\\text{MAP}} = \\frac{n}{n+m}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The uniform prior rules out degenerate solutions, e.g., $\\theta=0$ or $\\theta=1$ with a single observation would give a posterior of 0, but does not change the location of the maximum.",
+      "salience": "supporting"
+    },
+    {
+      "text": "MAP with a uniform prior does not fix the overconfidence of the point estimate when data is scarce.",
+      "salience": "core"
+    },
+    {
+      "text": "The ultimate goal in Bayesian inference is not the parameter $\\theta$ but prediction.",
+      "salience": "core"
+    },
+    {
+      "text": "Given past data, we want the probability of the next outcome, $p(\\text{heads} \\mid s)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The probability of the next outcome does not depend on $\\theta$; it is obtained by averaging the likelihood over the posterior: $p(\\text{heads} \\mid s) = \\int_0^1 p(\\text{heads} \\mid \\theta)\\, p(\\theta \\mid s)\\, \\mathrm{d}\\theta$.",
+      "salience": "core"
+    },
+    {
+      "text": "Evaluating the integral gives Laplace’s rule of succession: $p(\\text{heads} \\mid s) = \\frac{n+1}{n+m+2}$.",
+      "salience": "core"
+    },
+    {
+      "text": "Even with a uniform prior, the predictive distribution is different from the point estimate $\\frac{n}{n+m}$.",
+      "salience": "core"
+    },
+    {
+      "text": "For example, after one tail ($n=0, m=1$) the point estimate is $0$, but Laplace’s rule gives $\\frac{1}{3}$, a more reasonable belief.",
+      "salience": "supporting"
+    },
+    {
+      "text": "As data accumulates, the predictive distribution and the point estimate converge, but with little data the advantage of averaging over the whole posterior is decisive.",
+      "salience": "core"
+    },
+    {
+      "text": "The predictive distribution is the expectation over the posterior of the likelihood.",
+      "salience": "core"
+    },
+    {
+      "text": "The predictive distribution is almost always what we want from a machine learning system.",
+      "salience": "core"
+    },
+    {
+      "text": "In neural networks, the parameters $\\theta$ are the weights, and we care about predictions on new images, not the weights themselves.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Bayesian framework makes focusing on predictive distributions natural.",
+      "salience": "core"
+    },
+    {
+      "text": "When data is limited, the prior heavily influences the conclusion.",
+      "salience": "core"
+    },
+    {
+      "text": "A more realistic prior for a physical coin might be a bell-shaped curve centred near $\\frac{1}{2}$, such as a truncated normal.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Multiplying a bell-shaped prior by the polynomial likelihood $\\theta^n (1-\\theta)^m$ yields an expression that is not a standard distribution and is tractable only numerically.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We can choose a prior that is mathematically convenient, provided it captures rough features like being bounded between 0 and 1 and peaked near $\\frac{1}{2}$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This leads directly to the idea of conjugate priors.",
+      "salience": "core"
+    },
+    {
+      "text": "In Bayesian inference, after choosing the likelihood, a prior $p(\\theta)$ must also be chosen.",
+      "salience": "core"
+    },
+    {
+      "text": "The prior is a distribution over all possible parameter values, and its shape strongly affects the results, especially with small datasets.",
+      "salience": "core"
+    },
+    {
+      "text": "To simplify computation, we want the posterior $p(\\theta \\mid x)$ to belong to the same parametric family as the prior $p(\\theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "If the posterior belongs to the same family, we can update hyperparameters directly without new integrals.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A family of distributions $p(\\theta \\mid \\alpha)$ is a conjugate prior for a family of likelihoods $p(x \\mid \\theta)$ if, after multiplying by the likelihood, the posterior stays in the same family: $p(\\theta \\mid x, \\alpha) = p(\\theta \\mid \\alpha')$.",
+      "salience": "core"
+    },
+    {
+      "text": "The $\\alpha$ are called hyperparameters — the parameters of the distribution of the parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "The trivial family of all distributions is conjugate, but it is not useful.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The form of a useful conjugate prior depends on the form of the data likelihood.",
+      "salience": "core"
+    },
+    {
+      "text": "For Bernoulli (coin-toss) trials, the likelihood is proportional to $\\theta^s (1-\\theta)^f$ with $s$ successes and $f$ failures.",
+      "salience": "core"
+    },
+    {
+      "text": "The conjugate prior for Bernoulli trials is the Beta distribution: $p(\\theta \\mid \\alpha, \\beta) = \\frac{\\theta^{\\alpha-1} (1-\\theta)^{\\beta-1}}{B(\\alpha, \\beta)}$, with $B(\\alpha, \\beta) = \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}$, for $\\theta \\in [0,1]$.",
+      "salience": "core"
+    },
+    {
+      "text": "After observing $s$ heads and $f$ tails, the posterior is proportional to $\\theta^{s + \\alpha - 1} (1-\\theta)^{f + \\beta - 1}$, which is again a Beta distribution, $\\text{Beta}(s+\\alpha, \\, f+\\beta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The learning rule is: add the counts to the hyperparameters: $\\alpha' = \\alpha + s$, $\\beta' = \\beta + f$.",
+      "salience": "core"
+    },
+    {
+      "text": "The hyperparameters $\\alpha$ and $\\beta$ can be interpreted as pseudo-counts—fictitious prior observations.",
+      "salience": "core"
+    },
+    {
+      "text": "The uniform prior corresponds to $\\alpha = \\beta = 1$ ($\\text{Beta}(1,1)$).",
+      "salience": "core"
+    },
+    {
+      "text": "A prior peaked around $\\frac{1}{2}$ is obtained by setting, for example, $\\alpha = \\beta = 10$, encoding the belief that we have already seen virtually 10 heads and 10 tails.",
+      "salience": "core"
+    },
+    {
+      "text": "It takes a substantial amount of real data to shift the posterior away from $\\frac{1}{2}$ when the prior is peaked.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because the posterior has the same form as the prior, Bayesian updating can be done sequentially: start with a prior, incorporate a data batch, obtain a posterior, then treat that posterior as the new prior for the next batch, avoiding reprocessing all data from scratch.",
+      "salience": "core"
+    },
+    {
+      "text": "The predictive distribution for a new trial, using a Beta$(\\alpha, \\beta)$ prior, generalises Laplace’s rule: $p(\\text{heads} \\mid s, f) = \\frac{s + \\alpha}{s + f + \\alpha + \\beta}$.",
+      "salience": "core"
+    },
+    {
+      "text": "A natural extension of coin tossing is rolling a die with $k$ faces, modelled by a multinomial distribution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a multinomial distribution, if $x_i$ observations fall into category $i$, the likelihood is $p(x \\mid \\theta) \\propto \\theta_1^{x_1} \\theta_2^{x_2} \\dots \\theta_k^{x_k}$, with $\\sum_i \\theta_i = 1$.",
+      "salience": "core"
+    },
+    {
+      "text": "The conjugate prior for the multinomial distribution is the Dirichlet distribution: $p(\\theta \\mid \\alpha) \\propto \\theta_1^{\\alpha_1-1} \\theta_2^{\\alpha_2-1} \\dots \\theta_k^{\\alpha_k-1}$.",
+      "salience": "core"
+    },
+    {
+      "text": "After observing counts $x_1, \\dots, x_k$, the hyperparameters update analogously: $p(\\theta \\mid x, \\alpha) = p(\\theta \\mid x + \\alpha) \\propto \\theta_1^{x_1+\\alpha_1-1} \\theta_2^{x_2+\\alpha_2-1} \\dots \\theta_k^{x_k+\\alpha_k-1}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The simplicity of updating makes conjugate priors a cornerstone of tractable Bayesian inference.",
+      "salience": "core"
+    }
+  ]
+}

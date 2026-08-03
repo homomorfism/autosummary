@@ -1,0 +1,5839 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "transcript:0",
+      "text": "The lecture part of the class is being done online this year.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:3",
+        "slides:2",
+        "slides:0",
+        "slides:1",
+        "slides:30",
+        "slides:144",
+        "slides:225",
+        "slides:110"
+      ]
+    },
+    {
+      "claim": "transcript:1",
+      "text": "Last time, the lecture ended on convolutional architectures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:67",
+        "slides:78",
+        "slides:76",
+        "slides:66",
+        "slides:69",
+        "slides:90",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:2",
+      "text": "Specifically, last time the lecture covered how CNNs work.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:27",
+        "slides:26",
+        "slides:28",
+        "slides:56",
+        "slides:69",
+        "slides:2",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:3",
+      "text": "Last time, the lecture covered the main advantage of using convolutions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:66",
+        "slides:31",
+        "slides:67",
+        "slides:32",
+        "slides:89",
+        "slides:65",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "transcript:4",
+      "text": "The main advantage of using convolutions is to reuse the same weights over the entire input and over all intermediate feature tensors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:66",
+        "slides:38",
+        "slides:135",
+        "slides:89",
+        "slides:92",
+        "slides:31",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "transcript:5",
+      "text": "The intermediate feature tensors are outputs of intermediate layers inside the neural network.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:48",
+        "slides:101",
+        "slides:74",
+        "slides:92",
+        "slides:0",
+        "slides:27",
+        "slides:64",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:6",
+      "text": "The processing with reused weights can be done in parallel.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:93",
+        "slides:119",
+        "slides:67",
+        "slides:154",
+        "slides:129",
+        "slides:147",
+        "slides:137"
+      ]
+    },
+    {
+      "claim": "transcript:7",
+      "text": "Using convolutions can reduce the number of weights by huge factors.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:32",
+        "slides:36",
+        "slides:81",
+        "slides:93",
+        "slides:66",
+        "slides:82",
+        "slides:31",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:8",
+      "text": "Before proceeding with convolutional architectures today, the lecturer understands that the students already started talking about convolutional architectures with Alex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:67",
+        "slides:76",
+        "slides:78",
+        "slides:69",
+        "slides:92",
+        "slides:27",
+        "slides:66"
+      ]
+    },
+    {
+      "claim": "transcript:9",
+      "text": "Because the students already started talking about convolutional architectures with Alex, the lecture can skip part of it and get to recurrent networks faster.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:67",
+        "slides:164",
+        "slides:56",
+        "slides:76",
+        "slides:187",
+        "slides:98",
+        "slides:172"
+      ]
+    },
+    {
+      "claim": "transcript:10",
+      "text": "The lecturer is not sure if the lecture will get to recurrent networks today, but hopefully yes.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:0",
+        "slides:3",
+        "slides:215",
+        "slides:187",
+        "slides:172",
+        "slides:139",
+        "slides:213"
+      ]
+    },
+    {
+      "claim": "transcript:11",
+      "text": "The lecturer has standard illustrations for CNNs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:28",
+        "slides:26",
+        "slides:33",
+        "slides:27",
+        "slides:69",
+        "slides:31",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:12",
+      "text": "The students probably don't need these illustrations because they already had practical sessions about CNNs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "slides:0",
+        "slides:28",
+        "slides:30",
+        "slides:27",
+        "slides:33",
+        "slides:56",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:13",
+      "text": "The lecturer might at least mention a couple of buzzwords that the students can look up.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:30",
+        "slides:2",
+        "slides:3",
+        "slides:1",
+        "slides:0",
+        "slides:144",
+        "slides:180",
+        "slides:160"
+      ]
+    },
+    {
+      "claim": "transcript:14",
+      "text": "In classical computer vision, before neural networks actually worked, people would still use convolutions, but handmade convolutions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:66",
+        "slides:38",
+        "slides:31",
+        "slides:67",
+        "slides:76",
+        "slides:89",
+        "slides:32",
+        "slides:0"
+      ]
+    },
+    {
+      "claim": "transcript:15",
+      "text": "These handmade convolutions were called filters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:66",
+        "slides:91",
+        "slides:31",
+        "slides:84",
+        "slides:39",
+        "slides:90",
+        "slides:80",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "transcript:16",
+      "text": "Sometimes people call learnable convolutions filters as well.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:66",
+        "slides:89",
+        "slides:91",
+        "slides:0",
+        "slides:92",
+        "slides:90",
+        "slides:65",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:17",
+      "text": "There were filter banks for all kinds of purposes.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:39",
+        "slides:80",
+        "slides:91",
+        "slides:86",
+        "slides:29",
+        "slides:19",
+        "slides:156",
+        "slides:83"
+      ]
+    },
+    {
+      "claim": "transcript:18",
+      "text": "Classical utilities for image processing (like sharpen, blur, add contrast, emboss) are all done with this kind of filters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:91",
+        "slides:45",
+        "slides:177",
+        "slides:157",
+        "slides:126",
+        "slides:80",
+        "slides:137"
+      ]
+    },
+    {
+      "claim": "transcript:19",
+      "text": "These filters are small matrices, like convolutions, that are applied in parallel over the image.",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "slides:91",
+        "slides:31",
+        "slides:90",
+        "slides:39",
+        "slides:92",
+        "slides:84",
+        "slides:80",
+        "slides:0"
+      ]
+    },
+    {
+      "claim": "transcript:20",
+      "text": "You can do complicated stuff with these filters, for example, edge detection, which finds where the edges of objects on the image are.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:91",
+        "slides:45",
+        "slides:177",
+        "slides:80",
+        "slides:31",
+        "slides:147",
+        "slides:33",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:21",
+      "text": "In the example shown, the cat itself is pretty messy in terms of edges.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:92",
+        "slides:62",
+        "slides:39",
+        "slides:227",
+        "slides:179",
+        "slides:73",
+        "slides:214",
+        "slides:150"
+      ]
+    },
+    {
+      "claim": "transcript:22",
+      "text": "There were classical filter banks like Gabor filters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:39",
+        "slides:80",
+        "slides:91",
+        "slides:214",
+        "slides:86",
+        "slides:29",
+        "slides:0",
+        "slides:227"
+      ]
+    },
+    {
+      "claim": "transcript:23",
+      "text": "With Gabor filters, you would do something like edge detection, specifically discrete derivatives, finite differences in different directions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:177",
+        "slides:45",
+        "slides:178",
+        "slides:157",
+        "slides:114",
+        "slides:147",
+        "slides:119",
+        "slides:91"
+      ]
+    },
+    {
+      "claim": "transcript:24",
+      "text": "This allows directed edge detection: a filter fires if there is a big difference vertically when going vertically from one pixel to another.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:91",
+        "slides:39",
+        "slides:176",
+        "slides:149",
+        "slides:147",
+        "slides:148",
+        "slides:135",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:25",
+      "text": "Another filter fires if a lot changes horizontally from one pixel to another.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:91",
+        "slides:39",
+        "slides:80",
+        "slides:84",
+        "slides:103",
+        "slides:85",
+        "slides:45",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "transcript:26",
+      "text": "If you apply pooling as a filter to an actual image, max pooling would look very strange because it would clamp everything to the max brightness.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:75",
+        "slides:39",
+        "slides:147",
+        "slides:91",
+        "slides:34",
+        "slides:176",
+        "slides:92",
+        "slides:148"
+      ]
+    },
+    {
+      "claim": "transcript:27",
+      "text": "Average pooling applied to an actual image would look better than max pooling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:75",
+        "slides:34",
+        "slides:92",
+        "slides:31",
+        "slides:32",
+        "slides:137",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:28",
+      "text": "That is not the purpose of pooling.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:75",
+        "slides:118",
+        "slides:93",
+        "slides:104",
+        "slides:206",
+        "slides:108",
+        "slides:112",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:29",
+      "text": "The lecturer has illustrations on real networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:57",
+        "slides:36",
+        "slides:35",
+        "slides:0",
+        "slides:69",
+        "slides:77",
+        "slides:58",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:30",
+      "text": "The students already know what ResNets are.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:30",
+        "slides:88",
+        "slides:66",
+        "slides:77",
+        "slides:63",
+        "slides:65",
+        "slides:94",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:31",
+      "text": "The illustrations show the matrices of convolutions (filters) on the first layer of ResNet-18.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:65",
+        "slides:91",
+        "slides:89",
+        "slides:90",
+        "slides:66",
+        "slides:92",
+        "slides:38",
+        "slides:0"
+      ]
+    },
+    {
+      "claim": "transcript:32",
+      "text": "In these filters, some fire up for lines like diagonal lines or vertical lines.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:80",
+        "slides:91",
+        "slides:39",
+        "slides:62",
+        "slides:85",
+        "slides:84",
+        "slides:45",
+        "slides:126"
+      ]
+    },
+    {
+      "claim": "transcript:33",
+      "text": "Some filters fire for colors or color gradients.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:84",
+        "slides:85",
+        "slides:80",
+        "slides:39",
+        "slides:91",
+        "slides:176",
+        "slides:175",
+        "slides:96"
+      ]
+    },
+    {
+      "claim": "transcript:34",
+      "text": "If you input an image and see where these filters activate a lot, you can see that, for example, one filter is looking for something like grass or trees, essentially the color green.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:91",
+        "slides:39",
+        "slides:31",
+        "slides:65",
+        "slides:80",
+        "slides:84",
+        "slides:33",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "transcript:35",
+      "text": "Another filter is looking for horizontal edges or vertical edges, activating where there is a horizontal line (like a Gabor filter).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:39",
+        "slides:80",
+        "slides:91",
+        "slides:176",
+        "slides:62",
+        "slides:45",
+        "slides:103",
+        "slides:126"
+      ]
+    },
+    {
+      "claim": "transcript:36",
+      "text": "If you go through the network and map what active filters on different layers do for ResNet-18, the map becomes more complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:89",
+        "slides:74",
+        "slides:99",
+        "slides:76",
+        "slides:75",
+        "slides:100",
+        "slides:65",
+        "slides:91"
+      ]
+    },
+    {
+      "claim": "transcript:37",
+      "text": "For layer one, the inputs are the pixels, and you can see where the filter activates.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:91",
+        "slides:148",
+        "slides:52",
+        "slides:65",
+        "slides:84",
+        "slides:85",
+        "slides:51",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "transcript:38",
+      "text": "On subsequent layers, there is not a direct correspondence between pixels and outputs because every picture has a receptive field.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:92",
+        "slides:103",
+        "slides:90",
+        "slides:65",
+        "slides:148",
+        "slides:91",
+        "slides:48",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:39",
+      "text": "You can find which part of the image a filter is looking at, but determining which exact pixels contribute the most requires some math.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:91",
+        "slides:31",
+        "slides:90",
+        "slides:178",
+        "slides:80",
+        "slides:147",
+        "slides:84",
+        "slides:177"
+      ]
+    },
+    {
+      "claim": "transcript:40",
+      "text": "You can look at what parts of the image even top layer features fire up for.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:85",
+        "slides:33",
+        "slides:27",
+        "slides:28",
+        "slides:92",
+        "slides:77",
+        "slides:73",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:41",
+      "text": "In ResNet-18, the second layer fires for high-frequency stuff throughout the whole image, like stripes and edges.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:65",
+        "slides:74",
+        "slides:77",
+        "slides:63",
+        "slides:188",
+        "slides:75",
+        "slides:85",
+        "slides:66"
+      ]
+    },
+    {
+      "claim": "transcript:42",
+      "text": "Later layers fire for more salient objects, for example, some filter fires for eyes and the tips of ears.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:85",
+        "slides:52",
+        "slides:84",
+        "slides:92",
+        "slides:148",
+        "slides:104",
+        "slides:48",
+        "slides:74"
+      ]
+    },
+    {
+      "claim": "transcript:43",
+      "text": "In even later layers, filters become more semantic, so you can see filters for ears and for the head as a whole, though the pictures are blurry and ResNet-18 is not a very good network.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:74",
+        "slides:76",
+        "slides:39",
+        "slides:89",
+        "slides:92",
+        "slides:77",
+        "slides:78",
+        "slides:91"
+      ]
+    },
+    {
+      "claim": "transcript:44",
+      "text": "You can go back from a deep feature to the pixel level, mapping it back to the original image, to see approximately what it fires on.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:82",
+        "slides:84",
+        "slides:85",
+        "slides:28",
+        "slides:27",
+        "slides:147",
+        "slides:77",
+        "slides:90"
+      ]
+    },
+    {
+      "claim": "transcript:45",
+      "text": "In ResNet 3.10, on a deep layer, you can find the feature that selects most for cats.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:77",
+        "slides:98",
+        "slides:75",
+        "slides:89",
+        "slides:78",
+        "slides:66",
+        "slides:69",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "transcript:46",
+      "text": "Being cat-selective means that ResNet was trained to distinguish classes from ImageNet like cats and dogs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:75",
+        "slides:66",
+        "slides:77",
+        "slides:65",
+        "slides:74",
+        "slides:76",
+        "slides:69",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:47",
+      "text": "You can find which feature gives the most information regarding a specific class, meaning which feature's activation correlates best with that class.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:98",
+        "slides:37",
+        "slides:42",
+        "slides:41",
+        "slides:0",
+        "slides:64",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:48",
+      "text": "If you look at the cat-selective feature and input an image that is half cat, half dog, it fires up on the cat part.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:84",
+        "slides:85",
+        "slides:65",
+        "slides:83",
+        "slides:90",
+        "slides:171",
+        "slides:91",
+        "slides:211"
+      ]
+    },
+    {
+      "claim": "transcript:49",
+      "text": "Similarly, the dog-selective feature fires up on the dog part approximately.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:85",
+        "slides:84",
+        "slides:211",
+        "slides:83",
+        "slides:159",
+        "slides:93",
+        "slides:212",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:50",
+      "text": "There are methods for more detailed interpretation of what the network is doing, for example, GradCam.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:35",
+        "slides:57",
+        "slides:77",
+        "slides:89",
+        "slides:78",
+        "slides:94",
+        "slides:36",
+        "slides:99"
+      ]
+    },
+    {
+      "claim": "transcript:51",
+      "text": "GradCam is not the only method, but it is a good one.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:78",
+        "slides:77",
+        "slides:69",
+        "slides:57",
+        "slides:225",
+        "slides:89",
+        "slides:82",
+        "slides:216"
+      ]
+    },
+    {
+      "claim": "transcript:52",
+      "text": "GradCam can be run for the network output, like the predicted class, or a single class.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:77",
+        "slides:78",
+        "slides:89",
+        "slides:33",
+        "slides:69",
+        "slides:0",
+        "slides:28",
+        "slides:224"
+      ]
+    },
+    {
+      "claim": "transcript:53",
+      "text": "Recall that the network's output is a set of probabilities, with every class in a classification network being a separate output.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:103",
+        "slides:36",
+        "slides:99",
+        "slides:100",
+        "slides:35",
+        "slides:98",
+        "slides:32",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:54",
+      "text": "This is convenient because you can look at specific outputs; for example, the Egyptian cat output responds to certain things and obtained its value due to specific pixels.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:171",
+        "slides:147",
+        "slides:148",
+        "slides:65",
+        "slides:27",
+        "slides:150",
+        "slides:151",
+        "slides:135"
+      ]
+    },
+    {
+      "claim": "transcript:55",
+      "text": "GradCam provides an interpretation of why exactly, due to which pixels, the network chose a particular value for an output, though it is not yet an attention mechanism.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:65",
+        "slides:27",
+        "slides:148",
+        "slides:89",
+        "slides:74",
+        "slides:33",
+        "slides:53",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:56",
+      "text": "You can run GradCam for different classes; for example, with a cat and dog image, the Egyptian cat output will look at the cat, and the Blenheim-Spaniel output will look at the dog.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:28",
+        "slides:78",
+        "slides:27",
+        "slides:26",
+        "slides:77",
+        "slides:225",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "transcript:57",
+      "text": "That was a brief remark about the basics of convolutional networks and what they are looking at, which will not be discussed in more detail.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:66",
+        "slides:38",
+        "slides:89",
+        "slides:32",
+        "slides:65",
+        "slides:67",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "transcript:58",
+      "text": "The main part of today's lecture is important convolutional architectures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:66",
+        "slides:31",
+        "slides:92",
+        "slides:32",
+        "slides:90",
+        "slides:76",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:59",
+      "text": "The students have already discussed some of the most important stuff with Alex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:30",
+        "slides:2",
+        "slides:3",
+        "slides:1",
+        "slides:67",
+        "slides:0",
+        "slides:26",
+        "slides:105"
+      ]
+    },
+    {
+      "claim": "transcript:60",
+      "text": "The most important convolutional architecture in history is AlexNet.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:0",
+        "slides:78",
+        "slides:76",
+        "slides:69",
+        "slides:77",
+        "slides:98",
+        "slides:28"
+      ]
+    },
+    {
+      "claim": "transcript:61",
+      "text": "The lecturer hopes that Alex discussed the AlexNet architecture with the students.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:0",
+        "slides:87",
+        "slides:98",
+        "slides:35",
+        "slides:227",
+        "slides:76",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:62",
+      "text": "AlexNet was the first convolutional network that actually worked.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:77",
+        "slides:35",
+        "slides:69",
+        "slides:78",
+        "slides:38",
+        "slides:76",
+        "slides:87"
+      ]
+    },
+    {
+      "claim": "transcript:63",
+      "text": "AlexNet beat every competing method completely on the ImageNet large-scale visual recognition competition.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:33",
+        "slides:28",
+        "slides:69",
+        "slides:67",
+        "slides:77",
+        "slides:76",
+        "slides:78",
+        "slides:87"
+      ]
+    },
+    {
+      "claim": "transcript:64",
+      "text": "AlexNet defined the state-of-the-art by an extraordinarily big margin.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:87",
+        "slides:67",
+        "slides:35",
+        "slides:69",
+        "slides:77",
+        "slides:40",
+        "slides:26",
+        "slides:98"
+      ]
+    },
+    {
+      "claim": "transcript:65",
+      "text": "In 2011 or 2012, when AlexNet participated in the competition, the error rate for all other methods was around 22-23%.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:87",
+        "slides:67",
+        "slides:100",
+        "slides:98",
+        "slides:188",
+        "slides:38",
+        "slides:69",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:66",
+      "text": "AlexNet's error rate was around 13%.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:87",
+        "slides:67",
+        "slides:188",
+        "slides:100",
+        "slides:77",
+        "slides:99",
+        "slides:98",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "transcript:67",
+      "text": "That was a huge jump and a huge gap.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:20",
+        "slides:6",
+        "slides:39",
+        "slides:25",
+        "slides:23",
+        "slides:8",
+        "slides:4",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "transcript:68",
+      "text": "The next year, the whole leaderboard consisted only of convolutional networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:67",
+        "slides:75",
+        "slides:38",
+        "slides:76",
+        "slides:36",
+        "slides:33",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:69",
+      "text": "After AlexNet, nobody ever went back to classical computer vision.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:87",
+        "slides:67",
+        "slides:56",
+        "slides:76",
+        "slides:69",
+        "slides:38",
+        "slides:33",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:70",
+      "text": "This was the revolution in image classification.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:33",
+        "slides:144",
+        "slides:147",
+        "slides:138",
+        "slides:26",
+        "slides:28",
+        "slides:56",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "transcript:71",
+      "text": "Technically, the most interesting aspects of AlexNet are two things.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:87",
+        "slides:35",
+        "slides:26",
+        "slides:77",
+        "slides:69",
+        "slides:76",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "transcript:72",
+      "text": "AlexNet is a pretty standard convolutional architecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:78",
+        "slides:67",
+        "slides:77",
+        "slides:69",
+        "slides:76",
+        "slides:0",
+        "slides:89",
+        "slides:86"
+      ]
+    },
+    {
+      "claim": "transcript:73",
+      "text": "AlexNet is split in two.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:87",
+        "slides:77",
+        "slides:35",
+        "slides:98",
+        "slides:26",
+        "slides:100",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "transcript:74",
+      "text": "That split was the first actual industrial-scale instance of model parallelization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:100",
+        "slides:29",
+        "slides:130",
+        "slides:26",
+        "slides:137",
+        "slides:36",
+        "slides:138"
+      ]
+    },
+    {
+      "claim": "transcript:75",
+      "text": "In deep learning, you have huge models and huge data sets, so you need to parallelize and make use of multiple GPUs if available.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:224",
+        "slides:67",
+        "slides:56",
+        "slides:78",
+        "slides:32",
+        "slides:222",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:76",
+      "text": "There are two main ways to parallelize: data parallelization and model parallelization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:147",
+        "slides:100",
+        "slides:146",
+        "slides:145",
+        "slides:137",
+        "slides:224",
+        "slides:180"
+      ]
+    },
+    {
+      "claim": "transcript:77",
+      "text": "Data parallelization involves having one mini-batch in GPU 1, another in GPU 2, another in GPU 3, running them in parallel, collecting the results, and doing a single update based on weight updates from all GPUs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:67",
+        "slides:147",
+        "slides:136",
+        "slides:120",
+        "slides:137",
+        "slides:130",
+        "slides:134"
+      ]
+    },
+    {
+      "claim": "transcript:78",
+      "text": "With data parallelization, you don't have to change anything in your implementation; the network works as usual.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:36",
+        "slides:99",
+        "slides:100",
+        "slides:75",
+        "slides:94",
+        "slides:35",
+        "slides:98"
+      ]
+    },
+    {
+      "claim": "transcript:79",
+      "text": "The only difference is that with multiple GPUs in parallel, you are effectively increasing the mini-batch size by splitting the mini-batch across GPUs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:120",
+        "slides:34",
+        "slides:134",
+        "slides:147",
+        "slides:130",
+        "slides:135",
+        "slides:131",
+        "slides:122"
+      ]
+    },
+    {
+      "claim": "transcript:80",
+      "text": "There is a lot of work on data parallelization because it can be done in many smart and interesting ways, but the basic idea is simple.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:119",
+        "slides:137",
+        "slides:129",
+        "slides:132",
+        "slides:136",
+        "slides:224",
+        "slides:86"
+      ]
+    },
+    {
+      "claim": "transcript:81",
+      "text": "Model parallelization is more complicated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:100",
+        "slides:26",
+        "slides:67",
+        "slides:29",
+        "slides:137",
+        "slides:214",
+        "slides:136",
+        "slides:224"
+      ]
+    },
+    {
+      "claim": "transcript:82",
+      "text": "In model parallelization, the assumption is that the model does not fit on a single GPU.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:100",
+        "slides:44",
+        "slides:224",
+        "slides:67",
+        "slides:29",
+        "slides:222",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:83",
+      "text": "If the model does not fit on a single GPU, you need to put half of the model on one GPU and the other half on another GPU.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:44",
+        "slides:222",
+        "slides:217",
+        "slides:207",
+        "slides:224",
+        "slides:39",
+        "slides:103"
+      ]
+    },
+    {
+      "claim": "transcript:84",
+      "text": "AlexNet was doing model parallelization already in 2011 (the paper was in 2012, but the actual network was in 2011).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:98",
+        "slides:100",
+        "slides:87",
+        "slides:35",
+        "slides:78",
+        "slides:26",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:85",
+      "text": "Implementing model parallelization by hand in 2011 was a huge feat of engineering.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:214",
+        "slides:100",
+        "slides:26",
+        "slides:98",
+        "slides:86",
+        "slides:28",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:86",
+      "text": "Alex Krajewski was a wonderful programmer and implemented all of this by hand.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:57",
+        "slides:86",
+        "slides:40",
+        "slides:0",
+        "slides:97",
+        "slides:214",
+        "slides:1"
+      ]
+    },
+    {
+      "claim": "transcript:87",
+      "text": "These days, we don't need to implement such things by hand.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:30",
+        "slides:108",
+        "slides:138",
+        "slides:118",
+        "slides:29",
+        "slides:86",
+        "slides:206",
+        "slides:115"
+      ]
+    },
+    {
+      "claim": "transcript:88",
+      "text": "Cloud codes do not require manual implementation of distributing weight matrices across GPUs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:222",
+        "slides:93",
+        "slides:34",
+        "slides:224",
+        "slides:221",
+        "slides:207",
+        "slides:153",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:89",
+      "text": "In PyTorch, one can specify that a weight matrix should reside on a particular GPU.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:207",
+        "slides:222",
+        "slides:154",
+        "slides:155",
+        "slides:34",
+        "slides:143",
+        "slides:153"
+      ]
+    },
+    {
+      "claim": "transcript:90",
+      "text": "PyTorch automatically handles the remaining computation after GPU assignment of weight matrices.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:143",
+        "slides:207",
+        "slides:34",
+        "slides:155",
+        "slides:222",
+        "slides:67",
+        "slides:175"
+      ]
+    },
+    {
+      "claim": "transcript:91",
+      "text": "When designing a parallel network that spans multiple GPUs, one should minimize communication across GPUs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:224",
+        "slides:36",
+        "slides:99",
+        "slides:67",
+        "slides:35",
+        "slides:86",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:92",
+      "text": "Communication across GPUs is slower than communication inside a single GPU.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:223",
+        "slides:224",
+        "slides:222",
+        "slides:67",
+        "slides:214",
+        "slides:134",
+        "slides:221"
+      ]
+    },
+    {
+      "claim": "transcript:93",
+      "text": "In the example parallel network, the two GPUs exchange information only at two places.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:67",
+        "slides:224",
+        "slides:36",
+        "slides:100",
+        "slides:217",
+        "slides:221",
+        "slides:179"
+      ]
+    },
+    {
+      "claim": "transcript:94",
+      "text": "AlexNet was a breakthrough in deep learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:69",
+        "slides:76",
+        "slides:77",
+        "slides:56",
+        "slides:78",
+        "slides:74",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:95",
+      "text": "After AlexNet, the field of convolutional networks grew rapidly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:69",
+        "slides:76",
+        "slides:38",
+        "slides:77",
+        "slides:35",
+        "slides:74",
+        "slides:78"
+      ]
+    },
+    {
+      "claim": "transcript:96",
+      "text": "Convolutional networks can be improved significantly using relatively simple ideas.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:76",
+        "slides:78",
+        "slides:32",
+        "slides:56",
+        "slides:89",
+        "slides:28",
+        "slides:66",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "transcript:97",
+      "text": "The speaker previously discussed important ideas about convolutional networks with Alex Davidov.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:67",
+        "slides:69",
+        "slides:56",
+        "slides:32",
+        "slides:77",
+        "slides:76",
+        "slides:66"
+      ]
+    },
+    {
+      "claim": "transcript:98",
+      "text": "AlexNet used 11 by 11 convolutions in its first layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:87",
+        "slides:38",
+        "slides:77",
+        "slides:69",
+        "slides:74",
+        "slides:89",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:99",
+      "text": "Modern convolutional networks typically use only 3 by 3 convolutions, or occasionally 5 by 5.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:81",
+        "slides:31",
+        "slides:38",
+        "slides:89",
+        "slides:34",
+        "slides:67",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "transcript:100",
+      "text": "The VGG idea allows representing large convolutions as compositions of smaller convolutions.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:31",
+        "slides:32",
+        "slides:33",
+        "slides:66",
+        "slides:89",
+        "slides:81",
+        "slides:92",
+        "slides:90"
+      ]
+    },
+    {
+      "claim": "transcript:101",
+      "text": "Using compositions of small convolutions reduces the number of weights compared to large convolutions.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:32",
+        "slides:81",
+        "slides:36",
+        "slides:31",
+        "slides:66",
+        "slides:92",
+        "slides:38",
+        "slides:93"
+      ]
+    },
+    {
+      "claim": "transcript:102",
+      "text": "Composing small convolutions provides additional structural regularization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:66",
+        "slides:132",
+        "slides:32",
+        "slides:90",
+        "slides:89",
+        "slides:92",
+        "slides:31",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "transcript:103",
+      "text": "In a convolutional network, the same processing is applied to different parts of the input, which acts as a form of regularization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:65",
+        "slides:92",
+        "slides:66",
+        "slides:148",
+        "slides:32",
+        "slides:90",
+        "slides:91",
+        "slides:132"
+      ]
+    },
+    {
+      "claim": "transcript:104",
+      "text": "This regularization typically improves network performance.",
+      "entailed": true,
+      "evidence": "slides:135",
+      "top": [
+        "slides:132",
+        "slides:36",
+        "slides:137",
+        "slides:100",
+        "slides:135",
+        "slides:97",
+        "slides:99",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:105",
+      "text": "The Inception architecture was discussed with Alex Davidov.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:40",
+        "slides:69",
+        "slides:76",
+        "slides:77",
+        "slides:72",
+        "slides:78",
+        "slides:71",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:106",
+      "text": "The Inception idea is related to the concept of 'network in network'.",
+      "entailed": true,
+      "evidence": "slides:35",
+      "top": [
+        "slides:35",
+        "slides:69",
+        "slides:76",
+        "slides:77",
+        "slides:74",
+        "slides:40",
+        "slides:78",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "transcript:107",
+      "text": "Earlier in the course, the speaker discussed processing image tiles with small neural networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:33",
+        "slides:147",
+        "slides:76",
+        "slides:56",
+        "slides:28",
+        "slides:78",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "transcript:108",
+      "text": "In those earlier discussions, the small neural networks were extremely simple, consisting of just a single matrix multiplication.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:189",
+        "slides:76",
+        "slides:214",
+        "slides:56",
+        "slides:36",
+        "slides:38",
+        "slides:104",
+        "slides:172"
+      ]
+    },
+    {
+      "claim": "transcript:109",
+      "text": "A simple small neural network takes the flattened input, multiplies it by a weight matrix, and produces an output vector.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:36",
+        "slides:143",
+        "slides:148",
+        "slides:172",
+        "slides:104",
+        "slides:173",
+        "slides:162"
+      ]
+    },
+    {
+      "claim": "transcript:110",
+      "text": "The Inception trick and 'network in network' ideas involve replacing the simple convolution with a more complicated network.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:76",
+        "slides:35",
+        "slides:69",
+        "slides:74",
+        "slides:77",
+        "slides:78",
+        "slides:38",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:111",
+      "text": "In the Inception approach, tiles are still processed in parallel with the same small network, but the small network is now more complex.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:35",
+        "slides:76",
+        "slides:74",
+        "slides:78",
+        "slides:69",
+        "slides:36",
+        "slides:77",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "transcript:112",
+      "text": "Inception units typically contain multiple parallel processing branches.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:64",
+        "slides:70",
+        "slides:41",
+        "slides:71",
+        "slides:72",
+        "slides:76",
+        "slides:74",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:113",
+      "text": "The presence of multiple parallel branches is intentional and will be discussed further.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:227",
+        "slides:158",
+        "slides:30",
+        "slides:225",
+        "slides:159",
+        "slides:29",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "transcript:114",
+      "text": "The third important idea is residual connections, also associated with ResNets.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:74",
+        "slides:36",
+        "slides:63",
+        "slides:188",
+        "slides:66",
+        "slides:35",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:115",
+      "text": "Residual connections are widely used in deep learning, including in transformers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:56",
+        "slides:74",
+        "slides:48",
+        "slides:62",
+        "slides:49",
+        "slides:149",
+        "slides:66",
+        "slides:188"
+      ]
+    },
+    {
+      "claim": "transcript:116",
+      "text": "Residual connections were previously discussed with Alex Davidov.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:62",
+        "slides:74",
+        "slides:56",
+        "slides:48",
+        "slides:67",
+        "slides:77",
+        "slides:188",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:117",
+      "text": "In a standard feedforward network without residual connections, a layer computes f(x) from input x.",
+      "entailed": true,
+      "evidence": "slides:52",
+      "top": [
+        "slides:51",
+        "slides:52",
+        "slides:53",
+        "slides:50",
+        "slides:48",
+        "slides:49",
+        "slides:58",
+        "slides:56"
+      ]
+    },
+    {
+      "claim": "transcript:118",
+      "text": "When f(x) saturates, its gradient goes to zero, preventing the layer from changing.",
+      "entailed": true,
+      "evidence": "slides:55",
+      "top": [
+        "slides:55",
+        "slides:52",
+        "slides:109",
+        "slides:107",
+        "slides:104",
+        "slides:175",
+        "slides:49",
+        "slides:102"
+      ]
+    },
+    {
+      "claim": "transcript:119",
+      "text": "Without a residual connection, if a layer's gradient becomes zero, layers below it receive zero gradient and cannot learn.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:48",
+        "slides:186",
+        "slides:56",
+        "slides:62",
+        "slides:187",
+        "slides:104",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "transcript:120",
+      "text": "A residual connection adds the input x to the output of the layer, computing f(x) + x.",
+      "entailed": true,
+      "evidence": "slides:50",
+      "top": [
+        "slides:51",
+        "slides:53",
+        "slides:52",
+        "slides:50",
+        "slides:62",
+        "slides:48",
+        "slides:49",
+        "slides:109"
+      ]
+    },
+    {
+      "claim": "transcript:121",
+      "text": "With a residual connection, even if f(x) saturates and its gradient is zero, the gradient can still flow through the identity connection to lower layers.",
+      "entailed": true,
+      "evidence": "slides:55",
+      "top": [
+        "slides:55",
+        "slides:49",
+        "slides:62",
+        "slides:51",
+        "slides:92",
+        "slides:52",
+        "slides:48",
+        "slides:186"
+      ]
+    },
+    {
+      "claim": "transcript:122",
+      "text": "Specifically, when the derivative of f is zero, the overall gradient through the residual block approximates the identity matrix, allowing gradients to propagate.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:49",
+        "slides:116",
+        "slides:186",
+        "slides:201",
+        "slides:174",
+        "slides:173",
+        "slides:175"
+      ]
+    },
+    {
+      "claim": "transcript:123",
+      "text": "Kaiming He invented ResNets and called it the revolution of depth.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:69",
+        "slides:77",
+        "slides:63",
+        "slides:76",
+        "slides:0",
+        "slides:40",
+        "slides:74",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:124",
+      "text": "After the introduction of residual connections, it became possible to train convolutional networks with hundreds or thousands of layers.",
+      "entailed": true,
+      "evidence": "slides:56",
+      "top": [
+        "slides:56",
+        "slides:74",
+        "slides:28",
+        "slides:76",
+        "slides:48",
+        "slides:32",
+        "slides:78",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "transcript:125",
+      "text": "AlexNet had 8 trainable layers (excluding pooling layers).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:87",
+        "slides:75",
+        "slides:77",
+        "slides:74",
+        "slides:98",
+        "slides:78",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:126",
+      "text": "VGG had 19 trainable layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:33",
+        "slides:104",
+        "slides:103",
+        "slides:36",
+        "slides:72",
+        "slides:31",
+        "slides:77",
+        "slides:73"
+      ]
+    },
+    {
+      "claim": "transcript:127",
+      "text": "GoogleNet with its first inception units had 22 layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:35",
+        "slides:76",
+        "slides:77",
+        "slides:69",
+        "slides:74",
+        "slides:78",
+        "slides:64",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "transcript:128",
+      "text": "ResNet, introduced the next year, had about 150 layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:77",
+        "slides:74",
+        "slides:75",
+        "slides:76",
+        "slides:69",
+        "slides:97",
+        "slides:78",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "transcript:129",
+      "text": "With residual connections, networks with 200, 300, 500, or even 2000 layers can still be trained.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:56",
+        "slides:36",
+        "slides:104",
+        "slides:74",
+        "slides:48",
+        "slides:76",
+        "slides:77",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:130",
+      "text": "Increasing the depth of ResNets beyond a certain point does not continue to improve performance.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:75",
+        "slides:94",
+        "slides:74",
+        "slides:188",
+        "slides:104",
+        "slides:36",
+        "slides:77",
+        "slides:112"
+      ]
+    },
+    {
+      "claim": "transcript:131",
+      "text": "Adding new layers is only beneficial as long as they improve results.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:104",
+        "slides:103",
+        "slides:36",
+        "slides:92",
+        "slides:74",
+        "slides:76",
+        "slides:56",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:132",
+      "text": "Practical ResNets typically have up to about 200 layers, beyond which gains diminish.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:74",
+        "slides:75",
+        "slides:99",
+        "slides:94",
+        "slides:188",
+        "slides:89",
+        "slides:100"
+      ]
+    },
+    {
+      "claim": "transcript:133",
+      "text": "The speaker announces that he will discuss bottleneck layers and the split-transform-merge idea.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:32",
+        "slides:92",
+        "slides:36",
+        "slides:63",
+        "slides:39",
+        "slides:67",
+        "slides:71"
+      ]
+    },
+    {
+      "claim": "transcript:134",
+      "text": "Bottleneck layers and split-transform-merge are key ideas in convolutional architectures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:89",
+        "slides:0",
+        "slides:92",
+        "slides:90",
+        "slides:76",
+        "slides:78",
+        "slides:67"
+      ]
+    },
+    {
+      "claim": "transcript:135",
+      "text": "The VGG idea reduces the number of weights by replacing a large convolution with a sequence of small convolutions.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:32",
+        "slides:31",
+        "slides:33",
+        "slides:36",
+        "slides:81",
+        "slides:66",
+        "slides:92",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:136",
+      "text": "Convolutional layers inherently have far fewer weights than fully connected layers, but further reduction is possible.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:92",
+        "slides:36",
+        "slides:93",
+        "slides:89",
+        "slides:75",
+        "slides:74",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:137",
+      "text": "It is possible to improve convolutional layers by further reducing the number of weights.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:32",
+        "slides:81",
+        "slides:92",
+        "slides:36",
+        "slides:82",
+        "slides:89",
+        "slides:74",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:138",
+      "text": "A standard convolutional layer receives a 3D input tensor of depth D, width W, and height H.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:90",
+        "slides:92",
+        "slides:31",
+        "slides:91",
+        "slides:148",
+        "slides:32",
+        "slides:51",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "transcript:139",
+      "text": "The output of a convolutional layer is a vector of features of size D'.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "slides:92",
+        "slides:148",
+        "slides:90",
+        "slides:65",
+        "slides:53",
+        "slides:91",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "transcript:140",
+      "text": "The weight tensor of a standard convolutional layer has dimensions D × W × H × D'.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:148",
+        "slides:92",
+        "slides:32",
+        "slides:143",
+        "slides:155",
+        "slides:90",
+        "slides:153"
+      ]
+    },
+    {
+      "claim": "transcript:141",
+      "text": "The speaker estimates that a convolutional layer with 256 input channels, a 3x3 kernel, and 256 output channels has around 700,000 weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:65",
+        "slides:0",
+        "slides:81",
+        "slides:91",
+        "slides:89",
+        "slides:148",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "transcript:142",
+      "text": "The bottleneck idea aims to reduce the number of weights in a convolutional layer.",
+      "entailed": true,
+      "evidence": "slides:36",
+      "top": [
+        "slides:32",
+        "slides:36",
+        "slides:92",
+        "slides:81",
+        "slides:38",
+        "slides:89",
+        "slides:0",
+        "slides:74"
+      ]
+    },
+    {
+      "claim": "transcript:143",
+      "text": "The bottleneck idea proposes to first compress the feature depth using a 1x1 convolution before applying the spatial convolution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:90",
+        "slides:91",
+        "slides:89",
+        "slides:31",
+        "slides:32",
+        "slides:81",
+        "slides:92",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:144",
+      "text": "In a bottleneck layer, the input first passes through a 1x1 convolution that reduces the depth to a smaller value D'' (e.g., from 256 to 32).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:92",
+        "slides:90",
+        "slides:91",
+        "slides:32",
+        "slides:39",
+        "slides:89",
+        "slides:81",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "transcript:145",
+      "text": "The 1x1 convolution does not affect spatial geometry; it only transforms the feature dimension.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:90",
+        "slides:31",
+        "slides:38",
+        "slides:91",
+        "slides:150",
+        "slides:92",
+        "slides:32",
+        "slides:84"
+      ]
+    },
+    {
+      "claim": "transcript:146",
+      "text": "After depth reduction, a spatial convolution (e.g., 3x3) is applied, operating on the reduced depth D''.",
+      "entailed": true,
+      "evidence": "slides:81",
+      "top": [
+        "slides:90",
+        "slides:31",
+        "slides:92",
+        "slides:91",
+        "slides:81",
+        "slides:32",
+        "slides:73",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:147",
+      "text": "If the output depth needs to be D', another 1x1 convolution is used to expand the depth back to D'.",
+      "entailed": true,
+      "evidence": "slides:85",
+      "top": [
+        "slides:90",
+        "slides:91",
+        "slides:92",
+        "slides:81",
+        "slides:65",
+        "slides:39",
+        "slides:32",
+        "slides:85"
+      ]
+    },
+    {
+      "claim": "transcript:148",
+      "text": "The first 1x1 convolution in a bottleneck has D × 1 × 1 × D'' weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:90",
+        "slides:32",
+        "slides:38",
+        "slides:91",
+        "slides:142",
+        "slides:134",
+        "slides:89",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "transcript:149",
+      "text": "The spatial convolution in a bottleneck has D'' × W × H × D'' weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:142",
+        "slides:92",
+        "slides:36",
+        "slides:31",
+        "slides:135",
+        "slides:89",
+        "slides:90"
+      ]
+    },
+    {
+      "claim": "transcript:150",
+      "text": "The second 1x1 convolution has D'' × 1 × 1 × D' weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:90",
+        "slides:32",
+        "slides:38",
+        "slides:142",
+        "slides:91",
+        "slides:84",
+        "slides:31",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "transcript:151",
+      "text": "The bottleneck design avoids the large D × D' × W × H product, significantly reducing the total number of weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:93",
+        "slides:32",
+        "slides:142",
+        "slides:135",
+        "slides:143",
+        "slides:153",
+        "slides:207"
+      ]
+    },
+    {
+      "claim": "transcript:152",
+      "text": "In the bottleneck, the spatial convolution multiplies the kernel size (e.g., 9) by (D'')^2 instead of D^2, where D'' is much smaller than D.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:31",
+        "slides:81",
+        "slides:34",
+        "slides:92",
+        "slides:134",
+        "slides:89",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:153",
+      "text": "The bottleneck example uses three convolutions instead of one.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:81",
+        "slides:34",
+        "slides:67",
+        "slides:31",
+        "slides:38",
+        "slides:41",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:154",
+      "text": "Nevertheless, a lot of weights are saved.",
+      "entailed": true,
+      "evidence": "slides:93",
+      "top": [
+        "slides:93",
+        "slides:36",
+        "slides:141",
+        "slides:153",
+        "slides:143",
+        "slides:155",
+        "slides:112",
+        "slides:154"
+      ]
+    },
+    {
+      "claim": "transcript:155",
+      "text": "In the example with three convolutions, the weight count is about 256 times 100.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:81",
+        "slides:31",
+        "slides:93",
+        "slides:36",
+        "slides:142",
+        "slides:66",
+        "slides:153"
+      ]
+    },
+    {
+      "claim": "transcript:156",
+      "text": "Without the bottleneck, the weight count is about 256 times 2,500.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:93",
+        "slides:36",
+        "slides:222",
+        "slides:100",
+        "slides:153",
+        "slides:224",
+        "slides:142",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:157",
+      "text": "The weight reduction factor is about 25 times.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:93",
+        "slides:36",
+        "slides:141",
+        "slides:153",
+        "slides:154",
+        "slides:207",
+        "slides:155",
+        "slides:142"
+      ]
+    },
+    {
+      "claim": "transcript:158",
+      "text": "In the bottleneck idea, a vector of 256 features is compressed down to 32 numbers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:73",
+        "slides:32",
+        "slides:70",
+        "slides:87",
+        "slides:39",
+        "slides:41",
+        "slides:79",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:159",
+      "text": "Decompressing from 32 numbers back to 256 cannot restore the lost information.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:103",
+        "slides:163",
+        "slides:82",
+        "slides:156",
+        "slides:73",
+        "slides:133",
+        "slides:119",
+        "slides:150"
+      ]
+    },
+    {
+      "claim": "transcript:160",
+      "text": "Geometrically, the bottleneck operates in a high-dimensional feature space (dimension 256) and selects a specific subspace of much smaller dimension.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:73",
+        "slides:100",
+        "slides:32",
+        "slides:39",
+        "slides:31",
+        "slides:147",
+        "slides:27",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:161",
+      "text": "The process reduces long, complicated features to a much smaller dimension.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:73",
+        "slides:147",
+        "slides:159",
+        "slides:130",
+        "slides:150",
+        "slides:146",
+        "slides:137",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "transcript:162",
+      "text": "The single bottleneck is equivalent to taking just one view of the features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:100",
+        "slides:73",
+        "slides:70",
+        "slides:34",
+        "slides:91",
+        "slides:39",
+        "slides:26",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:163",
+      "text": "If the network only needed 32 numbers, the previous layer could directly produce 32 features instead of 256, saving even more weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:32",
+        "slides:103",
+        "slides:74",
+        "slides:89",
+        "slides:100",
+        "slides:104",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:164",
+      "text": "The simple bottleneck idea as initially described does not work by itself.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:100",
+        "slides:214",
+        "slides:136",
+        "slides:123",
+        "slides:119",
+        "slides:137",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "transcript:165",
+      "text": "The simple bottleneck never appears in practice in that form.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:100",
+        "slides:187",
+        "slides:139",
+        "slides:36",
+        "slides:93",
+        "slides:87",
+        "slides:168",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "transcript:166",
+      "text": "The bottleneck becomes useful when multiple copies of the processing pipeline are used in parallel.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:67",
+        "slides:134",
+        "slides:133",
+        "slides:100",
+        "slides:130",
+        "slides:131",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:167",
+      "text": "In practice, multiple copies of the processing pipeline are used, starting from an input tensor of size D x W x H.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:151",
+        "slides:148",
+        "slides:129",
+        "slides:146",
+        "slides:137",
+        "slides:70",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "transcript:168",
+      "text": "With D=256, a single pipeline outputs a vector of size 32.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:73",
+        "slides:39",
+        "slides:70",
+        "slides:81",
+        "slides:32",
+        "slides:103",
+        "slides:183",
+        "slides:207"
+      ]
+    },
+    {
+      "claim": "transcript:169",
+      "text": "To reconstruct a vector of size 256, eight such pipelines are needed, and their outputs are concatenated.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:81",
+        "slides:103",
+        "slides:119",
+        "slides:32",
+        "slides:65",
+        "slides:31",
+        "slides:73",
+        "slides:72"
+      ]
+    },
+    {
+      "claim": "transcript:170",
+      "text": "Each parallel pipeline learns different weights, implementing different processing.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:135",
+        "slides:98",
+        "slides:155",
+        "slides:143",
+        "slides:32",
+        "slides:153",
+        "slides:100"
+      ]
+    },
+    {
+      "claim": "transcript:171",
+      "text": "Using eight parallel pipelines reduces the weight savings from 25 times to about 4 times compared to the original single bottleneck.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:93",
+        "slides:36",
+        "slides:34",
+        "slides:32",
+        "slides:67",
+        "slides:135",
+        "slides:154",
+        "slides:100"
+      ]
+    },
+    {
+      "claim": "transcript:172",
+      "text": "Even with reduced savings, the parallel approach is still a good idea in practice.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:118",
+        "slides:131",
+        "slides:67",
+        "slides:136",
+        "slides:34",
+        "slides:137",
+        "slides:163",
+        "slides:224"
+      ]
+    },
+    {
+      "claim": "transcript:173",
+      "text": "In the split-transform-merge approach, multiple different projections of the high-dimensional feature space are used.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:157",
+        "slides:63",
+        "slides:146",
+        "slides:90",
+        "slides:66",
+        "slides:149",
+        "slides:144",
+        "slides:73"
+      ]
+    },
+    {
+      "claim": "transcript:174",
+      "text": "These projections correspond to different viewpoints or snapshots of the feature space.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:64",
+        "slides:70",
+        "slides:73",
+        "slides:29",
+        "slides:31",
+        "slides:148",
+        "slides:149",
+        "slides:68"
+      ]
+    },
+    {
+      "claim": "transcript:175",
+      "text": "Using multiple learned projections can lead to better performance than processing the original high-dimensional features directly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:73",
+        "slides:28",
+        "slides:56",
+        "slides:32",
+        "slides:135",
+        "slides:101",
+        "slides:41",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "transcript:176",
+      "text": "It is often beneficial to use many random projections of high-dimensional objects.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:30",
+        "slides:150",
+        "slides:144",
+        "slides:31",
+        "slides:149",
+        "slides:56",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:177",
+      "text": "In this architecture, the projections are learned and trained to be useful, which is better than random.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:227",
+        "slides:226",
+        "slides:98",
+        "slides:164",
+        "slides:100",
+        "slides:0",
+        "slides:104",
+        "slides:56"
+      ]
+    },
+    {
+      "claim": "transcript:178",
+      "text": "The approach is called split, transform, merge.",
+      "entailed": true,
+      "evidence": "slides:63",
+      "top": [
+        "slides:119",
+        "slides:63",
+        "slides:129",
+        "slides:157",
+        "slides:132",
+        "slides:145",
+        "slides:137",
+        "slides:156"
+      ]
+    },
+    {
+      "claim": "transcript:179",
+      "text": "The split, transform, merge pattern is a standard idea in convolutional architectures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:66",
+        "slides:0",
+        "slides:31",
+        "slides:90",
+        "slides:67",
+        "slides:65",
+        "slides:89",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "transcript:180",
+      "text": "ResNeXt provides an example of the split-transform-merge idea.",
+      "entailed": true,
+      "evidence": "slides:63",
+      "top": [
+        "slides:63",
+        "slides:66",
+        "slides:65",
+        "slides:119",
+        "slides:152",
+        "slides:129",
+        "slides:132",
+        "slides:157"
+      ]
+    },
+    {
+      "claim": "transcript:181",
+      "text": "In the ResNeXt example, the 256 channels are split into 32 paths of 4 channels each.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:65",
+        "slides:63",
+        "slides:66",
+        "slides:152",
+        "slides:68",
+        "slides:91",
+        "slides:74",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "transcript:182",
+      "text": "This is an extreme projection with several extreme projections, which works better.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:114",
+        "slides:73",
+        "slides:45",
+        "slides:118",
+        "slides:85",
+        "slides:64",
+        "slides:157",
+        "slides:227"
+      ]
+    },
+    {
+      "claim": "transcript:183",
+      "text": "Inception networks and Inception ResNet networks are important classical convolutional architectures.",
+      "entailed": true,
+      "evidence": "slides:69",
+      "top": [
+        "slides:76",
+        "slides:78",
+        "slides:69",
+        "slides:74",
+        "slides:77",
+        "slides:41",
+        "slides:38",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "transcript:184",
+      "text": "For a long time, they were the best available backbones for many computer vision tasks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:31",
+        "slides:34",
+        "slides:56",
+        "slides:33",
+        "slides:26",
+        "slides:28",
+        "slides:214"
+      ]
+    },
+    {
+      "claim": "transcript:185",
+      "text": "Object detection and segmentation architectures typically cannot be trained from scratch due to limited labeled data.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:78",
+        "slides:76",
+        "slides:27",
+        "slides:77",
+        "slides:56",
+        "slides:33",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:186",
+      "text": "In practice, a backbone network pre-trained on ImageNet for classification is used as a feature extractor.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:33",
+        "slides:98",
+        "slides:77",
+        "slides:78",
+        "slides:89",
+        "slides:69",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "transcript:187",
+      "text": "The classification head of the pre-trained network is removed, and the rest is used as the backbone.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:104",
+        "slides:98",
+        "slides:74",
+        "slides:48",
+        "slides:28",
+        "slides:100",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:188",
+      "text": "The Inception ResNet family was one of the most influential backbone families around 2016.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:69",
+        "slides:77",
+        "slides:76",
+        "slides:74",
+        "slides:78",
+        "slides:35",
+        "slides:71",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "transcript:189",
+      "text": "The main idea of Inception networks is to use better basic blocks that process inputs, like small neural networks.",
+      "entailed": true,
+      "evidence": "slides:35",
+      "top": [
+        "slides:76",
+        "slides:69",
+        "slides:35",
+        "slides:74",
+        "slides:78",
+        "slides:72",
+        "slides:70",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:190",
+      "text": "Progress in Inception networks came from inventing better basic blocks version after version.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:72",
+        "slides:76",
+        "slides:40",
+        "slides:69",
+        "slides:74",
+        "slides:77",
+        "slides:35",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "transcript:191",
+      "text": "In Inception networks, pooling layers were replaced with trainable blocks that can reduce dimensions.",
+      "entailed": true,
+      "evidence": "slides:75",
+      "top": [
+        "slides:75",
+        "slides:74",
+        "slides:73",
+        "slides:76",
+        "slides:69",
+        "slides:39",
+        "slides:78",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "transcript:192",
+      "text": "Strided convolutions are used in these blocks to reduce the spatial geometry.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:31",
+        "slides:73",
+        "slides:0",
+        "slides:92",
+        "slides:32",
+        "slides:89",
+        "slides:34",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "transcript:193",
+      "text": "Later Inception networks had reduction blocks that may contain pooling inside.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:75",
+        "slides:74",
+        "slides:39",
+        "slides:76",
+        "slides:69",
+        "slides:77",
+        "slides:78",
+        "slides:73"
+      ]
+    },
+    {
+      "claim": "transcript:194",
+      "text": "The reduction blocks also follow the split-transform-merge idea with parallel processing lines whose results are merged.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:73",
+        "slides:63",
+        "slides:67",
+        "slides:66",
+        "slides:137",
+        "slides:152",
+        "slides:214",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "transcript:195",
+      "text": "Residual connections were added to Inception networks to create Inception ResNet.",
+      "entailed": true,
+      "evidence": "slides:74",
+      "top": [
+        "slides:74",
+        "slides:76",
+        "slides:69",
+        "slides:77",
+        "slides:78",
+        "slides:35",
+        "slides:41",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "transcript:196",
+      "text": "Inception ResNet V2 was a very influential backbone that was used widely.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:69",
+        "slides:77",
+        "slides:76",
+        "slides:78",
+        "slides:74",
+        "slides:40",
+        "slides:35",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "transcript:197",
+      "text": "There are two different objectives when optimizing network architecture: memory and latency.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:99",
+        "slides:36",
+        "slides:98",
+        "slides:94",
+        "slides:100",
+        "slides:224",
+        "slides:214",
+        "slides:86"
+      ]
+    },
+    {
+      "claim": "transcript:198",
+      "text": "Reducing the number of weights reduces memory, as network size is essentially the number of weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:32",
+        "slides:93",
+        "slides:100",
+        "slides:143",
+        "slides:135",
+        "slides:224",
+        "slides:99"
+      ]
+    },
+    {
+      "claim": "transcript:199",
+      "text": "Latency refers to how quickly the network runs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:99",
+        "slides:88",
+        "slides:100",
+        "slides:58",
+        "slides:97",
+        "slides:224",
+        "slides:94"
+      ]
+    },
+    {
+      "claim": "transcript:200",
+      "text": "Real-time applications, like surveillance camera tracking, require the network to process at least 30 frames per second, preferably 60.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:99",
+        "slides:89",
+        "slides:78",
+        "slides:36",
+        "slides:33",
+        "slides:77",
+        "slides:76",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:201",
+      "text": "A smaller network may run faster, but latency primarily depends on the number of layers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:100",
+        "slides:99",
+        "slides:94",
+        "slides:32",
+        "slides:224",
+        "slides:104",
+        "slides:98"
+      ]
+    },
+    {
+      "claim": "transcript:202",
+      "text": "Once the network fits in GPU memory, the main factor for latency is the number of processing steps (layers).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:34",
+        "slides:224",
+        "slides:36",
+        "slides:32",
+        "slides:99",
+        "slides:100",
+        "slides:98",
+        "slides:94"
+      ]
+    },
+    {
+      "claim": "transcript:203",
+      "text": "The number of weights per layer can affect latency, but the number of layers is the most important component.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:32",
+        "slides:93",
+        "slides:104",
+        "slides:100",
+        "slides:155",
+        "slides:92",
+        "slides:224"
+      ]
+    },
+    {
+      "claim": "transcript:204",
+      "text": "These two objectives (memory reduction and latency reduction) do not conflict much but are distinct.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:223",
+        "slides:214",
+        "slides:100",
+        "slides:131",
+        "slides:224",
+        "slides:34",
+        "slides:98",
+        "slides:180"
+      ]
+    },
+    {
+      "claim": "transcript:205",
+      "text": "MobileNet was designed to put computer vision on mobile devices.",
+      "entailed": true,
+      "evidence": "slides:88",
+      "top": [
+        "slides:88",
+        "slides:89",
+        "slides:94",
+        "slides:95",
+        "slides:33",
+        "slides:77",
+        "slides:35",
+        "slides:78"
+      ]
+    },
+    {
+      "claim": "transcript:206",
+      "text": "EfficientNet is the family of CNNs that topped the progress of CNN architectures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:98",
+        "slides:99",
+        "slides:100",
+        "slides:97",
+        "slides:28",
+        "slides:76",
+        "slides:77",
+        "slides:78"
+      ]
+    },
+    {
+      "claim": "transcript:207",
+      "text": "EfficientNet is widely used currently.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:97",
+        "slides:99",
+        "slides:98",
+        "slides:100",
+        "slides:86",
+        "slides:95",
+        "slides:88",
+        "slides:78"
+      ]
+    },
+    {
+      "claim": "transcript:208",
+      "text": "EfficientNet's development followed a similar pattern to that of activation functions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:98",
+        "slides:97",
+        "slides:100",
+        "slides:99",
+        "slides:35",
+        "slides:77",
+        "slides:36",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:209",
+      "text": "Gradient descent algorithms were not discussed.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:139",
+        "slides:136",
+        "slides:116",
+        "slides:187",
+        "slides:186",
+        "slides:172",
+        "slides:134"
+      ]
+    },
+    {
+      "claim": "transcript:210",
+      "text": "In EfficientNet, the architecture was found automatically using a neural architecture search.",
+      "entailed": true,
+      "evidence": "slides:98",
+      "top": [
+        "slides:98",
+        "slides:99",
+        "slides:97",
+        "slides:100",
+        "slides:76",
+        "slides:78",
+        "slides:86",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:211",
+      "text": "The researchers of EfficientNet investigated how to scale a convolutional network.",
+      "entailed": true,
+      "evidence": "slides:100",
+      "top": [
+        "slides:100",
+        "slides:99",
+        "slides:98",
+        "slides:36",
+        "slides:89",
+        "slides:32",
+        "slides:76",
+        "slides:78"
+      ]
+    },
+    {
+      "claim": "transcript:212",
+      "text": "There are multiple dimensions (knobs) that can be changed when scaling a convolutional network.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:92",
+        "slides:81",
+        "slides:38",
+        "slides:66",
+        "slides:31",
+        "slides:70",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:213",
+      "text": "One scaling dimension is depth, which is the number of layers.",
+      "entailed": true,
+      "evidence": "slides:32",
+      "top": [
+        "slides:148",
+        "slides:92",
+        "slides:73",
+        "slides:100",
+        "slides:70",
+        "slides:32",
+        "slides:64",
+        "slides:52"
+      ]
+    },
+    {
+      "claim": "transcript:214",
+      "text": "Another dimension is width, which is the length of the feature vector.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:73",
+        "slides:148",
+        "slides:146",
+        "slides:51",
+        "slides:70",
+        "slides:68",
+        "slides:149",
+        "slides:150"
+      ]
+    },
+    {
+      "claim": "transcript:215",
+      "text": "Making the network wider adds more features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:94",
+        "slides:32",
+        "slides:100",
+        "slides:35",
+        "slides:88",
+        "slides:224",
+        "slides:86"
+      ]
+    },
+    {
+      "claim": "transcript:216",
+      "text": "Making the network wider requires more weights.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:32",
+        "slides:93",
+        "slides:100",
+        "slides:143",
+        "slides:224",
+        "slides:155",
+        "slides:153"
+      ]
+    },
+    {
+      "claim": "transcript:217",
+      "text": "Another dimension is resolution, which refers to the number of pixels in the input.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:148",
+        "slides:147",
+        "slides:51",
+        "slides:73",
+        "slides:146",
+        "slides:68",
+        "slides:70",
+        "slides:64"
+      ]
+    },
+    {
+      "claim": "transcript:218",
+      "text": "The number of weights in the network is determined by taking the product of depth, width, and resolution and exponentiating it.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:142",
+        "slides:32",
+        "slides:154",
+        "slides:155",
+        "slides:153",
+        "slides:100",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:219",
+      "text": "The goal of scaling is to find the perfect balance between depth, width, and resolution.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:155",
+        "slides:143",
+        "slides:153",
+        "slides:147",
+        "slides:70",
+        "slides:156",
+        "slides:126",
+        "slides:146"
+      ]
+    },
+    {
+      "claim": "transcript:220",
+      "text": "The depth grows exponentially with an exponent alpha.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:174",
+        "slides:92",
+        "slides:39",
+        "slides:175",
+        "slides:173",
+        "slides:85",
+        "slides:90",
+        "slides:179"
+      ]
+    },
+    {
+      "claim": "transcript:221",
+      "text": "The width grows exponentially with an exponent beta.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:174",
+        "slides:173",
+        "slides:126",
+        "slides:43",
+        "slides:175",
+        "slides:179",
+        "slides:39",
+        "slides:100"
+      ]
+    },
+    {
+      "claim": "transcript:222",
+      "text": "The resolution grows exponentially with an exponent gamma.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:126",
+        "slides:174",
+        "slides:127",
+        "slides:68",
+        "slides:82",
+        "slides:173",
+        "slides:60",
+        "slides:165"
+      ]
+    },
+    {
+      "claim": "transcript:223",
+      "text": "There is a natural relation between alpha, beta, and gamma.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:128",
+        "slides:126",
+        "slides:127",
+        "slides:111",
+        "slides:68",
+        "slides:212",
+        "slides:158",
+        "slides:159"
+      ]
+    },
+    {
+      "claim": "transcript:224",
+      "text": "The researchers performed a large evolutionary search to find the best values of alpha, beta, and gamma.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:158",
+        "slides:159",
+        "slides:212",
+        "slides:128",
+        "slides:126",
+        "slides:98",
+        "slides:161",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "transcript:225",
+      "text": "The researchers were successful in finding the optimal scaling hyperparameters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:100",
+        "slides:155",
+        "slides:153",
+        "slides:126",
+        "slides:137",
+        "slides:144",
+        "slides:147",
+        "slides:146"
+      ]
+    },
+    {
+      "claim": "transcript:226",
+      "text": "The EfficientNet family achieved state-of-the-art results across the whole field.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:99",
+        "slides:97",
+        "slides:98",
+        "slides:100",
+        "slides:78",
+        "slides:86",
+        "slides:77",
+        "slides:94"
+      ]
+    },
+    {
+      "claim": "transcript:227",
+      "text": "A plot is described with the x-axis representing the number of parameters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:166",
+        "slides:53",
+        "slides:79",
+        "slides:58",
+        "slides:126",
+        "slides:61",
+        "slides:52",
+        "slides:171"
+      ]
+    },
+    {
+      "claim": "transcript:228",
+      "text": "Having more parameters is undesirable for efficiency.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:100",
+        "slides:206",
+        "slides:95",
+        "slides:87",
+        "slides:44",
+        "slides:79",
+        "slides:43",
+        "slides:93"
+      ]
+    },
+    {
+      "claim": "transcript:229",
+      "text": "The y-axis represents ImageNet top-1 accuracy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:89",
+        "slides:33",
+        "slides:77",
+        "slides:188",
+        "slides:100",
+        "slides:74",
+        "slides:64",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "transcript:230",
+      "text": "Higher accuracy is better.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:223",
+        "slides:93",
+        "slides:34",
+        "slides:135",
+        "slides:45",
+        "slides:44",
+        "slides:224",
+        "slides:222"
+      ]
+    },
+    {
+      "claim": "transcript:231",
+      "text": "The best networks lie in the top left corner (few parameters, high accuracy).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:99",
+        "slides:36",
+        "slides:98",
+        "slides:35",
+        "slides:224",
+        "slides:94",
+        "slides:89",
+        "slides:100"
+      ]
+    },
+    {
+      "claim": "transcript:232",
+      "text": "There is a trade-off: larger networks generally achieve higher accuracy than smaller networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:224",
+        "slides:100",
+        "slides:94",
+        "slides:99",
+        "slides:35",
+        "slides:32",
+        "slides:97"
+      ]
+    },
+    {
+      "claim": "transcript:233",
+      "text": "The Pareto frontier is the set of points where for every size, the best accuracy is achieved and for every accuracy, the smallest network is used.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:100",
+        "slides:36",
+        "slides:224",
+        "slides:99",
+        "slides:86",
+        "slides:61",
+        "slides:35",
+        "slides:70"
+      ]
+    },
+    {
+      "claim": "transcript:234",
+      "text": "The EfficientNet family succeeded in defining this Pareto frontier everywhere in the plot.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:100",
+        "slides:97",
+        "slides:99",
+        "slides:98",
+        "slides:36",
+        "slides:77",
+        "slides:58",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:235",
+      "text": "Since EfficientNet, there has not been a revolution in convolutional networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:76",
+        "slides:89",
+        "slides:77",
+        "slides:78",
+        "slides:69",
+        "slides:98",
+        "slides:38",
+        "slides:100"
+      ]
+    },
+    {
+      "claim": "transcript:236",
+      "text": "To a large extent, the field switched from convolutional networks to transformers.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:66",
+        "slides:65",
+        "slides:149",
+        "slides:92",
+        "slides:28",
+        "slides:0",
+        "slides:89",
+        "slides:32"
+      ]
+    },
+    {
+      "claim": "transcript:237",
+      "text": "Transformers will be discussed later in the lecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:3",
+        "slides:0",
+        "slides:2",
+        "slides:30",
+        "slides:60",
+        "slides:149",
+        "slides:66",
+        "slides:1"
+      ]
+    },
+    {
+      "claim": "transcript:238",
+      "text": "In convolutional networks, EfficientNet is still considered the best underlying architecture.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:98",
+        "slides:99",
+        "slides:89",
+        "slides:76",
+        "slides:78",
+        "slides:100",
+        "slides:97",
+        "slides:74"
+      ]
+    },
+    {
+      "claim": "transcript:239",
+      "text": "For some object detection and segmentation pipelines, EfficientNet is used as the backbone.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:98",
+        "slides:99",
+        "slides:100",
+        "slides:78",
+        "slides:77",
+        "slides:97",
+        "slides:89",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "transcript:240",
+      "text": "Batch normalization averages the same feature over spatial dimensions and across mini-batch examples.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:137",
+        "slides:123",
+        "slides:120",
+        "slides:132",
+        "slides:129",
+        "slides:119",
+        "slides:130"
+      ]
+    },
+    {
+      "claim": "transcript:241",
+      "text": "Layer normalization does not average over the mini-batch; it effectively uses a mini-batch size of one.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:120",
+        "slides:137",
+        "slides:125",
+        "slides:134",
+        "slides:147",
+        "slides:123",
+        "slides:133",
+        "slides:124"
+      ]
+    },
+    {
+      "claim": "transcript:242",
+      "text": "In layer normalization, averaging is done over the entire tensor of features.",
+      "entailed": true,
+      "evidence": "slides:148",
+      "top": [
+        "slides:148",
+        "slides:149",
+        "slides:146",
+        "slides:157",
+        "slides:137",
+        "slides:145",
+        "slides:144",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:243",
+      "text": "Layer normalization provides global statistics for the whole layer.",
+      "entailed": true,
+      "evidence": "slides:148",
+      "top": [
+        "slides:148",
+        "slides:157",
+        "slides:149",
+        "slides:146",
+        "slides:144",
+        "slides:137",
+        "slides:145",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:244",
+      "text": "Layer normalization is commonly used in transformers.",
+      "entailed": true,
+      "evidence": "slides:149",
+      "top": [
+        "slides:149",
+        "slides:148",
+        "slides:146",
+        "slides:145",
+        "slides:157",
+        "slides:144",
+        "slides:147",
+        "slides:137"
+      ]
+    },
+    {
+      "claim": "transcript:245",
+      "text": "Transformers are large models that typically cannot use large mini-batches.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:137",
+        "slides:149",
+        "slides:125",
+        "slides:147",
+        "slides:139",
+        "slides:123",
+        "slides:133",
+        "slides:120"
+      ]
+    },
+    {
+      "claim": "transcript:246",
+      "text": "In transformers, normalization is performed within a single training sample.",
+      "entailed": true,
+      "evidence": "slides:148",
+      "top": [
+        "slides:149",
+        "slides:144",
+        "slides:157",
+        "slides:146",
+        "slides:145",
+        "slides:137",
+        "slides:148",
+        "slides:151"
+      ]
+    },
+    {
+      "claim": "transcript:247",
+      "text": "The field of normalization techniques is large, with many papers and results.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:157",
+        "slides:144",
+        "slides:146",
+        "slides:137",
+        "slides:119",
+        "slides:145",
+        "slides:132",
+        "slides:129"
+      ]
+    },
+    {
+      "claim": "transcript:248",
+      "text": "Convolutional networks will reappear in practical sessions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:66",
+        "slides:28",
+        "slides:0",
+        "slides:89",
+        "slides:77",
+        "slides:56",
+        "slides:74",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "transcript:249",
+      "text": "The next topic is recurrent neural networks (RNNs).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:162",
+        "slides:57",
+        "slides:180",
+        "slides:172",
+        "slides:213",
+        "slides:189",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:250",
+      "text": "Until transformers appeared, convolutional networks and recurrent networks were the two main architecture families in deep learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:76",
+        "slides:56",
+        "slides:28",
+        "slides:78",
+        "slides:27",
+        "slides:38",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:251",
+      "text": "Recurrent networks are designed for sequence data.",
+      "entailed": true,
+      "evidence": "slides:164",
+      "top": [
+        "slides:164",
+        "slides:160",
+        "slides:162",
+        "slides:190",
+        "slides:140",
+        "slides:180",
+        "slides:215",
+        "slides:213"
+      ]
+    },
+    {
+      "claim": "transcript:252",
+      "text": "Input data often comes as sequences.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:160",
+        "slides:161",
+        "slides:180",
+        "slides:162",
+        "slides:163",
+        "slides:140",
+        "slides:164",
+        "slides:215"
+      ]
+    },
+    {
+      "claim": "transcript:253",
+      "text": "An image is a two-dimensional structure, not a sequence; CNNs are suited for images.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:28",
+        "slides:26",
+        "slides:33",
+        "slides:27",
+        "slides:76",
+        "slides:56",
+        "slides:77",
+        "slides:78"
+      ]
+    },
+    {
+      "claim": "transcript:254",
+      "text": "Time series data, such as financial time series, are examples of sequences.",
+      "entailed": true,
+      "evidence": "slides:160",
+      "top": [
+        "slides:160",
+        "slides:161",
+        "slides:162",
+        "slides:170",
+        "slides:190",
+        "slides:215",
+        "slides:213",
+        "slides:180"
+      ]
+    },
+    {
+      "claim": "transcript:255",
+      "text": "Sound is a sequence of amplitude values over time.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:160",
+        "slides:170",
+        "slides:190",
+        "slides:64",
+        "slides:215",
+        "slides:164",
+        "slides:213",
+        "slides:203"
+      ]
+    },
+    {
+      "claim": "transcript:256",
+      "text": "In classical machine learning and digital signal processing, raw sound sequences are too long to handle directly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:56",
+        "slides:160",
+        "slides:161",
+        "slides:104",
+        "slides:190",
+        "slides:213",
+        "slides:125",
+        "slides:139"
+      ]
+    },
+    {
+      "claim": "transcript:257",
+      "text": "To process sound, it is cut into short packets (20-30 milliseconds), and feature extraction is applied per packet, resulting in a sequence of feature vectors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:65",
+        "slides:160",
+        "slides:148",
+        "slides:89",
+        "slides:157",
+        "slides:149",
+        "slides:180"
+      ]
+    },
+    {
+      "claim": "transcript:258",
+      "text": "Text is a key example of sequence data.",
+      "entailed": true,
+      "evidence": "slides:160",
+      "top": [
+        "slides:160",
+        "slides:180",
+        "slides:161",
+        "slides:140",
+        "slides:162",
+        "slides:190",
+        "slides:163",
+        "slides:185"
+      ]
+    },
+    {
+      "claim": "transcript:259",
+      "text": "Text is a sequence of tokens, such as words or subwords.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:160",
+        "slides:180",
+        "slides:190",
+        "slides:185",
+        "slides:140",
+        "slides:151",
+        "slides:191",
+        "slides:170"
+      ]
+    },
+    {
+      "claim": "transcript:260",
+      "text": "Text is inherently one-dimensional.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:138",
+        "slides:105",
+        "slides:56",
+        "slides:30",
+        "slides:144",
+        "slides:159",
+        "slides:160",
+        "slides:212"
+      ]
+    },
+    {
+      "claim": "transcript:261",
+      "text": "Sequence-to-single-output problems take a sequence as input and produce a single output, e.g., text classification.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:161",
+        "slides:162",
+        "slides:180",
+        "slides:140",
+        "slides:163",
+        "slides:160",
+        "slides:185",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "transcript:262",
+      "text": "Classifying news articles into topics (sports, politics, science) is an example of sequence-to-single-output.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:160",
+        "slides:180",
+        "slides:26",
+        "slides:140",
+        "slides:161",
+        "slides:190",
+        "slides:162",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:263",
+      "text": "Single-input-to-sequence problems generate a sequence from a single input, e.g., image captioning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:180",
+        "slides:162",
+        "slides:161",
+        "slides:163",
+        "slides:140",
+        "slides:185",
+        "slides:69",
+        "slides:172"
+      ]
+    },
+    {
+      "claim": "transcript:264",
+      "text": "In image captioning, the input is an image and the output is a text sequence that describes the image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:171",
+        "slides:180",
+        "slides:151",
+        "slides:147",
+        "slides:33",
+        "slides:190",
+        "slides:28",
+        "slides:164"
+      ]
+    },
+    {
+      "claim": "transcript:265",
+      "text": "Sequence-to-sequence problems have both input and output as sequences, e.g., machine translation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:161",
+        "slides:180",
+        "slides:162",
+        "slides:163",
+        "slides:185",
+        "slides:160",
+        "slides:140",
+        "slides:164"
+      ]
+    },
+    {
+      "claim": "transcript:266",
+      "text": "Machine translation converts text from one language to another.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:180",
+        "slides:151",
+        "slides:140",
+        "slides:127",
+        "slides:132",
+        "slides:157",
+        "slides:185",
+        "slides:60"
+      ]
+    },
+    {
+      "claim": "transcript:267",
+      "text": "Sequence labeling problems involve input and output sequences of the same length, aligned element-wise.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:161",
+        "slides:180",
+        "slides:162",
+        "slides:163",
+        "slides:160",
+        "slides:140",
+        "slides:190",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "transcript:268",
+      "text": "Part-of-speech tagging is a sequence labeling task where each word in a sentence gets a part-of-speech tag.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:180",
+        "slides:160",
+        "slides:190",
+        "slides:140",
+        "slides:185",
+        "slides:37",
+        "slides:0",
+        "slides:162"
+      ]
+    },
+    {
+      "claim": "transcript:269",
+      "text": "Video is a sequence of frames (images).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:160",
+        "slides:180",
+        "slides:0",
+        "slides:33",
+        "slides:65",
+        "slides:77",
+        "slides:147",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:270",
+      "text": "Adding subtitles to a movie is a sequence-based task.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:180",
+        "slides:160",
+        "slides:18",
+        "slides:20",
+        "slides:162",
+        "slides:140",
+        "slides:161",
+        "slides:164"
+      ]
+    },
+    {
+      "claim": "transcript:271",
+      "text": "In object tracking, you have a video and you are supposed to follow an object inside the video.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:176",
+        "slides:33",
+        "slides:19",
+        "slides:31",
+        "slides:0",
+        "slides:188",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:272",
+      "text": "Object tracking involves segmentation on a sequence of images to track the same object as it moves.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:27",
+        "slides:180",
+        "slides:33",
+        "slides:28",
+        "slides:48",
+        "slides:151",
+        "slides:0",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "transcript:273",
+      "text": "Convolutional networks are not well suited for dealing with sequences.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:56",
+        "slides:161",
+        "slides:76",
+        "slides:187",
+        "slides:172",
+        "slides:38",
+        "slides:89"
+      ]
+    },
+    {
+      "claim": "transcript:274",
+      "text": "A sliding window can be used along an input sequence to process parts of the sequence.",
+      "entailed": true,
+      "evidence": "slides:162",
+      "top": [
+        "slides:162",
+        "slides:180",
+        "slides:163",
+        "slides:160",
+        "slides:161",
+        "slides:214",
+        "slides:215",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:275",
+      "text": "There was a time when convolutional approaches were rivals to recurrent approaches in natural language processing.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:67",
+        "slides:66",
+        "slides:38",
+        "slides:76",
+        "slides:180",
+        "slides:140",
+        "slides:189"
+      ]
+    },
+    {
+      "claim": "transcript:276",
+      "text": "Transformers changed the landscape of natural language processing.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:138",
+        "slides:180",
+        "slides:60",
+        "slides:149",
+        "slides:151",
+        "slides:185",
+        "slides:137",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:277",
+      "text": "The most important thing for sequence processing is to have a way to recall inputs from long ago.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:180",
+        "slides:160",
+        "slides:140",
+        "slides:163",
+        "slides:161",
+        "slides:164",
+        "slides:162",
+        "slides:189"
+      ]
+    },
+    {
+      "claim": "transcript:278",
+      "text": "Understanding a whole sentence requires recalling what happened at the beginning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:180",
+        "slides:20",
+        "slides:164",
+        "slides:160",
+        "slides:13",
+        "slides:18",
+        "slides:190",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "transcript:279",
+      "text": "Recurrent neural networks (RNNs) process sequences by updating a hidden state.",
+      "entailed": true,
+      "evidence": "slides:164",
+      "top": [
+        "slides:164",
+        "slides:163",
+        "slides:172",
+        "slides:162",
+        "slides:187",
+        "slides:181",
+        "slides:169",
+        "slides:220"
+      ]
+    },
+    {
+      "claim": "transcript:280",
+      "text": "An RNN has inputs x1, x2, ..., xt.",
+      "entailed": true,
+      "evidence": "slides:166",
+      "top": [
+        "slides:166",
+        "slides:185",
+        "slides:172",
+        "slides:169",
+        "slides:164",
+        "slides:226",
+        "slides:181",
+        "slides:179"
+      ]
+    },
+    {
+      "claim": "transcript:281",
+      "text": "Each input in the sequence is processed separately by a recurrent unit.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:215",
+        "slides:180",
+        "slides:164",
+        "slides:140",
+        "slides:162",
+        "slides:160",
+        "slides:163",
+        "slides:170"
+      ]
+    },
+    {
+      "claim": "transcript:282",
+      "text": "A recurrent unit takes two inputs: the current input x and a hidden state h.",
+      "entailed": true,
+      "evidence": "slides:219",
+      "top": [
+        "slides:220",
+        "slides:215",
+        "slides:191",
+        "slides:219",
+        "slides:164",
+        "slides:198",
+        "slides:170",
+        "slides:171"
+      ]
+    },
+    {
+      "claim": "transcript:283",
+      "text": "A recurrent unit outputs an updated hidden state h' and optionally an output.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:220",
+        "slides:171",
+        "slides:219",
+        "slides:198",
+        "slides:191",
+        "slides:163",
+        "slides:215",
+        "slides:164"
+      ]
+    },
+    {
+      "claim": "transcript:284",
+      "text": "The hidden state h is assumed to capture the previous part of the sequence (before x).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:219",
+        "slides:198",
+        "slides:220",
+        "slides:171",
+        "slides:191",
+        "slides:163",
+        "slides:165",
+        "slides:193"
+      ]
+    },
+    {
+      "claim": "transcript:285",
+      "text": "A recurrent unit is a function f(x, h) that outputs h'.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:170",
+        "slides:171",
+        "slides:215",
+        "slides:50",
+        "slides:190",
+        "slides:164",
+        "slides:191",
+        "slides:211"
+      ]
+    },
+    {
+      "claim": "transcript:286",
+      "text": "In an RNN, the hidden state is a vector of numbers that goes along the network and is updated with each new input.",
+      "entailed": true,
+      "evidence": "slides:164",
+      "top": [
+        "slides:164",
+        "slides:179",
+        "slides:181",
+        "slides:191",
+        "slides:172",
+        "slides:220",
+        "slides:169",
+        "slides:199"
+      ]
+    },
+    {
+      "claim": "transcript:287",
+      "text": "In an RNN, the hidden state combines all relevant information from the sequence so far.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:163",
+        "slides:179",
+        "slides:191",
+        "slides:172",
+        "slides:181",
+        "slides:185",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "transcript:288",
+      "text": "The hidden state is initialized with some H0.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:220",
+        "slides:198",
+        "slides:219",
+        "slides:191",
+        "slides:163",
+        "slides:221",
+        "slides:165",
+        "slides:192"
+      ]
+    },
+    {
+      "claim": "transcript:289",
+      "text": "The recurrent network produces outputs H1, H2, ..., Ht, Ht+1, ...",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:171",
+        "slides:191",
+        "slides:164",
+        "slides:170",
+        "slides:184",
+        "slides:215",
+        "slides:211",
+        "slides:166"
+      ]
+    },
+    {
+      "claim": "transcript:290",
+      "text": "A standard recurrent network uses shared weights across all recurrent cells.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:140",
+        "slides:199",
+        "slides:139",
+        "slides:187",
+        "slides:190",
+        "slides:172",
+        "slides:215"
+      ]
+    },
+    {
+      "claim": "transcript:291",
+      "text": "In classical recurrent networks, a recurrent cell performs linear transformations: x multiplied by matrix A, h multiplied by matrix B, then the results are added and passed through an activation function G.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:199",
+        "slides:211",
+        "slides:191",
+        "slides:170",
+        "slides:173",
+        "slides:189",
+        "slides:190"
+      ]
+    },
+    {
+      "claim": "transcript:292",
+      "text": "The update formula for a classical recurrent cell is h' = G(A * x + B * h), where G is an activation function such as hyperbolic tangent or ELU, and A and B are weight matrices.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:197",
+        "slides:193",
+        "slides:215",
+        "slides:170",
+        "slides:200",
+        "slides:192",
+        "slides:199",
+        "slides:165"
+      ]
+    },
+    {
+      "claim": "transcript:293",
+      "text": "Recurrent networks have been around since the second half of the 1980s.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:189",
+        "slides:164",
+        "slides:202",
+        "slides:215",
+        "slides:160",
+        "slides:203",
+        "slides:213",
+        "slides:190"
+      ]
+    },
+    {
+      "claim": "transcript:294",
+      "text": "Training recurrent networks was difficult due to limited compute at the time.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:187",
+        "slides:172",
+        "slides:164",
+        "slides:56",
+        "slides:139",
+        "slides:104",
+        "slides:189",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "transcript:295",
+      "text": "A unidirectional RNN processes input in only one direction, for example left to right.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:172",
+        "slides:185",
+        "slides:181",
+        "slides:166",
+        "slides:168",
+        "slides:226",
+        "slides:164",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "transcript:296",
+      "text": "For classification based on the last hidden state, reading left to right or right to left is acceptable.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:191",
+        "slides:180",
+        "slides:163",
+        "slides:219",
+        "slides:205",
+        "slides:167",
+        "slides:213",
+        "slides:157"
+      ]
+    },
+    {
+      "claim": "transcript:297",
+      "text": "For sequence labeling tasks such as part-of-speech tagging, a unidirectional RNN only allows looking at previous words, which is problematic.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:185",
+        "slides:164",
+        "slides:168",
+        "slides:187",
+        "slides:172",
+        "slides:139",
+        "slides:179",
+        "slides:189"
+      ]
+    },
+    {
+      "claim": "transcript:298",
+      "text": "Bidirectional RNNs have two RNNs: one left-to-right and one right-to-left.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:185",
+        "slides:181",
+        "slides:172",
+        "slides:179",
+        "slides:226",
+        "slides:168",
+        "slides:187",
+        "slides:164"
+      ]
+    },
+    {
+      "claim": "transcript:299",
+      "text": "In a bidirectional RNN, at time t, the left-to-right part captures left context and the right-to-left part captures right context.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:185",
+        "slides:181",
+        "slides:180",
+        "slides:164",
+        "slides:172",
+        "slides:179",
+        "slides:226",
+        "slides:169"
+      ]
+    },
+    {
+      "claim": "transcript:300",
+      "text": "In a bidirectional RNN, a classification head can merge the results from both directions to output yt, accounting for both left and right context.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:185",
+        "slides:181",
+        "slides:226",
+        "slides:172",
+        "slides:180",
+        "slides:164",
+        "slides:169",
+        "slides:179"
+      ]
+    },
+    {
+      "claim": "transcript:301",
+      "text": "Bidirectional RNNs should be used unless the problem prohibits it, such as in language modeling where only left context is available.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:185",
+        "slides:172",
+        "slides:181",
+        "slides:168",
+        "slides:226",
+        "slides:187",
+        "slides:164",
+        "slides:189"
+      ]
+    },
+    {
+      "claim": "transcript:302",
+      "text": "In language modeling, predicting the next word is based only on the left context.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:180",
+        "slides:190",
+        "slides:164",
+        "slides:27",
+        "slides:191",
+        "slides:213",
+        "slides:205",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "transcript:303",
+      "text": "In real-time object tracking, the video stream does not allow access to future frames far ahead, so one-sided networks are needed.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:89",
+        "slides:33",
+        "slides:78",
+        "slides:77",
+        "slides:56",
+        "slides:76",
+        "slides:74",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "transcript:304",
+      "text": "In many sequence-to-sequence problems, the whole input can be read before making a decision, so bidirectional RNNs are applicable.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:185",
+        "slides:164",
+        "slides:172",
+        "slides:162",
+        "slides:226",
+        "slides:181",
+        "slides:169",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "transcript:305",
+      "text": "In a unidirectional RNN with shared weights, the same weight matrix W participates in every recurrent cell.",
+      "entailed": true,
+      "evidence": "slides:173",
+      "top": [
+        "slides:173",
+        "slides:164",
+        "slides:168",
+        "slides:172",
+        "slides:181",
+        "slides:187",
+        "slides:226",
+        "slides:179"
+      ]
+    },
+    {
+      "claim": "transcript:306",
+      "text": "Training separate matrices for each time step is infeasible.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:136",
+        "slides:112",
+        "slides:119",
+        "slides:104",
+        "slides:56",
+        "slides:167",
+        "slides:172",
+        "slides:140"
+      ]
+    },
+    {
+      "claim": "transcript:307",
+      "text": "In a unidirectional RNN for sequence classification, the whole sequence is read and then classified using a head and a loss function.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:185",
+        "slides:172",
+        "slides:179",
+        "slides:190",
+        "slides:226",
+        "slides:187",
+        "slides:162"
+      ]
+    },
+    {
+      "claim": "transcript:308",
+      "text": "The loss function compares the predicted answer with the correct answer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:53",
+        "slides:171",
+        "slides:116",
+        "slides:103",
+        "slides:184",
+        "slides:195",
+        "slides:205",
+        "slides:110"
+      ]
+    },
+    {
+      "claim": "transcript:309",
+      "text": "In an RNN, the output can be produced at every cell, or only from the last hidden state using a head, depending on the problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:166",
+        "slides:179",
+        "slides:205",
+        "slides:172",
+        "slides:191",
+        "slides:199",
+        "slides:181"
+      ]
+    },
+    {
+      "claim": "transcript:310",
+      "text": "The described recurrent neural network method can process arbitrary sequences of arbitrary length.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:162",
+        "slides:164",
+        "slides:190",
+        "slides:215",
+        "slides:189",
+        "slides:160",
+        "slides:140",
+        "slides:172"
+      ]
+    },
+    {
+      "claim": "transcript:311",
+      "text": "The same weight matrix W is used for all time steps in this method.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:142",
+        "slides:155",
+        "slides:154",
+        "slides:153",
+        "slides:143",
+        "slides:207",
+        "slides:93",
+        "slides:145"
+      ]
+    },
+    {
+      "claim": "transcript:312",
+      "text": "Using the same weight matrix W across all time steps leads to problems with gradient flow.",
+      "entailed": true,
+      "evidence": "slides:186",
+      "top": [
+        "slides:186",
+        "slides:155",
+        "slides:175",
+        "slides:143",
+        "slides:134",
+        "slides:173",
+        "slides:49",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "transcript:313",
+      "text": "Gradients of the loss function flow backward through the network along the sequence during training.",
+      "entailed": true,
+      "evidence": "slides:167",
+      "top": [
+        "slides:173",
+        "slides:116",
+        "slides:172",
+        "slides:155",
+        "slides:49",
+        "slides:136",
+        "slides:167",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "transcript:314",
+      "text": "The gradient of the loss with respect to a specific weight w is a sum of contributions from each time step because the same weight is used repeatedly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:155",
+        "slides:173",
+        "slides:110",
+        "slides:142",
+        "slides:143",
+        "slides:116",
+        "slides:186",
+        "slides:54"
+      ]
+    },
+    {
+      "claim": "transcript:315",
+      "text": "The repeated use of the same weight matrix W is similar to weight sharing in convolutional networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:32",
+        "slides:143",
+        "slides:142",
+        "slides:155",
+        "slides:153",
+        "slides:66",
+        "slides:154"
+      ]
+    },
+    {
+      "claim": "transcript:316",
+      "text": "In convolutional networks, the same weight is used across different spatial locations, enabling parallel processing across the whole image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "slides:36",
+        "slides:67",
+        "slides:89",
+        "slides:28",
+        "slides:66",
+        "slides:31",
+        "slides:143"
+      ]
+    },
+    {
+      "claim": "transcript:317",
+      "text": "Weight sharing allows sparse activations and sparse gradients, but the gradients accumulate over the shared weights, so it is not a problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:36",
+        "slides:155",
+        "slides:143",
+        "slides:153",
+        "slides:93",
+        "slides:32",
+        "slides:154",
+        "slides:176"
+      ]
+    },
+    {
+      "claim": "transcript:318",
+      "text": "In recurrent networks, every weight is very important because of the accumulation effect of repeated use.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:187",
+        "slides:56",
+        "slides:155",
+        "slides:36",
+        "slides:215",
+        "slides:140",
+        "slides:213"
+      ]
+    },
+    {
+      "claim": "transcript:319",
+      "text": "In a simplified recurrent network model without activation functions or inputs, each hidden state H_t is obtained by multiplying the previous hidden state H_{t-1} by the weight matrix W.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:220",
+        "slides:191",
+        "slides:219",
+        "slides:198",
+        "slides:199",
+        "slides:169",
+        "slides:211"
+      ]
+    },
+    {
+      "claim": "transcript:320",
+      "text": "In the simplified model, H1 equals W times H0.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:171",
+        "slides:184",
+        "slides:196",
+        "slides:193",
+        "slides:219",
+        "slides:194",
+        "slides:210",
+        "slides:195"
+      ]
+    },
+    {
+      "claim": "transcript:321",
+      "text": "In the simplified model, H2 equals W times H1, which equals W squared times H0.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:171",
+        "slides:184",
+        "slides:196",
+        "slides:194",
+        "slides:210",
+        "slides:219",
+        "slides:193",
+        "slides:195"
+      ]
+    },
+    {
+      "claim": "transcript:322",
+      "text": "In the simplified model, H_T equals W to the power T times H0.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:184",
+        "slides:196",
+        "slides:210",
+        "slides:194",
+        "slides:195",
+        "slides:171",
+        "slides:218",
+        "slides:219"
+      ]
+    },
+    {
+      "claim": "transcript:323",
+      "text": "Matrices have a property called the spectral radius.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:173",
+        "slides:124",
+        "slides:174",
+        "slides:114",
+        "slides:143",
+        "slides:147",
+        "slides:146",
+        "slides:207"
+      ]
+    },
+    {
+      "claim": "transcript:324",
+      "text": "The spectral radius indicates how the matrix scales the length of a vector when multiplied.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:173",
+        "slides:142",
+        "slides:143",
+        "slides:146",
+        "slides:68",
+        "slides:155",
+        "slides:51",
+        "slides:176"
+      ]
+    },
+    {
+      "claim": "transcript:325",
+      "text": "The norm of h_t is approximately the spectral radius of W times the norm of h_{t-1}.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:194",
+        "slides:196",
+        "slides:195",
+        "slides:142",
+        "slides:210",
+        "slides:173",
+        "slides:184",
+        "slides:218"
+      ]
+    },
+    {
+      "claim": "transcript:326",
+      "text": "After t applications, the norm of h_t is approximately (spectral radius)^t times the norm of h_0.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:173",
+        "slides:142",
+        "slides:195",
+        "slides:184",
+        "slides:194",
+        "slides:196",
+        "slides:210",
+        "slides:198"
+      ]
+    },
+    {
+      "claim": "transcript:327",
+      "text": "If the spectral radius of W is greater than 1, the activations explode.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "slides:173",
+        "slides:186",
+        "slides:175",
+        "slides:174",
+        "slides:194",
+        "slides:195",
+        "slides:196"
+      ]
+    },
+    {
+      "claim": "transcript:328",
+      "text": "Even a spectral radius slightly above 1 (e.g., 1.1 or 1.05) causes exponential growth over long sequences.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:174",
+        "slides:173",
+        "slides:160",
+        "slides:161",
+        "slides:100",
+        "slides:165",
+        "slides:187",
+        "slides:179"
+      ]
+    },
+    {
+      "claim": "transcript:329",
+      "text": "Exploding activations can cause numerical overflows.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:175",
+        "slides:44",
+        "slides:39",
+        "slides:104",
+        "slides:124",
+        "slides:82",
+        "slides:168",
+        "slides:125"
+      ]
+    },
+    {
+      "claim": "transcript:330",
+      "text": "Huge activations do not reflect meaningful computations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:139",
+        "slides:221",
+        "slides:187",
+        "slides:104",
+        "slides:124",
+        "slides:56",
+        "slides:82",
+        "slides:211"
+      ]
+    },
+    {
+      "claim": "transcript:331",
+      "text": "The same issue occurs in the backward pass because gradients involve multiplications by W (or its transpose).",
+      "entailed": true,
+      "evidence": "slides:186",
+      "top": [
+        "slides:186",
+        "slides:173",
+        "slides:134",
+        "slides:175",
+        "slides:110",
+        "slides:174",
+        "slides:155",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:332",
+      "text": "There are two types of gradient problems: exploding gradients and vanishing gradients.",
+      "entailed": true,
+      "evidence": "slides:172",
+      "top": [
+        "slides:175",
+        "slides:174",
+        "slides:186",
+        "slides:172",
+        "slides:49",
+        "slides:116",
+        "slides:187",
+        "slides:176"
+      ]
+    },
+    {
+      "claim": "transcript:333",
+      "text": "Exploding gradients occur when the spectral radius is greater than 1, causing gradients to grow to infinity.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:175",
+        "slides:174",
+        "slides:173",
+        "slides:134",
+        "slides:186",
+        "slides:176",
+        "slides:172",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:334",
+      "text": "Vanishing gradients occur when the spectral radius is less than 1, causing gradients to shrink to zero.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:186",
+        "slides:55",
+        "slides:175",
+        "slides:134",
+        "slides:176",
+        "slides:174",
+        "slides:49",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "transcript:335",
+      "text": "In the case of vanishing gradients, gradients for early sequence elements exponentially decay to zero.",
+      "entailed": true,
+      "evidence": "slides:173",
+      "top": [
+        "slides:186",
+        "slides:174",
+        "slides:187",
+        "slides:175",
+        "slides:172",
+        "slides:173",
+        "slides:49",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:336",
+      "text": "Vanishing gradients prevent the network from learning long-term dependencies, effectively limiting long-term memory.",
+      "entailed": true,
+      "evidence": "slides:187",
+      "top": [
+        "slides:187",
+        "slides:186",
+        "slides:172",
+        "slides:49",
+        "slides:56",
+        "slides:104",
+        "slides:48",
+        "slides:105"
+      ]
+    },
+    {
+      "claim": "transcript:337",
+      "text": "The influence of earlier parts of the sequence vanishes quickly due to vanishing gradients.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:186",
+        "slides:187",
+        "slides:55",
+        "slides:134",
+        "slides:172",
+        "slides:175",
+        "slides:174",
+        "slides:49"
+      ]
+    },
+    {
+      "claim": "transcript:338",
+      "text": "Exploding gradients cause the training to break (e.g., numerical issues).",
+      "entailed": true,
+      "evidence": "slides:112",
+      "top": [
+        "slides:175",
+        "slides:174",
+        "slides:172",
+        "slides:104",
+        "slides:187",
+        "slides:112",
+        "slides:186",
+        "slides:105"
+      ]
+    },
+    {
+      "claim": "transcript:339",
+      "text": "Vanishing gradients do not cause numerical failure but prevent effective learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:49",
+        "slides:186",
+        "slides:187",
+        "slides:172",
+        "slides:175",
+        "slides:116",
+        "slides:56",
+        "slides:55"
+      ]
+    },
+    {
+      "claim": "transcript:340",
+      "text": "The solution to exploding gradients is gradient clipping.",
+      "entailed": true,
+      "evidence": "slides:175",
+      "top": [
+        "slides:175",
+        "slides:174",
+        "slides:176",
+        "slides:172",
+        "slides:178",
+        "slides:186",
+        "slides:187",
+        "slides:134"
+      ]
+    },
+    {
+      "claim": "transcript:341",
+      "text": "Gradient clipping involves capping the norm of the gradient vector (e.g., projecting back to a unit sphere if it exceeds a threshold).",
+      "entailed": true,
+      "evidence": "slides:177",
+      "top": [
+        "slides:176",
+        "slides:178",
+        "slides:177",
+        "slides:175",
+        "slides:134",
+        "slides:143",
+        "slides:174",
+        "slides:186"
+      ]
+    },
+    {
+      "claim": "transcript:342",
+      "text": "Gradient clipping is applied repeatedly during training whenever the gradient norm becomes too large.",
+      "entailed": true,
+      "evidence": "slides:177",
+      "top": [
+        "slides:176",
+        "slides:177",
+        "slides:175",
+        "slides:178",
+        "slides:134",
+        "slides:174",
+        "slides:173",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:343",
+      "text": "Gradient clipping is a simple approach; it does not require constraining the spectral radius to exactly 1.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:176",
+        "slides:178",
+        "slides:177",
+        "slides:175",
+        "slides:174",
+        "slides:114",
+        "slides:80",
+        "slides:136"
+      ]
+    },
+    {
+      "claim": "transcript:344",
+      "text": "Both Keras and PyTorch support gradient clipping.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:177",
+        "slides:176",
+        "slides:178",
+        "slides:175",
+        "slides:67",
+        "slides:34",
+        "slides:41",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "transcript:345",
+      "text": "There is a paper from 2013 by Pascanu that studied the behavior of recurrent networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:213",
+        "slides:164",
+        "slides:170",
+        "slides:190",
+        "slides:160",
+        "slides:172",
+        "slides:215",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "transcript:346",
+      "text": "The Pascanu paper contains interesting points about the training dynamics of recurrent networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:164",
+        "slides:172",
+        "slides:213",
+        "slides:187",
+        "slides:170",
+        "slides:140",
+        "slides:190",
+        "slides:173"
+      ]
+    },
+    {
+      "claim": "transcript:347",
+      "text": "The paper is recommended for reading.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:10",
+        "slides:30",
+        "slides:13",
+        "slides:1",
+        "slides:2",
+        "slides:3",
+        "slides:0",
+        "slides:144"
+      ]
+    },
+    {
+      "claim": "transcript:348",
+      "text": "The paper is not about new architectures or improving performance, but about understanding the space of activations and weights during training.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:0",
+        "slides:36",
+        "slides:143",
+        "slides:153",
+        "slides:98",
+        "slides:155",
+        "slides:104",
+        "slides:135"
+      ]
+    },
+    {
+      "claim": "transcript:349",
+      "text": "An exploding gradient corresponds to a loss surface that has a region of normal gradients and then a steep wall where the loss increases extremely rapidly, causing huge gradients.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:175",
+        "slides:174",
+        "slides:172",
+        "slides:179",
+        "slides:173",
+        "slides:134",
+        "slides:186",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "transcript:350",
+      "text": "Without gradient clipping, optimization would fly away to poor regions after hitting the steep wall.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:176",
+        "slides:178",
+        "slides:175",
+        "slides:177",
+        "slides:49",
+        "slides:116",
+        "slides:34",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:351",
+      "text": "With gradient clipping, after hitting the steep wall, the update direction is projected back to a normal regime, and optimization continues in approximately the desired direction.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:176",
+        "slides:175",
+        "slides:110",
+        "slides:178",
+        "slides:177",
+        "slides:134",
+        "slides:116",
+        "slides:155"
+      ]
+    },
+    {
+      "claim": "transcript:352",
+      "text": "Clipping gradients is an acceptable transformation that does not harm the optimization direction.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:176",
+        "slides:178",
+        "slides:175",
+        "slides:177",
+        "slides:131",
+        "slides:116",
+        "slides:186",
+        "slides:136"
+      ]
+    },
+    {
+      "claim": "transcript:353",
+      "text": "In recurrent neural networks, both activations and gradients can blow up or vanish.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:187",
+        "slides:172",
+        "slides:164",
+        "slides:186",
+        "slides:49",
+        "slides:173",
+        "slides:56",
+        "slides:104"
+      ]
+    },
+    {
+      "claim": "transcript:354",
+      "text": "It is difficult to make the spectral radius exactly 1.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:150",
+        "slides:174",
+        "slides:173",
+        "slides:207",
+        "slides:84",
+        "slides:124",
+        "slides:64",
+        "slides:134"
+      ]
+    },
+    {
+      "claim": "transcript:355",
+      "text": "Solving the exploding gradients problem is easy (via clipping).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:175",
+        "slides:174",
+        "slides:178",
+        "slides:176",
+        "slides:172",
+        "slides:177",
+        "slides:186",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "transcript:356",
+      "text": "Solving the vanishing gradients problem is more difficult and will be discussed later.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:186",
+        "slides:175",
+        "slides:49",
+        "slides:174",
+        "slides:172",
+        "slides:55",
+        "slides:187",
+        "slides:116"
+      ]
+    },
+    {
+      "claim": "transcript:357",
+      "text": "The next lecture day is tomorrow.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:3",
+        "slides:2",
+        "slides:30",
+        "slides:0",
+        "slides:1",
+        "slides:144",
+        "slides:110",
+        "slides:112"
+      ]
+    },
+    {
+      "claim": "transcript:358",
+      "text": "Practical sessions with Alex are on Thursday.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:67",
+        "slides:87",
+        "slides:30",
+        "slides:11",
+        "slides:1",
+        "slides:3",
+        "slides:2",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "transcript:359",
+      "text": "There will be a midterm presentation on Friday.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:3",
+        "slides:30",
+        "slides:2",
+        "slides:1",
+        "slides:0",
+        "slides:203",
+        "slides:202",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "transcript:360",
+      "text": "The instructor sent Alex a list of papers yesterday evening.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:1",
+        "slides:2",
+        "slides:67",
+        "slides:3",
+        "slides:0",
+        "slides:10",
+        "slides:30",
+        "slides:144"
+      ]
+    },
+    {
+      "claim": "transcript:361",
+      "text": "The list of papers should be made available today.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:3",
+        "slides:1",
+        "slides:30",
+        "slides:10",
+        "slides:2",
+        "slides:0",
+        "slides:29",
+        "slides:202"
+      ]
+    },
+    {
+      "claim": "transcript:362",
+      "text": "On Friday, students will present.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:3",
+        "slides:30",
+        "slides:2",
+        "slides:0",
+        "slides:225",
+        "slides:1",
+        "slides:11",
+        "slides:224"
+      ]
+    },
+    {
+      "claim": "transcript:363",
+      "text": "Tomorrow there are two lectures.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:3",
+        "slides:2",
+        "slides:30",
+        "slides:1",
+        "slides:0",
+        "slides:144",
+        "slides:112",
+        "slides:180"
+      ]
+    }
+  ]
+}

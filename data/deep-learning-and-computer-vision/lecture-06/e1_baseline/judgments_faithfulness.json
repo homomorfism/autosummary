@@ -1,0 +1,2655 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "summary:0",
+      "text": "Any recurrent neural network (RNN) is effectively a very deep network.",
+      "entailed": true,
+      "evidence": "transcript:21",
+      "top": [
+        "transcript:21",
+        "transcript:17",
+        "transcript:25",
+        "transcript:24",
+        "transcript:173",
+        "slides:48",
+        "transcript:132",
+        "transcript:23"
+      ]
+    },
+    {
+      "claim": "summary:1",
+      "text": "The depth of an RNN equals the input sequence length.",
+      "entailed": true,
+      "evidence": "transcript:25",
+      "top": [
+        "transcript:577",
+        "slides:84",
+        "transcript:25",
+        "slides:106",
+        "slides:94",
+        "transcript:22",
+        "transcript:443",
+        "transcript:17"
+      ]
+    },
+    {
+      "claim": "summary:2",
+      "text": "As activations and gradients propagate through time in an RNN, we repeatedly multiply by the same weight matrix W.",
+      "entailed": true,
+      "evidence": "transcript:26",
+      "top": [
+        "slides:12",
+        "transcript:27",
+        "slides:15",
+        "slides:13",
+        "slides:49",
+        "transcript:26",
+        "slides:84",
+        "transcript:208"
+      ]
+    },
+    {
+      "claim": "summary:3",
+      "text": "If the spectral radius of W is less than 1, the gradients shrink exponentially (vanishing gradients).",
+      "entailed": true,
+      "evidence": "transcript:30",
+      "top": [
+        "transcript:30",
+        "transcript:41",
+        "transcript:37",
+        "transcript:35",
+        "transcript:29",
+        "transcript:31",
+        "transcript:40",
+        "transcript:196"
+      ]
+    },
+    {
+      "claim": "summary:4",
+      "text": "If the spectral radius of W is greater than 1, the gradients explode.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:30",
+        "transcript:41",
+        "transcript:37",
+        "transcript:196",
+        "transcript:40",
+        "transcript:35",
+        "transcript:33",
+        "transcript:34"
+      ]
+    },
+    {
+      "claim": "summary:5",
+      "text": "Exploding gradients cause numerical overflows and obvious failure.",
+      "entailed": true,
+      "evidence": "transcript:34",
+      "top": [
+        "transcript:34",
+        "transcript:199",
+        "transcript:33",
+        "transcript:196",
+        "transcript:31",
+        "transcript:198",
+        "transcript:26",
+        "transcript:134"
+      ]
+    },
+    {
+      "claim": "summary:6",
+      "text": "Vanishing gradients are far more dangerous than exploding gradients.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:196",
+        "transcript:29",
+        "transcript:31",
+        "transcript:33",
+        "transcript:34",
+        "transcript:44",
+        "transcript:41",
+        "transcript:32"
+      ]
+    },
+    {
+      "claim": "summary:7",
+      "text": "With vanishing gradients, the loss still decreases.",
+      "entailed": true,
+      "evidence": "transcript:37",
+      "top": [
+        "transcript:29",
+        "transcript:31",
+        "transcript:41",
+        "transcript:32",
+        "transcript:44",
+        "transcript:196",
+        "transcript:37",
+        "transcript:198"
+      ]
+    },
+    {
+      "claim": "summary:8",
+      "text": "Gradients with respect to W do not vanish because W participates in the most recent steps.",
+      "entailed": true,
+      "evidence": "transcript:37",
+      "top": [
+        "transcript:41",
+        "transcript:37",
+        "transcript:35",
+        "slides:12",
+        "transcript:40",
+        "transcript:30",
+        "transcript:29",
+        "transcript:26"
+      ]
+    },
+    {
+      "claim": "summary:9",
+      "text": "The network still trains, yet it makes its decisions based only on the last few elements of the sequence.",
+      "entailed": true,
+      "evidence": "transcript:42",
+      "top": [
+        "transcript:42",
+        "transcript:36",
+        "transcript:43",
+        "transcript:351",
+        "transcript:353",
+        "transcript:19",
+        "transcript:337",
+        "transcript:175"
+      ]
+    },
+    {
+      "claim": "summary:10",
+      "text": "The network loses the ability to have long-term memory.",
+      "entailed": true,
+      "evidence": "transcript:43",
+      "top": [
+        "transcript:43",
+        "transcript:44",
+        "transcript:112",
+        "slides:13",
+        "transcript:12",
+        "transcript:244",
+        "transcript:65",
+        "transcript:353"
+      ]
+    },
+    {
+      "claim": "summary:11",
+      "text": "To give the gradient a shortcut past the repeated multiplications, we introduce a constant error carousel.",
+      "entailed": true,
+      "evidence": "slides:14",
+      "top": [
+        "slides:14",
+        "transcript:198",
+        "transcript:51",
+        "transcript:199",
+        "transcript:196",
+        "transcript:34",
+        "transcript:31",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "summary:12",
+      "text": "The constant error carousel is exactly the same idea as residual connections in ResNet.",
+      "entailed": true,
+      "evidence": "slides:14",
+      "top": [
+        "slides:108",
+        "slides:14",
+        "transcript:46",
+        "slides:27",
+        "transcript:573",
+        "transcript:466",
+        "transcript:47",
+        "slides:40"
+      ]
+    },
+    {
+      "claim": "summary:13",
+      "text": "This was pioneered in the 1990s (Hochreiter & Schmidhuber, 1995/1997; Gers & Schmidhuber, 2000).",
+      "entailed": true,
+      "evidence": "transcript:48",
+      "top": [
+        "transcript:48",
+        "slides:28",
+        "transcript:130",
+        "slides:29",
+        "slides:15",
+        "transcript:200",
+        "transcript:464",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "summary:14",
+      "text": "This gave rise to the most important recurrent unit.",
+      "entailed": true,
+      "evidence": "transcript:132",
+      "top": [
+        "slides:39",
+        "transcript:157",
+        "transcript:54",
+        "transcript:277",
+        "transcript:132",
+        "transcript:195",
+        "transcript:279",
+        "transcript:191"
+      ]
+    },
+    {
+      "claim": "summary:15",
+      "text": "An LSTM maintains two separate vectors: the cell state c_t (the “highway” for long-term memory) and the hidden state h_t (the normal working memory).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:124",
+        "slides:17",
+        "slides:25",
+        "transcript:123",
+        "slides:16",
+        "transcript:55",
+        "transcript:112",
+        "transcript:56"
+      ]
+    },
+    {
+      "claim": "summary:16",
+      "text": "The whole LSTM cell is organized around gates.",
+      "entailed": true,
+      "evidence": "transcript:76",
+      "top": [
+        "transcript:76",
+        "transcript:150",
+        "transcript:123",
+        "transcript:57",
+        "transcript:151",
+        "slides:25",
+        "transcript:112",
+        "slides:30"
+      ]
+    },
+    {
+      "claim": "summary:17",
+      "text": "Gates are tiny linear classifiers that output a vector of values in (0,1) via a sigmoid and act as a control signal, deciding what to erase, write, or read.",
+      "entailed": true,
+      "evidence": "transcript:83",
+      "top": [
+        "transcript:108",
+        "transcript:78",
+        "transcript:120",
+        "transcript:83",
+        "transcript:77",
+        "transcript:101",
+        "transcript:94",
+        "transcript:76"
+      ]
+    },
+    {
+      "claim": "summary:18",
+      "text": "The candidate cell state is computed as c'_t = \\tanh(W_{xc}x_t + W_{hc}h_{t-1} + b_{c'}).",
+      "entailed": true,
+      "evidence": "slides:19",
+      "top": [
+        "transcript:100",
+        "slides:19",
+        "slides:23",
+        "transcript:117",
+        "transcript:98",
+        "transcript:109",
+        "transcript:99",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "summary:19",
+      "text": "The input gate is computed as i_t = \\sigma(W_{xi}x_t + W_{hi}h_{t-1} + b_i).",
+      "entailed": true,
+      "evidence": "slides:20",
+      "top": [
+        "slides:20",
+        "slides:22",
+        "transcript:111",
+        "slides:21",
+        "slides:41",
+        "transcript:122",
+        "slides:33",
+        "transcript:82"
+      ]
+    },
+    {
+      "claim": "summary:20",
+      "text": "The forget gate is computed as f_t = \\sigma(W_{xf}x_t + W_{hf}h_{t-1} + b_f).",
+      "entailed": true,
+      "evidence": "slides:21",
+      "top": [
+        "slides:21",
+        "transcript:82",
+        "transcript:83",
+        "slides:34",
+        "slides:22",
+        "slides:26",
+        "slides:20",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "summary:21",
+      "text": "The output gate is computed as o_t = \\sigma(W_{xo}x_t + W_{ho}h_{t-1} + b_o).",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:22",
+        "slides:20",
+        "transcript:122",
+        "slides:21",
+        "transcript:111",
+        "slides:41",
+        "slides:35",
+        "transcript:120"
+      ]
+    },
+    {
+      "claim": "summary:22",
+      "text": "The new cell state is computed as c_t = f_t \\odot c_{t-1} + i_t \\odot c'_t.",
+      "entailed": true,
+      "evidence": "slides:23",
+      "top": [
+        "slides:23",
+        "slides:18",
+        "transcript:97",
+        "transcript:98",
+        "slides:26",
+        "transcript:109",
+        "slides:100",
+        "transcript:100"
+      ]
+    },
+    {
+      "claim": "summary:23",
+      "text": "The new hidden state is computed as h_t = o_t \\odot \\tanh(c_t).",
+      "entailed": true,
+      "evidence": "slides:24",
+      "top": [
+        "slides:63",
+        "transcript:118",
+        "slides:43",
+        "slides:67",
+        "slides:62",
+        "slides:44",
+        "transcript:117",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "summary:24",
+      "text": "The forget gate f_t multiplies the old cell state element-wise: values near 1 “keep”, near 0 “erase”.",
+      "entailed": true,
+      "evidence": "transcript:114",
+      "top": [
+        "transcript:89",
+        "transcript:90",
+        "transcript:114",
+        "transcript:96",
+        "slides:26",
+        "transcript:88",
+        "slides:18",
+        "transcript:83"
+      ]
+    },
+    {
+      "claim": "summary:25",
+      "text": "The candidate c'_t proposes new numbers to write.",
+      "entailed": true,
+      "evidence": "transcript:97",
+      "top": [
+        "transcript:97",
+        "transcript:98",
+        "slides:78",
+        "transcript:641",
+        "slides:190",
+        "transcript:73",
+        "transcript:107",
+        "transcript:646"
+      ]
+    },
+    {
+      "claim": "summary:26",
+      "text": "The input gate i_t selects which parts of c'_t are actually written.",
+      "entailed": true,
+      "evidence": "transcript:107",
+      "top": [
+        "transcript:107",
+        "slides:20",
+        "transcript:109",
+        "transcript:83",
+        "slides:18",
+        "transcript:108",
+        "transcript:120",
+        "transcript:121"
+      ]
+    },
+    {
+      "claim": "summary:27",
+      "text": "Because the forget gate already erased the corresponding cells, writing is simply addition.",
+      "entailed": true,
+      "evidence": "transcript:164",
+      "top": [
+        "transcript:114",
+        "transcript:89",
+        "transcript:90",
+        "transcript:164",
+        "transcript:88",
+        "transcript:95",
+        "transcript:105",
+        "transcript:96"
+      ]
+    },
+    {
+      "claim": "summary:28",
+      "text": "The output gate o_t decides which parts of the updated cell state should be exposed to the next hidden state (and used by the rest of the network).",
+      "entailed": true,
+      "evidence": "transcript:119",
+      "top": [
+        "transcript:119",
+        "slides:18",
+        "transcript:99",
+        "transcript:89",
+        "slides:45",
+        "transcript:96",
+        "transcript:121",
+        "transcript:90"
+      ]
+    },
+    {
+      "claim": "summary:29",
+      "text": "Crucially, when the forget gate is fully open (f_t → 1), we obtain c_t = c_{t-1} + i_t \\odot c'_t.",
+      "entailed": true,
+      "evidence": "slides:26",
+      "top": [
+        "slides:26",
+        "slides:21",
+        "transcript:83",
+        "transcript:88",
+        "transcript:95",
+        "slides:34",
+        "transcript:82",
+        "transcript:90"
+      ]
+    },
+    {
+      "claim": "summary:30",
+      "text": "Hence, ∂c_t/∂c_{t-1} = 1, which provides the constant error carousel.",
+      "entailed": true,
+      "evidence": "slides:27",
+      "top": [
+        "slides:27",
+        "slides:14",
+        "slides:26",
+        "transcript:86",
+        "transcript:573",
+        "slides:40",
+        "slides:21",
+        "transcript:84"
+      ]
+    },
+    {
+      "claim": "summary:31",
+      "text": "The constant error carousel is a highway for gradients that is only interrupted when we explicitly choose to erase.",
+      "entailed": true,
+      "evidence": "transcript:133",
+      "top": [
+        "slides:27",
+        "slides:14",
+        "transcript:134",
+        "transcript:573",
+        "slides:40",
+        "transcript:31",
+        "transcript:34",
+        "transcript:133"
+      ]
+    },
+    {
+      "claim": "summary:32",
+      "text": "LSTM has many weight matrices (eight in the vanilla version, up to eleven with peepholes).",
+      "entailed": true,
+      "evidence": "transcript:167",
+      "top": [
+        "transcript:136",
+        "slides:32",
+        "transcript:167",
+        "transcript:135",
+        "transcript:158",
+        "transcript:165",
+        "slides:46",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "summary:33",
+      "text": "LSTM requires large memory sizes (d ≥ 256 typically).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:419",
+        "transcript:56",
+        "slides:16",
+        "transcript:55",
+        "transcript:135",
+        "transcript:138",
+        "transcript:144",
+        "transcript:141"
+      ]
+    },
+    {
+      "claim": "summary:34",
+      "text": "LSTM is expensive to train.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:125",
+        "transcript:143",
+        "transcript:141",
+        "transcript:419",
+        "transcript:177",
+        "transcript:142",
+        "transcript:135",
+        "transcript:126"
+      ]
+    },
+    {
+      "claim": "summary:35",
+      "text": "Only around 2015 did sufficient compute become available to train huge LSTMs.",
+      "entailed": true,
+      "evidence": "transcript:143",
+      "top": [
+        "transcript:143",
+        "transcript:210",
+        "transcript:141",
+        "transcript:128",
+        "transcript:144",
+        "transcript:142",
+        "transcript:148",
+        "transcript:126"
+      ]
+    },
+    {
+      "claim": "summary:36",
+      "text": "Yet LSTM still stands – modern recurrent systems (e.g. AlphaStar) consistently prefer LSTM over other recurrent units.",
+      "entailed": true,
+      "evidence": "transcript:173",
+      "top": [
+        "transcript:195",
+        "transcript:131",
+        "transcript:172",
+        "transcript:173",
+        "transcript:145",
+        "transcript:126",
+        "transcript:132",
+        "transcript:144"
+      ]
+    },
+    {
+      "claim": "summary:37",
+      "text": "A known issue is that the gates only see h_{t-1}, which is o_{t-1} \\odot \\tanh(c_{t-1}).",
+      "entailed": true,
+      "evidence": "slides:30",
+      "top": [
+        "slides:22",
+        "slides:24",
+        "slides:30",
+        "slides:20",
+        "slides:21",
+        "slides:26",
+        "transcript:82",
+        "transcript:83"
+      ]
+    },
+    {
+      "claim": "summary:38",
+      "text": "If the output gate is closed, the gates have no direct information about the cell state.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "transcript:119",
+        "transcript:90",
+        "slides:31",
+        "transcript:89",
+        "transcript:99",
+        "slides:18",
+        "transcript:96",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "summary:39",
+      "text": "The fix is to add direct peepholes – extra weight matrices that multiply c_{t-1} in the gate equations.",
+      "entailed": true,
+      "evidence": "slides:33",
+      "top": [
+        "transcript:82",
+        "transcript:111",
+        "transcript:122",
+        "slides:22",
+        "transcript:152",
+        "slides:20",
+        "slides:21",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "summary:40",
+      "text": "With peepholes, the input gate becomes i_t = \\sigma(W_{xi}x_t + W_{hi}h_{t-1} + W_{pi}c_{t-1} + b_i).",
+      "entailed": true,
+      "evidence": "slides:33",
+      "top": [
+        "slides:20",
+        "slides:33",
+        "slides:35",
+        "slides:22",
+        "transcript:111",
+        "slides:21",
+        "slides:41",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "summary:41",
+      "text": "The forget gate becomes f_t = \\sigma(W_{xf}x_t + W_{hf}h_{t-1} + W_{pf}c_{t-1} + b_f).",
+      "entailed": true,
+      "evidence": "slides:34",
+      "top": [
+        "slides:21",
+        "slides:22",
+        "transcript:82",
+        "slides:20",
+        "transcript:83",
+        "slides:26",
+        "slides:34",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "summary:42",
+      "text": "The output gate becomes o_t = \\sigma(W_{xo}x_t + W_{ho}h_{t-1} + W_{po}c_{t-1} + b_o).",
+      "entailed": true,
+      "evidence": "slides:35",
+      "top": [
+        "slides:22",
+        "slides:20",
+        "slides:21",
+        "transcript:122",
+        "slides:41",
+        "slides:35",
+        "transcript:111",
+        "slides:42"
+      ]
+    },
+    {
+      "claim": "summary:43",
+      "text": "Many LSTM variations exist.",
+      "entailed": true,
+      "evidence": "slides:36",
+      "top": [
+        "slides:37",
+        "slides:36",
+        "slides:48",
+        "transcript:131",
+        "transcript:135",
+        "transcript:126",
+        "transcript:148",
+        "transcript:56"
+      ]
+    },
+    {
+      "claim": "summary:44",
+      "text": "The survey “LSTM: A Search Space Odyssey” (Greff et al., 2015) showed that you can even remove an entire gate without much performance loss.",
+      "entailed": true,
+      "evidence": "transcript:154",
+      "top": [
+        "transcript:154",
+        "slides:38",
+        "transcript:76",
+        "transcript:164",
+        "transcript:151",
+        "transcript:153",
+        "slides:36",
+        "transcript:95"
+      ]
+    },
+    {
+      "claim": "summary:45",
+      "text": "The GRU (Gated Recurrent Unit) was developed by Cho et al. (2014).",
+      "entailed": true,
+      "evidence": "slides:39",
+      "top": [
+        "transcript:157",
+        "slides:39",
+        "transcript:190",
+        "transcript:191",
+        "transcript:192",
+        "transcript:173",
+        "transcript:158",
+        "transcript:165"
+      ]
+    },
+    {
+      "claim": "summary:46",
+      "text": "The GRU simplifies LSTM while preserving the error carousel.",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:40",
+        "transcript:165",
+        "transcript:212",
+        "transcript:176",
+        "transcript:573",
+        "transcript:158",
+        "transcript:169",
+        "transcript:173"
+      ]
+    },
+    {
+      "claim": "summary:47",
+      "text": "There is no separate cell state in GRU; everything is in the hidden state h_t.",
+      "entailed": true,
+      "evidence": "transcript:159",
+      "top": [
+        "transcript:159",
+        "slides:45",
+        "slides:44",
+        "transcript:166",
+        "slides:43",
+        "transcript:96",
+        "transcript:119",
+        "slides:17"
+      ]
+    },
+    {
+      "claim": "summary:48",
+      "text": "Instead of separate forget and input gates, a single update gate u_t produces a convex combination of the old state and a candidate.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:26",
+        "transcript:162",
+        "transcript:83",
+        "slides:41",
+        "slides:21",
+        "transcript:88",
+        "slides:18",
+        "transcript:82"
+      ]
+    },
+    {
+      "claim": "summary:49",
+      "text": "The update gate is computed as u_t = \\sigma(W_{xu}x_t + W_{hu}h_{t-1} + b_u).",
+      "entailed": true,
+      "evidence": "slides:41",
+      "top": [
+        "slides:41",
+        "slides:20",
+        "slides:22",
+        "slides:21",
+        "transcript:162",
+        "transcript:111",
+        "slides:42",
+        "transcript:122"
+      ]
+    },
+    {
+      "claim": "summary:50",
+      "text": "The reset gate is computed as r_t = \\sigma(W_{xr}x_t + W_{hr}h_{t-1} + b_r).",
+      "entailed": true,
+      "evidence": "slides:42",
+      "top": [
+        "slides:42",
+        "slides:21",
+        "slides:20",
+        "slides:22",
+        "slides:41",
+        "slides:26",
+        "transcript:82",
+        "transcript:111"
+      ]
+    },
+    {
+      "claim": "summary:51",
+      "text": "The candidate hidden state is computed as h'_t = \\tanh(W_{xh'}x_t + W_{hh'}(r_t \\odot h_{t-1})).",
+      "entailed": true,
+      "evidence": "slides:43",
+      "top": [
+        "slides:43",
+        "slides:63",
+        "slides:44",
+        "slides:67",
+        "transcript:118",
+        "slides:62",
+        "transcript:116",
+        "transcript:163"
+      ]
+    },
+    {
+      "claim": "summary:52",
+      "text": "The new hidden state is computed as h_t = (1 - u_t) \\odot h'_t + u_t \\odot h_{t-1}.",
+      "entailed": true,
+      "evidence": "slides:44",
+      "top": [
+        "slides:44",
+        "slides:63",
+        "slides:67",
+        "transcript:163",
+        "slides:43",
+        "slides:62",
+        "transcript:116",
+        "transcript:61"
+      ]
+    },
+    {
+      "claim": "summary:53",
+      "text": "u_t close to 1 keeps the old memory; u_t close to 0 replaces it with the candidate.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:320",
+        "transcript:89",
+        "transcript:97",
+        "transcript:92",
+        "transcript:95",
+        "transcript:114",
+        "transcript:90",
+        "transcript:88"
+      ]
+    },
+    {
+      "claim": "summary:54",
+      "text": "The reset gate r_t selects which parts of the previous state to use when computing the candidate.",
+      "entailed": true,
+      "evidence": "transcript:166",
+      "top": [
+        "slides:42",
+        "slides:18",
+        "transcript:96",
+        "transcript:89",
+        "transcript:166",
+        "transcript:90",
+        "transcript:83",
+        "transcript:99"
+      ]
+    },
+    {
+      "claim": "summary:55",
+      "text": "GRU has only 6 weight matrices (vs. 8 for vanilla LSTM, 11 with peepholes).",
+      "entailed": true,
+      "evidence": "transcript:167",
+      "top": [
+        "transcript:167",
+        "slides:46",
+        "transcript:158",
+        "transcript:165",
+        "slides:32",
+        "transcript:136",
+        "transcript:169",
+        "transcript:212"
+      ]
+    },
+    {
+      "claim": "summary:56",
+      "text": "In 2015–2016 NLP papers almost universally adopted GRU because it is more efficient.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:170",
+        "transcript:191",
+        "transcript:192",
+        "transcript:173",
+        "transcript:157",
+        "slides:46",
+        "transcript:158",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "summary:57",
+      "text": "Today, large-scale practice has switched back to LSTM for reasons that are mostly empirical: LSTM seems to scale better to truly hard problems.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:148",
+        "transcript:126",
+        "transcript:144",
+        "transcript:125",
+        "slides:37",
+        "transcript:131",
+        "transcript:143",
+        "transcript:141"
+      ]
+    },
+    {
+      "claim": "summary:58",
+      "text": "Take-away: Both LSTM and GRU implement the constant error carousel, enabling gradient flow through arbitrarily long sequences.",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:40",
+        "transcript:133",
+        "transcript:573",
+        "transcript:211",
+        "transcript:173",
+        "transcript:131",
+        "transcript:176",
+        "transcript:165"
+      ]
+    },
+    {
+      "claim": "summary:59",
+      "text": "LSTM remains the gold standard for large recurrent networks.",
+      "entailed": true,
+      "evidence": "transcript:195",
+      "top": [
+        "transcript:195",
+        "transcript:131",
+        "transcript:144",
+        "transcript:126",
+        "transcript:132",
+        "transcript:173",
+        "transcript:74",
+        "transcript:180"
+      ]
+    },
+    {
+      "claim": "summary:60",
+      "text": "Neurobiologically, attention is as fundamental as memory and cognition (A.R. Luria).",
+      "entailed": true,
+      "evidence": "transcript:241",
+      "top": [
+        "transcript:241",
+        "transcript:242",
+        "transcript:240",
+        "slides:53",
+        "slides:54",
+        "transcript:277",
+        "transcript:333",
+        "transcript:243"
+      ]
+    },
+    {
+      "claim": "summary:61",
+      "text": "Attention acts as a filter between a very short-term working memory (a few seconds) and further processing.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:54",
+        "transcript:241",
+        "transcript:277",
+        "transcript:333",
+        "transcript:242",
+        "transcript:334",
+        "transcript:268",
+        "transcript:465"
+      ]
+    },
+    {
+      "claim": "summary:62",
+      "text": "Crucially, unlike a convolutional network that processes every pixel equally, humans can completely miss objects in their field of view if attention is directed elsewhere (the famous “invisible gorilla” experiment).",
+      "entailed": true,
+      "evidence": "transcript:228",
+      "top": [
+        "transcript:228",
+        "slides:51",
+        "transcript:235",
+        "transcript:232",
+        "slides:55",
+        "transcript:266",
+        "transcript:264",
+        "transcript:234"
+      ]
+    },
+    {
+      "claim": "summary:63",
+      "text": "Human vision is structured around foveal glimpses.",
+      "entailed": true,
+      "evidence": "transcript:273",
+      "top": [
+        "transcript:273",
+        "transcript:274",
+        "transcript:275",
+        "transcript:228",
+        "slides:60",
+        "slides:55",
+        "transcript:235",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "summary:64",
+      "text": "In foveal glimpses, high resolution is only at the centre of gaze; the rest is blurry.",
+      "entailed": true,
+      "evidence": "transcript:259",
+      "top": [
+        "transcript:273",
+        "transcript:260",
+        "transcript:259",
+        "transcript:262",
+        "transcript:275",
+        "slides:57",
+        "transcript:269",
+        "transcript:264"
+      ]
+    },
+    {
+      "claim": "summary:65",
+      "text": "The brain stitches these glimpses together by rapid saccadic eye movements.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:261",
+        "slides:57",
+        "slides:60",
+        "transcript:260",
+        "transcript:262",
+        "transcript:267",
+        "transcript:256",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "summary:66",
+      "text": "The original motivation for attention in neural networks was to mimic this efficiency: look at a few small, high-resolution patches of a large image, choose where to look next, and make a decision, thus drastically reducing input size.",
+      "entailed": true,
+      "evidence": "transcript:279",
+      "top": [
+        "transcript:268",
+        "transcript:264",
+        "transcript:279",
+        "transcript:315",
+        "transcript:333",
+        "transcript:334",
+        "transcript:272",
+        "slides:51"
+      ]
+    },
+    {
+      "claim": "summary:67",
+      "text": "Early works (Mnih et al., 2014; Ba et al., 2015) used an RNN to select a sequence of glimpse locations.",
+      "entailed": true,
+      "evidence": "slides:64",
+      "top": [
+        "transcript:274",
+        "transcript:275",
+        "slides:60",
+        "transcript:273",
+        "slides:68",
+        "slides:66",
+        "slides:64",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "summary:68",
+      "text": "At each step, g_t = f_g(\\mathbf{x}_t, l_{t-1}).",
+      "entailed": true,
+      "evidence": "slides:66",
+      "top": [
+        "slides:66",
+        "slides:62",
+        "transcript:86",
+        "transcript:84",
+        "slides:63",
+        "slides:64",
+        "slides:21",
+        "slides:68"
+      ]
+    },
+    {
+      "claim": "summary:69",
+      "text": "h_t = f_h(h_{t-1}, g_t).",
+      "entailed": true,
+      "evidence": "slides:67",
+      "top": [
+        "slides:63",
+        "slides:67",
+        "slides:64",
+        "transcript:84",
+        "slides:21",
+        "slides:24",
+        "transcript:86",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "summary:70",
+      "text": "l_t is sampled from a distribution p(\\cdot \\mid f_l(h_t)).",
+      "entailed": true,
+      "evidence": "slides:68",
+      "top": [
+        "slides:68",
+        "slides:69",
+        "slides:64",
+        "slides:63",
+        "slides:122",
+        "slides:121",
+        "slides:17",
+        "slides:66"
+      ]
+    },
+    {
+      "claim": "summary:71",
+      "text": "a_t is sampled from a distribution p(\\cdot \\mid f_a(h_t)).",
+      "entailed": true,
+      "evidence": "slides:69",
+      "top": [
+        "slides:69",
+        "slides:68",
+        "slides:64",
+        "slides:122",
+        "slides:63",
+        "transcript:84",
+        "transcript:86",
+        "slides:24"
+      ]
+    },
+    {
+      "claim": "summary:72",
+      "text": "The network received a reward only at the end (e.g. correct classification), so training was done with reinforcement learning (e.g. REINFORCE).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:329",
+        "transcript:36",
+        "transcript:353",
+        "transcript:315",
+        "transcript:330",
+        "transcript:42",
+        "slides:77",
+        "transcript:337"
+      ]
+    },
+    {
+      "claim": "summary:73",
+      "text": "Later models like DRAW used variational inference.",
+      "entailed": true,
+      "evidence": "slides:81",
+      "top": [
+        "slides:81",
+        "slides:80",
+        "slides:77",
+        "slides:65",
+        "transcript:601",
+        "transcript:439",
+        "slides:60",
+        "transcript:343"
+      ]
+    },
+    {
+      "claim": "summary:74",
+      "text": "These models are now outdated, but they established the principle of looking at parts of the input sequentially.",
+      "entailed": true,
+      "evidence": "transcript:358",
+      "top": [
+        "transcript:284",
+        "slides:78",
+        "transcript:19",
+        "transcript:682",
+        "transcript:280",
+        "transcript:358",
+        "transcript:451",
+        "transcript:201"
+      ]
+    },
+    {
+      "claim": "summary:75",
+      "text": "The real breakthrough came by applying attention to encoder–decoder sequence‑to‑sequence models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:340",
+        "slides:125",
+        "transcript:338",
+        "transcript:282",
+        "transcript:339",
+        "transcript:281",
+        "transcript:314",
+        "transcript:426"
+      ]
+    },
+    {
+      "claim": "summary:76",
+      "text": "A standard RNN encoder compresses the entire input sentence into a single vector z.",
+      "entailed": true,
+      "evidence": "slides:89",
+      "top": [
+        "transcript:310",
+        "slides:94",
+        "slides:89",
+        "transcript:300",
+        "slides:90",
+        "transcript:208",
+        "transcript:304",
+        "transcript:352"
+      ]
+    },
+    {
+      "claim": "summary:77",
+      "text": "For short sentences this works, but: if z is too small, it cannot hold enough information for long inputs.",
+      "entailed": true,
+      "evidence": "transcript:295",
+      "top": [
+        "transcript:295",
+        "transcript:296",
+        "transcript:300",
+        "transcript:294",
+        "transcript:298",
+        "transcript:297",
+        "transcript:304",
+        "transcript:271"
+      ]
+    },
+    {
+      "claim": "summary:78",
+      "text": "If z is made very large, the decoder LSTM becomes gigantic and requires quadratic numbers of weights that cannot be trained.",
+      "entailed": true,
+      "evidence": "transcript:298",
+      "top": [
+        "transcript:300",
+        "transcript:298",
+        "transcript:135",
+        "transcript:419",
+        "transcript:295",
+        "transcript:286",
+        "transcript:153",
+        "transcript:56"
+      ]
+    },
+    {
+      "claim": "summary:79",
+      "text": "As a result, quality is good for short sentences and collapses for long ones.",
+      "entailed": true,
+      "evidence": "transcript:301",
+      "top": [
+        "transcript:301",
+        "slides:90",
+        "transcript:291",
+        "transcript:302",
+        "transcript:296",
+        "transcript:290",
+        "slides:82",
+        "transcript:295"
+      ]
+    },
+    {
+      "claim": "summary:80",
+      "text": "The solution is to produce a representation for every input token and let the decoder reweigh them at each step.",
+      "entailed": true,
+      "evidence": "transcript:321",
+      "top": [
+        "transcript:452",
+        "transcript:321",
+        "transcript:454",
+        "transcript:447",
+        "transcript:453",
+        "transcript:313",
+        "transcript:458",
+        "transcript:455"
+      ]
+    },
+    {
+      "claim": "summary:81",
+      "text": "A bidirectional encoder produces a vector z_i for every input token i.",
+      "entailed": true,
+      "evidence": "transcript:310",
+      "top": [
+        "transcript:310",
+        "transcript:447",
+        "transcript:433",
+        "transcript:619",
+        "transcript:440",
+        "slides:109",
+        "slides:89",
+        "slides:87"
+      ]
+    },
+    {
+      "claim": "summary:82",
+      "text": "At decoder step t (hidden state s_{t-1}), an attention network a scores each input position: e_{t j} = a(s_{t-1}, z_j).",
+      "entailed": true,
+      "evidence": "transcript:341",
+      "top": [
+        "transcript:341",
+        "slides:97",
+        "transcript:315",
+        "transcript:316",
+        "transcript:314",
+        "transcript:357",
+        "transcript:288",
+        "transcript:477"
+      ]
+    },
+    {
+      "claim": "summary:83",
+      "text": "Softmax turns the scores into a convex combination: \\alpha_{t j} = \\operatorname{softmax}(e_{t1}, e_{t2}, \\dots).",
+      "entailed": true,
+      "evidence": "transcript:317",
+      "top": [
+        "transcript:317",
+        "slides:151",
+        "transcript:569",
+        "slides:153",
+        "transcript:568",
+        "transcript:318",
+        "slides:98",
+        "transcript:516"
+      ]
+    },
+    {
+      "claim": "summary:84",
+      "text": "The context vector is the weighted sum: c_t = \\sum_j \\alpha_{t j} z_j.",
+      "entailed": true,
+      "evidence": "transcript:320",
+      "top": [
+        "slides:99",
+        "slides:96",
+        "transcript:320",
+        "transcript:87",
+        "slides:153",
+        "transcript:285",
+        "transcript:84",
+        "transcript:440"
+      ]
+    },
+    {
+      "claim": "summary:85",
+      "text": "The decoder now uses c_t along with the previous output y_{t-1} and its hidden state to produce the next token.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:454",
+        "transcript:452",
+        "transcript:321",
+        "transcript:453",
+        "transcript:286",
+        "transcript:288",
+        "transcript:479",
+        "transcript:458"
+      ]
+    },
+    {
+      "claim": "summary:86",
+      "text": "The attention network is tiny – typically around 2% of the total parameters – yet it drives the results.",
+      "entailed": true,
+      "evidence": "transcript:334",
+      "top": [
+        "transcript:332",
+        "transcript:333",
+        "transcript:331",
+        "transcript:330",
+        "transcript:387",
+        "transcript:268",
+        "transcript:465",
+        "transcript:334"
+      ]
+    },
+    {
+      "claim": "summary:87",
+      "text": "The attention network is never explicitly supervised (we don’t know which source word aligns to which target word).",
+      "entailed": true,
+      "evidence": "transcript:325",
+      "top": [
+        "transcript:330",
+        "transcript:331",
+        "transcript:325",
+        "transcript:329",
+        "slides:95",
+        "transcript:315",
+        "transcript:332",
+        "transcript:383"
+      ]
+    },
+    {
+      "claim": "summary:88",
+      "text": "The whole model is trained end‑to‑end on parallel sentences.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:94",
+        "transcript:671",
+        "transcript:361",
+        "slides:95",
+        "transcript:416",
+        "transcript:329",
+        "slides:85",
+        "transcript:451"
+      ]
+    },
+    {
+      "claim": "summary:89",
+      "text": "The attention weights emerge as meaningful alignments.",
+      "entailed": true,
+      "evidence": "transcript:335",
+      "top": [
+        "transcript:387",
+        "transcript:386",
+        "transcript:620",
+        "transcript:335",
+        "transcript:343",
+        "slides:194",
+        "transcript:329",
+        "transcript:277"
+      ]
+    },
+    {
+      "claim": "summary:90",
+      "text": "Interpretable attention matrices are a hallmark of this approach: for translation, they usually form a diagonal, with off‑diagonal spikes for reordered words or multi‑word phrases (e.g. French “la destruction” → English “destruction”).",
+      "entailed": true,
+      "evidence": "transcript:344",
+      "top": [
+        "transcript:344",
+        "slides:95",
+        "transcript:625",
+        "transcript:335",
+        "slides:102",
+        "transcript:360",
+        "transcript:324",
+        "transcript:323"
+      ]
+    },
+    {
+      "claim": "summary:91",
+      "text": "Around 2015‑2016, Google Translate switched to such an architecture.",
+      "entailed": true,
+      "evidence": "transcript:366",
+      "top": [
+        "transcript:366",
+        "transcript:368",
+        "slides:105",
+        "transcript:365",
+        "slides:104",
+        "transcript:367",
+        "transcript:181",
+        "transcript:291"
+      ]
+    },
+    {
+      "claim": "summary:92",
+      "text": "This switch caused a phase transition in translation quality.",
+      "entailed": true,
+      "evidence": "transcript:369",
+      "top": [
+        "transcript:368",
+        "transcript:369",
+        "transcript:324",
+        "transcript:428",
+        "transcript:366",
+        "transcript:360",
+        "transcript:323",
+        "transcript:432"
+      ]
+    },
+    {
+      "claim": "summary:93",
+      "text": "The translation became good enough that post‑editing was faster than translating from scratch.",
+      "entailed": true,
+      "evidence": "transcript:368",
+      "top": [
+        "transcript:368",
+        "transcript:366",
+        "transcript:324",
+        "slides:102",
+        "transcript:369",
+        "transcript:367",
+        "transcript:428",
+        "transcript:360"
+      ]
+    },
+    {
+      "claim": "summary:94",
+      "text": "The same attention idea works for images: instead of compressing a CNN’s output into a single vector, we keep a 14×14 feature map and compute attention over these spatial locations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:76",
+        "transcript:227",
+        "slides:115",
+        "transcript:382",
+        "slides:51",
+        "transcript:338",
+        "transcript:235",
+        "transcript:315"
+      ]
+    },
+    {
+      "claim": "summary:95",
+      "text": "The caption generator can then look at different parts of the image while generating each word (e.g. “woman”, “throwing”, “frisbee”).",
+      "entailed": true,
+      "evidence": "transcript:391",
+      "top": [
+        "transcript:372",
+        "transcript:373",
+        "slides:110",
+        "slides:111",
+        "transcript:391",
+        "transcript:374",
+        "transcript:335",
+        "transcript:437"
+      ]
+    },
+    {
+      "claim": "summary:96",
+      "text": "Hard attention (sampling a single location) and soft attention (convex combination) were both explored (Xu et al., 2015).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:118",
+        "slides:120",
+        "slides:93",
+        "transcript:386",
+        "transcript:342",
+        "transcript:277",
+        "slides:194",
+        "transcript:333"
+      ]
+    },
+    {
+      "claim": "summary:97",
+      "text": "Vaswani et al. (2017) proposed the Transformer architecture, built entirely on attention, discarding recurrence.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:126",
+        "transcript:420",
+        "transcript:421",
+        "transcript:396",
+        "slides:128",
+        "slides:188",
+        "transcript:427",
+        "slides:129"
+      ]
+    },
+    {
+      "claim": "summary:98",
+      "text": "The original paper modestly aimed for comparable performance with higher efficiency.",
+      "entailed": true,
+      "evidence": "transcript:398",
+      "top": [
+        "transcript:214",
+        "transcript:401",
+        "slides:197",
+        "transcript:576",
+        "transcript:400",
+        "transcript:213",
+        "transcript:398",
+        "transcript:155"
+      ]
+    },
+    {
+      "claim": "summary:99",
+      "text": "The transformer turned out to be extremely general and scalable.",
+      "entailed": true,
+      "evidence": "transcript:405",
+      "top": [
+        "transcript:409",
+        "transcript:405",
+        "transcript:410",
+        "slides:197",
+        "transcript:398",
+        "transcript:411",
+        "transcript:420",
+        "transcript:414"
+      ]
+    },
+    {
+      "claim": "summary:100",
+      "text": "The transformer now underlies nearly all state‑of‑the‑art models.",
+      "entailed": true,
+      "evidence": "transcript:402",
+      "top": [
+        "slides:197",
+        "transcript:405",
+        "transcript:420",
+        "slides:126",
+        "transcript:396",
+        "transcript:400",
+        "slides:198",
+        "transcript:402"
+      ]
+    },
+    {
+      "claim": "summary:101",
+      "text": "The transformer is an encoder–decoder design for machine translation.",
+      "entailed": true,
+      "evidence": "transcript:428",
+      "top": [
+        "slides:129",
+        "transcript:427",
+        "transcript:428",
+        "slides:88",
+        "slides:132",
+        "slides:188",
+        "transcript:364",
+        "slides:105"
+      ]
+    },
+    {
+      "claim": "summary:102",
+      "text": "The encoder consists of 6 identical layers, each containing a self‑attention sublayer and a feed‑forward sublayer, with residual connections and layer normalization.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:462",
+        "transcript:603",
+        "transcript:468",
+        "transcript:429",
+        "transcript:463",
+        "transcript:445",
+        "transcript:482",
+        "slides:163"
+      ]
+    },
+    {
+      "claim": "summary:103",
+      "text": "The decoder consists of 6 identical layers, each containing a masked self‑attention, an encoder–decoder attention, and a feed‑forward sublayer (again with residuals and layer norm).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:163",
+        "transcript:430",
+        "transcript:462",
+        "transcript:603",
+        "transcript:478",
+        "transcript:479",
+        "transcript:468",
+        "transcript:463"
+      ]
+    },
+    {
+      "claim": "summary:104",
+      "text": "Input tokens are first passed through a learned embedding layer, becoming vectors.",
+      "entailed": true,
+      "evidence": "transcript:440",
+      "top": [
+        "transcript:440",
+        "transcript:619",
+        "transcript:447",
+        "slides:189",
+        "transcript:448",
+        "transcript:442",
+        "transcript:443",
+        "transcript:675"
+      ]
+    },
+    {
+      "claim": "summary:105",
+      "text": "The whole transformer operates on sequences of vectors, rewriting them into context‑aware representations.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:444",
+        "transcript:438",
+        "transcript:407",
+        "transcript:563",
+        "slides:132",
+        "slides:129",
+        "transcript:427",
+        "slides:188"
+      ]
+    },
+    {
+      "claim": "summary:106",
+      "text": "The decoder is autoregressive: it generates one token at a time.",
+      "entailed": true,
+      "evidence": "transcript:452",
+      "top": [
+        "transcript:452",
+        "transcript:454",
+        "transcript:453",
+        "transcript:321",
+        "transcript:458",
+        "transcript:449",
+        "slides:164",
+        "transcript:455"
+      ]
+    },
+    {
+      "claim": "summary:107",
+      "text": "A final linear + softmax layer produces output token probabilities.",
+      "entailed": true,
+      "evidence": "transcript:487",
+      "top": [
+        "transcript:485",
+        "transcript:487",
+        "transcript:318",
+        "transcript:484",
+        "transcript:569",
+        "transcript:317",
+        "transcript:517",
+        "transcript:541"
+      ]
+    },
+    {
+      "claim": "summary:108",
+      "text": "In neural search, documents and queries are encoded into a shared latent space, and relevance is measured by the dot product.",
+      "entailed": true,
+      "evidence": "transcript:503",
+      "top": [
+        "transcript:501",
+        "slides:134",
+        "transcript:506",
+        "slides:136",
+        "transcript:503",
+        "slides:149",
+        "transcript:556",
+        "slides:135"
+      ]
+    },
+    {
+      "claim": "summary:109",
+      "text": "Self-attention applies this idea to the same set of vectors: each input vector is simultaneously the query and a “document”.",
+      "entailed": true,
+      "evidence": "transcript:506",
+      "top": [
+        "transcript:506",
+        "transcript:503",
+        "transcript:501",
+        "slides:141",
+        "slides:134",
+        "transcript:556",
+        "transcript:497",
+        "slides:149"
+      ]
+    },
+    {
+      "claim": "summary:110",
+      "text": "From an input sequence X = [x_1, ..., x_L] (each x_i \\in \\mathbb{R}^D) we compute three projections.",
+      "entailed": true,
+      "evidence": "transcript:558",
+      "top": [
+        "transcript:531",
+        "transcript:558",
+        "transcript:618",
+        "slides:144",
+        "transcript:595",
+        "slides:146",
+        "transcript:525",
+        "transcript:617"
+      ]
+    },
+    {
+      "claim": "summary:111",
+      "text": "Queries Q are computed as Q = X W_Q, where W_Q \\in \\mathbb{R}^{D \\times d_k}.",
+      "entailed": true,
+      "evidence": "transcript:520",
+      "top": [
+        "slides:143",
+        "transcript:520",
+        "slides:142",
+        "transcript:521",
+        "slides:145",
+        "transcript:532",
+        "transcript:509",
+        "transcript:512"
+      ]
+    },
+    {
+      "claim": "summary:112",
+      "text": "Keys K are computed as K = X W_K, where W_K \\in \\mathbb{R}^{D \\times d_k}.",
+      "entailed": true,
+      "evidence": "transcript:520",
+      "top": [
+        "slides:152",
+        "slides:144",
+        "transcript:510",
+        "transcript:512",
+        "transcript:532",
+        "transcript:530",
+        "slides:145",
+        "transcript:520"
+      ]
+    },
+    {
+      "claim": "summary:113",
+      "text": "Values V are computed as V = X W_V, where W_V \\in \\mathbb{R}^{D \\times d_v}.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:147",
+        "slides:146",
+        "transcript:525",
+        "transcript:140",
+        "transcript:564",
+        "slides:154",
+        "transcript:511",
+        "transcript:593"
+      ]
+    },
+    {
+      "claim": "summary:114",
+      "text": "Queries Q and keys K live in the same space (dimension d_k).",
+      "entailed": true,
+      "evidence": "transcript:512",
+      "top": [
+        "transcript:512",
+        "slides:145",
+        "transcript:526",
+        "transcript:530",
+        "transcript:565",
+        "transcript:557",
+        "slides:143",
+        "transcript:521"
+      ]
+    },
+    {
+      "claim": "summary:115",
+      "text": "Values V can have a different dimension d_v (often d_v = d_k).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:140",
+        "transcript:528",
+        "transcript:525",
+        "transcript:558",
+        "transcript:530",
+        "slides:147",
+        "slides:143",
+        "slides:193"
+      ]
+    },
+    {
+      "claim": "summary:116",
+      "text": "The attention weights are computed as scaled dot-products: \\operatorname{Attention}(Q, K, V) = \\operatorname{softmax}\\!\\left(\\frac{Q K^T}{\\sqrt{d_k}}\\right) V.",
+      "entailed": true,
+      "evidence": "slides:155",
+      "top": [
+        "transcript:522",
+        "slides:98",
+        "slides:155",
+        "transcript:342",
+        "slides:96",
+        "slides:153",
+        "transcript:561",
+        "transcript:612"
+      ]
+    },
+    {
+      "claim": "summary:117",
+      "text": "Dot products Q K^T yield a matrix of raw affinities between every query and every key.",
+      "entailed": true,
+      "evidence": "transcript:521",
+      "top": [
+        "transcript:521",
+        "transcript:532",
+        "slides:145",
+        "slides:152",
+        "transcript:527",
+        "transcript:513",
+        "slides:150",
+        "transcript:520"
+      ]
+    },
+    {
+      "claim": "summary:118",
+      "text": "Scaling by \\sqrt{d_k} prevents the dot products from growing too large.",
+      "entailed": true,
+      "evidence": "transcript:538",
+      "top": [
+        "transcript:538",
+        "transcript:702",
+        "transcript:699",
+        "slides:150",
+        "transcript:567",
+        "transcript:140",
+        "transcript:532",
+        "transcript:535"
+      ]
+    },
+    {
+      "claim": "summary:119",
+      "text": "With random vectors, the variance of the dot product is approximately d_k.",
+      "entailed": true,
+      "evidence": "transcript:535",
+      "top": [
+        "transcript:535",
+        "transcript:534",
+        "transcript:536",
+        "transcript:699",
+        "transcript:533",
+        "transcript:532",
+        "transcript:538",
+        "slides:144"
+      ]
+    },
+    {
+      "claim": "summary:120",
+      "text": "Without scaling, the softmax would saturate into one‑hot vectors, losing gradient signal.",
+      "entailed": true,
+      "evidence": "transcript:541",
+      "top": [
+        "transcript:703",
+        "transcript:542",
+        "transcript:541",
+        "transcript:568",
+        "transcript:318",
+        "transcript:484",
+        "transcript:543",
+        "transcript:516"
+      ]
+    },
+    {
+      "claim": "summary:121",
+      "text": "Softmax converts each row into a convex combination.",
+      "entailed": true,
+      "evidence": "transcript:568",
+      "top": [
+        "transcript:318",
+        "transcript:568",
+        "transcript:569",
+        "transcript:317",
+        "transcript:484",
+        "transcript:542",
+        "transcript:487",
+        "transcript:485"
+      ]
+    },
+    {
+      "claim": "summary:122",
+      "text": "Multiplying by V produces the output as a weighted sum of the value vectors.",
+      "entailed": true,
+      "evidence": "transcript:518",
+      "top": [
+        "slides:146",
+        "transcript:569",
+        "transcript:511",
+        "slides:147",
+        "transcript:71",
+        "slides:154",
+        "transcript:564",
+        "transcript:518"
+      ]
+    },
+    {
+      "claim": "summary:123",
+      "text": "Every output position is directly connected to every input position in a single step – the path length is 1, regardless of distance in the sequence.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:351",
+        "transcript:358",
+        "transcript:701",
+        "transcript:537",
+        "transcript:678",
+        "transcript:577",
+        "slides:191",
+        "transcript:445"
+      ]
+    },
+    {
+      "claim": "summary:124",
+      "text": "This is a huge advantage over RNNs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:185",
+        "slides:13",
+        "slides:49",
+        "slides:15",
+        "slides:48",
+        "slides:106",
+        "transcript:209",
+        "slides:12"
+      ]
+    },
+    {
+      "claim": "summary:125",
+      "text": "The cost is a quadratic complexity O(L^2) in the sequence length.",
+      "entailed": true,
+      "evidence": "transcript:578",
+      "top": [
+        "transcript:576",
+        "transcript:578",
+        "transcript:545",
+        "transcript:577",
+        "transcript:177",
+        "transcript:551",
+        "transcript:546",
+        "transcript:553"
+      ]
+    },
+    {
+      "claim": "summary:126",
+      "text": "This quadratic complexity is the central computational challenge of transformers.",
+      "entailed": true,
+      "evidence": "transcript:546",
+      "top": [
+        "transcript:546",
+        "transcript:578",
+        "transcript:547",
+        "transcript:409",
+        "transcript:553",
+        "transcript:545",
+        "transcript:579",
+        "transcript:402"
+      ]
+    },
+    {
+      "claim": "summary:127",
+      "text": "A single attention head projects the input into a small space (d_k \\approx 64), which is too small to capture all relevant relationships.",
+      "entailed": true,
+      "evidence": "transcript:559",
+      "top": [
+        "transcript:589",
+        "transcript:602",
+        "transcript:562",
+        "transcript:544",
+        "transcript:556",
+        "transcript:588",
+        "transcript:559",
+        "transcript:600"
+      ]
+    },
+    {
+      "claim": "summary:128",
+      "text": "Instead, we run H independent heads in parallel, each with its own W_Q^{(h)}, W_K^{(h)}, W_V^{(h)}.",
+      "entailed": true,
+      "evidence": "slides:157",
+      "top": [
+        "slides:157",
+        "slides:158",
+        "transcript:561",
+        "transcript:587",
+        "transcript:600",
+        "transcript:592",
+        "transcript:562",
+        "transcript:595"
+      ]
+    },
+    {
+      "claim": "summary:129",
+      "text": "MultiHead(Q, K, V) = \\operatorname{Concat}(\\text{head}_1, \\dots, \\text{head}_H) W_O, where \\text{head}_h = \\operatorname{Attention}(X W_Q^{(h)}, X W_K^{(h)}, X W_V^{(h)}).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:157",
+        "transcript:587",
+        "transcript:600",
+        "transcript:589",
+        "transcript:561",
+        "transcript:586",
+        "transcript:562",
+        "transcript:588"
+      ]
+    },
+    {
+      "claim": "summary:130",
+      "text": "W_O \\in \\mathbb{R}^{H d_v \\times D} projects the concatenated result back to the model dimension D.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:140",
+        "slides:147",
+        "slides:160",
+        "slides:193",
+        "transcript:596",
+        "transcript:525",
+        "transcript:531",
+        "transcript:595"
+      ]
+    },
+    {
+      "claim": "summary:131",
+      "text": "This gives the model multiple “ways of looking” at the data and mixes the different perspectives.",
+      "entailed": true,
+      "evidence": "transcript:263",
+      "top": [
+        "slides:65",
+        "transcript:601",
+        "transcript:386",
+        "transcript:387",
+        "slides:58",
+        "transcript:505",
+        "transcript:263",
+        "slides:162"
+      ]
+    },
+    {
+      "claim": "summary:132",
+      "text": "The Transformer decoder is trained to predict the next token given the prefix.",
+      "entailed": true,
+      "evidence": "transcript:606",
+      "top": [
+        "transcript:606",
+        "transcript:458",
+        "transcript:454",
+        "slides:129",
+        "transcript:453",
+        "slides:188",
+        "transcript:452",
+        "transcript:427"
+      ]
+    },
+    {
+      "claim": "summary:133",
+      "text": "For efficiency, the whole output sequence is fed to the Transformer decoder at once during training.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:455",
+        "slides:129",
+        "transcript:427",
+        "transcript:459",
+        "transcript:606",
+        "transcript:458",
+        "transcript:579",
+        "slides:188"
+      ]
+    },
+    {
+      "claim": "summary:134",
+      "text": "During training, future tokens must not influence the prediction of the current token.",
+      "entailed": true,
+      "evidence": "slides:164",
+      "top": [
+        "transcript:326",
+        "slides:164",
+        "transcript:325",
+        "transcript:329",
+        "transcript:653",
+        "slides:166",
+        "transcript:672",
+        "transcript:630"
+      ]
+    },
+    {
+      "claim": "summary:135",
+      "text": "Causal masking zeros out the softmax inputs for future positions, setting the attention weights for those positions to zero.",
+      "entailed": true,
+      "evidence": "slides:166",
+      "top": [
+        "slides:166",
+        "transcript:609",
+        "slides:165",
+        "transcript:517",
+        "transcript:610",
+        "transcript:342",
+        "transcript:330",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "summary:136",
+      "text": "The encoder-decoder attention mechanism in the Transformer is a cross-attention layer.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:461",
+        "slides:163",
+        "slides:130",
+        "transcript:422",
+        "transcript:314",
+        "transcript:603",
+        "transcript:482",
+        "transcript:468"
+      ]
+    },
+    {
+      "claim": "summary:137",
+      "text": "In the encoder-decoder attention, the queries come from the decoder’s previous layer, which represents the tokens produced so far.",
+      "entailed": true,
+      "evidence": "slides:168",
+      "top": [
+        "slides:168",
+        "slides:170",
+        "transcript:613",
+        "transcript:611",
+        "transcript:496",
+        "transcript:570",
+        "transcript:314",
+        "transcript:453"
+      ]
+    },
+    {
+      "claim": "summary:138",
+      "text": "In the encoder-decoder attention, the keys and values come from the encoder’s output, which is the full source representation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:169",
+        "transcript:612",
+        "transcript:613",
+        "transcript:482",
+        "transcript:314",
+        "transcript:459",
+        "transcript:603",
+        "slides:170"
+      ]
+    },
+    {
+      "claim": "summary:139",
+      "text": "The encoder-decoder attention is essentially the same self-attention mechanism, but with Q, K, V originating from two different sequences.",
+      "entailed": true,
+      "evidence": "slides:167",
+      "top": [
+        "slides:167",
+        "transcript:613",
+        "transcript:314",
+        "transcript:612",
+        "transcript:478",
+        "transcript:468",
+        "transcript:481",
+        "transcript:463"
+      ]
+    },
+    {
+      "claim": "summary:140",
+      "text": "The attention matrix resulting from encoder-decoder attention is not square.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:614",
+        "transcript:612",
+        "transcript:308",
+        "transcript:626",
+        "transcript:309",
+        "transcript:611",
+        "transcript:468",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "summary:141",
+      "text": "Encoder-decoder attention gives the decoder a direct window into the source.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:314",
+        "transcript:482",
+        "transcript:282",
+        "transcript:340",
+        "transcript:604",
+        "transcript:477",
+        "slides:167",
+        "transcript:479"
+      ]
+    },
+    {
+      "claim": "summary:142",
+      "text": "Using full words as tokens would require a vocabulary of millions, including typos and inflected forms.",
+      "entailed": true,
+      "evidence": "transcript:638",
+      "top": [
+        "transcript:633",
+        "transcript:638",
+        "transcript:648",
+        "transcript:649",
+        "transcript:632",
+        "transcript:436",
+        "transcript:549",
+        "transcript:650"
+      ]
+    },
+    {
+      "claim": "summary:143",
+      "text": "Using characters as tokens would make sequences too long.",
+      "entailed": true,
+      "evidence": "transcript:646",
+      "top": [
+        "transcript:646",
+        "transcript:640",
+        "transcript:643",
+        "transcript:650",
+        "transcript:633",
+        "transcript:641",
+        "transcript:649",
+        "transcript:648"
+      ]
+    },
+    {
+      "claim": "summary:144",
+      "text": "Byte-Pair Encoding (BPE) is a deterministic Huffman-coding procedure that builds a subword vocabulary.",
+      "entailed": true,
+      "evidence": "transcript:654",
+      "top": [
+        "transcript:654",
+        "transcript:651",
+        "slides:172",
+        "transcript:667",
+        "transcript:655",
+        "transcript:652",
+        "slides:173",
+        "slides:174"
+      ]
+    },
+    {
+      "claim": "summary:145",
+      "text": "The BPE procedure starts with individual characters as the initial vocabulary.",
+      "entailed": true,
+      "evidence": "transcript:655",
+      "top": [
+        "transcript:667",
+        "transcript:664",
+        "transcript:655",
+        "transcript:666",
+        "transcript:665",
+        "transcript:652",
+        "transcript:654",
+        "transcript:651"
+      ]
+    },
+    {
+      "claim": "summary:146",
+      "text": "In BPE, all adjacent pairs of tokens in the corpus are counted.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:655",
+        "transcript:657",
+        "transcript:666",
+        "transcript:668",
+        "transcript:628",
+        "transcript:549",
+        "transcript:662",
+        "transcript:648"
+      ]
+    },
+    {
+      "claim": "summary:147",
+      "text": "In BPE, the most frequent pair of tokens is replaced with a new token (for example, ‘a’ + ‘t’ becomes ‘Z’).",
+      "entailed": true,
+      "evidence": "slides:177",
+      "top": [
+        "transcript:655",
+        "transcript:657",
+        "transcript:667",
+        "transcript:656",
+        "transcript:668",
+        "transcript:660",
+        "slides:177",
+        "transcript:449"
+      ]
+    },
+    {
+      "claim": "summary:148",
+      "text": "BPE repeats the steps of counting pairs and replacing the most frequent pair until the desired vocabulary size is reached.",
+      "entailed": true,
+      "evidence": "slides:183",
+      "top": [
+        "transcript:665",
+        "slides:183",
+        "transcript:666",
+        "transcript:663",
+        "transcript:655",
+        "slides:181",
+        "transcript:657",
+        "slides:177"
+      ]
+    },
+    {
+      "claim": "summary:149",
+      "text": "In BPE, common morphemes such as '-ed' and '-tion' become single tokens, while rare words stay as multiple subword tokens.",
+      "entailed": true,
+      "evidence": "transcript:668",
+      "top": [
+        "transcript:667",
+        "transcript:668",
+        "transcript:655",
+        "transcript:633",
+        "transcript:650",
+        "transcript:649",
+        "transcript:648",
+        "transcript:632"
+      ]
+    },
+    {
+      "claim": "summary:150",
+      "text": "Because the self-attention layer treats the input as an unordered set, position information must be injected.",
+      "entailed": true,
+      "evidence": "slides:187",
+      "top": [
+        "slides:187",
+        "transcript:465",
+        "transcript:330",
+        "transcript:556",
+        "transcript:468",
+        "slides:140",
+        "transcript:609",
+        "slides:165"
+      ]
+    },
+    {
+      "claim": "summary:151",
+      "text": "In the original Transformer, sinusoidal positional encodings are defined as \\(PE_{(pos, 2i)} = \\sin\\!\\left(\\frac{pos}{10000^{2i/d}}\\right)\\) and \\(PE_{(pos, 2i+1)} = \\cos\\!\\left(\\frac{pos}{10000^{2i/d}}\\right)\\), where \\(pos\\) is the position and \\(i\\) is the dimension index.",
+      "entailed": true,
+      "evidence": "slides:192",
+      "top": [
+        "transcript:681",
+        "slides:192",
+        "slides:188",
+        "transcript:679",
+        "transcript:698",
+        "slides:128",
+        "slides:129",
+        "transcript:427"
+      ]
+    },
+    {
+      "claim": "summary:152",
+      "text": "Different dimensions of the sinusoidal positional encodings oscillate at different frequencies, mimicking a positional numeral system in a continuous way.",
+      "entailed": true,
+      "evidence": "transcript:679",
+      "top": [
+        "slides:192",
+        "transcript:682",
+        "transcript:698",
+        "transcript:679",
+        "transcript:681",
+        "transcript:677",
+        "transcript:700",
+        "transcript:683"
+      ]
+    },
+    {
+      "claim": "summary:153",
+      "text": "The dot product of two sinusoidal positional encodings depends only on their relative distance \\(i-j\\).",
+      "entailed": true,
+      "evidence": "transcript:698",
+      "top": [
+        "transcript:698",
+        "transcript:701",
+        "slides:192",
+        "transcript:677",
+        "transcript:678",
+        "transcript:699",
+        "transcript:691",
+        "transcript:692"
+      ]
+    },
+    {
+      "claim": "summary:154",
+      "text": "Rotary Positional Encodings (RoPE) treat the embedding vector in pairs \\((x_{2k}, x_{2k+1})\\) as 2D vectors.",
+      "entailed": true,
+      "evidence": "transcript:686",
+      "top": [
+        "transcript:683",
+        "transcript:691",
+        "transcript:700",
+        "transcript:686",
+        "transcript:684",
+        "transcript:685",
+        "transcript:697",
+        "transcript:677"
+      ]
+    },
+    {
+      "claim": "summary:155",
+      "text": "In RoPE, each pair is transformed by applying a rotation matrix: \\(\\begin{pmatrix} x'_{2k} \\\\ x'_{2k+1} \\end{pmatrix} = \\begin{pmatrix} \\cos(k\\theta) & -\\sin(k\\theta) \\\\ \\sin(k\\theta) & \\cos(k\\theta) \\end{pmatrix} \\begin{pmatrix} x_{2k} \\\\ x_{2k+1} \\end{pmatrix}\\).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:693",
+        "transcript:688",
+        "transcript:695",
+        "transcript:687",
+        "transcript:685",
+        "transcript:694",
+        "transcript:686",
+        "transcript:683"
+      ]
+    },
+    {
+      "claim": "summary:156",
+      "text": "Because rotations add (\\(k\\theta + l\\theta = (k+l)\\theta\\)), the dot product between two RoPE-encoded vectors depends only on the offset \\(k-l\\), giving a perfect distance-preserving arithmetic.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:695",
+        "transcript:693",
+        "transcript:688",
+        "transcript:694",
+        "transcript:696",
+        "transcript:701",
+        "transcript:683",
+        "transcript:686"
+      ]
+    },
+    {
+      "claim": "summary:157",
+      "text": "Transformers replace recurrence with self-attention.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:579",
+        "transcript:6",
+        "transcript:422",
+        "slides:163",
+        "transcript:3",
+        "slides:127",
+        "transcript:388",
+        "transcript:396"
+      ]
+    },
+    {
+      "claim": "summary:158",
+      "text": "Self-attention in Transformers achieves direct connections between all positions.",
+      "entailed": true,
+      "evidence": "transcript:579",
+      "top": [
+        "transcript:422",
+        "slides:130",
+        "transcript:388",
+        "slides:163",
+        "transcript:461",
+        "transcript:6",
+        "transcript:465",
+        "transcript:579"
+      ]
+    },
+    {
+      "claim": "summary:159",
+      "text": "Self-attention in Transformers enables massive parallelisation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:422",
+        "transcript:388",
+        "transcript:579",
+        "slides:163",
+        "slides:130",
+        "transcript:409",
+        "slides:133",
+        "slides:194"
+      ]
+    },
+    {
+      "claim": "summary:160",
+      "text": "Transformers scale far better than LSTMs.",
+      "entailed": true,
+      "evidence": "transcript:418",
+      "top": [
+        "transcript:409",
+        "transcript:418",
+        "transcript:142",
+        "transcript:125",
+        "transcript:169",
+        "transcript:410",
+        "transcript:8",
+        "transcript:547"
+      ]
+    },
+    {
+      "claim": "summary:161",
+      "text": "Doubling the number of parameters in Transformers reliably improves performance.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:197",
+        "transcript:414",
+        "transcript:400",
+        "transcript:410",
+        "transcript:579",
+        "transcript:546",
+        "transcript:409",
+        "transcript:578"
+      ]
+    },
+    {
+      "claim": "summary:162",
+      "text": "Transformers underlie modern Large Language Models (LLMs) with trillions of parameters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:415",
+        "transcript:416",
+        "transcript:364",
+        "transcript:289",
+        "transcript:8",
+        "transcript:3",
+        "transcript:451",
+        "transcript:409"
+      ]
+    },
+    {
+      "claim": "summary:163",
+      "text": "The main weakness of Transformers is the quadratic \\(O(L^2)\\) complexity in sequence length.",
+      "entailed": true,
+      "evidence": "transcript:546",
+      "top": [
+        "transcript:578",
+        "transcript:547",
+        "transcript:546",
+        "transcript:409",
+        "transcript:579",
+        "transcript:555",
+        "transcript:673",
+        "slides:128"
+      ]
+    },
+    {
+      "claim": "summary:164",
+      "text": "The quadratic \\(O(L^2)\\) complexity of Transformers in sequence length has motivated an entire field of efficient attention variants.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:578",
+        "transcript:547",
+        "transcript:579",
+        "transcript:546",
+        "transcript:388",
+        "transcript:555",
+        "slides:128",
+        "transcript:352"
+      ]
+    }
+  ]
+}

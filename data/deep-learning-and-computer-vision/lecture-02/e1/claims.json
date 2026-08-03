@@ -1,0 +1,3502 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "chunk_words": 2000,
+    "top_k": 16,
+    "limit": null,
+    "max_chunks": null
+  },
+  "slides": [
+    {
+      "text": "The discussion assumes familiarity with discrete random variables (probabilities summing to one) and continuous random variables (nonnegative density integrating to one). Formal measure-theoretic concepts (sigma-algebras, Borel sets, etc.) are not required.",
+      "salience": "aside"
+    },
+    {
+      "text": "Joint probability is the probability of two events occurring simultaneously, denoted p(x, y).",
+      "salience": "core"
+    },
+    {
+      "text": "Marginalization is given by p(x) = ∑_y p(x, y).",
+      "salience": "core"
+    },
+    {
+      "text": "Conditional probability is the probability of one event given another occurred, denoted p(x|y).",
+      "salience": "core"
+    },
+    {
+      "text": "The chain rule states p(x, y) = p(x|y) p(y) = p(y|x) p(x).",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes’ theorem is p(y|x) = p(x|y) p(y) / p(x) = p(x|y) p(y) / (∑_{y'} p(x|y') p(y')).",
+      "salience": "core"
+    },
+    {
+      "text": "Independence: x and y are independent if p(x,y)=p(x) p(y).",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes’ theorem for parameters and data: p(θ|D) = p(θ) p(D|θ) / p(D), where p(θ) is the prior probability, p(D|θ) is the likelihood, p(θ|D) is the posterior probability, and p(D) = ∫ p(D|θ) p(θ) dθ is the evidence (marginal likelihood).",
+      "salience": "core"
+    },
+    {
+      "text": "The maximum likelihood (ML) hypothesis is θ_ML = arg max_θ p(D|θ).",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian approaches work with the full posterior p(θ|D) ∝ p(D|θ) p(θ) and often extract the maximum a posteriori (MAP) hypothesis: θ_MAP = arg max_θ p(θ|D) = arg max_θ p(D|θ) p(θ).",
+      "salience": "core"
+    },
+    {
+      "text": "Direct problem (prediction): given a probabilistic model, compute a specific probability.",
+      "salience": "core"
+    },
+    {
+      "text": "Example direct problem: an urn contains 10 balls, 3 black; what is the probability of drawing a black ball?",
+      "salience": "supporting"
+    },
+    {
+      "text": "Another direct problem example: 10 balls numbered 1–10; what is the probability that the sum of three consecutively drawn balls equals 12?",
+      "salience": "supporting"
+    },
+    {
+      "text": "Inverse problem (inference): hidden variables must be inferred from observed behaviour.",
+      "salience": "core"
+    },
+    {
+      "text": "Example inverse problem: two urns each have 10 balls; one has 3 black, the other 6. A ball drawn from one urn is black. What is the probability it came from the first urn?",
+      "salience": "supporting"
+    },
+    {
+      "text": "Inverse problems naturally lead to Bayesian reasoning, though they can be rephrased through frequencies.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Machine learning problems are predominantly of the inverse type: building probabilistic models from observations.",
+      "salience": "core"
+    },
+    {
+      "text": "Classical (frequentist) view: probability is the limiting frequency of an outcome in an infinite sequence of identical trials.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian view: probability quantifies a degree of belief.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian probability applies to unique, non-repeatable events such as Spain winning the FIFA World Cup in 2026, the Odyssey having been written by a woman, or AGI taking control by 2030.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the Bayesian interpretation, probabilities become subjective beliefs.",
+      "salience": "core"
+    },
+    {
+      "text": "Both frequentist and Bayesian interpretations follow the same mathematical laws.",
+      "salience": "core"
+    },
+    {
+      "text": "Cox’s theorem shows that natural axioms of plausible reasoning lead to a very restricted class of functions.",
+      "salience": "core"
+    },
+    {
+      "text": "Two children problem: assume each child is boy or girl independently with equal probability 1/2.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After asking whether the person has any boys, he answers 'yes'; what is the probability he has a girl?",
+      "salience": "supporting"
+    },
+    {
+      "text": "I meet one of his children, and it is a boy; what is the probability the other is a girl?",
+      "salience": "supporting"
+    },
+    {
+      "text": "Murder trial: blood at the scene matches the defendant’s rare blood type (population frequency 1%).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor's fallacy: claiming that because the chance the defendant would have this blood type if innocent is 1%, he is guilty with probability 99%.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defence attorney's fallacy: arguing that with a million people in the city, about 10,000 share the blood type, so the blood evidence gives only a 0.01% probability of guilt, which is no proof.",
+      "salience": "supporting"
+    },
+    {
+      "text": "O.J. Simpson case: the prosecutor cited a history of domestic violence; the defence argued that only 1 out of 2500 women subject to domestic violence is killed, so it is irrelevant; the court agreed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Sally Clark case: two babies died of SIDS; the prosecutor calculated the combined probability of two SIDS deaths from the single-case statistic to be about 1 in 73 million.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Linear model: y(x,w) = w0 + ∑_{j=1}^p x_j w_j = x^⊤ w, with x = (1, x1, …, xp).",
+      "salience": "core"
+    },
+    {
+      "text": "Given training data {(x_i, y_i)}_{i=1}^N, the optimal parameters ŵ are found by minimising the residual sum of squares: RSS(w) = ∑_{i=1}^N (y_i - x_i^⊤ w)^2.",
+      "salience": "core"
+    },
+    {
+      "text": "An exact closed-form solution exists for least squares, but the derivation via probability is more instructive.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Noise assumption: the observed target t = y(x,w) + ε, with ε ∼ N(0,σ^2), so p(t|x,w,σ^2) = N(t | y(x,w), σ^2).",
+      "salience": "core"
+    },
+    {
+      "text": "The normal distribution is p(x) = 1/(σ√(2π)) exp(-(x-μ)^2/(2σ^2)).",
+      "salience": "aside"
+    },
+    {
+      "text": "Assuming i.i.d. data, the likelihood is p(t|X,w,σ^2) = ∏_{n=1}^N N(t_n | w^⊤ φ(x_n), σ^2).",
+      "salience": "core"
+    },
+    {
+      "text": "The log-likelihood is ln p(t|w,σ^2) = -N/2 ln(2πσ^2) - 1/(2σ^2) ∑ (t_n - w^⊤ φ(x_n))^2.",
+      "salience": "core"
+    },
+    {
+      "text": "Maximising the likelihood with respect to w is equivalent to minimising the sum of squared errors.",
+      "salience": "core"
+    },
+    {
+      "text": "The gradient of the log-likelihood is ∇_w ln p(t|w,σ^2) = 1/σ^2 ∑ (t_n - w^⊤ φ(x_n)) φ(x_n).",
+      "salience": "core"
+    },
+    {
+      "text": "By introducing a prior (also normal), one can obtain a full posterior distribution and compute the predictive distribution p(y|x,D) = ∫ p(y|x,w) p(w|D) dw.",
+      "salience": "core"
+    },
+    {
+      "text": "Key conclusion: minimising the sum of squared deviations is natural because it corresponds to assuming normally distributed noise.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayesian inference proceeds by finding the posterior p(θ|D) ∝ p(D|θ) p(θ) (or the MAP hypothesis) and the predictive distribution p(x|D) ∝ ∫ p(x|θ) p(D|θ) p(θ) dθ.",
+      "salience": "core"
+    },
+    {
+      "text": "Introduce a prior on the weights, e.g., a normal distribution: p(w) = N(w | μ0, Σ0).",
+      "salience": "core"
+    },
+    {
+      "text": "With i.i.d. normal likelihood, the posterior is proportional to p(w|t) ∝ N(w | μ0, Σ0) ∏ N(t_n | w^⊤ φ(x_n), σ^2).",
+      "salience": "core"
+    },
+    {
+      "text": "The product yields a Gaussian posterior: p(w|t) = N(w | μ_N, Σ_N).",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior mean is μ_N = Σ_N (Σ0^{-1} μ0 + (1/σ^2) Φ^⊤ t).",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior covariance is Σ_N = (Σ0^{-1} + (1/σ^2) Φ^⊤ Φ)^{-1}, where Φ is the design matrix with rows φ(x_n)^⊤.",
+      "salience": "core"
+    },
+    {
+      "text": "If the prior is zero‑mean isotropic, p(w) = N(w | 0, (1/α)I), the log-posterior becomes -(1/(2σ^2)) ∑ (t_n - w^⊤ φ(x_n))^2 - (α/2) w^⊤ w + constant.",
+      "salience": "core"
+    },
+    {
+      "text": "This is the ridge regression objective: penalised least squares with an ℓ2 regulariser.",
+      "salience": "core"
+    },
+    {
+      "text": "Ridge regression is the MAP estimate under a Gaussian prior.",
+      "salience": "core"
+    },
+    {
+      "text": "A more general prior p(w|α) = [q/2 (α/2)^{1/q} 1/Γ(1/q)]^M exp(-α/2 ∑ |w_j|^q) leads to a regulariser proportional to ||w||_q^q.",
+      "salience": "core"
+    },
+    {
+      "text": "This prior subsumes ridge (q=2) and Laplace (LASSO, q=1) priors.",
+      "salience": "core"
+    },
+    {
+      "text": "In classification, we assign an input x to one of K classes C_k.",
+      "salience": "core"
+    },
+    {
+      "text": "Assume each class has a density p(x|C_k) and a prior p(C_k).",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes’ theorem gives the posterior p(C_k|x).",
+      "salience": "core"
+    },
+    {
+      "text": "For two classes, p(C1|x) = 1/(1+e^{-a}) = σ(a), where a = ln(p(x|C1) p(C1) / (p(x|C2) p(C2))) and σ(a) = 1/(1+e^{-a}).",
+      "salience": "core"
+    },
+    {
+      "text": "σ(a) is the logistic sigmoid, and σ(-a) = 1 - σ(a).",
+      "salience": "core"
+    },
+    {
+      "text": "The inverse is the logit function: a = ln(σ/(1-σ)).",
+      "salience": "core"
+    },
+    {
+      "text": "Logistic regression models the decision boundary directly: y_n = p(C1|φ_n) = σ(w^⊤ φ_n).",
+      "salience": "core"
+    },
+    {
+      "text": "For a dataset {φ_n, t_n} with t_n ∈ {0,1}, the likelihood is p(t|w) = ∏ y_n^{t_n} (1-y_n)^{1-t_n}.",
+      "salience": "core"
+    },
+    {
+      "text": "The negative log‑likelihood gives the cross‑entropy error: E(w) = -∑ [t_n ln y_n + (1-t_n) ln(1-y_n)].",
+      "salience": "core"
+    },
+    {
+      "text": "Minimising this yields a sigmoid that optimally separates the data and attempts to model probabilities.",
+      "salience": "core"
+    },
+    {
+      "text": "For multiple classes, p(C_k|x) = e^{a_k} / ∑_j e^{a_j}, where a_k = ln p(x|C_k) p(C_k).",
+      "salience": "core"
+    },
+    {
+      "text": "The function e^{a_k} / ∑_j e^{a_j} is the softmax (normalized exponential).",
+      "salience": "core"
+    },
+    {
+      "text": "Conclusion: for classification, minimise cross‑entropy (with softmax outputs) rather than raw classification error.",
+      "salience": "core"
+    },
+    {
+      "text": "Gradient descent is the fundamental method for optimising complicated, non‑convex functions.",
+      "salience": "core"
+    },
+    {
+      "text": "The gradient descent update rule is w^{(τ+1)} = w^{(τ)} - η ∇ E(w).",
+      "salience": "core"
+    },
+    {
+      "text": "For logistic regression with cross-entropy error, using σ'(a) = σ(a)(1-σ(a)), the gradient is ∇ E(w) = ∑ (y_n - t_n) φ_n.",
+      "salience": "core"
+    },
+    {
+      "text": "Gradient descent proceeds by iterative updates in the direction opposite the gradient.",
+      "salience": "core"
+    },
+    {
+      "text": "Gradient descent is a local optimisation procedure with no global convergence guarantees.",
+      "salience": "core"
+    },
+    {
+      "text": "All improvements discussed in the sequel will be local; global guarantees are not available with these methods.",
+      "salience": "core"
+    },
+    {
+      "text": "The human brain contains about 10^11 neurons, each with about 7,000 synapses, leading to 10^14–10^15 connections.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Neuron structure: dendrites receive signals, the axon transmits spikes, and synapses connect one neuron’s axon to other neurons’ dendrites.",
+      "salience": "core"
+    },
+    {
+      "text": "Neurons produce spikes stochastically, with firing rates of only 10–200 Hz.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We can recognise a face in a few hundred milliseconds, implying sequential computations are very short.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain achieves this by massive parallelism.",
+      "salience": "core"
+    },
+    {
+      "text": "Visual processing in the brain follows a hierarchical pathway.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Traditional systems for unstructured data rely on hand‑crafted features: input → features → classifier.",
+      "salience": "core"
+    },
+    {
+      "text": "Examples of hand‑crafted features: MFCC for speech, SIFT for images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Feature learning asks: can we learn good features automatically?",
+      "salience": "core"
+    },
+    {
+      "text": "The brain succeeds at learning from very small data samples and can adapt to new data sources.",
+      "salience": "core"
+    },
+    {
+      "text": "Neuroplasticity suggests a single learning algorithm, the 'Master Algorithm', might be at work across very different sensory modalities.",
+      "salience": "core"
+    },
+    {
+      "text": "Machine learning is essentially function approximation and optimisation.",
+      "salience": "core"
+    },
+    {
+      "text": "For example, a function from an image’s pixels to 'cat or not' is extremely complicated.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Such a function is defined only at the points provided by a dataset.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The common approach: construct a parametric class of models (functions), then tune parameters to fit the data by optimising a chosen error function or quality metric.",
+      "salience": "core"
+    },
+    {
+      "text": "Neural networks are universal approximators – a very wide and flexible parametric class.",
+      "salience": "core"
+    },
+    {
+      "text": "The challenge is how to train neural networks effectively.",
+      "salience": "core"
+    },
+    {
+      "text": "Early ideas: modelling neurons with simple functions by McCulloch & Pitts (1943).",
+      "salience": "aside"
+    },
+    {
+      "text": "Artificial neural networks with multiple layers were proposed by Turing (1948).",
+      "salience": "aside"
+    },
+    {
+      "text": "The perceptron (Rosenblatt, 1958) is a single artificial neuron implementing a linear separating surface.",
+      "salience": "core"
+    },
+    {
+      "text": "A single neuron combines inputs linearly and passes the result through a nonlinear activation function: y = h(w^⊤ x) = h(∑ w_i x_i).",
+      "salience": "core"
+    },
+    {
+      "text": "Training the original Rosenblatt perceptron (with identity activation) minimises E_P(w) = -∑_{x∈M} y(x) (w^⊤ x), with update w^{(τ+1)} = w^{(τ)} + η t_n x_n.",
+      "salience": "core"
+    },
+    {
+      "text": "For binary classification, one can use the logistic sigmoid activation and cross‑entropy error, which is essentially logistic regression.",
+      "salience": "core"
+    },
+    {
+      "text": "The first perceptron learned to recognise letters and was hailed as a major success.",
+      "salience": "aside"
+    },
+    {
+      "text": "Minsky’s critique: a single perceptron can only produce a linear separating surface, even with a nonlinearity.",
+      "salience": "core"
+    },
+    {
+      "text": "This necessitates a network of perceptrons.",
+      "salience": "core"
+    },
+    {
+      "text": "Minsky & Papert (1969) showed that XOR cannot be modelled by a perceptron, which was regarded as a serious obstacle.",
+      "salience": "aside"
+    },
+    {
+      "text": "Backpropagation was invented by Brison & Hoback (1969) and rediscovered by Hinton (1974), who popularised it.",
+      "salience": "aside"
+    },
+    {
+      "text": "Multilayer artificial neural networks in their modern form appeared in the late 1970s; deep models existed in the early 1980s.",
+      "salience": "aside"
+    },
+    {
+      "text": "The idea of depth is old.",
+      "salience": "aside"
+    },
+    {
+      "text": "By the early 1990s, neural networks failed to live up to the hype, partly for technical reasons.",
+      "salience": "aside"
+    },
+    {
+      "text": "John Denker (1994) said: 'Neural networks are the second best way of doing just about anything.'",
+      "salience": "aside"
+    },
+    {
+      "text": "In the 1990s, neural networks were largely forgotten, except for image processing by Yann LeCun and a few groups such as Geoffrey Hinton and Yoshua Bengio.",
+      "salience": "aside"
+    },
+    {
+      "text": "The deep learning revolution began around 2006.",
+      "salience": "core"
+    },
+    {
+      "text": "Hinton’s group trained Deep Belief Networks (DBNs) using unsupervised pretraining.",
+      "salience": "core"
+    },
+    {
+      "text": "More powerful computers were an enabler of the deep learning revolution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GPU computations were an enabler of the deep learning revolution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Much larger datasets were an enabler of the deep learning revolution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "New regularisation/optimisation techniques were an enabler of the deep learning revolution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Unsupervised pretraining later became unnecessary.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Architectural innovations were a key ingredient of the deep learning revolution.",
+      "salience": "core"
+    },
+    {
+      "text": "Real neurons most likely do not perform gradient descent.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Backpropagation would be difficult to implement biologically.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Hebbian learning increases the weight between neurons that fire together, with weight change \\(\\Delta w_i = \\eta\\, x_i x_j\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The Hebbian learning principle led to the development of Hopfield networks for associative memory.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Current research in biological neural learning focuses on spike-timing-dependent plasticity.",
+      "salience": "aside"
+    },
+    {
+      "text": "In spike-timing-dependent plasticity, the weight change depends on the precise temporal relationship between spikes.",
+      "salience": "aside"
+    },
+    {
+      "text": "A multilayer perceptron network connects perceptrons such that the outputs of one layer become inputs to the next.",
+      "salience": "core"
+    },
+    {
+      "text": "Hornik (1990) showed that a two-layer neural network can approximate any function, a result known as the universal approximation theorem.",
+      "salience": "core"
+    },
+    {
+      "text": "Deep networks exploit distributed representations.",
+      "salience": "core"
+    },
+    {
+      "text": "Deep networks are significantly more expressive than two-layer networks.",
+      "salience": "core"
+    },
+    {
+      "text": "Neural networks are typically organised in layers.",
+      "salience": "core"
+    },
+    {
+      "text": "The layered organisation of neural networks naturally allows for easy parallelisation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A very complicated function is approximated by a large composition of simple functions in neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "The standard training method for neural networks is gradient descent.",
+      "salience": "core"
+    },
+    {
+      "text": "There are complications with gradient descent training that will be addressed later.",
+      "salience": "supporting"
+    }
+  ],
+  "transcript": [
+    {
+      "text": "Yesterday's discussion was about learning in a probabilistic Bayesian framework, centered on Bayes' rule.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes' rule is the most important formula in machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "The discussion focused on a simple coin toss example.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Today's lecture extends the introduction to linear models.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear models are directly relevant to neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "Bayes' rule tells us how to update our beliefs when receiving new evidence.",
+      "salience": "core"
+    },
+    {
+      "text": "In Bayes' rule, $D$ represents any evidence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In Bayes' rule, $\\theta$ represents beliefs or hypotheses about the underlying process.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Humans do not consciously compute Bayesian updates.",
+      "salience": "aside"
+    },
+    {
+      "text": "Yesterday's discussion included three main machine learning problems that lead to optimization.",
+      "salience": "core"
+    },
+    {
+      "text": "Problem (1): Maximize the likelihood $p(D \\mid \\theta)$ alone, a non-Bayesian method.",
+      "salience": "core"
+    },
+    {
+      "text": "Maximizing likelihood alone is often used with large data or complex models where a prior is infeasible.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Problem (2): Multiply the likelihood by a prior $p(\\theta)$ and maximize the result.",
+      "salience": "core"
+    },
+    {
+      "text": "The product of likelihood and prior is proportional to the posterior $p(\\theta \\mid D)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Problem (3): Compute the predictive distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "Today's lecture will show concrete examples of the second approach in real models.",
+      "salience": "core"
+    },
+    {
+      "text": "Yesterday we examined the coin toss example in great detail.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The coin toss example included likelihood, prior, posterior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The coin toss example started with a uniform prior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Then more informative priors were discussed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If one wants a bell-shaped prior, the choice should be the one that is convenient.",
+      "salience": "core"
+    },
+    {
+      "text": "Prior choice reflects our beliefs.",
+      "salience": "core"
+    },
+    {
+      "text": "In linear regression, the reasoning is the same: we choose the prior for convenience or desirable properties.",
+      "salience": "core"
+    },
+    {
+      "text": "For linear regression, we do not choose the prior from a principled understanding of the process.",
+      "salience": "core"
+    },
+    {
+      "text": "The speaker mentions the philosophical underpinning of probability.",
+      "salience": "aside"
+    },
+    {
+      "text": "Old probability books define probability as the limit of relative frequency in infinitely repeatable experiments.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This definition is correct where applicable.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In real life and machine learning, we often reason about non-repeatable events.",
+      "salience": "core"
+    },
+    {
+      "text": "Example: a bookmaker sets odds on Spain winning the FIFA World Cup, a one-off event.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Example: we assign probabilities to hypotheses about already determined facts we don't know, such as the authorship of the Odyssey.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For non-repeatable events, it makes no sense to talk about infinite repetitions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In such cases, probabilities are degrees of belief representing uncertainty.",
+      "salience": "core"
+    },
+    {
+      "text": "This framing is useful for machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, we are updating our beliefs, not deriving logical conclusions.",
+      "salience": "core"
+    },
+    {
+      "text": "With a good, large dataset, beliefs become more certain.",
+      "salience": "core"
+    },
+    {
+      "text": "Confidence intervals shrink with good, large datasets.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We can never be completely sure, especially with noisy data.",
+      "salience": "core"
+    },
+    {
+      "text": "The result of combining evidence to infer model parameters is always a probability distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "This point is often overlooked because practitioners often do something else.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In deep learning practice, the loss function is composed as $-\\log p(D \\mid \\theta) - \\log p(\\theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Minimizing this loss function with respect to neural network parameters $\\theta$ yields $\\theta_{\\text{MAP}}$.",
+      "salience": "core"
+    },
+    {
+      "text": "$\\theta_{\\text{MAP}}$ is defined as $\\arg\\max_{\\theta} p(\\theta \\mid D)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Deep learning practitioners often stop at $\\theta_{\\text{MAP}}$ and treat the resulting weights as the true parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "This practice is an oversimplification.",
+      "salience": "core"
+    },
+    {
+      "text": "$\\theta_{\\text{MAP}}$ is only a point estimate, the maximum of a whole distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "In deep learning with huge networks, we usually cannot sample from the posterior.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If we could sample from the posterior, sampling multiple parameter sets would show how predictions vary.",
+      "salience": "core"
+    },
+    {
+      "text": "Sometimes sampling from the posterior appears in practice.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The entire Bayesian machinery is about degrees of belief.",
+      "salience": "core"
+    },
+    {
+      "text": "Original uncertainty about parameters $\\Theta$ is captured in the prior distribution $P(\\Theta)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Obtaining data $D$ reduces this uncertainty.",
+      "salience": "core"
+    },
+    {
+      "text": "After obtaining data, uncertainty is expressed as the posterior distribution $P(\\Theta \\mid D)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Even if we initially know nothing, we express this as a distribution (prior).",
+      "salience": "core"
+    },
+    {
+      "text": "After updating, our belief about $\\Theta$ remains a distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "The belief is never reduced to a single point.",
+      "salience": "core"
+    },
+    {
+      "text": "The trick question: A person has two children, each independently boy or girl with probability $1/2$, and answers 'yes' to 'Do you have any boys?'",
+      "salience": "supporting"
+    },
+    {
+      "text": "The question asks: What is the probability the person has a girl, given that answer?",
+      "salience": "supporting"
+    },
+    {
+      "text": "The sample space for two children has four equally likely outcomes: BB, BG, GB, GG.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Each outcome has prior probability $1/4$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The evidence 'has a boy' eliminates the GG outcome.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This leaves three equally likely outcomes: BB, BG, GB.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Among these three outcomes, two include a girl (BG, GB).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Therefore, the probability of having a girl given at least one boy is $2/3$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Formally, $P(\\text{has a girl} \\mid \\text{has a boy}) = \\frac{P(\\text{BG or GB})}{P(\\text{BB, BG, or GB})} = \\frac{2/4}{3/4} = 2/3$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A separate question: if you meet one child who is a boy, what is the probability the other child is a girl?",
+      "salience": "supporting"
+    },
+    {
+      "text": "The answer is $1/2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Meeting the child fixes the gender of one child.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Example: if the first child is a boy, the remaining outcomes are BB and BG, equally likely.",
+      "salience": "supporting"
+    },
+    {
+      "text": "So the probability of a girl is $1/2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The trick question illustrates Bayesian reasoning without explicitly using Bayes' theorem.",
+      "salience": "core"
+    },
+    {
+      "text": "In Bayesian reasoning, we start with prior beliefs (equiprobable outcomes).",
+      "salience": "core"
+    },
+    {
+      "text": "We obtain evidence (the answer 'yes' or meeting a boy).",
+      "salience": "core"
+    },
+    {
+      "text": "We update our beliefs, resulting in a posterior distribution over the possibilities.",
+      "salience": "core"
+    },
+    {
+      "text": "A classic example of Bayesian pitfalls is the prosecutor's fallacy.",
+      "salience": "core"
+    },
+    {
+      "text": "In the example, a murder occurs and blood at the crime scene is certainly the killer's.",
+      "salience": "core"
+    },
+    {
+      "text": "The blood type is rare, present in only 1% of the population.",
+      "salience": "core"
+    },
+    {
+      "text": "The defendant has this blood type.",
+      "salience": "core"
+    },
+    {
+      "text": "The prosecutor argues: the probability of the defendant having this blood type if innocent is 1%.",
+      "salience": "core"
+    },
+    {
+      "text": "Therefore, the prosecutor concludes with 99% probability the defendant is guilty.",
+      "salience": "core"
+    },
+    {
+      "text": "This reasoning is incorrect.",
+      "salience": "core"
+    },
+    {
+      "text": "The mistake is equating $P(\\text{evidence} \\mid \\text{innocent})$ with $P(\\text{innocent} \\mid \\text{evidence})$.",
+      "salience": "core"
+    },
+    {
+      "text": "In court, the desired quantity is $P(\\text{guilty} \\mid \\text{evidence})$.",
+      "salience": "core"
+    },
+    {
+      "text": "The prosecutor starts with $P(\\text{blood type} \\mid \\text{innocent}) = 0.01$.",
+      "salience": "core"
+    },
+    {
+      "text": "Then they incorrectly assume $P(\\text{guilty} \\mid \\text{blood type}) = 1 - 0.01 = 0.99$.",
+      "salience": "core"
+    },
+    {
+      "text": "This confuses $P(A \\mid B)$ with $P(B \\mid A)$, a common error.",
+      "salience": "core"
+    },
+    {
+      "text": "The correct approach uses Bayes' theorem: $P(\\text{innocent} \\mid \\text{blood type}) = \\frac{P(\\text{blood type} \\mid \\text{innocent}) \\cdot P(\\text{innocent})}{P(\\text{blood type})}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The prior $P(\\text{innocent})$ and marginal $P(\\text{blood type})$ can drastically change the result.",
+      "salience": "core"
+    },
+    {
+      "text": "For instance, if there are two suspects, both with the blood type, the evidence tells us nothing.",
+      "salience": "core"
+    },
+    {
+      "text": "In that case, the probability remains $1/2$ for each.",
+      "salience": "core"
+    },
+    {
+      "text": "The prosecutor's fallacious reasoning would claim 99% guilt for both, which is an absurdity.",
+      "salience": "core"
+    },
+    {
+      "text": "The defense attorney explains the prosecutor's mistake and offers a different calculation.",
+      "salience": "core"
+    },
+    {
+      "text": "There are a million people living in the city.",
+      "salience": "core"
+    },
+    {
+      "text": "Having the rare blood type narrows the suspect pool from a million to about 10,000.",
+      "salience": "core"
+    },
+    {
+      "text": "The blood type alone suggests the defendant is guilty with probability about 0.01%.",
+      "salience": "core"
+    },
+    {
+      "text": "This is very weak evidence, not proof.",
+      "salience": "core"
+    },
+    {
+      "text": "The defense attorney might argue the blood type evidence should not be admitted at all.",
+      "salience": "core"
+    },
+    {
+      "text": "The defense attorney's calculation does not sound right.",
+      "salience": "core"
+    },
+    {
+      "text": "The defense attorney's mistake is assuming every person with the blood type has an equal chance of being the killer, including babies and people asleep.",
+      "salience": "core"
+    },
+    {
+      "text": "The defense attorney ignores why the defendant is a suspect in the first place.",
+      "salience": "core"
+    },
+    {
+      "text": "It is not a deep probabilistic error, but a mistaken assumption about equal prior probabilities.",
+      "salience": "core"
+    },
+    {
+      "text": "A famous real-world example is the O.J. Simpson trial.",
+      "salience": "core"
+    },
+    {
+      "text": "O.J. Simpson was a successful American football player with a history of domestic violence.",
+      "salience": "core"
+    },
+    {
+      "text": "Simpson's wife was murdered.",
+      "salience": "core"
+    },
+    {
+      "text": "The prosecution presented the history of domestic violence as evidence that Simpson could escalate to murder.",
+      "salience": "core"
+    },
+    {
+      "text": "The defense countered with a statistic: only 1 in 2,500 women subjected to domestic violence are murdered.",
+      "salience": "core"
+    },
+    {
+      "text": "The defense argued therefore the history is irrelevant.",
+      "salience": "core"
+    },
+    {
+      "text": "The court agreed and instructed the jury to disregard the evidence.",
+      "salience": "core"
+    },
+    {
+      "text": "The defense's statistic is an example of the same kind of probabilistic mistake.",
+      "salience": "core"
+    },
+    {
+      "text": "The statistic quoted was $P(\\text{murdered} \\mid \\text{history of domestic violence}) = 1/2500$.",
+      "salience": "core"
+    },
+    {
+      "text": "This statistic is correct.",
+      "salience": "core"
+    },
+    {
+      "text": "That statistic is not what the court needed to evaluate.",
+      "salience": "core"
+    },
+    {
+      "text": "The statistic starts from a point where everyone is alive and measures the risk of being murdered.",
+      "salience": "core"
+    },
+    {
+      "text": "A murder trial argues in the opposite direction: given that a murder has occurred and there is a history of domestic violence, what is the probability the husband did it?",
+      "salience": "core"
+    },
+    {
+      "text": "Computing the correct conditional probability from the same data gives approximately 7/8.",
+      "salience": "core"
+    },
+    {
+      "text": "Among women who were murdered with a history of domestic violence, the husband was the perpetrator in the vast majority of cases.",
+      "salience": "core"
+    },
+    {
+      "text": "If presented correctly, the evidence would look completely different.",
+      "salience": "core"
+    },
+    {
+      "text": "People routinely confuse conditional probabilities.",
+      "salience": "core"
+    },
+    {
+      "text": "It is good practice to explicitly understand what is on the left and right of the conditional bar.",
+      "salience": "core"
+    },
+    {
+      "text": "This understanding is useful even when exact computation is not possible.",
+      "salience": "core"
+    },
+    {
+      "text": "Qualitatively framing the conditional probability often makes decisions much clearer.",
+      "salience": "core"
+    },
+    {
+      "text": "The first real example is linear regression and logistic regression.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear and logistic regression are directly relevant to neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "The simplest possible neural network is a linear model (one perceptron).",
+      "salience": "core"
+    },
+    {
+      "text": "Linear and logistic regression remain fundamental to what happens in modern networks.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear regression finds a straight line through data points.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear regression has a target variable $y$ and input features $x$.",
+      "salience": "core"
+    },
+    {
+      "text": "The assumption is that $y$ depends linearly on $x$, up to noise.",
+      "salience": "core"
+    },
+    {
+      "text": "In general, $x$ is a vector.",
+      "salience": "core"
+    },
+    {
+      "text": "$y$ is modeled as a weighted sum: $y = w_1 x_1 + \\dots + w_d x_d$.",
+      "salience": "core"
+    },
+    {
+      "text": "To avoid writing the intercept $w_0$ separately, we absorb it by adding a constant feature $x_0 = 1$.",
+      "salience": "core"
+    },
+    {
+      "text": "This maps the input vector $x$ to $(1, x_1, \\dots, x_d)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Then the dot product $w^T x$ automatically includes the bias term.",
+      "salience": "core"
+    },
+    {
+      "text": "We can write simply $y = w^T x$.",
+      "salience": "core"
+    },
+    {
+      "text": "In linear regression, we want $y$ to be similar to a linear function of $x$.",
+      "salience": "core"
+    },
+    {
+      "text": "To formalize 'near', we minimize a measure of error between actual values and predictions.",
+      "salience": "core"
+    },
+    {
+      "text": "The standard choice for the error measure is the sum of squared differences: $\\sum_n (y_n - w x_n)^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "This sum is minimized with respect to $w$.",
+      "salience": "core"
+    },
+    {
+      "text": "The model's predictions are points on the line $w x_n$.",
+      "salience": "core"
+    },
+    {
+      "text": "The line is close if the vertical distances (errors) are small.",
+      "salience": "core"
+    },
+    {
+      "text": "This loss is symmetric, so positive and negative errors are penalized equally.",
+      "salience": "core"
+    },
+    {
+      "text": "Many symmetric, monotone functions of distance besides squares would also work (e.g., absolute value, fourth power, exponential of absolute error).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Minimizing those different functions would give different $w$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One traditional answer for using squares is the Gauss–Markov theorem.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Gauss–Markov theorem states that ordinary least squares gives the best linear unbiased estimator (BLUE).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The deeper reason for using squares is probabilistic.",
+      "salience": "core"
+    },
+    {
+      "text": "The squared loss follows from probabilistic assumptions.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear regression is cast as a machine learning model with parameter $\\theta = w$, data pairs $(x_n, y_n)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The likelihood is $p(D \\mid w) = \\prod_n p(y_n \\mid x_n, w)$, assuming conditional independence.",
+      "salience": "core"
+    },
+    {
+      "text": "Conditional independence is a standard supervised learning assumption because we only model $y$ given $x$.",
+      "salience": "core"
+    },
+    {
+      "text": "For each $x_n$, $y_n$ is modeled as a random variable whose most probable value is the linear prediction $w x_n$.",
+      "salience": "core"
+    },
+    {
+      "text": "The distribution is symmetric, bell-shaped, and decreases away from the center.",
+      "salience": "core"
+    },
+    {
+      "text": "The natural default distribution is the Gaussian.",
+      "salience": "core"
+    },
+    {
+      "text": "The central limit theorem justifies the Gaussian: if overall error is the sum of many small independent perturbations, the total error tends to be Gaussian.",
+      "salience": "core"
+    },
+    {
+      "text": "Example: countless microscopic impacts on a rolling ball in a physics experiment.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We assume $y_n \\mid x_n, w \\sim \\mathcal{N}(w x_n, \\sigma^2)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Maximizing the Gaussian likelihood is equivalent to minimizing the sum of squared errors.",
+      "salience": "core"
+    },
+    {
+      "text": "This justifies the squared loss.",
+      "salience": "core"
+    },
+    {
+      "text": "The normal distribution is important because of the central limit theorem: everything converges to a Gaussian.",
+      "salience": "core"
+    },
+    {
+      "text": "We assume a normal distribution of $y_n$ around $w \\cdot x_n$ with variance $\\sigma^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "This is a one-dimensional Gaussian.",
+      "salience": "core"
+    },
+    {
+      "text": "The second assumption is that the center is a linear function (linear regression).",
+      "salience": "core"
+    },
+    {
+      "text": "The third assumption is that the noise is Gaussian.",
+      "salience": "core"
+    },
+    {
+      "text": "There is also a fourth assumption.",
+      "salience": "core"
+    },
+    {
+      "text": "The Gaussian density is $p(y_n|x_n, w) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}} \\exp\\!\\left(-\\frac{1}{2\\sigma^2}(y_n - w\\cdot x_n)^2\\right)$.",
+      "salience": "core"
+    },
+    {
+      "text": "To obtain the maximum likelihood hypothesis for the weights, one maximizes the likelihood, which is a product over data points.",
+      "salience": "core"
+    },
+    {
+      "text": "The standard trick to avoid numerical underflow when maximizing the product likelihood is to take the logarithm, turning the product into a sum.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The log-likelihood $\\log p(D|w)$ equals the sum over $n$ of $\\left[-\\frac{1}{2}\\log(2\\pi\\sigma^2) - \\frac{1}{2\\sigma^2}(y_n - w\\cdot x_n)^2\\right]$.",
+      "salience": "core"
+    },
+    {
+      "text": "The log-likelihood simplifies to $-\\frac{N}{2}\\log(2\\pi\\sigma^2) - \\frac{1}{2\\sigma^2}\\sum_n (y_n - w\\cdot x_n)^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "The term $-\\frac{N}{2}\\log(2\\pi\\sigma^2)$ is constant with respect to $w$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because the constant term does not depend on $w$ and there is a minus sign, maximizing the log-likelihood is equivalent to minimizing the sum of squares $\\sum_n (y_n - w\\cdot x_n)^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "The equivalence between maximizing Gaussian log-likelihood and minimizing sum of squares motivates squared error loss, specifically using squares rather than absolute values or other exponents.",
+      "salience": "core"
+    },
+    {
+      "text": "The fourth assumption of linear regression with Gaussian noise is homoscedasticity: the noise variance $\\sigma^2$ is the same across the entire dataset.",
+      "salience": "core"
+    },
+    {
+      "text": "Homoscedasticity allowed pulling $\\sigma^2$ out of the sum in the log-likelihood derivation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In practice, homoscedasticity can be violated; for example, data may start dense and later become more noisy.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If homoscedasticity is violated, the loss function must be modified.",
+      "salience": "core"
+    },
+    {
+      "text": "Understanding the probabilistic approach is crucial because it reveals the assumptions behind the sum of squares loss.",
+      "salience": "core"
+    },
+    {
+      "text": "When probabilistic assumptions (e.g., homoscedasticity) break, one can notice and adapt the model accordingly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We study the derivation of the loss function, not just the final result, so that we can adapt when assumptions break.",
+      "salience": "core"
+    },
+    {
+      "text": "In the Bayesian perspective, the goal is to obtain the posterior $p(w|D)$ rather than just the likelihood $p(D|w)$.",
+      "salience": "core"
+    },
+    {
+      "text": "To obtain the posterior, a prior over the weights is needed.",
+      "salience": "core"
+    },
+    {
+      "text": "Unlike the coin example, in linear regression all variables are continuous.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In linear regression, one must use a multi-dimensional distribution over several weights rather than a single one-dimensional Gaussian.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Maximizing the posterior adds a log prior term to the log likelihood: $\\log p(w|D) \\propto \\log p(D|w) + \\log p(w)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The log prior is exactly the regularizer in machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "Regularization is the process of putting a prior on the model parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "The regularizer depends only on the weights, not on the data.",
+      "salience": "core"
+    },
+    {
+      "text": "The regularizer encodes prior beliefs about the parameters before seeing any data.",
+      "salience": "core"
+    },
+    {
+      "text": "For a coin, we have a strong prior that it is approximately fair.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For linear regression, it may seem we have no preference among slopes; all appear equally likely a priori.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Often we do not use raw $x$ directly; we first extract features $\\phi(x)$ and then learn $w \\cdot \\phi(x)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Feature extraction before linear regression is a standard technique.",
+      "salience": "core"
+    },
+    {
+      "text": "For linear regression on images, you first need to extract semantically rich features before applying linear regression.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Sometimes $X$ is simple but you need a more complicated dependency, so you need to extract additional features.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In one-dimensional regression, if points look quadratic, you can use linear regression to learn a parabola by transforming $x$ into a feature vector $(1, x, x^2)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The loss function then minimizes $\\sum (y_n - (w_0 + w_1 x + w_2 x^2))^2$, effectively fitting a parabola.",
+      "salience": "core"
+    },
+    {
+      "text": "The discussion of feature extraction is extremely relevant to deep learning.",
+      "salience": "aside"
+    },
+    {
+      "text": "Neural networks always learn good feature extractors.",
+      "salience": "core"
+    },
+    {
+      "text": "Before deep learning, practitioners hand-crafted feature extraction and then ran relatively simple models.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Neural networks make feature extraction part of the model, with its own weights.",
+      "salience": "core"
+    },
+    {
+      "text": "In a typical neural network architecture, the input passes through many layers that do feature extraction, producing a vector of numbers that feeds into the final layer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If the output is a number (regression), the final layer is almost always linear.",
+      "salience": "core"
+    },
+    {
+      "text": "The earlier layers act as a feature extractor for the final linear regression layer.",
+      "salience": "core"
+    },
+    {
+      "text": "The hard part of learning in such architectures is learning the preceding layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A large neural network that predicts a number essentially ends with linear regression.",
+      "salience": "core"
+    },
+    {
+      "text": "For classification, a large neural network essentially ends with logistic regression.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear models remain very relevant for deep learning because of this connection.",
+      "salience": "core"
+    },
+    {
+      "text": "In the polynomial regression example, the true function is a sine wave, which is not a polynomial.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because the true function is not a polynomial, we do not expect to capture it exactly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The example uses one period of the sine wave with points placed around it.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the polynomial regression plot, the points are represented by stars.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the plot, the horizontal axis is $x$ (one-dimensional), and the vertical axis is $y$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The points in the example are clearly not linear.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Fitting linear regression to the sine wave points gives a straight line with high error.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A second-degree polynomial (parabola) still does not capture the sine wave shape well.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A third-degree polynomial can have one minimum and one maximum.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One period of a sine wave has one minimum and one maximum.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Training a third-degree polynomial (with four weights including intercept) already gives a pretty good fit to the sine wave.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Increasing the polynomial degree to 4 or 5 produces curves that look approximately the same as degree 3, with only minor improvements.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With 11 points, a polynomial of degree 10 can pass through every point exactly (interpolation).",
+      "salience": "core"
+    },
+    {
+      "text": "For the degree-10 polynomial fit to 11 points, the training error becomes zero.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For the degree-10 polynomial fit, the test error is huge.",
+      "salience": "core"
+    },
+    {
+      "text": "The degree-10 polynomial curve oscillates with strange peaks and is useless for prediction.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The degree-10 polynomial fit is the classical picture of overfitting, where too many parameters lead to poor generalization.",
+      "salience": "core"
+    },
+    {
+      "text": "In the simple 1D case with 11 points, one would never use a degree-10 polynomial; it is easy to avoid overfitting.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With high-dimensional data, overfitting is harder to avoid completely.",
+      "salience": "core"
+    },
+    {
+      "text": "In one dimension, nothing bad will ever happen (overfitting is not a practical problem).",
+      "salience": "supporting"
+    },
+    {
+      "text": "When you have points of dimension $d$ and you try to do linear regression, you can fail (overfit).",
+      "salience": "core"
+    },
+    {
+      "text": "If the relationship is not linear, the next step is a quadratic dependency.",
+      "salience": "core"
+    },
+    {
+      "text": "In one dimension, adding a quadratic term just adds one feature and you can incrementally increase the degree.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In multiple dimensions, adding a quadratic term does not work incrementally.",
+      "salience": "core"
+    },
+    {
+      "text": "For a $d$-dimensional input, the quadratic feature vector includes $1, x_1, \\dots, x_d$, then $x_1^2, x_1 x_2, x_1 x_3, \\dots, x_d^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "The number of features in the quadratic expansion is on the order of $d^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "Starting from 100 features, moving to quadratics gives about 5,000 features, not 200 or 500.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The massive increase in the number of features in high-dimensional quadratic expansion leads to overfitting.",
+      "salience": "core"
+    },
+    {
+      "text": "In high dimensions, there is no middle ground between linear and quadratic; you cannot use a fractional degree.",
+      "salience": "core"
+    },
+    {
+      "text": "You do not need all quadratic interactions, but you do not know in advance which ones matter.",
+      "salience": "core"
+    },
+    {
+      "text": "In statistics, product features are called interactions.",
+      "salience": "core"
+    },
+    {
+      "text": "Learning which interactions are relevant is the whole point of feature selection.",
+      "salience": "core"
+    },
+    {
+      "text": "To learn which interactions are relevant, you must start with all of them.",
+      "salience": "core"
+    },
+    {
+      "text": "Overfitting is inherent in machine learning, even for linear regression with feature expansion.",
+      "salience": "core"
+    },
+    {
+      "text": "Overfitting is even more inherent for neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "The standard approach to detect overfitting without plots is to use a validation set: hold out some data, monitor validation error, and stop when it starts to increase.",
+      "salience": "core"
+    },
+    {
+      "text": "In the high-dimensional quadratic expansion, early stopping via validation is impractical because you cannot add terms gradually.",
+      "salience": "core"
+    },
+    {
+      "text": "Adding all quadratic terms at once causes overfitting, and there is no continuous stopping point for early stopping.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Another symptom of overfitting is examining the magnitude of the model coefficients.",
+      "salience": "core"
+    },
+    {
+      "text": "As the polynomial degree increases, the coefficients grow but remain bounded until overfitting begins.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When overfitting begins (at degree 10 in the example), the coefficients suddenly jump to magnitudes like $\\pm 50$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the given data range ($x \\in [-1.5, 2]$, $y \\in [-1, 1]$), coefficients of size 50 are implausible.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This implausibility reflects a prior belief that weights should be small, on the order of $\\pm 1$ or $2$, not $50$.",
+      "salience": "core"
+    },
+    {
+      "text": "In 1D, linear regression has a 2-dimensional weight space.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Quadratic regression in 1D gives a 3-dimensional weight space.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Higher-degree polynomials include all lower-degree ones, so the set of possible models grows.",
+      "salience": "core"
+    },
+    {
+      "text": "At some degree (e.g., 10), the variety of models becomes excessive, leading to overfitting.",
+      "salience": "core"
+    },
+    {
+      "text": "One way to combat overfitting is to reduce the dimension of the weight space.",
+      "salience": "core"
+    },
+    {
+      "text": "If you cannot reduce the feature set (as in the multidimensional quadratic case), you can instead constrain the weights within the large space, for example by restricting them to be near zero.",
+      "salience": "core"
+    },
+    {
+      "text": "Constraining weights to be near zero is what regularization and prior distributions do.",
+      "salience": "core"
+    },
+    {
+      "text": "To implement weight constraint, we introduce a prior distribution expressing the belief that weights are small, concentrated near zero but with support everywhere.",
+      "salience": "core"
+    },
+    {
+      "text": "A natural choice for such a prior is a Gaussian centered at zero.",
+      "salience": "core"
+    },
+    {
+      "text": "Since we have no prior reason to distinguish weights or correlations, we use an identity covariance matrix, making the weights independent.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The log prior is then a constant minus $\\frac{1}{2\\sigma_0^2} \\|W\\|^2 = -\\frac{1}{2\\sigma_0^2} \\sum W_i^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "Adding this log prior to the log-likelihood yields a regularized loss function.",
+      "salience": "core"
+    },
+    {
+      "text": "The likelihood term is $\\frac{1}{\\sigma^2}\\sum_n (y_n - W x_n)^2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Gaussian prior term is $\\frac{1}{\\sigma_0^2}\\sum_i W_i^2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After absorbing constants, the regularized loss becomes $\\sum_n (y_n - W x_n)^2 + \\lambda \\sum_i W_i^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "The L2 regularizer is the squared Euclidean norm (L2 norm) of the weight vector.",
+      "salience": "core"
+    },
+    {
+      "text": "L2 regularization can mitigate overfitting.",
+      "salience": "core"
+    },
+    {
+      "text": "Overfitting and regularization depend on dataset size.",
+      "salience": "core"
+    },
+    {
+      "text": "With only 11 points, a degree-10 polynomial severely overfits.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With 100 points, a degree-10 polynomial would be fine.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In L2 regularization, the unregularized fit is the interpolation polynomial.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The coefficient $\\alpha$ (regularizer strength) governs the trade-off between data fit and regularity.",
+      "salience": "core"
+    },
+    {
+      "text": "As $\\alpha$ increases, the shape is increasingly determined by the regularizer rather than the data.",
+      "salience": "core"
+    },
+    {
+      "text": "Even a small $\\alpha$ like $10^{-3}$ already reduces coefficient magnitudes, though some local extremes may remain.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For a particular random set of points, a very small regularization may be enough to smooth out overfitting.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Gradually increasing $\\alpha$ smooths out the overfitting.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With a well-chosen $\\alpha$, the degree-10 polynomial still has nonzero coefficients but behaves well.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If $\\alpha$ is too large (e.g., 10), the polynomial ignores the data and becomes a poor model.",
+      "salience": "supporting"
+    },
+    {
+      "text": "There is always a trade-off in choosing the regularization strength.",
+      "salience": "core"
+    },
+    {
+      "text": "The L2 regularizer corresponds to a Gaussian prior.",
+      "salience": "core"
+    },
+    {
+      "text": "With a Gaussian prior, both likelihood and prior are quadratic in $W$, giving a conjugate prior for linear regression.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Other regularizers besides L2 are possible.",
+      "salience": "core"
+    },
+    {
+      "text": "A common alternative is L1 regularization: adding $\\sum |W_i|$ instead of $\\sum W_i^2$.",
+      "salience": "core"
+    },
+    {
+      "text": "The noise model (likelihood) should be chosen correctly, but the prior is our choice.",
+      "salience": "core"
+    },
+    {
+      "text": "L1-regularized linear regression is called LASSO.",
+      "salience": "core"
+    },
+    {
+      "text": "L2-regularized linear regression is called Ridge regression.",
+      "salience": "core"
+    },
+    {
+      "text": "With the same regularization weight, LASSO yields a smooth curve without overfitting.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In LASSO, many coefficients become exactly zero.",
+      "salience": "core"
+    },
+    {
+      "text": "In Ridge regression, all coefficients are shrunk but kept nonzero.",
+      "salience": "core"
+    },
+    {
+      "text": "L1 regularization is sparsity-inducing.",
+      "salience": "core"
+    },
+    {
+      "text": "Sparsity is desirable for feature selection: instead of arbitrary thresholds, regularization drives some coefficients to zero.",
+      "salience": "core"
+    },
+    {
+      "text": "In summary, we discussed linear regression.",
+      "salience": "aside"
+    },
+    {
+      "text": "We did not enter the full Bayesian inference for linear regression.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Not entering full Bayesian inference does not matter for the rest of the course.",
+      "salience": "aside"
+    },
+    {
+      "text": "Linear regression is still relevant to any complicated neural network.",
+      "salience": "core"
+    },
+    {
+      "text": "We will see linear regression in neural network architectures.",
+      "salience": "supporting"
+    },
+    {
+      "text": "All the probabilistic machinery (likelihoods, priors, assumptions) and how they come together give us the loss functions in deep learning.",
+      "salience": "core"
+    },
+    {
+      "text": "In a general formula, the model appears only in one place, and the noise distribution is separate.",
+      "salience": "core"
+    },
+    {
+      "text": "If the noise distribution is kept Gaussian, one can change the model to any function.",
+      "salience": "core"
+    },
+    {
+      "text": "Changing the model to any function may make optimization harder and the problem no longer quadratic.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Regardless of model complexity, with Gaussian noise we still obtain a square deviation loss function.",
+      "salience": "core"
+    },
+    {
+      "text": "With Gaussian noise, we also obtain the same kind of regularizer if we want.",
+      "salience": "core"
+    },
+    {
+      "text": "The square deviation loss function is very common regardless of the model (neural networks, etc.).",
+      "salience": "core"
+    },
+    {
+      "text": "The model gets plugged into a loss function that comes from the probabilistic assumptions.",
+      "salience": "core"
+    },
+    {
+      "text": "We will briefly discuss logistic regression.",
+      "salience": "aside"
+    },
+    {
+      "text": "In logistic regression, we will focus on the main assumption behind the softmax function.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After logistic regression, we will move to neural networks.",
+      "salience": "aside"
+    },
+    {
+      "text": "Before the break, we discussed linear regression (sum of squares, Gaussian noise hypothesis).",
+      "salience": "aside"
+    },
+    {
+      "text": "We did not derive the posterior or predictive distributions for linear regression.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It is time to move on to classification.",
+      "salience": "aside"
+    },
+    {
+      "text": "Classification is even more important for deep learning than linear regression and predicting numbers.",
+      "salience": "core"
+    },
+    {
+      "text": "Classification is a supervised learning task where the goal is to distinguish between classes (e.g., cats and dogs) by finding a separating decision surface.",
+      "salience": "core"
+    },
+    {
+      "text": "In classification, the target variable $Y$ is a discrete class label with a finite set of values.",
+      "salience": "core"
+    },
+    {
+      "text": "A simple threshold classifier outputs zero below a threshold and one above, producing a piecewise constant function.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The output function of a threshold classifier has zero gradient everywhere, preventing training via gradient-based methods.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Small weight changes in a threshold classifier do not affect the output until the threshold is crossed, making it untrainable.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For practical and conceptual reasons such as estimating uncertainty, the output of a classifier should be a probability distribution over the classes.",
+      "salience": "core"
+    },
+    {
+      "text": "For two classes $c_1$ and $c_2$, the desired output is $P(c_1 \\mid x)$, the probability that a new point belongs to class $c_1$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Logistic regression aims to model a linear separating surface using a linear combination $w \\cdot x$.",
+      "salience": "core"
+    },
+    {
+      "text": "Probability cannot be modeled directly as a linear function because probability is bounded between 0 and 1 while a linear function is unbounded.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Odds are the ratio of the probability of one outcome to the probability of the other outcome (e.g., 50-to-1 odds).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Odds range from $0$ to $\\infty$ and are non-negative because they are a ratio of probabilities.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Modeling odds directly with a linear function is not natural because a linear function becomes negative over half its domain.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Taking the logarithm of odds yields log odds.",
+      "salience": "core"
+    },
+    {
+      "text": "Log odds range from $-\\infty$ to $\\infty$ because odds range from $0$ to $\\infty$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Log odds can be modeled as a linear function because they span the entire real line.",
+      "salience": "core"
+    },
+    {
+      "text": "When log odds go to $-\\infty$, the probability goes to $0$; when log odds go to $+\\infty$, the probability goes to $1$; the relationship is monotonic.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In logistic regression, the probability $P(c_1 \\mid x)$ is modeled as $\\frac{1}{1 + e^{-w \\cdot x}}$, where $w \\cdot x$ is a linear function.",
+      "salience": "core"
+    },
+    {
+      "text": "The function $\\sigma(a) = \\frac{1}{1+e^{-a}}$ is the logistic sigmoid.",
+      "salience": "core"
+    },
+    {
+      "text": "The logistic sigmoid passes through $\\frac12$ at $a=0$, tends to $1$ as $a \\to \\infty$, and tends to $0$ as $a \\to -\\infty$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The logistic sigmoid is a fundamental function in machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "For the second class, $p(c2 \\mid x) = 1 - \\sigma(w \\cdot x)$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The likelihood for logistic regression is a product of terms alternating between $\\sigma$ and $1-\\sigma$, making it more complex than the quadratic form of linear regression.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Logistic regression has no closed-form optimum.",
+      "salience": "core"
+    },
+    {
+      "text": "Logistic regression can be optimized using gradient descent or second-order methods, and priors can be added for regularization.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Logistic regression is a linear model because the input enters through a linear combination $w \\cdot x$.",
+      "salience": "core"
+    },
+    {
+      "text": "Logistic regression is a natural model for binary classification.",
+      "salience": "core"
+    },
+    {
+      "text": "To handle $K$ classes, we need $K-1$ degrees of freedom.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For multi-class classification, each class $k$ is assigned a score $w_k \\cdot x$, and the posterior probability is $P(c_k \\mid x) = \\frac{e^{w_k \\cdot x}}{\\sum_{s} e^{w_s \\cdot x}}$.",
+      "salience": "core"
+    },
+    {
+      "text": "This function is called the softmax.",
+      "salience": "core"
+    },
+    {
+      "text": "Adding a constant to all scores does not change the softmax output because the constant cancels after exponentiation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Scores in softmax only need to reflect relative affinities; negative values are unproblematic.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The softmax function exaggerates differences between scores, concentrating probability on the class with the largest score.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Softmax is a soft, differentiable version of argmax, suitable for gradient-based training.",
+      "salience": "core"
+    },
+    {
+      "text": "Almost every neural network for classification ends with a softmax layer.",
+      "salience": "core"
+    },
+    {
+      "text": "In a neural network, a final linear layer produces a score for each class, and softmax converts these scores into a probability distribution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In a large language model, the last layer is a multi-class logistic regression via softmax, outputting probabilities over the next token.",
+      "salience": "core"
+    },
+    {
+      "text": "A neural network processes input to produce a final feature vector $Z$ that contains semantically rich, intricate extracted features.",
+      "salience": "core"
+    },
+    {
+      "text": "Whether an image is a cat or a dog is already represented somewhere in the extracted features, but it is not clear exactly where or how to extract it directly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The simplest way to process the extracted features for classification is to apply a weight matrix $W$: the score vector is $WZ$.",
+      "salience": "core"
+    },
+    {
+      "text": "If the feature vector $Z$ has dimension $D$ and there are $K$ classes, the weight matrix $W$ has dimension $D \\times K$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Passing the score vector $WZ$ through softmax yields a vector of class probabilities.",
+      "salience": "core"
+    },
+    {
+      "text": "In classification, the typical loss function is cross-entropy between the predicted distribution and the target.",
+      "salience": "core"
+    },
+    {
+      "text": "The target in classification is typically a one-hot vector.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With a one-hot target, cross-entropy simplifies to penalizing the negative log probability of the correct class: minimize $- \\log P(\\text{correct class})$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In deep learning, the interesting feature extraction occurs earlier in the network, but a probability vector is required at the output.",
+      "salience": "core"
+    },
+    {
+      "text": "Probabilities are not usually obtained directly; instead, a score vector is computed and then converted to probabilities.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Logistic regression consists of a linear model followed by a sigmoid function.",
+      "salience": "core"
+    },
+    {
+      "text": "A quadratic loss function has a closed-form solution (a system of linear equations), but logistic regression's loss function (sum of logs of sigmoids) does not.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The only option for optimizing logistic regression is an iterative optimization algorithm.",
+      "salience": "core"
+    },
+    {
+      "text": "The main iterative optimization algorithm is gradient descent.",
+      "salience": "core"
+    },
+    {
+      "text": "In neural networks, only variations of gradient descent are used for optimization.",
+      "salience": "core"
+    },
+    {
+      "text": "Gradient descent starts at some point and moves in the direction opposite to the gradient (the direction of steepest descent).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Gradient descent continues until a local minimum is found.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Artificial neural networks are named after biological neural networks.",
+      "salience": "aside"
+    },
+    {
+      "text": "Studying the brain provides computational insights for building thinking machines.",
+      "salience": "aside"
+    },
+    {
+      "text": "From a computational perspective, biological neurons are basically all the same.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A biological neuron has a soma (processing center) and two kinds of tendrils: dendrites and an axon.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Dendrites are relatively short, attach to outputs of other neurons, and provide thousands of inputs per neuron.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The axon is the output part and can be up to a meter long.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Computationally, each neuron has many inputs and one output.",
+      "salience": "core"
+    },
+    {
+      "text": "Biologically, it is difficult to capture exact signal amplitudes; it is easier to capture individual spike events.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Neurons communicate via spikes rather than modulating signal amplitude.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A spike is the electrical signal that a neuron sends out through its axon.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Neurons fire spikes along their axons, and other neurons receive these signals.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Spikes themselves are nearly identical; variation is inconsequential.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The frequency of spikes varies: a relaxed neuron fires at 10–20 spikes per second, an excited one at up to 200 spikes per second.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The neuron conveys a numerical value through spike frequency: more frequent spikes indicate greater excitation, not a simple binary state.",
+      "salience": "core"
+    },
+    {
+      "text": "Each spike is essentially one bit of information, but the intervals between spikes carry the signal.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The human brain contains about 100 billion neurons.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Each neuron has on average roughly 7,000 synaptic connections to other neurons.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In biological brains, the synapse (the connection between a dendrite and an axon) acts as the weight.",
+      "salience": "core"
+    },
+    {
+      "text": "Synapses can be reinforced or inhibited, effectively giving positive or negative weights, and they are learned.",
+      "salience": "core"
+    },
+    {
+      "text": "Multiplying, the brain has on the order of a quadrillion (or slightly less) trainable weights.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Artificial neural networks may have billions or trillions of parameters, but they have not yet reached the synaptic count of the brain.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain is extremely slow as a computer: neurons communicate at frequencies of only 10 to a couple hundred hertz.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain has an enormous number of connections but a very low clock speed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain relies on massively parallel computation and cannot afford long sequential chains.",
+      "salience": "core"
+    },
+    {
+      "text": "Face recognition takes about 200–300 milliseconds from stimulus to a button press, including feature extraction, decision-making, and motor commands.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Given firing frequencies, the brain can perform only about 10 to 15 sequential steps in that time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Brain computations are highly parallel but shallow.",
+      "salience": "core"
+    },
+    {
+      "text": "When recognizing a face, large brain regions activate in a few sequential waves.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Artificial neural networks preserve the property of being wide but shallow, inspired by the brain.",
+      "salience": "core"
+    },
+    {
+      "text": "While very deep networks with hundreds of layers exist, tens of thousands of layers are not yet effectively usable.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Current state-of-the-art models like GPT-5 are extremely wide (e.g., mixtures of experts) but have only a few dozen to a couple hundred layers in sequential depth.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain's wide-but-shallow architecture is still imitated by artificial neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "The key motivation for neural networks is the brain's versatility, adaptability, and plasticity, not its exact biological architecture.",
+      "salience": "core"
+    },
+    {
+      "text": "The brain can learn complex tasks from very few examples, adapt to new data sources, and rewire functions (neuroplasticity).",
+      "salience": "core"
+    },
+    {
+      "text": "In an experiment, a tongue electrode plate receiving signals from a forehead camera allowed people to navigate blindfolded after weeks, as the brain discovered the correlation between vision and tactile patterns.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After a stroke, undamaged brain regions can sometimes take over lost functions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain has evolutionarily predetermined areas (e.g., visual cortex in occipital lobe, frontal cortex for reasoning), but the neurons themselves are the same.",
+      "salience": "supporting"
+    },
+    {
+      "text": "There is a single learning algorithm at work in the brain, not dedicated circuits for specific tasks like distinguishing cats from dogs or understanding 3D structure.",
+      "salience": "core"
+    },
+    {
+      "text": "Abilities like distinguishing cats from dogs or 3D understanding are not genetically encoded but learned from scratch with extraordinary efficiency during early life.",
+      "salience": "core"
+    },
+    {
+      "text": "The goal is to bring the brain's efficient, general learning capability to computers.",
+      "salience": "core"
+    },
+    {
+      "text": "Artificial neural networks embrace connectionism: the idea that connecting many simple units yields a complex system capable of powerful computations.",
+      "salience": "core"
+    },
+    {
+      "text": "Mathematical results show that any function can be approximated with a polynomial or with two layers of univariate functions.",
+      "salience": "core"
+    },
+    {
+      "text": "Neural networks are based on the idea of combining simple units to achieve complex functions like face recognition.",
+      "salience": "core"
+    },
+    {
+      "text": "Artificial neural networks are similar to the brain in the structure of a single neuron.",
+      "salience": "core"
+    },
+    {
+      "text": "An artificial neuron takes inputs $x_1, x_2, \\ldots, x_n$ and computes a linear combination $w \\cdot x$ with trainable weights.",
+      "salience": "core"
+    },
+    {
+      "text": "An artificial neuron requires a nonlinear activation function before the output.",
+      "salience": "core"
+    },
+    {
+      "text": "Without a nonlinear activation function, a network of linear neurons collapses to a single linear neuron because composition of linear functions is linear.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Any nonlinearity (e.g., ReLU, which joins two linear functions) enables the network to approximate complex functions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A large body of mathematics shows that any nonlinearity is sufficient for universal approximation.",
+      "salience": "core"
+    },
+    {
+      "text": "Compositions of simple neurons can approximate arbitrary functions; the challenge is finding the weights through training.",
+      "salience": "core"
+    },
+    {
+      "text": "The model for a single artificial neuron has existed since 1943.",
+      "salience": "core"
+    },
+    {
+      "text": "The model for a single artificial neuron existed before the Turing test.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The model for a single artificial neuron existed before the Dartmouth seminar.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The model for a single artificial neuron existed before the term \"artificial intelligence\" was coined.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Warren McCulloch and Walter Pitts wrote \"A Logical Calculus of Nervous Activity\" in 1943.",
+      "salience": "core"
+    },
+    {
+      "text": "The paper \"A Logical Calculus of Nervous Activity\" was written from the perspective of mathematical logic.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The aim of the paper was to create a mathematical model of the human brain.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The model presented in the paper was basically the same as the modern single artificial neuron model.",
+      "salience": "core"
+    },
+    {
+      "text": "Modern neural network architectures include parts like attention mechanisms in transformers.",
+      "salience": "core"
+    },
+    {
+      "text": "Attention mechanisms in transformers are not exactly the same as the original artificial neuron model.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Most neural networks are still built from the artificial neuron model.",
+      "salience": "core"
+    },
+    {
+      "text": "Frank Rosenblatt first implemented the model in practice in 1958 with the perceptron.",
+      "salience": "core"
+    },
+    {
+      "text": "The perceptron learned to recognize letters.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The letter recognition of the perceptron was limited to a specific font and fixed viewpoint.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The perceptron's letter recognition was far from real OCR.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The perceptron's letter recognition was amazing for its time.",
+      "salience": "aside"
+    },
+    {
+      "text": "The New York Times predicted that computers would soon walk, talk, see, write, reproduce, and be conscious.",
+      "salience": "aside"
+    },
+    {
+      "text": "The early optimism about AI was unwarranted.",
+      "salience": "core"
+    },
+    {
+      "text": "Modern AI still inherits a lot from the early ideas.",
+      "salience": "core"
+    },
+    {
+      "text": "The AI winter arrived after the early optimism.",
+      "salience": "core"
+    },
+    {
+      "text": "During the AI winter, people became convinced that machine learning did not work.",
+      "salience": "core"
+    },
+    {
+      "text": "During the AI winter, people became convinced that neural networks in particular did not work.",
+      "salience": "core"
+    },
+    {
+      "text": "There were practical reasons for the AI winter.",
+      "salience": "supporting"
+    },
+    {
+      "text": "There was a strange theoretical argument that convinced many people neural networks were worthless.",
+      "salience": "core"
+    },
+    {
+      "text": "Regardless of the activation function \\(h\\), the input to a neuron reaches \\(h\\) through a linear combination.",
+      "salience": "core"
+    },
+    {
+      "text": "For classification with a single neuron, the decision boundary is defined by \\(w \\cdot x = 0\\).",
+      "salience": "core"
+    },
+    {
+      "text": "If \\(h(w \\cdot x) > 0\\), class 1 is assigned, else class 2.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The decision boundary \\(w \\cdot x = 0\\) is a linear surface.",
+      "salience": "core"
+    },
+    {
+      "text": "The nonlinear activation function does not create a nonlinear decision boundary in a single neuron.",
+      "salience": "core"
+    },
+    {
+      "text": "The nonlinearity enables building networks by combining neurons.",
+      "salience": "core"
+    },
+    {
+      "text": "A single perceptron cannot solve the XOR problem.",
+      "salience": "core"
+    },
+    {
+      "text": "In the XOR problem, the classes are linearly inseparable.",
+      "salience": "core"
+    },
+    {
+      "text": "People mistakenly used the limitation of a single perceptron as an argument against perceptrons and neural networks as a whole.",
+      "salience": "core"
+    },
+    {
+      "text": "A linearly inseparable task cannot be solved with a single perceptron.",
+      "salience": "core"
+    },
+    {
+      "text": "A linearly inseparable task can be solved with a network of perceptrons.",
+      "salience": "core"
+    },
+    {
+      "text": "The idea of assembling neurons into layers and computing a composition of several neurons is very old.",
+      "salience": "core"
+    },
+    {
+      "text": "The idea of assembling neurons into layers goes back to Alan Turing.",
+      "salience": "core"
+    },
+    {
+      "text": "In 1948, Alan Turing wrote a paper suggesting deep neural networks composed of layers of neurons.",
+      "salience": "core"
+    },
+    {
+      "text": "Turing's 1948 paper was written before the Turing test.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The question was how to train deep neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "The answer to training deep neural networks is gradient descent.",
+      "salience": "core"
+    },
+    {
+      "text": "Gradient descent requires taking derivatives through the computational graph.",
+      "salience": "core"
+    },
+    {
+      "text": "Taking derivatives through the computational graph is done by backpropagation.",
+      "salience": "core"
+    },
+    {
+      "text": "Backpropagation is simply the chain rule for computing derivatives.",
+      "salience": "core"
+    },
+    {
+      "text": "Backpropagation was independently discovered many times.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By the 1970s, backpropagation was well understood as a method to update weights through layers of simple functions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By the late 1970s and first half of the 1980s, the idea of deep neural networks existed and had started to appear.",
+      "salience": "core"
+    },
+    {
+      "text": "By the second half of the 1980s, convolutional networks already existed.",
+      "salience": "core"
+    },
+    {
+      "text": "By the second half of the 1980s, recurrent networks already existed.",
+      "salience": "core"
+    },
+    {
+      "text": "Transformers came later than the 1980s.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Many architectural ideas from the 1980s are still relevant.",
+      "salience": "core"
+    },
+    {
+      "text": "Architectural ideas from the 1980s would work quite well if scaled up.",
+      "salience": "core"
+    },
+    {
+      "text": "Taking a neural network architecture from the early 1990s or late 1980s, scaling it up, and training it on modern hardware and datasets yields pretty good results.",
+      "salience": "core"
+    },
+    {
+      "text": "Such scaled-up older networks perform worse than today's networks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Such results would have been state-of-the-art in 1990.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Such results would never have discouraged researchers in 1990.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Neural networks require a certain scale to be effective.",
+      "salience": "core"
+    },
+    {
+      "text": "With a very small network and dataset, a specialized model built by thinking about the problem often outperforms a neural network.",
+      "salience": "core"
+    },
+    {
+      "text": "By the early 1990s, the research community lacked the compute and data to scale up neural networks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By the early 1990s, the research community reached a consensus that neural networks are the second-best way of doing just about anything.",
+      "salience": "core"
+    },
+    {
+      "text": "The consensus was that neural networks are universal but always worse than a domain-specific model.",
+      "salience": "core"
+    },
+    {
+      "text": "Neural networks were largely forgotten in the 1990s and early 2000s.",
+      "salience": "core"
+    },
+    {
+      "text": "The 1990s and early 2000s were the heyday of probabilistic and graphical models.",
+      "salience": "aside"
+    },
+    {
+      "text": "Probabilistic and graphical models are interesting and important but out of scope for this course.",
+      "salience": "aside"
+    },
+    {
+      "text": "Only a few groups continued to work on neural networks during the AI winter.",
+      "salience": "core"
+    },
+    {
+      "text": "Yann LeCun worked on image processing with CNNs during the AI winter.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Geoffrey Hinton's group continued to work on neural networks during the AI winter.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Yoshua Bengio's group continued to work on neural networks during the AI winter.",
+      "salience": "supporting"
+    },
+    {
+      "text": "These groups continued believing in neural networks.",
+      "salience": "supporting"
+    },
+    {
+      "text": "These groups were finally proved right.",
+      "salience": "core"
+    },
+    {
+      "text": "The deep learning revolution began around 2006–2007.",
+      "salience": "core"
+    },
+    {
+      "text": "The key technical innovation of the deep learning revolution was moving computation from CPUs to GPUs.",
+      "salience": "core"
+    },
+    {
+      "text": "Moving computation from CPUs to GPUs is still a relevant innovation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Neural network operations are massively parallelizable.",
+      "salience": "core"
+    },
+    {
+      "text": "The brain is also massively parallelizable.",
+      "salience": "aside"
+    },
+    {
+      "text": "In the early 2000s, widely available gaming GPUs made massive parallelism practical for neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "Geoffrey Hinton's group moved neural network computations to GPUs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Moving computations to GPUs gave roughly a 10×–20× efficiency boost.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The efficiency boost from GPUs was enough to tip neural networks from not working to working.",
+      "salience": "core"
+    },
+    {
+      "text": "Starting in the late 2000s, neural networks began revolutionizing many fields of machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "The first field revolutionized by neural networks was speech processing.",
+      "salience": "core"
+    },
+    {
+      "text": "Around 2010, deep neural networks served as excellent feature extractors for speech processing.",
+      "salience": "core"
+    },
+    {
+      "text": "Deep neural networks made Siri possible in 2011.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Classical speech recognition would not have worked well enough for Siri.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Image processing and computer vision were revolutionized around 2011–2012 with AlexNet.",
+      "salience": "core"
+    },
+    {
+      "text": "AlexNet will be studied in detail in this course.",
+      "salience": "aside"
+    },
+    {
+      "text": "Recurrent networks brought deep learning into natural language processing.",
+      "salience": "core"
+    },
+    {
+      "text": "By 2014–2015, neural machine translation was common.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In 2017, the transformer was introduced.",
+      "salience": "core"
+    },
+    {
+      "text": "The transformer transformed the industry.",
+      "salience": "core"
+    },
+    {
+      "text": "The transformer defines the present era of machine learning.",
+      "salience": "core"
+    },
+    {
+      "text": "For classification, a neural network needs to output a probability vector.",
+      "salience": "core"
+    },
+    {
+      "text": "The main part of the network extracts features in the form of a \\(d\\)-dimensional vector or tensor.",
+      "salience": "core"
+    },
+    {
+      "text": "The extracted features must be converted into \\(k\\) class scores that sum to one.",
+      "salience": "core"
+    },
+    {
+      "text": "A linear transformation followed by softmax converts features into class scores that sum to one.",
+      "salience": "core"
+    },
+    {
+      "text": "This makes the last layer effectively logistic regression on the extracted features.",
+      "salience": "core"
+    },
+    {
+      "text": "The logistic regression is performed on the extracted features, not on the raw input.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For regression tasks, the network structure is similar but the output is linear.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In regression, typically \\(k=1\\).",
+      "salience": "supporting"
+    },
+    {
+      "text": "In regression, softmax is not used.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Regularization is different from model selection.",
+      "salience": "core"
+    },
+    {
+      "text": "In regularization, the model structure and number of parameters are fixed.",
+      "salience": "core"
+    },
+    {
+      "text": "Regularization penalizes parameter values, such as with \\(L_2\\) or \\(L_1\\) penalties.",
+      "salience": "core"
+    },
+    {
+      "text": "Regularization does not change the model form.",
+      "salience": "core"
+    },
+    {
+      "text": "Model selection criteria are used when there are several candidate models.",
+      "salience": "core"
+    },
+    {
+      "text": "Examples of model selection criteria are adjusted \\(R^2\\), AIC, and BIC.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Candidate models could include linear, quadratic, and cubic regressions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Model selection involves trading off goodness-of-fit and complexity.",
+      "salience": "core"
+    },
+    {
+      "text": "The earlier polynomial example muddled the distinction between regularization and model selection.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Changing the polynomial degree changes the number of parameters.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Proper regularization only influences the values of the parameters, not the number of parameters.",
+      "salience": "core"
+    },
+    {
+      "text": "Estimating the probability of having model \\(k\\) for the dataset is deceptively simple.",
+      "salience": "core"
+    },
+    {
+      "text": "The probability of model \\(k\\) given the data can be derived using Bayes' rule as \\(p(m_k) \\, p(d \\mid m_k)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "In this context, \\(m_k\\) represents the whole model, not specific weights.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Examples of whole models include linear regression versus quadratic regression.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Without prior preference, a uniform prior is assumed for model selection.",
+      "salience": "core"
+    },
+    {
+      "text": "Under a uniform prior, model selection compares only \\(p(d \\mid m_k)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "At the parameter level, Bayes' rule is \\(p(\\theta \\mid d) = \\frac{p(\\theta) \\, p(d \\mid \\theta)}{p(d)}\\).",
+      "salience": "core"
+    },
+    {
+      "text": "Adding a model index \\(m_k\\) to Bayes' rule gives \\(p(\\theta \\mid d, m_k) = \\frac{p(\\theta \\mid m_k) \\, p(d \\mid \\theta, m_k)}{p(d \\mid m_k)}\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The denominator \\(p(d \\mid m_k)\\) in Bayes' rule at the parameter level is the same as the model evidence used for model selection.",
+      "salience": "core"
+    },
+    {
+      "text": "The denominator \\(p(d \\mid m_k)\\) is the normalizing constant.",
+      "salience": "core"
+    },
+    {
+      "text": "The normalizing constant \\(p(d \\mid m_k)\\) is exactly the quantity compared when choosing between models.",
+      "salience": "core"
+    },
+    {
+      "text": "All information criteria are approximations to compute the model evidence \\(p(d \\mid m_k)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "Model selection involves estimating the normalizing constant \\(p(d \\mid m_k)\\).",
+      "salience": "core"
+    },
+    {
+      "text": "The model with the largest \\(p(d \\mid m_k)\\) is chosen.",
+      "salience": "core"
+    },
+    {
+      "text": "There are two levels in the process: model selection and then parameter learning within the selected model.",
+      "salience": "core"
+    }
+  ],
+  "summary": [
+    {
+      "text": "In machine learning we constantly update our beliefs about model parameters in light of data.",
+      "salience": "core"
+    },
+    {
+      "text": "The central tool for updating beliefs is Bayes' rule for parameters and data: p(theta|D) = p(theta) p(D|theta) / p(D).",
+      "salience": "core"
+    },
+    {
+      "text": "In Bayes' rule, p(theta) is the prior probability.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In Bayes' rule, p(D|theta) is the likelihood.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In Bayes' rule, p(theta|D) is the posterior probability.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In Bayes' rule, p(D) is the evidence (marginal likelihood), defined as p(D) = integral p(D|theta) p(theta) dtheta.",
+      "salience": "supporting"
+    },
+    {
+      "text": "From Bayes' rule spring three most important optimisation problems in machine learning: Maximum likelihood (ML), Maximum a posteriori (MAP), and full posterior predictive distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "Maximum likelihood (ML) is theta_ML = argmax_theta p(D|theta), ignoring the prior and using only data.",
+      "salience": "core"
+    },
+    {
+      "text": "Maximum a posteriori (MAP) is theta_MAP = argmax_theta p(theta|D) = argmax_theta p(D|theta) p(theta), combining data with prior knowledge.",
+      "salience": "core"
+    },
+    {
+      "text": "The full posterior predictive distribution averages predictions over all plausible parameter values weighted by their posterior probability.",
+      "salience": "core"
+    },
+    {
+      "text": "In practice we often stop at the MAP point estimate.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Deep learning strongly relies on the MAP point estimate, though this discards the richness of the full distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "Joint probability: p(x, y).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Marginalisation: p(x) = sum_y p(x, y).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Conditional probability: p(x|y); the chain rule gives p(x, y) = p(x|y) p(y).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Independence: x and y are independent if p(x,y) = p(x) p(y).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Two views of probability coexist: classical (frequentist) and Bayesian.",
+      "salience": "core"
+    },
+    {
+      "text": "In the classical (frequentist) interpretation, probability is the limiting frequency of an outcome in infinitely repeatable experiments (e.g., coin tosses, dice rolls).",
+      "salience": "core"
+    },
+    {
+      "text": "In the Bayesian interpretation, probability quantifies a degree of belief.",
+      "salience": "core"
+    },
+    {
+      "text": "The Bayesian interpretation is the only meaningful interpretation for unique, non-repeatable events.",
+      "salience": "core"
+    },
+    {
+      "text": "Examples of unique, non-repeatable events: a bookmaker setting odds on Spain winning the 2026 FIFA World Cup, the hypothesis that the Odyssey was written by a woman, AGI taking control by 2030.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For unique events, “infinite repetitions” are meaningless.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Both frequentist and Bayesian interpretations obey the same mathematical rules.",
+      "salience": "core"
+    },
+    {
+      "text": "Cox’s theorem shows that natural axioms of plausible reasoning lead uniquely to probability theory.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When we do machine learning we are not deriving logical certainties – we are updating our beliefs.",
+      "salience": "core"
+    },
+    {
+      "text": "A large dataset makes those beliefs more certain, but they always remain distributions reflecting irreducible uncertainty, not single point values.",
+      "salience": "core"
+    },
+    {
+      "text": "In probabilistic modeling, a direct problem (prediction) computes a specific probability given a probabilistic model.",
+      "salience": "core"
+    },
+    {
+      "text": "Example of a direct problem: an urn contains 10 balls, 3 black; the probability of drawing a black ball.",
+      "salience": "supporting"
+    },
+    {
+      "text": "An inverse problem (inference) infers hidden variables from observed outcomes.",
+      "salience": "core"
+    },
+    {
+      "text": "Example of an inverse problem: two urns each have 10 balls; one has 3 black, the other 6; a ball drawn from one urn is black; what is the probability it came from the first urn?",
+      "salience": "supporting"
+    },
+    {
+      "text": "Machine learning is overwhelmingly concerned with inverse problems.",
+      "salience": "core"
+    },
+    {
+      "text": "Building probabilistic models from observations naturally calls for Bayesian reasoning.",
+      "salience": "core"
+    },
+    {
+      "text": "In the two children problem, assume each child is independently a boy or a girl with probability 1/2.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In case (a) of the two children problem, you ask 'Do you have any boys?' and the answer is 'yes'.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In case (a), the four equally likely outcomes are BB, BG, GB, GG.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In case (a), knowing there is at least one boy eliminates GG, leaving three outcomes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In case (a), two of the three remaining outcomes contain a girl.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In case (a), P(has a girl | at least one boy) = 2/3.",
+      "salience": "core"
+    },
+    {
+      "text": "In case (b) of the two children problem, you meet one of the children, and it is a boy.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In case (b), meeting the child fixes the gender of one child.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In case (b), if the first child is a boy, the remaining possibilities are BB and BG, equally likely.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In case (b), P(other is a girl) = 1/2.",
+      "salience": "core"
+    },
+    {
+      "text": "The difference between case (a) and (b) highlights how the nature of the evidence changes the posterior even when the sample space looks identical.",
+      "salience": "core"
+    },
+    {
+      "text": "In the prosecutor's fallacy scenario, a murder occurs and blood at the scene belongs to the killer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The blood type is rare, present in 1% of the population.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defendant has this blood type.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor argues: 'The chance the defendant would have this blood type if innocent is 1%, therefore he is guilty with probability 99%.'",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor's argument is a classical logical error: it equates P(evidence|innocent) with P(innocent|evidence).",
+      "salience": "core"
+    },
+    {
+      "text": "Correct reasoning uses Bayes' theorem: P(innocent|blood type) = P(blood type|innocent) * P(innocent) / P(blood type).",
+      "salience": "core"
+    },
+    {
+      "text": "Without knowing the prior P(innocent) and the overall chance of finding the blood type in the population, the 99% claim is unjustified.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In a two-suspect scenario where both share the rare blood type, the probability of guilt remains 1/2 for each.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor’s fallacious argument would 'prove' both guilty with 99% probability, an obvious impossibility.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defense attorney points out that in a city of one million people about 10,000 share the blood type, so the blood evidence alone gives only a 0.01% probability of guilt.",
+      "salience": "supporting"
+    },
+    {
+      "text": "That calculation implicitly assumes everyone with that blood type is an equally likely perpetrator and ignores specific reasons the defendant is a suspect.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defense attorney's calculation is a mistake about the prior, not a fundamental probabilistic error.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the O. J. Simpson trial, the prosecution presented a history of domestic violence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The defense argued that only 1 in 2,500 women subjected to domestic violence is murdered, therefore the history is irrelevant.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The court agreed and instructed the jury to disregard the evidence.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The statistic P(murdered | history of domestic violence) = 1/2500 is correct.",
+      "salience": "supporting"
+    },
+    {
+      "text": "That statistic answers the wrong question for a murder trial.",
+      "salience": "core"
+    },
+    {
+      "text": "The relevant probability is P(husband is perpetrator | murder occurred and history of domestic violence).",
+      "salience": "core"
+    },
+    {
+      "text": "From the same data one can calculate that among murdered women with a domestic-violence history, the husband was the perpetrator in about 7/8 of cases.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the O.J. Simpson case, the domestic violence evidence, properly conditioned, was strong.",
+      "salience": "core"
+    },
+    {
+      "text": "Always be clear about what is to the left and to the right of the conditioning bar.",
+      "salience": "core"
+    },
+    {
+      "text": "Even qualitative awareness of which conditional probability is being estimated often clarifies decisions.",
+      "salience": "core"
+    },
+    {
+      "text": "In the Sally Clark case, she was convicted after two of her babies died of Sudden Infant Death Syndrome (SIDS).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor multiplied the single-case SIDS probability (1/8500) to obtain a combined probability of two SIDS deaths of about 1 in 73 million, implying guilt.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The prosecutor's reasoning in the Sally Clark case is flawed on several levels.",
+      "salience": "core"
+    },
+    {
+      "text": "The reasoning assumes independence of two events within the same family.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The reasoning ignores the prior probability of double murder by a mother, which is also extremely low.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The reasoning confuses P(evidence|innocence) with P(innocence|evidence).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Correct Bayesian analysis gives a very different picture.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear regression is the simplest “neural network” – a single artificial neuron with no nonlinearity.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear regression remains the final layer of almost every deep network that outputs a continuous value.",
+      "salience": "core"
+    },
+    {
+      "text": "For linear regression, the input vector is x = (1, x1, ..., xp), where the constant 1 absorbs the bias.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The linear regression model is y(x,w) = x^T w.",
+      "salience": "core"
+    },
+    {
+      "text": "Given training data {(x_i, y_i)}_{i=1}^N, the residual sum of squares (RSS) measures how well the line fits: RSS(w) = sum_{i=1}^N (y_i - x_i^T w)^2.",
+      "salience": "core"
+    },
+    {
+      "text": "The optimal w_hat can be found by solving the normal equations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The probabilistic viewpoint explains why squares are used in RSS, not absolute values or fourth powers.",
+      "salience": "core"
+    },
+    {
+      "text": "In the probabilistic justification of linear regression, the observed target t is the model output plus Gaussian noise: t = y(x,w) + epsilon, with epsilon ~ N(0, sigma^2).",
+      "salience": "core"
+    },
+    {
+      "text": "Consequently, the conditional distribution is p(t | x, w, sigma^2) = N(t | x^T w, sigma^2) = (1/sqrt(2pi sigma^2)) exp(-(1/(2 sigma^2)) (t - x^T w)^2).",
+      "salience": "core"
+    },
+    {
+      "text": "The Gaussian noise assumption is natural because if the total error is the sum of many small independent perturbations, the central limit theorem implies the distribution tends to a Gaussian.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Assuming data are i.i.d. (conditionally independent given x_n), the joint likelihood is p(t | X, w, sigma^2) = product_{n=1}^N N(t_n | w^T x_n, sigma^2).",
+      "salience": "core"
+    },
+    {
+      "text": "The log-likelihood is ln p(t|w, sigma^2) = -(N/2)ln(2pi sigma^2) - (1/(2 sigma^2)) sum_{n=1}^N (t_n - w^T x_n)^2.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Maximising the log-likelihood with respect to w is equivalent to minimising the sum of squares.",
+      "salience": "core"
+    },
+    {
+      "text": "This is the probabilistic foundation of squared loss: it follows directly from the assumption of Gaussian homoscedastic (constant variance) noise.",
+      "salience": "core"
+    },
+    {
+      "text": "The squared-error loss is not an arbitrary choice; it encodes the assumption of normally distributed, constant-variance errors.",
+      "salience": "core"
+    },
+    {
+      "text": "When the assumptions of normally distributed, constant-variance errors break (e.g., noise variance changes across the dataset, or noise is asymmetric) the loss must be adapted.",
+      "salience": "core"
+    },
+    {
+      "text": "Understanding the derivation of squared loss reveals these implicit assumptions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Linear regression is not limited to straight lines; we can transform raw input into a feature vector phi(x), e.g., (1, x, x^2) to fit a parabola.",
+      "salience": "core"
+    },
+    {
+      "text": "With feature expansion, the model remains linear in the weights, and we still minimise the sum of squared errors: sum (y_n - w^T phi(x_n))^2.",
+      "salience": "core"
+    },
+    {
+      "text": "In a classic demonstration, the true function is sin(2pi x), which is not a polynomial.",
+      "salience": "supporting"
+    },
+    {
+      "text": "With 11 training points, a third-degree polynomial (four weights) gives a good fit.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A tenth-degree polynomial passes exactly through every point, giving zero training error, but the interpolation curve oscillates wildly and is useless for prediction.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Overfitting is the phenomenon where a model captures noise instead of the underlying pattern, leading to poor generalization.",
+      "salience": "core"
+    },
+    {
+      "text": "In the overfitting demonstration, the overfitted model's coefficients become huge, with magnitudes on the order of 50.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Plausible weights for this data (x in [-1.5,2], y in [-1,1]) should be around 1-2.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Large weights are a symptom of overfitting.",
+      "salience": "core"
+    },
+    {
+      "text": "In high dimensions, the overfitting problem is more severe and harder to avoid.",
+      "salience": "core"
+    },
+    {
+      "text": "Moving from a linear model to a quadratic model adds terms x_i^2 and all cross-products x_i x_j, leading to O(d^2) features.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Starting from 100 features, a quadratic expansion gives approximately 5000 features, an immense increase that almost guarantees overfitting.",
+      "salience": "supporting"
+    },
+    {
+      "text": "There is no “fractional” degree; you cannot smoothly increase complexity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Overfitting is an inherent challenge in machine learning, even for simple linear models with feature expansions.",
+      "salience": "core"
+    },
+    {
+      "text": "One way to combat overfitting is to constrain the weights.",
+      "salience": "core"
+    },
+    {
+      "text": "In the Bayesian framework, constraining weights corresponds to choosing a prior p(w).",
+      "salience": "core"
+    },
+    {
+      "text": "A natural prior belief is that weights should be small and centred near zero, with no special correlations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This leads to a Gaussian prior with zero mean and isotropic covariance: p(w) = N(w | 0, (1/alpha) I).",
+      "salience": "core"
+    },
+    {
+      "text": "Combining Gaussian likelihood with this Gaussian prior, the log-posterior becomes ln p(w|t) = -(1/(2 sigma^2)) sum (t_n - w^T phi(x_n))^2 - (alpha/2) ||w||^2 + const.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Maximising the posterior (MAP estimate) is equivalent to minimising sum (t_n - w^T phi(x_n))^2 + lambda ||w||^2, where lambda = alpha sigma^2.",
+      "salience": "core"
+    },
+    {
+      "text": "This is exactly ridge regression – least squares with an L2 penalty on the weight vector.",
+      "salience": "core"
+    },
+    {
+      "text": "L2 regularisation corresponds to a Gaussian prior.",
+      "salience": "core"
+    },
+    {
+      "text": "The hyperparameter alpha (or lambda) trades off data fit against weight magnitude.",
+      "salience": "core"
+    },
+    {
+      "text": "Too small alpha leads to overfitting; too large alpha leads to underfitting.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If we use a Laplace prior instead, the MAP objective adds sum |w_i| – the L1 norm.",
+      "salience": "core"
+    },
+    {
+      "text": "This yields the LASSO, which produces sparse solutions: many weights are driven exactly to zero, performing automatic feature selection.",
+      "salience": "core"
+    },
+    {
+      "text": "LASSO produces sparse solutions because slanted L1 contours cause optima to land on axes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Ridge regression, by contrast, shrinks all weights but rarely zeros them out.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The choice of prior reflects our modelling taste; the likelihood should be dictated by the noise, but the prior is our design decision.",
+      "salience": "core"
+    },
+    {
+      "text": "Regularisation fixes the model structure and penalises weight values.",
+      "salience": "core"
+    },
+    {
+      "text": "Model selection compares completely different models by estimating the model evidence p(D|M_k).",
+      "salience": "core"
+    },
+    {
+      "text": "Model evidence is the normalising constant from Bayes' rule: p(theta|D, M_k) = p(theta|M_k) p(D|theta,M_k) / p(D|M_k).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Regularisation and model selection are complementary techniques.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In modern deep learning, the early layers of a network act as a learned feature extractor, producing a rich feature vector z.",
+      "salience": "core"
+    },
+    {
+      "text": "For regression, the final layer is almost always linear: y_hat = w^T z.",
+      "salience": "core"
+    },
+    {
+      "text": "For classification, the final layer is logistic or softmax regression on z.",
+      "salience": "core"
+    },
+    {
+      "text": "Linear models remain fundamental in deep learning.",
+      "salience": "core"
+    },
+    {
+      "text": "The network’s job is to learn a transformation that makes a simple linear model work well.",
+      "salience": "core"
+    },
+    {
+      "text": "The target variable is now a discrete class label.",
+      "salience": "core"
+    },
+    {
+      "text": "The classifier's output should be a probability distribution over classes, to express uncertainty.",
+      "salience": "core"
+    },
+    {
+      "text": "For two classes C1 and C2, the posterior probability P(C1|x) is given by Bayes' theorem: P(C1|x) = [P(x|C1)P(C1)] / [P(x|C1)P(C1) + P(x|C2)P(C2)].",
+      "salience": "core"
+    },
+    {
+      "text": "Dividing numerator and denominator by P(x|C1)P(C1) yields P(C1|x) = 1/(1+exp(-a)), where a = ln[ P(x|C1)P(C1) / (P(x|C2)P(C2)) ].",
+      "salience": "core"
+    },
+    {
+      "text": "The quantity a is the log-odds: ln(P(C1)/P(C2)).",
+      "salience": "core"
+    },
+    {
+      "text": "Log-odds range from -∞ to ∞.",
+      "salience": "core"
+    },
+    {
+      "text": "Log-odds can be modelled naturally by a linear function a(x) = w^T x (with bias absorbed in x=1).",
+      "salience": "core"
+    },
+    {
+      "text": "Logistic regression sets y(x) = P(C1|x) = σ(w^T x), where σ(a) = 1/(1+e^{-a}) is the logistic sigmoid.",
+      "salience": "core"
+    },
+    {
+      "text": "The logistic sigmoid σ is smooth, monotonic, and maps the whole real line to (0,1), passing through 1/2 at a=0.",
+      "salience": "core"
+    },
+    {
+      "text": "For a dataset {(x_n, t_n)} with t_n ∈ {0,1}, the likelihood is p(t|w) = ∏_{n=1}^N y_n^{t_n} (1-y_n)^{1-t_n}, where y_n = σ(w^T x_n).",
+      "salience": "core"
+    },
+    {
+      "text": "The negative log-likelihood gives the cross-entropy error: E(w) = -∑_{n=1}^N [ t_n ln y_n + (1-t_n) ln(1-y_n) ], where y_n = σ(w^T x_n).",
+      "salience": "core"
+    },
+    {
+      "text": "There is no closed-form minimiser for the cross-entropy error E(w); iterative optimisation, most commonly gradient descent, must be used.",
+      "salience": "core"
+    },
+    {
+      "text": "Logistic regression models the decision boundary directly.",
+      "salience": "core"
+    },
+    {
+      "text": "Logistic regression produces well-calibrated probability estimates.",
+      "salience": "core"
+    },
+    {
+      "text": "For K classes, define a score for each class a_k = w_k^T x (a linear function of features).",
+      "salience": "core"
+    },
+    {
+      "text": "The posterior probability is modelled by the softmax (normalised exponential): P(C_k|x) = e^{a_k} / ∑_j e^{a_j}.",
+      "salience": "core"
+    },
+    {
+      "text": "Softmax exaggerates differences: if one score dominates, the output concentrates probability on that class.",
+      "salience": "core"
+    },
+    {
+      "text": "Softmax is a smooth, differentiable version of argmax, making gradient-based training possible.",
+      "salience": "core"
+    },
+    {
+      "text": "The loss for softmax is cross-entropy, which for one-hot target vectors simplifies to -ln P(correct class).",
+      "salience": "core"
+    },
+    {
+      "text": "Almost every neural network for classification ends with a softmax layer.",
+      "salience": "core"
+    },
+    {
+      "text": "After the network extracts a rich feature vector z, a final linear layer computes scores W z (where W is a D×K matrix), and the softmax produces a probability vector.",
+      "salience": "core"
+    },
+    {
+      "text": "The loss is cross-entropy between this output and the target.",
+      "salience": "core"
+    },
+    {
+      "text": "The real 'intelligence' of the network lies in learning the feature extractor that precedes this final layer.",
+      "salience": "core"
+    },
+    {
+      "text": "The final layer itself is just multi-class logistic regression on the learned features.",
+      "salience": "core"
+    },
+    {
+      "text": "For logistic regression, no closed-form solution exists; the standard optimisation algorithm is gradient descent: w^{(τ+1)} = w^{(τ)} - η ∇E(w), where η is the learning rate.",
+      "salience": "core"
+    },
+    {
+      "text": "For logistic regression, using σ'(a)=σ(a)(1-σ(a)), the gradient simplifies to ∇E(w) = ∑_{n=1}^N (y_n - t_n) φ(x_n), where φ(x_n) is the feature vector.",
+      "salience": "core"
+    },
+    {
+      "text": "The gradient update is proportional to the prediction error, weighted by the feature vector.",
+      "salience": "core"
+    },
+    {
+      "text": "Gradient descent is a local optimisation procedure: it moves downhill from the starting point and finds a local minimum.",
+      "salience": "core"
+    },
+    {
+      "text": "There are no global convergence guarantees for gradient descent; deep learning losses are highly non-convex.",
+      "salience": "core"
+    },
+    {
+      "text": "All improvements (stochastic gradient descent, momentum, Adam) remain local search methods; they work well in practice but provide no theoretical assurances of global optimality.",
+      "salience": "core"
+    },
+    {
+      "text": "The human brain contains ~10^11 neurons.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Each neuron connects via ~7000 synapses.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The total number of connections in the human brain is 10^14–10^15.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Computation in the brain is fundamentally different from a von Neumann computer.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Neurons communicate via spikes (identical electrical pulses).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Firing rates of neurons are only 10–200 Hz – magnitudes slower than transistors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Processing in the brain is massively parallel and shallow.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Recognising a face takes about 200 ms.",
+      "salience": "supporting"
+    },
+    {
+      "text": "At neural firing rates, only 10–15 sequential steps can be performed during face recognition.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain uses extreme width, not depth.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain's wide-but-shallow architecture is echoed in modern artificial networks, which still stack only tens to a couple of hundred layers but use enormous width (e.g., mixtures of experts).",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain is extraordinarily plastic.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In experiments, a camera signal routed to the tongue's tactile nerves enables blindfolded navigation after a few days.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After a stroke, other brain areas can rewire to take over lost functions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The brain's plasticity suggests a single, general learning algorithm at work – the 'Master Algorithm' – not a collection of hard-coded specialised circuits.",
+      "salience": "core"
+    },
+    {
+      "text": "The ultimate goal of connectionism is connecting many simple units to yield a system capable of powerful, general computation.",
+      "salience": "core"
+    },
+    {
+      "text": "An artificial neuron computes a linear combination of its inputs followed by a nonlinear activation function: y = h(w^T x) = h(∑ w_i x_i).",
+      "salience": "core"
+    },
+    {
+      "text": "The nonlinearity h is essential: without it, a composition of linear functions is still linear, and a multilayer network collapses to a single linear neuron.",
+      "salience": "core"
+    },
+    {
+      "text": "Virtually any nonlinearity (sigmoid, tanh, ReLU) is sufficient in principle to approximate any function when enough neurons are combined.",
+      "salience": "core"
+    },
+    {
+      "text": "The idea of the artificial neuron dates to McCulloch & Pitts (1943), who proposed this computational model of a biological neuron.",
+      "salience": "aside"
+    },
+    {
+      "text": "Alan Turing (1948) already envisioned deep networks (compositions of layers).",
+      "salience": "aside"
+    },
+    {
+      "text": "The first practical implementation of an artificial neuron was Rosenblatt's perceptron (1958), a single neuron with a step function that could learn to recognise simple letters – an astonishing achievement for its time.",
+      "salience": "aside"
+    },
+    {
+      "text": "A single perceptron can only produce a linear separating surface.",
+      "salience": "core"
+    },
+    {
+      "text": "Minsky & Papert (1969) showed that even simple problems like XOR are not linearly separable.",
+      "salience": "core"
+    },
+    {
+      "text": "The observation that the perceptron cannot solve XOR was mistakenly taken as a fatal flaw of all neural networks, contributing to the first AI winter.",
+      "salience": "aside"
+    },
+    {
+      "text": "The remedy to the linear separability limitation is to stack neurons into layers, each layer taking the previous one's output as input.",
+      "salience": "core"
+    },
+    {
+      "text": "A composition of many neurons can learn nonlinear decision boundaries.",
+      "salience": "core"
+    },
+    {
+      "text": "The question becomes how to train the weights of a multilayer network.",
+      "salience": "core"
+    },
+    {
+      "text": "The answer is gradient descent applied through the computational graph using the chain rule – backpropagation.",
+      "salience": "core"
+    },
+    {
+      "text": "Backpropagation was discovered multiple times (Brison & Hoback 1969, Hinton 1974, etc.) and was well understood by the 1980s.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Backpropagation enabled the training of deep networks, including convolutional and recurrent architectures.",
+      "salience": "core"
+    },
+    {
+      "text": "Many architectural ideas from the late 1980s/early 1990s, if simply scaled up with modern hardware and datasets, would work surprisingly well today.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By the early 1990s neural networks were seen as 'the second-best way of doing just about anything' – they could work, but hand-crafted models outperformed them on small-scale problems.",
+      "salience": "aside"
+    },
+    {
+      "text": "Lacking both compute power and large datasets, the field largely abandoned neural networks in the early 1990s.",
+      "salience": "aside"
+    },
+    {
+      "text": "Only a few groups persisted in neural network research: Yann LeCun for images, Geoffrey Hinton, Yoshua Bengio.",
+      "salience": "aside"
+    },
+    {
+      "text": "The turning point for neural networks came around 2006–2007, driven by moving computations to GPUs.",
+      "salience": "aside"
+    },
+    {
+      "text": "The inherent massive parallelism of neural networks suddenly became practical with GPUs, delivering a 10–20× speedup – enough to tip the scales.",
+      "salience": "aside"
+    },
+    {
+      "text": "Deep learning revolutionised speech processing (2010–2011, Siri).",
+      "salience": "aside"
+    },
+    {
+      "text": "Deep learning revolutionised computer vision (AlexNet 2012).",
+      "salience": "aside"
+    },
+    {
+      "text": "Deep learning revolutionised natural language processing (RNNs and particularly transformers from 2017 onward).",
+      "salience": "aside"
+    },
+    {
+      "text": "Today's deep learning era is defined by architectures (transformers, CNNs, residual nets) trained on huge datasets with GPU-scale computation, using gradient descent variants.",
+      "salience": "aside"
+    },
+    {
+      "text": "The core ideas of deep learning are old; the scale is new.",
+      "salience": "aside"
+    },
+    {
+      "text": "Real neurons almost certainly do not perform gradient descent and backpropagation.",
+      "salience": "core"
+    },
+    {
+      "text": "The dominant biological learning rule is Hebbian learning: 'neurons that fire together wire together' – Δw_i ∝ x_i x_j.",
+      "salience": "core"
+    },
+    {
+      "text": "The Hebbian principle gave rise to Hopfield networks for associative memory.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Modern neuroscience focuses on spike-timing-dependent plasticity (STDP), where the precise temporal order of spikes determines the magnitude and sign of weight change.",
+      "salience": "core"
+    },
+    {
+      "text": "Building artificial systems that learn in a biologically plausible manner remains an open challenge.",
+      "salience": "core"
+    }
+  ]
+}

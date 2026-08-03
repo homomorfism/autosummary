@@ -1,0 +1,31 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "counts": {
+    "slides": 168,
+    "transcript": 547,
+    "summary": 162
+  },
+  "metrics": {
+    "coverage": 0.4028,
+    "coverage_core": null,
+    "coverage_slides": 0.3333,
+    "coverage_transcript": 0.4241,
+    "coverage_transcript_core": null,
+    "faithfulness": 0.5926,
+    "f1": 0.4796,
+    "transcript_only_claims": 449,
+    "transcript_only_coverage": 0.3385,
+    "transcript_only_core_claims": 0,
+    "transcript_only_core_coverage": null
+  }
+}

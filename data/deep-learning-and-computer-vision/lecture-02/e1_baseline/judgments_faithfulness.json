@@ -1,0 +1,2927 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "summary:0",
+      "text": "The Bayesian rule is the most important formula in machine learning.",
+      "entailed": true,
+      "evidence": "transcript:20",
+      "top": [
+        "transcript:20",
+        "transcript:19",
+        "transcript:18",
+        "slides:142",
+        "transcript:317",
+        "transcript:30",
+        "transcript:817",
+        "transcript:42"
+      ]
+    },
+    {
+      "claim": "summary:1",
+      "text": "The lecture on Linear Models and Intro to Deep Learning builds on the Bayesian rule.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:20",
+        "transcript:501",
+        "transcript:23",
+        "transcript:817",
+        "transcript:19",
+        "transcript:18",
+        "transcript:343",
+        "transcript:643"
+      ]
+    },
+    {
+      "claim": "summary:2",
+      "text": "Given a hypothesis θ and evidence D, the posterior p(θ|D) is given by p(θ|D) = p(D|θ)p(θ)/p(D).",
+      "entailed": true,
+      "evidence": "slides:24",
+      "top": [
+        "slides:28",
+        "slides:81",
+        "slides:27",
+        "slides:30",
+        "slides:24",
+        "slides:26",
+        "slides:25",
+        "slides:83"
+      ]
+    },
+    {
+      "claim": "summary:3",
+      "text": "The prior p(θ) is what we believe before seeing data.",
+      "entailed": true,
+      "evidence": "transcript:142",
+      "top": [
+        "slides:25",
+        "slides:28",
+        "transcript:142",
+        "transcript:151",
+        "slides:81",
+        "slides:30",
+        "transcript:32",
+        "transcript:125"
+      ]
+    },
+    {
+      "claim": "summary:4",
+      "text": "The likelihood p(D|θ) is how probable the observed data is under a given hypothesis.",
+      "entailed": true,
+      "evidence": "transcript:280",
+      "top": [
+        "slides:26",
+        "slides:27",
+        "transcript:280",
+        "slides:28",
+        "slides:81",
+        "slides:24",
+        "slides:30",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "summary:5",
+      "text": "The posterior p(θ|D) is our updated belief after seeing evidence.",
+      "entailed": true,
+      "evidence": "transcript:144",
+      "top": [
+        "slides:28",
+        "slides:30",
+        "slides:81",
+        "slides:27",
+        "transcript:144",
+        "slides:82",
+        "slides:25",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "summary:6",
+      "text": "The evidence (marginal likelihood) p(D) is a normalising constant.",
+      "entailed": true,
+      "evidence": "transcript:845",
+      "top": [
+        "transcript:846",
+        "transcript:847",
+        "slides:28",
+        "transcript:845",
+        "slides:26",
+        "slides:27",
+        "transcript:48",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "summary:7",
+      "text": "Maximum likelihood (ML) is defined as θ_ML = argmax_θ p(D|θ) and is purely frequentist with no prior.",
+      "entailed": true,
+      "evidence": "slides:29",
+      "top": [
+        "slides:29",
+        "transcript:280",
+        "transcript:349",
+        "slides:82",
+        "transcript:42",
+        "transcript:50",
+        "transcript:126",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "summary:8",
+      "text": "Maximum a posteriori (MAP) is defined as θ_MAP = argmax_θ p(θ|D) ∝ p(D|θ)p(θ) and incorporates a prior.",
+      "entailed": true,
+      "evidence": "slides:31",
+      "top": [
+        "slides:82",
+        "slides:31",
+        "transcript:123",
+        "transcript:125",
+        "transcript:126",
+        "transcript:350",
+        "transcript:349",
+        "transcript:135"
+      ]
+    },
+    {
+      "claim": "summary:9",
+      "text": "Full posterior inference and the predictive distribution p(x|D) follow from the Bayesian identity.",
+      "entailed": true,
+      "evidence": "slides:83",
+      "top": [
+        "slides:83",
+        "slides:81",
+        "slides:30",
+        "slides:27",
+        "slides:28",
+        "slides:79",
+        "transcript:561",
+        "slides:26"
+      ]
+    },
+    {
+      "claim": "summary:10",
+      "text": "In deep learning practice, the loss function is almost always of the form −(log p(D|θ) + log p(θ)).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:118",
+        "transcript:117",
+        "transcript:120",
+        "transcript:501",
+        "transcript:803",
+        "transcript:504",
+        "transcript:122",
+        "transcript:289"
+      ]
+    },
+    {
+      "claim": "summary:11",
+      "text": "Minimising this loss function yields the MAP estimate θ_MAP.",
+      "entailed": true,
+      "evidence": "transcript:124",
+      "top": [
+        "transcript:124",
+        "transcript:123",
+        "transcript:134",
+        "transcript:122",
+        "transcript:126",
+        "transcript:132",
+        "transcript:135",
+        "transcript:125"
+      ]
+    },
+    {
+      "claim": "summary:12",
+      "text": "θ_MAP is a point estimate, specifically the maximum of the posterior distribution.",
+      "entailed": true,
+      "evidence": "transcript:135",
+      "top": [
+        "transcript:125",
+        "transcript:123",
+        "transcript:135",
+        "transcript:126",
+        "slides:82",
+        "transcript:134",
+        "transcript:124",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "summary:13",
+      "text": "The model’s uncertainty is captured by the full posterior distribution.",
+      "entailed": true,
+      "evidence": "transcript:144",
+      "top": [
+        "transcript:142",
+        "transcript:144",
+        "slides:81",
+        "transcript:143",
+        "transcript:137",
+        "transcript:343",
+        "slides:30",
+        "slides:78"
+      ]
+    },
+    {
+      "claim": "summary:14",
+      "text": "For huge neural networks, we are usually forced to settle for the point estimate θ_MAP instead of using the full posterior.",
+      "entailed": true,
+      "evidence": "transcript:136",
+      "top": [
+        "transcript:127",
+        "transcript:123",
+        "transcript:136",
+        "transcript:125",
+        "transcript:134",
+        "transcript:133",
+        "transcript:132",
+        "transcript:599"
+      ]
+    },
+    {
+      "claim": "summary:15",
+      "text": "Classical probability, defined as the frequency limit of experiments, works for repeatable events.",
+      "entailed": true,
+      "evidence": "slides:40",
+      "top": [
+        "slides:40",
+        "transcript:76",
+        "transcript:81",
+        "slides:42",
+        "slides:41",
+        "transcript:80",
+        "transcript:78",
+        "slides:48"
+      ]
+    },
+    {
+      "claim": "summary:16",
+      "text": "In machine learning, we often need to reason about unique events such as Spain winning the 2026 World Cup, whether the Odyssey was written by a woman, or AGI risk by 2030.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:44",
+        "slides:43",
+        "transcript:82",
+        "transcript:91",
+        "transcript:98",
+        "transcript:97",
+        "transcript:81",
+        "transcript:87"
+      ]
+    },
+    {
+      "claim": "summary:17",
+      "text": "In these cases, probability functions as a degree of belief, representing our uncertainty.",
+      "entailed": true,
+      "evidence": "transcript:102",
+      "top": [
+        "transcript:102",
+        "transcript:101",
+        "slides:47",
+        "transcript:103",
+        "slides:48",
+        "slides:16",
+        "slides:40",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "summary:18",
+      "text": "Both interpretations of probability follow the same mathematical rules.",
+      "entailed": true,
+      "evidence": "slides:48",
+      "top": [
+        "slides:48",
+        "transcript:78",
+        "slides:47",
+        "slides:40",
+        "transcript:245",
+        "transcript:76",
+        "transcript:102",
+        "transcript:101"
+      ]
+    },
+    {
+      "claim": "summary:19",
+      "text": "When we train a model, we are not reaching a logical certainty; we are updating our beliefs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:107",
+        "transcript:33",
+        "transcript:200",
+        "transcript:152",
+        "transcript:106",
+        "transcript:34",
+        "transcript:141",
+        "transcript:102"
+      ]
+    },
+    {
+      "claim": "summary:20",
+      "text": "Even with vast data, the result of training remains a distribution.",
+      "entailed": true,
+      "evidence": "transcript:114",
+      "top": [
+        "transcript:285",
+        "transcript:114",
+        "transcript:528",
+        "transcript:136",
+        "transcript:111",
+        "slides:133",
+        "transcript:139",
+        "transcript:43"
+      ]
+    },
+    {
+      "claim": "summary:21",
+      "text": "The best we typically get from that distribution is a point estimate.",
+      "entailed": true,
+      "evidence": "transcript:133",
+      "top": [
+        "transcript:133",
+        "transcript:530",
+        "transcript:138",
+        "transcript:291",
+        "transcript:40",
+        "transcript:284",
+        "transcript:243",
+        "transcript:114"
+      ]
+    },
+    {
+      "claim": "summary:22",
+      "text": "That point estimate should be interpreted cautiously.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:243",
+        "transcript:432",
+        "transcript:133",
+        "transcript:143",
+        "transcript:152",
+        "transcript:142",
+        "transcript:144",
+        "transcript:288"
+      ]
+    },
+    {
+      "claim": "summary:23",
+      "text": "Understanding which quantity is on which side of the conditioning bar is essential.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:247",
+        "slides:93",
+        "transcript:536",
+        "transcript:244",
+        "transcript:282",
+        "slides:20",
+        "transcript:844",
+        "transcript:552"
+      ]
+    },
+    {
+      "claim": "summary:24",
+      "text": "Many real‑world mistakes come from swapping the quantities on the sides of the conditioning bar.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:242",
+        "transcript:247",
+        "transcript:102",
+        "transcript:114",
+        "slides:149",
+        "transcript:100",
+        "transcript:273",
+        "transcript:201"
+      ]
+    },
+    {
+      "claim": "summary:25",
+      "text": "In the two children problem, a person has two children, and each child is equally likely to be a boy or a girl independently.",
+      "entailed": true,
+      "evidence": "slides:50",
+      "top": [
+        "transcript:194",
+        "slides:52",
+        "slides:50",
+        "transcript:196",
+        "transcript:181",
+        "transcript:163",
+        "transcript:184",
+        "transcript:164"
+      ]
+    },
+    {
+      "claim": "summary:26",
+      "text": "When you ask 'Do you have any boys?' and the answer is 'yes', the sample space is BB, BG, GB, GG, each with prior probability 1/4.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:51",
+        "transcript:188",
+        "transcript:169",
+        "transcript:192",
+        "transcript:163",
+        "transcript:191",
+        "transcript:167",
+        "transcript:175"
+      ]
+    },
+    {
+      "claim": "summary:27",
+      "text": "Eliminating GG leaves three equally likely cases.",
+      "entailed": true,
+      "evidence": "transcript:189",
+      "top": [
+        "transcript:189",
+        "transcript:185",
+        "transcript:302",
+        "transcript:201",
+        "transcript:173",
+        "transcript:531",
+        "transcript:242",
+        "transcript:300"
+      ]
+    },
+    {
+      "claim": "summary:28",
+      "text": "Two of those three cases contain a girl.",
+      "entailed": true,
+      "evidence": "transcript:190",
+      "top": [
+        "transcript:190",
+        "transcript:189",
+        "transcript:187",
+        "transcript:169",
+        "transcript:197",
+        "transcript:184",
+        "transcript:181",
+        "transcript:191"
+      ]
+    },
+    {
+      "claim": "summary:29",
+      "text": "Therefore, P(has a girl | has a boy) = 2/3.",
+      "entailed": true,
+      "evidence": "transcript:191",
+      "top": [
+        "transcript:191",
+        "transcript:169",
+        "transcript:163",
+        "slides:51",
+        "slides:52",
+        "transcript:194",
+        "transcript:192",
+        "slides:50"
+      ]
+    },
+    {
+      "claim": "summary:30",
+      "text": "When you meet one of the children and it is a boy, you have fixed one specific child.",
+      "entailed": true,
+      "evidence": "transcript:195",
+      "top": [
+        "transcript:195",
+        "transcript:181",
+        "transcript:196",
+        "transcript:166",
+        "transcript:194",
+        "transcript:158",
+        "slides:52",
+        "transcript:187"
+      ]
+    },
+    {
+      "claim": "summary:31",
+      "text": "This eliminates two cases; for example, if the met child is the first, only BB and BG remain.",
+      "entailed": true,
+      "evidence": "transcript:196",
+      "top": [
+        "transcript:194",
+        "transcript:158",
+        "transcript:189",
+        "transcript:180",
+        "transcript:187",
+        "transcript:198",
+        "transcript:164",
+        "transcript:196"
+      ]
+    },
+    {
+      "claim": "summary:32",
+      "text": "Thus, P(other is girl) = 1/2.",
+      "entailed": true,
+      "evidence": "transcript:194",
+      "top": [
+        "transcript:169",
+        "transcript:197",
+        "slides:52",
+        "transcript:191",
+        "transcript:194",
+        "transcript:163",
+        "slides:51",
+        "transcript:192"
+      ]
+    },
+    {
+      "claim": "summary:33",
+      "text": "This demonstrates that the nature of the evidence changes the conditional probability even though both times you learn that there is a boy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:196",
+        "transcript:198",
+        "slides:50",
+        "transcript:242",
+        "transcript:199",
+        "transcript:194",
+        "transcript:187",
+        "transcript:163"
+      ]
+    },
+    {
+      "claim": "summary:34",
+      "text": "A rare blood type with 1% prevalence is found at the crime scene, and the defendant also has it.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "slides:53",
+        "transcript:204",
+        "transcript:220",
+        "slides:56",
+        "slides:54",
+        "transcript:205",
+        "transcript:210",
+        "transcript:209"
+      ]
+    },
+    {
+      "claim": "summary:35",
+      "text": "The prosecutor's fallacy is: 'The chance of having this blood type if innocent is 1%, therefore the defendant is guilty with probability 99%'.",
+      "entailed": true,
+      "evidence": "transcript:205",
+      "top": [
+        "transcript:205",
+        "slides:54",
+        "transcript:211",
+        "transcript:210",
+        "transcript:209",
+        "transcript:220",
+        "slides:56",
+        "transcript:212"
+      ]
+    },
+    {
+      "claim": "summary:36",
+      "text": "The prosecutor's fallacy equates P(blood type | innocent) with P(innocent | blood type).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:212",
+        "transcript:207",
+        "transcript:211",
+        "transcript:210",
+        "slides:55",
+        "transcript:205",
+        "slides:54",
+        "transcript:223"
+      ]
+    },
+    {
+      "claim": "summary:37",
+      "text": "Correct inference requires the prior probability of guilt, the base rate of the blood type, and other factors.",
+      "entailed": true,
+      "evidence": "transcript:214",
+      "top": [
+        "transcript:214",
+        "transcript:220",
+        "transcript:212",
+        "slides:56",
+        "transcript:210",
+        "transcript:209",
+        "slides:54",
+        "transcript:211"
+      ]
+    },
+    {
+      "claim": "summary:38",
+      "text": "The defence attorney's error is: 'A million people live in the city, so ≈10,000 have the same blood type; the evidence gives only a 0.01% probability of guilt.'",
+      "entailed": true,
+      "evidence": "slides:56",
+      "top": [
+        "slides:56",
+        "transcript:220",
+        "transcript:210",
+        "transcript:211",
+        "slides:54",
+        "transcript:223",
+        "transcript:205",
+        "transcript:209"
+      ]
+    },
+    {
+      "claim": "summary:39",
+      "text": "The defence attorney implicitly assumes that among those 10,000 everyone is equally likely to be the killer.",
+      "entailed": true,
+      "evidence": "transcript:223",
+      "top": [
+        "transcript:223",
+        "slides:56",
+        "transcript:217",
+        "transcript:237",
+        "transcript:210",
+        "transcript:205",
+        "transcript:222",
+        "slides:54"
+      ]
+    },
+    {
+      "claim": "summary:40",
+      "text": "The defence attorney ignores why the defendant is on trial.",
+      "entailed": true,
+      "evidence": "transcript:223",
+      "top": [
+        "transcript:222",
+        "transcript:232",
+        "transcript:206",
+        "transcript:218",
+        "transcript:231",
+        "slides:57",
+        "transcript:223",
+        "transcript:229"
+      ]
+    },
+    {
+      "claim": "summary:41",
+      "text": "In the O.J. Simpson case, the defence argued that only 1 in 2500 women subjected to domestic violence is murdered, therefore domestic violence is irrelevant.",
+      "entailed": true,
+      "evidence": "slides:60",
+      "top": [
+        "slides:60",
+        "transcript:230",
+        "transcript:231",
+        "slides:62",
+        "slides:59",
+        "transcript:234",
+        "transcript:225",
+        "transcript:240"
+      ]
+    },
+    {
+      "claim": "summary:42",
+      "text": "The defence confused P(murdered | history of violence) with P(husband is murderer | woman murdered AND history of violence).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:234",
+        "transcript:240",
+        "transcript:235",
+        "transcript:226",
+        "transcript:228",
+        "slides:59",
+        "transcript:229",
+        "transcript:236"
+      ]
+    },
+    {
+      "claim": "summary:43",
+      "text": "Using the same statistics, the correct estimate is around 7/8, meaning the husband is by far the most likely perpetrator.",
+      "entailed": true,
+      "evidence": "transcript:239",
+      "top": [
+        "transcript:239",
+        "transcript:240",
+        "transcript:210",
+        "transcript:236",
+        "transcript:230",
+        "transcript:220",
+        "transcript:216",
+        "slides:62"
+      ]
+    },
+    {
+      "claim": "summary:44",
+      "text": "The court's acceptance of the defence's argument was a Bayesian mistake.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:61",
+        "transcript:222",
+        "transcript:206",
+        "transcript:232",
+        "transcript:218",
+        "transcript:18",
+        "transcript:233",
+        "transcript:207"
+      ]
+    },
+    {
+      "claim": "summary:45",
+      "text": "Always ask yourself what is on the left and right of the conditioning bar, i.e., what exactly you are trying to estimate.",
+      "entailed": true,
+      "evidence": "transcript:247",
+      "top": [
+        "transcript:243",
+        "transcript:247",
+        "transcript:239",
+        "transcript:844",
+        "transcript:552",
+        "transcript:835",
+        "slides:163",
+        "transcript:242"
+      ]
+    },
+    {
+      "claim": "summary:46",
+      "text": "A linear model assumes the target y is a linear combination of input features.",
+      "entailed": true,
+      "evidence": "transcript:262",
+      "top": [
+        "transcript:256",
+        "transcript:262",
+        "transcript:360",
+        "transcript:277",
+        "transcript:511",
+        "transcript:257",
+        "transcript:261",
+        "transcript:584"
+      ]
+    },
+    {
+      "claim": "summary:47",
+      "text": "The linear model is expressed as y(x,w) = w^T φ(x).",
+      "entailed": true,
+      "evidence": "transcript:360",
+      "top": [
+        "slides:66",
+        "transcript:360",
+        "transcript:313",
+        "transcript:264",
+        "transcript:311",
+        "transcript:316",
+        "transcript:262",
+        "slides:74"
+      ]
+    },
+    {
+      "claim": "summary:48",
+      "text": "φ(x) is a feature vector that may be non‑linear.",
+      "entailed": true,
+      "evidence": "transcript:367",
+      "top": [
+        "transcript:360",
+        "transcript:359",
+        "transcript:584",
+        "transcript:262",
+        "transcript:367",
+        "transcript:726",
+        "transcript:721",
+        "transcript:685"
+      ]
+    },
+    {
+      "claim": "summary:49",
+      "text": "By prepending a constant feature φ_0(x) = 1, the intercept is absorbed into the weight vector, which is a standard trick to keep formulas clean.",
+      "entailed": true,
+      "evidence": "transcript:267",
+      "top": [
+        "transcript:266",
+        "transcript:359",
+        "transcript:264",
+        "transcript:267",
+        "transcript:268",
+        "transcript:360",
+        "slides:160",
+        "transcript:263"
+      ]
+    },
+    {
+      "claim": "summary:50",
+      "text": "Given a training set of N data points (x_n, t_n), the goal is to find the best weight vector w.",
+      "entailed": true,
+      "evidence": "slides:67",
+      "top": [
+        "slides:67",
+        "transcript:271",
+        "transcript:573",
+        "transcript:316",
+        "transcript:368",
+        "slides:74",
+        "slides:110",
+        "transcript:449"
+      ]
+    },
+    {
+      "claim": "summary:51",
+      "text": "Minimizing the sum of squared errors (RSS) is the usual choice for finding the best w.",
+      "entailed": true,
+      "evidence": "transcript:272",
+      "top": [
+        "slides:68",
+        "transcript:368",
+        "transcript:458",
+        "transcript:325",
+        "slides:69",
+        "slides:80",
+        "slides:108",
+        "transcript:272"
+      ]
+    },
+    {
+      "claim": "summary:52",
+      "text": "Minimizing RSS is not arbitrary; it follows from a probabilistic model.",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "slides:68",
+        "transcript:42",
+        "transcript:348",
+        "slides:80",
+        "transcript:335",
+        "transcript:43",
+        "transcript:114",
+        "transcript:45"
+      ]
+    },
+    {
+      "claim": "summary:53",
+      "text": "Assumption 1 for the linear model: The data points are conditionally independent given the parameters.",
+      "entailed": true,
+      "evidence": "transcript:281",
+      "top": [
+        "transcript:281",
+        "transcript:257",
+        "transcript:112",
+        "transcript:255",
+        "slides:74",
+        "transcript:256",
+        "slides:86",
+        "slides:66"
+      ]
+    },
+    {
+      "claim": "summary:54",
+      "text": "Assumption 2: The centre of the noise distribution is the linear function itself: E[t_n] = w^T φ(x_n).",
+      "entailed": true,
+      "evidence": "transcript:284",
+      "top": [
+        "slides:70",
+        "slides:74",
+        "slides:75",
+        "slides:86",
+        "transcript:311",
+        "slides:87",
+        "transcript:284",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "summary:55",
+      "text": "Assumption 3: The noise is zero-mean Gaussian with constant variance σ^2, so p(t_n | x_n, w, σ^2) = N(t_n | w^T φ(x_n), σ^2).",
+      "entailed": true,
+      "evidence": "slides:70",
+      "top": [
+        "slides:74",
+        "slides:86",
+        "slides:87",
+        "slides:75",
+        "slides:70",
+        "slides:88",
+        "slides:71",
+        "slides:77"
+      ]
+    },
+    {
+      "claim": "summary:56",
+      "text": "The Gaussian noise is natural because of the central limit theorem, as many small independent perturbations sum to an approximately normal distribution.",
+      "entailed": true,
+      "evidence": "transcript:295",
+      "top": [
+        "transcript:529",
+        "transcript:295",
+        "transcript:310",
+        "transcript:292",
+        "transcript:303",
+        "transcript:293",
+        "transcript:528",
+        "transcript:314"
+      ]
+    },
+    {
+      "claim": "summary:57",
+      "text": "Assumption 4 (hidden): Homoscedasticity – the noise variance σ^2 is the same for all data points.",
+      "entailed": true,
+      "evidence": "transcript:327",
+      "top": [
+        "transcript:329",
+        "transcript:327",
+        "transcript:328",
+        "transcript:330",
+        "transcript:314",
+        "transcript:528",
+        "slides:70",
+        "transcript:331"
+      ]
+    },
+    {
+      "claim": "summary:58",
+      "text": "Homoscedasticity allows pulling σ out of the sum in the likelihood.",
+      "entailed": true,
+      "evidence": "transcript:330",
+      "top": [
+        "transcript:330",
+        "transcript:329",
+        "transcript:328",
+        "transcript:333",
+        "transcript:331",
+        "transcript:531",
+        "slides:96",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "summary:59",
+      "text": "If the variance changes, the loss function must be modified, which is one reason to understand the assumptions.",
+      "entailed": true,
+      "evidence": "transcript:335",
+      "top": [
+        "transcript:337",
+        "transcript:276",
+        "transcript:502",
+        "transcript:327",
+        "transcript:289",
+        "transcript:336",
+        "transcript:335",
+        "transcript:504"
+      ]
+    },
+    {
+      "claim": "summary:60",
+      "text": "The log-likelihood for linear regression under Gaussian noise is ln p(t|X,w,σ^2) = -(N/2)ln(2πσ^2) - (1/(2σ^2))Σ (t_n - w^T φ_n)^2.",
+      "entailed": true,
+      "evidence": "slides:75",
+      "top": [
+        "transcript:321",
+        "transcript:314",
+        "slides:75",
+        "slides:77",
+        "slides:70",
+        "transcript:311",
+        "transcript:322",
+        "transcript:315"
+      ]
+    },
+    {
+      "claim": "summary:61",
+      "text": "Maximising this log-likelihood with respect to w is equivalent to minimising the RSS.",
+      "entailed": true,
+      "evidence": "transcript:325",
+      "top": [
+        "transcript:324",
+        "slides:76",
+        "transcript:325",
+        "transcript:320",
+        "transcript:350",
+        "transcript:348",
+        "transcript:50",
+        "transcript:42"
+      ]
+    },
+    {
+      "claim": "summary:62",
+      "text": "The square error directly reflects the Gaussian noise assumption.",
+      "entailed": true,
+      "evidence": "transcript:276",
+      "top": [
+        "transcript:314",
+        "transcript:529",
+        "transcript:295",
+        "transcript:327",
+        "slides:70",
+        "transcript:276",
+        "transcript:524",
+        "transcript:321"
+      ]
+    },
+    {
+      "claim": "summary:63",
+      "text": "To illustrate overfitting, consider a one-dimensional input x and a true function that is a sine wave.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:410",
+        "transcript:396",
+        "transcript:398",
+        "transcript:426",
+        "transcript:424",
+        "transcript:423",
+        "transcript:427",
+        "transcript:404"
+      ]
+    },
+    {
+      "claim": "summary:64",
+      "text": "A polynomial of degree 1 (straight line) under-fits the sine wave.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:386",
+        "transcript:380",
+        "transcript:381",
+        "transcript:394",
+        "transcript:384",
+        "transcript:397",
+        "transcript:424",
+        "transcript:465"
+      ]
+    },
+    {
+      "claim": "summary:65",
+      "text": "A polynomial of degree 3 already captures the sine wave’s single bump well.",
+      "entailed": true,
+      "evidence": "transcript:384",
+      "top": [
+        "transcript:386",
+        "transcript:380",
+        "transcript:381",
+        "transcript:394",
+        "transcript:389",
+        "transcript:384",
+        "transcript:397",
+        "transcript:465"
+      ]
+    },
+    {
+      "claim": "summary:66",
+      "text": "A polynomial of degree 10 with only 11 training points passes through every training point exactly (RSS = 0) but oscillates wildly between points, which is the classic picture of overfitting.",
+      "entailed": true,
+      "evidence": "transcript:462",
+      "top": [
+        "transcript:462",
+        "transcript:463",
+        "transcript:464",
+        "transcript:424",
+        "transcript:426",
+        "transcript:392",
+        "transcript:398",
+        "transcript:473"
+      ]
+    },
+    {
+      "claim": "summary:67",
+      "text": "In high dimensions, overfitting arises naturally when expanding features.",
+      "entailed": true,
+      "evidence": "transcript:398",
+      "top": [
+        "transcript:404",
+        "transcript:398",
+        "transcript:470",
+        "transcript:410",
+        "transcript:396",
+        "transcript:443",
+        "transcript:423",
+        "transcript:469"
+      ]
+    },
+    {
+      "claim": "summary:68",
+      "text": "Going from D original features to quadratic features gives approximately D^2/2 new features, including cross-terms x_i x_j.",
+      "entailed": true,
+      "evidence": "transcript:401",
+      "top": [
+        "transcript:401",
+        "transcript:402",
+        "transcript:406",
+        "transcript:403",
+        "transcript:400",
+        "transcript:405",
+        "transcript:367",
+        "transcript:421"
+      ]
+    },
+    {
+      "claim": "summary:69",
+      "text": "If D=100, the number of features jumps to about 5000.",
+      "entailed": true,
+      "evidence": "transcript:403",
+      "top": [
+        "transcript:808",
+        "transcript:403",
+        "transcript:404",
+        "transcript:572",
+        "transcript:405",
+        "transcript:429",
+        "transcript:402",
+        "transcript:809"
+      ]
+    },
+    {
+      "claim": "summary:70",
+      "text": "Many of these new features are irrelevant, but it is not known a priori which ones.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:829",
+        "transcript:778",
+        "slides:139",
+        "transcript:149",
+        "transcript:406",
+        "transcript:498",
+        "slides:117",
+        "transcript:779"
+      ]
+    },
+    {
+      "claim": "summary:71",
+      "text": "Therefore, all features must be included, making overfitting almost inevitable.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:404",
+        "transcript:398",
+        "transcript:396",
+        "transcript:410",
+        "transcript:461",
+        "transcript:443",
+        "transcript:423",
+        "transcript:470"
+      ]
+    },
+    {
+      "claim": "summary:72",
+      "text": "A symptom of overfitting is that validation or test error grows while training error stays tiny.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:404",
+        "transcript:423",
+        "transcript:396",
+        "transcript:414",
+        "transcript:470",
+        "transcript:443",
+        "transcript:410",
+        "transcript:425"
+      ]
+    },
+    {
+      "claim": "summary:73",
+      "text": "Another symptom is that the model coefficients explode, for example reaching ±50 when the inputs and outputs are on the order of 1.",
+      "entailed": true,
+      "evidence": "transcript:435",
+      "top": [
+        "transcript:423",
+        "transcript:425",
+        "transcript:435",
+        "transcript:396",
+        "transcript:432",
+        "transcript:395",
+        "transcript:426",
+        "transcript:391"
+      ]
+    },
+    {
+      "claim": "summary:74",
+      "text": "The explosion of coefficients is a sign that the model is using unreasonable parameter values to exactly fit noise.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:425",
+        "transcript:423",
+        "transcript:524",
+        "transcript:525",
+        "transcript:434",
+        "transcript:433",
+        "transcript:396",
+        "transcript:424"
+      ]
+    },
+    {
+      "claim": "summary:75",
+      "text": "In a high-dimensional weight space, the model has too much variety.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:438",
+        "slides:176",
+        "transcript:396",
+        "transcript:447",
+        "transcript:443",
+        "transcript:395",
+        "transcript:437",
+        "transcript:404"
+      ]
+    },
+    {
+      "claim": "summary:76",
+      "text": "Constraining the weights toward zero reduces the effective complexity of the model.",
+      "entailed": true,
+      "evidence": "transcript:446",
+      "top": [
+        "transcript:499",
+        "transcript:447",
+        "transcript:446",
+        "transcript:132",
+        "transcript:275",
+        "transcript:495",
+        "slides:109",
+        "transcript:493"
+      ]
+    },
+    {
+      "claim": "summary:77",
+      "text": "Regularization is equivalent to placing a prior on the parameters.",
+      "entailed": true,
+      "evidence": "transcript:352",
+      "top": [
+        "transcript:352",
+        "transcript:557",
+        "transcript:827",
+        "transcript:817",
+        "transcript:448",
+        "transcript:826",
+        "transcript:351",
+        "transcript:816"
+      ]
+    },
+    {
+      "claim": "summary:78",
+      "text": "We want the prior distribution p(w) to be concentrated near zero to express the belief that extremely large weights are unlikely.",
+      "entailed": true,
+      "evidence": "transcript:450",
+      "top": [
+        "transcript:450",
+        "transcript:343",
+        "slides:85",
+        "transcript:46",
+        "transcript:348",
+        "transcript:449",
+        "slides:90",
+        "slides:76"
+      ]
+    },
+    {
+      "claim": "summary:79",
+      "text": "A natural choice for such a prior is a Gaussian distribution: p(w) = N(w | 0, (1/α)I).",
+      "entailed": true,
+      "evidence": "transcript:452",
+      "top": [
+        "transcript:452",
+        "slides:85",
+        "slides:90",
+        "transcript:450",
+        "transcript:343",
+        "transcript:48",
+        "slides:89",
+        "transcript:70"
+      ]
+    },
+    {
+      "claim": "summary:80",
+      "text": "The MAP objective is obtained by adding the log-prior to the log-likelihood.",
+      "entailed": true,
+      "evidence": "transcript:350",
+      "top": [
+        "transcript:123",
+        "transcript:324",
+        "transcript:125",
+        "transcript:126",
+        "transcript:320",
+        "transcript:124",
+        "transcript:350",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "summary:81",
+      "text": "The MAP objective for linear regression with a Gaussian prior is -(1/(2σ^2))Σ (t_n - w^T φ_n)^2 - (α/2) w^T w + constant.",
+      "entailed": true,
+      "evidence": "slides:89",
+      "top": [
+        "transcript:477",
+        "transcript:479",
+        "slides:89",
+        "transcript:311",
+        "transcript:453",
+        "transcript:321",
+        "transcript:456",
+        "slides:85"
+      ]
+    },
+    {
+      "claim": "summary:82",
+      "text": "This is exactly ridge regression (L2 regularization).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:484",
+        "transcript:486",
+        "transcript:458",
+        "transcript:459",
+        "transcript:481",
+        "transcript:497",
+        "transcript:494",
+        "transcript:272"
+      ]
+    },
+    {
+      "claim": "summary:83",
+      "text": "The hyperparameter α trades off data fit against weight size.",
+      "entailed": true,
+      "evidence": "transcript:467",
+      "top": [
+        "transcript:131",
+        "transcript:471",
+        "transcript:467",
+        "transcript:145",
+        "transcript:474",
+        "transcript:683",
+        "slides:148",
+        "transcript:354"
+      ]
+    },
+    {
+      "claim": "summary:84",
+      "text": "L2 regularization does not change the number of parameters.",
+      "entailed": true,
+      "evidence": "transcript:824",
+      "top": [
+        "transcript:826",
+        "transcript:824",
+        "transcript:827",
+        "transcript:475",
+        "transcript:352",
+        "transcript:459",
+        "transcript:483",
+        "transcript:476"
+      ]
+    },
+    {
+      "claim": "summary:85",
+      "text": "L2 regularization pulls the solution toward the origin within the fixed-dimensional weight space.",
+      "entailed": true,
+      "evidence": "transcript:494",
+      "top": [
+        "transcript:459",
+        "transcript:458",
+        "transcript:476",
+        "transcript:827",
+        "transcript:486",
+        "transcript:483",
+        "transcript:352",
+        "transcript:494"
+      ]
+    },
+    {
+      "claim": "summary:86",
+      "text": "Using a Laplace prior p(w_j) ∝ e^{-α|w_j|} results in the L1 (LASSO) regularizer Σ |w_j|.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:497",
+        "transcript:476",
+        "transcript:557",
+        "transcript:352",
+        "transcript:484",
+        "transcript:483",
+        "transcript:448",
+        "transcript:817"
+      ]
+    },
+    {
+      "claim": "summary:87",
+      "text": "LASSO drives many coefficients exactly to zero, producing sparse models.",
+      "entailed": true,
+      "evidence": "transcript:492",
+      "top": [
+        "transcript:492",
+        "transcript:493",
+        "transcript:495",
+        "transcript:497",
+        "transcript:499",
+        "transcript:485",
+        "transcript:490",
+        "transcript:484"
+      ]
+    },
+    {
+      "claim": "summary:88",
+      "text": "Sparse models are useful for automatic feature selection from a large pool of candidates.",
+      "entailed": true,
+      "evidence": "transcript:498",
+      "top": [
+        "transcript:498",
+        "transcript:834",
+        "transcript:831",
+        "transcript:371",
+        "transcript:789",
+        "transcript:833",
+        "transcript:497",
+        "transcript:848"
+      ]
+    },
+    {
+      "claim": "summary:89",
+      "text": "The probabilistic view explains why loss functions in any model, including deep neural networks, can be seen as derived from a likelihood and a prior.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:501",
+        "transcript:504",
+        "transcript:117",
+        "transcript:120",
+        "transcript:23",
+        "transcript:568",
+        "transcript:578",
+        "transcript:747"
+      ]
+    },
+    {
+      "claim": "summary:90",
+      "text": "The regularizer is the part of the loss function that does not depend on the data.",
+      "entailed": true,
+      "evidence": "transcript:353",
+      "top": [
+        "transcript:353",
+        "transcript:354",
+        "transcript:351",
+        "transcript:827",
+        "transcript:481",
+        "transcript:482",
+        "transcript:459",
+        "transcript:497"
+      ]
+    },
+    {
+      "claim": "summary:91",
+      "text": "Regularization operates within a fixed model, i.e., with a fixed set of parameters.",
+      "entailed": true,
+      "evidence": "transcript:822",
+      "top": [
+        "transcript:827",
+        "transcript:352",
+        "transcript:822",
+        "transcript:826",
+        "transcript:448",
+        "transcript:353",
+        "transcript:557",
+        "transcript:475"
+      ]
+    },
+    {
+      "claim": "summary:92",
+      "text": "Model selection, using criteria like AIC or BIC, chooses between models of different complexity by approximating the evidence p(D|M_k).",
+      "entailed": true,
+      "evidence": "transcript:846",
+      "top": [
+        "transcript:848",
+        "transcript:834",
+        "transcript:830",
+        "transcript:833",
+        "transcript:831",
+        "transcript:840",
+        "transcript:846",
+        "transcript:845"
+      ]
+    },
+    {
+      "claim": "summary:93",
+      "text": "Regularization and model selection are separate levels.",
+      "entailed": true,
+      "evidence": "transcript:822",
+      "top": [
+        "transcript:352",
+        "transcript:448",
+        "transcript:822",
+        "transcript:475",
+        "transcript:557",
+        "transcript:827",
+        "transcript:817",
+        "transcript:848"
+      ]
+    },
+    {
+      "claim": "summary:94",
+      "text": "A classifier that directly outputs class labels (e.g., 0/1 threshold) has zero gradient almost everywhere.",
+      "entailed": true,
+      "evidence": "transcript:517",
+      "top": [
+        "transcript:515",
+        "transcript:517",
+        "transcript:513",
+        "slides:188",
+        "transcript:597",
+        "transcript:595",
+        "transcript:598",
+        "transcript:518"
+      ]
+    },
+    {
+      "claim": "summary:95",
+      "text": "Such a classifier provides no learning signal for earlier layers.",
+      "entailed": true,
+      "evidence": "transcript:515",
+      "top": [
+        "transcript:5",
+        "transcript:515",
+        "transcript:517",
+        "transcript:700",
+        "transcript:829",
+        "transcript:793",
+        "transcript:703",
+        "transcript:647"
+      ]
+    },
+    {
+      "claim": "summary:96",
+      "text": "We want a probability distribution over classes to express uncertainty.",
+      "entailed": true,
+      "evidence": "transcript:518",
+      "top": [
+        "transcript:102",
+        "transcript:518",
+        "transcript:285",
+        "transcript:114",
+        "transcript:144",
+        "transcript:103",
+        "transcript:143",
+        "transcript:141"
+      ]
+    },
+    {
+      "claim": "summary:97",
+      "text": "For binary classification, we want to model p(C1|x) in a way that allows a linear relationship somewhere.",
+      "entailed": true,
+      "evidence": "transcript:521",
+      "top": [
+        "transcript:521",
+        "transcript:523",
+        "transcript:552",
+        "transcript:549",
+        "transcript:559",
+        "slides:93",
+        "transcript:519",
+        "transcript:718"
+      ]
+    },
+    {
+      "claim": "summary:98",
+      "text": "Bayes’ theorem gives p(C1|x) = p(x|C1)p(C1) / (p(x|C1)p(C1) + p(x|C2)p(C2)).",
+      "entailed": true,
+      "evidence": "slides:93",
+      "top": [
+        "transcript:538",
+        "transcript:537",
+        "transcript:523",
+        "slides:93",
+        "transcript:539",
+        "transcript:536",
+        "slides:22",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "summary:99",
+      "text": "The odds are defined as p(C1)/p(C2).",
+      "entailed": true,
+      "evidence": "transcript:540",
+      "top": [
+        "transcript:539",
+        "transcript:540",
+        "transcript:538",
+        "transcript:546",
+        "transcript:523",
+        "transcript:552",
+        "transcript:542",
+        "transcript:236"
+      ]
+    },
+    {
+      "claim": "summary:100",
+      "text": "The log-odds (logit) is defined as a = ln( (p(x|C1)p(C1)) / (p(x|C2)p(C2)) ).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:546",
+        "transcript:539",
+        "transcript:552",
+        "transcript:547",
+        "transcript:548",
+        "slides:98",
+        "transcript:549",
+        "transcript:540"
+      ]
+    },
+    {
+      "claim": "summary:101",
+      "text": "The logit a can be any real number, so it can be modelled as a linear function a = w^T φ(x).",
+      "entailed": true,
+      "evidence": "transcript:549",
+      "top": [
+        "slides:98",
+        "slides:66",
+        "slides:77",
+        "transcript:520",
+        "transcript:549",
+        "slides:157",
+        "transcript:558",
+        "slides:75"
+      ]
+    },
+    {
+      "claim": "summary:102",
+      "text": "Inverting the logit transformation gives the logistic sigmoid: σ(a) = 1/(1+e^{-a}).",
+      "entailed": true,
+      "evidence": "transcript:550",
+      "top": [
+        "transcript:550",
+        "slides:96",
+        "transcript:551",
+        "transcript:581",
+        "slides:162",
+        "slides:161",
+        "slides:98",
+        "transcript:549"
+      ]
+    },
+    {
+      "claim": "summary:103",
+      "text": "This sigmoid function maps the linear combination to a probability p(C1|x).",
+      "entailed": true,
+      "evidence": "transcript:549",
+      "top": [
+        "transcript:521",
+        "transcript:549",
+        "slides:102",
+        "transcript:552",
+        "slides:94",
+        "slides:96",
+        "slides:104",
+        "transcript:550"
+      ]
+    },
+    {
+      "claim": "summary:104",
+      "text": "The logistic sigmoid σ(a) is S-shaped.",
+      "entailed": true,
+      "evidence": "transcript:551",
+      "top": [
+        "slides:96",
+        "transcript:550",
+        "transcript:581",
+        "transcript:551",
+        "slides:112",
+        "transcript:583",
+        "slides:162",
+        "slides:161"
+      ]
+    },
+    {
+      "claim": "summary:105",
+      "text": "σ(a) saturates at 0 and 1.",
+      "entailed": true,
+      "evidence": "transcript:551",
+      "top": [
+        "slides:97",
+        "slides:95",
+        "slides:96",
+        "slides:98",
+        "slides:15",
+        "transcript:551",
+        "transcript:550",
+        "slides:94"
+      ]
+    },
+    {
+      "claim": "summary:106",
+      "text": "σ(a) passes through 0.5 at a=0.",
+      "entailed": true,
+      "evidence": "transcript:551",
+      "top": [
+        "slides:95",
+        "slides:97",
+        "slides:96",
+        "slides:98",
+        "transcript:551",
+        "transcript:550",
+        "slides:94",
+        "slides:72"
+      ]
+    },
+    {
+      "claim": "summary:107",
+      "text": "σ(a) provides a smooth interpolation that is differentiable everywhere.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:465",
+        "slides:96",
+        "slides:97",
+        "transcript:690",
+        "slides:95",
+        "slides:98",
+        "transcript:394",
+        "transcript:514"
+      ]
+    },
+    {
+      "claim": "summary:108",
+      "text": "For binary classification with targets in {0,1}, the likelihood is p(t|w) = Π y_n^{t_n} (1-y_n)^{1-t_n} where y_n = σ(w^T φ_n).",
+      "entailed": true,
+      "evidence": "slides:100",
+      "top": [
+        "slides:100",
+        "transcript:553",
+        "slides:101",
+        "slides:75",
+        "transcript:559",
+        "slides:87",
+        "transcript:552",
+        "transcript:560"
+      ]
+    },
+    {
+      "claim": "summary:109",
+      "text": "Taking negative log gives the cross-entropy error: E(w) = -Σ [t_n ln y_n + (1-t_n) ln(1-y_n)].",
+      "entailed": true,
+      "evidence": "slides:101",
+      "top": [
+        "slides:101",
+        "transcript:577",
+        "slides:162",
+        "transcript:457",
+        "slides:111",
+        "slides:77",
+        "slides:75",
+        "transcript:323"
+      ]
+    },
+    {
+      "claim": "summary:110",
+      "text": "Minimising this cross-entropy error fits the logistic regression model.",
+      "entailed": true,
+      "evidence": "slides:111",
+      "top": [
+        "slides:111",
+        "transcript:577",
+        "slides:106",
+        "transcript:576",
+        "transcript:581",
+        "transcript:549",
+        "transcript:575",
+        "transcript:592"
+      ]
+    },
+    {
+      "claim": "summary:111",
+      "text": "The optimum can be found by gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:591",
+        "transcript:556",
+        "slides:108",
+        "transcript:122",
+        "slides:201",
+        "slides:115",
+        "slides:109",
+        "transcript:594"
+      ]
+    },
+    {
+      "claim": "summary:112",
+      "text": "For multi-class classification with K classes, a vector of scores a_k = w_k^T x is used.",
+      "entailed": true,
+      "evidence": "transcript:562",
+      "top": [
+        "transcript:562",
+        "slides:91",
+        "transcript:573",
+        "transcript:572",
+        "transcript:579",
+        "transcript:563",
+        "transcript:574",
+        "transcript:560"
+      ]
+    },
+    {
+      "claim": "summary:113",
+      "text": "The softmax function defines p(C_k|x) = e^{a_k} / Σ_j e^{a_j}.",
+      "entailed": true,
+      "evidence": "slides:103",
+      "top": [
+        "slides:103",
+        "slides:105",
+        "slides:104",
+        "transcript:565",
+        "slides:94",
+        "transcript:561",
+        "transcript:521",
+        "transcript:582"
+      ]
+    },
+    {
+      "claim": "summary:114",
+      "text": "The name 'softmax' reflects that it softly picks the maximum score; when one a_k dominates, the output is nearly a one-hot vector.",
+      "entailed": true,
+      "evidence": "transcript:566",
+      "top": [
+        "transcript:566",
+        "transcript:582",
+        "transcript:565",
+        "transcript:570",
+        "transcript:567",
+        "slides:105",
+        "transcript:806",
+        "transcript:574"
+      ]
+    },
+    {
+      "claim": "summary:115",
+      "text": "The scores can be any real numbers; because of the exponential, adding a constant to all a_k leaves the probabilities unchanged, so negative values are harmless.",
+      "entailed": true,
+      "evidence": "transcript:564",
+      "top": [
+        "transcript:563",
+        "transcript:564",
+        "transcript:580",
+        "transcript:806",
+        "transcript:542",
+        "slides:105",
+        "slides:104",
+        "transcript:815"
+      ]
+    },
+    {
+      "claim": "summary:116",
+      "text": "For a one-hot target vector, the loss reduces to the negative log-probability of the correct class.",
+      "entailed": true,
+      "evidence": "transcript:577",
+      "top": [
+        "transcript:575",
+        "transcript:577",
+        "transcript:576",
+        "transcript:334",
+        "transcript:574",
+        "transcript:118",
+        "transcript:119",
+        "transcript:289"
+      ]
+    },
+    {
+      "claim": "summary:117",
+      "text": "In a deep neural network for classification, the main body of the network extracts features z of dimension D.",
+      "entailed": true,
+      "evidence": "transcript:571",
+      "top": [
+        "transcript:571",
+        "transcript:378",
+        "transcript:372",
+        "transcript:807",
+        "transcript:370",
+        "transcript:572",
+        "transcript:808",
+        "transcript:789"
+      ]
+    },
+    {
+      "claim": "summary:118",
+      "text": "The last layer is often a linear transformation Wz (a K×D matrix) giving scores, followed by softmax to produce a probability vector.",
+      "entailed": true,
+      "evidence": "transcript:570",
+      "top": [
+        "transcript:568",
+        "transcript:574",
+        "transcript:567",
+        "transcript:806",
+        "transcript:570",
+        "transcript:565",
+        "transcript:582",
+        "transcript:374"
+      ]
+    },
+    {
+      "claim": "summary:119",
+      "text": "Thus the final stage is exactly logistic regression on the learned features; all previous layers are doing feature extraction for this linear classifier.",
+      "entailed": true,
+      "evidence": "transcript:812",
+      "top": [
+        "transcript:375",
+        "transcript:376",
+        "transcript:811",
+        "transcript:812",
+        "transcript:377",
+        "transcript:378",
+        "transcript:372",
+        "transcript:558"
+      ]
+    },
+    {
+      "claim": "summary:120",
+      "text": "For regression tasks, the last layer is analogously a linear layer (no softmax) on top of the extracted features.",
+      "entailed": true,
+      "evidence": "transcript:374",
+      "top": [
+        "transcript:567",
+        "transcript:375",
+        "transcript:374",
+        "transcript:811",
+        "transcript:570",
+        "transcript:378",
+        "transcript:376",
+        "transcript:568"
+      ]
+    },
+    {
+      "claim": "summary:121",
+      "text": "The human brain contains roughly 10^11 neurons.",
+      "entailed": true,
+      "evidence": "slides:121",
+      "top": [
+        "slides:121",
+        "transcript:624",
+        "transcript:603",
+        "slides:123",
+        "transcript:630",
+        "slides:122",
+        "transcript:629",
+        "transcript:781"
+      ]
+    },
+    {
+      "claim": "summary:122",
+      "text": "Each neuron makes approximately 7000 synaptic connections.",
+      "entailed": true,
+      "evidence": "slides:122",
+      "top": [
+        "slides:122",
+        "transcript:629",
+        "slides:123",
+        "transcript:630",
+        "transcript:608",
+        "transcript:624",
+        "transcript:611",
+        "transcript:626"
+      ]
+    },
+    {
+      "claim": "summary:123",
+      "text": "The total number of parameters (synaptic connections) is roughly between 10^14 and 10^15.",
+      "entailed": true,
+      "evidence": "slides:123",
+      "top": [
+        "slides:123",
+        "transcript:629",
+        "slides:122",
+        "transcript:630",
+        "transcript:608",
+        "slides:121",
+        "transcript:626",
+        "transcript:611"
+      ]
+    },
+    {
+      "claim": "summary:124",
+      "text": "A neuron receives inputs through dendrites, which can number in the thousands per neuron.",
+      "entailed": true,
+      "evidence": "transcript:608",
+      "top": [
+        "transcript:608",
+        "transcript:611",
+        "slides:124",
+        "transcript:607",
+        "slides:122",
+        "transcript:680",
+        "transcript:624",
+        "transcript:629"
+      ]
+    },
+    {
+      "claim": "summary:125",
+      "text": "The neuron integrates its inputs via weighted connections at synapses.",
+      "entailed": true,
+      "evidence": "transcript:625",
+      "top": [
+        "transcript:628",
+        "transcript:626",
+        "slides:126",
+        "transcript:627",
+        "transcript:608",
+        "transcript:625",
+        "transcript:611",
+        "slides:124"
+      ]
+    },
+    {
+      "claim": "summary:126",
+      "text": "When sufficiently excited, the neuron sends out a spike along its axon.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:615",
+        "transcript:616",
+        "transcript:621",
+        "slides:127",
+        "slides:125",
+        "transcript:609",
+        "transcript:620",
+        "transcript:614"
+      ]
+    },
+    {
+      "claim": "summary:127",
+      "text": "Spikes are all-or-nothing events.",
+      "entailed": true,
+      "evidence": "transcript:618",
+      "top": [
+        "transcript:619",
+        "transcript:615",
+        "transcript:617",
+        "transcript:623",
+        "transcript:618",
+        "slides:127",
+        "transcript:616",
+        "transcript:621"
+      ]
+    },
+    {
+      "claim": "summary:128",
+      "text": "Information is coded in the firing rate, which is between 10 and 200 Hz.",
+      "entailed": true,
+      "evidence": "slides:128",
+      "top": [
+        "slides:128",
+        "transcript:632",
+        "transcript:621",
+        "transcript:622",
+        "transcript:620",
+        "transcript:623",
+        "transcript:619",
+        "transcript:613"
+      ]
+    },
+    {
+      "claim": "summary:129",
+      "text": "The brain is a massively parallel but shallow computer.",
+      "entailed": true,
+      "evidence": "transcript:634",
+      "top": [
+        "slides:131",
+        "slides:119",
+        "transcript:638",
+        "transcript:634",
+        "slides:130",
+        "transcript:651",
+        "transcript:633",
+        "transcript:603"
+      ]
+    },
+    {
+      "claim": "summary:130",
+      "text": "It can perform a huge number of operations simultaneously.",
+      "entailed": true,
+      "evidence": "transcript:634",
+      "top": [
+        "transcript:420",
+        "transcript:649",
+        "transcript:637",
+        "transcript:782",
+        "transcript:634",
+        "transcript:780",
+        "transcript:638",
+        "slides:130"
+      ]
+    },
+    {
+      "claim": "summary:131",
+      "text": "A single pass through the whole visual system takes only 200–300 ms, which corresponds to just a few tens of sequential steps.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:637",
+        "transcript:635",
+        "slides:119",
+        "transcript:640",
+        "transcript:634",
+        "transcript:633",
+        "slides:130",
+        "slides:129"
+      ]
+    },
+    {
+      "claim": "summary:132",
+      "text": "Deep artificial networks are wide and use relatively few (hundreds, not thousands) of layer-wise transformations.",
+      "entailed": true,
+      "evidence": "transcript:646",
+      "top": [
+        "transcript:781",
+        "transcript:647",
+        "slides:196",
+        "transcript:646",
+        "slides:187",
+        "slides:150",
+        "slides:197",
+        "transcript:761"
+      ]
+    },
+    {
+      "claim": "summary:133",
+      "text": "The brain exhibits neuroplasticity, adapting to completely new sensory modalities such as seeing via a tongue electrode grid.",
+      "entailed": true,
+      "evidence": "transcript:654",
+      "top": [
+        "transcript:654",
+        "slides:127",
+        "transcript:655",
+        "transcript:603",
+        "slides:134",
+        "transcript:653",
+        "transcript:617",
+        "transcript:612"
+      ]
+    },
+    {
+      "claim": "summary:134",
+      "text": "This neuroplasticity suggests the existence of a single, general learning algorithm in the brain.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:668",
+        "transcript:679",
+        "slides:141",
+        "transcript:611",
+        "transcript:673",
+        "transcript:721",
+        "transcript:642",
+        "transcript:697"
+      ]
+    },
+    {
+      "claim": "summary:135",
+      "text": "The idea of a general learning algorithm motivates artificial neural networks.",
+      "entailed": true,
+      "evidence": "transcript:673",
+      "top": [
+        "transcript:673",
+        "transcript:600",
+        "slides:150",
+        "transcript:24",
+        "transcript:740",
+        "transcript:708",
+        "transcript:674",
+        "transcript:642"
+      ]
+    },
+    {
+      "claim": "summary:136",
+      "text": "A large composition of simple, identical units can learn a vast variety of functions.",
+      "entailed": true,
+      "evidence": "transcript:692",
+      "top": [
+        "slides:199",
+        "transcript:692",
+        "slides:151",
+        "transcript:702",
+        "transcript:673",
+        "transcript:749",
+        "transcript:761",
+        "transcript:805"
+      ]
+    },
+    {
+      "claim": "summary:137",
+      "text": "In 1943, McCulloch and Pitts proposed a mathematical model of a neuron as a weighted sum followed by a threshold.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:153",
+        "transcript:694",
+        "transcript:698",
+        "transcript:681",
+        "transcript:696",
+        "transcript:697",
+        "transcript:611",
+        "slides:155"
+      ]
+    },
+    {
+      "claim": "summary:138",
+      "text": "This model is essentially the modern artificial neuron.",
+      "entailed": true,
+      "evidence": "transcript:698",
+      "top": [
+        "transcript:698",
+        "transcript:681",
+        "transcript:694",
+        "transcript:699",
+        "transcript:680",
+        "slides:153",
+        "transcript:705",
+        "transcript:703"
+      ]
+    },
+    {
+      "claim": "summary:139",
+      "text": "In 1948, Alan Turing sketched the idea of multilayer networks.",
+      "entailed": true,
+      "evidence": "slides:154",
+      "top": [
+        "transcript:738",
+        "slides:154",
+        "transcript:735",
+        "transcript:739",
+        "transcript:736",
+        "slides:174",
+        "transcript:695",
+        "transcript:734"
+      ]
+    },
+    {
+      "claim": "summary:140",
+      "text": "In 1958, Rosenblatt built the Perceptron.",
+      "entailed": true,
+      "evidence": "transcript:706",
+      "top": [
+        "slides:164",
+        "slides:155",
+        "transcript:707",
+        "transcript:706",
+        "slides:159",
+        "slides:169",
+        "transcript:711",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "summary:141",
+      "text": "The Perceptron is a single neuron trained by gradient descent.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:158",
+        "slides:156",
+        "slides:155",
+        "slides:188",
+        "slides:194",
+        "transcript:252",
+        "slides:167",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "summary:142",
+      "text": "The Perceptron could recognise letters.",
+      "entailed": true,
+      "evidence": "slides:164",
+      "top": [
+        "transcript:709",
+        "slides:164",
+        "slides:168",
+        "slides:169",
+        "transcript:722",
+        "transcript:707",
+        "transcript:711",
+        "slides:158"
+      ]
+    },
+    {
+      "claim": "summary:143",
+      "text": "The Perceptron was hailed in the press as the first step to general AI.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:711",
+        "slides:164",
+        "slides:158",
+        "slides:168",
+        "slides:156",
+        "transcript:709",
+        "slides:169",
+        "transcript:695"
+      ]
+    },
+    {
+      "claim": "summary:144",
+      "text": "In 1969, Minsky and Papert showed that a single perceptron cannot solve the XOR problem because the classes are not linearly separable.",
+      "entailed": true,
+      "evidence": "slides:170",
+      "top": [
+        "slides:170",
+        "transcript:727",
+        "transcript:731",
+        "slides:165",
+        "transcript:728",
+        "transcript:732",
+        "transcript:722",
+        "transcript:726"
+      ]
+    },
+    {
+      "claim": "summary:145",
+      "text": "The finding that a single perceptron cannot solve XOR only proves that one neuron is insufficient.",
+      "entailed": true,
+      "evidence": "transcript:733",
+      "top": [
+        "transcript:731",
+        "transcript:722",
+        "slides:170",
+        "transcript:727",
+        "transcript:732",
+        "transcript:733",
+        "transcript:729",
+        "transcript:680"
+      ]
+    },
+    {
+      "claim": "summary:146",
+      "text": "A network of perceptrons can easily solve XOR.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:733",
+        "transcript:731",
+        "slides:167",
+        "transcript:727",
+        "transcript:728",
+        "slides:170",
+        "slides:166",
+        "transcript:680"
+      ]
+    },
+    {
+      "claim": "summary:147",
+      "text": "The result contributed to the first \"AI winter\".",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:714",
+        "transcript:715",
+        "transcript:711",
+        "transcript:708",
+        "transcript:695",
+        "transcript:713",
+        "transcript:735",
+        "slides:154"
+      ]
+    },
+    {
+      "claim": "summary:148",
+      "text": "In the 1970s-80s, backpropagation (applying the chain rule through the network) was independently rediscovered multiple times.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:748",
+        "slides:173",
+        "transcript:749",
+        "transcript:747",
+        "slides:174",
+        "slides:189",
+        "transcript:746",
+        "transcript:751"
+      ]
+    },
+    {
+      "claim": "summary:149",
+      "text": "Backpropagation makes it possible to train multilayer perceptrons.",
+      "entailed": true,
+      "evidence": "transcript:749",
+      "top": [
+        "slides:158",
+        "slides:189",
+        "slides:167",
+        "transcript:746",
+        "transcript:749",
+        "transcript:673",
+        "slides:194",
+        "transcript:729"
+      ]
+    },
+    {
+      "claim": "summary:150",
+      "text": "Deep networks appeared in the 1980s, including convolutional nets and recurrent nets.",
+      "entailed": true,
+      "evidence": "slides:175",
+      "top": [
+        "transcript:751",
+        "transcript:750",
+        "transcript:752",
+        "slides:175",
+        "transcript:753",
+        "transcript:777",
+        "slides:174",
+        "slides:179"
+      ]
+    },
+    {
+      "claim": "summary:151",
+      "text": "In the 1990s, neural networks fell out of favour because they underperformed specialised models on small datasets and limited hardware.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:179",
+        "transcript:768",
+        "slides:177",
+        "transcript:763",
+        "transcript:716",
+        "transcript:765",
+        "transcript:764",
+        "transcript:759"
+      ]
+    },
+    {
+      "claim": "summary:152",
+      "text": "The slogan was: \"neural networks are the second best way of doing just about anything.\"",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:766",
+        "slides:178",
+        "transcript:673",
+        "transcript:787",
+        "transcript:734",
+        "slides:150",
+        "transcript:735",
+        "transcript:4"
+      ]
+    },
+    {
+      "claim": "summary:153",
+      "text": "In 2006, Hinton's group revived deep learning with unsupervised pretraining and GPU acceleration.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:181",
+        "transcript:784",
+        "transcript:773",
+        "transcript:2",
+        "transcript:643",
+        "transcript:777",
+        "slides:187",
+        "transcript:3"
+      ]
+    },
+    {
+      "claim": "summary:154",
+      "text": "GPUs provided a 10–20× speedup.",
+      "entailed": true,
+      "evidence": "transcript:785",
+      "top": [
+        "transcript:785",
+        "transcript:782",
+        "slides:183",
+        "transcript:784",
+        "transcript:779",
+        "transcript:783",
+        "transcript:649",
+        "transcript:648"
+      ]
+    },
+    {
+      "claim": "summary:155",
+      "text": "The speedup moved computations from \"not working\" to \"working\".",
+      "entailed": true,
+      "evidence": "transcript:786",
+      "top": [
+        "transcript:784",
+        "transcript:638",
+        "slides:130",
+        "transcript:637",
+        "slides:119",
+        "transcript:786",
+        "slides:183",
+        "transcript:634"
+      ]
+    },
+    {
+      "claim": "summary:156",
+      "text": "In the 2010s, deep nets revolutionised speech recognition (e.g., Siri).",
+      "entailed": true,
+      "evidence": "transcript:790",
+      "top": [
+        "transcript:777",
+        "transcript:790",
+        "transcript:789",
+        "transcript:3",
+        "transcript:643",
+        "slides:187",
+        "transcript:797",
+        "transcript:787"
+      ]
+    },
+    {
+      "claim": "summary:157",
+      "text": "In the 2010s, deep nets revolutionised computer vision (e.g., AlexNet in 2012).",
+      "entailed": true,
+      "evidence": "transcript:795",
+      "top": [
+        "transcript:795",
+        "transcript:777",
+        "transcript:787",
+        "transcript:750",
+        "transcript:789",
+        "slides:187",
+        "transcript:752",
+        "transcript:757"
+      ]
+    },
+    {
+      "claim": "summary:158",
+      "text": "In the 2010s, deep nets revolutionised NLP.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:797",
+        "transcript:777",
+        "transcript:787",
+        "transcript:753",
+        "transcript:798",
+        "transcript:789",
+        "transcript:735",
+        "transcript:752"
+      ]
+    },
+    {
+      "claim": "summary:159",
+      "text": "By 2017, the Transformer architecture arrived.",
+      "entailed": true,
+      "evidence": "transcript:799",
+      "top": [
+        "transcript:799",
+        "transcript:800",
+        "transcript:801",
+        "transcript:704",
+        "transcript:754",
+        "transcript:650",
+        "transcript:701",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "summary:160",
+      "text": "The Transformer reshaped the whole field again.",
+      "entailed": true,
+      "evidence": "transcript:800",
+      "top": [
+        "transcript:800",
+        "transcript:799",
+        "transcript:801",
+        "transcript:754",
+        "transcript:704",
+        "transcript:701",
+        "slides:179",
+        "transcript:786"
+      ]
+    },
+    {
+      "claim": "summary:161",
+      "text": "The basic unit of deep networks is an artificial neuron, defined by $$y = h\\!\\left(\\sum_i w_i x_i\\right) = h(\\mathbf{w}^\\top\\mathbf{x}).$$",
+      "entailed": true,
+      "evidence": "slides:157",
+      "top": [
+        "transcript:705",
+        "transcript:252",
+        "slides:197",
+        "slides:187",
+        "transcript:761",
+        "transcript:781",
+        "slides:157",
+        "transcript:678"
+      ]
+    },
+    {
+      "claim": "summary:162",
+      "text": "The weights w are the learnable parameters.",
+      "entailed": true,
+      "evidence": "transcript:278",
+      "top": [
+        "transcript:278",
+        "transcript:683",
+        "transcript:682",
+        "transcript:359",
+        "transcript:702",
+        "transcript:131",
+        "transcript:628",
+        "slides:110"
+      ]
+    },
+    {
+      "claim": "summary:163",
+      "text": "The activation function h must be non-linear.",
+      "entailed": true,
+      "evidence": "transcript:684",
+      "top": [
+        "transcript:685",
+        "transcript:717",
+        "slides:157",
+        "transcript:684",
+        "transcript:692",
+        "transcript:721",
+        "transcript:693",
+        "transcript:681"
+      ]
+    },
+    {
+      "claim": "summary:164",
+      "text": "If the activation function is linear, a composition of linear transforms remains linear.",
+      "entailed": true,
+      "evidence": "transcript:685",
+      "top": [
+        "transcript:717",
+        "transcript:685",
+        "slides:157",
+        "transcript:584",
+        "transcript:687",
+        "transcript:686",
+        "transcript:682",
+        "transcript:721"
+      ]
+    },
+    {
+      "claim": "summary:165",
+      "text": "If the activation function is linear, a deep network collapses to a single linear layer.",
+      "entailed": true,
+      "evidence": "transcript:686",
+      "top": [
+        "transcript:685",
+        "transcript:717",
+        "transcript:686",
+        "slides:157",
+        "transcript:378",
+        "transcript:721",
+        "transcript:24",
+        "transcript:500"
+      ]
+    },
+    {
+      "claim": "summary:166",
+      "text": "Any non-linearity suffices to achieve universal approximation.",
+      "entailed": true,
+      "evidence": "transcript:690",
+      "top": [
+        "transcript:690",
+        "transcript:692",
+        "slides:150",
+        "transcript:693",
+        "transcript:676",
+        "transcript:691",
+        "transcript:688",
+        "transcript:593"
+      ]
+    },
+    {
+      "claim": "summary:167",
+      "text": "Typically, neurons are arranged in layers.",
+      "entailed": true,
+      "evidence": "slides:197",
+      "top": [
+        "slides:197",
+        "transcript:603",
+        "slides:124",
+        "transcript:611",
+        "transcript:608",
+        "transcript:739",
+        "transcript:681",
+        "slides:125"
+      ]
+    },
+    {
+      "claim": "summary:168",
+      "text": "The output of one layer becomes the input to the next layer.",
+      "entailed": true,
+      "evidence": "slides:194",
+      "top": [
+        "transcript:373",
+        "transcript:571",
+        "slides:194",
+        "transcript:374",
+        "transcript:375",
+        "slides:197",
+        "transcript:807",
+        "transcript:717"
+      ]
+    },
+    {
+      "claim": "summary:169",
+      "text": "Connectionism is the idea that a huge composition of extremely simple units yields an extraordinarily complex function.",
+      "entailed": true,
+      "evidence": "transcript:675",
+      "top": [
+        "transcript:675",
+        "transcript:674",
+        "transcript:688",
+        "slides:123",
+        "transcript:761",
+        "transcript:627",
+        "transcript:700",
+        "transcript:728"
+      ]
+    },
+    {
+      "claim": "summary:170",
+      "text": "Connectionism is the core idea of deep learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:674",
+        "transcript:675",
+        "transcript:23",
+        "slides:187",
+        "transcript:643",
+        "slides:196",
+        "slides:176",
+        "transcript:797"
+      ]
+    },
+    {
+      "claim": "summary:171",
+      "text": "The key challenge in deep learning is training, i.e., finding all weights via gradient descent.",
+      "entailed": true,
+      "evidence": "transcript:693",
+      "top": [
+        "transcript:23",
+        "transcript:693",
+        "slides:187",
+        "transcript:2",
+        "transcript:505",
+        "slides:152",
+        "transcript:117",
+        "transcript:741"
+      ]
+    },
+    {
+      "claim": "summary:172",
+      "text": "Training requires computing gradients through the whole computational graph.",
+      "entailed": true,
+      "evidence": "transcript:744",
+      "top": [
+        "transcript:744",
+        "transcript:594",
+        "slides:115",
+        "slides:188",
+        "slides:142",
+        "transcript:741",
+        "transcript:761",
+        "slides:158"
+      ]
+    },
+    {
+      "claim": "summary:173",
+      "text": "Backpropagation computes gradients through the computational graph.",
+      "entailed": true,
+      "evidence": "transcript:744",
+      "top": [
+        "transcript:744",
+        "transcript:747",
+        "transcript:746",
+        "transcript:749",
+        "slides:189",
+        "slides:188",
+        "transcript:595",
+        "slides:115"
+      ]
+    },
+    {
+      "claim": "summary:174",
+      "text": "The next lecture will cover gradient descent variants and backpropagation.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:742",
+        "transcript:594",
+        "transcript:643",
+        "slides:117",
+        "slides:115",
+        "transcript:591",
+        "transcript:743",
+        "slides:201"
+      ]
+    },
+    {
+      "claim": "summary:175",
+      "text": "For complicated non-convex functions, the only feasible optimisation method is gradient descent.",
+      "entailed": true,
+      "evidence": "slides:109",
+      "top": [
+        "slides:109",
+        "slides:108",
+        "transcript:591",
+        "transcript:556",
+        "slides:201",
+        "transcript:592",
+        "transcript:743",
+        "transcript:692"
+      ]
+    },
+    {
+      "claim": "summary:176",
+      "text": "Gradient descent repeatedly moves a small step opposite to the gradient ∇_w E(w).",
+      "entailed": true,
+      "evidence": "transcript:595",
+      "top": [
+        "transcript:595",
+        "transcript:598",
+        "slides:110",
+        "transcript:597",
+        "slides:188",
+        "slides:113",
+        "transcript:742",
+        "slides:156"
+      ]
+    },
+    {
+      "claim": "summary:177",
+      "text": "Gradient descent finds a local minimum.",
+      "entailed": true,
+      "evidence": "transcript:598",
+      "top": [
+        "transcript:598",
+        "slides:115",
+        "transcript:595",
+        "transcript:599",
+        "slides:117",
+        "slides:188",
+        "slides:201",
+        "transcript:597"
+      ]
+    },
+    {
+      "claim": "summary:178",
+      "text": "There is never a guarantee that gradient descent finds the global minimum.",
+      "entailed": true,
+      "evidence": "slides:116",
+      "top": [
+        "transcript:598",
+        "slides:188",
+        "slides:109",
+        "transcript:517",
+        "transcript:515",
+        "slides:116",
+        "transcript:595",
+        "slides:117"
+      ]
+    },
+    {
+      "claim": "summary:179",
+      "text": "Even for logistic regression, a closed-form solution does not exist.",
+      "entailed": true,
+      "evidence": "transcript:585",
+      "top": [
+        "transcript:585",
+        "transcript:589",
+        "transcript:555",
+        "transcript:586",
+        "transcript:520",
+        "transcript:581",
+        "transcript:587",
+        "transcript:812"
+      ]
+    },
+    {
+      "claim": "summary:180",
+      "text": "Iterative gradient methods are mandatory for logistic regression.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:590",
+        "transcript:591",
+        "transcript:592",
+        "transcript:743",
+        "slides:115",
+        "slides:109",
+        "transcript:581",
+        "slides:201"
+      ]
+    },
+    {
+      "claim": "summary:181",
+      "text": "Iterative gradient methods are mandatory for all neural networks.",
+      "entailed": true,
+      "evidence": "transcript:594",
+      "top": [
+        "transcript:591",
+        "transcript:594",
+        "transcript:743",
+        "slides:188",
+        "slides:115",
+        "slides:109",
+        "transcript:593",
+        "slides:150"
+      ]
+    }
+  ]
+}

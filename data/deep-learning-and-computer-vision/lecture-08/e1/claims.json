@@ -1,0 +1,1906 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "chunk_words": 2000,
+    "top_k": 16,
+    "limit": null,
+    "max_chunks": null
+  },
+  "slides": [
+    {
+      "text": "Generative adversarial networks (GAN) consist of a generator and a discriminator that compete over the true data distribution $p_\\text{data}$ and the model distribution $p_g$.",
+      "salience": "core"
+    },
+    {
+      "text": "At the start of training, the generator is bad and the discriminator is untrained.",
+      "salience": "core"
+    },
+    {
+      "text": "Training alternates: first the discriminator is trained a little, then the generator improves to catch up.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator and discriminator keep alternating training until both converge.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator is a function $G = G(z; \\theta_g) : Z \\to X$.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator is a function $D = D(x; \\theta_d) : X \\to [0, 1]$.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator solves a binary classification problem with the loss $\\mathbb{E}_{x \\sim p_\\text{data}(x)}[\\log D(x)] + \\mathbb{E}_{x \\sim p_g(x)}[\\log(1 - D(x))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "Training uses two mini-batches: one with labels $0$ from the generator and one with labels $1$ from the real data.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The generator minimizes $\\mathbb{E}_{z \\sim p_z(z)}[\\log(1 - D(G(z)))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "The GAN training is a minimax game: $\\min_G \\max_D V(D, G)$ with $V(D, G) = \\mathbb{E}_{x \\sim p_\\text{data}(x)}[\\log D(x)] + \\mathbb{E}_{z \\sim p_z(z)}[\\log(1 - D(G(z)))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "For a fixed generator $G$, the optimal discriminator is $D^*_G(x) = \\frac{p_\\text{data}(x)}{p_\\text{data}(x) + p_g(x)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The global minimum of the minimax criterion is achieved if and only if $p_g = p_\\text{data}$.",
+      "salience": "core"
+    },
+    {
+      "text": "At the optimal discriminator, the minimax criterion equals the Jensen–Shannon divergence between $p_\\text{data}$ and $p_g$: $\\operatorname{KL}\\left(p_\\text{data} \\Big\\| \\frac{p_\\text{data} + p_g}{2}\\right) + \\operatorname{KL}\\left(p_g \\Big\\| \\frac{p_\\text{data} + p_g}{2}\\right)$.",
+      "salience": "core"
+    },
+    {
+      "text": "In a classifier, cross-entropy does not saturate when the answer is wrong, and saturates when the answer is right.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When the discriminator performs well, the gradient from minimizing $\\log(1 - D(G(z)))$ vanishes, causing the generator gradient to also vanish.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In practice, the generator minimizes $-\\mathbb{E}_{z \\sim p_z(z)}[\\log D(G(z))]$ to maximize the probability that the discriminator makes a mistake.",
+      "salience": "core"
+    },
+    {
+      "text": "In the training algorithm, with fixed generator, the discriminator is updated to maximize $\\mathbb{E}_{x \\sim p_\\text{data}(x)}[\\log D(x)] + \\mathbb{E}_{x \\sim p_g(x)}[\\log(1 - D(x))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "With fixed discriminator, the generator is updated to minimize $-\\mathbb{E}_{z \\sim p_z(z)}[\\log D(G(z))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "DCGAN uses strided convolutions instead of pooling.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN uses batch normalisation throughout.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN removes fully connected layers.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN uses the Adam optimiser.",
+      "salience": "supporting"
+    },
+    {
+      "text": "On LSUN bedrooms, after one epoch, DCGAN generates coarse room structures.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After five epochs, DCGAN generates much sharper, realistic bedrooms.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Walking through the feature space of a DCGAN produces smooth transitions in generated images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Removing filters that detect windows from a DCGAN removes windows from generated images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Vector arithmetic in the latent space of a DCGAN, like in word2vec, allows operations such as 'man with glasses' minus 'man' plus 'woman' yields 'woman with glasses'.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN can be applied to generate pixel art from NES games.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GANs have problems with counting objects.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GANs have problems with perspective.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ProGAN trains the GAN to generate images at increasing resolutions, starting from $4 \\times 4$, doubling each stage.",
+      "salience": "core"
+    },
+    {
+      "text": "ProGAN gradually increases resolution up to $1024 \\times 1024$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In ProGAN, new layers are added progressively, and the discriminator remains roughly symmetric to the generator.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ProGAN saves training time because it can show more data per wall-clock time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For some categories, ProGAN stops resolution at $256 \\times 256$, which already yields very good images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Least Squares GAN (LSGAN) addresses the saturation problem of Jensen–Shannon divergence when $p_g$ is far from $p_\\text{data}$.",
+      "salience": "core"
+    },
+    {
+      "text": "Standard GAN discriminators use a logistic sigmoid, which can lead to vanishing gradients.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In LSGAN, the discriminator loss is $\\frac12 \\mathbb{E}_{x \\sim p_\\text{data}}[(D(x) - b)^2] + \\frac12 \\mathbb{E}_{z \\sim p_z}[(D(G(z)) - a)^2]$.",
+      "salience": "core"
+    },
+    {
+      "text": "In LSGAN, the generator loss is $\\frac12 \\mathbb{E}_{z \\sim p_z}[(D(G(z)) - c)^2]$.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator learns to output $a$ for fake data and $b$ for real data; the generator wants it to output $c$ for fakes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Typically $a = 0$, $b = 1$, $c = 1$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "LSGAN is more robust to architectural changes, suffers less from mode collapse, and its quadratic loss is widely used.",
+      "salience": "core"
+    },
+    {
+      "text": "InfoGAN adds disentanglement to GANs so that different latent dimensions correspond to meaningful features.",
+      "salience": "core"
+    },
+    {
+      "text": "InfoGAN splits the input into noise $z$ and a latent code $c$.",
+      "salience": "core"
+    },
+    {
+      "text": "InfoGAN maximizes the mutual information $I(c, G(z, c))$ to prevent the generator from ignoring the latent code $c$.",
+      "salience": "core"
+    },
+    {
+      "text": "InfoGAN uses a variational lower bound on mutual information, parameterized by a network $Q$ similar to $D$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "On MNIST, InfoGAN uses $c_1$ as a discrete label with $10$ categories (uniform prior, unsupervised), and $c_2, c_3$ uniform continuous factors.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Using only the code $c_1$, a classifier on MNIST generated by InfoGAN achieves $5\\%$ error without labels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "InfoGAN has been applied to generate 3D faces and 3D chairs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Minimizing KL divergence requires the model distribution to exist everywhere, otherwise it can be infinite if supports do not overlap.",
+      "salience": "core"
+    },
+    {
+      "text": "Adding noise to make KL divergence well-defined results in blurry generated samples.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A distance metric that is well-behaved on low-dimensional supports is needed for generative models.",
+      "salience": "core"
+    },
+    {
+      "text": "The Earth Mover (Wasserstein-1) distance is defined as $W(p_\\text{data}, p_\\text{model}) = \\inf_{\\gamma \\in \\Pi(p_\\text{data}, p_\\text{model})} \\mathbb{E}_{(x,y) \\sim \\gamma}[\\|x - y\\|]$, where $\\Pi$ is the set of joint distributions with marginals $p_\\text{data}$ and $p_\\text{model}$.",
+      "salience": "core"
+    },
+    {
+      "text": "In a simple example with shifting line distributions, only the Earth Mover distance converges continuously as parameters approach zero, while other distances diverge.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The continuous behavior of the Earth Mover distance is crucial for learning distributions on submanifolds.",
+      "salience": "core"
+    },
+    {
+      "text": "By Kantorovich–Rubinstein duality, the Earth Mover distance equals $\\sup_{\\|f\\|_L \\le 1} \\left(\\mathbb{E}_{x \\sim p_\\text{data}}[f(x)] - \\mathbb{E}_{x \\sim p_\\text{model}}[f(x)]\\right)$, where the supremum is over $1$-Lipschitz functions.",
+      "salience": "core"
+    },
+    {
+      "text": "WGAN uses a critic $f_w$ parameterized by a neural network, instead of a discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "In WGAN training, for fixed generator, the critic is trained to maximize $\\mathbb{E}_{x \\sim p_\\text{data}}[f(x)] - \\mathbb{E}_{x \\sim p_\\text{model}}[f(x)]$.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator gradient in WGAN, with fixed critic, is $-\\mathbb{E}_{z \\sim Z}[\\nabla_\\theta f_w(g_\\theta(z))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "WGAN enforces the Lipschitz constraint by weight clipping.",
+      "salience": "supporting"
+    },
+    {
+      "text": "WGAN allows the critic to be trained to convergence, unlike the ordinary GAN discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "The WGAN loss value strongly correlates with sample quality.",
+      "salience": "core"
+    },
+    {
+      "text": "WGAN is robust to architectural changes, still producing reasonable results without batchnorm or with fewer filters.",
+      "salience": "core"
+    },
+    {
+      "text": "Improved WGAN (WGAN-GP) addresses weight clipping issues by using a gradient penalty: $\\lambda \\mathbb{E}_{\\hat{x} \\sim \\mathbb{P}_{\\hat{x}}}[(\\|\\nabla_{\\hat{x}} D(\\hat{x})\\|_2 - 1)^2]$.",
+      "salience": "core"
+    },
+    {
+      "text": "Self-Attention GAN (SAGAN) addresses the locality limitation of convolutional generators.",
+      "salience": "core"
+    },
+    {
+      "text": "SAGAN applies self-attention, adapted from the Transformer, to images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "SAGAN's generator can attend to distant regions, as confirmed by attention map visualizations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "SAGAN produces good results.",
+      "salience": "supporting"
+    },
+    {
+      "text": "BigGAN improved the Inception score threefold over SAGAN by adding architectural tricks.",
+      "salience": "core"
+    },
+    {
+      "text": "The Inception Score uses the Inception classifier to obtain $p(y \\mid x)$ for generated images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A good generator according to Inception Score has low-entropy conditional labels $p(y \\mid x)$ and high-entropy marginal label distribution $p(y)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The Inception Score is defined as $\\exp(\\mathbb{E}_x \\operatorname{KL}(p(y \\mid x) \\| p(y)))$.",
+      "salience": "core"
+    },
+    {
+      "text": "The Inception Score is difficult to use for training but works well for evaluation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adversarial Autoencoders (AAE) use a discriminator to match the encoder's hidden feature distribution to a prior $p(z)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Making AAE conditional enables semi-supervised learning.",
+      "salience": "supporting"
+    },
+    {
+      "text": "AAE has been applied to generating molecules in oncology.",
+      "salience": "supporting"
+    },
+    {
+      "text": "druGAN is a molecule generation model that uses adversarial training and compares with VAE.",
+      "salience": "supporting"
+    },
+    {
+      "text": "MOSES is a platform for comparing generative models for molecules.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Conditional GANs (cGAN) receive a condition vector along with the random noise as input to the generator.",
+      "salience": "core"
+    },
+    {
+      "text": "Conditional GANs have been used for face aging.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ESRGAN is a conditional GAN for super-resolution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Stacked GANs (SGAN) chain several GANs sequentially.",
+      "salience": "core"
+    },
+    {
+      "text": "In SGAN, each generator $G_i$ learns to invert a deep encoder $E_i$ to generate lower-level representations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "SGAN uses a conditional loss to ensure the generator uses the condition: $\\mathcal{L}_{\\text{cond}} = \\mathbb{E}[d(E_i(G_i(h_{i+1}, z_i)), h_{i+1})]$.",
+      "salience": "core"
+    },
+    {
+      "text": "SGAN uses an entropy loss to prevent the generator from ignoring noise: $\\mathcal{L}_{\\text{ent}} = \\mathbb{E}[-\\log Q_i(z_i \\mid \\hat{h}_i)]$, a variational bound on conditional entropy.",
+      "salience": "core"
+    },
+    {
+      "text": "SGAN outperforms prior stacked GANs, but ProGAN outperforms SGAN.",
+      "salience": "supporting"
+    }
+  ],
+  "transcript": [
+    {
+      "text": "The lecture discusses generative adversarial networks (GANs).",
+      "salience": "core"
+    },
+    {
+      "text": "GANs are an idea that is initially non-mathematical but logically compelling and leads to elegant mathematics later.",
+      "salience": "core"
+    },
+    {
+      "text": "\"Generative AI\" is not a precisely defined term.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Even logistic regression generates a probability distribution over classes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The key divide in generative AI is that generative models produce something big—an object of high dimension and complicated structure, such as an image or text.",
+      "salience": "core"
+    },
+    {
+      "text": "Deep generative models write, draw, produce music or videos.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The lecture focuses on deep generative models based on neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "The first major fork in deep generative models is between explicit density models and implicit density models.",
+      "salience": "core"
+    },
+    {
+      "text": "In a generative model, the output $x$ lives in a very high-dimensional space with an extremely complicated distribution $p(x)$.",
+      "salience": "core"
+    },
+    {
+      "text": "In an explicit density model, the model provides an explicit formula for $p(x)$ (or at least an approximation), enabling evaluation in principle.",
+      "salience": "core"
+    },
+    {
+      "text": "In an implicit density model, there is no formula for $p(x)$; the model simply samples from the distribution.",
+      "salience": "core"
+    },
+    {
+      "text": "Inside explicit density models, the next divide is tractable density models.",
+      "salience": "core"
+    },
+    {
+      "text": "Tractable density models allow actually writing down a formula for $p(x)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The classic approach in tractable density models is autoregressive modeling, which uses the chain rule: $p(x) = p(x_1) p(x_2 \\mid x_1) p(x_3 \\mid x_1, x_2) \\dots p(x_n \\mid x_1, \\dots, x_{n-1})$.",
+      "salience": "core"
+    },
+    {
+      "text": "The chain rule identity is always true but useless in practice because the conditionals are still huge.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One simplifies autoregressive modeling by making assumptions, such as a Markov assumption where each $x_k$ depends only on a few previous variables, or using an RNN where each output depends on the current input and a hidden state.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Most LLMs are in the autoregressive class, modeling text by predicting the next token $p(x_k \\mid \\text{context})$ with transformers modeling the conditionals.",
+      "salience": "core"
+    },
+    {
+      "text": "For images, PixelCNN once generated pixels one by one, producing good outputs but being far too slow because generating a million pixels requires a million model runs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Pixel-wise autoregressive models are rarely used today, though they exist.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For text, essentially everything is autoregressive.",
+      "salience": "core"
+    },
+    {
+      "text": "Within tractable density models, flow-based models also exist.",
+      "salience": "core"
+    },
+    {
+      "text": "Flow-based models model $p(x)$ as a composition of simple transformations: $x = f_k \\circ f_{k-1} \\circ \\dots \\circ f_1(z)$, where each $f_i$ is something like adding Gaussian noise or a linear transformation.",
+      "salience": "core"
+    },
+    {
+      "text": "Composing many simple transformations can model very complex distributions, just as with deep neural networks.",
+      "salience": "core"
+    },
+    {
+      "text": "Explicit density models also include approximate density models, apart from tractable density.",
+      "salience": "core"
+    },
+    {
+      "text": "In approximate density models, $p(x)$ is explicitly approximated by a simpler distribution $q$, for example, a product of easier factors.",
+      "salience": "core"
+    },
+    {
+      "text": "The most important example of approximate density models is the variational autoencoder (VAE).",
+      "salience": "core"
+    },
+    {
+      "text": "VAEs use variational approximations to derive good loss functions for generative models.",
+      "salience": "core"
+    },
+    {
+      "text": "VAEs are used extensively.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Diffusion models, the topic of the next lecture, typically operate in the latent space of a VAE.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The implicit density side is much less rich; there are very few mainstream examples.",
+      "salience": "core"
+    },
+    {
+      "text": "The primary example of an implicit density model is GANs.",
+      "salience": "core"
+    },
+    {
+      "text": "In an implicit density model, there is no formula for $p(x)$ at all.",
+      "salience": "core"
+    },
+    {
+      "text": "Implicit density models take random noise (e.g., a standard Gaussian) and transform it into a sample drawn from the target distribution; they are samplers, not explicit distributions.",
+      "salience": "core"
+    },
+    {
+      "text": "The neural network in an implicit density model is a black box mapping a simple distribution to a complicated one; a density formula cannot be extracted.",
+      "salience": "core"
+    },
+    {
+      "text": "GANs do precisely this: take random noise and transform it into samples.",
+      "salience": "core"
+    },
+    {
+      "text": "GANs are one possible solution to the problem of finding a loss function for generative models.",
+      "salience": "core"
+    },
+    {
+      "text": "The main problem when creating a generative model is finding the loss function to score the results.",
+      "salience": "core"
+    },
+    {
+      "text": "In GANs, the generator takes random noise $Z$ from a standard distribution and maps it to an output $\\hat{X}$ intended to be a cat picture.",
+      "salience": "core"
+    },
+    {
+      "text": "In this setting, there is a dataset of real images $X$, but no paired data exists between random noise $Z$ and specific real images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The goal of learning a generator is to learn the mapping from noise to images and to obtain a good parameterization in noise space so that sampling random noise yields reasonable cat pictures.",
+      "salience": "core"
+    },
+    {
+      "text": "The data is unlabeled; it is unsupervised learning.",
+      "salience": "core"
+    },
+    {
+      "text": "We cannot say which specific $X$ a generated $\\hat{X}$ should be similar to; we only desire that $\\hat{X}$ is a good cat picture.",
+      "salience": "core"
+    },
+    {
+      "text": "There is no mathematical function to determine whether a set of pixels is a good cat picture; learning such a function is half or more of the problem.",
+      "salience": "core"
+    },
+    {
+      "text": "GANs recognize that the loss function must be learned because there is no fixed formula for evaluating how cat-like an image looks.",
+      "salience": "core"
+    },
+    {
+      "text": "GANs introduce a separate network, the discriminator, whose only job is to classify inputs as fake (0) or real (1).",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator receives an image; if it is from the generator, it should output 0; if it is from the dataset, it should output 1.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator and discriminator are adversarial: the discriminator learns to distinguish real from generated images, and the generator learns to fool the discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "This adversarial setup is called adversarial training.",
+      "salience": "core"
+    },
+    {
+      "text": "For the last few years, GANs have not been at the forefront of image generation; diffusion models generate images these days.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adversarial training is still very much alive.",
+      "salience": "core"
+    },
+    {
+      "text": "Even in diffusion models, a GAN is embedded to improve them.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adversarial training is a very important idea in machine learning and appears in many different fields.",
+      "salience": "core"
+    },
+    {
+      "text": "The main idea of GANs is that the generator is like a forger producing counterfeit pictures, and the discriminator is the detective deciding whether a picture is real.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The generator, such as a reverse deep convolutional neural network, learns to produce pictures of money.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Initially, the generator produces random noise or very bad counterfeits.",
+      "salience": "supporting"
+    },
+    {
+      "text": "An initially untrained discriminator might be fooled by these early counterfeits.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After training the discriminator, it learns to distinguish the counterfeits as not real money.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Then the generator is trained to fool this current version of the discriminator, producing slightly better counterfeits.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The discriminator finds new features to discriminate on, and the generator learns to fake those features.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This adversarial process continues in a game-like fashion, with the hope of reaching an idealized outcome.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In the idealized picture, in $Z$ space there is a uniform distribution, and in $X$ space there is a Gaussian distribution (green); the black dots are the data points.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Initially, the Gaussian does not match the data points.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The discriminator is a logistic sigmoid (blue dashed line) distinguishing real from fake.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The generator moves the Gaussian slightly to fool the discriminator, without perfectly matching the data.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The discriminator then adapts, and the cycle repeats.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Ideally, the process reaches a state where the generator produces perfect samples and the discriminator cannot distinguish and outputs a coin flip.",
+      "salience": "core"
+    },
+    {
+      "text": "In real life, the training does not work exactly like this idealized picture.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The discriminator loss $L_D$ is defined such that the discriminator outputs 0 for fake and 1 for real.",
+      "salience": "core"
+    },
+    {
+      "text": "For a real sample $x$, the discriminator's loss includes $\\log D(x)$ to push the score to positive infinity, making the probability approach 1.",
+      "salience": "core"
+    },
+    {
+      "text": "For a real sample $x$, the discriminator’s loss is $-\\log D(x)$.",
+      "salience": "core"
+    },
+    {
+      "text": "For a fake sample $x$ from the generator distribution $p_g(x)$, the discriminator’s loss is $-\\log(1-D(x))$.",
+      "salience": "core"
+    },
+    {
+      "text": "Minimizing this loss with respect to the discriminator’s parameters while the generator is fixed is a straightforward binary classification problem.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator aims to produce samples that the discriminator classifies as real.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator cannot affect the loss on real data; for the fake data term, it does the opposite of the discriminator.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The generator minimizes $-\\log D(G(z))$ (or equivalently $+\\log(1-D(G(z)))$) for fake samples.",
+      "salience": "core"
+    },
+    {
+      "text": "The adversarial game can be expressed with a shared loss function $V(D,G)=\\mathbb{E}_{x\\sim p_{\\text{data}}}[\\log D(x)]+\\mathbb{E}_{z\\sim p_z}[\\log(1-D(G(z)))]$, where the discriminator maximizes it and the generator minimizes it.",
+      "salience": "core"
+    },
+    {
+      "text": "This setup is a minimax problem from game theory.",
+      "salience": "core"
+    },
+    {
+      "text": "The minimax problem is notoriously hard.",
+      "salience": "core"
+    },
+    {
+      "text": "If the generator is fixed, the optimal discriminator is the Bayes classifier: $p(\\text{real}|x) = \\frac{p_{\\text{data}}(x)}{p_{\\text{data}}(x)+p_g(x)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "Plugging this optimal discriminator into the generator’s objective shows that the generator attains its global minimum if and only if $p_g = p_{\\text{data}}$.",
+      "salience": "core"
+    },
+    {
+      "text": "Under the optimal discriminator, the generator minimizes the Jensen–Shannon divergence between $p_g$ and $p_{\\text{data}}$, not the KL divergence.",
+      "salience": "core"
+    },
+    {
+      "text": "These theoretical results are ultimately irrelevant in practice.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In practice, using the flipped binary cross-entropy as the generator loss saturates, which is a bad idea.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator's output goes through a sigmoid; when the discriminator is very confident and correct, its gradients become extremely small.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For the discriminator, vanishing gradients are harmless, but for the generator, they are catastrophic because the backpropagation signal to the generator must travel through the discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "Once the discriminator saturates after a few alternating training steps, the generator's gradients vanish and it can no longer learn.",
+      "salience": "core"
+    },
+    {
+      "text": "The solution is to change the generator’s loss.",
+      "salience": "core"
+    },
+    {
+      "text": "The original GANs paper appeared in 2014.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Early GAN results showed that generated samples were new, not mere memorizations of training data.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Early GANs worked wonderfully on MNIST.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Early GANs performed much worse on small black-and-white faces and were poor on more diverse datasets.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Initially, GANs were not yet competitive with other generative models.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN introduced a convolutional architecture for both generator and discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "DCGAN started producing reasonable images on some datasets, though still small and flawed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN was state of the art a decade ago.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Old generative modeling papers on GANs, VAEs, and the like often feature many bedroom images.",
+      "salience": "aside"
+    },
+    {
+      "text": "The Large Scale Scene Understanding (SU) dataset contains subsets of photos of different environments, including bedrooms.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The bedroom subset of the LSUN dataset became a standard benchmark after someone chose bedroom images for tests.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The bedroom pictures are small color images (64×64 or 128×128 pixels) designed to resemble real photographs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A DCGAN after one epoch produces very bad images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After five epochs, a DCGAN produces more or less okay images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The five-epoch DCGAN results were acceptable at the time but are not exciting by today's standards.",
+      "salience": "supporting"
+    },
+    {
+      "text": "It is important to understand whether a generative model is good.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator cannot reliably assess generative model quality.",
+      "salience": "core"
+    },
+    {
+      "text": "A discriminator's failure to distinguish does not indicate that the generator produces good images or has a good latent space.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator's failure could be because it is undertrained or has limited capacity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Visual inspection of generated images is used to evaluate whether the generator produces sensible results.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In a GAN, the generator maps a random noise vector $Z$ from the latent space to a point $X$ in pixel space.",
+      "salience": "core"
+    },
+    {
+      "text": "Realistic images form an extremely complicated manifold in pixel space, and the latent space is meant to flatten that structure.",
+      "salience": "core"
+    },
+    {
+      "text": "Our goal is to sample $Z$ from a simple distribution (e.g., a standard Gaussian) and have $G(Z)$ land on that manifold.",
+      "salience": "core"
+    },
+    {
+      "text": "A popular test for a generator is a linear walk in the latent space.",
+      "salience": "core"
+    },
+    {
+      "text": "When walking along the straight line from $Z_1$ to $Z_2$ in the latent space, all intermediate $Z$ should yield reasonable images.",
+      "salience": "core"
+    },
+    {
+      "text": "If the generator $G$ simply memorized a few training points and mapped $Z$s to those, interpolated images would be nonsensical even if training images looked good.",
+      "salience": "core"
+    },
+    {
+      "text": "A linear interpolation in pixel space would blend the two images by transparency rather than produce realistic intermediate photographs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Ideally, the path in pixel space follows the manifold so that every step remains a realistic image.",
+      "salience": "core"
+    },
+    {
+      "text": "Consistently observing that the interpolated images are realistic suggests the generator can produce realistic images from random $Z$.",
+      "salience": "core"
+    },
+    {
+      "text": "In generative model papers, latent space walks are often shown with real or guaranteed good images at the ends and generated intermediates from interpolated $Z$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The intermediate images may contain some artifacts but generally remain realistic.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Latent space walk interpolation results were state-of-the-art for image generation about ten years ago.",
+      "salience": "aside"
+    },
+    {
+      "text": "The rate of progress in image generation from ten years ago to now is remarkable.",
+      "salience": "aside"
+    },
+    {
+      "text": "The generated bedroom photos were not photorealistic; common failure modes included counting problems.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The recent meme about six fingers on a hand was still an issue a couple of years ago, but ten years ago it was much worse, e.g., three-headed dogs with many eyes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Such failures make sense given the reverse convolutional architecture: it captures general features and then specializes local parts more or less independently, with limited context.",
+      "salience": "core"
+    },
+    {
+      "text": "When generating an eye, the network may not know whether it is a left or right eye, so it might draw another eye, misaligning perspective.",
+      "salience": "supporting"
+    },
+    {
+      "text": "These mistakes stand out to us because human vision is highly trained, but learning proper 3D perspective and object coherence is very difficult.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Among example images, it often takes a few questions for people to notice that one cat is actually a real photograph—just a sleeping, curled-up cat.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Distinguishing real from generated images is difficult.",
+      "salience": "supporting"
+    },
+    {
+      "text": "By 2018, image generation had improved so much that imperfections are not visible to humans.",
+      "salience": "aside"
+    },
+    {
+      "text": "There are imperfections in generated faces, but on a slide they are not visible.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Comparing images from 2014 and 2017 shows tremendous progress in GAN-based generation in only a few years.",
+      "salience": "aside"
+    },
+    {
+      "text": "An important technical idea is that you do not need to generate a whole picture at once.",
+      "salience": "core"
+    },
+    {
+      "text": "This can be cast as a conditional generation problem: you give a condition and the output changes accordingly.",
+      "salience": "core"
+    },
+    {
+      "text": "A relatively simple version is super-resolution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Super-resolution is a generative problem because you are inventing new detail when scaling a low-resolution image to high resolution, but it is easier than generating from scratch since the overall structure is given.",
+      "salience": "core"
+    },
+    {
+      "text": "The idea for general generation was to start small and then apply a sequence of super-resolution steps.",
+      "salience": "core"
+    },
+    {
+      "text": "This approach is called ProGAN, Progressive Growing GAN, which produced the famous realistic faces shown on the website ThisPersonDoesNotExist.",
+      "salience": "core"
+    },
+    {
+      "text": "ProGAN first trains a simple GAN to generate 4×4 human faces; even from scratch this is not hard.",
+      "salience": "core"
+    },
+    {
+      "text": "Then these 4×4 outputs are used as conditions for super-resolution to 8×8, then 16×16, 32×32, and so on.",
+      "salience": "core"
+    },
+    {
+      "text": "Training took about two weeks on NVIDIA hardware, which provided a large compute advantage at the time, resulting in a 1-megapixel image of very high quality.",
+      "salience": "supporting"
+    },
+    {
+      "text": "At the time of ProGAN, two main loss functions for GANs existed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "One was the least squares GAN, which addresses the saturation problem in a straightforward way.",
+      "salience": "core"
+    },
+    {
+      "text": "Instead of using a sigmoid, it uses a squared deviation from a target constant (e.g., 1).",
+      "salience": "core"
+    },
+    {
+      "text": "Overshooting the target is also penalized, so nothing blows up and everything clusters around the constant.",
+      "salience": "core"
+    },
+    {
+      "text": "Least squares is usually a bad idea for classification, but here it works precisely because it avoids saturating gradients.",
+      "salience": "core"
+    },
+    {
+      "text": "The conceptually deeper idea is the Wasserstein GAN (WGAN).",
+      "salience": "core"
+    },
+    {
+      "text": "In machine learning, KL divergence is commonly used to measure closeness of distributions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "KL divergence is typically applied in relatively low-dimensional spaces.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In generative image models, $x$ is a very high-dimensional vector of pixel values.",
+      "salience": "core"
+    },
+    {
+      "text": "The true data distribution $p_{\\mathrm{data}}(x)$ and the generator distribution $p_g(x)$ are both concentrated in low-dimensional manifolds of that high-dimensional space.",
+      "salience": "core"
+    },
+    {
+      "text": "Because each distribution lives on a thin subset, their supports are disjoint with probability one: where $p_{\\mathrm{data}}(x)$ is non-zero, $p_g(x)$ is zero, and vice versa.",
+      "salience": "core"
+    },
+    {
+      "text": "In this situation the KL divergence becomes infinite and meaningless.",
+      "salience": "core"
+    },
+    {
+      "text": "Tweaking the generator a little bit—moving its line—does not change the infinite value, so the KL divergence provides no useful gradient for training.",
+      "salience": "core"
+    },
+    {
+      "text": "Wasserstein distance was designed to solve exactly this problem of disjoint supports.",
+      "salience": "core"
+    },
+    {
+      "text": "KL divergence provides no directional information for updating the generator when supports are disjoint.",
+      "salience": "core"
+    },
+    {
+      "text": "The problem of disjoint supports seems to challenge much of machine learning, since distribution matching often involves separate subspaces.",
+      "salience": "core"
+    },
+    {
+      "text": "In linear regression, the data and the modeled line do not overlap except at a single point of measure zero.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Yet the effect does not happen because we add noise.",
+      "salience": "core"
+    },
+    {
+      "text": "Adding noise gives the assumed line a non-zero likelihood.",
+      "salience": "core"
+    },
+    {
+      "text": "pData is fixed, but we smooth out pG by adding, for example, Gaussian noise, so $p_g(x) > 0$ everywhere.",
+      "salience": "core"
+    },
+    {
+      "text": "It can be exponentially small, but that is enough.",
+      "salience": "supporting"
+    },
+    {
+      "text": "We cannot match two distributions with disjoint or almost disjoint supports without modification.",
+      "salience": "core"
+    },
+    {
+      "text": "In classical machine learning we add noise, so $p_g$ becomes a low‑dimensional model plus Gaussian noise extending over the whole space; then KL divergence works and we can maximize likelihood.",
+      "salience": "core"
+    },
+    {
+      "text": "In linear regression we assume Gaussian noise around the line, learn the line, but when we predict a new point we do not add artificial noise—we simply use the expectation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For implicit density generative models, we cannot drop the noise after training because the output already includes it.",
+      "salience": "core"
+    },
+    {
+      "text": "Adding noise makes images blurry and unrealistic, so we do not want noise in such models.",
+      "salience": "core"
+    },
+    {
+      "text": "The Wasserstein GAN therefore introduces a loss function that works without adding noise, based on the Earth Mover distance.",
+      "salience": "core"
+    },
+    {
+      "text": "The Earth Mover (Wasserstein) distance can be understood by thinking of each distribution as a pile of earth with total volume 1.",
+      "salience": "core"
+    },
+    {
+      "text": "Transporting earth requires work equal to mass times distance moved.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Earth Mover distance is the minimal total work required to transform one distribution into the other under an optimal transport plan.",
+      "salience": "core"
+    },
+    {
+      "text": "The goal is to match the two distributions while spending as little effort as possible.",
+      "salience": "core"
+    },
+    {
+      "text": "In WGAN, the Earth Mover distance between real and generated distributions is minimized.",
+      "salience": "core"
+    },
+    {
+      "text": "Minimizing Earth Mover distance involves a nested minimization, but mathematical techniques allow us to circumvent it.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The WGAN loss works even when the real and generated distributions have disjoint support—moving the generated distribution closer reduces the distance, so no artificial noise is needed.",
+      "salience": "core"
+    },
+    {
+      "text": "Wasserstein GAN remains one of the most popular loss functions for GANs and adversarial training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "BigGAN, introduced in 2019, already produced reasonable images with nice interpolations.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For example, one can transition from a bird to a dog, and the intermediate artificial hybrids still kind of make sense.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The final idea, which leads into variational autoencoders and deepens our understanding of generative models, is the adversarial autoencoder.",
+      "salience": "core"
+    },
+    {
+      "text": "The main challenge in generative modeling is defining a loss function: how do you measure whether a generated image is a good cat picture?",
+      "salience": "core"
+    },
+    {
+      "text": "One natural answer is to train an autoencoder.",
+      "salience": "core"
+    },
+    {
+      "text": "The autoencoder takes an image $X$ from pixel space, encodes it to a latent code $Z$ in a smaller, more understandable space, and then decodes $Z$ back to a reconstruction $\\hat{X}$.",
+      "salience": "core"
+    },
+    {
+      "text": "The autoencoder provides a straightforward $L_2$ loss between $X$ and $\\hat{X}$, encouraging $Z$ to be a good compressed representation.",
+      "salience": "core"
+    },
+    {
+      "text": "At first glance, the decoder looks like a generative model.",
+      "salience": "supporting"
+    },
+    {
+      "text": "However, we cannot simply discard the encoder and use the decoder as a generative model.",
+      "salience": "core"
+    },
+    {
+      "text": "The $X$'s live in a million-dimensional space, and even the relatively low-dimensional latent space (say 500 dimensions) contains a complicated manifold of $Z$'s from real images.",
+      "salience": "core"
+    },
+    {
+      "text": "If we sample $Z$ from a standard Gaussian, we will almost never land on that manifold, and the decoded image will be nonsensical, not a nice cat picture.",
+      "salience": "core"
+    },
+    {
+      "text": "To fix this and use autoencoders as generative models, we must regularize the latent space.",
+      "salience": "core"
+    },
+    {
+      "text": "One approach is the variational autoencoder, to be discussed later.",
+      "salience": "supporting"
+    },
+    {
+      "text": "An adversarial approach treats the $Z$'s coming from real images as fake, and lets the “real” $Z$'s be drawn from a simple prior such as a standard Gaussian.",
+      "salience": "core"
+    },
+    {
+      "text": "A discriminator is placed not on images but on latent codes, to distinguish between the encoded latent codes and samples from the prior.",
+      "salience": "core"
+    },
+    {
+      "text": "The encoder is trained to fool the discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "If the discriminator cannot tell them apart, then sampling $Z$ from the standard Gaussian should yield latent codes that the decoder interprets as realistic images.",
+      "salience": "core"
+    },
+    {
+      "text": "The adversarial autoencoder is an old idea, nearly as old as GANs themselves.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Variational autoencoders offer a cleaner conceptual solution and are more widely used, but adversarial autoencoders can sometimes perform better depending on the implementation.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adversarial autoencoders can be modified straightforwardly; for example, to generate a specific MNIST digit you can condition the distributions on labels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GANs were state-of-the-art for image generation around 2020 and remain important in specific domains such as super-resolution and style transfer (via StyleGAN models).",
+      "salience": "core"
+    },
+    {
+      "text": "For straightforward image generation or text-to-image tasks, GANs have been completely replaced by diffusion models.",
+      "salience": "core"
+    }
+  ],
+  "summary": [
+    {
+      "text": "The term “generative AI” is broad.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Logistic regression defines a probability distribution over classes.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In this context, the focus is on models that produce high-dimensional, structured objects (images, text, music).",
+      "salience": "core"
+    },
+    {
+      "text": "Among neural-network-based deep generative models, the primary fork is between explicit density models and implicit density models.",
+      "salience": "core"
+    },
+    {
+      "text": "Explicit density models provide or approximate a formula for $p(x)$, the probability of observing a data point $x$.",
+      "salience": "core"
+    },
+    {
+      "text": "Explicit density models split into tractable density and approximate density.",
+      "salience": "core"
+    },
+    {
+      "text": "Tractable density models are those where the density $p(x)$ can be written down directly.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Autoregressive models use the chain rule $p(x)=p(x_1)p(x_2|x_1)\\dots p(x_n|x_1,\\dots,x_{n-1})$ and parametrise the conditionals, e.g., with an RNN or Transformer.",
+      "salience": "core"
+    },
+    {
+      "text": "Most large language models are autoregressive.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For images, PixelCNN generated pixels sequentially but was too slow for high resolution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Flow-based models compose many simple invertible transformations: $x = f_k \\circ \\dots \\circ f_1(z)$, so that a simple $z$ distribution is transformed into a complex one.",
+      "salience": "core"
+    },
+    {
+      "text": "Approximate density models approximate $p(x)$ by a simpler distribution $q$.",
+      "salience": "core"
+    },
+    {
+      "text": "The main example of an approximate density model is the Variational Autoencoder (VAE).",
+      "salience": "supporting"
+    },
+    {
+      "text": "VAE uses a variational bound to derive a tractable loss.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Diffusion models often operate in a VAE’s latent space.",
+      "salience": "aside"
+    },
+    {
+      "text": "Implicit density models do not supply a formula for $p(x)$; they are pure samplers.",
+      "salience": "core"
+    },
+    {
+      "text": "The most prominent member of implicit density models is the Generative Adversarial Network (GAN).",
+      "salience": "core"
+    },
+    {
+      "text": "In a GAN, a noise vector $Z$ sampled from a simple distribution (e.g., a standard Gaussian) is mapped through a neural network to produce a sample $\\hat{X}$ that should be indistinguishable from real data.",
+      "salience": "core"
+    },
+    {
+      "text": "The distribution of $\\hat{X}$ is implicit—there is no access to its density.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The central challenge of generative modelling is defining the loss function (e.g., “what makes a good cat picture?”).",
+      "salience": "core"
+    },
+    {
+      "text": "There is no closed-form answer to this challenge.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GANs address this challenge by learning the loss itself.",
+      "salience": "core"
+    },
+    {
+      "text": "A GAN consists of two networks: a generator and a discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator $G = G(z;\\theta_g): Z \\to X$ takes random noise $z \\sim p_z$ and produces a sample $\\hat{x} = G(z)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator $D = D(x;\\theta_d): X \\to [0,1]$ is a binary classifier that outputs the probability that $x$ is real (1) rather than generated (0).",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator sees real samples $x \\sim p_{\\text{data}}$ and fake samples $\\hat{x} \\sim p_g$, where $p_g$ is the distribution induced by $G$.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator is trained to maximize the probability of assigning the correct label.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator is trained to fool the discriminator, i.e., to make $D(G(z))$ large.",
+      "salience": "core"
+    },
+    {
+      "text": "Early in training the generator is poor and the discriminator untrained.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Training alternates: improve $D$ slightly, then improve $G$ to catch up.",
+      "salience": "core"
+    },
+    {
+      "text": "Ideally, training repeats until $p_g = p_{\\text{data}}$ and the discriminator cannot do better than random guessing.",
+      "salience": "core"
+    },
+    {
+      "text": "In practice, this ideal is seldom reached.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The discriminator solves a binary classification problem with the objective: $\\mathbb{E}_{x \\sim p_\\text{data}(x)}[\\log D(x)] + \\mathbb{E}_{x \\sim p_g(x)}[\\log(1 - D(x))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "$p_g(x) = G_{\\#}p_z$ is the pushforward of the noise distribution.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Real samples are assigned label 1, generated samples label 0.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The generator originally minimized $\\mathbb{E}_{z \\sim p_z(z)}[\\log(1 - D(G(z)))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "Together with the discriminator's objective, this gives the minimax game $\\min_G \\max_D V(D,G)$, where $V(D,G) = \\mathbb{E}_{x \\sim p_\\text{data}(x)}[\\log D(x)] + \\mathbb{E}_{z \\sim p_z(z)}[\\log(1 - D(G(z)))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "For a fixed generator $G$, the optimal discriminator is given by $D^*_G(x) = \\frac{p_\\text{data}(x)}{p_\\text{data}(x) + p_g(x)}$.",
+      "salience": "core"
+    },
+    {
+      "text": "Substituting $D^*_G$ into the generator's objective shows that the global minimum is attained if and only if $p_g = p_{\\text{data}}$.",
+      "salience": "core"
+    },
+    {
+      "text": "At the optimum, the criterion equals the Jensen–Shannon divergence between $p_{\\text{data}}$ and $p_g$.",
+      "salience": "core"
+    },
+    {
+      "text": "The Jensen–Shannon divergence is defined as $\\operatorname{JS}(p_\\text{data} \\| p_g) = \\frac12\\operatorname{KL}\\!\\left(p_\\text{data} \\bigg\\| \\frac{p_\\text{data}+p_g}{2}\\right) + \\frac12\\operatorname{KL}\\!\\left(p_g \\bigg\\| \\frac{p_\\text{data}+p_g}{2}\\right)$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "These theoretical results are largely irrelevant in practice.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The generator never uses the original loss in practice.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The reason is the saturating gradient problem.",
+      "salience": "core"
+    },
+    {
+      "text": "Minimizing $\\mathbb{E}_{z}[\\log(1 - D(G(z)))]$ uses a sigmoid at the discriminator’s output.",
+      "salience": "supporting"
+    },
+    {
+      "text": "When the discriminator is confident and correct, its gradient saturates because $D(G(z)) \\approx 0$ leads to $\\log(1 - D(G(z))) \\approx 0$.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator then receives a vanishing learning signal and can no longer improve.",
+      "salience": "core"
+    },
+    {
+      "text": "The solution is to flip the loss: maximize the probability of the discriminator being wrong.",
+      "salience": "core"
+    },
+    {
+      "text": "The practical generator loss is $-\\mathbb{E}_{z \\sim p_z(z)}[\\log D(G(z))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "With this loss, when the discriminator is confident, the loss is large and gradients flow; as the generator improves, the gradients diminish naturally.",
+      "salience": "core"
+    },
+    {
+      "text": "This flipped loss is used in all practical GAN training.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Training alternates between two steps.",
+      "salience": "core"
+    },
+    {
+      "text": "Step 1: Fix $G$ and update $D$ to maximize $\\mathbb{E}_{x \\sim p_\\text{data}(x)}[\\log D(x)] + \\mathbb{E}_{x \\sim p_g(x)}[\\log(1 - D(x))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "Step 2: Fix $D$ and update $G$ to minimize $-\\mathbb{E}_{z \\sim p_z(z)}[\\log D(G(z))]$ (which is equivalent to maximizing the log-likelihood of the discriminator being wrong).",
+      "salience": "core"
+    },
+    {
+      "text": "Early GANs (Goodfellow et al., 2014) generated new samples, not memorizations.",
+      "salience": "aside"
+    },
+    {
+      "text": "Early GANs worked well on MNIST but poorly on more diverse images.",
+      "salience": "aside"
+    },
+    {
+      "text": "The original GANs produced only tiny, low-quality images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN (Radford et al., 2016) introduced key architectural stabilizers.",
+      "salience": "core"
+    },
+    {
+      "text": "DCGAN used strided convolutions instead of pooling layers.",
+      "salience": "core"
+    },
+    {
+      "text": "DCGAN used batch normalization in both generator and discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "DCGAN removed fully connected layers.",
+      "salience": "core"
+    },
+    {
+      "text": "DCGAN used the Adam optimizer.",
+      "salience": "core"
+    },
+    {
+      "text": "On LSUN bedrooms at 64×64 resolution, after one epoch of DCGAN training, only coarse room structures appear.",
+      "salience": "supporting"
+    },
+    {
+      "text": "After five epochs, the images become much sharper and more realistic.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A discriminator that merely fails to distinguish real from fake does not guarantee that the generator understands the data manifold, because the discriminator might be undertrained.",
+      "salience": "core"
+    },
+    {
+      "text": "A more convincing test is a linear walk in latent space.",
+      "salience": "core"
+    },
+    {
+      "text": "In a linear walk, two latent vectors $z_1, z_2$ are interpolated: $z(\\alpha) = (1-\\alpha)z_1 + \\alpha z_2$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "If the generator has learned a smooth manifold, every interpolated $z$ should decode to a plausible image.",
+      "salience": "core"
+    },
+    {
+      "text": "If the generator memorized training points, interpolated images will be nonsensical blurs.",
+      "salience": "core"
+    },
+    {
+      "text": "This walk is often displayed in papers with the two endpoints as real images and the intermediate frames generated.",
+      "salience": "aside"
+    },
+    {
+      "text": "The linear walk shows that the latent space captures meaningful structure.",
+      "salience": "core"
+    },
+    {
+      "text": "In DCGAN, removing filters that detect windows removes windows from generated images.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In DCGAN, vector arithmetic in latent space works: “man with glasses” – “man” + “woman” yields “woman with glasses”.",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN was applied to pixel art from NES games.",
+      "salience": "aside"
+    },
+    {
+      "text": "DCGAN struggles with counting objects (e.g., too many eyes, limbs).",
+      "salience": "supporting"
+    },
+    {
+      "text": "DCGAN struggles with perspective.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The reason is that convolutional generators assemble local features with limited global context.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A major breakthrough came with ProGAN (Karras et al., 2017) from NVIDIA.",
+      "salience": "core"
+    },
+    {
+      "text": "The key idea of ProGAN is to avoid generating a full-resolution image from scratch.",
+      "salience": "core"
+    },
+    {
+      "text": "ProGAN first trains a GAN to produce small images (e.g., 4×4), then stacks super-resolution steps, each doubling the resolution, up to 1024×1024.",
+      "salience": "core"
+    },
+    {
+      "text": "Because each stage works on a relatively easy sub-problem, the whole training is more stable and faster.",
+      "salience": "core"
+    },
+    {
+      "text": "More data can be shown in the same wall-clock time.",
+      "salience": "supporting"
+    },
+    {
+      "text": "In ProGAN, new layers are added progressively.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator in ProGAN remains roughly symmetric to the generator.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For some categories, resolution in ProGAN is stopped at 256×256, which already looks excellent.",
+      "salience": "supporting"
+    },
+    {
+      "text": "ProGAN training took about two weeks on large NVIDIA hardware at the time.",
+      "salience": "aside"
+    },
+    {
+      "text": "ProGAN yielded famous photorealistic faces seen on websites like *This Person Does Not Exist*.",
+      "salience": "aside"
+    },
+    {
+      "text": "The ProGAN authors compared Least Squares GAN and Wasserstein GAN losses.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This comparison motivated the deeper study of loss functions.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The original GAN loss suffered from vanishing gradients when the discriminator became too confident.",
+      "salience": "core"
+    },
+    {
+      "text": "LSGAN (Mao et al., 2016) addresses this by replacing the sigmoid cross-entropy with a quadratic loss.",
+      "salience": "core"
+    },
+    {
+      "text": "LSGAN discriminator loss: $\\min_D \\frac12 \\mathbb{E}_{x \\sim p_\\text{data}}[(D(x) - b)^2] + \\frac12 \\mathbb{E}_{z \\sim p_z}[(D(G(z)) - a)^2]$.",
+      "salience": "core"
+    },
+    {
+      "text": "LSGAN generator loss: $\\min_G \\frac12 \\mathbb{E}_{z \\sim p_z}[(D(G(z)) - c)^2]$.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator learns to output $a$ for fake samples and $b$ for real samples.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator wants the discriminator to output $c$ on fake samples.",
+      "salience": "core"
+    },
+    {
+      "text": "Typically $a=0$, $b=c=1$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Because overshooting the target is also penalized, the LSGAN loss avoids saturation.",
+      "salience": "core"
+    },
+    {
+      "text": "LSGAN provides smooth gradients even when the discriminator is very accurate.",
+      "salience": "core"
+    },
+    {
+      "text": "LSGAN is more robust to architectural choices.",
+      "salience": "core"
+    },
+    {
+      "text": "LSGAN suffers less from mode collapse.",
+      "salience": "core"
+    },
+    {
+      "text": "In a standard GAN, the input is a monolithic noise vector $z$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "InfoGAN (Chen et al., 2016) splits the input into two parts: $z$ and $c$.",
+      "salience": "core"
+    },
+    {
+      "text": "$z$ is incompressible noise, the source of randomness.",
+      "salience": "core"
+    },
+    {
+      "text": "$c = c_1 c_2 \\dots c_L$ is a latent code whose dimensions correspond to interpretable factors of variation.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator becomes $G(z,c)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Without extra pressure, $G$ could ignore $c$.",
+      "salience": "core"
+    },
+    {
+      "text": "InfoGAN maximizes the mutual information $I(c, G(z,c))$.",
+      "salience": "core"
+    },
+    {
+      "text": "It uses a variational lower bound parameterized by a neural network $Q$, which often shares most of $D$.",
+      "salience": "core"
+    },
+    {
+      "text": "On MNIST, using $c = (c_1, c_2, c_3)$, $c_1$ is a discrete 10-way code with uniform prior that learns digits without supervised labels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "$c_2$ and $c_3$ are continuous codes uniformly sampled from $[-1,1]$ that control properties like slant and thickness.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A classifier trained only on $c_1$ achieves 5% error on MNIST with zero labels.",
+      "salience": "supporting"
+    },
+    {
+      "text": "InfoGAN also works on 3D faces and chairs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Wasserstein GAN (Arjovsky et al., 2017) tackles why KL divergence and JS divergence fail in high-dimensional generative modeling.",
+      "salience": "core"
+    },
+    {
+      "text": "In image generation, both $p_{\\text{data}}$ and $p_g$ are concentrated on low-dimensional manifolds in high-dimensional pixel space.",
+      "salience": "core"
+    },
+    {
+      "text": "Their supports are almost disjoint.",
+      "salience": "core"
+    },
+    {
+      "text": "Where $p_{\\text{data}}(x) > 0$, $p_g(x) \\approx 0$, and vice versa.",
+      "salience": "core"
+    },
+    {
+      "text": "The KL divergence then becomes infinite and provides no useful gradient.",
+      "salience": "core"
+    },
+    {
+      "text": "Small changes to the generator keep the KL divergence infinite, so it cannot guide learning.",
+      "salience": "core"
+    },
+    {
+      "text": "In classical problems like linear regression, adding Gaussian noise spreads $p_g$ over the full space, making KL divergence well-defined.",
+      "salience": "supporting"
+    },
+    {
+      "text": "For image generation, adding noise makes the output blurry and unrealistic; crisp samples are desired without artificial noise.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Earth Mover (Wasserstein-1) distance is designed for situations where distributions have disjoint supports.",
+      "salience": "core"
+    },
+    {
+      "text": "The Wasserstein distance is the minimal physical work (mass × distance) to transform one distribution into the other.",
+      "salience": "core"
+    },
+    {
+      "text": "It varies smoothly even when supports do not overlap.",
+      "salience": "core"
+    },
+    {
+      "text": "The Wasserstein distance is defined as $W(p_{\\text{data}}, p_{\\text{model}}) = \\inf_{\\gamma \\in \\Pi(p_{\\text{data}}, p_{\\text{model}})} \\mathbb{E}_{(x,y)\\sim \\gamma}[\\|x - y\\|]$, where $\\Pi$ is the set of joint distributions with the given marginals.",
+      "salience": "core"
+    },
+    {
+      "text": "Example: For $Z \\sim U[0,1]$, $\\mathbb{P}_0$ as distribution of $(0,Z)$, and $g_\\theta(z) = (\\theta, z)$, as $\\theta \\to 0$, only the EM distance converges continuously, while JS and KL diverge.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Kantorovich–Rubinstein dual form is $W(p_{\\text{data}}, p_{\\text{model}}) = \\sup_{\\|f\\|_L \\le 1} ( \\mathbb{E}_{x \\sim p_{\\text{data}}}[f(x)] - \\mathbb{E}_{x \\sim p_{\\text{model}}}[f(x)] )$, over 1-Lipschitz functions.",
+      "salience": "core"
+    },
+    {
+      "text": "In WGAN, the discriminator is replaced with a critic $f_w$ whose output is a real number, not a probability.",
+      "salience": "core"
+    },
+    {
+      "text": "For a fixed generator, the critic is trained to maximize $\\mathbb{E}_{x\\sim p_{\\text{data}}}[f(x)] - \\mathbb{E}_{z\\sim p_z}[f(g_\\theta(z))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator gradient is $\\nabla_\\theta W = -\\mathbb{E}_{z \\sim p_z}[\\nabla_\\theta f_w(g_\\theta(z))]$.",
+      "salience": "core"
+    },
+    {
+      "text": "To enforce the 1-Lipschitz constraint, weight clipping can be used: clamp the weights of $f_w$ to a small interval after each update.",
+      "salience": "core"
+    },
+    {
+      "text": "In WGAN, the critic can be trained to convergence, unlike the discriminator in an ordinary GAN.",
+      "salience": "core"
+    },
+    {
+      "text": "The WGAN loss value strongly correlates with sample quality, serving as a reliable metric.",
+      "salience": "core"
+    },
+    {
+      "text": "WGAN is far more robust to architectural choices.",
+      "salience": "core"
+    },
+    {
+      "text": "WGAN works even without batch normalization or with fewer filters.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Improved WGAN (WGAN-GP) replaces weight clipping with a gradient penalty.",
+      "salience": "core"
+    },
+    {
+      "text": "Weight clipping can cause exploding/vanishing gradients and limit the critic’s capacity.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The gradient penalty is $\\lambda \\,\\mathbb{E}_{\\hat{x} \\sim \\mathbb{P}_{\\hat{x}}}[(\\|\\nabla_{\\hat{x}} D(\\hat{x})\\|_2 - 1)^2]$.",
+      "salience": "core"
+    },
+    {
+      "text": "$\\hat{x}$ is sampled uniformly along straight lines between real and generated examples.",
+      "salience": "supporting"
+    },
+    {
+      "text": "This softer regularization is now standard.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Convolutional generators have a strictly local receptive field.",
+      "salience": "core"
+    },
+    {
+      "text": "Convolutional generators make it hard to capture long-range dependencies.",
+      "salience": "core"
+    },
+    {
+      "text": "An example of a long-range dependency is ensuring a dog has exactly one tail, in the right place.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Self‑Attention GAN (Zhang et al., 2019) adapts the self‑attention mechanism from Transformers to images.",
+      "salience": "core"
+    },
+    {
+      "text": "In Self‑Attention GAN, the generator can attend to distant regions while drawing.",
+      "salience": "core"
+    },
+    {
+      "text": "Visualisations of the attention maps of Self‑Attention GAN confirm that the generator attends to distant regions when needed.",
+      "salience": "supporting"
+    },
+    {
+      "text": "BigGAN (Brock et al., 2019) combined SAGAN with extra architectural tricks and massive compute.",
+      "salience": "core"
+    },
+    {
+      "text": "BigGAN pushed the Inception score threefold.",
+      "salience": "core"
+    },
+    {
+      "text": "BigGAN produced high‑quality, diverse images with smooth interpolations.",
+      "salience": "core"
+    },
+    {
+      "text": "Transitioning from a bird to a dog with BigGAN yields plausible intermediate artificial animals.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Assessing the quality of generated images is hard.",
+      "salience": "core"
+    },
+    {
+      "text": "The Inception Score (Salimans et al., 2016) provides an automatic metric for assessing the quality of generated images.",
+      "salience": "core"
+    },
+    {
+      "text": "The Inception Score involves passing each generated image $x$ through a pre-trained Inception classifier to obtain the conditional label distribution $p(y \\mid x)$.",
+      "salience": "core"
+    },
+    {
+      "text": "A good generator should produce images that are unambiguous, meaning the conditional label distribution $p(y \\mid x)$ has low entropy.",
+      "salience": "core"
+    },
+    {
+      "text": "A good generator should produce diverse images, meaning the marginal distribution $p(y)=\\int p(y \\mid G(z))\\,dz$ has high entropy.",
+      "salience": "core"
+    },
+    {
+      "text": "The Inception Score is computed as $\\exp\\!\\big(\\mathbb{E}_x \\operatorname{KL}(p(y \\mid x) \\| p(y))\\big)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The Inception Score cannot be used directly as a training loss.",
+      "salience": "supporting"
+    },
+    {
+      "text": "The Inception Score is a widely used evaluation metric.",
+      "salience": "supporting"
+    },
+    {
+      "text": "A plain autoencoder trained with an $L_2$ reconstruction loss does not yield a usable generative model.",
+      "salience": "core"
+    },
+    {
+      "text": "The latent vectors $Z$ coming from real images form a complicated manifold inside the latent space.",
+      "salience": "core"
+    },
+    {
+      "text": "A $Z$ sampled from a simple prior, such as a standard Gaussian, almost never lies on the manifold of real image latent vectors.",
+      "salience": "core"
+    },
+    {
+      "text": "If a $Z$ sampled from a simple prior does not lie on the manifold, the decoder will produce garbage, not a realistic image.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adversarial Autoencoders (Makhzani et al., 2015) place a discriminator on the latent codes $Z$.",
+      "salience": "core"
+    },
+    {
+      "text": "In Adversarial Autoencoders, the discriminator tries to distinguish between encoded vectors $E(x)$ as fake and samples from a chosen prior as real.",
+      "salience": "core"
+    },
+    {
+      "text": "In Adversarial Autoencoders, the encoder is trained to reconstruct well and to fool the latent discriminator.",
+      "salience": "core"
+    },
+    {
+      "text": "In Adversarial Autoencoders, when the distribution of encoded vectors matches the prior distribution, sampling $Z$ from the prior and decoding yields realistic outputs.",
+      "salience": "core"
+    },
+    {
+      "text": "Adversarial Autoencoders are conceptually almost as old as GANs.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Variational autoencoders provide a cleaner variational solution compared to Adversarial Autoencoders.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adversarial Autoencoders still find use in practice.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adversarial Autoencoders have been applied to molecule generation in oncology (Kadurin et al., 2017, 2018).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Adversarial Autoencoders have been used in the MOSES benchmark for generative chemistry (Polikovsky et al., 2018).",
+      "salience": "supporting"
+    },
+    {
+      "text": "In a Conditional GAN (Mirza and Osindero, 2014), both generator and discriminator receive an additional conditioning vector $y$.",
+      "salience": "core"
+    },
+    {
+      "text": "The generator in a Conditional GAN is defined as $G = G(z, y; \\theta_g)$.",
+      "salience": "core"
+    },
+    {
+      "text": "The discriminator in a Conditional GAN is defined as $D = D(x, y; \\theta_d)$.",
+      "salience": "core"
+    },
+    {
+      "text": "Conditional GANs allow controlled generation.",
+      "salience": "core"
+    },
+    {
+      "text": "Conditional GANs have been applied to face aging (Antipov et al., 2017).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Conditional GANs have been applied to super-resolution with ESRGAN (Ledig et al., 2017).",
+      "salience": "supporting"
+    },
+    {
+      "text": "Stacked Generative Adversarial Networks (Huang et al., 2017) chain multiple GANs sequentially.",
+      "salience": "core"
+    },
+    {
+      "text": "In Stacked GANs, each generator $G_i$ learns lower-level representations by roughly inverting a deep encoder $E_i$.",
+      "salience": "core"
+    },
+    {
+      "text": "In Stacked GANs, the generator $G_i$ is conditioned on the next-stage representation $h_{i+1}$.",
+      "salience": "core"
+    },
+    {
+      "text": "In Stacked GANs, the output of $G_i$ is forced to reconstruct $h_{i+1}$ via the encoder $E_i$.",
+      "salience": "core"
+    },
+    {
+      "text": "In Stacked GANs, the conditional loss is $\\mathcal{L}_{\\text{cond}} = \\mathbb{E}_{h_{i+1}\\sim p_{\\text{data}},\\, z_i\\sim p_{z_i}}\\!\\big[d\\big(E_i(G_i(h_{i+1}, z_i)),\\, h_{i+1}\\big)\\big]$.",
+      "salience": "core"
+    },
+    {
+      "text": "In Stacked GANs, the entropy loss is used to prevent the generator $G_i$ from ignoring the noise $z_i$.",
+      "salience": "core"
+    },
+    {
+      "text": "In Stacked GANs, the entropy loss is $\\mathcal{L}_{\\text{ent}} = \\mathbb{E}_{z_i \\sim p_{z_i}}\\!\\Big[ \\mathbb{E}_{\\hat{h}_i \\sim G_i(\\hat{h}_i \\mid z_i)} \\big[-\\log Q_i(z_i \\mid \\hat{h}_i)\\big] \\Big]$.",
+      "salience": "core"
+    },
+    {
+      "text": "In the entropy loss, $Q_i$ is a neural approximation to the posterior $p_i(z_i \\mid \\hat{h}_i)$.",
+      "salience": "supporting"
+    },
+    {
+      "text": "Stacked GANs outperformed earlier models.",
+      "salience": "core"
+    },
+    {
+      "text": "Progressive Growing (ProGAN) remains stronger than Stacked GANs for image synthesis.",
+      "salience": "supporting"
+    },
+    {
+      "text": "GANs were the state-of-the-art for image generation around 2020.",
+      "salience": "core"
+    },
+    {
+      "text": "GANs remain important for super-resolution, style transfer (StyleGAN), and other conditional tasks.",
+      "salience": "core"
+    },
+    {
+      "text": "For general text-to-image generation, GANs have been superseded by diffusion models.",
+      "salience": "core"
+    },
+    {
+      "text": "Diffusion models will be covered in the final lecture.",
+      "salience": "aside"
+    }
+  ]
+}

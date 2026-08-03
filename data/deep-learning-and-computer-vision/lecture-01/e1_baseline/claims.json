@@ -1,0 +1,3892 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "slides": [
+    {
+      "text": "On June 8, 793, the ravaging of wretched heathen men destroyed God's church at Lindisfarne in Northumbria."
+    },
+    {
+      "text": "The destruction of Lindisfarne on June 8, 793 marked the beginning of Viking activity on the British Isles."
+    },
+    {
+      "text": "Richard Cœur de Lion arrived in Acre on June 8, 1191."
+    },
+    {
+      "text": "Richard Cœur de Lion began the Third Crusade on June 8, 1191."
+    },
+    {
+      "text": "Richard Cœur de Lion defeated Saladin at Arsuf."
+    },
+    {
+      "text": "Richard Cœur de Lion defeated Saladin at Jaffa."
+    },
+    {
+      "text": "Richard Cœur de Lion reached a settlement in September 1192."
+    },
+    {
+      "text": "On June 8, 1794, Maximilien Robespierre opened the first celebration of the French Revolution's new state religion, the Culte de l'Être suprême (Cult of the Supreme Being)."
+    },
+    {
+      "text": "Large festivals for the new state religion were to be held all across France."
+    },
+    {
+      "text": "Jacques-Louis David organized the festival in Paris."
+    },
+    {
+      "text": "Robespierre was guillotined on July 28, 1794."
+    },
+    {
+      "text": "The Cult of the Supreme Being immediately disappeared after Robespierre's execution."
+    },
+    {
+      "text": "The Cult of the Supreme Being was officially banned by Napoleon in 1802."
+    },
+    {
+      "text": "On June 8, 1887, Herman Hollerith applied for US patent #395,781."
+    },
+    {
+      "text": "The title of US patent #395,781 is 'Art of Compiling Statistics'."
+    },
+    {
+      "text": "US patent #395,781 was for Hollerith's punched card calculator."
+    },
+    {
+      "text": "On June 8, 1959, USS Barbero and the US Postal Service attempted the delivery of mail via Missile Mail."
+    },
+    {
+      "text": "The Missile Mail involved firing a cruise missile with the nuclear warhead replaced by mail containers."
+    },
+    {
+      "text": "Hephaestus created android robots for himself, such as the giant humanoid robot Talos."
+    },
+    {
+      "text": "Pygmalion brought Galatea to life."
+    },
+    {
+      "text": "Jehovah created life from pieces of clay."
+    },
+    {
+      "text": "Allah created life from pieces of clay."
+    },
+    {
+      "text": "Some particularly wise rabbis could create golems."
+    },
+    {
+      "text": "Albertus Magnus crafted an artificial speaking head."
+    },
+    {
+      "text": "Albertus Magnus's artificial speaking head greatly upset Thomas Aquinas."
+    },
+    {
+      "text": "Early automata were quite inventive."
+    },
+    {
+      "text": "Al-Jazari created automata in the 12th century."
+    },
+    {
+      "text": "Robert II d’Artois' Hesdin Castle featured automata."
+    },
+    {
+      "text": "Leonardo da Vinci designed a mechanical knight."
+    },
+    {
+      "text": "Jaquet-Droz created automata in the 18th century."
+    },
+    {
+      "text": "Early automata were purely mechanical."
+    },
+    {
+      "text": "Mathematical/logical AI remained rudimentary for a long time."
+    },
+    {
+      "text": "Ramon Llull created a logical machine in the late 13th to early 14th century."
+    },
+    {
+      "text": "AI consistently appears in literature, starting from the character Dr. Frankenstein."
+    },
+    {
+      "text": "AI as a science began with the Turing test in 1950."
+    },
+    {
+      "text": "The Turing test involves a computer attempting to successfully impersonate a human in a written dialogue between a judge, a human, and the computer."
+    },
+    {
+      "text": "The original formulation of the Turing test was somewhat subtler and more interesting than the simplified description."
+    },
+    {
+      "text": "Building AI requires natural language processing."
+    },
+    {
+      "text": "Building AI requires knowledge representation."
+    },
+    {
+      "text": "Building AI requires reasoning from acquired knowledge."
+    },
+    {
+      "text": "Building AI requires learning from experience (machine learning)."
+    },
+    {
+      "text": "It required special efforts to attempt the Turing test with modern large language models (LLMs)."
+    },
+    {
+      "text": "The Turing test was officially passed only very recently."
+    },
+    {
+      "text": "As of March 31, 2025, according to Jones and Bergen, the Turing test was officially passed."
+    },
+    {
+      "text": "AI as a field emerged in 1956 at the Dartmouth workshop."
+    },
+    {
+      "text": "The Dartmouth workshop was organized by John McCarthy, Marvin Minsky, Claude Shannon, and Nathaniel Rochester."
+    },
+    {
+      "text": "The Dartmouth workshop's grant proposal is probably the most ambitious in computing history."
+    },
+    {
+      "text": "The Dartmouth workshop organizers proposed a 2-month study of artificial intelligence to be carried out by 10 people in the summer of 1956 at Dartmouth College in Hanover, New Hampshire."
+    },
+    {
+      "text": "The study was based on the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can simulate it."
+    },
+    {
+      "text": "The study aimed to attempt to find how to make machines use natural languages, form abstractions and concepts, solve problems then reserved for humans, and improve themselves."
+    },
+    {
+      "text": "The proposers thought significant advancement in one or more of these problems was possible if a carefully selected group of scientists worked on it for a summer."
+    },
+    {
+      "text": "The period 1956-1960 was a time of high expectations for AI."
+    },
+    {
+      "text": "Allen Newell and Herbert Simon developed Logic Theorist."
+    },
+    {
+      "text": "Logic Theorist successfully re-proved most of Principia Mathematica."
+    },
+    {
+      "text": "Sometimes Logic Theorist's proofs were more elegant than those of Russell and Whitehead."
+    },
+    {
+      "text": "General Problem Solver was a program that tried to think like a human."
+    },
+    {
+      "text": "The Analogy program performed IQ tests for 'pick the odd one out'."
+    },
+    {
+      "text": "The Student program solved algebraic word problems."
+    },
+    {
+      "text": "The Blocks World program manipulated 3D blocks."
+    },
+    {
+      "text": "The core idea of knowledge-based systems was to accumulate a sufficiently large set of rules and domain knowledge, then draw conclusions."
+    },
+    {
+      "text": "MYCIN was the first successful knowledge-based system."
+    },
+    {
+      "text": "MYCIN had about 450 rules."
+    },
+    {
+      "text": "MYCIN performed as well as experienced physicians and significantly better than novices in blood infection diagnosis."
+    },
+    {
+      "text": "The first AI department was at Digital Equipment Corporation (DEC)."
+    },
+    {
+      "text": "DEC's AI department reportedly saved DEC about $10 million annually by 1986."
+    },
+    {
+      "text": "The AI boom ended by the late 1980s."
+    },
+    {
+      "text": "The end of the AI boom was due to many companies failing to meet overly high expectations."
+    },
+    {
+      "text": "In recent decades (from 1990 to 2010), the main focus of AI shifted to machine learning and discovering patterns in data."
+    },
+    {
+      "text": "This shift was especially driven by the development of the Internet."
+    },
+    {
+      "text": "The shift led to the deep learning revolution."
+    },
+    {
+      "text": "More recently, it led to the LLM (large language model) revolution."
+    },
+    {
+      "text": "The deep learning and LLM revolutions are a different story."
+    },
+    {
+      "text": "The definition of a learning machine is: A computer program learns with accumulating experience regarding a class of tasks T and a performance measure P, if its performance on these tasks (according to P) improves as it gains new experience."
+    },
+    {
+      "text": "This definition is very general."
+    },
+    {
+      "text": "The course will consider various algorithms that solve specific tasks and perform better with more initial (test) data."
+    },
+    {
+      "text": "Today's lecture will discuss the general theory of Bayesian inference, which is usually applicable to any machine learning algorithm."
+    },
+    {
+      "text": "The lecture will first provide a brief overview of basic ML tasks."
+    },
+    {
+      "text": "Supervised learning is learning with a set of labeled examples."
+    },
+    {
+      "text": "In supervised learning, there is a training set, which is a set of examples, each consisting of features (attributes)."
+    },
+    {
+      "text": "In supervised learning, examples have correct answers, which is a variable (response) we want to predict; it can be categorical, continuous, or ordinal."
+    },
+    {
+      "text": "In supervised learning, a model learns from this dataset during the training phase (learning phase), then it can be applied to new examples (test set)."
+    },
+    {
+      "text": "The main goal of supervised learning is to train a model that not only fits training data but also generalizes well to new data."
+    },
+    {
+      "text": "If a model does not generalize well to new data, this is called overfitting."
+    },
+    {
+      "text": "In supervised learning, usually we’re given only the training set."
+    },
+    {
+      "text": "Cross-validation is a method to check model generalization by splitting data into training and validation sets."
+    },
+    {
+      "text": "Typically, preprocessing is performed before inputting data, extracting the most informative aspects (feature extraction)."
+    },
+    {
+      "text": "Classification is a supervised learning task where there is a discrete set of categories (classes), and new examples must be assigned to a class."
+    },
+    {
+      "text": "Examples of classification include text classification by topics, spam filtering, and face/object/text recognition."
+    },
+    {
+      "text": "Regression is a supervised learning task where there is an unknown function whose values we must predict for new examples."
+    },
+    {
+      "text": "Examples of regression include engineering applications (predicting temperature, robot position, etc.), finance (predicting stock prices), and speech recognition (with temporal changes)."
+    },
+    {
+      "text": "Unsupervised learning is learning without labeled data, only raw data."
+    },
+    {
+      "text": "Clustering is a type of unsupervised learning that partitions data into unknown classes based on similarity."
+    },
+    {
+      "text": "Examples of clustering include identifying gene families from nucleotide sequences, user clustering and personalization, and clustering mass spectrometry images into segments with different compositions."
+    },
+    {
+      "text": "Dimensionality reduction is a type of unsupervised learning where data has huge dimensionality (many features), and we need to reduce it by selecting the most informative features so algorithms can run effectively."
+    },
+    {
+      "text": "Matrix completion is a type of unsupervised learning where, given a sparse matrix, we predict missing values."
+    },
+    {
+      "text": "Semi-supervised learning is often used when some data has labeled examples."
+    },
+    {
+      "text": "Reinforcement learning is a type of learning where an agent learns from its own trials and errors."
+    },
+    {
+      "text": "Multi-armed bandits is a problem in reinforcement learning where one chooses from several actions, each leading to random outcomes, with the goal to maximize rewards."
+    },
+    {
+      "text": "In reinforcement learning, there is a trade-off called exploration versus exploitation: deciding when to explore new options versus exploiting known ones."
+    },
+    {
+      "text": "Credit assignment is a problem in reinforcement learning where a reward is given at the end (e.g., winning a game), and we must assign credit to each action leading to success."
+    },
+    {
+      "text": "Active learning involves choosing the next (relatively expensive) test."
+    },
+    {
+      "text": "Learning to rank is ordinal regression to produce ordered lists (e.g., internet search)."
+    },
+    {
+      "text": "Bootstrapping is reusing the results of a model to improve itself."
+    },
+    {
+      "text": "Model selection is finding the balance between models with many or few parameters."
+    },
+    {
+      "text": "All methods and approaches benefit from methods that not only give answers but also estimate model confidence, data description quality, and anticipate how these measures change with further experiments."
+    },
+    {
+      "text": "Probability theory plays a central role in machine learning, and we will actively use it."
+    },
+    {
+      "text": "The course will not require detailed mathematical definitions of sigma-algebras, probability measures, Borel sets, etc."
+    },
+    {
+      "text": "For the course, it suffices to understand discrete random variables, where probabilities sum to one, and continuous random variables, where the integral of the nonnegative density equals one."
+    },
+    {
+      "text": "Joint probability is the probability of two events occurring simultaneously, denoted p(x, y)."
+    },
+    {
+      "text": "Marginalization is the process of summing joint probabilities over one variable: p(x) = sum_y p(x, y)."
+    },
+    {
+      "text": "Conditional probability p(x|y) is the probability of one event given another occurred, and it satisfies p(x, y) = p(x|y)p(y) = p(y|x)p(x)."
+    },
+    {
+      "text": "Bayes’ theorem: p(y|x) = p(x|y)p(y) / p(x) = p(x|y)p(y) / sum_{y'} p(x|y')p(y')."
+    },
+    {
+      "text": "Independence: x and y are independent if p(x, y) = p(x)p(y)."
+    },
+    {
+      "text": "In Bayes’ theorem, p(θ|D) = p(θ)p(D|θ) / p(D), where p(θ) is the prior probability, p(D|θ) is the likelihood, p(θ|D) is the posterior probability, and p(D) = ∫ p(D|θ)p(θ) dθ is the evidence."
+    },
+    {
+      "text": "In statistics, typically we look for the maximum likelihood hypothesis: θ_ML = arg max_θ p(D|θ)."
+    },
+    {
+      "text": "Bayesian approaches seek the posterior distribution p(θ|D) ∝ p(D|θ)p(θ) and possibly the maximum a posteriori hypothesis: θ_MAP = arg max_θ p(θ|D) = arg max_θ p(D|θ)p(θ)."
+    },
+    {
+      "text": "An example of a direct problem is: an urn contains 10 balls, 3 of which are black; what is the probability of drawing a black ball?"
+    },
+    {
+      "text": "Another direct problem: an urn contains 10 balls numbered from 1 to 10; what’s the probability that the sum of numbers on three consecutively drawn balls is 12?"
+    },
+    {
+      "text": "An example of an inverse problem is: two urns each contain 10 balls; one has 3 black balls, the other 6; someone took a ball from one urn, and it was black; what is the probability it was taken from the first urn?"
+    },
+    {
+      "text": "In the inverse problem, probabilities immediately become Bayesian (although it can also be reformulated through frequencies)."
+    },
+    {
+      "text": "Direct probability problems describe a probabilistic process or model and ask to calculate a specific probability (i.e., predict behavior based on the model)."
+    },
+    {
+      "text": "Inverse problems contain hidden variables (in the example—the number of the urn from which the ball was drawn)."
+    },
+    {
+      "text": "Inverse problems often require building a probabilistic model based on observed behavior."
+    },
+    {
+      "text": "Machine learning problems typically belong to the category of inverse problems."
+    },
+    {
+      "text": "Classical probability theory, originating from physical experiments, usually views probability as the limit of the ratio of occurrences of a particular experiment outcome to the total number of experiments."
+    },
+    {
+      "text": "A standard example of probability as frequency is tossing a coin."
+    },
+    {
+      "text": "One might want to reason about the probability of events such as Spain winning the FIFA World Cup in 2026, the Odyssey having been written by a woman, and AGI taking over control from humans by 2030."
+    },
+    {
+      "text": "For such singular events, the notion of experiments repeated to infinity is meaningless because there is exactly one experiment."
+    },
+    {
+      "text": "In the Bayesian interpretation, probabilities become degrees of belief, as Thomas Bayes originally saw it."
+    },
+    {
+      "text": "Both the frequentist and Bayesian interpretations of probability follow the same laws."
+    },
+    {
+      "text": "Results show that natural axioms of probabilistic logic lead to a very restricted class of functions (Cox, 19)."
+    },
+    {
+      "text": "In the example, a person has two kids."
+    },
+    {
+      "text": "The example assumes that every baby is born either a boy or a girl independently with equal probability 1/2."
+    },
+    {
+      "text": "In setting (1), the person has been asked if he has any boys and he said yes."
+    },
+    {
+      "text": "In setting (2), one of his kids is met and is a boy."
+    },
+    {
+      "text": "In the example, a murder has happened."
+    },
+    {
+      "text": "Blood at the crime scene is certain to be the killer’s."
+    },
+    {
+      "text": "The blood type is a rare blood type with 1% prevalence."
+    },
+    {
+      "text": "The defendant has this blood type."
+    },
+    {
+      "text": "The prosecutor says: \"The chance that the defendant would have this blood type if he was innocent is only 1%, so with probability 99% he is guilty.\""
+    },
+    {
+      "text": "The defense attorney says: \"A million people live in the city, so about 10000 of them have the same blood type. So all that the blood tells us is that the defendant is guilty with probability 0.01%; that’s no proof, please strike that.\""
+    },
+    {
+      "text": "In the real case (1), the prosecutor said that O.J. Simpson already had a history of domestic violence with his wife."
+    },
+    {
+      "text": "The attorney pointed out that only one out of 2500 women subject to domestic violence actually get killed, so this is irrelevant for the murder."
+    },
+    {
+      "text": "The court agreed with the defense."
+    },
+    {
+      "text": "In the real case (2), two babies of the same mother, Sally Clark, died from SIDS."
+    },
+    {
+      "text": "The prosecutor said that the combined probability of two SIDS cases in a row, obtained from single-case statistic, was about 1 in 73 million."
+    },
+    {
+      "text": "A simple inference problem involves an unfair coin flipped N times, producing a sequence of results."
+    },
+    {
+      "text": "In this problem, we must determine the coin's \"unfairness\" and predict the next outcome."
+    },
+    {
+      "text": "If the probability of heads is p_h = θ (and thus tails probability p_t = 1−θ), the probability of a sequence s with n heads and m tails is p(s| p_h = θ) = θ^n (1−θ)^m."
+    },
+    {
+      "text": "The problem assumes a uniform prior for the coin probability before the experiments, meaning no initial preference about θ."
+    },
+    {
+      "text": "Bayes' theorem is used to infer the hidden parameters."
+    },
+    {
+      "text": "The likelihood is given by p(θ|s) = p(s|θ) p(θ) / p(s)."
+    },
+    {
+      "text": "Here, p(θ) should be understood as a continuous random variable defined on the interval [0, 1]."
+    },
+    {
+      "text": "The assumption of a uniform distribution means the prior probability p(θ) = 1 for θ∈[0,1]."
+    },
+    {
+      "text": "We already know p(s|θ)."
+    },
+    {
+      "text": "Thus, p(θ|s) = θ^n (1−θ)^m / p(s)."
+    },
+    {
+      "text": "p(s) can be calculated as p(s) = ∫_0^1 θ^n (1−θ)^m dθ."
+    },
+    {
+      "text": "The integral evaluates to Γ(n+1)Γ(m+1)/Γ(n+m+2)."
+    },
+    {
+      "text": "This simplifies to n! m!/(n+m+1)!."
+    },
+    {
+      "text": "arg max_θ p(θ|s) = n/(n+m) can be found without this integral."
+    },
+    {
+      "text": "To predict the next outcome, we calculate p(heads|s) = ∫_0^1 p(heads|θ) p(θ|s) dθ."
+    },
+    {
+      "text": "This equals ∫_0^1 θ^(n+1) (1−θ)^m / p(s) dθ."
+    },
+    {
+      "text": "This simplifies to (n+1)! m!/(n+m+2)! · (n+m+1)!/(n! m!)."
+    },
+    {
+      "text": "The result is (n+1)/(n+m+2)."
+    },
+    {
+      "text": "This result is known as Laplace’s rule."
+    },
+    {
+      "text": "This was an illustration of two main tasks in Bayesian inference: (1) finding the posterior distribution over hypotheses/parameters: p(θ|D) ∝ p(D|θ) p(θ) and/or finding the maximum a posteriori hypothesis θ_MAP = arg max_θ p(θ|D); (2) finding the predictive distribution for outcomes of future experiments: p(x|D) ∝ ∫_{θ∈Θ} p(x|θ) p(D|θ) p(θ) dθ."
+    },
+    {
+      "text": "The main task in Bayesian inference is to learn the parameters of a distribution and/or to predict its next points from the available data."
+    },
+    {
+      "text": "Bayesian inference involves the likelihood of the data p(x|θ)."
+    },
+    {
+      "text": "Bayesian inference involves the prior distribution p(θ)."
+    },
+    {
+      "text": "Bayesian inference involves the marginal likelihood p(x) = ∫_Θ p(x|θ) p(θ) dθ."
+    },
+    {
+      "text": "Bayesian inference involves the posterior distribution p(θ|x) = p(x|θ) p(θ) / p(x)."
+    },
+    {
+      "text": "Bayesian inference involves the prediction for a new x' given by p(x'|x) = ∫_Θ p(x'|θ) p(θ|x) dθ."
+    },
+    {
+      "text": "The task is usually to find p(θ|x) and/or p(x'|x)."
+    },
+    {
+      "text": "When doing Bayesian inference, besides the likelihood we must also have a prior distribution over all possible values of the parameters."
+    },
+    {
+      "text": "Prior distributions are very important."
+    },
+    {
+      "text": "The task of Bayesian inference is to compute p(θ|x) and/or p(x'|x)."
+    },
+    {
+      "text": "To do that, we first have to choose p(θ)."
+    },
+    {
+      "text": "We need to decide how to choose prior distributions."
+    },
+    {
+      "text": "A reasonable goal is to choose the distributions so that they keep the same form a posteriori."
+    },
+    {
+      "text": "Before inference we have a prior distribution p(θ)."
+    },
+    {
+      "text": "After inference we have some new posterior distribution p(θ|x)."
+    },
+    {
+      "text": "We want p(θ|x) to have the same form as p(θ), just with different parameters."
+    },
+    {
+      "text": "A family of distributions p(θ|α) is called a family of conjugate priors for a family of likelihoods p(x|θ) if, after multiplying by the likelihood, the posterior p(θ|x, α) stays in the same family: p(θ|x, α) = p(θ|α')."
+    },
+    {
+      "text": "The parameters α are called hyperparameters, which are the parameters of the distribution of the parameters."
+    },
+    {
+      "text": "A trivial example is that the family of all distributions is conjugate to anything, but that is not very interesting."
+    },
+    {
+      "text": "The form of a good prior depends on the form of the data distribution itself, p(x|θ)."
+    },
+    {
+      "text": "Conjugate priors have been computed for many distributions."
+    },
+    {
+      "text": "We will give a few examples of conjugate priors."
+    },
+    {
+      "text": "The conjugate prior for tossing an unfair coin (Bernoulli trials) is the Beta distribution."
+    },
+    {
+      "text": "The density of the coin’s bias θ is p(θ|α, β) = θ^(α−1) (1−θ)^(β−1) / B(α, β)."
+    },
+    {
+      "text": "If we sample the coin and obtain s heads and f tails, we get p(s, f|θ) = (s+f choose s) θ^s (1−θ)^f."
+    },
+    {
+      "text": "Then p(θ|s, f) = θ^(s+α−1) (1−θ)^(f+β−1) / B(s+α, f+β)."
+    },
+    {
+      "text": "The conjugate prior for the bias θ of an unfair coin is p(θ|α, β) ∝ θ^(α−1) (1−θ)^(β−1)."
+    },
+    {
+      "text": "After receiving new data with s heads and f tails, the hyperparameters change to p(θ|s+α, f+β) ∝ θ^(s+α−1) (1−θ)^(f+β−1)."
+    },
+    {
+      "text": "This provides a simple learning rule where learning means updating the hyperparameters."
+    },
+    {
+      "text": "A multinomial distribution with n trials and k categories, where x_i of the experiments fell into category i, has parameters θ_i as the probability of falling into category i."
+    },
+    {
+      "text": "For the multinomial distribution, p(x|θ) = (n choose x1, …, x_k) θ1^x1 θ2^x2 … θ_k^x_k."
+    },
+    {
+      "text": "The conjugate prior for the multinomial distribution is the Dirichlet distribution: p(θ|α) ∝ θ1^(α1−1) θ2^(α2−1) … θ_k^(α_k−1)."
+    },
+    {
+      "text": "Upon receiving data x1, …, x_k, the hyperparameters change to p(θ|x, α) ∝ θ1^(x1+α1−1) θ2^(x2+α2−1) … θ_k^(x_k+α_k−1)."
+    }
+  ],
+  "transcript": [
+    {
+      "text": "The speaker's name is Sergei Nikolenka."
+    },
+    {
+      "text": "The lecture is held remotely at Harborspace."
+    },
+    {
+      "text": "Sergei Nikolenka will talk about machine learning."
+    },
+    {
+      "text": "The class is named 'computer vision in neural networks'."
+    },
+    {
+      "text": "Usually, the class becomes a general introductory class to deep learning."
+    },
+    {
+      "text": "The speaker received two responses from students."
+    },
+    {
+      "text": "Based on the two responses, many students have not had real experience with deep learning."
+    },
+    {
+      "text": "This class will be a general introductory class to deep learning."
+    },
+    {
+      "text": "The class will start from the very beginning and work up."
+    },
+    {
+      "text": "The class will include computer vision examples."
+    },
+    {
+      "text": "The class is about computer vision."
+    },
+    {
+      "text": "The class aims to build the cathedral of modern artificial intelligence from the ground up."
+    },
+    {
+      "text": "Today's lecture will begin with a brief introduction to machine learning in general."
+    },
+    {
+      "text": "The speaker doubts they will cover neural networks today."
+    },
+    {
+      "text": "The speaker hopes to cover neural networks tomorrow."
+    },
+    {
+      "text": "The speaker is the host of the meeting."
+    },
+    {
+      "text": "The speaker can use the spotlight feature."
+    },
+    {
+      "text": "The speaker will begin by discussing the current state of artificial intelligence and how it was achieved."
+    },
+    {
+      "text": "The speaker wants to discuss the fundamental concepts of machine learning."
+    },
+    {
+      "text": "The speaker will discuss what machine learning is based on."
+    },
+    {
+      "text": "The speaker will discuss the basic machinery that everything runs on."
+    },
+    {
+      "text": "The basic machinery of machine learning is probability theory."
+    },
+    {
+      "text": "The class will show how probability theory relates to learning and training."
+    },
+    {
+      "text": "The speaker states that we live in interesting times."
+    },
+    {
+      "text": "The speaker has been teaching machine learning for almost 20 years."
+    },
+    {
+      "text": "Usually, when starting a new class on machine learning, the speaker begins with a historical overview."
+    },
+    {
+      "text": "The speaker traditionally begins with a picture of a random timeline of the internet."
+    },
+    {
+      "text": "The speaker will talk about how AI as a field has progressed from its beginnings in the 1950s."
+    },
+    {
+      "text": "AI started in the 1950s."
+    },
+    {
+      "text": "There was an AI winter in the 1970s."
+    },
+    {
+      "text": "Neural networks reappeared in the 1980s."
+    },
+    {
+      "text": "Probabilistic models were used in the 1990s and 2000s."
+    },
+    {
+      "text": "The deep learning revolution defines artificial intelligence today."
+    },
+    {
+      "text": "From the historical standpoint, AI appears as a regular field of science."
+    },
+    {
+      "text": "Timelines of specific AI subfields before 2022 show a reasonable progression."
+    },
+    {
+      "text": "Recently, AI has been progressing unexpectedly fast."
+    },
+    {
+      "text": "The speaker created a timeline in the summer of 2023."
+    },
+    {
+      "text": "The timeline covers the spring of 2023."
+    },
+    {
+      "text": "ChatGPT appeared in late 2022."
+    },
+    {
+      "text": "ChatGPT was not initially very popular."
+    },
+    {
+      "text": "ChatGPT then suddenly became very popular."
+    },
+    {
+      "text": "In the spring of 2023, many AI-related things started appearing all at once."
+    },
+    {
+      "text": "March 14, 2023, is a notable date on the timeline."
+    },
+    {
+      "text": "A technical issue occurred: some people could not see the presentation text."
+    },
+    {
+      "text": "The speaker did not want to switch sharing methods because it would require using the blackboard."
+    },
+    {
+      "text": "The speaker sent the presentation file in the chat."
+    },
+    {
+      "text": "The spring of 2023 saw a sudden outburst of AI-related and LLM-related developments."
+    },
+    {
+      "text": "On March 14, 2023, Google announced it would integrate LLMs into its workspace."
+    },
+    {
+      "text": "At that time, Google's LLM was not called Gemini."
+    },
+    {
+      "text": "A small startup that split off from OpenAI announced it would produce its own family of LLMs."
+    },
+    {
+      "text": "OpenAI announced GPT-4."
+    },
+    {
+      "text": "GPT-4 was announced as the next step in LLM development."
+    },
+    {
+      "text": "The announcements from Google and the startup were overshadowed by OpenAI's announcement of GPT-4."
+    },
+    {
+      "text": "The speaker called the spring of 2023 the 'Spring of Artificial Intelligence'."
+    },
+    {
+      "text": "At the time the picture was made, it was possible that AI development would follow a regular pattern of scientific progress."
+    },
+    {
+      "text": "Scientific progress often occurs through breakthroughs."
+    },
+    {
+      "text": "In 2023, a breakthrough occurred with ChatGPT."
+    },
+    {
+      "text": "LLMs started to work."
+    },
+    {
+      "text": "After a breakthrough, researchers fill in the new space with research, and then the field needs a new breakthrough."
+    },
+    {
+      "text": "Scientific progress usually proceeds in big steps: a new direction leads to quick progress, then slows down."
+    },
+    {
+      "text": "AI progress did not slow down after the 2023 breakthrough."
+    },
+    {
+      "text": "The rate of AI progress has not slowed down since 2023."
+    },
+    {
+      "text": "Currently, there are AI news every week and big AI news every month."
+    },
+    {
+      "text": "AI progress appears to be speeding up."
+    },
+    {
+      "text": "Frontier labs OpenAI and Anthropic are using their own models to improve their own models."
+    },
+    {
+      "text": "It is not yet a fully closed loop of recursive self-improvement."
+    },
+    {
+      "text": "The speaker thinks we are approaching that point."
+    },
+    {
+      "text": "The rapid AI progress was completely unexpected."
+    },
+    {
+      "text": "Very few people predicted this rapid progress."
+    },
+    {
+      "text": "The speaker recently found a nice example."
+    },
+    {
+      "text": "The speaker refers to a book published in 2018, which is less than 10 years ago."
+    },
+    {
+      "text": "Deep learning already existed in 2018."
+    },
+    {
+      "text": "LSTMs existed in 2018."
+    },
+    {
+      "text": "Transformers already existed in 2018."
+    },
+    {
+      "text": "The book's author asked several prominent researchers when they expected human-level AI."
+    },
+    {
+      "text": "The closest prediction among those asked was from Ray Kurzweil."
+    },
+    {
+      "text": "Ray Kurzweil predicted human-level AI in 2029."
+    },
+    {
+      "text": "Less than 10 years ago, most researchers predicted human-level AI about 50 years away."
+    },
+    {
+      "text": "The rate of AI progress keeps accelerating."
+    },
+    {
+      "text": "The speaker hopes the class will cover modern LLMs."
+    },
+    {
+      "text": "The class will not cover modern LLMs in full detail."
+    },
+    {
+      "text": "The class has a duration of three weeks."
+    },
+    {
+      "text": "The class will start from the foundations of artificial intelligence, deep learning, and how neural networks work."
+    },
+    {
+      "text": "The class will discuss the main classes of neural network architectures."
+    },
+    {
+      "text": "The class will cover transformers."
+    },
+    {
+      "text": "The class will cover language modeling."
+    },
+    {
+      "text": "The class will cover GPTs and clouds of today."
+    },
+    {
+      "text": "The speaker will do a historical survey."
+    },
+    {
+      "text": "Artificial intelligence is a very old idea."
+    },
+    {
+      "text": "According to almost every religious tradition, humans were made by a god."
+    },
+    {
+      "text": "In some traditions, humans were made out of clay."
+    },
+    {
+      "text": "In other traditions, humans were made from other substances."
+    },
+    {
+      "text": "According to these traditions, humans were created with souls and intelligence."
+    },
+    {
+      "text": "Therefore, according to these religious traditions, humans are artificial intelligence."
+    },
+    {
+      "text": "More modern AI ideas appear in Greek mythology."
+    },
+    {
+      "text": "Hephaestus created android robots for himself."
+    },
+    {
+      "text": "There were several such robots."
+    },
+    {
+      "text": "The most famous was a giant humanoid robot named Talos."
+    },
+    {
+      "text": "The story of Talos relates to the field of AI."
+    },
+    {
+      "text": "Talos was given to the king of Crete (either by Hephaestus or Zeus)."
+    },
+    {
+      "text": "Talos's job was to protect the borders of Crete."
+    },
+    {
+      "text": "Talos ran around the perimeter of Crete."
+    },
+    {
+      "text": "When Talos saw enemy ships, he threw giant rocks at them."
+    },
+    {
+      "text": "The ancient Greeks were good at throwing big rocks long distances."
+    },
+    {
+      "text": "The ancient Greeks had catapults."
+    },
+    {
+      "text": "Catapults were not very accurate."
+    },
+    {
+      "text": "Later, trebuchets, guns, and rocket launchers were developed."
+    },
+    {
+      "text": "Humanity is now good at hurling destruction to great distances with great accuracy."
+    },
+    {
+      "text": "Recognizing enemy ships turned out to be more difficult than throwing rocks."
+    },
+    {
+      "text": "400 years ago, there were accurate big guns for sinking ships."
+    },
+    {
+      "text": "Automatically recognizing a ship on the horizon is a computer vision problem."
+    },
+    {
+      "text": "Automatically distinguishing enemy ships from friendly ones is a computer vision problem."
+    },
+    {
+      "text": "Automating ship recognition has been more difficult than automating rock-throwing."
+    },
+    {
+      "text": "AI concepts appear in many traditions."
+    },
+    {
+      "text": "In Judean tradition, there is the notion of a golem."
+    },
+    {
+      "text": "Some wise rabbis could create golems."
+    },
+    {
+      "text": "In Judaic tradition, golems can understand and follow commands."
+    },
+    {
+      "text": "Golems know human language."
+    },
+    {
+      "text": "Golems never speak."
+    },
+    {
+      "text": "In the Judaic tradition, creating something that speaks required a soul."
+    },
+    {
+      "text": "In Judaic tradition, understanding was allowed for man-made constructs."
+    },
+    {
+      "text": "Speaking required a soul."
+    },
+    {
+      "text": "A wise rabbi cannot create a new soul."
+    },
+    {
+      "text": "Thomas Aquinas was a famous philosopher."
+    },
+    {
+      "text": "Thomas Aquinas was a pupil of Albertus Magnus."
+    },
+    {
+      "text": "Albertus Magnus was a famous alchemist."
+    },
+    {
+      "text": "Albertus Magnus created an artificial speaking head."
+    },
+    {
+      "text": "Thomas Aquinas was very upset about this creation."
+    },
+    {
+      "text": "We do not know what the unknown device actually was."
+    },
+    {
+      "text": "One hypothesis is that the unknown device was just a device for transporting sound from a different room and somebody would actually speak through a pipe."
+    },
+    {
+      "text": "Thomas Aquinas got very upset and smashed the unknown device to pieces."
+    },
+    {
+      "text": "In the Middle Ages, there were many inventive automata (early robots) that were human figures performing simple tasks automatically, like pouring water."
+    },
+    {
+      "text": "These medieval automata were not robots in the modern sense."
+    },
+    {
+      "text": "The medieval automata were purely mechanical."
+    },
+    {
+      "text": "The medieval automata are not very interesting for us."
+    },
+    {
+      "text": "Pierre Jacquetreau was a Swiss watchmaker."
+    },
+    {
+      "text": "The Jacquetreau watches can still be bought, although they are very expensive; it is an existing brand."
+    },
+    {
+      "text": "Pierre Jacquetreau's hobby on the side was making very intricate human-like dolls."
+    },
+    {
+      "text": "The dolls would do very fine things with their hands and do something interesting by themselves."
+    },
+    {
+      "text": "One of Pierre Jacquetreau's dolls was the draftsman, which could draw several different pictures."
+    },
+    {
+      "text": "Another one of Pierre Jacquetreau's dolls was the calligrapher."
+    },
+    {
+      "text": "The calligrapher doll is very similar to the draftsman doll because it also uses a quill to write on a piece of paper."
+    },
+    {
+      "text": "The calligrapher doll could be programmed to write what you want."
+    },
+    {
+      "text": "The programming was done via a system of levers on its back; by switching some levers, you could make it write different letters."
+    },
+    {
+      "text": "To the speaker's knowledge, the calligrapher was the first programmable device, predating Jacquard's looms, which are often credited as pioneers of programming with punch cards."
+    },
+    {
+      "text": "The automata by Pierre Jacquetreau are not AI as understood now."
+    },
+    {
+      "text": "There was no programming to speak of in these automata."
+    },
+    {
+      "text": "There was no math or AI related to these automata."
+    },
+    {
+      "text": "Ramon Lowell was an early logician."
+    },
+    {
+      "text": "The speaker usually mentions him in Harborspace because he is Catalan."
+    },
+    {
+      "text": "If you stretch definitions, you could say Ramon Lowell did something later related to AI, but not really."
+    },
+    {
+      "text": "AI appeared as a science with several starting points; the speaker quotes two."
+    },
+    {
+      "text": "One starting point is the 1943 paper on mathematical models of neural activity."
+    },
+    {
+      "text": "The 1943 paper on mathematical models of neural activity will be discussed later in the context of deep learning."
+    },
+    {
+      "text": "The other starting point is Alan Turing's 1950 paper on the Turing test."
+    },
+    {
+      "text": "Alan Turing was a genius and very smart."
+    },
+    {
+      "text": "Alan Turing made many breakthroughs in computer science."
+    },
+    {
+      "text": "Alan Turing basically invented artificial intelligence."
+    },
+    {
+      "text": "The first serious question encountered when thinking about AI is: \"Can you do an artificial intelligence?\" and \"Can machines think?\""
+    },
+    {
+      "text": "Turing's 1950 essay addresses the question of whether machines can think."
+    },
+    {
+      "text": "The speaker recommends reading Turing's 1950 essay."
+    },
+    {
+      "text": "Old research papers are usually hard to read due to strange notation and cumbersome style."
+    },
+    {
+      "text": "Modern textbooks explain things better than old research papers."
+    },
+    {
+      "text": "Turing's essays are more like philosophical discussions than typical research papers."
+    },
+    {
+      "text": "Turing's essays remain very interesting."
+    },
+    {
+      "text": "The Turing test was introduced in Turing's essay titled \"Computing Machinery and Intelligence\"."
+    },
+    {
+      "text": "The Turing test is interesting for its longevity and reasons for its survival."
+    },
+    {
+      "text": "In the Turing test, a judge chats in writing with two unknown entities."
+    },
+    {
+      "text": "One entity is a human, the other is a computer."
+    },
+    {
+      "text": "The judge's task is to determine which entity is the human and which is the computer."
+    },
+    {
+      "text": "It does not make sense to run the Turing test only once."
+    },
+    {
+      "text": "The Turing test concept grew out of Turing's foundational work on computer science, algorithms, and randomized algorithms."
+    },
+    {
+      "text": "If the Turing test were run only once, it would not tell you anything meaningful, because the judge could flip a coin with 50% probability of being right."
+    },
+    {
+      "text": "A computer program passes the Turing test when it consistently prevents the judge from recognizing it with probability significantly different from 1/2, not by fooling the judge just once."
+    },
+    {
+      "text": "From the start, the Turing test involves concepts from probability theory and randomized algorithms, which will be discussed later."
+    },
+    {
+      "text": "Unlike other AI tests, the Turing test has survived for a very long time."
+    },
+    {
+      "text": "Formally, the Turing test was passed just a year ago (as of 2025)."
+    },
+    {
+      "text": "After GPT-4 was developed, few doubted it could pass the Turing test in its original formulation (a 5-10 minute chat)."
+    },
+    {
+      "text": "Actually running the Turing test with GPT-4 was non-trivial because if you ask a frontier model if it is an AI, it will admit it, so the model needed to stay in character."
+    },
+    {
+      "text": "Making a model stay in character is easier with smaller models, but small models would not fool anyone."
+    },
+    {
+      "text": "Once people ran the Turing test with models, the models passed."
+    },
+    {
+      "text": "The news of passing the Turing test is very recent, from 2025."
+    },
+    {
+      "text": "The original Turing test was proposed in 1950."
+    },
+    {
+      "text": "AI has a long history of moving the goalposts."
+    },
+    {
+      "text": "In the 1970s, Alan Newell wrote a position paper on the state and future of AI."
+    },
+    {
+      "text": "In that paper, Newell argued that the Turing test was not actionable because AI models could not pass it and progress could not be measured incrementally."
+    },
+    {
+      "text": "Newell proposed that AI needs numerical tests that reflect something important about intelligence, where passing indicates progress toward general AI."
+    },
+    {
+      "text": "Newell's example of such a test was chess."
+    },
+    {
+      "text": "Newell argued chess is a good candidate for an AI test because it is numerical, measurable via Elo ratings, and easy to program due to fixed rules."
+    },
+    {
+      "text": "Newell also argued chess requires human-like understanding of attack and defense, and modeling the opponent's mind to predict and subvert intentions."
+    },
+    {
+      "text": "Newell's overall argument was that chess is a plausible middle ground for an AI test."
+    },
+    {
+      "text": "In 1997, Deep Blue beat Garry Kasparov."
+    },
+    {
+      "text": "The last match where humans had a chance against computers in chess was in 2001, when Vladimir Kramnik nearly won some games against top computers."
+    },
+    {
+      "text": "After 2001, it became completely hopeless for humans; there is no question computers are better at chess."
+    },
+    {
+      "text": "By 2010 or 2015, there was nothing humans could contribute to chess that would beat computers."
+    },
+    {
+      "text": "There was a period of centaur chess where humans assisted by computers could outperform computers alone, but that is now also a thing of the past."
+    },
+    {
+      "text": "AI researchers did not consider Deep Blue's victory as achieving AGI."
+    },
+    {
+      "text": "After chess was conquered, the field dismissed chess as too easy because tree search methods were effective."
+    },
+    {
+      "text": "The field then proposed Go as a better test, because its large branching factor (50-100 reasonable moves) makes complete search trees impossible, unlike chess (around 10 reasonable moves)."
+    },
+    {
+      "text": "AlphaGo and AlphaZero (in 2016-17) made computers hopelessly better than humans at Go."
+    },
+    {
+      "text": "Despite this, AI researchers did not consider AlphaZero as AGI and dismissed Go as not counting."
+    },
+    {
+      "text": "This pattern of moving goalposts is common in AI history, and people still do it with LLMs, claiming they don't count and inventing reasons."
+    },
+    {
+      "text": "The Turing test survived the test of time; unlike other AI tests, no one in the 1980s dismissed it by claiming to have passed it with a simple script."
+    },
+    {
+      "text": "The Turing test is largely about natural language processing and the ability to have written natural language conversations with a human."
+    },
+    {
+      "text": "Additionally, the Turing test's freeform chat format allows discussing anything, unlike chess or question answering, and could even incorporate computer vision or 3D modeling."
+    },
+    {
+      "text": "In a Turing test, a human judge can ask the machine to describe its physical surroundings."
+    },
+    {
+      "text": "In a Turing test via text, the human judge has no way to verify if the machine's descriptions of its physical surroundings are true."
+    },
+    {
+      "text": "To make the described picture consistent, the entity on the other side would need to understand the 3D world."
+    },
+    {
+      "text": "Natural language is complete in the sense that you can talk about anything."
+    },
+    {
+      "text": "The need to understand the world in order to generate coherent text is a key reason why modern LLMs are great."
+    },
+    {
+      "text": "Base LLMs are trained to predict the next token in text."
+    },
+    {
+      "text": "A language model is a machine that predicts the next word/token in natural language."
+    },
+    {
+      "text": "To predict the next token, a model needs to understand a lot of things."
+    },
+    {
+      "text": "To predict the next token, a model needs to understand how language works."
+    },
+    {
+      "text": "Understanding how language works only gets a model part of the way to predicting next tokens."
+    },
+    {
+      "text": "After understanding how language works, a model also needs to understand how the world works."
+    },
+    {
+      "text": "If the text includes a theorem and its proof, predicting the next token may require proving the theorem."
+    },
+    {
+      "text": "If the text mentions visiting a museum in Paris, predicting the next word requires knowing which museums are in Paris."
+    },
+    {
+      "text": "Natural language includes references to almost everything."
+    },
+    {
+      "text": "Natural language does not include everything; for example, it does not include robotics."
+    },
+    {
+      "text": "Robotics is a field where there is no large corpus of books describing specific motor actions like joint angles for picking up a cup."
+    },
+    {
+      "text": "Knowledge for robotics needs to come from sources other than natural language text."
+    },
+    {
+      "text": "Natural language is a great source of information for almost everything."
+    },
+    {
+      "text": "LLMs keep surprising us by uncovering new capabilities."
+    },
+    {
+      "text": "These new capabilities mostly come from simply predicting the next words in text."
+    },
+    {
+      "text": "The Turing test is a competition where a machine is supposed to talk like a human."
+    },
+    {
+      "text": "The Turing test is completely unfair to computers."
+    },
+    {
+      "text": "In a reverse Turing test, a human tries to pass as a computer in text dialogue."
+    },
+    {
+      "text": "A human cannot easily pass as a computer because a computer can quickly answer certain types of questions that humans cannot."
+    },
+    {
+      "text": "37 to the power of 23 is a math problem that a human cannot solve instantly."
+    },
+    {
+      "text": "Computers can solve 37^23 trivially."
+    },
+    {
+      "text": "Humans would never pass a reverse Turing test."
+    },
+    {
+      "text": "Even computers from the 1950s could answer such math problems faster than humans."
+    },
+    {
+      "text": "The purpose of AI is to teach computers to be like humans, not the reverse."
+    },
+    {
+      "text": "In the standard Turing test, the computer must pose as a human."
+    },
+    {
+      "text": "In the standard Turing test, the human judge does not need to pose as anyone else."
+    },
+    {
+      "text": "This asymmetry is an additional unfairness in the Turing test."
+    },
+    {
+      "text": "Alan Turing's original formulation of the Turing test involved a judge distinguishing between a computer posing as a woman and a man posing as a woman."
+    },
+    {
+      "text": "In the original formulation, both the computer and the man had to play the role of a woman."
+    },
+    {
+      "text": "This detail was lost over time in the history of the Turing test."
+    },
+    {
+      "text": "In the 1950s, no machine could pass the Turing test or come close."
+    },
+    {
+      "text": "The Turing test prompted people to think about AI."
+    },
+    {
+      "text": "The field of AI as an experimental science emerged in 1956."
+    },
+    {
+      "text": "The Dartmouth workshop in 1956 was a key event in the founding of AI."
+    },
+    {
+      "text": "The Dartmouth workshop was organized by John McCarthy, Marvin Minsky, Claude Shannon, and Nathaniel Rochester."
+    },
+    {
+      "text": "John McCarthy invented Lisp."
+    },
+    {
+      "text": "Marvin Minsky was a leading figure in neural networks."
+    },
+    {
+      "text": "Claude Shannon was the author of information theory."
+    },
+    {
+      "text": "Nathaniel Rochester built an early famous computer at IBM."
+    },
+    {
+      "text": "The Dartmouth workshop proposal was for a two-month study of artificial intelligence by 10 people in the summer."
+    },
+    {
+      "text": "The proposal aimed to make machines use natural languages, find abstractions and concepts, solve problems reserved for humans, and improve themselves."
+    },
+    {
+      "text": "The proposal suggested that significant advancement was possible with a carefully selected group working for a summer."
+    },
+    {
+      "text": "The Dartmouth workshop was funded and conducted."
+    },
+    {
+      "text": "The workshop did not actually solve the proposed problems."
+    },
+    {
+      "text": "The workshop participants gained an understanding of the difficulty of the problems."
+    },
+    {
+      "text": "The 1950s and early 1960s were a period of high expectations for AI."
+    },
+    {
+      "text": "During that time, people expected androids to walk, bring coffee, and converse in human language within a few years."
+    },
+    {
+      "text": "Science fiction was expected to become reality very soon."
+    },
+    {
+      "text": "The actual progress in AI was limited but still good."
+    },
+    {
+      "text": "There was a program called the Logic Theorist that was a theorem prover in its time."
+    },
+    {
+      "text": "At the time, it was thought that teaching AI logic and math was important."
+    },
+    {
+      "text": "The Logic Theorist successfully reproved many fundamentals of mathematics."
+    },
+    {
+      "text": "The Logic Theorist fueled early high expectations for AI."
+    },
+    {
+      "text": "Optimism about AI in the early 1960s did not work out."
+    },
+    {
+      "text": "A primary cause of disillusionment in AI in the 1960s was a failed machine translation project."
+    },
+    {
+      "text": "In the 1950s, people expected a program to translate Russian to English successfully."
+    },
+    {
+      "text": "Machine translation at that time was beyond the abilities of computer science."
+    },
+    {
+      "text": "A report in 1961 or 1962 concluded that machine translation basically doesn't work and more research was needed."
+    },
+    {
+      "text": "Governments became disillusioned and stopped giving grants for AI."
+    },
+    {
+      "text": "Loss of grants caused AI researchers to move to other fields."
+    },
+    {
+      "text": "The 1970s are known as the AI winter."
+    },
+    {
+      "text": "During the AI winter, very few people worked on AI."
+    },
+    {
+      "text": "AI was considered too hard, impossible, and inaccessible with 1970s techniques."
+    },
+    {
+      "text": "The assessment that AI was too hard at the time was true."
+    },
+    {
+      "text": "Expert systems were the main AI activity during the AI winter."
+    },
+    {
+      "text": "Expert systems perform probabilistic reasoning on small snippets of domain knowledge."
+    },
+    {
+      "text": "Mycin was a 1970s expert system for medical diagnostics based on blood tests."
+    },
+    {
+      "text": "Blood test results consist of a table of about 50 numbers including red blood cells, white blood cells, hemoglobin, iron, etc."
+    },
+    {
+      "text": "An experienced physician can diagnose diseases by looking at blood test results."
+    },
+    {
+      "text": "It is impossible for a human to write a single mathematical function of 50 variables that outputs a diagnosis."
+    },
+    {
+      "text": "Humans do not formulate a general function, but rather local heuristic rules (e.g., if red blood cell count is high and iron is low, then a certain disease)."
+    },
+    {
+      "text": "Doctors can provide these local heuristic rules."
+    },
+    {
+      "text": "The AI question in expert systems is how to combine the given rules to make a diagnosis from a new blood test."
+    },
+    {
+      "text": "A human doctor cannot mentally combine many rules to form a general diagnostic function."
+    },
+    {
+      "text": "In the 1970s, people worked on mathematical difficulties in defining thresholds, concluding that there probably is no threshold and the definition is a continuous function."
+    },
+    {
+      "text": "In the 1980s, people returned to neural networks."
+    },
+    {
+      "text": "In the 1980s, convolutional networks, recurrent networks, and multi-layered (deep) networks already existed."
+    },
+    {
+      "text": "Deep learning could have been done in the 1980s and 1990s but did not happen mostly for technological reasons."
+    },
+    {
+      "text": "People in the 1980s realized neural networks were promising but they did not work well due to insufficient data and insufficient computational power."
+    },
+    {
+      "text": "The necessary elements for deep learning came together in the mid-2000s."
+    },
+    {
+      "text": "In 2005–2007, labs including those of Geoffrey Hinton and Joshua Benja kick-started the deep learning revolution."
+    },
+    {
+      "text": "By the mid-2000s, the internet and increased computational capabilities provided enough data to make neural networks work."
+    },
+    {
+      "text": "By the mid-2000s, computational power was sufficient to train large neural networks."
+    },
+    {
+      "text": "The final step in enabling deep learning was the transition from CPUs to GPUs."
+    },
+    {
+      "text": "Operations in neural networks are highly parallelizable."
+    },
+    {
+      "text": "It was a natural idea to switch from CPUs to GPUs when GPUs appeared."
+    },
+    {
+      "text": "CPUs typically have a few very fast cores, for example, 4 cores at 4 GHz each."
+    },
+    {
+      "text": "GPUs have hundreds or thousands of slower cores."
+    },
+    {
+      "text": "The switch to GPUs provided the final boost that made deep learning work."
+    },
+    {
+      "text": "Starting from the late 2000s, neural networks and deep learning advanced from being a narrow subfield to achieving state-of-the-art results in many fields."
+    },
+    {
+      "text": "A textbook definition of learning from the 1990s states that a computer program learns with experience on a class of tasks T and performance measure P if its performance on T, as measured by P, improves with experience."
+    },
+    {
+      "text": "A performance measure is essential for learning, to determine if learning occurred."
+    },
+    {
+      "text": "Half of deep learning involves designing loss functions (objectives) that define the error to minimize."
+    },
+    {
+      "text": "Designing loss functions can be easy or non-trivial, and sometimes is a scientific endeavor."
+    },
+    {
+      "text": "Machine learning problems are divided into supervised learning, unsupervised learning, and reinforcement learning."
+    },
+    {
+      "text": "In supervised learning, one uses a dataset of labeled examples (e.g., pictures labeled as cat or dog) to train a classifier."
+    },
+    {
+      "text": "In supervised learning, the dataset consists of pairs (X, Y), where X is the input and Y is the desired output."
+    },
+    {
+      "text": "A supervised learning model is a function that takes input X and produces output that approximates Y."
+    },
+    {
+      "text": "In binary classification, the model often outputs a number between 0 and 1, representing the probability of a class (e.g., cat) given the input."
+    },
+    {
+      "text": "Mathematically, supervised learning aims to learn the conditional distribution p(y|x)."
+    },
+    {
+      "text": "Supervised learning models assume an input is provided and do not generate new examples."
+    },
+    {
+      "text": "In computer vision, inputs are high-dimensional (e.g., images or video), and tasks include classification, object detection, and segmentation."
+    },
+    {
+      "text": "Supervised learning aims to map a complicated input to a relatively simple output."
+    },
+    {
+      "text": "Supervised learning datasets require correct labels."
+    },
+    {
+      "text": "In computer vision, labeling is often complicated, difficult, and expensive."
+    },
+    {
+      "text": "For classification tasks, labeling is not very expensive; for segmentation, proper labeling is extremely expensive."
+    },
+    {
+      "text": "In segmentation tasks, one must work with relatively small datasets."
+    },
+    {
+      "text": "Unsupervised learning uses unlabeled datasets."
+    },
+    {
+      "text": "Unsupervised learning can achieve useful outcomes for downstream tasks like classification."
+    },
+    {
+      "text": "Unsupervised learning often involves dimensionality reduction, compressing the input X to a smaller representation (e.g., a vector of numbers)."
+    },
+    {
+      "text": "A one megapixel photo contains about 1 megapixel (1024^2 pixels), each with 3 numbers, so approximately 3 million numbers total."
+    },
+    {
+      "text": "The space of possible images has a huge dimension, making direct work difficult."
+    },
+    {
+      "text": "The set of real images forms a complicated manifold in the high-dimensional pixel space."
+    },
+    {
+      "text": "Humanity does not know the structure of this set of real images."
+    },
+    {
+      "text": "The set of real photographs in pixel space is an open set because small perturbations of a real photo still yield a real photo."
+    },
+    {
+      "text": "There is no known clear distinction between real photos and random noise."
+    },
+    {
+      "text": "The geometric structure of the manifold of real images is unknown and likely very complicated."
+    },
+    {
+      "text": "Unsupervised learning attempts to map the high-dimensional manifold of real images to a much smaller dimension (e.g., 500) to obtain a more manageable representation."
+    },
+    {
+      "text": "Unsupervised learning aims for feature extraction or representation learning."
+    },
+    {
+      "text": "You want to map a big object like an image to a much smaller object like a vector of numbers without losing important information."
+    },
+    {
+      "text": "You cannot just take the first 100 pixels from a big object like an image to achieve this mapping."
+    },
+    {
+      "text": "The mapping should allow you to answer interesting questions in the small space."
+    },
+    {
+      "text": "In the manifold of real images, after mapping to the small space, you are still able to distinguish cats from dogs."
+    },
+    {
+      "text": "In a 500-dimensional small space, there exists a hyperplane that linearly separates cats from dogs."
+    },
+    {
+      "text": "It is very easy to separate cats from dogs in that small space."
+    },
+    {
+      "text": "In the original high-dimensional space, dogs occupy one part and cats occupy another, but they cannot be disentangled."
+    },
+    {
+      "text": "The point of unsupervised learning is to compress data down to a more manageable little space, hoping that in that space relatively simple machine learning models can accomplish the desired task."
+    },
+    {
+      "text": "This kind of compression is never the end goal; the vectors themselves are wanted for some ultimate purpose."
+    },
+    {
+      "text": "In unsupervised learning, the ultimate purpose of the compressed vectors is not fixed in advance; the immediate goal is to obtain good features."
+    },
+    {
+      "text": "In unsupervised learning, there is no dataset with correct representations Z."
+    },
+    {
+      "text": "The correct low-dimensional representation is unknown."
+    },
+    {
+      "text": "In supervised learning, there is a dataset with inputs x and outputs y, allowing verification of the model by checking correct answers."
+    },
+    {
+      "text": "In unsupervised learning, there are no correct answers."
+    },
+    {
+      "text": "It is not possible to train a neural network without a loss function."
+    },
+    {
+      "text": "Training a neural network requires a specific numerical goal to optimize."
+    },
+    {
+      "text": "In an autoencoder, the input x is passed through an encoder to produce a vector z."
+    },
+    {
+      "text": "To verify the quality of compression, the compression should reduce to a smaller size; the size of z is chosen by the designer."
+    },
+    {
+      "text": "A meaningful compression allows the original object to be reconstructed from the compressed representation."
+    },
+    {
+      "text": "If compression produced just random bits, it would not be a good archive tool because files could not be recovered."
+    },
+    {
+      "text": "The purpose of compression is to be able to decompress back to the original."
+    },
+    {
+      "text": "An autoencoder adds a decoder that takes z and attempts to restore the original image, producing x_hat."
+    },
+    {
+      "text": "The decoder is typically a complicated neural network functioning as a generative model, taking a vector of numbers and producing a meaningful image like a cat picture."
+    },
+    {
+      "text": "With the decoder, we have a clear loss function: the output x_hat should be similar to the input x."
+    },
+    {
+      "text": "The loss function can be defined as (x_hat - x)^2, the squared deviation in pixels, which is a common loss function for autoencoders."
+    },
+    {
+      "text": "The idea of compressing and then decompressing back is a common approach in unsupervised learning and will be encountered multiple times in class."
+    },
+    {
+      "text": "When trying to make sense of a dataset, the goal is to find internal structure."
+    },
+    {
+      "text": "Finding structure typically means projecting the data down to a smaller space where the structure is clearer."
+    },
+    {
+      "text": "For a long time, clustering was the central example of unsupervised learning, though now autoencoders and dimensionality reduction are considered more important."
+    },
+    {
+      "text": "Clustering is the problem of splitting objects into groups such that points within a cluster are similar to each other, and points in different clusters are different."
+    },
+    {
+      "text": "Clustering can be viewed as an extreme form of dimensionality reduction, where each object is compressed to a zero-dimensional representation (the cluster label)."
+    },
+    {
+      "text": "In clustering, each point is compressed to its cluster label, which comes from a finite set of labels."
+    },
+    {
+      "text": "Clustering naturally compresses data to a discrete finite set of points, aiming for decompression to be as faithful as possible."
+    },
+    {
+      "text": "In clustering, the aim is to replace all points in a cluster with its center or label, and then to reconstruct the points as accurately as possible."
+    },
+    {
+      "text": "In supervised learning, one learns the distribution p(y|x); in unsupervised learning, the goal is to learn p(x) with no y."
+    },
+    {
+      "text": "In the context of autoencoders, learning p(x) likely means learning to sample from the distribution of x."
+    },
+    {
+      "text": "In an autoencoder, z can be viewed as random noise, and the decoder converts it to an output x that should follow the distribution of cat pictures."
+    },
+    {
+      "text": "In supervised learning, there is always an input x; in unsupervised learning, the focus is on describing x itself."
+    },
+    {
+      "text": "In unsupervised learning, it often means learning a generative model capable of producing new samples of x."
+    },
+    {
+      "text": "For images, the generative model can draw new pictures."
+    },
+    {
+      "text": "There is a third type of machine learning called reinforcement learning, which will not be covered in this class."
+    },
+    {
+      "text": "In reinforcement learning, there is no initial dataset; the model acts as an agent in an environment, and the dataset is the experience of interacting with that environment."
+    },
+    {
+      "text": "In learning to play chess via reinforcement learning, the agent does not have a dataset of correct moves."
+    },
+    {
+      "text": "In reinforcement learning for chess, the agent does not have a dataset of all possible positions from chess games to compress like in unsupervised learning."
+    },
+    {
+      "text": "In reinforcement learning for chess, the agent typically plays against itself or other versions, learning from the outcome (who won)."
+    },
+    {
+      "text": "Reinforcement learning involves an agent living in an environment, receiving rewards (e.g., in chess, the reward is who won), and learning to maximize those rewards."
+    },
+    {
+      "text": "In reinforcement learning, the agent learns a policy for behavior that maximizes the reward."
+    },
+    {
+      "text": "Practical topics like cross-validation will be skipped in this part and may be covered in the practical sessions."
+    },
+    {
+      "text": "The intro part of the lecture has ended."
+    },
+    {
+      "text": "The lecturer is not able to come to Barcelona this year and is teaching online."
+    },
+    {
+      "text": "Alex Davidov will be present on campus for the offline component."
+    },
+    {
+      "text": "The lecturer will deliver lectures, which is not the advised format."
+    },
+    {
+      "text": "There will be three days of lectures at the start: today, tomorrow, and Wednesday."
+    },
+    {
+      "text": "The aim is to make good progress so that Alex can begin work on Thursday."
+    },
+    {
+      "text": "The schedule will mostly alternate between two lectures and two practical sessions, eventually evening out."
+    },
+    {
+      "text": "The lecturer will be mostly available next week and will return for the final lecture."
+    },
+    {
+      "text": "The break will be 15 to 20 minutes, resuming at 10:50 or 10:55."
+    },
+    {
+      "text": "In the first part of the lecture, the history of artificial intelligence and early ideas such as the Turing test were discussed."
+    },
+    {
+      "text": "The first part also covered the main taxonomy of machine learning problems."
+    },
+    {
+      "text": "The taxonomy of machine learning problems includes supervised learning, unsupervised learning, and reinforcement learning."
+    },
+    {
+      "text": "In the second part of the lecture, the topic will be what learning actually means."
+    },
+    {
+      "text": "The speaker has always understood machine learning through the Bayesian perspective."
+    },
+    {
+      "text": "The speaker recommends understanding machine learning through the Bayesian perspective."
+    },
+    {
+      "text": "The speaker has always understood machine learning through the probabilistic perspective."
+    },
+    {
+      "text": "The speaker recommends understanding machine learning through the probabilistic perspective."
+    },
+    {
+      "text": "The speaker will explain what they mean by understanding machine learning through the Bayesian perspective."
+    },
+    {
+      "text": "Students who have taken probability theory classes are likely unhappy to hear that machine learning is pure probability theory."
+    },
+    {
+      "text": "When the speaker says \"probability theory\" to students, they get scared."
+    },
+    {
+      "text": "A probability theory class usually involves very difficult mathematical material about measure theory."
+    },
+    {
+      "text": "In a probability theory class, one starts with the sigma algebra of measurable Borel sets in the Euclidean space."
+    },
+    {
+      "text": "Then, one introduces probability as a measure."
+    },
+    {
+      "text": "In such a class, understanding expectation is pretty difficult."
+    },
+    {
+      "text": "Understanding conditional expectation is extremely difficult."
+    },
+    {
+      "text": "The class is full of abstract theorems."
+    },
+    {
+      "text": "The speaker's course does not need measure theory, sigma algebras, or abstract theorems."
+    },
+    {
+      "text": "The speaker does not advise forgetting measure theory if one knows it."
+    },
+    {
+      "text": "There is a saying by Cervantes that education is what remains after you've forgotten everything you were taught."
+    },
+    {
+      "text": "The idea that education is what remains after forgetting everything applies to probability theory in machine learning."
+    },
+    {
+      "text": "In machine learning, what is needed from probability theory is the intuition that remains after forgetting the theorems."
+    },
+    {
+      "text": "Probability theory is about random variables."
+    },
+    {
+      "text": "Discrete random variables include coin tosses."
+    },
+    {
+      "text": "Discrete random variables include die rolls."
+    },
+    {
+      "text": "For a discrete set of outcomes, the probabilities of the outcomes must sum to one."
+    },
+    {
+      "text": "Continuous random variables have a density function instead of probabilities of outcomes."
+    },
+    {
+      "text": "A person who took a probability theory class might object that not every probability has a density."
+    },
+    {
+      "text": "Some probabilities cannot be characterized by a density function."
+    },
+    {
+      "text": "Such probabilities require measure theory."
+    },
+    {
+      "text": "The speaker says to forget about such probabilities for machine learning."
+    },
+    {
+      "text": "In machine learning, only standard and easy probabilities are used."
+    },
+    {
+      "text": "In the speaker's course, every probability distribution discussed will have a density."
+    },
+    {
+      "text": "For continuous distributions with a density, the summing-to-one condition means taking an integral over the probability space."
+    },
+    {
+      "text": "In the course, only Euclidean spaces (the real line and its powers) will be used as probability spaces."
+    },
+    {
+      "text": "Machine learning requires basic intuitions of probability theory."
+    },
+    {
+      "text": "Machine learning requires very basic definitions of probability theory."
+    },
+    {
+      "text": "The speaker hopes that the slide contains nothing new for the audience."
+    },
+    {
+      "text": "If the slide contains new material, the speaker recommends reviewing probability basics."
+    },
+    {
+      "text": "The course will use some probability basics."
+    },
+    {
+      "text": "The speaker will quickly go through the slide material."
+    },
+    {
+      "text": "If there are two random variables that can happen simultaneously, one can define their joint probability p(x,y)."
+    },
+    {
+      "text": "Discrete random variables are characterized by probability mass functions p(x)."
+    },
+    {
+      "text": "For a die, the probability mass function gives the probability of each outcome from 1 to 6."
+    },
+    {
+      "text": "Continuous random variables can be characterized by density functions, such as one concentrated from 0 to 1."
+    },
+    {
+      "text": "The integral of a density function over its domain must equal 1."
+    },
+    {
+      "text": "A density function concentrated from 0 to 1 corresponds to a random variable sampling a number from 0 to 1."
+    },
+    {
+      "text": "For two random variables, one considers their joint probability."
+    },
+    {
+      "text": "Joint probability p(x,y) gives the probability that x equals some value and y equals some value."
+    },
+    {
+      "text": "To get the marginal probability of x from the joint probability, one sums the joint probability over all possible values of y."
+    },
+    {
+      "text": "Conditional probability is derived from joint probability."
+    },
+    {
+      "text": "Conditional probability is the most important notion for machine learning."
+    },
+    {
+      "text": "Conditional probability p(x|y) is the probability that x takes a certain value given that y is known."
+    },
+    {
+      "text": "The joint probability decomposes as p(x,y) = p(x|y) p(y)."
+    },
+    {
+      "text": "The speaker thinks this decomposition might be called the full probability formula."
+    },
+    {
+      "text": "The decomposition p(x,y) = p(x|y) p(y) defines conditional probability."
+    },
+    {
+      "text": "Conditional probability is defined as p(x|y) = p(x,y) / p(y)."
+    },
+    {
+      "text": "The course will involve many conditional probabilities."
+    },
+    {
+      "text": "The decomposition of joint probability into marginal and conditional can be done in two ways: starting with x or starting with y."
+    },
+    {
+      "text": "One way to sample x and y is to sample y from p(y), then sample x from p(x|y)."
+    },
+    {
+      "text": "Another way is to sample x from p(x), then sample y from p(y|x)."
+    },
+    {
+      "text": "Both sampling approaches correspond to the definition of conditional probability."
+    },
+    {
+      "text": "Combining the two decompositions shows they both equal the joint probability p(x,y)."
+    },
+    {
+      "text": "From these two decompositions, one obtains the most important formula in machine learning."
+    },
+    {
+      "text": "The speaker believes this formula is important beyond machine learning."
+    },
+    {
+      "text": "The formula is p(y|x) = p(x|y) p(y) / p(x)."
+    },
+    {
+      "text": "This formula is called Bayes' rule or Bayes' formula."
+    },
+    {
+      "text": "Bayes' rule follows directly from the definition of conditional probability."
+    },
+    {
+      "text": "Philosophically, real-life reasoning works like Bayes' rule."
+    },
+    {
+      "text": "In real life, facts are seldom known with certainty."
+    },
+    {
+      "text": "In real life, reasoning involves balancing probabilities and weighing evidence."
+    },
+    {
+      "text": "Bayes' formula underlies how evidence is accounted for."
+    },
+    {
+      "text": "The speaker will discuss Bayes' formula further."
+    },
+    {
+      "text": "Independence is a very important notion in probability."
+    },
+    {
+      "text": "Two random variables are independent if their joint probability (or density) equals the product of their individual probabilities, i.e., p(x,y) = p(x) p(y)."
+    },
+    {
+      "text": "Independence means the joint distribution decomposes into the product of marginals."
+    },
+    {
+      "text": "If two variables are independent, the conditional distribution p(x|y) equals the marginal p(x)."
+    },
+    {
+      "text": "For independent variables, the conditional distribution does not depend on the conditioning variable."
+    },
+    {
+      "text": "Independence implies that sampling variables separately yields the same joint distribution as sampling together."
+    },
+    {
+      "text": "Tossing two coins in a row is an example of independent random variables."
+    },
+    {
+      "text": "The speaker will restate Bayes' formula in different notation."
+    },
+    {
+      "text": "Bayes' formula is called the main formula of machine learning."
+    },
+    {
+      "text": "In the new notation, Bayes' formula is p(θ|d) = p(d|θ) p(θ) / p(d)."
+    },
+    {
+      "text": "This is the same formula with different symbols."
+    },
+    {
+      "text": "In this notation, d represents the data or dataset."
+    },
+    {
+      "text": "θ represents the model parameters."
+    },
+    {
+      "text": "In machine learning, one wants to learn the model parameters θ."
+    },
+    {
+      "text": "In a neural network, the model parameters are the weights."
+    },
+    {
+      "text": "In the Bayesian approach, the weights are learned as a whole distribution, not exact values."
+    },
+    {
+      "text": "The speaker will return to the concept of weight distributions later."
+    },
+    {
+      "text": "For now, θ is considered as the model parameters."
+    },
+    {
+      "text": "In a linear regression, θ represents the weights."
+    },
+    {
+      "text": "Linear regression will be the first serious example in the course."
+    },
+    {
+      "text": "θ can also be the weights of a neural network."
+    },
+    {
+      "text": "θ can also be the probability of heads for a coin."
+    },
+    {
+      "text": "A coin has two sides."
+    },
+    {
+      "text": "Tossing a coin yields outcomes."
+    },
+    {
+      "text": "In the coin example, the data d is the set of coin toss outcomes."
+    },
+    {
+      "text": "For the coin, the parameter θ is the probability of getting heads."
+    },
+    {
+      "text": "The whole point of machine learning is to learn model parameters from data."
+    },
+    {
+      "text": "Machine learning deals with a set of outcomes from a stochastic process with inherent randomness."
+    },
+    {
+      "text": "The goal is to understand the parameters that governed the process."
+    },
+    {
+      "text": "Learning parameters from data is the whole idea of machine learning; everything else is commentary."
+    },
+    {
+      "text": "Bayes' theorem is the main tool for learning parameters from data."
+    },
+    {
+      "text": "The speaker will discuss the components of Bayes' formula."
+    },
+    {
+      "text": "In Bayes' formula, p(θ|d) is called the posterior probability or posterior distribution."
+    },
+    {
+      "text": "\"Posterior\" means after the fact, after evidence has been included."
+    },
+    {
+      "text": "The posterior distribution is intuitive."
+    },
+    {
+      "text": "The posterior distribution represents one's understanding of θ after taking the data into account."
+    },
+    {
+      "text": "The posterior shows how understanding of θ has changed given data."
+    },
+    {
+      "text": "The goal in learning is to obtain the posterior distribution."
+    },
+    {
+      "text": "The final goal of machine learning is making predictions."
+    },
+    {
+      "text": "Predictions will be discussed later."
+    },
+    {
+      "text": "An intermediate goal is to learn about θ from data D."
+    },
+    {
+      "text": "Usually, one cannot obtain the posterior distribution directly without using Bayes' formula."
+    },
+    {
+      "text": "Bayes' rule shows that the posterior is proportional to the product of p(d|θ) and p(θ)."
+    },
+    {
+      "text": "p(d|θ) is called the likelihood."
+    },
+    {
+      "text": "The likelihood p(d|θ) is the probability (or density) of observing dataset d given model parameters θ."
+    },
+    {
+      "text": "The speaker will give a coin tossing example to clarify the likelihood."
+    },
+    {
+      "text": "In machine learning model definition, one usually defines the likelihood."
+    },
+    {
+      "text": "Defining the likelihood is the easy part."
+    },
+    {
+      "text": "The likelihood is what you get from listing your assumptions and writing them down as formulas."
+    },
+    {
+      "text": "The main point of Bayes rule is that the likelihood is not enough."
+    },
+    {
+      "text": "You also need the prior distribution (or prior) in addition to the likelihood."
+    },
+    {
+      "text": "The prior is P(θ) (probability of θ without any data D)."
+    },
+    {
+      "text": "The prior represents what we were thinking about θ in advance before getting data D."
+    },
+    {
+      "text": "The lecture will make an extensive example soon."
+    },
+    {
+      "text": "The Bayes formula tells you: to get the posterior distribution, you need to multiply the prior P(θ) by the likelihood P(D|θ)."
+    },
+    {
+      "text": "The denominator in Bayes rule is usually called the full probability or evidence probability."
+    },
+    {
+      "text": "P(D) is not really important in machine learning because it doesn't contain θ."
+    },
+    {
+      "text": "In machine learning, P(D) is usually completely inaccessible by itself."
+    },
+    {
+      "text": "Instead of the full Bayes rule, we often use proportionality: P(θ|D) ∝ P(D|θ) × P(θ)."
+    },
+    {
+      "text": "Proportional means that P(θ|D) should be a probability distribution, so it integrates to 1."
+    },
+    {
+      "text": "Almost always, the only way to compute P(D) is as a normalizing constant for the numerator."
+    },
+    {
+      "text": "In some special cases, you might be interested in P(D)."
+    },
+    {
+      "text": "Usually in machine learning and deep learning, we are interested in maximizing P(θ|D) with respect to θ."
+    },
+    {
+      "text": "Maximizing P(θ|D) is the same as maximizing P(D|θ)×P(θ), and you don't care about the constant P(D)."
+    },
+    {
+      "text": "The denominator P(D) is complicated but usually not necessary."
+    },
+    {
+      "text": "The example is about learning a coin toss."
+    },
+    {
+      "text": "A coin has two sides and can be tossed."
+    },
+    {
+      "text": "A coin is a stochastic process, a random variable; tossing it gives heads or tails with some probabilities."
+    },
+    {
+      "text": "One number is needed to define the probabilities for a coin (one parameter)."
+    },
+    {
+      "text": "A coin has just one parameter."
+    },
+    {
+      "text": "Let θ be the probability of heads."
+    },
+    {
+      "text": "The probability of tails is 1-θ."
+    },
+    {
+      "text": "The coin example is the first illustration of the probabilistic view of machine learning."
+    },
+    {
+      "text": "The likelihood for a coin is P(D|θ)."
+    },
+    {
+      "text": "D is the sequence of outcomes from tossing the coin multiple times (e.g., heads, tails, heads, heads, heads, tails, tails)."
+    },
+    {
+      "text": "P(D|θ) is easy to define and follows directly from the model."
+    },
+    {
+      "text": "An additional assumption of conditional independence is needed to define P(D|θ)."
+    },
+    {
+      "text": "The assumption is that different data points are conditionally independent given the parameters."
+    },
+    {
+      "text": "This assumption is used throughout machine learning in every model."
+    },
+    {
+      "text": "If you know the probability of heads (θ), then different coin tosses are independent."
+    },
+    {
+      "text": "This assumption means P(D|θ) decomposes into the product P(D1|θ) × P(D2|θ) × ... × P(Dn|θ)."
+    },
+    {
+      "text": "Each P(D_i|θ) is the probability of one coin toss outcome (heads or tails)."
+    },
+    {
+      "text": "Given θ, the probability of heads is θ."
+    },
+    {
+      "text": "Given θ, the probability of tails is 1-θ."
+    },
+    {
+      "text": "For a dataset with 4 heads and 3 tails, P(D|θ) = θ^4 (1-θ)^3."
+    },
+    {
+      "text": "In general, P(D|θ) = θ^{number of heads} (1-θ)^{number of tails}."
+    },
+    {
+      "text": "In machine learning, the likelihood is easy; it is the model itself."
+    },
+    {
+      "text": "Defining a machine learning model usually means defining the likelihood, i.e., the assumptions that allow writing down such a formula."
+    },
+    {
+      "text": "For the coin, the model assumptions include: two mutually exclusive outcomes, one with probability θ and the other with 1-θ, and conditional independence given θ."
+    },
+    {
+      "text": "With only the likelihood, the only thing you can do is try to maximize it."
+    },
+    {
+      "text": "The first optimization task in machine learning is finding the maximum likelihood hypothesis θ_ML = argmax_θ P(D|θ)."
+    },
+    {
+      "text": "For a general dataset with N heads and M tails, P(D|θ) = θ^N (1-θ)^M."
+    },
+    {
+      "text": "To maximize P(D|θ), take its derivative with respect to θ."
+    },
+    {
+      "text": "The derivative d/dθ [θ^N (1-θ)^M] = N θ^{N-1} (1-θ)^M - M θ^N (1-θ)^{M-1}."
+    },
+    {
+      "text": "Setting the derivative to zero gives θ^{N-1} (1-θ)^{M-1} [N(1-θ) - M θ] = 0."
+    },
+    {
+      "text": "The roots are θ=0, θ=1, and θ = N/(N+M)."
+    },
+    {
+      "text": "If both heads and tails are observed, θ=0 and θ=1 give zero likelihood."
+    },
+    {
+      "text": "Therefore θ=0 and θ=1 are minima, not maxima, because in between the likelihood is positive."
+    },
+    {
+      "text": "The maximum likelihood hypothesis is θ_ML = N/(N+M)."
+    },
+    {
+      "text": "The maximum likelihood estimate for a coin's probability of heads is the number of heads divided by the total number of tosses."
+    },
+    {
+      "text": "In classical probability textbooks, probability was sometimes introduced by defining the probability of an outcome as the limit of relative frequencies."
+    },
+    {
+      "text": "Running the experiment infinitely many times produces outcomes."
+    },
+    {
+      "text": "One counts the number of times a particular outcome occurs."
+    },
+    {
+      "text": "One divides that count by the total number of trials."
+    },
+    {
+      "text": "As the total number of trials goes to infinity, this fraction approaches the probability."
+    },
+    {
+      "text": "This convergence is a definition of probability from some standpoint."
+    },
+    {
+      "text": "For a coin, this convergence works perfectly."
+    },
+    {
+      "text": "There is no catch in applying this to a coin."
+    },
+    {
+      "text": "If one keeps tossing the coin, the fraction of heads does not oscillate between 0 and 1."
+    },
+    {
+      "text": "The fraction of heads converges to the probability of heads."
+    },
+    {
+      "text": "Everything stated about the coin convergence is completely true."
+    },
+    {
+      "text": "The coin has two sides."
+    },
+    {
+      "text": "The speaker considers the scenario where this is the first time they toss the coin."
+    },
+    {
+      "text": "The coin was just taken out of the speaker's purse."
+    },
+    {
+      "text": "This is the first time the speaker has encountered this coin."
+    },
+    {
+      "text": "The speaker tosses the coin."
+    },
+    {
+      "text": "The result is tails."
+    },
+    {
+      "text": "The speaker's data set consists only of tails."
+    },
+    {
+      "text": "The likelihood function is 1 - θ."
+    },
+    {
+      "text": "The likelihood function 1 - θ is a linear function."
+    },
+    {
+      "text": "The linear function has no maximum or minimum if unconstrained."
+    },
+    {
+      "text": "If one ignores that θ is a probability, the maximum likelihood estimate would be negative infinity."
+    },
+    {
+      "text": "The likelihood function does not incorporate the knowledge that θ is a probability."
+    },
+    {
+      "text": "The likelihood function does not constrain θ to be between 0 and 1."
+    },
+    {
+      "text": "One needs to impose a constraint that θ is between 0 and 1."
+    },
+    {
+      "text": "Imposing this constraint is somewhat arbitrary at this point."
+    },
+    {
+      "text": "If θ is constrained to be between 0 and 1, the maximum likelihood hypothesis given one tails is exactly 0."
+    },
+    {
+      "text": "The maximum likelihood hypothesis is exactly 0."
+    },
+    {
+      "text": "The mathematical derivation of the maximum likelihood hypothesis as 0 is correct."
+    },
+    {
+      "text": "After tossing a real coin once and getting tails, the maximum likelihood conclusion is that the coin will always land tails."
+    },
+    {
+      "text": "That conclusion does not make sense."
+    },
+    {
+      "text": "People have an intuition that coins are approximately fair."
+    },
+    {
+      "text": "The intuition is that θ should be around 1/2, not exactly, but nearby."
+    },
+    {
+      "text": "Without prior intuition, given two possible outcomes and one trial, one outcome will inevitably be observed."
+    },
+    {
+      "text": "After one experiment, the maximum likelihood hypothesis is always either 0 or 1, depending on the observed outcome."
+    },
+    {
+      "text": "This implies concluding that the same outcome will occur in all future trials."
+    },
+    {
+      "text": "That conclusion does not sound correct."
+    },
+    {
+      "text": "We should not make that conclusion."
+    },
+    {
+      "text": "The math is correct; the computed value is indeed the maximum likelihood hypothesis."
+    },
+    {
+      "text": "More experiments are needed."
+    },
+    {
+      "text": "To make a more precise estimate of θ, more experiments are needed."
+    },
+    {
+      "text": "Statistics classes can tell you how many experiments are needed."
+    },
+    {
+      "text": "In the limit of infinite data, there is no difference between methods."
+    },
+    {
+      "text": "In the limit, the maximum likelihood hypothesis converges to the true value of θ as the number of trials for both outcomes goes to infinity."
+    },
+    {
+      "text": "In that limit, everything works out."
+    },
+    {
+      "text": "In the limit, the current discussion about small sample issues will not matter."
+    },
+    {
+      "text": "If we can toss the coin infinitely many times, there is no problem."
+    },
+    {
+      "text": "In that case, this discussion is unnecessary."
+    },
+    {
+      "text": "In practice, we do not have infinite data."
+    },
+    {
+      "text": "In machine learning, we start with a given data set."
+    },
+    {
+      "text": "We have a finite amount of data."
+    },
+    {
+      "text": "Usually in machine learning, it is not easy to get more data."
+    },
+    {
+      "text": "If more data were easy to obtain, many problems would be easier."
+    },
+    {
+      "text": "In machine learning, we have a dataset D that we cannot easily change."
+    },
+    {
+      "text": "During the data processing phase, we assume the dataset is fixed as given."
+    },
+    {
+      "text": "In real life, we will never get enough data."
+    },
+    {
+      "text": "For a coin, if one can collect more data, one can toss it up to 50 times."
+    },
+    {
+      "text": "After 50 tosses, one can be confident in the estimate of the coin's bias."
+    },
+    {
+      "text": "The confidence interval for θ will be small."
+    },
+    {
+      "text": "Statistics provides methods to compute confidence intervals."
+    },
+    {
+      "text": "That is not how real-world problems behave."
+    },
+    {
+      "text": "Building a language model is one of the simplest and most intuitive examples."
+    },
+    {
+      "text": "A language model takes text as input and outputs the next token."
+    },
+    {
+      "text": "Suppose OpenAI recently introduced the transformer and then built the first GPT model, which is like half of a transformer."
+    },
+    {
+      "text": "The first GPT model was trained on some text dataset."
+    },
+    {
+      "text": "The training resulted in a pretty good language model."
+    },
+    {
+      "text": "One might try to get more data to see how the model scales."
+    },
+    {
+      "text": "Compared to the original training data of the first GPT, it is easy to get more data by scraping the internet."
+    },
+    {
+      "text": "Extending the dataset with internet text results in a huge dataset."
+    },
+    {
+      "text": "A dataset orders of magnitude larger might lead one to believe that Bayesian considerations are irrelevant."
+    },
+    {
+      "text": "Training on such a large dataset might make one think the model behaves as in the infinite limit."
+    },
+    {
+      "text": "But that is not what happens in practice."
+    },
+    {
+      "text": "In practice, one does not simply collect more data to retrain the same model slightly better."
+    },
+    {
+      "text": "When orders of magnitude more data are collected, one uses a larger model like GPT-2 with more parameters."
+    },
+    {
+      "text": "GPT-2 had an order of magnitude more parameters than GPT."
+    },
+    {
+      "text": "GPT-1 had about 150 million parameters."
+    },
+    {
+      "text": "In practice, for difficult tasks like next token prediction or image classification, you never have enough data."
+    },
+    {
+      "text": "Having enough data is impossible."
+    },
+    {
+      "text": "If you have enough data for a model, that model is too weak."
+    },
+    {
+      "text": "You should switch to a bigger model for which you don't have enough data."
+    },
+    {
+      "text": "The bigger model will still perform better."
+    },
+    {
+      "text": "This point has not been formally proven yet; scaling loss might be discussed later."
+    },
+    {
+      "text": "In machine learning, unless the problem is very simple and well-defined (like coin toss or linear regression), the data is fixed."
+    },
+    {
+      "text": "Linear regression aims to represent data points with a linear dependence."
+    },
+    {
+      "text": "For linear regression, one might be able to get more data points."
+    },
+    {
+      "text": "Unless there is a strong reason (like a physical law) to believe the relationship is exactly linear, getting more data suggests moving to a larger model."
+    },
+    {
+      "text": "In general, with significantly more data, it is better to use a larger model (e.g., polynomial instead of linear)."
+    },
+    {
+      "text": "A larger model will fit better and will not overfit because of the increased data."
+    },
+    {
+      "text": "This will be discussed further when covering linear regression."
+    },
+    {
+      "text": "In machine learning, we operate at the frontier of what is possible."
+    },
+    {
+      "text": "The data is usually fixed."
+    },
+    {
+      "text": "We can change and select the model."
+    },
+    {
+      "text": "Typically, we choose a model for which the amount of data is barely sufficient for training."
+    },
+    {
+      "text": "In practice, we are always in a situation of data scarcity."
+    },
+    {
+      "text": "One toss is not enough to learn the probability of a coin toss."
+    },
+    {
+      "text": "Even with only one toss, we can still say something about the coin."
+    },
+    {
+      "text": "We should not conclude that the coin will always land tails."
+    },
+    {
+      "text": "One data point is not enough to shift one's prior beliefs about the coin."
+    },
+    {
+      "text": "The missing piece is one's prior beliefs."
+    },
+    {
+      "text": "So far, only the likelihood has been discussed."
+    },
+    {
+      "text": "What we want is the posterior distribution."
+    },
+    {
+      "text": "The posterior represents one's belief about the probability of heads after observing the data (tails)."
+    },
+    {
+      "text": "The likelihood is the probability of the observed data given θ."
+    },
+    {
+      "text": "The transition from likelihood to posterior requires the prior."
+    },
+    {
+      "text": "The prior is one's belief about θ before seeing any data."
+    },
+    {
+      "text": "The prior is important in this scenario."
+    },
+    {
+      "text": "The prior distribution $P(\\theta)$ for the coin toss is a distribution on the parameters (here, on the single parameter $\\theta$)."
+    },
+    {
+      "text": "In machine learning, one cannot limit oneself to discrete probability theory."
+    },
+    {
+      "text": "Even when tossing a coin (which has only two outcomes and one probability), the learning process involves a continuous distribution."
+    },
+    {
+      "text": "$P(\\theta)$ is a continuous distribution."
+    },
+    {
+      "text": "$P(\\theta)$ is a distribution on the possible values of the probability $\\theta$."
+    },
+    {
+      "text": "$\\theta$ is a probability (of heads)."
+    },
+    {
+      "text": "The probability $\\theta$ must be between 0 and 1."
+    },
+    {
+      "text": "$P(\\theta) = 0$ for $\\theta < 0$."
+    },
+    {
+      "text": "$P(\\theta) = 0$ for $\\theta > 1$."
+    },
+    {
+      "text": "If the observed data $D$ consists solely of a single tail, then the likelihood $P(D \\mid \\theta) = 1 - \\theta$."
+    },
+    {
+      "text": "The likelihood $P(D \\mid \\theta)$ as a function of $\\theta$ is a straight line (linear)."
+    },
+    {
+      "text": "If $\\theta$ is unconstrained, maximizing $P(D \\mid \\theta)$ would push $\\theta$ to negative infinity, making the likelihood go to $+\\infty$."
+    },
+    {
+      "text": "The prior $P(\\theta)$ is zero outside $[0,1]$, so the product $P(\\theta) P(D \\mid \\theta)$ will be zero outside $[0,1]$."
+    },
+    {
+      "text": "The posterior $P(\\theta \\mid D)$ is proportional to the product of the prior $P(\\theta)$ and the likelihood $P(D \\mid \\theta)$: $P(\\theta \\mid D) \\propto P(\\theta) P(D \\mid \\theta)$."
+    },
+    {
+      "text": "Using a uniform prior $P(\\theta) = 1$ for $\\theta \\in [0,1]$ (and 0 otherwise) represents having no prior knowledge about $\\theta$."
+    },
+    {
+      "text": "Multiplying the uniform prior by the likelihood $1-\\theta$ yields a function that is 0 outside $[0,1]$ and equals $1-\\theta$ on $[0,1]$."
+    },
+    {
+      "text": "The product $P(\\theta) P(D \\mid \\theta)$ with a uniform prior is not yet the posterior $P(\\theta \\mid D)$ because it lacks the normalizing constant (the denominator in Bayes' rule)."
+    },
+    {
+      "text": "The normalizing constant for the posterior distribution ensures that the total area under $P(\\theta \\mid D)$ is 1."
+    },
+    {
+      "text": "The area under the unnormalized product (uniform prior times likelihood for a single tail) is $1/2$."
+    },
+    {
+      "text": "To normalize the posterior, one must multiply the unnormalized product by 2, yielding the posterior distribution $P(\\theta \\mid D) = 2(1 - \\theta)$ for $\\theta \\in [0,1]$, and $0$ otherwise."
+    },
+    {
+      "text": "The uniform prior is not realistic for a physical coin because one typically expects the coin to be approximately fair (probability near $1/2$)."
+    },
+    {
+      "text": "A realistic prior for a coin would be a bell-shaped curve centered near $1/2$, which is high and peaked, but the exact mathematical form is not known from intuition."
+    },
+    {
+      "text": "Even a realistic prior still has $P(\\theta) = 0$ for $\\theta < 0$ and $\\theta > 1$ because that is a mathematical certainty."
+    },
+    {
+      "text": "In many machine learning situations where no prior knowledge exists, a uniform prior is reasonable."
+    },
+    {
+      "text": "For a parameter known to be a probability (range $[0,1]$), using a uniform prior is a good first step."
+    },
+    {
+      "text": "With a uniform prior, the posterior is proportional to the likelihood because multiplying by 1 does not change the shape."
+    },
+    {
+      "text": "With a uniform prior, maximizing the posterior (MAP) yields the same estimate as maximizing the likelihood (ML) because the constant prior does not affect the maximizer."
+    },
+    {
+      "text": "In the coin toss example, the maximum a posteriori estimate $\\theta_{\\text{MAP}}$ is still $\\frac{N}{N+M}$ (where $N$ is the number of heads and $M$ is the number of tails)."
+    },
+    {
+      "text": "Even with a uniform prior, the posterior approach prevents degenerate solutions by restricting $\\theta$ to $[0,1]$."
+    },
+    {
+      "text": "The ultimate goal of learning is not just to find the parameters $\\theta$, but to make predictions about new data."
+    },
+    {
+      "text": "In a neural network, the parameters $\\theta$ correspond to the weights of the network."
+    },
+    {
+      "text": "Checkpoints like $\\theta_{\\text{ML}}$ and $\\theta_{\\text{MAP}}$ represent states of the weights, but the final goal is the predictive model (e.g., distinguishing cats from dogs)."
+    },
+    {
+      "text": "In general, understanding something means being able to predict its behavior with accuracy better than chance."
+    },
+    {
+      "text": "In the coin example, if $\\theta > 1/2$, one would predict heads; if $\\theta < 1/2$, predict tails."
+    },
+    {
+      "text": "The biased rule states that $P(\\theta|D) = P(D|\\theta) P(\\theta) / P(D)$."
+    },
+    {
+      "text": "The predictive distribution is not part of the biased formula."
+    },
+    {
+      "text": "The predictive distribution is the next step after the biased formula."
+    },
+    {
+      "text": "The predictive distribution is the distribution of the next outcome given the data."
+    },
+    {
+      "text": "In the coin tossing example, the predictive distribution is the probability of heads given the data."
+    },
+    {
+      "text": "For a classification problem, the predictive distribution $P(X|D)$ gives the probability that a new picture is a cat given the data."
+    },
+    {
+      "text": "$P(X|D)$ does not contain the parameter $\\theta$."
+    },
+    {
+      "text": "The next prediction is of interest for solving the problem, not $\\theta$."
+    },
+    {
+      "text": "It is impossible to compute $P(X|D)$ without introducing $\\theta$."
+    },
+    {
+      "text": "The only way to compute $P(X|D)$ is to use the joint probability $P(X,\\theta|D)$ and marginalize over $\\theta$."
+    },
+    {
+      "text": "Marginalization gives $P(X|D) = \\int P(X,\\theta|D) d\\theta$."
+    },
+    {
+      "text": "The joint probability $P(X,\\theta|D)$ can be factored as $P(X|\\theta,D) P(\\theta|D)$."
+    },
+    {
+      "text": "$P(\\theta|D)$ is the posterior distribution."
+    },
+    {
+      "text": "Under the assumption that data points are independent given the parameters, $P(X|\\theta,D)$ simplifies to $P(X|\\theta)$."
+    },
+    {
+      "text": "The independence assumption means that if the full model parameters are known, past data $D$ does not matter for predicting the next outcome."
+    },
+    {
+      "text": "If the probability of heads is known, it does not matter what the past coin flip results were."
+    },
+    {
+      "text": "Therefore, the predictive distribution is $P(X|D) = \\int P(X|\\theta) P(\\theta|D) d\\theta$."
+    },
+    {
+      "text": "Even for the uniform prior, the predictive distribution will be different from just predicting zero."
+    },
+    {
+      "text": "For the coin toss, $P(\\text{heads}|D) = \\int P(\\text{heads}|\\theta) P(\\theta|D) d\\theta$."
+    },
+    {
+      "text": "$P(\\text{heads}|\\theta)$ is simply $\\theta$, the likelihood of one positive outcome."
+    },
+    {
+      "text": "$P(\\theta|D)$ is proportional to $P(D|\\theta) P(\\theta)$."
+    },
+    {
+      "text": "In the coin example with a uniform prior, $P(D|\\theta) \\propto \\theta^{n} (1-\\theta)^{m}$ on $[0,1]$ and $0$ elsewhere."
+    },
+    {
+      "text": "Multiplying by the uniform prior (constant on $[0,1]$) yields a posterior proportional to $\\theta^{n} (1-\\theta)^{m}$ on $[0,1]$ and $0$ elsewhere."
+    },
+    {
+      "text": "Then $P(\\text{heads}|D) = \\int_0^1 \\theta \\cdot \\theta^{n} (1-\\theta)^{m} / P(D) d\\theta$."
+    },
+    {
+      "text": "$P(D)$ is the normalizing constant $\\int_0^1 \\theta^{n} (1-\\theta)^{m} d\\theta$."
+    },
+    {
+      "text": "So the integral becomes $\\int_0^1 \\theta^{n+1} (1-\\theta)^{m} d\\theta / P(D)$."
+    },
+    {
+      "text": "This integral is recognized as the beta function."
+    },
+    {
+      "text": "The beta function can be expressed in terms of factorials."
+    },
+    {
+      "text": "The result simplifies to $\\frac{n+1}{n+m+2}$."
+    },
+    {
+      "text": "This formula is called Laplace's rule of succession."
+    },
+    {
+      "text": "Pierre-Simon Laplace was one of the original founders of probability theory."
+    },
+    {
+      "text": "Laplace's rule of succession was one of the original results of the field of probability theory."
+    },
+    {
+      "text": "The predictive distribution is the expectation over the posterior of the likelihood: $\\mathbb{E}_{\\theta|D}[P(X|\\theta)]$."
+    },
+    {
+      "text": "Expectation is defined as the integral of the function times the density."
+    },
+    {
+      "text": "In the coin example, this means averaging the likelihood over the posterior distribution."
+    },
+    {
+      "text": "With a uniform prior, the posterior distribution has its maximum at 0 (the MAP estimate $\\theta_{\\text{MAP}}=0$)."
+    },
+    {
+      "text": "Despite the maximum at 0, the posterior distribution is triangular, and averaging over it does not yield the plug-in estimate of 0."
+    },
+    {
+      "text": "The average predictive probability of heads is not 0 but something like one third, and not one half."
+    },
+    {
+      "text": "The predictive distribution averages the likelihood over all possible model parameters weighted by the posterior."
+    },
+    {
+      "text": "In machine learning, defining a model involves defining a loss function."
+    },
+    {
+      "text": "The loss function is usually either the negative log likelihood or the negative log posterior."
+    },
+    {
+      "text": "In logarithms, the log posterior equals the log likelihood plus the log prior plus a constant."
+    },
+    {
+      "text": "The log prior acts as a regularizer."
+    },
+    {
+      "text": "Regularization means putting a prior on the modal parameters."
+    },
+    {
+      "text": "Regularization introduces one's beliefs about the parameters."
+    },
+    {
+      "text": "The previous formulas were specific to the uniform prior."
+    },
+    {
+      "text": "For a real coin, the prior belief is a bell-shaped curve centered near 0.5."
+    },
+    {
+      "text": "To use a more realistic prior than the uniform prior, one must define it."
+    },
+    {
+      "text": "The prior $P(\\theta)$ should be zero outside $[0,1]$."
+    },
+    {
+      "text": "Inside $[0,1]$, the prior shape is bell-shaped, but there are many such functions."
+    },
+    {
+      "text": "The normal distribution is a possible prior but has tails outside $[0,1]$, so it must be truncated to $[0,1]$ and renormalized."
+    },
+    {
+      "text": "The truncated normal density on $[0,1]$ is proportional to $\\exp(-(\\theta-1/2)^2/(2\\sigma^2))$."
+    },
+    {
+      "text": "Multiplying the truncated normal prior by the likelihood $\\theta^n (1-\\theta)^m$ yields a product of an exponential and a polynomial."
+    },
+    {
+      "text": "This product is inconvenient for maximization because the shapes do not match."
+    },
+    {
+      "text": "In practice, the prior is chosen to match the shape of the likelihood for convenience."
+    },
+    {
+      "text": "A prior that matches the shape of the likelihood makes the multiplication easy."
+    },
+    {
+      "text": "Such a prior is called a conjugate prior."
+    },
+    {
+      "text": "The likelihood for a coin is proportional to $\\theta^n (1-\\theta)^m$, which is a polynomial."
+    },
+    {
+      "text": "An example of a conjugate prior for the coin is a distribution of the same polynomial form."
+    },
+    {
+      "text": "The likelihood is fixed by the process (the coin has two sides, one parameter)."
+    },
+    {
+      "text": "In Bayesian inference for a coin toss experiment, the likelihood function is fixed and cannot be altered."
+    },
+    {
+      "text": "The prior distribution can be chosen by the practitioner."
+    },
+    {
+      "text": "The easiest function to multiply by a likelihood of the form θ^n (1-θ)^m is a function of the same form."
+    },
+    {
+      "text": "A convenient prior for the binomial likelihood is proportional to θ^{α-1} (1-θ)^{β-1}."
+    },
+    {
+      "text": "With this prior, the posterior becomes proportional to θ^{α+n-1} (1-θ)^{β+m-1}, where n is the number of heads and m the number of tails."
+    },
+    {
+      "text": "The multiplication step in Bayes' theorem becomes trivial with this choice."
+    },
+    {
+      "text": "The posterior has the same functional form as the prior (the conjugate prior property)."
+    },
+    {
+      "text": "This prior distribution is called the beta distribution with parameters α and β."
+    },
+    {
+      "text": "If the likelihood corresponds to n heads and n tails, the posterior is a beta distribution with parameters α+n and β+n."
+    },
+    {
+      "text": "When the posterior belongs to the same distribution family as the prior, the prior is called a conjugate prior."
+    },
+    {
+      "text": "Using a conjugate prior simplifies the Bayes rule calculation to adding exponents."
+    },
+    {
+      "text": "Updating a beta prior with observation counts (n, m) consists of adding n to α and m to β."
+    },
+    {
+      "text": "No numerical algorithms are required for this update; it reduces to addition."
+    },
+    {
+      "text": "One must verify that the beta prior can represent the desired prior beliefs."
+    },
+    {
+      "text": "The beta distribution can produce bell-shaped curves."
+    },
+    {
+      "text": "If the exponents of θ and (1-θ) are equal (e.g., both 10), the beta distribution's peak is at 1/2."
+    },
+    {
+      "text": "The beta distribution with α=1, β=1 is the uniform distribution."
+    },
+    {
+      "text": "As α and β increase, the beta distribution becomes more concentrated and its variance decreases."
+    },
+    {
+      "text": "When α = β, the mode of the beta distribution is at 1/2."
+    },
+    {
+      "text": "In general, the mode of the beta distribution is α/(α+β)."
+    },
+    {
+      "text": "The mode α/(α+β) is analogous to the maximum likelihood estimate for a coin."
+    },
+    {
+      "text": "The beta family encompasses many distributions that can serve as posteriors."
+    },
+    {
+      "text": "Starting with a uniform prior (Beta(1,1)) and observing one tail, the posterior is obtained by multiplying prior and likelihood and renormalizing."
+    },
+    {
+      "text": "A Beta(2,2) prior is proportional to θ(1-θ), which is a parabola."
+    },
+    {
+      "text": "Multiplying a Beta(2,2) prior by the likelihood for one tail yields a cubic posterior with its maximum at 1/3."
+    },
+    {
+      "text": "As the prior becomes more peaked around 0.5, a single observation has less influence on the posterior."
+    },
+    {
+      "text": "If the prior is strongly peaked at 0.5, one tail does not visibly change the posterior."
+    },
+    {
+      "text": "Ten tails will shift the posterior leftward."
+    },
+    {
+      "text": "One hundred tails will significantly shift the posterior."
+    },
+    {
+      "text": "The prior determines how much evidence is needed to alter beliefs."
+    },
+    {
+      "text": "When the posterior from one dataset is used as the prior for the next, this is called sequential updating."
+    },
+    {
+      "text": "From a uniform prior, one head yields a Beta(2,1) posterior, which is a straight line."
+    },
+    {
+      "text": "Adding a tail to that gives a Beta(2,2) posterior, a parabola."
+    },
+    {
+      "text": "To incorporate additional data, one can multiply the current posterior (as the new prior) by the new likelihood."
+    },
+    {
+      "text": "Sequential updating avoids recomputing the posterior from the original prior."
+    },
+    {
+      "text": "Formally, using the original prior and all data yields the same posterior as sequential updating."
+    },
+    {
+      "text": "Without conjugate priors, sequential updating is difficult, and it is easier to compute the posterior from the full dataset each time."
+    },
+    {
+      "text": "In a simulated coin toss sequence, the probability of heads can be tracked over time."
+    },
+    {
+      "text": "The maximum likelihood estimate (blue line) and Laplace's rule estimate (orange line) can be compared."
+    },
+    {
+      "text": "Laplace's rule gives the predictive probability as (n+1)/(n+m+2)."
+    },
+    {
+      "text": "Initially, Laplace's rule produces estimates closer to 0.5 than the maximum likelihood estimate."
+    },
+    {
+      "text": "After one toss, the maximum likelihood estimate is either 0 or 1, while Laplace's rule gives either 1/3 or 2/3."
+    },
+    {
+      "text": "After many tosses (e.g., 50), Laplace's rule and maximum likelihood become indistinguishable."
+    },
+    {
+      "text": "Both Laplace's rule and maximum likelihood converge to the true probability as the sample size increases."
+    },
+    {
+      "text": "Thomas Bayes was a Reverend in the 1760s."
+    },
+    {
+      "text": "There is a famous story that a certain portrait claimed to be of Thomas Bayes is fake, and the actual person in the portrait is unknown."
+    },
+    {
+      "text": "Bayes' theorem was discussed in the lecture."
+    },
+    {
+      "text": "Bayes' theorem is used in machine learning."
+    },
+    {
+      "text": "In machine learning, learning often involves making statements about model parameters."
+    },
+    {
+      "text": "Maximizing the likelihood is one approach to parameter estimation."
+    },
+    {
+      "text": "Obtaining the full posterior distribution is often more sensible than only maximizing the likelihood."
+    },
+    {
+      "text": "If a point estimate is needed, one can maximize the posterior to obtain the maximum a posteriori (MAP) hypothesis."
+    },
+    {
+      "text": "Conjugate priors were discussed in the lecture."
+    },
+    {
+      "text": "The beta family is an example of a conjugate prior for binomial likelihoods."
+    },
+    {
+      "text": "Laplace's rule can be found on the lecture slides."
+    },
+    {
+      "text": "The predictive distribution gives the distribution of the next data point given existing data."
+    },
+    {
+      "text": "The predictive distribution is considered the most difficult problem."
+    },
+    {
+      "text": "Computing the predictive distribution requires averaging over all possible values of θ."
+    },
+    {
+      "text": "The predictive distribution was illustrated with the coin toss example."
+    },
+    {
+      "text": "The coin toss example can be extended to die rolling with multiple outcomes, applying the same principles."
+    },
+    {
+      "text": "Die rolling may be discussed in a future lecture."
+    },
+    {
+      "text": "Bayes' rule connects the likelihood, prior, and posterior."
+    },
+    {
+      "text": "The model is typically represented by the likelihood."
+    },
+    {
+      "text": "Maximizing the likelihood directly gives the maximum likelihood hypothesis."
+    },
+    {
+      "text": "Incorporating a prior yields the posterior; maximizing the posterior gives the MAP hypothesis."
+    },
+    {
+      "text": "The ideal but often impractical goal is the predictive distribution p(next x | D)."
+    },
+    {
+      "text": "The predictive distribution is computed as the expectation over the posterior of the likelihood of the next item."
+    },
+    {
+      "text": "Laplace's rule is a specific predictive probability for the coin toss."
+    },
+    {
+      "text": "Laplace's rule states that \\( P(\\text{heads} \\mid n, m, D) = \\frac{n+1}{n+m+2} \\) given a uniform prior."
+    },
+    {
+      "text": "For a uniform prior, the maximum likelihood estimate \\( \\theta_{\\text{ML}} \\) is \\( \\frac{n}{n+m} \\)."
+    },
+    {
+      "text": "For a uniform prior, the maximum a posteriori estimate \\( \\theta_{\\text{MAP}} \\) is \\( \\frac{n}{n+m} \\)."
+    },
+    {
+      "text": "In econometrics and financial econometrics, it is common to build models to predict the next output value based on inputs from the previous period."
+    },
+    {
+      "text": "There is no fundamental difference between time series prediction and unordered observations problems like coin flipping."
+    },
+    {
+      "text": "Time series problems still need to be converted to supervised learning."
+    },
+    {
+      "text": "In reality, a time series does not go to negative infinity."
+    },
+    {
+      "text": "In time series analysis, the data set looks like pairs of inputs (Xs) and outputs (Ys)."
+    },
+    {
+      "text": "The definition of the inputs (Xs) depends on the model."
+    },
+    {
+      "text": "A sliding window approach uses a fixed number of previous ticks to predict the next tick."
+    },
+    {
+      "text": "A recurrent neural network uses a recurrent cell that takes the current input (X) and hidden state (H) as input."
+    },
+    {
+      "text": "In a recurrent neural network, the recurrent cell outputs the next hidden state and predicts the output (Y)."
+    },
+    {
+      "text": "In a recurrent neural network, the context is compressed into the state vector H."
+    },
+    {
+      "text": "Time series are special when they are very long, such as in sound analysis with millions of ticks."
+    },
+    {
+      "text": "For very long time series, one may use Fourier transforms and look at spectra."
+    },
+    {
+      "text": "In econometrics, time series analysis is essentially supervised learning."
+    },
+    {
+      "text": "Sequential Bayesian updating produces the same result as updating with all observations at once from the initial prior."
+    },
+    {
+      "text": "The equivalence of sequential and batch Bayesian updating was demonstrated in the notebook's second-to-last graph with n=5."
+    },
+    {
+      "text": "In sequential updating, the prior for the next step is the posterior from the previous step."
+    },
+    {
+      "text": "For a coin toss experiment, the data set reduces to two numbers: the number of heads (n) and the number of tails (m)."
+    },
+    {
+      "text": "For a coin toss experiment, sequential updating does not save computational effort compared to updating directly from the initial prior."
+    },
+    {
+      "text": "For a large data set, compressing it to a posterior distribution allows forgetting the original data set."
+    },
+    {
+      "text": "The instructor will create a web page for the class containing videos, boards, and notebooks."
+    },
+    {
+      "text": "The class web page is a secret page for Harbour Space University and cannot be made public."
+    },
+    {
+      "text": "The instructor will send the link to the class web page via Google Classroom."
+    },
+    {
+      "text": "The instructor suggests creating a Telegram chat for the class."
+    },
+    {
+      "text": "The instructor finds a Telegram chat convenient."
+    },
+    {
+      "text": "If students do not prefer Telegram, Google Classroom is an acceptable alternative for class communication."
+    },
+    {
+      "text": "The instructor believes the students learned something new based on their questions."
+    },
+    {
+      "text": "The class will meet again tomorrow."
+    }
+  ],
+  "summary": [
+    {
+      "text": "The field of artificial intelligence has a long history."
+    },
+    {
+      "text": "The recent pace of change in artificial intelligence is unprecedented."
+    },
+    {
+      "text": "Until about 2022, artificial intelligence appeared as a regular scientific field."
+    },
+    {
+      "text": "Until about 2022, artificial intelligence progress was gradual and stepwise."
+    },
+    {
+      "text": "ChatGPT arrived in late 2022."
+    },
+    {
+      "text": "An explosion of large language models (LLMs) occurred in spring 2023."
+    },
+    {
+      "text": "The previous picture of AI as a field with gradual stepwise progress was shattered by the arrival of ChatGPT in late 2022 and the subsequent explosion of large language models in spring 2023."
+    },
+    {
+      "text": "On 14 March 2023, Google announced the integration of large language models into its workspace."
+    },
+    {
+      "text": "On 14 March 2023, Anthropic unveiled its Claude models."
+    },
+    {
+      "text": "On 14 March 2023, OpenAI announced GPT-4."
+    },
+    {
+      "text": "Three years ago, it was still plausible that the rapid AI progress was a temporary breakthrough."
+    },
+    {
+      "text": "AI progress has not slowed."
+    },
+    {
+      "text": "AI progress is accelerating."
+    },
+    {
+      "text": "Frontier labs now use their own models to improve their models, edging toward recursive self-improvement."
+    },
+    {
+      "text": "A 2018 book surveyed prominent researchers about the timeline for human-level AI."
+    },
+    {
+      "text": "Ray Kurzweil, in a 2018 survey, predicted that human-level AI would arrive by 2029."
+    },
+    {
+      "text": "Most surveyed researchers placed human-level AI around 50 years away."
+    },
+    {
+      "text": "We are living through a phase change in AI."
+    },
+    {
+      "text": "Very few people foresaw this phase change."
+    },
+    {
+      "text": "The dream of creating artificial beings is ancient."
+    },
+    {
+      "text": "Many religious traditions describe humans as artificial intelligences fashioned by a deity from clay or other substances."
+    },
+    {
+      "text": "Greek mythology includes Hephaestus’ android robots."
+    },
+    {
+      "text": "Talos was a giant bronze guardian in Greek mythology."
+    },
+    {
+      "text": "Talos defended Crete by hurling rocks at enemy ships."
+    },
+    {
+      "text": "Throwing rocks with accuracy turned out to be much easier to automate than recognising enemy ships."
+    },
+    {
+      "text": "Recognising enemy ships is a quintessential computer vision problem."
+    },
+    {
+      "text": "Recognising enemy ships remains a challenging computer vision problem."
+    },
+    {
+      "text": "Medieval and early-modern automata included a programmable calligrapher and draftsman built by Pierre Jaquet-Droz in the 18th century."
+    },
+    {
+      "text": "These automata were purely mechanical."
+    },
+    {
+      "text": "These automata showed early glimpses of programmability."
+    },
+    {
+      "text": "The first real mathematical thinking about artificial intelligence started in the 20th century."
+    },
+    {
+      "text": "Alan Turing’s 1950 essay \"Computing Machinery and Intelligence\" posed the question \"Can machines think?\"."
+    },
+    {
+      "text": "The essay introduced the Turing test."
+    },
+    {
+      "text": "In the Turing test, a human judge converses in writing with a human and a machine."
+    },
+    {
+      "text": "The machine passes the Turing test if the judge cannot reliably tell which is which."
+    },
+    {
+      "text": "The Turing test is probabilistic."
+    },
+    {
+      "text": "A single run of the Turing test is meaningless."
+    },
+    {
+      "text": "In a single run, the judge could just guess with 50% success."
+    },
+    {
+      "text": "The machine must make the judge’s recognition rate indistinguishable from random chance over repeated trials."
+    },
+    {
+      "text": "The Turing test has survived the shifting goalposts that plagued other AI milestones."
+    },
+    {
+      "text": "When Deep Blue beat Kasparov at chess in 1997, the response was that chess doesn't count because it's just tree search."
+    },
+    {
+      "text": "When AlphaGo conquered Go, the goalposts moved again."
+    },
+    {
+      "text": "Nobody ever dismissed the Turing test as trivial."
+    },
+    {
+      "text": "Free-form natural language conversation can cover any domain."
+    },
+    {
+      "text": "The domains natural language conversation can cover include computer vision, 3D reasoning, and common sense."
+    },
+    {
+      "text": "To predict the next token in a text, a system must implicitly learn about the world."
+    },
+    {
+      "text": "Predicting the next token is the core task of modern language models."
+    },
+    {
+      "text": "Large language models continue to surprise with emergent capabilities."
+    },
+    {
+      "text": "The Turing test was convincingly passed only in 2025."
+    },
+    {
+      "text": "The Turing test reigned for 75 years before being passed."
+    },
+    {
+      "text": "Turing’s original formulation of the test required the machine to impersonate a woman."
+    },
+    {
+      "text": "In Turing's original formulation, a man also tried to impersonate a woman."
+    },
+    {
+      "text": "In Turing's original formulation, every participant had to pretend to be somebody else."
+    },
+    {
+      "text": "The positive, engineering-oriented field of artificial intelligence began in 1956."
+    },
+    {
+      "text": "The field began at the Dartmouth Summer Research Project."
+    },
+    {
+      "text": "The Dartmouth Summer Research Project was organized by John McCarthy, Marvin Minsky, Claude Shannon, and Nathaniel Rochester."
+    },
+    {
+      "text": "The grant proposal for the Dartmouth workshop was astonishingly ambitious."
+    },
+    {
+      "text": "The proposal was for a 2-month study of artificial intelligence."
+    },
+    {
+      "text": "The proposal conjectured that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can simulate it."
+    },
+    {
+      "text": "The proposal stated an attempt to find how to make machines use natural languages."
+    },
+    {
+      "text": "The proposal stated an attempt to make machines form abstractions and concepts."
+    },
+    {
+      "text": "The proposal stated an attempt to make machines solve problems then reserved for humans."
+    },
+    {
+      "text": "The proposal stated an attempt to make machines improve themselves."
+    },
+    {
+      "text": "The Dartmouth workshop did not solve these problems in one summer."
+    },
+    {
+      "text": "The workshop established artificial intelligence as a research field."
+    },
+    {
+      "text": "Early successes of AI included Logic Theorist."
+    },
+    {
+      "text": "Logic Theorist was a theorem prover."
+    },
+    {
+      "text": "Logic Theorist re-proved much of Principia Mathematica."
+    },
+    {
+      "text": "Early successes also included the General Problem Solver."
+    },
+    {
+      "text": "These early successes fueled high expectations."
+    },
+    {
+      "text": "Optimism in AI waned when projects such as machine translation failed to deliver."
+    },
+    {
+      "text": "The 1970s became the first AI winter."
+    },
+    {
+      "text": "During the first AI winter, funding dried up."
+    },
+    {
+      "text": "During the first AI winter, only a handful of researchers persisted."
+    },
+    {
+      "text": "Those researchers mostly worked on expert systems."
+    },
+    {
+      "text": "MYCIN was an expert system."
+    },
+    {
+      "text": "MYCIN diagnosed blood infections using approximately 450 heuristic rules."
+    },
+    {
+      "text": "The central challenge of expert systems was combining rules that were fuzzy and overlapping."
+    },
+    {
+      "text": "The field learned that pure logic was not enough."
+    },
+    {
+      "text": "In the 1980s, neural networks re-emerged."
+    },
+    {
+      "text": "The re-emerged neural networks included convolutional nets and recurrent nets."
+    },
+    {
+      "text": "These neural networks were hampered by insufficient data and compute."
+    },
+    {
+      "text": "The deep learning revolution ignited in the mid-2000s."
+    },
+    {
+      "text": "The deep learning revolution was enabled by larger datasets thanks to the internet."
+    },
+    {
+      "text": "The deep learning revolution was enabled by faster hardware."
+    },
+    {
+      "text": "The deep learning revolution was enabled by the switch from CPUs to GPUs."
+    },
+    {
+      "text": "These factors made training deep networks practical."
+    },
+    {
+      "text": "Since the mid-2000s, neural methods have become the dominant paradigm across virtually all of machine learning."
+    },
+    {
+      "text": "A computer program learns with respect to a class of tasks T and a performance measure P, if its performance on T, as measured by P, improves with experience."
+    },
+    {
+      "text": "This definition forces the point that learning requires a numerical performance measure."
+    },
+    {
+      "text": "The numerical performance measure is called a loss function."
+    },
+    {
+      "text": "Designing the right loss function is often half the battle in deep learning."
+    },
+    {
+      "text": "Minimising the loss function should produce the desired behaviour."
+    },
+    {
+      "text": "In supervised learning, the dataset consists of input-output pairs {(x_i, y_i)}."
+    },
+    {
+      "text": "The goal of supervised learning is to learn the conditional distribution p(y | x)."
+    },
+    {
+      "text": "Classification is a typical supervised learning task where y is a discrete label."
+    },
+    {
+      "text": "Example of classification: distinguishing cat vs dog."
+    },
+    {
+      "text": "Regression is a typical supervised learning task where y is a continuous value."
+    },
+    {
+      "text": "Example of regression: temperature prediction."
+    },
+    {
+      "text": "The model must generalize beyond the training set."
+    },
+    {
+      "text": "The model must avoid overfitting."
+    },
+    {
+      "text": "Labelling data is often extremely expensive."
+    },
+    {
+      "text": "Labelling data is especially expensive for dense tasks like segmentation."
+    },
+    {
+      "text": "In unsupervised learning, no y is provided."
+    },
+    {
+      "text": "In unsupervised learning, the dataset is just {x_i}."
+    },
+    {
+      "text": "The goal of unsupervised learning is to find structure in p(x)."
+    },
+    {
+      "text": "Dimensionality reduction (representation learning) is a form of unsupervised learning."
+    },
+    {
+      "text": "Dimensionality reduction maps a high-dimensional input into a compact vector that preserves essential information."
+    },
+    {
+      "text": "A 1-megapixel image corresponds to approximately 3x10^6 numbers."
+    },
+    {
+      "text": "An auto-encoder is a canonical deep-learning approach for dimensionality reduction."
+    },
+    {
+      "text": "In an auto-encoder, an encoder compresses x to a latent z."
+    },
+    {
+      "text": "In an auto-encoder, a decoder reconstructs \\hat{x} from z."
+    },
+    {
+      "text": "The loss in an auto-encoder is ||\\hat{x} - x||^2."
+    },
+    {
+      "text": "This loss forces z to be a meaningful, low-dimensional summary."
+    },
+    {
+      "text": "Clustering is a form of unsupervised learning."
+    },
+    {
+      "text": "Clustering partitions data into groups where within-cluster similarity is high and between-cluster similarity is low."
+    },
+    {
+      "text": "Clustering can be seen as an extreme of dimensionality reduction where the latent space is a finite set of labels."
+    },
+    {
+      "text": "In reinforcement learning, an agent interacts with an environment."
+    },
+    {
+      "text": "The agent receives rewards."
+    },
+    {
+      "text": "The agent learns a policy to maximize cumulative reward."
+    },
+    {
+      "text": "In reinforcement learning, no dataset exists upfront."
+    },
+    {
+      "text": "The agent generates its own experience."
+    },
+    {
+      "text": "Classic challenges in reinforcement learning include balancing exploration and exploitation."
+    },
+    {
+      "text": "Another classic challenge is credit assignment for earlier actions when a reward arrives only at the end."
+    },
+    {
+      "text": "Reinforcement learning is a separate world with its own techniques."
+    },
+    {
+      "text": "Reinforcement learning will not be a focus of this course."
+    },
+    {
+      "text": "Active learning is a paradigm where the model chooses which data to label next."
+    },
+    {
+      "text": "Semi-supervised learning is a paradigm where part of the data is labeled."
+    },
+    {
+      "text": "Learning to rank is a paradigm to produce an ordering."
+    },
+    {
+      "text": "Learning to rank is used for tasks like search results."
+    },
+    {
+      "text": "Bootstrapping is a paradigm where a model improves itself using its own predictions."
+    },
+    {
+      "text": "Machine learning is essentially applied probability theory."
+    },
+    {
+      "text": "The course will not require heavy measure-theoretic machinery like sigma-algebras or Borel sets."
+    },
+    {
+      "text": "The course will cover core intuitions about random variables, densities, and basic rules."
+    },
+    {
+      "text": "A discrete random variable is one where the probabilities of outcomes sum to 1."
+    },
+    {
+      "text": "A continuous random variable is characterized by a density p(x) >= 0 such that the integral of p(x) over its domain equals 1."
+    },
+    {
+      "text": "Joint probability p(x, y) is the probability of two events occurring together."
+    },
+    {
+      "text": "Marginalisation gives p(x) = sum over y of p(x, y) for discrete variables."
+    },
+    {
+      "text": "Marginalisation uses integrals in the continuous case."
+    },
+    {
+      "text": "Conditional probability satisfies p(x, y) = p(x|y) p(y) = p(y|x) p(x)."
+    },
+    {
+      "text": "From this, p(x|y) = p(x, y)/p(y)."
+    },
+    {
+      "text": "Bayes' theorem states p(y|x) = p(x|y) p(y) / p(x)."
+    },
+    {
+      "text": "x and y are independent if p(x, y) = p(x) p(y)."
+    },
+    {
+      "text": "If x and y are independent, then p(y|x) = p(y)."
+    },
+    {
+      "text": "The conditional probability p(y|x) is the central object of supervised learning."
+    },
+    {
+      "text": "In Bayesian inference, D denotes the dataset (observed data)."
+    },
+    {
+      "text": "In Bayesian inference, θ denotes model parameters (everything we want to learn, such as weights of a network or probability of heads)."
+    },
+    {
+      "text": "Bayes' theorem for model parameters is p(θ|D) = p(D|θ) p(θ) / p(D)."
+    },
+    {
+      "text": "Since p(D) does not depend on θ, the posterior is proportional to p(D|θ) p(θ)."
+    },
+    {
+      "text": "The likelihood p(D|θ) is how probable the observed data is given a particular setting of the parameters."
+    },
+    {
+      "text": "The likelihood is the part that the model definition directly gives us."
+    },
+    {
+      "text": "The prior p(θ) is our belief about the parameters before seeing any data."
+    },
+    {
+      "text": "The posterior p(θ|D) is our updated belief after incorporating the data."
+    },
+    {
+      "text": "The evidence p(D) is the integral of p(D|θ) p(θ) over θ."
+    },
+    {
+      "text": "The evidence normalizes the posterior to integrate to 1."
+    },
+    {
+      "text": "Maximum Likelihood (ML) estimation finds θ_ML = argmax_θ p(D|θ)."
+    },
+    {
+      "text": "Maximum a Posteriori (MAP) estimation finds θ_MAP = argmax_θ p(θ|D) = argmax_θ p(D|θ) p(θ)."
+    },
+    {
+      "text": "The denominator p(D) is irrelevant for maximization, so usually only the numerator is used."
+    },
+    {
+      "text": "A direct problem in probability is to compute the probability of an event given a fully specified model."
+    },
+    {
+      "text": "An example of a direct problem: given an urn with 10 balls, 3 black, what is the chance of drawing a black ball?"
+    },
+    {
+      "text": "An inverse problem in probability is to infer hidden parameters from observed outcomes."
+    },
+    {
+      "text": "An example of an inverse problem: given a drawn black ball, which urn did it come from?"
+    },
+    {
+      "text": "Inverse problems naturally require Bayes' rule."
+    },
+    {
+      "text": "Classical probability interprets p as a limiting frequency in infinitely repeated experiments."
+    },
+    {
+      "text": "Many real-world questions concern unique, unrepeatable events."
+    },
+    {
+      "text": "Examples of such questions: \"Will Spain win the 2026 World Cup?\" and \"Will AGI take over by 2030?\"."
+    },
+    {
+      "text": "The Bayesian interpretation treats probabilities as degrees of belief."
+    },
+    {
+      "text": "The Bayesian interpretation obeys the same mathematical rules as the frequency interpretation."
+    },
+    {
+      "text": "Both the frequency and Bayesian viewpoints are valid."
+    },
+    {
+      "text": "Bayesian reasoning is often more natural for the kinds of problems machine learning solves."
+    },
+    {
+      "text": "In the biased coin example, θ = p(heads)."
+    },
+    {
+      "text": "The dataset D consists of n heads and m tails."
+    },
+    {
+      "text": "The coin tosses are conditionally independent given θ."
+    },
+    {
+      "text": "Given θ, the likelihood is p(D|θ) = θ^n (1-θ)^m."
+    },
+    {
+      "text": "Maximizing this likelihood with respect to θ yields θ_ML = n/(n+m)."
+    },
+    {
+      "text": "θ_ML = n/(n+m) is the intuitive number of heads divided by total tosses."
+    },
+    {
+      "text": "For large n+m, θ_ML converges to the true θ."
+    },
+    {
+      "text": "Suppose only one toss is performed and the result is tails."
+    },
+    {
+      "text": "Then the likelihood is p(D|θ) = 1-θ."
+    },
+    {
+      "text": "This likelihood has no interior maximum."
+    },
+    {
+      "text": "Without a constraint, θ_ML would be -∞."
+    },
+    {
+      "text": "With the constraint θ ∈ [0,1], θ_ML = 0."
+    },
+    {
+      "text": "This ML estimate implies the coin will always land tails."
+    },
+    {
+      "text": "This conclusion is absurd after a single trial."
+    },
+    {
+      "text": "The mathematics is correct; the missing element is a prior belief about the coin."
+    },
+    {
+      "text": "A prior is a distribution over θ reflecting beliefs before data."
+    },
+    {
+      "text": "A uniform prior p(θ)=1 on [0,1] can be used when there is no strong opinion."
+    },
+    {
+      "text": "With the uniform prior, the posterior (up to normalization) is p(θ|D) ∝ (1-θ)."
+    },
+    {
+      "text": "After normalization, the posterior is p(θ|D) = 2(1-θ) for θ ∈ [0,1]."
+    },
+    {
+      "text": "The MAP estimate with the uniform prior is still 0."
+    },
+    {
+      "text": "The flat prior does not shift the maximum."
+    },
+    {
+      "text": "A crucial difference appears when moving from parameter estimates to predictions."
+    },
+    {
+      "text": "The ultimate goal of learning is not the parameters θ themselves, but making predictions about future data."
+    },
+    {
+      "text": "For a new coin toss, we want p(heads | D)."
+    },
+    {
+      "text": "The probability p(heads | D) is computed by averaging the likelihood over the posterior."
+    },
+    {
+      "text": "The formula is: p(heads | D) = ∫_0^1 p(heads | θ) p(θ | D) dθ = ∫_0^1 θ p(θ | D) dθ."
+    },
+    {
+      "text": "With the uniform prior and D consisting of a single tail, the integral ∫_0^1 θ p(θ | D) dθ gives 1/3, not 0."
+    },
+    {
+      "text": "More generally, after n heads and m tails under a uniform prior, one obtains p(heads | D) = (n+1)/(n+m+2)."
+    },
+    {
+      "text": "This formula is known as Laplace’s rule of succession."
+    },
+    {
+      "text": "Laplace’s rule of succession is less extreme than the ML estimate when data is scarce."
+    },
+    {
+      "text": "Both Laplace’s rule of succession and the ML estimate converge as the number of observations grows."
+    },
+    {
+      "text": "Full Bayesian inference – keeping the entire posterior distribution and averaging over it – yields smoothed, more cautious predictions that automatically account for uncertainty in the parameters."
+    },
+    {
+      "text": "For a real coin, our intuition is not a uniform prior."
+    },
+    {
+      "text": "We expect a real coin to be approximately fair (a bell-shaped curve around 0.5)."
+    },
+    {
+      "text": "If we used a truncated normal distribution as a prior, the posterior would be a product of an exponential and a polynomial – messy to work with analytically."
+    },
+    {
+      "text": "The key idea is to choose a prior whose functional form looks like the likelihood."
+    },
+    {
+      "text": "Choosing such a prior makes multiplication easy."
+    },
+    {
+      "text": "Choosing such a prior ensures the posterior stays in the same family."
+    },
+    {
+      "text": "Priors with these properties are called conjugate priors."
+    },
+    {
+      "text": "For Bernoulli trials (coin tosses), the conjugate family is the Beta distribution."
+    },
+    {
+      "text": "The Beta distribution is: p(θ | α, β) = θ^(α-1) (1-θ)^(β-1) / B(α,β), for θ ∈ [0,1]."
+    },
+    {
+      "text": "α and β are hyperparameters that encode our prior belief."
+    },
+    {
+      "text": "α = 1, β = 1 gives the uniform distribution."
+    },
+    {
+      "text": "Larger equal values (e.g. α = β = 10) produce a peak at θ = 0.5, reflecting strong belief in fairness."
+    },
+    {
+      "text": "If we then observe n heads and m tails, the posterior is also a Beta distribution."
+    },
+    {
+      "text": "The posterior is: p(θ | D) = Beta(θ | α + n, β + m)."
+    },
+    {
+      "text": "The update rule is simply adding the counts to the hyperparameters."
+    },
+    {
+      "text": "Bayesian updating with conjugate prior: start with prior Beta(α, β)."
+    },
+    {
+      "text": "After seeing data, the posterior becomes Beta(α + n, β + m)."
+    },
+    {
+      "text": "To incorporate further data D', just use this posterior as the new prior and add the new counts."
+    },
+    {
+      "text": "The conjugate prior framework naturally connects to regularisation in loss functions."
+    },
+    {
+      "text": "Taking logs, log p(θ | D) = log p(D | θ) + log p(θ) + constant."
+    },
+    {
+      "text": "The log-prior acts as a regulariser on the parameters."
+    },
+    {
+      "text": "If we have k categories instead of two (a multinomial distribution with parameters θ_1, ..., θ_k), the conjugate prior is the Dirichlet distribution."
+    },
+    {
+      "text": "The Dirichlet distribution is: p(θ | α) ∝ θ_1^(α_1-1) θ_2^(α_2-1) ... θ_k^(α_k-1)."
+    },
+    {
+      "text": "The update for the Dirichlet is: p(θ | x, α) = Dirichlet(θ | α_1 + x_1, ..., α_k + x_k)."
+    },
+    {
+      "text": "Machine learning is, at its core, probabilistic inference: we update our beliefs about model parameters θ given data D using Bayes’ theorem."
+    },
+    {
+      "text": "The main objects are the likelihood p(D|θ) (the model), the prior p(θ) (our initial belief), and the posterior p(θ|D) (the updated belief)."
+    },
+    {
+      "text": "The two standard point estimates are maximum likelihood (θ_ML) and maximum a posteriori (θ_MAP)."
+    },
+    {
+      "text": "In practice we rarely have infinite data, so the prior matters."
+    },
+    {
+      "text": "The rational way to make predictions is to average over the posterior, yielding the predictive distribution p(x|D) = ∫ p(x|θ) p(θ|D) dθ."
+    },
+    {
+      "text": "Choosing a prior from a conjugate family (like Beta for a coin, Dirichlet for multinomial) makes computation trivial: the posterior has the same form as the prior, with hyperparameters updated by simple addition."
+    },
+    {
+      "text": "These ideas (probabilistic inference, priors, posteriors, conjugate families) are the foundation of all machine learning."
+    },
+    {
+      "text": "Even when training neural networks with gradient descent, the loss functions we minimise are essentially negative log-posteriors."
+    },
+    {
+      "text": "Regularisation terms in these loss functions are implicit priors."
+    }
+  ]
+}

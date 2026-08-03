@@ -1,0 +1,2847 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "summary:0",
+      "text": "Visual BERT was one of the first successful attempts to handle pictures with transformers.",
+      "entailed": true,
+      "evidence": "transcript:23",
+      "top": [
+        "transcript:23",
+        "slides:22",
+        "transcript:34",
+        "transcript:121",
+        "transcript:6",
+        "slides:20",
+        "slides:19",
+        "slides:18"
+      ]
+    },
+    {
+      "claim": "summary:1",
+      "text": "Visual BERT was designed primarily for image captioning.",
+      "entailed": true,
+      "evidence": "transcript:24",
+      "top": [
+        "slides:18",
+        "slides:22",
+        "slides:23",
+        "slides:25",
+        "slides:20",
+        "slides:19",
+        "transcript:24",
+        "slides:21"
+      ]
+    },
+    {
+      "claim": "summary:2",
+      "text": "The idea of Visual BERT was to feed both text tokens and object tokens into a single Transformer.",
+      "entailed": true,
+      "evidence": "slides:22",
+      "top": [
+        "slides:22",
+        "slides:32",
+        "slides:21",
+        "slides:27",
+        "slides:18",
+        "slides:23",
+        "slides:19",
+        "slides:25"
+      ]
+    },
+    {
+      "claim": "summary:3",
+      "text": "Object tokens are vectors representing specific objects found on the picture.",
+      "entailed": true,
+      "evidence": "transcript:26",
+      "top": [
+        "transcript:26",
+        "transcript:377",
+        "transcript:115",
+        "transcript:123",
+        "transcript:140",
+        "transcript:342",
+        "transcript:12",
+        "transcript:29"
+      ]
+    },
+    {
+      "claim": "summary:4",
+      "text": "To obtain object tokens, one must first solve object detection, extract the bounding boxes of objects, embed them into vectors (e.g., via a CNN), and feed the resulting sequence alongside the caption.",
+      "entailed": true,
+      "evidence": "slides:19",
+      "top": [
+        "slides:22",
+        "slides:18",
+        "slides:21",
+        "slides:25",
+        "slides:19",
+        "slides:24",
+        "slides:60",
+        "transcript:140"
+      ]
+    },
+    {
+      "claim": "summary:5",
+      "text": "The Transformer in Visual BERT learns to attend across modalities.",
+      "entailed": true,
+      "evidence": "slides:25",
+      "top": [
+        "slides:23",
+        "slides:22",
+        "slides:25",
+        "slides:32",
+        "slides:19",
+        "slides:18",
+        "slides:21",
+        "slides:27"
+      ]
+    },
+    {
+      "claim": "summary:6",
+      "text": "For instance, words in the caption attend to the corresponding image regions.",
+      "entailed": true,
+      "evidence": "slides:25",
+      "top": [
+        "slides:24",
+        "slides:25",
+        "slides:18",
+        "transcript:87",
+        "transcript:408",
+        "transcript:117",
+        "transcript:409",
+        "transcript:363"
+      ]
+    },
+    {
+      "claim": "summary:7",
+      "text": "The key insight is that a Transformer treats any sequence of vectors uniformly, regardless of whether those vectors came from text or images.",
+      "entailed": true,
+      "evidence": "transcript:32",
+      "top": [
+        "transcript:32",
+        "transcript:343",
+        "transcript:31",
+        "transcript:33",
+        "transcript:15",
+        "transcript:433",
+        "transcript:378",
+        "transcript:344"
+      ]
+    },
+    {
+      "claim": "summary:8",
+      "text": "The Visual BERT approach paved the way for applying Transformers to vision directly.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:22",
+        "transcript:34",
+        "transcript:336",
+        "slides:32",
+        "transcript:121",
+        "transcript:418",
+        "slides:19",
+        "slides:0"
+      ]
+    },
+    {
+      "claim": "summary:9",
+      "text": "The Vision Transformer (ViT) (Dosovitskiy et al., 2020) applies a standard Transformer encoder to images without any text input.",
+      "entailed": true,
+      "evidence": "slides:28",
+      "top": [
+        "slides:28",
+        "transcript:32",
+        "slides:26",
+        "transcript:36",
+        "slides:29",
+        "transcript:363",
+        "transcript:378",
+        "transcript:351"
+      ]
+    },
+    {
+      "claim": "summary:10",
+      "text": "In ViT, an image $x \\in \\mathbb{R}^{H \\times W \\times C}$ is split into $N = HW / P^2$ patches of size $P \\times P$.",
+      "entailed": true,
+      "evidence": "slides:30",
+      "top": [
+        "slides:30",
+        "slides:31",
+        "slides:29",
+        "transcript:68",
+        "transcript:57",
+        "transcript:67",
+        "transcript:70",
+        "transcript:59"
+      ]
+    },
+    {
+      "claim": "summary:11",
+      "text": "Each patch is flattened and projected linearly into an embedding vector, forming a sequence $x_p \\in \\mathbb{R}^{N \\times P^2 C}$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:31",
+        "slides:30",
+        "transcript:376",
+        "transcript:37",
+        "slides:32",
+        "transcript:59",
+        "transcript:373",
+        "transcript:91"
+      ]
+    },
+    {
+      "claim": "summary:12",
+      "text": "The sequence is fed into a Transformer encoder exactly like BERT.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:32",
+        "transcript:343",
+        "slides:22",
+        "transcript:351",
+        "slides:27",
+        "slides:23",
+        "transcript:47",
+        "transcript:378"
+      ]
+    },
+    {
+      "claim": "summary:13",
+      "text": "The pretraining objective of ViT is masked patch modeling: half of the input embeddings are replaced by a learnable `[mask]` embedding, and the model must reconstruct the original patch content.",
+      "entailed": true,
+      "evidence": "slides:33",
+      "top": [
+        "slides:33",
+        "slides:34",
+        "slides:31",
+        "transcript:113",
+        "transcript:58",
+        "transcript:67",
+        "slides:29",
+        "transcript:66"
+      ]
+    },
+    {
+      "claim": "summary:14",
+      "text": "Positional encodings are added to preserve spatial information in ViT.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:45",
+        "slides:35",
+        "slides:36",
+        "slides:37",
+        "transcript:377",
+        "transcript:342",
+        "slides:31",
+        "slides:33"
+      ]
+    },
+    {
+      "claim": "summary:15",
+      "text": "The original ViT uses the same 1D positional encodings as the text Transformer.",
+      "entailed": true,
+      "evidence": "slides:36",
+      "top": [
+        "slides:36",
+        "transcript:45",
+        "slides:37",
+        "slides:35",
+        "transcript:47",
+        "slides:28",
+        "slides:33",
+        "transcript:35"
+      ]
+    },
+    {
+      "claim": "summary:16",
+      "text": "The authors of ViT experimented with 2D encodings but found no improvement.",
+      "entailed": true,
+      "evidence": "slides:37",
+      "top": [
+        "slides:37",
+        "transcript:45",
+        "slides:35",
+        "slides:36",
+        "transcript:62",
+        "slides:31",
+        "slides:28",
+        "transcript:48"
+      ]
+    },
+    {
+      "claim": "summary:17",
+      "text": "Treating the grid as a simple sequence works perfectly well in ViT.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:35",
+        "transcript:62",
+        "transcript:45",
+        "transcript:48",
+        "slides:37",
+        "slides:31",
+        "slides:29",
+        "transcript:50"
+      ]
+    },
+    {
+      "claim": "summary:18",
+      "text": "ViT revolutionized computer vision because the Transformer extracts richer, more semantically meaningful features than convolutional networks.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:48",
+        "transcript:35",
+        "slides:26",
+        "transcript:51",
+        "transcript:7",
+        "transcript:72",
+        "transcript:418",
+        "transcript:52"
+      ]
+    },
+    {
+      "claim": "summary:19",
+      "text": "In many applications, one can simply replace a CNN backbone with ViT and get better results.",
+      "entailed": true,
+      "evidence": "transcript:51",
+      "top": [
+        "transcript:51",
+        "transcript:52",
+        "transcript:72",
+        "transcript:50",
+        "transcript:341",
+        "slides:26",
+        "transcript:280",
+        "transcript:325"
+      ]
+    },
+    {
+      "claim": "summary:20",
+      "text": "Hundreds of papers after 2020 exploited the fact that ViT can replace CNN backbones with better results.",
+      "entailed": true,
+      "evidence": "transcript:52",
+      "top": [
+        "transcript:52",
+        "transcript:51",
+        "transcript:233",
+        "transcript:72",
+        "transcript:309",
+        "slides:71",
+        "transcript:48",
+        "transcript:341"
+      ]
+    },
+    {
+      "claim": "summary:21",
+      "text": "Every Transformer has an attention matrix of size $L \\times L$ where $L$ is the input length.",
+      "entailed": true,
+      "evidence": "transcript:55",
+      "top": [
+        "transcript:55",
+        "transcript:351",
+        "transcript:418",
+        "transcript:94",
+        "slides:40",
+        "transcript:343",
+        "transcript:32",
+        "slides:132"
+      ]
+    },
+    {
+      "claim": "summary:22",
+      "text": "For ViT, $L$ equals the number of patches, so the complexity grows quadratically with the number of patches.",
+      "entailed": true,
+      "evidence": "transcript:57",
+      "top": [
+        "transcript:57",
+        "transcript:59",
+        "transcript:75",
+        "transcript:54",
+        "transcript:68",
+        "slides:31",
+        "transcript:70",
+        "transcript:67"
+      ]
+    },
+    {
+      "claim": "summary:23",
+      "text": "This quadratic complexity forbids using very small patches (to capture fine details) because even a million-pixel input would require an infeasible $10^{12}$ attention weights.",
+      "entailed": true,
+      "evidence": "transcript:63",
+      "top": [
+        "transcript:63",
+        "transcript:414",
+        "transcript:291",
+        "transcript:77",
+        "slides:132",
+        "transcript:56",
+        "transcript:57",
+        "transcript:88"
+      ]
+    },
+    {
+      "claim": "summary:24",
+      "text": "Therefore, ViT must use relatively large patches, which means small details (like a distant cat sitting entirely inside one patch) may be lost.",
+      "entailed": true,
+      "evidence": "transcript:67",
+      "top": [
+        "transcript:67",
+        "transcript:68",
+        "transcript:66",
+        "transcript:70",
+        "slides:31",
+        "transcript:57",
+        "transcript:62",
+        "transcript:58"
+      ]
+    },
+    {
+      "claim": "summary:25",
+      "text": "There is no perfect patch size: too large loses detail, too small is computationally impossible.",
+      "entailed": true,
+      "evidence": "transcript:69",
+      "top": [
+        "transcript:65",
+        "transcript:64",
+        "transcript:69",
+        "transcript:59",
+        "transcript:68",
+        "transcript:101",
+        "transcript:57",
+        "transcript:75"
+      ]
+    },
+    {
+      "claim": "summary:26",
+      "text": "The Swin Transformer (Liu et al., 2021) addresses the quadratic complexity while preserving the ability to capture fine details and global context.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:54",
+        "transcript:61",
+        "transcript:71",
+        "transcript:107",
+        "slides:48",
+        "slides:44",
+        "transcript:56",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "summary:27",
+      "text": "The name Swin stands for Shifted windows.",
+      "entailed": true,
+      "evidence": "transcript:73",
+      "top": [
+        "transcript:73",
+        "slides:41",
+        "transcript:72",
+        "transcript:71",
+        "transcript:90",
+        "slides:45",
+        "transcript:91",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "summary:28",
+      "text": "In Swin Transformer hierarchical processing, instead of feeding the entire fine grid to a self-attention layer, the image is broken into smaller windows.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:39",
+        "slides:48",
+        "slides:44",
+        "slides:43",
+        "slides:40",
+        "slides:45",
+        "transcript:71"
+      ]
+    },
+    {
+      "claim": "summary:29",
+      "text": "Within each window, self-attention complexity is only quadratic in the window size, not the whole image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:89",
+        "transcript:414",
+        "slides:50",
+        "slides:54",
+        "slides:132",
+        "transcript:408",
+        "transcript:409",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "summary:30",
+      "text": "Swin Transformer starts with small windows on a fine grid to process locally.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:73",
+        "transcript:91",
+        "slides:39",
+        "transcript:71",
+        "slides:48",
+        "slides:44",
+        "slides:46",
+        "transcript:90"
+      ]
+    },
+    {
+      "claim": "summary:31",
+      "text": "Swin Transformer merges features from neighbouring windows to process at a coarser scale.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:39",
+        "slides:44",
+        "slides:48",
+        "slides:45",
+        "transcript:107",
+        "slides:38",
+        "transcript:71",
+        "slides:46"
+      ]
+    },
+    {
+      "claim": "summary:32",
+      "text": "Swin Transformer repeats these steps, finally processing the whole image at a coarse level.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:39",
+        "slides:48",
+        "transcript:107",
+        "slides:45",
+        "transcript:91",
+        "transcript:90",
+        "slides:44",
+        "slides:47"
+      ]
+    },
+    {
+      "claim": "summary:33",
+      "text": "At every scale in Swin Transformer, transformer layers only ever see a fixed, small number of tokens (e.g., $4 \\times 4 = 16$).",
+      "entailed": true,
+      "evidence": "transcript:80",
+      "top": [
+        "transcript:80",
+        "slides:39",
+        "slides:46",
+        "transcript:419",
+        "transcript:90",
+        "transcript:91",
+        "slides:48",
+        "slides:44"
+      ]
+    },
+    {
+      "claim": "summary:34",
+      "text": "This reduces the overall complexity from $O(N^2)$ to roughly linear in the number of patches.",
+      "entailed": true,
+      "evidence": "transcript:78",
+      "top": [
+        "transcript:75",
+        "transcript:59",
+        "transcript:57",
+        "transcript:64",
+        "transcript:74",
+        "transcript:78",
+        "transcript:46",
+        "transcript:76"
+      ]
+    },
+    {
+      "claim": "summary:35",
+      "text": "The downside of strict window partitioning is that features cannot communicate across windows, losing global context.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:42",
+        "transcript:99",
+        "transcript:316",
+        "transcript:89",
+        "transcript:105",
+        "transcript:82",
+        "transcript:281",
+        "transcript:390"
+      ]
+    },
+    {
+      "claim": "summary:36",
+      "text": "Global context is essential: a small white blob on a highway is probably a car, but the same blob on water is a boat; you cannot classify it without seeing the surroundings.",
+      "entailed": true,
+      "evidence": "transcript:86",
+      "top": [
+        "transcript:87",
+        "transcript:322",
+        "transcript:82",
+        "transcript:86",
+        "transcript:85",
+        "transcript:83",
+        "transcript:84",
+        "transcript:409"
+      ]
+    },
+    {
+      "claim": "summary:37",
+      "text": "The Swin Transformer solves the communication problem with window shifting: between consecutive self-attention layers, the grid of windows is shifted by half a window size.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:41",
+        "slides:40",
+        "transcript:89",
+        "slides:44",
+        "transcript:73",
+        "transcript:71",
+        "slides:48",
+        "slides:43"
+      ]
+    },
+    {
+      "claim": "summary:38",
+      "text": "A feature that belonged to one window in layer $\\ell$ will belong to a different, overlapping window in layer $\\ell+1$.",
+      "entailed": true,
+      "evidence": "transcript:92",
+      "top": [
+        "transcript:89",
+        "slides:42",
+        "slides:41",
+        "transcript:92",
+        "transcript:134",
+        "transcript:132",
+        "transcript:73",
+        "transcript:133"
+      ]
+    },
+    {
+      "claim": "summary:39",
+      "text": "Over several layers in Swin Transformer, the receptive field expands, allowing information to propagate across the whole image.",
+      "entailed": true,
+      "evidence": "transcript:97",
+      "top": [
+        "transcript:96",
+        "transcript:97",
+        "slides:40",
+        "slides:39",
+        "transcript:71",
+        "slides:43",
+        "slides:48",
+        "transcript:91"
+      ]
+    },
+    {
+      "claim": "summary:40",
+      "text": "Shifting creates incomplete windows at the image edges.",
+      "entailed": true,
+      "evidence": "transcript:100",
+      "top": [
+        "slides:42",
+        "transcript:98",
+        "transcript:101",
+        "transcript:89",
+        "transcript:99",
+        "transcript:100",
+        "transcript:96",
+        "slides:41"
+      ]
+    },
+    {
+      "claim": "summary:41",
+      "text": "The original implementation of Swin Transformer wraps the image around a torus, grouping leftover parts together.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:90",
+        "transcript:91",
+        "transcript:71",
+        "slides:39",
+        "slides:48",
+        "transcript:102",
+        "transcript:107",
+        "slides:38"
+      ]
+    },
+    {
+      "claim": "summary:42",
+      "text": "The border-handling code of Swin Transformer becomes extremely convoluted, especially in 3D versions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:107",
+        "slides:48",
+        "slides:39",
+        "transcript:71",
+        "slides:44",
+        "slides:46",
+        "slides:43",
+        "transcript:91"
+      ]
+    },
+    {
+      "claim": "summary:43",
+      "text": "Swin Transformer v2 (Liu et al., 2022) scaled the architecture to 3 billion parameters and input resolutions up to $1536 \\times 1536$, achieving state-of-the-art results across many vision tasks.",
+      "entailed": true,
+      "evidence": "slides:48",
+      "top": [
+        "slides:46",
+        "slides:44",
+        "slides:47",
+        "slides:48",
+        "transcript:71",
+        "transcript:107",
+        "slides:45",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "summary:44",
+      "text": "Swin and ViT are the two dominant backbones for modern computer vision.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:72",
+        "transcript:48",
+        "transcript:71",
+        "slides:38",
+        "transcript:110",
+        "transcript:35",
+        "slides:26",
+        "slides:45"
+      ]
+    },
+    {
+      "claim": "summary:45",
+      "text": "A backbone is the part of the network that performs feature extraction; task-specific heads (classification, detection, segmentation) can later be attached on top.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:111",
+        "transcript:345",
+        "transcript:112",
+        "transcript:372",
+        "transcript:233",
+        "transcript:341",
+        "transcript:247",
+        "transcript:277"
+      ]
+    },
+    {
+      "claim": "summary:46",
+      "text": "Object detection is the task of localising and classifying multiple objects in an image.",
+      "entailed": true,
+      "evidence": "slides:60",
+      "top": [
+        "slides:60",
+        "transcript:130",
+        "transcript:140",
+        "transcript:9",
+        "transcript:122",
+        "transcript:123",
+        "transcript:8",
+        "slides:113"
+      ]
+    },
+    {
+      "claim": "summary:47",
+      "text": "For each object of interest in object detection, we must predict a bounding box defined by four numbers $(x, y, w, h)$: the coordinates of one corner and the width and height.",
+      "entailed": true,
+      "evidence": "transcript:136",
+      "top": [
+        "transcript:213",
+        "transcript:145",
+        "transcript:249",
+        "transcript:136",
+        "slides:97",
+        "transcript:216",
+        "transcript:139",
+        "transcript:260"
+      ]
+    },
+    {
+      "claim": "summary:48",
+      "text": "For each object of interest, we must also predict a class label, given as a probability distribution over known classes.",
+      "entailed": true,
+      "evidence": "transcript:143",
+      "top": [
+        "transcript:143",
+        "transcript:144",
+        "transcript:182",
+        "slides:113",
+        "transcript:158",
+        "transcript:148",
+        "transcript:207",
+        "slides:58"
+      ]
+    },
+    {
+      "claim": "summary:49",
+      "text": "Neural networks require a fixed output size, but an image can contain a varying number of objects.",
+      "entailed": true,
+      "evidence": "transcript:146",
+      "top": [
+        "transcript:146",
+        "transcript:140",
+        "transcript:150",
+        "transcript:214",
+        "transcript:204",
+        "transcript:388",
+        "transcript:153",
+        "transcript:238"
+      ]
+    },
+    {
+      "claim": "summary:50",
+      "text": "The standard solution is to fix a maximum number of objects $K$ that the network will output.",
+      "entailed": true,
+      "evidence": "transcript:152",
+      "top": [
+        "transcript:153",
+        "transcript:152",
+        "transcript:164",
+        "transcript:154",
+        "transcript:155",
+        "transcript:147",
+        "slides:96",
+        "transcript:146"
+      ]
+    },
+    {
+      "claim": "summary:51",
+      "text": "Each of the $K$ slots predicts a confidence score (probability that a real object exists in that slot), a class distribution (only meaningful if an object is present), and a bounding box.",
+      "entailed": true,
+      "evidence": "slides:95",
+      "top": [
+        "slides:97",
+        "slides:95",
+        "transcript:148",
+        "transcript:158",
+        "slides:94",
+        "transcript:213",
+        "transcript:216",
+        "transcript:423"
+      ]
+    },
+    {
+      "claim": "summary:52",
+      "text": "During training, most slots will be empty, so their confidence is driven to zero.",
+      "entailed": true,
+      "evidence": "transcript:386",
+      "top": [
+        "transcript:177",
+        "slides:126",
+        "transcript:386",
+        "transcript:215",
+        "slides:152",
+        "transcript:209",
+        "transcript:176",
+        "transcript:159"
+      ]
+    },
+    {
+      "claim": "summary:53",
+      "text": "The ground truth in object detection consists of a set of objects (class + box).",
+      "entailed": true,
+      "evidence": "transcript:161",
+      "top": [
+        "transcript:161",
+        "transcript:167",
+        "transcript:140",
+        "transcript:8",
+        "transcript:130",
+        "transcript:122",
+        "transcript:216",
+        "transcript:213"
+      ]
+    },
+    {
+      "claim": "summary:54",
+      "text": "The network's output slots do not have a predefined order (e.g., there is no reason slot 1 must correspond to the cat and slot 2 to the dog).",
+      "entailed": true,
+      "evidence": "transcript:164",
+      "top": [
+        "transcript:164",
+        "transcript:165",
+        "transcript:147",
+        "transcript:153",
+        "transcript:271",
+        "slides:96",
+        "transcript:365",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "summary:55",
+      "text": "Therefore, training requires solving an assignment problem: find the optimal one-to-one matching between ground-truth objects and predicted slots that minimises a total cost.",
+      "entailed": true,
+      "evidence": "transcript:167",
+      "top": [
+        "transcript:168",
+        "transcript:167",
+        "transcript:170",
+        "transcript:207",
+        "transcript:174",
+        "slides:123",
+        "transcript:166",
+        "transcript:172"
+      ]
+    },
+    {
+      "claim": "summary:56",
+      "text": "The cost for matching a ground-truth object $y_i = (c_i, b_i)$ to a prediction $\\hat{y}_{\\sigma(i)}$ combines classification error and bounding box error.",
+      "entailed": true,
+      "evidence": "slides:123",
+      "top": [
+        "slides:123",
+        "transcript:166",
+        "transcript:207",
+        "transcript:174",
+        "transcript:208",
+        "transcript:167",
+        "transcript:172",
+        "transcript:161"
+      ]
+    },
+    {
+      "claim": "summary:57",
+      "text": "The matching is typically done with the Hungarian algorithm, which yields a bipartite matching.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:173",
+        "slides:122",
+        "transcript:172",
+        "transcript:171",
+        "transcript:170",
+        "slides:150",
+        "slides:125",
+        "slides:151"
+      ]
+    },
+    {
+      "claim": "summary:58",
+      "text": "Once the optimal matching $\\sigma^*$ is found, the actual training loss is computed only for the matched pairs.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:166",
+        "slides:151",
+        "slides:123",
+        "transcript:210",
+        "slides:120",
+        "transcript:180",
+        "slides:122",
+        "transcript:179"
+      ]
+    },
+    {
+      "claim": "summary:59",
+      "text": "Confidence loss: for matched real objects the confidence should be 1; for unmatched slots it should be 0. This loss is often a binary cross-entropy (log-confidence).",
+      "entailed": true,
+      "evidence": "transcript:178",
+      "top": [
+        "transcript:176",
+        "transcript:159",
+        "transcript:177",
+        "transcript:157",
+        "transcript:386",
+        "transcript:166",
+        "transcript:208",
+        "transcript:178"
+      ]
+    },
+    {
+      "claim": "summary:60",
+      "text": "Classification loss: for matched objects, a cross-entropy between the predicted class distribution and the true class.",
+      "entailed": true,
+      "evidence": "transcript:182",
+      "top": [
+        "transcript:182",
+        "transcript:179",
+        "transcript:180",
+        "transcript:166",
+        "slides:120",
+        "transcript:162",
+        "transcript:143",
+        "transcript:175"
+      ]
+    },
+    {
+      "claim": "summary:61",
+      "text": "Bounding box regression loss: for matched objects, the predicted box $(x, y, w, h)$ must match the ground-truth box.",
+      "entailed": true,
+      "evidence": "transcript:184",
+      "top": [
+        "transcript:186",
+        "transcript:184",
+        "transcript:185",
+        "slides:97",
+        "transcript:166",
+        "slides:95",
+        "transcript:208",
+        "transcript:183"
+      ]
+    },
+    {
+      "claim": "summary:62",
+      "text": "The overall loss can be written as: $\\mathcal{L}_{\\text{Hungarian}}(y, \\hat{y}) = \\sum_{i=1}^{N} \\Big[ -\\log \\hat{p}_{\\sigma^*(i)}(c_i) + \\mathbb{1}_{\\{c_i \\neq \\emptyset\\}} \\, \\mathcal{L}_{\\text{box}}(b_i, \\hat{b}_{\\sigma^*(i)}) \\Big]$, where empty objects get a smaller weight in practice.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:125",
+        "slides:123",
+        "transcript:188",
+        "transcript:186",
+        "transcript:184",
+        "transcript:185",
+        "transcript:187",
+        "transcript:183"
+      ]
+    },
+    {
+      "claim": "summary:63",
+      "text": "A simple coordinate-wise $L_1$ or $L_2$ loss for bounding boxes has a problem: the same numerical error in $x$ or $w$ matters much more for small objects than for large ones.",
+      "entailed": true,
+      "evidence": "transcript:188",
+      "top": [
+        "transcript:186",
+        "transcript:185",
+        "transcript:184",
+        "transcript:188",
+        "transcript:189",
+        "transcript:191",
+        "transcript:183",
+        "transcript:132"
+      ]
+    },
+    {
+      "claim": "summary:64",
+      "text": "A small shift may cause zero overlap for a tiny box, while it barely affects a large box.",
+      "entailed": true,
+      "evidence": "transcript:190",
+      "top": [
+        "transcript:189",
+        "transcript:132",
+        "transcript:134",
+        "transcript:195",
+        "transcript:199",
+        "transcript:190",
+        "slides:164",
+        "transcript:185"
+      ]
+    },
+    {
+      "claim": "summary:65",
+      "text": "The standard metric for bounding box evaluation is IoU, defined as $\\text{IoU}(B_1, B_2) = \\frac{\\text{area}(B_1 \\cap B_2)}{\\text{area}(B_1 \\cup B_2)}$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:136",
+        "transcript:132",
+        "transcript:139",
+        "transcript:184",
+        "transcript:134",
+        "transcript:394",
+        "slides:95",
+        "slides:164"
+      ]
+    },
+    {
+      "claim": "summary:66",
+      "text": "IoU naturally scales between 0 and 1, and it is differentiable provided the boxes overlap.",
+      "entailed": true,
+      "evidence": "transcript:196",
+      "top": [
+        "transcript:196",
+        "transcript:195",
+        "transcript:194",
+        "transcript:197",
+        "transcript:199",
+        "transcript:193",
+        "transcript:211",
+        "transcript:200"
+      ]
+    },
+    {
+      "claim": "summary:67",
+      "text": "However, when boxes do not overlap, IoU is exactly 0 and its gradient is zero, giving the network no signal about the direction to move.",
+      "entailed": true,
+      "evidence": "transcript:199",
+      "top": [
+        "transcript:199",
+        "transcript:195",
+        "transcript:198",
+        "transcript:197",
+        "transcript:211",
+        "transcript:193",
+        "slides:124",
+        "transcript:194"
+      ]
+    },
+    {
+      "claim": "summary:68",
+      "text": "This led to extensions such as Generalized IoU (GIoU), which considers the smallest enclosing box and penalises distance between non-overlapping boxes, providing a meaningful gradient even when IoU is zero.",
+      "entailed": true,
+      "evidence": "transcript:203",
+      "top": [
+        "transcript:200",
+        "transcript:203",
+        "transcript:195",
+        "transcript:201",
+        "transcript:199",
+        "transcript:197",
+        "transcript:194",
+        "transcript:193"
+      ]
+    },
+    {
+      "claim": "summary:69",
+      "text": "During training, when computing the assignment, a predicted box is only allowed to match a ground-truth box if its IoU exceeds a threshold (e.g., 0.5). Otherwise it is treated as background (confidence driven to 0).",
+      "entailed": true,
+      "evidence": "transcript:212",
+      "top": [
+        "transcript:211",
+        "transcript:209",
+        "transcript:208",
+        "transcript:194",
+        "transcript:174",
+        "transcript:207",
+        "transcript:215",
+        "transcript:212"
+      ]
+    },
+    {
+      "claim": "summary:70",
+      "text": "This prevents far-away boxes from being incorrectly assigned to an object.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:189",
+        "transcript:132",
+        "transcript:134",
+        "transcript:185",
+        "transcript:216",
+        "transcript:129",
+        "transcript:394",
+        "slides:92"
+      ]
+    },
+    {
+      "claim": "summary:71",
+      "text": "At test time, the network often produces many overlapping high-confidence boxes around the same object.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:189",
+        "transcript:216",
+        "transcript:208",
+        "transcript:423",
+        "transcript:190",
+        "transcript:153",
+        "transcript:132",
+        "transcript:133"
+      ]
+    },
+    {
+      "claim": "summary:72",
+      "text": "To obtain a clean output, non-maximum suppression is applied: boxes with the highest confidence are kept, and lower-confidence boxes with high IoU overlap are suppressed.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:217",
+        "slides:104",
+        "transcript:219",
+        "transcript:390",
+        "transcript:389",
+        "transcript:218",
+        "transcript:195",
+        "transcript:194"
+      ]
+    },
+    {
+      "claim": "summary:73",
+      "text": "NMS is a non-differentiable handcrafted step used only at inference; during training, the matching already handles duplicates implicitly.",
+      "entailed": true,
+      "evidence": "slides:106",
+      "top": [
+        "slides:106",
+        "slides:104",
+        "slides:107",
+        "slides:105",
+        "transcript:395",
+        "transcript:173",
+        "transcript:210",
+        "slides:151"
+      ]
+    },
+    {
+      "claim": "summary:74",
+      "text": "The first successful deep-learning detector was R-CNN (Girshick et al., 2014).",
+      "entailed": true,
+      "evidence": "transcript:225",
+      "top": [
+        "transcript:225",
+        "transcript:224",
+        "slides:76",
+        "slides:62",
+        "slides:87",
+        "transcript:275",
+        "slides:71",
+        "transcript:273"
+      ]
+    },
+    {
+      "claim": "summary:75",
+      "text": "R-CNN follows a two-stage approach. The first stage is region proposal: an external algorithm, selective search, generates around 2000 candidate bounding boxes that may contain objects (regardless of class).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:63",
+        "slides:83",
+        "transcript:256",
+        "transcript:228",
+        "transcript:249",
+        "slides:72",
+        "transcript:234",
+        "transcript:213"
+      ]
+    },
+    {
+      "claim": "summary:76",
+      "text": "The second stage is per-region classification: each candidate box is warped to a fixed square size (e.g., 224x224) and passed through a CNN pretrained on ImageNet to extract features.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:249",
+        "transcript:289",
+        "slides:86",
+        "transcript:234",
+        "transcript:232",
+        "transcript:319",
+        "transcript:341",
+        "transcript:213"
+      ]
+    },
+    {
+      "claim": "summary:77",
+      "text": "Those features are then classified by a separate SVM to determine the object class.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:130",
+        "slides:65",
+        "transcript:345",
+        "transcript:285",
+        "slides:113",
+        "transcript:113",
+        "transcript:180",
+        "transcript:234"
+      ]
+    },
+    {
+      "claim": "summary:78",
+      "text": "An additional linear regressor refines the bounding box coordinates.",
+      "entailed": true,
+      "evidence": "slides:69",
+      "top": [
+        "transcript:186",
+        "transcript:260",
+        "slides:69",
+        "transcript:191",
+        "transcript:136",
+        "transcript:139",
+        "transcript:257",
+        "transcript:184"
+      ]
+    },
+    {
+      "claim": "summary:79",
+      "text": "R-CNN had multi-stage training: CNN fine-tuning, SVM training, and bounding-box regressor training were separate stages.",
+      "entailed": true,
+      "evidence": "slides:72",
+      "top": [
+        "slides:72",
+        "slides:63",
+        "slides:61",
+        "slides:79",
+        "slides:73",
+        "slides:83",
+        "transcript:232",
+        "transcript:319"
+      ]
+    },
+    {
+      "claim": "summary:80",
+      "text": "R-CNN was extremely slow: each of the 2000 regions required a full CNN forward pass, taking about 47 seconds per image on a GPU.",
+      "entailed": true,
+      "evidence": "slides:74",
+      "top": [
+        "slides:75",
+        "slides:74",
+        "slides:73",
+        "transcript:243",
+        "slides:80",
+        "slides:76",
+        "slides:78",
+        "transcript:312"
+      ]
+    },
+    {
+      "claim": "summary:81",
+      "text": "The external region proposal in R-CNN is a bottleneck and not trainable.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:85",
+        "slides:83",
+        "slides:81",
+        "slides:82",
+        "slides:86",
+        "slides:75",
+        "slides:77",
+        "transcript:267"
+      ]
+    },
+    {
+      "claim": "summary:82",
+      "text": "Fast R-CNN (Girshick, 2014) kept the two-stage philosophy but made two crucial improvements.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:76",
+        "slides:62",
+        "slides:80",
+        "slides:71",
+        "slides:87",
+        "transcript:325",
+        "slides:89",
+        "slides:88"
+      ]
+    },
+    {
+      "claim": "summary:83",
+      "text": "In Fast R-CNN, the entire image is passed through a convolutional backbone only once, producing a feature map.",
+      "entailed": true,
+      "evidence": "slides:78",
+      "top": [
+        "slides:78",
+        "transcript:312",
+        "transcript:255",
+        "transcript:341",
+        "transcript:253",
+        "transcript:398",
+        "slides:77",
+        "transcript:254"
+      ]
+    },
+    {
+      "claim": "summary:84",
+      "text": "For each region proposal, the corresponding part of the feature map is cropped via RoI (Region of Interest) projection.",
+      "entailed": true,
+      "evidence": "slides:77",
+      "top": [
+        "slides:77",
+        "transcript:258",
+        "transcript:257",
+        "transcript:265",
+        "slides:86",
+        "transcript:128",
+        "transcript:376",
+        "transcript:88"
+      ]
+    },
+    {
+      "claim": "summary:85",
+      "text": "Since the feature map retains some spatial geometry, each proposal maps to a fixed-size feature block through RoI pooling: the block is divided into a fixed grid (e.g., 2x2) and max-pooled, yielding a constant-size representation regardless of the original proposal size.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:265",
+        "transcript:374",
+        "transcript:375",
+        "transcript:263",
+        "transcript:377",
+        "transcript:373",
+        "transcript:419",
+        "transcript:81"
+      ]
+    },
+    {
+      "claim": "summary:86",
+      "text": "In Fast R-CNN, a single small detection head (classifier + bounding-box regressor) processes each pooled feature.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:263",
+        "slides:78",
+        "transcript:262",
+        "transcript:367",
+        "transcript:365",
+        "transcript:312",
+        "slides:83",
+        "slides:65"
+      ]
+    },
+    {
+      "claim": "summary:87",
+      "text": "This made Fast R-CNN two orders of magnitude faster than R-CNN with no loss in accuracy.",
+      "entailed": true,
+      "evidence": "slides:80",
+      "top": [
+        "slides:80",
+        "slides:76",
+        "slides:74",
+        "transcript:309",
+        "slides:100",
+        "slides:89",
+        "slides:101",
+        "slides:82"
+      ]
+    },
+    {
+      "claim": "summary:88",
+      "text": "However, in Fast R-CNN, region proposals still came from an external, non-learned algorithm (selective search).",
+      "entailed": true,
+      "evidence": "slides:81",
+      "top": [
+        "slides:81",
+        "slides:83",
+        "slides:77",
+        "slides:85",
+        "slides:63",
+        "slides:86",
+        "transcript:256",
+        "transcript:251"
+      ]
+    },
+    {
+      "claim": "summary:89",
+      "text": "Faster R-CNN (Ren et al., 2015) removed the last non-learned component.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:80",
+        "slides:89",
+        "slides:83",
+        "slides:88",
+        "slides:82",
+        "slides:76",
+        "slides:73",
+        "slides:87"
+      ]
+    },
+    {
+      "claim": "summary:90",
+      "text": "Faster R-CNN introduced a Region Proposal Network (RPN) that operates on the same feature map.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:85",
+        "transcript:269",
+        "slides:86",
+        "transcript:325",
+        "slides:77",
+        "slides:81",
+        "slides:61",
+        "transcript:226"
+      ]
+    },
+    {
+      "claim": "summary:91",
+      "text": "The RPN slides a small network over the feature map and, at each location, evaluates a set of predefined anchor boxes (various scales and aspect ratios) and outputs an objectness score and a box refinement.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:270",
+        "transcript:271",
+        "slides:86",
+        "transcript:326",
+        "slides:63",
+        "transcript:248",
+        "transcript:325",
+        "slides:85"
+      ]
+    },
+    {
+      "claim": "summary:92",
+      "text": "The top-scoring proposals from the RPN are then fed to the same RoI pooling and detection head as in Fast R-CNN.",
+      "entailed": true,
+      "evidence": "transcript:272",
+      "top": [
+        "slides:85",
+        "transcript:266",
+        "transcript:272",
+        "slides:86",
+        "slides:77",
+        "transcript:269",
+        "slides:87",
+        "transcript:290"
+      ]
+    },
+    {
+      "claim": "summary:93",
+      "text": "Faster R-CNN became the standard detector for several years: it was completely end-to-end trainable and could be used with any convolutional backbone (VGG, ResNet, EfficientNet, etc.).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:87",
+        "transcript:275",
+        "transcript:273",
+        "slides:76",
+        "slides:103",
+        "transcript:225",
+        "slides:71",
+        "slides:80"
+      ]
+    },
+    {
+      "claim": "summary:94",
+      "text": "All subsequent improvements in backbones automatically translated into better detection in Faster R-CNN, a hallmark of meta-architectures: the detection head and proposal mechanism are fixed, and only the feature extractor is swapped.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:312",
+        "transcript:279",
+        "slides:100",
+        "slides:64",
+        "slides:83",
+        "transcript:280",
+        "transcript:341",
+        "transcript:330"
+      ]
+    },
+    {
+      "claim": "summary:95",
+      "text": "Faster R-CNN is a two-stage detector: it first proposes regions, then classifies and refines them.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:312",
+        "slides:77",
+        "slides:81",
+        "slides:61",
+        "slides:80",
+        "slides:85",
+        "slides:78",
+        "slides:86"
+      ]
+    },
+    {
+      "claim": "summary:96",
+      "text": "In contrast, one-stage detectors skip the proposal step and directly predict class and box for a dense set of candidate locations in a single pass.",
+      "entailed": true,
+      "evidence": "transcript:288",
+      "top": [
+        "transcript:292",
+        "transcript:290",
+        "transcript:289",
+        "transcript:249",
+        "transcript:287",
+        "transcript:288",
+        "transcript:293",
+        "transcript:276"
+      ]
+    },
+    {
+      "claim": "summary:97",
+      "text": "The most famous one-stage family is YOLO (You Only Look Once; Redmon et al., 2016).",
+      "entailed": true,
+      "evidence": "transcript:293",
+      "top": [
+        "transcript:293",
+        "slides:90",
+        "transcript:294",
+        "slides:91",
+        "slides:102",
+        "slides:101",
+        "transcript:297",
+        "slides:100"
+      ]
+    },
+    {
+      "claim": "summary:98",
+      "text": "In YOLO, the image is divided into an $S \\times S$ grid.",
+      "entailed": true,
+      "evidence": "slides:93",
+      "top": [
+        "slides:93",
+        "transcript:294",
+        "slides:94",
+        "transcript:191",
+        "slides:92",
+        "slides:102",
+        "slides:90",
+        "transcript:293"
+      ]
+    },
+    {
+      "claim": "summary:99",
+      "text": "Each grid cell in YOLO predicts $B$ bounding boxes (each with $x, y, w, h$ and a confidence score) and class probabilities for the cell (conditioned on an object being present).",
+      "entailed": true,
+      "evidence": "slides:94",
+      "top": [
+        "slides:94",
+        "slides:99",
+        "slides:92",
+        "slides:97",
+        "slides:95",
+        "transcript:191",
+        "slides:98",
+        "slides:93"
+      ]
+    },
+    {
+      "claim": "summary:100",
+      "text": "The YOLO detector's output is a tensor of shape $S \\times S \\times (5B + C)$.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:297",
+        "slides:92",
+        "transcript:293",
+        "slides:98",
+        "slides:100",
+        "transcript:294",
+        "slides:93",
+        "transcript:191"
+      ]
+    },
+    {
+      "claim": "summary:101",
+      "text": "YOLO is trained end-to-end with a single, unified loss.",
+      "entailed": true,
+      "evidence": "slides:98",
+      "top": [
+        "slides:98",
+        "transcript:294",
+        "slides:99",
+        "slides:92",
+        "slides:102",
+        "transcript:295",
+        "transcript:293",
+        "slides:100"
+      ]
+    },
+    {
+      "claim": "summary:102",
+      "text": "YOLO trades a slight drop in accuracy for dramatically faster inference.",
+      "entailed": true,
+      "evidence": "slides:101",
+      "top": [
+        "slides:100",
+        "slides:101",
+        "slides:92",
+        "slides:102",
+        "slides:98",
+        "transcript:191",
+        "transcript:309",
+        "transcript:295"
+      ]
+    },
+    {
+      "claim": "summary:103",
+      "text": "YOLO is suitable for real-time applications.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:102",
+        "slides:91",
+        "slides:101",
+        "transcript:299",
+        "transcript:295",
+        "slides:98",
+        "transcript:293",
+        "transcript:298"
+      ]
+    },
+    {
+      "claim": "summary:104",
+      "text": "Subsequent versions of YOLO (YOLOv2, YOLOv3, etc.) refined the architecture.",
+      "entailed": true,
+      "evidence": "transcript:301",
+      "top": [
+        "transcript:301",
+        "transcript:298",
+        "transcript:300",
+        "slides:91",
+        "transcript:294",
+        "transcript:295",
+        "slides:102",
+        "transcript:297"
+      ]
+    },
+    {
+      "claim": "summary:105",
+      "text": "The refinements include better backbones, anchor boxes, multi-scale training, and hierarchical softmax for large class sets.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:429",
+        "transcript:299",
+        "slides:58",
+        "slides:143",
+        "slides:86",
+        "transcript:111",
+        "transcript:345",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "summary:106",
+      "text": "Each refinement added a few percentage points to the mean Average Precision.",
+      "entailed": true,
+      "evidence": "transcript:304",
+      "top": [
+        "transcript:304",
+        "transcript:176",
+        "slides:149",
+        "transcript:386",
+        "transcript:178",
+        "transcript:305",
+        "transcript:303",
+        "transcript:429"
+      ]
+    },
+    {
+      "claim": "summary:107",
+      "text": "Across all object detectors, detecting small objects is the hardest challenge.",
+      "entailed": true,
+      "evidence": "transcript:307",
+      "top": [
+        "transcript:307",
+        "transcript:11",
+        "transcript:306",
+        "transcript:401",
+        "transcript:10",
+        "transcript:310",
+        "transcript:323",
+        "transcript:9"
+      ]
+    },
+    {
+      "claim": "summary:108",
+      "text": "Detecting a large object that occupies a quarter of the image is easy.",
+      "entailed": true,
+      "evidence": "transcript:308",
+      "top": [
+        "transcript:308",
+        "transcript:307",
+        "transcript:306",
+        "transcript:310",
+        "transcript:401",
+        "transcript:323",
+        "transcript:11",
+        "transcript:10"
+      ]
+    },
+    {
+      "claim": "summary:109",
+      "text": "A tiny distant object may only cover a few pixels.",
+      "entailed": true,
+      "evidence": "transcript:323",
+      "top": [
+        "transcript:323",
+        "transcript:310",
+        "transcript:214",
+        "transcript:381",
+        "transcript:401",
+        "transcript:65",
+        "transcript:324",
+        "transcript:189"
+      ]
+    },
+    {
+      "claim": "summary:110",
+      "text": "In a CNN backbone, as we go deeper, we lose spatial resolution and the feature map becomes coarser.",
+      "entailed": true,
+      "evidence": "transcript:313",
+      "top": [
+        "transcript:341",
+        "transcript:313",
+        "transcript:233",
+        "transcript:372",
+        "slides:43",
+        "transcript:254",
+        "transcript:398",
+        "transcript:111"
+      ]
+    },
+    {
+      "claim": "summary:111",
+      "text": "A small object will eventually fit entirely inside one feature vector, and its identity is lost.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:314",
+        "transcript:399",
+        "transcript:400",
+        "transcript:415",
+        "transcript:188",
+        "transcript:375",
+        "transcript:323",
+        "transcript:310"
+      ]
+    },
+    {
+      "claim": "summary:112",
+      "text": "Stopping the backbone early to keep a fine grid results in features that are not semantically rich enough.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:315",
+        "transcript:373",
+        "transcript:313",
+        "transcript:111",
+        "transcript:316",
+        "transcript:280",
+        "transcript:372",
+        "transcript:318"
+      ]
+    },
+    {
+      "claim": "summary:113",
+      "text": "Processing all fine-grid locations is computationally prohibitive.",
+      "entailed": true,
+      "evidence": "transcript:420",
+      "top": [
+        "transcript:420",
+        "transcript:316",
+        "transcript:318",
+        "transcript:317",
+        "transcript:60",
+        "transcript:99",
+        "transcript:413",
+        "transcript:315"
+      ]
+    },
+    {
+      "claim": "summary:114",
+      "text": "Multi-scale detection is the solution to the small-object problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:306",
+        "transcript:401",
+        "transcript:321",
+        "transcript:320",
+        "transcript:319",
+        "transcript:10",
+        "transcript:310",
+        "transcript:307"
+      ]
+    },
+    {
+      "claim": "summary:115",
+      "text": "In multi-scale detection, detection heads are attached at multiple stages of the backbone, where the grid is fine for small objects and coarse for large objects.",
+      "entailed": true,
+      "evidence": "transcript:319",
+      "top": [
+        "transcript:320",
+        "transcript:319",
+        "transcript:345",
+        "transcript:365",
+        "transcript:321",
+        "transcript:367",
+        "transcript:280",
+        "slides:182"
+      ]
+    },
+    {
+      "claim": "summary:116",
+      "text": "Fine-scale features lack global context.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:322",
+        "transcript:87",
+        "transcript:82",
+        "transcript:419",
+        "transcript:324",
+        "transcript:414",
+        "transcript:311",
+        "transcript:118"
+      ]
+    },
+    {
+      "claim": "summary:117",
+      "text": "Global context is often crucial for recognising small objects.",
+      "entailed": true,
+      "evidence": "transcript:322",
+      "top": [
+        "transcript:322",
+        "transcript:87",
+        "transcript:82",
+        "transcript:381",
+        "transcript:306",
+        "transcript:409",
+        "transcript:401",
+        "transcript:324"
+      ]
+    },
+    {
+      "claim": "summary:118",
+      "text": "A few pixels of an animal can be a car or a boat depending on surroundings.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:86",
+        "transcript:123",
+        "transcript:28",
+        "transcript:131",
+        "transcript:85",
+        "transcript:83",
+        "transcript:214",
+        "transcript:323"
+      ]
+    },
+    {
+      "claim": "summary:119",
+      "text": "Feature Pyramid Network (FPN) addresses the lack of global context in fine-scale features by adding top-down pathways.",
+      "entailed": true,
+      "evidence": "transcript:326",
+      "top": [
+        "transcript:325",
+        "transcript:326",
+        "transcript:328",
+        "transcript:372",
+        "transcript:313",
+        "transcript:341",
+        "slides:85",
+        "transcript:270"
+      ]
+    },
+    {
+      "claim": "summary:120",
+      "text": "In FPN, high-level, semantically strong features from deeper, coarser layers are upsampled and merged with fine-scale features via lateral connections.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:326",
+        "transcript:325",
+        "transcript:372",
+        "transcript:328",
+        "transcript:329",
+        "slides:66",
+        "slides:67",
+        "transcript:429"
+      ]
+    },
+    {
+      "claim": "summary:121",
+      "text": "The resulting feature pyramid gives every scale access to rich semantic information.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:325",
+        "transcript:341",
+        "transcript:50",
+        "transcript:322",
+        "slides:65",
+        "transcript:51",
+        "transcript:414",
+        "transcript:254"
+      ]
+    },
+    {
+      "claim": "summary:122",
+      "text": "FPN was a very influential idea.",
+      "entailed": true,
+      "evidence": "transcript:328",
+      "top": [
+        "transcript:328",
+        "transcript:325",
+        "transcript:242",
+        "transcript:329",
+        "transcript:327",
+        "transcript:326",
+        "transcript:241",
+        "slides:71"
+      ]
+    },
+    {
+      "claim": "summary:123",
+      "text": "FPN remains a staple in modern detectors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:326",
+        "transcript:329",
+        "transcript:325",
+        "transcript:328",
+        "transcript:275",
+        "transcript:273",
+        "transcript:365",
+        "transcript:246"
+      ]
+    },
+    {
+      "claim": "summary:124",
+      "text": "Architectures like EfficientDet used neural architecture search to automatically design the optimal FPN connections.",
+      "entailed": true,
+      "evidence": "transcript:331",
+      "top": [
+        "transcript:330",
+        "transcript:328",
+        "transcript:329",
+        "transcript:325",
+        "transcript:331",
+        "transcript:326",
+        "transcript:282",
+        "transcript:327"
+      ]
+    },
+    {
+      "claim": "summary:125",
+      "text": "Classical detectors rely on hand-crafted components: anchor boxes, region proposals, and non-maximum suppression.",
+      "entailed": true,
+      "evidence": "slides:103",
+      "top": [
+        "slides:103",
+        "transcript:292",
+        "slides:105",
+        "transcript:217",
+        "transcript:219",
+        "transcript:432",
+        "transcript:249",
+        "transcript:213"
+      ]
+    },
+    {
+      "claim": "summary:126",
+      "text": "The components of classical detectors are tuned manually.",
+      "entailed": true,
+      "evidence": "slides:105",
+      "top": [
+        "slides:105",
+        "transcript:292",
+        "transcript:289",
+        "slides:110",
+        "transcript:432",
+        "transcript:333",
+        "transcript:364",
+        "transcript:334"
+      ]
+    },
+    {
+      "claim": "summary:127",
+      "text": "Non-maximum suppression (NMS) is a non-differentiable post-processing step.",
+      "entailed": true,
+      "evidence": "slides:106",
+      "top": [
+        "slides:106",
+        "transcript:218",
+        "transcript:390",
+        "transcript:389",
+        "transcript:219",
+        "slides:104",
+        "slides:107",
+        "transcript:217"
+      ]
+    },
+    {
+      "claim": "summary:128",
+      "text": "The transformer philosophy suggests treating detection as a set prediction problem, where the transformer directly outputs the set of objects with no anchors and no NMS.",
+      "entailed": true,
+      "evidence": "slides:108",
+      "top": [
+        "slides:108",
+        "transcript:336",
+        "slides:113",
+        "transcript:432",
+        "transcript:344",
+        "transcript:167",
+        "transcript:22",
+        "transcript:338"
+      ]
+    },
+    {
+      "claim": "summary:129",
+      "text": "DETR (Carion et al., 2020) is the first detector to fully embrace the set prediction approach.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:109",
+        "slides:112",
+        "slides:127",
+        "slides:114",
+        "slides:108",
+        "slides:113",
+        "slides:110",
+        "slides:120"
+      ]
+    },
+    {
+      "claim": "summary:130",
+      "text": "The DETR architecture is an encoder-decoder Transformer applied to image features.",
+      "entailed": true,
+      "evidence": "slides:115",
+      "top": [
+        "slides:115",
+        "transcript:340",
+        "slides:112",
+        "transcript:398",
+        "slides:117",
+        "slides:130",
+        "slides:111",
+        "slides:118"
+      ]
+    },
+    {
+      "claim": "summary:131",
+      "text": "In DETR, a standard CNN backbone (e.g., ResNet) extracts a feature map from the image.",
+      "entailed": true,
+      "evidence": "slides:116",
+      "top": [
+        "transcript:398",
+        "transcript:340",
+        "transcript:341",
+        "slides:116",
+        "slides:64",
+        "transcript:372",
+        "slides:65",
+        "slides:117"
+      ]
+    },
+    {
+      "claim": "summary:132",
+      "text": "The feature map is flattened into a sequence of tokens, and positional encodings are added.",
+      "entailed": true,
+      "evidence": "slides:117",
+      "top": [
+        "transcript:377",
+        "transcript:342",
+        "transcript:378",
+        "transcript:376",
+        "transcript:31",
+        "transcript:354",
+        "slides:117",
+        "transcript:81"
+      ]
+    },
+    {
+      "claim": "summary:133",
+      "text": "The Transformer encoder processes the token sequence, mixing global context.",
+      "entailed": true,
+      "evidence": "transcript:344",
+      "top": [
+        "transcript:343",
+        "slides:32",
+        "transcript:351",
+        "transcript:391",
+        "transcript:344",
+        "transcript:378",
+        "transcript:419",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "summary:134",
+      "text": "The encoder does not perform detection itself.",
+      "entailed": true,
+      "evidence": "transcript:344",
+      "top": [
+        "transcript:344",
+        "transcript:362",
+        "transcript:363",
+        "transcript:355",
+        "transcript:364",
+        "slides:119",
+        "transcript:378",
+        "transcript:361"
+      ]
+    },
+    {
+      "claim": "summary:135",
+      "text": "The encoder refines the features to be suitable for detection.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:344",
+        "transcript:378",
+        "transcript:363",
+        "transcript:362",
+        "transcript:350",
+        "transcript:361",
+        "transcript:355",
+        "transcript:364"
+      ]
+    },
+    {
+      "claim": "summary:136",
+      "text": "The Transformer decoder takes a fixed set of object queries.",
+      "entailed": true,
+      "evidence": "slides:118",
+      "top": [
+        "transcript:391",
+        "transcript:433",
+        "transcript:432",
+        "transcript:360",
+        "transcript:351",
+        "transcript:352",
+        "transcript:361",
+        "slides:118"
+      ]
+    },
+    {
+      "claim": "summary:137",
+      "text": "Object queries are learned positional embeddings independent of the image.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:358",
+        "transcript:359",
+        "transcript:423",
+        "transcript:424",
+        "transcript:381",
+        "slides:136",
+        "transcript:395",
+        "transcript:382"
+      ]
+    },
+    {
+      "claim": "summary:138",
+      "text": "Each object query is a slot for one potential object.",
+      "entailed": true,
+      "evidence": "transcript:379",
+      "top": [
+        "transcript:379",
+        "transcript:358",
+        "transcript:369",
+        "transcript:357",
+        "transcript:26",
+        "transcript:380",
+        "transcript:387",
+        "transcript:422"
+      ]
+    },
+    {
+      "claim": "summary:139",
+      "text": "The decoder uses cross-attention to gather information from the encoder output.",
+      "entailed": true,
+      "evidence": "transcript:361",
+      "top": [
+        "transcript:362",
+        "transcript:361",
+        "transcript:351",
+        "transcript:352",
+        "transcript:402",
+        "transcript:354",
+        "slides:118",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "summary:140",
+      "text": "The decoder uses self-attention to coordinate among queries so they do not duplicate the same object.",
+      "entailed": true,
+      "evidence": "transcript:395",
+      "top": [
+        "transcript:360",
+        "transcript:352",
+        "transcript:361",
+        "transcript:403",
+        "transcript:353",
+        "transcript:391",
+        "transcript:395",
+        "slides:118"
+      ]
+    },
+    {
+      "claim": "summary:141",
+      "text": "The output of each query passes through a feed-forward detection head that predicts the class and bounding box, or 'no object'.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:358",
+        "transcript:360",
+        "slides:136",
+        "transcript:357",
+        "transcript:379",
+        "transcript:385",
+        "transcript:383",
+        "transcript:403"
+      ]
+    },
+    {
+      "claim": "summary:142",
+      "text": "The number of objects detected equals the number of object queries, typically $N=100$.",
+      "entailed": true,
+      "evidence": "transcript:369",
+      "top": [
+        "transcript:369",
+        "transcript:387",
+        "transcript:370",
+        "transcript:149",
+        "transcript:150",
+        "transcript:26",
+        "transcript:371",
+        "transcript:153"
+      ]
+    },
+    {
+      "claim": "summary:143",
+      "text": "Because the queries exchange information through self-attention, they specialise, with different queries learning to focus on different spatial locations and object sizes.",
+      "entailed": true,
+      "evidence": "transcript:403",
+      "top": [
+        "transcript:403",
+        "transcript:381",
+        "transcript:352",
+        "transcript:384",
+        "transcript:382",
+        "transcript:358",
+        "slides:136",
+        "transcript:387"
+      ]
+    },
+    {
+      "claim": "summary:144",
+      "text": "DETR does not need non-maximum suppression because multiple queries will not all converge to the same object.",
+      "entailed": true,
+      "evidence": "transcript:390",
+      "top": [
+        "transcript:389",
+        "transcript:390",
+        "transcript:380",
+        "transcript:357",
+        "slides:131",
+        "slides:150",
+        "slides:104",
+        "transcript:218"
+      ]
+    },
+    {
+      "claim": "summary:145",
+      "text": "DETR uses a set prediction loss that involves bipartite matching.",
+      "entailed": true,
+      "evidence": "slides:114",
+      "top": [
+        "slides:114",
+        "slides:120",
+        "slides:109",
+        "slides:150",
+        "slides:183",
+        "slides:130",
+        "slides:154",
+        "slides:127"
+      ]
+    },
+    {
+      "claim": "summary:146",
+      "text": "DETR uses the Hungarian algorithm to find the optimal permutation between its N predictions and the ground truth objects padded with $\\emptyset$ to size N.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:120",
+        "slides:114",
+        "slides:109",
+        "slides:150",
+        "slides:154",
+        "transcript:172",
+        "slides:153",
+        "transcript:393"
+      ]
+    },
+    {
+      "claim": "summary:147",
+      "text": "The matching cost minimized by the Hungarian algorithm is $\\mathcal{L}_{\\text{match}}(y_i, \\hat{y}_{\\sigma(i)}) = -\\mathbb{1}_{\\{c_i \\neq \\emptyset\\}} \\hat{p}_{\\sigma(i)}(c_i) + \\mathbb{1}_{\\{c_i \\neq \\emptyset\\}} \\mathcal{L}_{\\text{box}}(b_i, \\hat{b}_{\\sigma(i)})$.",
+      "entailed": true,
+      "evidence": "slides:123",
+      "top": [
+        "slides:122",
+        "slides:123",
+        "slides:125",
+        "transcript:173",
+        "transcript:172",
+        "transcript:170",
+        "slides:151",
+        "slides:150"
+      ]
+    },
+    {
+      "claim": "summary:148",
+      "text": "$\\mathcal{L}_{\\text{box}}$ combines $L_1$ loss and GIoU loss.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:124",
+        "transcript:187",
+        "transcript:183",
+        "slides:125",
+        "transcript:184",
+        "transcript:186",
+        "transcript:185",
+        "transcript:201"
+      ]
+    },
+    {
+      "claim": "summary:149",
+      "text": "After matching, the training loss sums negative log-likelihood for the matched classes and the bounding box loss for non-empty objects.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:166",
+        "slides:123",
+        "slides:121",
+        "transcript:210",
+        "slides:151",
+        "transcript:174",
+        "transcript:182",
+        "slides:120"
+      ]
+    },
+    {
+      "claim": "summary:150",
+      "text": "Empty objects are down-weighted in the training loss.",
+      "entailed": true,
+      "evidence": "slides:126",
+      "top": [
+        "slides:126",
+        "transcript:180",
+        "transcript:179",
+        "transcript:166",
+        "transcript:175",
+        "transcript:177",
+        "transcript:400",
+        "transcript:188"
+      ]
+    },
+    {
+      "claim": "summary:151",
+      "text": "The original DETR processes features at a single scale, which makes it weak on small objects.",
+      "entailed": true,
+      "evidence": "transcript:397",
+      "top": [
+        "slides:131",
+        "transcript:406",
+        "transcript:397",
+        "transcript:396",
+        "transcript:405",
+        "slides:134",
+        "slides:130",
+        "slides:128"
+      ]
+    },
+    {
+      "claim": "summary:152",
+      "text": "Visualizing decoder attention in DETR shows that attention weights concentrate on object boundaries.",
+      "entailed": true,
+      "evidence": "transcript:408",
+      "top": [
+        "slides:129",
+        "transcript:408",
+        "transcript:409",
+        "transcript:410",
+        "slides:130",
+        "transcript:402",
+        "transcript:361",
+        "slides:128"
+      ]
+    },
+    {
+      "claim": "summary:153",
+      "text": "This boundary attention is sufficient for classification and box refinement once objects have been separated by the encoder.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:411",
+        "transcript:409",
+        "slides:129",
+        "transcript:361",
+        "transcript:429",
+        "transcript:410",
+        "transcript:402",
+        "transcript:412"
+      ]
+    },
+    {
+      "claim": "summary:154",
+      "text": "The quadratic complexity of standard self-attention prevents simply running DETR on a fine multi-scale grid.",
+      "entailed": true,
+      "evidence": "slides:132",
+      "top": [
+        "slides:132",
+        "transcript:421",
+        "transcript:408",
+        "slides:128",
+        "slides:129",
+        "slides:50",
+        "transcript:414",
+        "slides:133"
+      ]
+    },
+    {
+      "claim": "summary:155",
+      "text": "Deformable DETR (Zhu et al., 2021) solves the scale problem by using deformable attention.",
+      "entailed": true,
+      "evidence": "transcript:418",
+      "top": [
+        "transcript:406",
+        "transcript:404",
+        "transcript:405",
+        "slides:133",
+        "transcript:407",
+        "transcript:396",
+        "transcript:418",
+        "slides:132"
+      ]
+    },
+    {
+      "claim": "summary:156",
+      "text": "In deformable attention, each attention head attends to only a small, learned set of sampling points around a reference point.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:416",
+        "transcript:412",
+        "transcript:409",
+        "slides:54",
+        "transcript:408",
+        "slides:133",
+        "transcript:414",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "summary:157",
+      "text": "This reduces the complexity from $O(L^2)$ to $O(L K)$ where $K \\ll L$ is the number of sampled points.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:76",
+        "transcript:78",
+        "transcript:59",
+        "transcript:56",
+        "transcript:60",
+        "transcript:75",
+        "transcript:63",
+        "transcript:77"
+      ]
+    },
+    {
+      "claim": "summary:158",
+      "text": "With this efficiency, Deformable DETR can process multi-scale feature maps from different backbone layers without blowing up computation.",
+      "entailed": true,
+      "evidence": "transcript:421",
+      "top": [
+        "transcript:405",
+        "transcript:406",
+        "transcript:421",
+        "slides:117",
+        "slides:134",
+        "transcript:398",
+        "transcript:407",
+        "slides:133"
+      ]
+    },
+    {
+      "claim": "summary:159",
+      "text": "Deformable DETR detects small objects much better while keeping the end-to-end, NMS-free philosophy.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:407",
+        "slides:134",
+        "transcript:406",
+        "slides:133",
+        "transcript:405",
+        "slides:131",
+        "transcript:421",
+        "slides:112"
+      ]
+    },
+    {
+      "claim": "summary:160",
+      "text": "One weakness of DETR is that object queries (abstract vectors) learn to specialise very slowly.",
+      "entailed": true,
+      "evidence": "transcript:424",
+      "top": [
+        "transcript:380",
+        "slides:140",
+        "slides:138",
+        "transcript:430",
+        "slides:129",
+        "transcript:424",
+        "slides:118",
+        "transcript:357"
+      ]
+    },
+    {
+      "claim": "summary:161",
+      "text": "A sequence of works re-interpreted DETR's object queries as anchor boxes.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:135",
+        "transcript:426",
+        "transcript:380",
+        "transcript:357",
+        "slides:141",
+        "slides:138",
+        "transcript:427",
+        "transcript:428"
+      ]
+    },
+    {
+      "claim": "summary:162",
+      "text": "These works introduced mechanisms to speed up training and improve detection.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:333",
+        "slides:146",
+        "transcript:275",
+        "transcript:365",
+        "transcript:122",
+        "transcript:276",
+        "transcript:366",
+        "transcript:131"
+      ]
+    },
+    {
+      "claim": "summary:163",
+      "text": "In DAB-DETR (Dynamic Anchor Box DETR; Liu et al., 2022), each query is an explicit 4-tuple $(x, y, w, h)$ anchor box that is refined layer by layer in the decoder.",
+      "entailed": true,
+      "evidence": "transcript:427",
+      "top": [
+        "transcript:426",
+        "slides:141",
+        "slides:142",
+        "transcript:427",
+        "slides:135",
+        "transcript:430",
+        "slides:144",
+        "transcript:428"
+      ]
+    },
+    {
+      "claim": "summary:164",
+      "text": "The width and height modulate cross-attention to localise attention around the box.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:409",
+        "slides:144",
+        "transcript:402",
+        "transcript:412",
+        "transcript:416",
+        "transcript:411",
+        "transcript:408",
+        "slides:54"
+      ]
+    },
+    {
+      "claim": "summary:165",
+      "text": "This gives clear semantics and faster convergence.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:143",
+        "transcript:429",
+        "slides:179",
+        "transcript:41",
+        "slides:109",
+        "transcript:46",
+        "transcript:422",
+        "transcript:283"
+      ]
+    },
+    {
+      "claim": "summary:166",
+      "text": "DN-DETR (Denoising DETR; Li et al., 2022) tackles the instability of Hungarian matching during early training.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:154",
+        "slides:159",
+        "slides:150",
+        "slides:153",
+        "slides:158",
+        "slides:183",
+        "slides:140",
+        "slides:178"
+      ]
+    },
+    {
+      "claim": "summary:167",
+      "text": "DN-DETR adds a denoising objective where extra queries are fed noisy versions of ground truth boxes and the network must reconstruct the clean boxes.",
+      "entailed": true,
+      "evidence": "slides:153",
+      "top": [
+        "slides:153",
+        "slides:154",
+        "slides:158",
+        "slides:159",
+        "slides:175",
+        "slides:118",
+        "slides:130",
+        "slides:115"
+      ]
+    },
+    {
+      "claim": "summary:168",
+      "text": "This denoising objective provides a 'good anchor' signal that stabilises offset prediction and keeps queries close to their targets.",
+      "entailed": true,
+      "evidence": "slides:156",
+      "top": [
+        "slides:156",
+        "slides:154",
+        "slides:159",
+        "slides:153",
+        "slides:155",
+        "slides:164",
+        "slides:104",
+        "transcript:361"
+      ]
+    },
+    {
+      "claim": "summary:169",
+      "text": "DINO (DETR with Improved DeNoising anchor boxes; Zhang et al., 2022) further improves DN-DETR.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:158",
+        "slides:154",
+        "slides:159",
+        "slides:167",
+        "slides:153",
+        "slides:157",
+        "slides:161",
+        "slides:117"
+      ]
+    },
+    {
+      "claim": "summary:170",
+      "text": "DINO introduces negative examples (bad anchors that should be rejected).",
+      "entailed": true,
+      "evidence": "slides:160",
+      "top": [
+        "slides:160",
+        "slides:161",
+        "slides:169",
+        "slides:143",
+        "slides:167",
+        "slides:170",
+        "slides:158",
+        "slides:163"
+      ]
+    },
+    {
+      "claim": "summary:171",
+      "text": "DINO uses a mixed query selection strategy where positional queries are initialised from encoder proposals and content queries remain learned.",
+      "entailed": true,
+      "evidence": "slides:162",
+      "top": [
+        "slides:162",
+        "slides:136",
+        "transcript:352",
+        "transcript:360",
+        "transcript:358",
+        "transcript:361",
+        "transcript:422",
+        "transcript:403"
+      ]
+    },
+    {
+      "claim": "summary:172",
+      "text": "DINO uses a look-ahead training scheme with two-step gradient blocking that improves box quality.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:167",
+        "slides:169",
+        "slides:170",
+        "slides:161",
+        "slides:168",
+        "slides:163",
+        "slides:158",
+        "slides:160"
+      ]
+    },
+    {
+      "claim": "summary:173",
+      "text": "DINO achieves state-of-the-art results with much faster training.",
+      "entailed": true,
+      "evidence": "transcript:431",
+      "top": [
+        "slides:170",
+        "slides:169",
+        "slides:167",
+        "slides:163",
+        "slides:161",
+        "transcript:431",
+        "slides:158",
+        "slides:168"
+      ]
+    },
+    {
+      "claim": "summary:174",
+      "text": "These detectors (DAB-DETR, DN-DETR, DINO) share the core DETR idea.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:158",
+        "transcript:431",
+        "slides:127",
+        "transcript:430",
+        "slides:110",
+        "slides:112",
+        "slides:111",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "summary:175",
+      "text": "The core DETR idea is that object queries are slots filled with content by the transformer decoder attending to the image.",
+      "entailed": true,
+      "evidence": "transcript:433",
+      "top": [
+        "transcript:433",
+        "transcript:391",
+        "transcript:432",
+        "transcript:360",
+        "transcript:403",
+        "transcript:352",
+        "transcript:361",
+        "transcript:381"
+      ]
+    },
+    {
+      "claim": "summary:176",
+      "text": "This makes the entire detection pipeline a learned set-prediction machine that eliminates hand-crafted anchors and NMS while offering excellent performance.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:108",
+        "slides:107",
+        "slides:105",
+        "transcript:365",
+        "slides:113",
+        "transcript:280",
+        "slides:103",
+        "transcript:296"
+      ]
+    }
+  ]
+}

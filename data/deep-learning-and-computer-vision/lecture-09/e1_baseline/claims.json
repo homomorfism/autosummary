@@ -1,0 +1,2323 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "slides": [
+    {
+      "text": "On June 24, 1374, a \"dancing plague\" broke out in Aachen."
+    },
+    {
+      "text": "During the dancing plague, crowds of people danced uncontrollably through the streets for days, some until they collapsed."
+    },
+    {
+      "text": "The dancing plague was one of several genuinely documented outbreaks of compulsive dancing in medieval Europe."
+    },
+    {
+      "text": "On June 24, 1497, John Cabot, sailing under an English flag, reached the coast of Newfoundland."
+    },
+    {
+      "text": "John Cabot became the first European on the North American mainland since the Vikings."
+    },
+    {
+      "text": "John Cabot was rewarded by King Henry VII with the grand sum of ten pounds."
+    },
+    {
+      "text": "On June 24, 1717, the first Masonic Grand Lodge in the world, the Premier Grand Lodge of England, was founded in London."
+    },
+    {
+      "text": "On June 24, 1812, Napoleon led his Grande Armée of around 600,000 men across the Niemen River into Russia."
+    },
+    {
+      "text": "Less than a tenth of Napoleon's Grande Armée would return from the Russian campaign."
+    },
+    {
+      "text": "On June 24, 1947, the pilot Kenneth Arnold reported nine objects flying \"like a saucer skipping over water\" near Mount Rainier."
+    },
+    {
+      "text": "A newspaper turned Kenneth Arnold's phrasing into \"flying saucer\"."
+    },
+    {
+      "text": "The modern UFO era was born from the newspaper's coining of the term \"flying saucer\"."
+    },
+    {
+      "text": "On June 24, 2010, at Wimbledon, John Isner of the United States defeated Nicolas Mahut of France in the longest match in professional tennis history."
+    },
+    {
+      "text": "The final fifth set of the John Isner vs. Nicolas Mahut match ended 70:68."
+    },
+    {
+      "text": "It is hard to find a good point even in a low-dimensional space."
+    },
+    {
+      "text": "The main idea of the variational autoencoder (Kingma et al., 2013) is to let every point x map not to a single point z but to an entire distribution p(x|z)."
+    },
+    {
+      "text": "The intuition is that the decoder has to be stable to small changes in z."
+    },
+    {
+      "text": "This is, in a way, an improved version of a denoising autoencoder."
+    },
+    {
+      "text": "We want to cover the space of latent codes with 'wide enough' distributions."
+    },
+    {
+      "text": "If we just train an autoencoder, it will be easier for it to decode 'narrow' distributions."
+    },
+    {
+      "text": "We will ultimately get to distributions with zero variance, i.e., to a regular autoencoder that does not really help us."
+    },
+    {
+      "text": "We have to add a constraint on p(x|z), i.e., regularize it."
+    },
+    {
+      "text": "We want to train an encoder to find good latent codes z from images x and train a decoder that turns z back into x."
+    },
+    {
+      "text": "We can decompose the joint distribution p(x, z) differently: p(z) p(x|z) = p(x, z) = p(x) p(z|x)."
+    },
+    {
+      "text": "p(x) is the distribution of images."
+    },
+    {
+      "text": "p(z) is the distribution of latent codes, i.e., a simple distribution we can sample from."
+    },
+    {
+      "text": "We need to find the encoder distribution p(z|x) and the decoder distribution p(x|z)."
+    },
+    {
+      "text": "To get a generative model we need to train both p(x|z) and p(z|x)."
+    },
+    {
+      "text": "We have a simple p(z) and a very complex p(x)."
+    },
+    {
+      "text": "Either we assume that p(x|z) is simple and then look for a complex p(z|x)."
+    },
+    {
+      "text": "Or, vice versa, assume that p(z|x) is simple and then look for a complex p(x|z)."
+    },
+    {
+      "text": "VAE chooses the first option: suppose that p(x|z) = N(x | f(z), c I), where f(z) = Decoder(z)."
+    },
+    {
+      "text": "On the left we have p(z|x) times p(z) = N(z|0, I), i.e., a Gaussian again."
+    },
+    {
+      "text": "On the right, we will be looking for an approximation q(z) ≈ p(z|x)."
+    },
+    {
+      "text": "Namely a variational approximation."
+    },
+    {
+      "text": "p(x, z) = p(x) p(z|x)"
+    },
+    {
+      "text": "log p(x) = log p(x, z) - log p(z|x)"
+    },
+    {
+      "text": "Take the expectation over q(z): E_q(z)[log p(x)] = E_q(z)[log p(x, z)] - E_q(z)[log p(z|x)]"
+    },
+    {
+      "text": "Then do standard transformations: log p(x) = E_q(z)[log p(x, z)] - E_q(z)[log q(z)] + E_q(z)[log q(z)] - E_q(z)[log p(z|x)]"
+    },
+    {
+      "text": "log p(x) = ∫ q(z) log (p(x, z) / q(z)) dz + ∫ q(z) log (q(z) / p(z|x)) dz"
+    },
+    {
+      "text": "We get that log p(x) = L(q) + KL(q(z) || p(z|x)), where L(q) = ∫ q(z) log (p(x, z) / q(z)) dz."
+    },
+    {
+      "text": "Thus, we can approximate p(z|x) with q(z) by maximizing L(q)."
+    },
+    {
+      "text": "In the case of VAE it is easy to find: L(q) = ∫ q(z) log p(x|z) dz + ∫ q(z) log (p(z) / q(z)) dz"
+    },
+    {
+      "text": "L(q) = ∫ q(z) log N(x | f(z), c I) dz - KL(q(z) || p(z))"
+    },
+    {
+      "text": "L(q) = -1/(2c) E_q(z)[||x - f(z)||^2] - KL(q(z) || p(z))"
+    },
+    {
+      "text": "But now we know exactly what L_rec looks like, and it is also easy to find the KL divergence between two Gaussians."
+    },
+    {
+      "text": "KL(q(z) || p(z)) = 1/2 ∑_{j=1}^{d} (σ^2_{x,j} + μ^2_{x,j} - log σ^2_{x,j} - 1)"
+    },
+    {
+      "text": "This leads to the final loss function for the variational autoencoder: L(q) = -1/(2c) E_q(z)[||x - f(z)||^2] - 1/2 ∑_{j=1}^{d} (σ^2_{x,j} + μ^2_{x,j} - log σ^2_{x,j} - 1)"
+    },
+    {
+      "text": "It only remains to solve the sampling problem."
+    },
+    {
+      "text": "To train the model, we need to pass the gradients through z back to the encoder, but we can’t go through sampling."
+    },
+    {
+      "text": "Reparametrization trick: let us first sample and then transform the result."
+    },
+    {
+      "text": "Now we have all components firmly in place: we sample a mini-batch of u for an input mini-batch of x and use it for training."
+    },
+    {
+      "text": "The diffusion model is from (Sohl-Dickstein et al., 2015) with the title 'Deep Unsupervised Learning using Nonequilibrium Thermodynamics'."
+    },
+    {
+      "text": "An idea from statistical physics: let us train a Markov chain that will gradually turn random noise into the distribution we want."
+    },
+    {
+      "text": "To do that, let us start with a chain that turns the distribution we want into random noise."
+    },
+    {
+      "text": "And then let us try to reverse each step."
+    },
+    {
+      "text": "If we succeed, then later we can start from random noise and move backwards."
+    },
+    {
+      "text": "Forward diffusion: let us start with p(x0) and add Gaussian noise: q(x_t | x_{t-1}) = N(x_t | √(1 - β_t) x_{t-1}, β_t I)."
+    },
+    {
+      "text": "Then x0 gradually turns into noise, say, in T steps: q(x_{1:T} | x0) = ∏_{t=1}^{T} q(x_t | x_{t-1})."
+    },
+    {
+      "text": "For each t we can sample x_t in closed form via the reparametrization trick."
+    },
+    {
+      "text": "Let ϵ ~ N(0, I) and denote α_t = 1 - β_t, A_t = ∏_{i=1}^{T} α_i."
+    },
+    {
+      "text": "Then x_t = √α_t x_{t-1} + √(1 - α_t) ϵ = √α_t α_{t-1} x_{t-2} + √(1 - α_t α_{t-1}) ϵ = ... = √A_t x0 + √(1 - A_t) ϵ."
+    },
+    {
+      "text": "That is, q(x_t | x0) = N(x_t | √A_t x0, (1 - A_t) I)."
+    },
+    {
+      "text": "Because when we add two Gaussians N(0, σ^2_1 I) and N(0, σ^2_2 I), we get a Gaussian N(0, (σ^2_1 + σ^2_2) I)."
+    },
+    {
+      "text": "In our case this is (1 - α_t) + α_t(1 - α_t) = 1 - α_t α_{t-1}."
+    },
+    {
+      "text": "And now the task, it would seem, is to reverse this process, to learn how to sample from q(x_{t-1} | x_t)."
+    },
+    {
+      "text": "For small β_t the reverse distributions will also be Gaussian, but their parameters now depend on the data points."
+    },
+    {
+      "text": "Reverse diffusion: now we need to train the distributions p_θ(x_{0:T}) = p_θ(x_T) ∏_{t=1}^{T} p_θ(x_{t-1} | x_t), where p_θ(x_{t-1} | x_t) = N(x_{t-1} | μ_θ(x_t, t), Σ_θ(x_t, t))."
+    },
+    {
+      "text": "If we knew x0, we could reverse it analytically, by the way:"
+    },
+    {
+      "text": "q(x_{t-1} | x_t, x0) = q(x_t | x_{t-1}, x0) q(x_{t-1} | x0) / q(x_t | x0)"
+    },
+    {
+      "text": "q(x_{t-1} | x_t, x0) ∝ exp( -1/2 ( ( (x_t - √α_t x_{t-1})^2 / β_t ) + ( (x_{t-1} - √A_{t-1} x0)^2 / (1 - A_{t-1}) ) + ( (x_t - √A_t x0)^2 / (1 - A_t) ) ) )"
+    },
+    {
+      "text": "In this formula we now need to complete the square in x_{t-1}."
+    },
+    {
+      "text": "This yields q(x_{t-1} | x_t, x0) = N(x_{t-1} | \\tilde{μ}(x_t, x0), \\tilde{β}_t I), where \\tilde{β}_t = ((1 - A_{t-1}) / (1 - A_t)) β_t, \\tilde{μ}(x_t, x0) = (√α_t (1 - A_{t-1}) / (1 - A_t)) x_t + (√A_{t-1} β_t / (1 - A_t)) x0."
+    },
+    {
+      "text": "Since we know that x_t = √A_t x0 + √(1 - A_t) ϵ, \\tilde{μ}(x_t, x0) = (1 / √A_t) (x_t - (1 - α_t) / √(1 - A_t) ϵ_t)."
+    },
+    {
+      "text": "Ultimately we want the reverse diffusion to reconstruct q(x0) from a standard input into x_n."
+    },
+    {
+      "text": "As always in Bayesian inference, approximate!"
+    },
+    {
+      "text": "At each step the model should become a good approximation to q(x_t | x_{t-1}), without conditioning on the unknown x0."
+    },
+    {
+      "text": "To obtain this approximation, we need a variational lower bound, similar to the one we had in VAE and DALL-E."
+    },
+    {
+      "text": "We start with a bound on the global distribution q(x_{1:T} | x0) = q(x_1, ..., x_T | x0)."
+    },
+    {
+      "text": "And then it will decompose into bounds for the individual steps of the diffusion process."
+    },
+    {
+      "text": "Let us recall the idea of variational approximations: p(x, z) = p(x) p(z|x), log p(x) = log p(x, z) - log p(z|x), take the expectation over q(z): E_q(z)[log p(x)] = E_q(z)[log p(x, z)] - E_q(z)[log p(z|x)], then do the standard manipulations: log p(x) = E_q(z)[log p(x, z)] - E_q(z)[log q(z)] + E_q(z)[log q(z)] - E_q(z)[log p(z|x)], log p(x) = ∫ q(z) log (p(x, z) / q(z)) dz + ∫ q(z) log (q(z) / p(z|x)) dz."
+    },
+    {
+      "text": "In the end it turns out that log p(x) = L(q) + KL(q(z) || p(z|x)), where L(q) = ∫ q(z) log (p(x, z) / q(z)) dz."
+    },
+    {
+      "text": "Let us derive the variational bound for the diffusion model again from first principles:"
+    },
+    {
+      "text": "log p_θ(x0) = log p_θ(x0, ..., x_T) - log p_θ(x_1, ..., x_T | x0)"
+    },
+    {
+      "text": "E_{q(x0)}[log p_θ(x0)] = E_{q(x0:T)}[log p_θ(x0:T)] - E_{q(x0:T)}[log p_θ(x1:T | x0)]"
+    },
+    {
+      "text": "= E_{q(x0:T)}[log (p_θ(x0:T) / q(x1:T | x0))] + E_{q(x0:T)}[log (q(x1:T | x0) / p_θ(x1:T | x0))]"
+    },
+    {
+      "text": "Here the second term is the KL divergence, and we get the loss function as minus the variational lower bound: L = E_{q(x0:T)}[log (q(x1:T | x0) / p_θ(x0:T))] ≥ -E_{q(x0)}[log p_θ(x0)]."
+    },
+    {
+      "text": "This bound can be computed as a sum:"
+    },
+    {
+      "text": "L = E_q[log (q(x1:T | x0) / p_θ(x0:T))] = E_q[log ( (∏_{t=1}^T q(x_t | x_{t-1})) / (p_θ(x_T) ∏_{t=1}^T p_θ(x_{t-1} | x_t)) )]"
+    },
+    {
+      "text": "= E_q[-log p_θ(x_T) + ∑_{t=1}^T log (q(x_t | x_{t-1}) / p_θ(x_{t-1} | x_t))]"
+    },
+    {
+      "text": "= E_q[-log p_θ(x_T) + ∑_{t=2}^T log (q(x_t | x_{t-1}) / p_θ(x_{t-1} | x_t)) + log (q(x_1 | x_0) / p_θ(x_0 | x_1))]"
+    },
+    {
+      "text": "= E_q[-log p_θ(x_T) + ∑_{t=2}^T log ( (q(x_t | x_{t-1}, x_0) / p_θ(x_{t-1} | x_t)) * (q(x_t | x_0) / q(x_{t-1} | x_0)) ) + log (q(x_1 | x_0) / p_θ(x_0 | x_1))]"
+    },
+    {
+      "text": "= E_q[-log p_θ(x_T) + ∑_{t=2}^T log (q(x_t | x_{t-1}, x_0) / p_θ(x_{t-1} | x_t)) + log (q(x_T | x_0) / q(x_1 | x_0)) + log (q(x_1 | x_0) / p_θ(x_0 | x_1))]"
+    },
+    {
+      "text": "= E_q[log (q(x_T | x_0) / p_θ(x_T)) + ∑_{t=2}^T log (q(x_t | x_{t-1}, x_0) / p_θ(x_{t-1} | x_t)) - log p_θ(x_0 | x_1)]"
+    },
+    {
+      "text": "In the end we obtain L = L_T + L_{T-1} + ... + L_0, where L_T = KL(q(x_T | x0) || p_θ(x_T)) ,"
+    },
+    {
+      "text": "L_t is defined as KL(q(x_t | x_{t+1}, x_0) || p_θ(x_t | x_{t+1})), for t = 1, …, T-1."
+    },
+    {
+      "text": "L_0 is defined as -log p_θ(x_0 | x_1)."
+    },
+    {
+      "text": "L_t and L_0 are KL divergences between Gaussians, which can be computed and substituted into the loss function."
+    },
+    {
+      "text": "In L_t, we use the Gaussian parametrization p_θ(x_{t-1} | x_t) = N(x_{t-1} | μ_θ(x_t, t), Σ_θ(x_t, t))."
+    },
+    {
+      "text": "We try to match the parameters of p_θ with q(x_t | x_{t-1}, x_0)."
+    },
+    {
+      "text": "For the mean, μ_θ(x_t, t) is approximated by \\tilde{μ}_t(x_t, x_0) = 1/√A_t (x_t - (1-α_t)/√(1-A_t) ε_t)."
+    },
+    {
+      "text": "Since we know x_t during training, we can parametrize the noise directly."
+    },
+    {
+      "text": "The noise parametrization yields p_θ(x_{t-1} | x_t) = N(x_{t-1} | 1/√α_t (x_t - (1-α_t)/√(1-A_t) ε_θ(x_t, t)), Σ_θ(x_t, t))."
+    },
+    {
+      "text": "The method by Sohl-Dickstein et al. (2015) on its own did not work too well, except perhaps on CIFAR."
+    },
+    {
+      "text": "DDPM (Ho et al., 2020) uses the same basic idea and the same structure of the loss function as previous diffusion models."
+    },
+    {
+      "text": "In DDPM, the variances of forward diffusion β_t are constant hyperparameters and are not trained."
+    },
+    {
+      "text": "Therefore, all of the q distributions are not trained."
+    },
+    {
+      "text": "p_θ(x_T) is a fixed distribution from which we will sample."
+    },
+    {
+      "text": "Consequently, L_T is a constant."
+    },
+    {
+      "text": "For intermediate steps, the variances in p_θ(x_t | x_{t+1}) are also not trained."
+    },
+    {
+      "text": "One can find a simple closed form for L_t."
+    },
+    {
+      "text": "DDPM introduces a separate discrete decoder for L_0."
+    },
+    {
+      "text": "The data consists of integers from 0 to 255, rescaled to [-1, 1], which is the natural representation for images."
+    },
+    {
+      "text": "In DDPM, p_θ(x_0 | x_1) is modeled as ∏_{i=1}^D ∫_{δ_-(x_{0,i})}^{δ_+(x_{0,i})} N(x | μ_{θ,i}(x_1), σ_1^2) dx, where i runs over pixels."
+    },
+    {
+      "text": "μ_θ(x_1) is the decoder."
+    },
+    {
+      "text": "The integration limits δ_± are 1/255 on each side of x_{0,i}."
+    },
+    {
+      "text": "One can substitute a different model at the last step and use μ_θ(x_1) without noise during sampling."
+    },
+    {
+      "text": "DDPM already gave excellent generation, comparable to the best GANs of that time."
+    },
+    {
+      "text": "The next step was DDIM, introduced by Song et al. (2020)."
+    },
+    {
+      "text": "An important drawback of all diffusion models so far is that they are very slow."
+    },
+    {
+      "text": "Generation in diffusion models has to go through all the diffusion steps."
+    },
+    {
+      "text": "There are thousands of diffusion steps."
+    },
+    {
+      "text": "The diffusion steps run sequentially and do not parallelize."
+    },
+    {
+      "text": "Song et al. mention that sampling from a trained GAN is about 1000 times faster than sampling from DDPM for the same image size."
+    },
+    {
+      "text": "Song et al. generalize diffusion models, in particular DDPM."
+    },
+    {
+      "text": "The loss function L does not depend directly on the joint distribution q(x_{1:T} | x_0), only on the marginals q(x_t | x_0)."
+    },
+    {
+      "text": "The same loss function can be reused for a different joint distribution as long as it has the same marginals."
+    },
+    {
+      "text": "We can generalize to non-Markovian diffusion processes if we can find a reverse Markov chain for them."
+    },
+    {
+      "text": "For DDIM, the diffusion process is defined in terms of its reverse form: q_σ(x_{1:T}|x_0) = q_σ(x_T|x_0) ∏_{t=2}^T q_σ(x_{t-1} | x_t, x_0)."
+    },
+    {
+      "text": "The forward diffusion distributions can be expressed by Bayes’ theorem as q_σ(x_t | x_{t-1}, x_0) = q_σ(x_{t-1} | x_t, x_0) q_σ(x_t | x_0) / q_σ(x_{t-1} | x_0)."
+    },
+    {
+      "text": "The resulting process has exactly the same marginals as the original, so the reverse diffusion can be trained with the same loss function, and it will be a Markov chain."
+    },
+    {
+      "text": "Extending the class of distributions for forward diffusion does not help much because sampling a new image still requires going through all the steps of reverse diffusion."
+    },
+    {
+      "text": "Instead of approximating the random noise ε_t that leads from x_t to x_{t+1}, we can approximate the random noise ε_t that leads directly from x_0 to x_{t+1}."
+    },
+    {
+      "text": "In the reverse direction, we approximate the direction not toward x_t but directly toward x_0, and we can move faster."
+    },
+    {
+      "text": "It is hard to say which approximation is better."
+    },
+    {
+      "text": "In DDIM, we have separated the dependence of ε_t on x_0."
+    },
+    {
+      "text": "We can jump several steps at once, moving from x_t to x_{t+k} in one step with an increased ε."
+    },
+    {
+      "text": "DDIM led to a 10x–100x speedup compared to DDPM without loss of quality."
+    },
+    {
+      "text": "Generation in DDIMs does not have to be stochastic; one can set the variance of reverse diffusion to zero during generation."
+    },
+    {
+      "text": "With zero variance, the latent code in the space x_T corresponds to exactly one image."
+    },
+    {
+      "text": "DDIM is a good model for latent representations."
+    },
+    {
+      "text": "DDPM could not interpolate because a great deal of noise is added during the reverse process."
+    },
+    {
+      "text": "Another breakthrough came when the diffusion process started to be used in latent space."
+    },
+    {
+      "text": "Stable Diffusion was introduced by Rombach, Blattmann et al. (2022)."
+    },
+    {
+      "text": "unCLIP, also known as DALL-E 2, was introduced by Ramesh et al. (2022)."
+    },
+    {
+      "text": "unCLIP trains p(x|y) = p(x|c,y) p(c|y)."
+    },
+    {
+      "text": "The prior model p(c|y) builds a CLIP embedding from text."
+    },
+    {
+      "text": "In p(x|c,y), first a \"noise\" (prior) for the image is generated, and then a diffusion model draws the image."
+    },
+    {
+      "text": "DiT (Peebles, Xie, 2022) is a fully modern architecture."
+    },
+    {
+      "text": "DiT is a latent diffusion model, but it uses a transformer instead of a U-Net-like architecture for the latent codes."
+    },
+    {
+      "text": "The transformer input is an I×I×C tensor, which is \"patchified\" into a sequence of p×p patches."
+    },
+    {
+      "text": "The length of the sequence is T = (I/p)^2."
+    },
+    {
+      "text": "The patch size p is a hyperparameter that affects complexity quadratically."
+    },
+    {
+      "text": "The patch sequence is processed by DiT blocks."
+    },
+    {
+      "text": "The adaptive layer norm in DiT blocks uses parameters taken from the condition."
+    },
+    {
+      "text": "DiTs are much more computationally efficient."
+    },
+    {
+      "text": "Transformer GFlops are strongly correlated with quality."
+    },
+    {
+      "text": "Large DiT models use computation more efficiently."
+    },
+    {
+      "text": "DPM-Solver++ (Lu et al., 2022) addresses how to speed up DDIM further."
+    },
+    {
+      "text": "DDIM is a first-order step for integrating a certain ODE."
+    },
+    {
+      "text": "DPM-Solver++ uses a multistep second- or third-order scheme."
+    },
+    {
+      "text": "This reduces the local error."
+    },
+    {
+      "text": "As a result, we can take wider steps and need even fewer steps."
+    },
+    {
+      "text": "DPM-Solver++ is more stable and works better than other variants."
+    },
+    {
+      "text": "UniPC (Zhao et al., 2023) is a predictor-corrector-type method."
+    },
+    {
+      "text": "UniPC derives a universal correcting step (UniC) that can be added after any base predictor to increase the order of accuracy without additional model calls."
+    },
+    {
+      "text": "They also derive the matching UniP predictor."
+    },
+    {
+      "text": "The most interesting further development is flow matching."
+    },
+    {
+      "text": "Many modern generative models are based on flow matching."
+    }
+  ],
+  "transcript": [
+    {
+      "text": "This is the last lecture of the class."
+    },
+    {
+      "text": "The class did not cover computer vision itself."
+    },
+    {
+      "text": "The class had only one lecture on object detection."
+    },
+    {
+      "text": "The instructor skipped segmentation entirely."
+    },
+    {
+      "text": "Generative models are important ideas."
+    },
+    {
+      "text": "Usually the instructor chooses either computer vision topics or generative models."
+    },
+    {
+      "text": "In this case, the instructor chose generative models."
+    },
+    {
+      "text": "Generative models are a great teaching tool because they show ideas that span all of machine learning in a simple form."
+    },
+    {
+      "text": "Today, the instructor will explain one of these basic ideas."
+    },
+    {
+      "text": "The instructor doubts that people in Harbor Space teach that idea unless the instructor does."
+    },
+    {
+      "text": "Today the class will mostly discuss variational autoencoders."
+    },
+    {
+      "text": "Therefore, the class will discuss variational approximations."
+    },
+    {
+      "text": "In variational autoencoders, the variational approximation appears in its simplest and most useful form."
+    },
+    {
+      "text": "The instructor thinks variational autoencoders are perfect for teaching variational approximation."
+    },
+    {
+      "text": "If time remains, the instructor will walk through diffusion models."
+    },
+    {
+      "text": "Diffusion models involve complicated math."
+    },
+    {
+      "text": "The class will not have time for the complicated math of diffusion models."
+    },
+    {
+      "text": "The basic ideas of diffusion models are easy to show."
+    },
+    {
+      "text": "The instructor suggests starting with the motivation and basic idea of the variational autoencoder."
+    },
+    {
+      "text": "The instructor started discussing the motivation of variational autoencoders yesterday."
+    },
+    {
+      "text": "Yesterday, the instructor explained the problem of why a generative model cannot be made from an autoencoder."
+    },
+    {
+      "text": "In an autoencoder, the input X is a picture or a complicated object."
+    },
+    {
+      "text": "X is passed through the encoder."
+    },
+    {
+      "text": "In a regular autoencoder, the encoder outputs a latent code Z."
+    },
+    {
+      "text": "Z is relatively small compared to X."
+    },
+    {
+      "text": "The decoder is supposed to recover or reconstruct the original X."
+    },
+    {
+      "text": "The combination of an encoder, a small latent code, and a decoder that reconstructs the input is the basic structure of an autoencoder."
+    },
+    {
+      "text": "An autoencoder can be trained straightforwardly."
+    },
+    {
+      "text": "The training objective is to make X and X hat similar."
+    },
+    {
+      "text": "This objective is called the reconstruction loss."
+    },
+    {
+      "text": "The reconstruction loss can be the L2 norm."
+    },
+    {
+      "text": "The reconstruction loss can be a perception loss."
+    },
+    {
+      "text": "The instructor is unsure if Alex talked to the class about perception loss."
+    },
+    {
+      "text": "Perception loss is based on the similarity between local features extracted by a few layers of a standard feature extractor."
+    },
+    {
+      "text": "One can define any similarity measure and optimize it."
+    },
+    {
+      "text": "Autoencoders do not need labeled training data."
+    },
+    {
+      "text": "The dataset can be just a set of Xs."
+    },
+    {
+      "text": "Labeled samples are obtained automatically because the task is to reconstruct the same X."
+    },
+    {
+      "text": "A major question is why the blue part cannot be used as a generative model."
+    },
+    {
+      "text": "In the slide, the instructor intentionally colored that part differently."
+    },
+    {
+      "text": "Latent codes live on a simpler and more structured manifold than in the space of X."
+    },
+    {
+      "text": "The space of X is huge and very complicated."
+    },
+    {
+      "text": "Latent codes do not cover the entire space of Z."
+    },
+    {
+      "text": "The space of Z is still complex."
+    },
+    {
+      "text": "A random point in latent space Z will not lie on the manifold of latent codes for good cat pictures."
+    },
+    {
+      "text": "Yesterday, the instructor proposed using a discriminator to fix this."
+    },
+    {
+      "text": "The class discussed adversarial autoencoders."
+    },
+    {
+      "text": "In adversarial autoencoders, the discriminator distinguishes fake Z from real Zs."
+    },
+    {
+      "text": "Real Zs are sampled from a Gaussian or any chosen distribution."
+    },
+    {
+      "text": "Adversarial autoencoders apply adversarial learning."
+    },
+    {
+      "text": "Adversarial autoencoders apply the basic GAN idea."
+    },
+    {
+      "text": "This approach regularizes the latent space."
+    },
+    {
+      "text": "This approach fixes the manifold of latent codes."
+    },
+    {
+      "text": "That method was called the adversarial autoencoder."
+    },
+    {
+      "text": "Today, the instructor presented a different approach to the same problem."
+    },
+    {
+      "text": "The different approach is better."
+    },
+    {
+      "text": "There was a competition between adversarial autoencoders and variational autoencoders."
+    },
+    {
+      "text": "With recent innovations, variational autoencoders became better."
+    },
+    {
+      "text": "Variational autoencoders form the basis for much of generative modeling."
+    },
+    {
+      "text": "Variational autoencoders form the basis for diffusion models discussed later."
+    },
+    {
+      "text": "The variational approach uses the same encoder-decoder structure with reconstruction losses."
+    },
+    {
+      "text": "The core problem of the latent space is that each training X maps to a single point Z."
+    },
+    {
+      "text": "This leads to almost automatic overfitting in latent code space."
+    },
+    {
+      "text": "Even with a huge dataset, each training X maps to a single Z."
+    },
+    {
+      "text": "Shifting Z slightly causes a fall off the manifold of good latent codes."
+    },
+    {
+      "text": "When sampling, one does not know the good or bad directions."
+    },
+    {
+      "text": "One is very likely to fall off the manifold when sampling."
+    },
+    {
+      "text": "The variational autoencoder solution is to have the encoder output a distribution p(z|x) instead of a single point."
+    },
+    {
+      "text": "A cat picture maps to a Gaussian distribution in latent space, not a single point."
+    },
+    {
+      "text": "A different cat picture maps to a different distribution."
+    },
+    {
+      "text": "The goal is to sample a point from the distribution and reconstruct the correct cat."
+    },
+    {
+      "text": "From a point sampled from the orange distribution, the same orange cat should be reconstructed."
+    },
+    {
+      "text": "From a point sampled from the green distribution, the same green cat should be reconstructed."
+    },
+    {
+      "text": "The encoder provides the distribution in the form of parameters."
+    },
+    {
+      "text": "After sampling, X hat is obtained and should be similar to X via reconstruction loss."
+    },
+    {
+      "text": "This method aims to cover the whole latent space or a reasonable portion with distributions."
+    },
+    {
+      "text": "Typically, these distributions are normal (Gaussian)."
+    },
+    {
+      "text": "The encoder outputs parameters mu of X and sigma of X."
+    },
+    {
+      "text": "For simplicity, sigma is a vector, but it should be a covariance matrix."
+    },
+    {
+      "text": "For multidimensional distributions, a diagonal covariance matrix is used."
+    },
+    {
+      "text": "From mu and sigma, a Gaussian is constructed, Z is sampled, and X hat is produced."
+    },
+    {
+      "text": "The Gaussian shape is fixed, but means and variances are determined by the encoder."
+    },
+    {
+      "text": "The encoder would prefer to output a single point because it makes the task easier."
+    },
+    {
+      "text": "Reconstructing the same cat from a neighborhood of points is strictly harder than from a single point."
+    },
+    {
+      "text": "Since the encoder controls variances, it can set the variance to zero."
+    },
+    {
+      "text": "The encoder can fake a Gaussian with very small variance."
+    },
+    {
+      "text": "This will happen in practice without regularization."
+    },
+    {
+      "text": "Regularization on mu and sigma is needed."
+    },
+    {
+      "text": "Regularization should prevent sigma from going to zero."
+    },
+    {
+      "text": "Regularization should prevent mu from going to infinity."
+    },
+    {
+      "text": "Another easy solution is to drive points apart with fixed variance to avoid overlap."
+    },
+    {
+      "text": "Driving points apart with fixed variance still results in essentially individual points."
+    },
+    {
+      "text": "That also happens without regularization."
+    },
+    {
+      "text": "The required regularization is for the distribution to be similar to a standard normal distribution (mean zero, unit covariance)."
+    },
+    {
+      "text": "This is the idea of the Variational Autoencoder."
+    },
+    {
+      "text": "There are remaining problems and unclear points."
+    },
+    {
+      "text": "One problem is formalizing the desired objectives: reconstruction loss and regularizer."
+    },
+    {
+      "text": "The reconstruction loss should make X and X hat similar."
+    },
+    {
+      "text": "The regularizer should keep mu near zero and sigma away from zero."
+    },
+    {
+      "text": "Question 1: how to formalize these objectives?"
+    },
+    {
+      "text": "What do different reconstruction losses mean?"
+    },
+    {
+      "text": "What does closeness of distributions mean?"
+    },
+    {
+      "text": "There are many ways to define distribution closeness."
+    },
+    {
+      "text": "Which reconstruction loss and closeness measure should be chosen?"
+    },
+    {
+      "text": "A special question for this architecture is how to insert a sampling procedure into a deep neural network."
+    },
+    {
+      "text": "The encoder is a neural network with two output vectors: mu and sigma."
+    },
+    {
+      "text": "In the forward pass of the variational autoencoder, sampling from a Gaussian distribution is simple."
+    },
+    {
+      "text": "Gradient does not propagate through a sampling operation in the backward pass."
+    },
+    {
+      "text": "The inability of gradients to propagate through a sampling operation is a big problem."
+    },
+    {
+      "text": "The ideas that solve the gradient-through-sampling problem are fundamental ideas that appear throughout machine learning."
+    },
+    {
+      "text": "The model has two variables: x and z."
+    },
+    {
+      "text": "x represents the input (e.g., an image) being encoded."
+    },
+    {
+      "text": "z represents the latent code."
+    },
+    {
+      "text": "Every machine learning model decomposes the joint distribution p(x,z)."
+    },
+    {
+      "text": "The joint distribution p(x,z) can be decomposed as p(x,z) = p(x) p(z|x)."
+    },
+    {
+      "text": "The joint distribution p(x,z) can be decomposed as p(x,z) = p(z) p(x|z)."
+    },
+    {
+      "text": "p(z|x) is the encoder distribution."
+    },
+    {
+      "text": "The encoder produces p(z|x)."
+    },
+    {
+      "text": "The decoder takes z as input and outputs x̂ (an approximation to x)."
+    },
+    {
+      "text": "The decoder outputs an approximation to x, not the exact x."
+    },
+    {
+      "text": "The decoder produces some noise distribution around x."
+    },
+    {
+      "text": "The decoder distribution is the distribution of noise at the output."
+    },
+    {
+      "text": "The decoder distribution will be captured in the reconstruction loss."
+    },
+    {
+      "text": "p(x) is the global distribution of, for example, cat pictures."
+    },
+    {
+      "text": "p(x) is an extremely difficult and complicated distribution to comprehend."
+    },
+    {
+      "text": "p(z) is the prior distribution on latent codes, without any x."
+    },
+    {
+      "text": "We want p(z) to be a simple distribution that we can sample from."
+    },
+    {
+      "text": "The regeneration process involves sampling z from p(z) and then sampling x from p(x|z)."
+    },
+    {
+      "text": "For the regeneration process to work, p(z) must be simple."
+    },
+    {
+      "text": "The encoder distribution is the distribution from which we sample z given x."
+    },
+    {
+      "text": "The encoder distribution is analogous to the true Gaussian distribution."
+    },
+    {
+      "text": "Assuming both the decoder has Gaussian noise and the encoder produces a Gaussian does not work."
+    },
+    {
+      "text": "It does not work because p(z) must be simple."
+    },
+    {
+      "text": "In the classical variational autoencoder, p(z) is a standard Gaussian."
+    },
+    {
+      "text": "We choose p(z) to be a standard Gaussian."
+    },
+    {
+      "text": "p(z) is chosen to be simple."
+    },
+    {
+      "text": "If the decoder is also Gaussian, it is a Gaussian with mean specified by the decoder and Gaussian noise around the output."
+    },
+    {
+      "text": "We want to reconstruct the original x, but we cannot do it perfectly."
+    },
+    {
+      "text": "x is near the decoder output with some noise."
+    },
+    {
+      "text": "In linear regression, points are around the line with noise; similarly, in the decoder, x is around the decoder output with noise."
+    },
+    {
+      "text": "It is natural to assume simple noise like Gaussian noise for the decoder."
+    },
+    {
+      "text": "The decoder noise distribution is a simple distribution (like Gaussian)."
+    },
+    {
+      "text": "The product of two Gaussians is a Gaussian, which is simple."
+    },
+    {
+      "text": "p(x) is an incredibly complicated distribution in a high-dimensional space."
+    },
+    {
+      "text": "Cat pictures do not form a Gaussian distribution."
+    },
+    {
+      "text": "The model aims to simplify the complicated distribution p(x)."
+    },
+    {
+      "text": "The equality p(x,z) = p(x) p(z|x) = p(z) p(x|z) implies that both the decoder and encoder cannot be simple simultaneously."
+    },
+    {
+      "text": "If the encoder were also Gaussian, the equality would not hold because p(x) p(z|x) would be simple but p(x) is complicated, forcing p(z|x) to be complicated."
+    },
+    {
+      "text": "It is impossible to assume both the encoder and decoder distributions are simple."
+    },
+    {
+      "text": "One can choose to assume the encoder is simple, which would make the decoder complicated."
+    },
+    {
+      "text": "Keeping the decoder easier is a more natural choice."
+    },
+    {
+      "text": "Having Gaussian noise at the output is a more natural choice."
+    },
+    {
+      "text": "The encoder cannot really be simple."
+    },
+    {
+      "text": "The variational autoencoder is called 'variational' because it approximates the true encoder distribution p(z|x) with a simple distribution q(z)."
+    },
+    {
+      "text": "In the variational autoencoder, the encoder produces parameters for a Gaussian (q(z))."
+    },
+    {
+      "text": "The encoder's output distribution q(z) is an approximation to the true p(z|x)."
+    },
+    {
+      "text": "The true distribution p(z|x) is complicated and unknown."
+    },
+    {
+      "text": "The approximation q(z) is not the true p(z|x)."
+    },
+    {
+      "text": "The key question is how to make the approximation q(z) to p(z|x)."
+    },
+    {
+      "text": "The idea of variational approximations is a very important, fundamental idea in machine learning."
+    },
+    {
+      "text": "Variational approximations underlie many different models and appear throughout the field."
+    },
+    {
+      "text": "The derivation of the variational approximation formula begins with the identity p(x,z) = p(x) p(z|x)."
+    },
+    {
+      "text": "Taking logs gives log p(x,z) = log p(x) + log p(z|x)."
+    },
+    {
+      "text": "Rearranging yields log p(x) = log p(x,z) - log p(z|x)."
+    },
+    {
+      "text": "Taking the expectation with respect to any distribution q(z) on both sides gives: log p(x) = E_{q(z)}[log p(x,z) - log p(z|x)]."
+    },
+    {
+      "text": "Since log p(x) does not depend on z, it remains constant under the expectation."
+    },
+    {
+      "text": "Adding and subtracting E_{q(z)}[log q(z)] (the entropy of q) yields: log p(x) = E_{q(z)}[log p(x,z) - log p(z|x) + log q(z) - log q(z)]."
+    },
+    {
+      "text": "Rearranging terms leads to the formula: log p(x) = E_{q(z)}[log(p(x,z)/p(z))] + E_{q(z)}[log(q(z)/p(z|x))]."
+    },
+    {
+      "text": "That formula is the main formula of variational approximations."
+    },
+    {
+      "text": "The identity holds for any p(x,z) and any q(z)."
+    },
+    {
+      "text": "On the left side of the formula, log p(x) is a constant."
+    },
+    {
+      "text": "The goal is to find a distribution q(z) that serves as a good approximation for p(z|x)."
+    },
+    {
+      "text": "The problem is viewed as optimizing a functional with respect to q(z)."
+    },
+    {
+      "text": "On the left side of an equation, there is a term that is independent of q(z) and is the likelihood of the dataset."
+    },
+    {
+      "text": "On the right side, there is a term L(q) plus the Kullback-Leibler divergence between q(z) and p(z|x)."
+    },
+    {
+      "text": "The Kullback-Leibler divergence is a metric that measures how similar two distributions are."
+    },
+    {
+      "text": "The KL divergence from Q to P is defined as the integral of Q times log(Q/P) dx."
+    },
+    {
+      "text": "The KL divergence between q(z) and p(z|x) indicates how close q(z) is to p(z|x)."
+    },
+    {
+      "text": "Minimizing the KL divergence from q(z) to p(z|x) is a good optimization target."
+    },
+    {
+      "text": "p(z|x) is a very complicated distribution and is hard to work with."
+    },
+    {
+      "text": "In standard machine learning, p(z|x) is a complicated posterior of a model with many hidden variables requiring integration."
+    },
+    {
+      "text": "The sum of L(q) and the KL divergence equals a constant that is independent of q(z)."
+    },
+    {
+      "text": "Minimizing the KL divergence with respect to q(z) is equivalent to maximizing L(q) because the sum is constant."
+    },
+    {
+      "text": "L(q) is called the variational lower bound or evidence lower bound (ELBO)."
+    },
+    {
+      "text": "L(q) is a lower bound to a constant that one wants to maximize."
+    },
+    {
+      "text": "L(q) can be expressed as the integral q(z) log p(x,z)/q(z) dz."
+    },
+    {
+      "text": "L(q) involves the distribution q(z) being optimized and the joint distribution p(x,z)."
+    },
+    {
+      "text": "In probabilistic models with observable x and hidden z, the joint distribution p(x,z) is typically simple."
+    },
+    {
+      "text": "The variational approximation switches from working with the difficult posterior p(z|x) to the simpler joint distribution p(x,z)."
+    },
+    {
+      "text": "In a variational autoencoder, p(z|x) is very complicated."
+    },
+    {
+      "text": "In a variational autoencoder, the joint distribution p(x,z) is a product of two Gaussians."
+    },
+    {
+      "text": "The joint distribution can be decomposed as log p(z) + log p(x|z)."
+    },
+    {
+      "text": "Applying the decomposition to L(q) yields: expectation_{q(z)} log p(x|z) + expectation_{q(z)} log p(z) - expectation_{q(z)} log q(z)."
+    },
+    {
+      "text": "The last two terms combine to form - expectation_{q(z)} log(q(z)/p(z))."
+    },
+    {
+      "text": "The term - expectation_{q(z)} log(q(z)/p(z)) is the Kullback-Leibler divergence between q(z) and p(z)."
+    },
+    {
+      "text": "In the variational autoencoder, q(z) is the encoder output distribution with parameters mu_x and sigma_x."
+    },
+    {
+      "text": "In the variational autoencoder, p(z) is the prior distribution, a standard Gaussian."
+    },
+    {
+      "text": "The KL divergence between q(z) and p(z) acts as a regularizer in the loss function."
+    },
+    {
+      "text": "Without regularization, latent space distributions may drift apart and their variance may shrink."
+    },
+    {
+      "text": "The variational approximation provides an exact formula for the regularizer as a function of mu and sigma."
+    },
+    {
+      "text": "The provided regularizer formula can be directly implemented in PyTorch."
+    },
+    {
+      "text": "The variational approximation uniquely specifies the loss functions needed for training."
+    },
+    {
+      "text": "The term expectation_{q(z)} log p(x|z) is related to the decoder distribution."
+    },
+    {
+      "text": "p(x|z) is the decoder distribution, modeled as a Gaussian centered at the decoder output."
+    },
+    {
+      "text": "Evaluating the log-density of a Gaussian yields a constant minus a term proportional to the squared difference between x and the decoder output."
+    },
+    {
+      "text": "The expectation of the squared difference forms the reconstruction loss."
+    },
+    {
+      "text": "In practice, the expectation is approximated by averaging over the training data, leading to the mean squared error."
+    },
+    {
+      "text": "The positive variational lower bound can be expressed as a negative constant times the reconstruction loss minus the regularizer."
+    },
+    {
+      "text": "Maximizing the variational lower bound is equivalent to minimizing the sum of the reconstruction loss and the regularizer."
+    },
+    {
+      "text": "Q represents the encoder parameters mu and sigma."
+    },
+    {
+      "text": "The optimization minimizes the sum of reconstruction loss and regularizer with respect to mu and sigma."
+    },
+    {
+      "text": "In the variational autoencoder, the regularizer is a specific formula of mu and sigma."
+    },
+    {
+      "text": "The specific regularizer formula is not trivial."
+    },
+    {
+      "text": "One would not be able to guess the regularizer formula without prior knowledge."
+    },
+    {
+      "text": "In the variational autoencoder, the reconstruction loss follows from the noise assumption in the decoder."
+    },
+    {
+      "text": "The least squares reconstruction loss in the variational autoencoder resulted from choosing a Gaussian noise model."
+    },
+    {
+      "text": "If a different noise model were chosen, the reconstruction loss would be different."
+    },
+    {
+      "text": "The variational autoencoder provides an exact form of the regularizer."
+    },
+    {
+      "text": "The speaker considers the application of the variational idea in deep learning to be beautiful."
+    },
+    {
+      "text": "The sampling problem in variational autoencoders is how to put gradients through the sampling step."
+    },
+    {
+      "text": "The re-parameterization trick solves the sampling problem."
+    },
+    {
+      "text": "The re-parameterization trick is easier than deriving the loss functions."
+    },
+    {
+      "text": "The re-parameterization trick restructures the neural network to allow sampling in advance."
+    },
+    {
+      "text": "Reparameterization means reparameterizing the sampling distribution so that sampling can be done before knowing mu and sigma."
+    },
+    {
+      "text": "The re-parameterization trick adds a separate input u sampled from a standard Gaussian."
+    },
+    {
+      "text": "The input u is sampled without regard to x."
+    },
+    {
+      "text": "This restructuring allows gradients to flow because the sampling is moved outside the gradient flow."
+    },
+    {
+      "text": "For Gaussian distributions, sampling from a Gaussian with mean mu and covariance sigma^2 is equivalent to sampling from a standard Gaussian, multiplying component-wise by sigma, and adding mu."
+    },
+    {
+      "text": "The distribution N(mu, sigma^2) is a linear function of the standard normal: Z = mu + sigma * u, where u ~ N(0,1)."
+    },
+    {
+      "text": "In the Gaussian reparameterization, mu acts as a shift."
+    },
+    {
+      "text": "In the Gaussian reparameterization, sigma acts as a rescaling."
+    },
+    {
+      "text": "The shape of the Gaussian distribution remains the same when starting from a standard Gaussian and applying mu and sigma."
+    },
+    {
+      "text": "The reparameterization trick for Gaussians involves sampling u from a standard Gaussian, computing Z = mu + sigma * u, and feeding Z to the decoder."
+    },
+    {
+      "text": "The ability to reparameterize depends on the distribution; it works for Gaussians but may not work for other distributions."
+    },
+    {
+      "text": "The speaker finds the reparameterization trick to be a beautiful and simple trick."
+    },
+    {
+      "text": "Training an autoencoder is relatively easy."
+    },
+    {
+      "text": "The high-dimensional data manifold is very difficult."
+    },
+    {
+      "text": "Even the lower-dimensional latent space is non-trivial."
+    },
+    {
+      "text": "Sampling from a Gaussian in a low-dimensional space does not guarantee falling into the data manifold."
+    },
+    {
+      "text": "The variational autoencoder idea involves the encoder producing full distributions in latent space, then sampling Z from one, and the decoder reconstructing the original image from any sampled point."
+    },
+    {
+      "text": "The intuition behind variational autoencoders is to cover the latent space with these distributions, making them wide enough and close enough so that standard Gaussian samples fall into good parts of the space."
+    },
+    {
+      "text": "Without regularization, the points in the latent space will fly apart and the variances will shrink to zero."
+    },
+    {
+      "text": "Both a reconstruction loss and a regularization on the encoder output are needed in variational autoencoders."
+    },
+    {
+      "text": "Two key questions addressed in the derivation: how to choose the loss function/regularizer? and how to pass gradients through sampling?"
+    },
+    {
+      "text": "The derivation started from an equality involving the encoder, decoder, and the target distribution for Z."
+    },
+    {
+      "text": "The true encoder and decoder distributions in that equality are complicated."
+    },
+    {
+      "text": "In the variational approximation, the decoder distribution is modeled as a simple round Gaussian."
+    },
+    {
+      "text": "In the variational approximation, the complicated encoder distribution is approximated with a Gaussian."
+    },
+    {
+      "text": "The variational approximation yields: the variational lower bound plus the KL divergence between the approximation and the true posterior equals a constant."
+    },
+    {
+      "text": "Maximizing the variational lower bound minimizes the KL divergence."
+    },
+    {
+      "text": "This maximization yields the reconstruction loss and the regularizer."
+    },
+    {
+      "text": "The reparameterization trick for Gaussians is: sample from a standard Gaussian, multiply by sigma, and add mu."
+    },
+    {
+      "text": "The variational autoencoder is described as the proper way to do autoencoders."
+    },
+    {
+      "text": "Initially, upon its introduction, the variational autoencoder did not catch on; early papers used it as a baseline that was easy to beat."
+    },
+    {
+      "text": "Since its introduction, variational autoencoders have been extended to discrete latent spaces, where Z is a sequence of tokens."
+    },
+    {
+      "text": "The discrete latent space extension allows latent codes to be written with a transformer from text."
+    },
+    {
+      "text": "Writing latent codes with a transformer from text is similar to machine translation."
+    },
+    {
+      "text": "DALI (around 2020-2021) worked by converting a text prompt into a sequence of tokens that were decoded into an image."
+    },
+    {
+      "text": "Variational autoencoders with discrete latent spaces are now foundational for many models."
+    },
+    {
+      "text": "Diffusion models typically operate in the latent space of some model, not directly in pixel space."
+    },
+    {
+      "text": "Operating diffusion models directly on pixels would be too computationally expensive."
+    },
+    {
+      "text": "Operating in the latent space is easier and better than operating on pixels."
+    },
+    {
+      "text": "The latent space used by diffusion models is usually that of a modern variational autoencoder."
+    },
+    {
+      "text": "VQ-VAE is a variational autoencoder architecture with a discrete latent space and additional adversarial losses."
+    },
+    {
+      "text": "The adversarial loss in VQ-VAE examines small patches of the generated image to ensure local realism."
+    },
+    {
+      "text": "The adversarial loss ensures that small patches look similar to patches from real images."
+    },
+    {
+      "text": "VQ-VAE uses a separate discriminator for enforcing fine local structure."
+    },
+    {
+      "text": "Modern diffusion models often work in the latent space of VQ-VAE or similar architectures."
+    },
+    {
+      "text": "Diffusion models are a big idea, simple in essence but mathematically difficult in full detail."
+    },
+    {
+      "text": "The mathematical formalization of variational autoencoders was relatively simple."
+    },
+    {
+      "text": "Diffusion models also use a variational bound, but a more difficult one than in VAEs."
+    },
+    {
+      "text": "The foundational paper on diffusion models dates back to 2015."
+    },
+    {
+      "text": "The foundational paper on diffusion models is by Sohl-Dickstein and co-authors."
+    },
+    {
+      "text": "The title of the foundational diffusion models paper is \"Deep Unsupervised Learning Using Non-Equilibrium Thermodynamics\"."
+    },
+    {
+      "text": "Physics, thermodynamics, and deep learning have many similarities."
+    },
+    {
+      "text": "The speaker is conducting research on the thermodynamics of stochastic gradient descent."
+    },
+    {
+      "text": "The speaker's website contains a long blog post introducing the area of thermodynamics of stochastic gradient descent."
+    },
+    {
+      "text": "There is an analogy between stochastic gradient descent and the ideal gas law."
+    },
+    {
+      "text": "In the context of diffusion models, the analogy is different from the stochastic gradient descent-ideal gas law analogy."
+    },
+    {
+      "text": "The analogy in diffusion models comes from a basic fact about Markov chains."
+    },
+    {
+      "text": "Statistical physics is not necessary for diffusion models."
+    },
+    {
+      "text": "You can train a Markov chain to add increasing noise to the input."
+    },
+    {
+      "text": "After enough steps (hundreds), the result of the noising Markov chain becomes indistinguishable from randomness."
+    },
+    {
+      "text": "Starting with a crisp picture and adding Gaussian noise repeatedly is straightforward."
+    },
+    {
+      "text": "If you do not add noise to the very end, you can still see some shade of the original picture."
+    },
+    {
+      "text": "If you add Gaussian noise 500 times, the result is Gaussian noise indistinguishable from random sampling."
+    },
+    {
+      "text": "The point of diffusion models is to try to reverse the noising process."
+    },
+    {
+      "text": "In diffusion models, you have a noising chain and you want to turn it into a denoising chain."
+    },
+    {
+      "text": "In the forward direction (noising), the transformation is trivial."
+    },
+    {
+      "text": "The forward transformation consists of adding Gaussian noise."
+    },
+    {
+      "text": "The opposite direction is a denoising procedure."
+    },
+    {
+      "text": "Removing Gaussian noise is much more difficult than adding it."
+    },
+    {
+      "text": "You cannot reverse the noising process exactly."
+    },
+    {
+      "text": "You do not know what noise was added."
+    },
+    {
+      "text": "You can reverse the process exactly only if you know what you were supposed to get (the original image)."
+    },
+    {
+      "text": "Conditional on the original image (x0), you can reverse the process."
+    },
+    {
+      "text": "We want to apply the reverse process without the original image."
+    },
+    {
+      "text": "We want to use it as a generative model."
+    },
+    {
+      "text": "After training the denoising chain, we want to start with random noise and gradually turn it into something real."
+    },
+    {
+      "text": "It is possible to generate real samples from noise without the original image."
+    },
+    {
+      "text": "The forward chain is a Gaussian distribution."
+    },
+    {
+      "text": "The backward chain is a very complicated distribution."
+    },
+    {
+      "text": "You can try to approximate the backward chain with a Gaussian."
+    },
+    {
+      "text": "We need to formalize the forward diffusion chain."
+    },
+    {
+      "text": "We need to obtain closed-form formulas for advancing multiple steps in the forward chain."
+    },
+    {
+      "text": "We need to reverse the diffusion process."
+    },
+    {
+      "text": "We need to derive formulas for reversing the process when the target is known (conditional on x0)."
+    },
+    {
+      "text": "Conditional on x0, everything is possible for reversing the diffusion."
+    },
+    {
+      "text": "You can perform perfect denoising in closed analytic form if you know the denoising target (x0)."
+    },
+    {
+      "text": "Ultimately, a large variational approximation is used to jointly approximate every step in the long denoising chain."
+    },
+    {
+      "text": "The transformations in the model have parameters (theta)."
+    },
+    {
+      "text": "These parametric transformations are likely modeled by neural networks."
+    },
+    {
+      "text": "At some point (P of Xn), we want to substitute a simple distribution like a standard Gaussian."
+    },
+    {
+      "text": "After applying the denoising chain, we obtain a sample from the target distribution (e.g., cat pictures), which is a complicated distribution."
+    },
+    {
+      "text": "The method involves approximation."
+    },
+    {
+      "text": "The approach is similar to rational approximations but more difficult."
+    },
+    {
+      "text": "The approach works."
+    },
+    {
+      "text": "The final result is a specific set of loss functions."
+    },
+    {
+      "text": "Actually, it is a single loss function that is a sum of multiple terms."
+    },
+    {
+      "text": "The terms of the loss function are like pullback Kullback-Leibler divergences between Gaussians."
+    },
+    {
+      "text": "We can optimize this loss function using gradient descent."
+    },
+    {
+      "text": "We can train the parameters of these distributions."
+    },
+    {
+      "text": "The standard Gaussian distribution is not trained."
+    },
+    {
+      "text": "We train the parameters of the other distributions."
+    },
+    {
+      "text": "We train the parameters of the transformation that performs one step of denoising."
+    },
+    {
+      "text": "When the trained transformation becomes a good approximation of the denoising chain, you can start with pure random noise and gradually turn it into a good sample."
+    },
+    {
+      "text": "This process constitutes a generative model."
+    },
+    {
+      "text": "This is how diffusion models produce their results."
+    },
+    {
+      "text": "In the original diffusion models paper, the method only worked for very small dimensions."
+    },
+    {
+      "text": "On the CIFAR dataset, the original method somewhat worked."
+    },
+    {
+      "text": "For larger dimensions, they lacked the capability to train the model."
+    },
+    {
+      "text": "The original diffusion model paper was forgotten for quite a while."
+    },
+    {
+      "text": "People assumed it was a cool idea but very difficult."
+    },
+    {
+      "text": "Even if scaling up succeeded, applying the model would still be problematic because you need to go through all steps of the reverse chain."
+    },
+    {
+      "text": "If you need to go through all steps, you need to run the neural network hundreds of times."
+    },
+    {
+      "text": "The chain needs to be long (hundreds of steps) for the approximation to be feasible."
+    },
+    {
+      "text": "Needing hundreds of network evaluations per image makes scaling up seem infeasible."
+    },
+    {
+      "text": "People considered the original diffusion models as interesting but ultimately just a curiosity."
+    },
+    {
+      "text": "Progress resumed with DDPMs (denoising diffusion probabilistic models) in 2020."
+    },
+    {
+      "text": "DDPMs used a collection of small tricks."
+    },
+    {
+      "text": "DDPMs basically made diffusion models work."
+    },
+    {
+      "text": "DDPMs solved some technical problems of diffusion models."
+    },
+    {
+      "text": "DDPMs achieved generation quality comparable to the best GANs of that time."
+    },
+    {
+      "text": "Sample generations from GANs were shown yesterday."
+    },
+    {
+      "text": "At that time, GANs were very good at generating human faces."
+    },
+    {
+      "text": "GANs were quite poor at generating other things because they were too diverse, and GANs couldn't capture full diversity."
+    },
+    {
+      "text": "Cat images generated by GANs also appeared limited in diversity, like the other non-face images."
+    },
+    {
+      "text": "GANs' performance on human faces was state of the art at the time."
+    },
+    {
+      "text": "DDPMs achieved excellent generation."
+    },
+    {
+      "text": "DDPMs did not solve the fundamental problem of needing to go through hundreds of steps."
+    },
+    {
+      "text": "DDPM generations were nice but extremely slow."
+    },
+    {
+      "text": "Generating images with DDPMs took a lot of time."
+    },
+    {
+      "text": "In the same year (2020), the speed problem was solved."
+    },
+    {
+      "text": "The speed problem was solved by a different group."
+    },
+    {
+      "text": "In standard diffusion models (like DDPM), you approximate the step from x_{t+1} to x_t."
+    },
+    {
+      "text": "You need to make this step to know where to start the next step from."
+    },
+    {
+      "text": "Therefore, you need to go through all intermediate points."
+    },
+    {
+      "text": "In DDPM, instead of approximating the direction to the next point, the direction to the original x0 is always approximated."
+    },
+    {
+      "text": "x0 lies in the same space as the intermediate points, but is far away."
+    },
+    {
+      "text": "There is a long path from x_T to x0."
+    },
+    {
+      "text": "In DDPM, we approximate the reverse process step by step."
+    },
+    {
+      "text": "In DDIM, at each step of the Markov chain, we approximate the direction directly to the goal (x0)."
+    },
+    {
+      "text": "In DDIM, you cannot reach the goal (generate a good picture) in one step."
+    },
+    {
+      "text": "The approximation is not accurate enough to allow a single-step jump."
+    },
+    {
+      "text": "In DDIM, you can go further per step than in DDPM."
+    },
+    {
+      "text": "In DDPM, skipping steps is not possible because you would not know where to start the next step."
+    },
+    {
+      "text": "In DDIM, each step aims to get closer to x0."
+    },
+    {
+      "text": "Because each step approximates the direction to x0, the process can be continued."
+    },
+    {
+      "text": "In DDIM, even if the original chain had thousands of steps, one can take wider steps, moving faster toward x0."
+    },
+    {
+      "text": "In DDIM, because each step targets x0, you do not lose track of your position."
+    },
+    {
+      "text": "In DDIM, you cannot jump to the final image in one step."
+    },
+    {
+      "text": "In DDIM, you can reach the target in a few dozen steps instead of thousands."
+    },
+    {
+      "text": "DDIMs achieved a 10x to 100x speedup compared to original diffusion models."
+    },
+    {
+      "text": "This speedup came with no loss of quality."
+    },
+    {
+      "text": "There was not much improvement in quality."
+    },
+    {
+      "text": "The speedup was good enough."
+    },
+    {
+      "text": "DDIMs made diffusion models start working effectively."
+    },
+    {
+      "text": "Diffusion models (after DDIMs) were still slow."
+    },
+    {
+      "text": "They were still expensive."
+    },
+    {
+      "text": "One final step was needed for diffusion models to work as they do now."
+    },
+    {
+      "text": "The final step was to perform diffusion in the latent space of an autoencoder rather than in pixel space."
+    },
+    {
+      "text": "There is a famous picture from the stable diffusion paper."
+    },
+    {
+      "text": "Stable diffusion was one of the first working text-to-image diffusion models."
+    },
+    {
+      "text": "Stable diffusion was created in 2022."
+    },
+    {
+      "text": "AI image generation has advanced significantly since 2022."
+    },
+    {
+      "text": "The basic idea remains the same."
+    },
+    {
+      "text": "Stable diffusion includes a diffusion process."
+    },
+    {
+      "text": "Stable diffusion has a denoising architecture."
+    },
+    {
+      "text": "Stable diffusion contains a diffusion model."
+    },
+    {
+      "text": "The process starts with Z_T."
+    },
+    {
+      "text": "The network is a self-attention-based unit."
+    },
+    {
+      "text": "The architecture can accept a condition."
+    },
+    {
+      "text": "The condition can be the prompt (text)."
+    },
+    {
+      "text": "The model needs to be informed what to draw."
+    },
+    {
+      "text": "The text prompt must be incorporated into the model."
+    },
+    {
+      "text": "The text prompt is encoded into a vector by a transformer."
+    },
+    {
+      "text": "The text encoding vector is fed into self-attention blocks, possibly using encoder-decoder attention."
+    },
+    {
+      "text": "The text condition goes into every denoising step."
+    },
+    {
+      "text": "Every denoising step in the model has a conditional input that comes from the problem."
+    },
+    {
+      "text": "The most important novelty of this approach is that all of the denoising steps happen in the latent space."
+    },
+    {
+      "text": "The denoising steps happen in the space of vector representations of images, not in pixel space."
+    },
+    {
+      "text": "In the denoising process, we start with random noise."
+    },
+    {
+      "text": "In the denoising process, we add the condition from the problem."
+    },
+    {
+      "text": "The denoising process goes through many steps of denoising."
+    },
+    {
+      "text": "The output of the denoising process is a code, not an image."
+    },
+    {
+      "text": "That code is then decoded by a decoder."
+    },
+    {
+      "text": "The red part of the architecture is a variational autoencoder."
+    },
+    {
+      "text": "It is a complicated modern variational autoencoder, not exactly the one previously explained."
+    },
+    {
+      "text": "A similar approach was used in DALL-E 2."
+    },
+    {
+      "text": "DALL-E 2 worked differently because it used pre-trained CLIP embeddings."
+    },
+    {
+      "text": "The class did not have time to cover CLIP, unsupervised learning, or contrastive learning."
+    },
+    {
+      "text": "CLIP is a standard way of doing joint text-image embeddings."
+    },
+    {
+      "text": "CLIP provides a joint latent space where both images and text can be represented."
+    },
+    {
+      "text": "CLIP does not include a decoder."
+    },
+    {
+      "text": "In DALL-E 2, a decoder is trained to produce an image from a CLIP representation."
+    },
+    {
+      "text": "In DALL-E 2, a diffusion model is trained inside the latent space to convert the text representation into the image representation from the decoder."
+    },
+    {
+      "text": "Diffusion in DALL-E 2 happens in the latent space."
+    },
+    {
+      "text": "DALL-E 2 was pretty good."
+    },
+    {
+      "text": "In 2022, the images generated by these models were awe-inspiring."
+    },
+    {
+      "text": "By current standards, those images would be laughed at."
+    },
+    {
+      "text": "There is a very famous image from the original MidJourney that won a contest."
+    },
+    {
+      "text": "It was later revealed that the contest-winning MidJourney image was AI-generated."
+    },
+    {
+      "text": "This revelation caused a big controversy."
+    },
+    {
+      "text": "That controversy was the first of its kind."
+    },
+    {
+      "text": "Now, controversies about AI-generated images are everywhere."
+    },
+    {
+      "text": "The next development was the Diffusion Transformer (DiT)."
+    },
+    {
+      "text": "DiT is a latent diffusion model."
+    },
+    {
+      "text": "DiT uses a full transformer instead of a unit with some self-attention inside."
+    },
+    {
+      "text": "Previous models used a unit with some self-attention inside."
+    },
+    {
+      "text": "The difference between DiT and previous models is in the internal architecture, not in the overall approach."
+    },
+    {
+      "text": "The approach of DiT is the same as previous latent diffusion models."
+    },
+    {
+      "text": "In both approaches, diffusion is done in the latent space of an autoencoder."
+    },
+    {
+      "text": "DiTs were good."
+    },
+    {
+      "text": "The samples from DiT in 2022 were starting to look pretty good."
+    },
+    {
+      "text": "There was a model called Flux."
+    },
+    {
+      "text": "The speaker thinks Flux was the last model they really followed."
+    },
+    {
+      "text": "Flux is the direct successor of Stable Diffusion."
+    },
+    {
+      "text": "Flux was created by the same team as Stable Diffusion."
+    },
+    {
+      "text": "Flux was very good when it was released."
+    },
+    {
+      "text": "Flux can still be downloaded and used."
+    },
+    {
+      "text": "The speaker is unsure if Flux is currently the best local model."
+    },
+    {
+      "text": "For a long time, Flux was the best local model."
+    },
+    {
+      "text": "The speaker used Flux to generate images for their slides for a very long time."
+    },
+    {
+      "text": "The images being shown are all generated by Flux."
+    },
+    {
+      "text": "Flux could not generate text in images."
+    },
+    {
+      "text": "Flux was not very good at following detailed prompts regarding composition and character actions."
+    },
+    {
+      "text": "Flux was a huge step forward."
+    },
+    {
+      "text": "After Flux, the speaker lost the ability to follow state-of-the-art text-to-image models."
+    },
+    {
+      "text": "The best text-to-image models now are GPT or Gemini."
+    },
+    {
+      "text": "GPT and Gemini sometimes switch being the best."
+    },
+    {
+      "text": "At one point, Gemini was the better model."
+    },
+    {
+      "text": "Now the speaker thinks GPT Images 2 is again the best."
+    },
+    {
+      "text": "Nobody discloses exactly how the best image generation models work."
+    },
+    {
+      "text": "The speaker has no idea how the best image generation models work."
+    },
+    {
+      "text": "The reason is that nobody discloses the details."
+    },
+    {
+      "text": "MidJourney is still competitive."
+    },
+    {
+      "text": "MidJourney was closed from the very beginning."
+    },
+    {
+      "text": "The speaker does not know exactly how MidJourney worked originally."
+    },
+    {
+      "text": "MidJourney probably worked approximately the same as other diffusion models."
+    },
+    {
+      "text": "Image generation nowadays is done by diffusion models."
+    },
+    {
+      "text": "These diffusion models most probably operate in the latent space of a big autoencoder."
+    },
+    {
+      "text": "Generative models are divided into explicit density models and implicit density models."
+    },
+    {
+      "text": "Generative stochastic networks did not take off."
+    },
+    {
+      "text": "The only relevant representative of implicit density models is GANs."
+    },
+    {
+      "text": "GANs are still relevant."
+    },
+    {
+      "text": "GANs are now more niche and specialized than they used to be."
+    },
+    {
+      "text": "Explicit density models include a huge class of autoregressive models."
+    },
+    {
+      "text": "WaveNet is an autoregressive model for producing sound."
+    },
+    {
+      "text": "Language models are autoregressive models."
+    },
+    {
+      "text": "All large language models (LLMs) are autoregressive models."
+    },
+    {
+      "text": "The transformer decoder produces tokens one by one autoregressively."
+    },
+    {
+      "text": "The generation is conditional on the already generated prefix."
+    },
+    {
+      "text": "Flow-based models start with a simple distribution and gradually transform it into a more complicated distribution."
+    },
+    {
+      "text": "Approximate density models make assumptions about an approximation to the distribution rather than about the distribution itself."
+    },
+    {
+      "text": "The two main representatives of approximate density models are Variational Autoencoders (VAEs) and diffusion models."
+    },
+    {
+      "text": "VAEs do not make assumptions on p(z|x)."
+    },
+    {
+      "text": "VAEs approximate p(z|x) and then make assumptions on the approximation."
+    },
+    {
+      "text": "VAEs work through the variational lower bound."
+    },
+    {
+      "text": "Diffusion models also follow the approximate density approach."
+    },
+    {
+      "text": "In diffusion models, strong assumptions cannot be made about the reverse (denoising) chain."
+    },
+    {
+      "text": "Instead, strong assumptions are made about an approximation to the reverse chain."
+    },
+    {
+      "text": "Then a variational lower bound is done."
+    },
+    {
+      "text": "The diffusion approach is a more complicated version of the same approximate density approach."
+    },
+    {
+      "text": "All state-of-the-art generative models reported in the news belong somewhere in this taxonomy."
+    },
+    {
+      "text": "Most probably, they are either autoregressive models or variational autoencoders and diffusion models."
+    },
+    {
+      "text": "The lectures started with Bayes theorem and ended with Bayes theorem."
+    },
+    {
+      "text": "The lectures progressed from neural networks and backpropagation to transformers, variational autoencoders, and diffusion models."
+    }
+  ],
+  "summary": [
+    {
+      "text": "An autoencoder maps an input $x$ through an encoder to a low-dimensional latent code $z$, then through a decoder to a reconstruction $\\hat{x}$."
+    },
+    {
+      "text": "Training an autoencoder minimizes a reconstruction loss between the input $x$ and its reconstruction $\\hat{x}$."
+    },
+    {
+      "text": "Autoencoder training uses only unlabelled data."
+    },
+    {
+      "text": "In autoencoder training, each $x$ is its own target."
+    },
+    {
+      "text": "The decoder of a standard autoencoder cannot simply be used as a generative model."
+    },
+    {
+      "text": "The latent codes of an autoencoder lie on a manifold that is much simpler than the original data space."
+    },
+    {
+      "text": "These latent codes do not cover the whole latent space."
+    },
+    {
+      "text": "A randomly sampled latent code $z$ almost certainly falls outside the manifold of good latent codes."
+    },
+    {
+      "text": "If $z$ falls outside that manifold, the decoder produces a meaningless output."
+    },
+    {
+      "text": "One solution is the adversarial autoencoder, which regularizes the latent space with a discriminator, similar to a GAN."
+    },
+    {
+      "text": "The variational autoencoder (VAE) takes a different approach from the adversarial autoencoder."
+    },
+    {
+      "text": "The VAE approach is ultimately more successful than the adversarial autoencoder approach."
+    },
+    {
+      "text": "In a standard autoencoder, every training point $x$ maps to a single latent code $z$."
+    },
+    {
+      "text": "Mapping each $x$ to a single $z$ causes dramatic overfitting of the latent manifold."
+    },
+    {
+      "text": "Shifting $z$ slightly causes it to fall off the manifold."
+    },
+    {
+      "text": "The VAE's key idea is that the encoder outputs a distribution $p(z \\mid x)$ instead of a single point."
+    },
+    {
+      "text": "For a given input $x$, the encoder produces parameters of a Gaussian distribution."
+    },
+    {
+      "text": "The parameters are a mean vector $\\mu(x)$ and a diagonal covariance matrix with vector $\\sigma(x)$."
+    },
+    {
+      "text": "Then a latent code $z$ is sampled from $\\mathcal N(\\mu(x), \\operatorname{diag}(\\sigma^2(x)))$."
+    },
+    {
+      "text": "This sampled $z$ is fed to the decoder."
+    },
+    {
+      "text": "The decoder must still reconstruct the original input $x$."
+    },
+    {
+      "text": "The intuition is to cover the latent space with wide enough Gaussians that overlap, so any point sampled from a simple prior (e.g., $\\mathcal N(0,I)$) lands in a region the decoder understands."
+    },
+    {
+      "text": "If left unconstrained, the VAE model will cheat."
+    },
+    {
+      "text": "One cheat is driving $\\sigma \\to 0$, which collapses the model to a standard autoencoder."
+    },
+    {
+      "text": "Another cheat is pushing the means far apart while keeping $\\sigma$ fixed, which effectively keeps points isolated."
+    },
+    {
+      "text": "Therefore, a regularizer must be added that keeps the encoder distributions close to a standard Gaussian $\\mathcal N(0,I)$, preventing collapse and ensuring coverage."
+    },
+    {
+      "text": "The VAE model involves two variables: data $x$ and latent $z$."
+    },
+    {
+      "text": "The joint distribution $p(x,z)$ can be factorized as $p(z)p(x \\mid z)$."
+    },
+    {
+      "text": "The joint distribution can also be factorized as $p(x)p(z \\mid x)$."
+    },
+    {
+      "text": "$p(z \\mid x)$ is the encoder distribution, which is complex and unknown."
+    },
+    {
+      "text": "$p(x \\mid z)$ is the decoder distribution, which is modeled as simple (e.g., Gaussian noise around $\\hat{x}$)."
+    },
+    {
+      "text": "$p(z)$ is the prior on latent codes, which is fixed to $\\mathcal N(0,I)$."
+    },
+    {
+      "text": "$p(x)$ is the true data distribution, which is extremely complex (e.g., cat pictures)."
+    },
+    {
+      "text": "If both $p(x \\mid z)$ and $p(z \\mid x)$ were simple (e.g., Gaussians), their product would be a Gaussian, but $p(x)$ is not a Gaussian."
+    },
+    {
+      "text": "Hence, $p(x \\mid z)$ and $p(z \\mid x)$ cannot both be simple."
+    },
+    {
+      "text": "VAE chooses to keep the decoder $p(x \\mid z)$ simple (Gaussian noise)."
+    },
+    {
+      "text": "VAE approximates the intractable true encoder $p(z \\mid x)$ with a simple variational distribution $q(z) = \\mathcal N(\\mu(x), \\operatorname{diag}(\\sigma^2(x)))$."
+    },
+    {
+      "text": "The goal is to make $q(z)$ close to $p(z \\mid x)$ by minimizing $\\mathrm{KL}(q \\| p(z \\mid x))$."
+    },
+    {
+      "text": "$p(z \\mid x)$ is unknown."
+    },
+    {
+      "text": "The identity $\\log p(x) = \\mathcal L(q) + \\mathrm{KL}(q(z)\\,\\|\\,p(z \\mid x))$ holds for any $q$."
+    },
+    {
+      "text": "$\\mathcal L(q) = \\int q(z)\\log\\frac{p(x,z)}{q(z)}\\,dz$."
+    },
+    {
+      "text": "$\\mathrm{KL}(q(z)\\,\\|\\,p(z \\mid x)) = \\int q(z)\\log\\frac{q(z)}{p(z \\mid x)}\\,dz$."
+    },
+    {
+      "text": "Since $\\log p(x)$ is constant with respect to $q$, maximizing $\\mathcal L(q)$ is equivalent to minimizing $\\mathrm{KL}(q\\|p(z \\mid x))$."
+    },
+    {
+      "text": "$\\mathcal L(q)$ is called the variational lower bound or evidence lower bound (ELBO)."
+    },
+    {
+      "text": "$\\mathcal L(q)$ only requires the joint distribution $p(x,z)$ and the approximating distribution $q$."
+    },
+    {
+      "text": "In the VAE, $p(x,z)$ factorises as $p(z)p(x \\mid z)$, both Gaussians."
+    },
+    {
+      "text": "$\\mathcal L(q)$ completely avoids $p(z \\mid x)$."
+    },
+    {
+      "text": "Substituting $p(x,z) = p(z)p(x \\mid z)$ yields $\\mathcal L(q) = \\mathbb E_{q(z)}[\\log p(x \\mid z)] - \\mathrm{KL}(q(z) \\| p(z))$."
+    },
+    {
+      "text": "The reconstruction term $\\mathbb E_{q(z)}[\\log p(x \\mid z)]$ evaluates to $-\\frac{1}{2c} \\mathbb E_{q(z)}[\\|x - f_\\theta(z)\\|^2] + \\text{const}$, assuming $p(x \\mid z) = \\mathcal N(f_\\theta(z), \\sigma^2 I)$."
+    },
+    {
+      "text": "In practice, the expectation is approximated by averaging over a mini-batch, yielding a least-squares reconstruction loss."
+    },
+    {
+      "text": "The regularisation term $\\mathrm{KL}(q(z) \\| p(z))$ for $q(z) = \\mathcal N(\\mu,\\Sigma)$ with diagonal $\\Sigma$ and prior $p(z) = \\mathcal N(0,I)$ has a closed form: $\\frac12 \\sum_{j=1}^{d} (\\sigma^2_{x,j} + \\mu^2_{x,j} - \\log\\sigma^2_{x,j} - 1)$."
+    },
+    {
+      "text": "This term penalizes deviations from the standard Gaussian, serving as the required regularizer."
+    },
+    {
+      "text": "The VAE loss (negative ELBO to minimize) is $\\mathcal L_{\\text{VAE}} = \\frac{1}{2c}\\,\\mathbb E_{q(z)}[\\|x - f_\\theta(z)\\|^2] + \\frac12 \\sum_{j=1}^{d} (\\sigma^2_{x,j} + \\mu^2_{x,j} - \\log\\sigma^2_{x,j} - 1)$."
+    },
+    {
+      "text": "The variational approximation simultaneously derives both the reconstruction loss and the exact form of the regularizer."
+    },
+    {
+      "text": "Without the variational approximation, the reconstruction loss and regularizer would be arbitrary."
+    },
+    {
+      "text": "Sampling $z \\sim \\mathcal N(\\mu,\\sigma^2)$ blocks gradient flow during backpropagation."
+    },
+    {
+      "text": "The reparametrization trick circumvents this for Gaussians."
+    },
+    {
+      "text": "The trick involves sampling auxiliary noise $u \\sim \\mathcal N(0,I)$ independent of $\\mu,\\sigma$, then computing $z = \\mu + \\sigma \\odot u$ (element-wise product)."
+    },
+    {
+      "text": "After this transformation, the randomness is externalized, and $\\mu$ and $\\sigma$ are differentiable transformations of $u$, allowing gradients to pass normally."
+    },
+    {
+      "text": "The reparametrization trick is essential for training VAEs end-to-end."
+    },
+    {
+      "text": "The core concept of diffusion models comes from non-equilibrium statistical physics, but reduces to a Markov chain insight."
+    },
+    {
+      "text": "The forward process (noising) starts with a clean image $x_0$ and repeatedly adds small amounts of Gaussian noise according to $q(x_t \\mid x_{t-1}) = \\mathcal N(x_t \\mid \\sqrt{1-\\beta_t}x_{t-1}, \\beta_t I)$ with $0<\\beta_t\\ll 1$."
+    },
+    {
+      "text": "After $T$ steps (typically hundreds), the image becomes indistinguishable from pure noise $\\mathcal N(0,I)$."
+    },
+    {
+      "text": "The reverse process (denoising) learns a Markov chain $p_\\theta(x_{t-1} \\mid x_t) = \\mathcal N(x_{t-1} \\mid \\mu_\\theta(x_t,t), \\Sigma_\\theta(x_t,t))$ that gradually removes noise."
+    },
+    {
+      "text": "A generative model is obtained by sampling $x_T \\sim \\mathcal N(0,I)$ and running the reverse chain."
+    },
+    {
+      "text": "Let $\\alpha_t = 1-\\beta_t$ and $\\bar A_t = \\prod_{i=1}^t \\alpha_i$."
+    },
+    {
+      "text": "By iterating the forward step, a direct closed-form expression for $x_t$ given $x_0$ is obtained: $q(x_t \\mid x_0) = \\mathcal N(x_t \\mid \\sqrt{\\bar A_t}x_0, (1-\\bar A_t)I)$."
+    },
+    {
+      "text": "Equivalently, $x_t = \\sqrt{\\bar A_t}x_0 + \\sqrt{1-\\bar A_t}\\epsilon$ with $\\epsilon\\sim\\mathcal N(0,I)$."
+    },
+    {
+      "text": "If both $x_t$ and $x_0$ are known, the reverse step is analytically solvable: $q(x_{t-1} \\mid x_t, x_0) = \\mathcal N(x_{t-1} \\mid \\tilde\\mu(x_t,x_0), \\tilde\\beta_t I)$ with known formulas."
+    },
+    {
+      "text": "$\\tilde\\mu$ can be expressed in terms of the noise $\\epsilon_t$ that would take $x_0$ to $x_t$, showing that predicting the added noise is the key task."
+    },
+    {
+      "text": "The training objective for diffusion models is a variational lower bound (ELBO) applied to the whole trajectory of $T$ steps."
+    },
+    {
+      "text": "Minimizing this bound yields a loss that decomposes into per-step KL divergences between the true reverse conditional $q(x_{t-1}\\mid x_t,x_0)$ (tractable) and the model $p_\\theta(x_{t-1}\\mid x_t)$."
+    },
+    {
+      "text": "In practice, the model is often parametrized to predict the noise $\\epsilon_\\theta(x_t,t)$, leading to a simple mean-squared error: $L_t = \\mathbb E_{x_0,\\epsilon}[\\|\\epsilon - \\epsilon_\\theta(\\sqrt{\\bar A_t}x_0 + \\sqrt{1-\\bar A_t}\\epsilon, t)\\|^2]$."
+    },
+    {
+      "text": "Ho et al. (2020) introduced practical improvements in DDPM that made diffusion competitive with GANs."
+    },
+    {
+      "text": "DDPM improvements include a fixed, pre-defined $\\beta_t$ schedule with no training of the forward process."
+    },
+    {
+      "text": "DDPM uses a fixed variance $\\Sigma_\\theta$ for reverse steps; only the mean (i.e., the noise prediction) is learned."
+    },
+    {
+      "text": "DDPM uses a special discrete likelihood model at the final step $p_\\theta(x_0\\mid x_1)$ that handles discretized image intensities (e.g., $[-1,1]$ scaled from $\\{0,\\dots,255\\}$)."
+    },
+    {
+      "text": "DDPM achieves excellent image quality, but generation is extremely slow — one image required hundreds of sequential neural-network passes."
+    },
+    {
+      "text": "DDIM (Song et al., 2020) observation: the ELBO depends only on the marginal distributions $q(x_t \\mid x_0)$, not on the full joint $q(x_{1:T}\\mid x_0)$."
+    },
+    {
+      "text": "Therefore, a different forward process can be chosen that shares the same marginals, enabling non-Markovian and implicit formulations."
+    },
+    {
+      "text": "DDIM key idea: instead of approximating the direction to the previous step $x_{t-1}$, the model directly predicts the direction to the original $x_0$ at every step."
+    },
+    {
+      "text": "This decoupling allows larger jumps — skip intermediate steps — accelerating generation by 10×–100× with no quality loss."
+    },
+    {
+      "text": "DDIM's reverse process can be made deterministic (zero variance), making the model a true implicit model where each noise $x_T$ maps to exactly one image."
+    },
+    {
+      "text": "DDIMs provide a smoothly structured latent space, enabling interpolations that were impossible with standard DDPMs."
+    },
+    {
+      "text": "A further breakthrough is to run the diffusion process in the latent space of a pretrained autoencoder rather than on raw pixels."
+    },
+    {
+      "text": "A modern VAE (often a VQ-VAE with adversarial patch-based losses) compresses images into a compact latent representation."
+    },
+    {
+      "text": "A diffusion model then operates on these latent codes, making training and sampling far more efficient."
+    },
+    {
+      "text": "Stable Diffusion (Rombach, Blattmann et al., 2022) popularized this latent diffusion architecture."
+    },
+    {
+      "text": "Crucially, conditioning (e.g., text prompts) is injected at every denoising step, typically via cross-attention with a transformer-encoded text vector."
+    },
+    {
+      "text": "The reversed latent code is finally decoded back to an image by the VAE decoder."
+    },
+    {
+      "text": "DALL‑E 2 (unCLIP) uses a CLIP joint text–image embedding space: a prior model generates a CLIP image embedding from text, and a diffusion decoder turns that embedding into an image."
+    },
+    {
+      "text": "Diffusion in DALL‑E 2 happens in a semantic latent space."
+    },
+    {
+      "text": "Midjourney (proprietary) is believed to follow a similar latent-diffusion design."
+    },
+    {
+      "text": "Peebles & Xie (2022) replaced the U-Net backbone of latent diffusion with a transformer (DiT)."
+    },
+    {
+      "text": "In DiT, the input latent feature map is “patchified” into a sequence, processed by transformer blocks, and conditioned on time and (optionally) class/text via adaptive layer normalization."
+    },
+    {
+      "text": "DiTs show strong correlation between compute (GFLOPs) and generation quality, scaling more efficiently than earlier architectures."
+    },
+    {
+      "text": "Flux (successor to Stable Diffusion, by the same team) further refined the architecture and produced state-of-the-art local text-to-image generation at its time."
+    },
+    {
+      "text": "Since Flux, the frontier has moved to closed, large-scale models (GPT‑image, Gemini), but the underlying principles remain latent diffusion with transformer backbones."
+    },
+    {
+      "text": "DPM‑Solver++ frames DDIM as a first-order ODE solver and replaces it with higher-order multi-step schemes, reducing required sampling steps further with greater stability."
+    },
+    {
+      "text": "UniPC introduces a predictor–corrector framework that universally increases the accuracy order without extra model evaluations."
+    },
+    {
+      "text": "Flow matching generalizes diffusion and has become the foundation of many modern generative models."
+    },
+    {
+      "text": "Deep generative models can be categorized into implicit density, explicit-autoregressive, explicit-flow-based, and explicit-approximate density (variational) methods."
+    },
+    {
+      "text": "GANs are implicit density models that compete a generator against a discriminator and do not provide an explicit likelihood."
+    },
+    {
+      "text": "Autoregressive models like WaveNet and LLMs factorize the joint distribution as $p(x)=\\prod_t p(x_t\\mid x_{<t})$ and generate sequentially."
+    },
+    {
+      "text": "Flow-based models like RealNVP and Glow use invertible transforms from a simple base density."
+    },
+    {
+      "text": "VAE and diffusion models are explicit-approximate density (variational) models that optimize a bound (ELBO) by approximating an intractable posterior."
+    },
+    {
+      "text": "VAEs and diffusion models do not assume the true reverse/encoder distribution is simple; they approximate it."
+    },
+    {
+      "text": "They make assumptions only on the approximating distribution."
+    },
+    {
+      "text": "The variational lower bound provides a principled objective for these models."
+    },
+    {
+      "text": "The variational principle first appeared in its simplest form in VAEs."
+    },
+    {
+      "text": "The variational principle recurs in more elaborate forms throughout generative modeling."
+    },
+    {
+      "text": "The variational principle is one of the truly fundamental ideas in machine learning."
+    }
+  ]
+}

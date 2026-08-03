@@ -1,0 +1,3775 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "records": [
+    {
+      "claim": "summary:0",
+      "text": "The field of artificial intelligence has a long history.",
+      "entailed": true,
+      "evidence": "transcript:88",
+      "top": [
+        "transcript:88",
+        "transcript:33",
+        "slides:31",
+        "slides:67",
+        "transcript:32",
+        "transcript:27",
+        "transcript:113",
+        "transcript:77"
+      ]
+    },
+    {
+      "claim": "summary:1",
+      "text": "The recent pace of change in artificial intelligence is unprecedented.",
+      "entailed": true,
+      "evidence": "transcript:78",
+      "top": [
+        "slides:67",
+        "transcript:78",
+        "transcript:32",
+        "transcript:35",
+        "transcript:88",
+        "slides:31",
+        "transcript:41",
+        "transcript:61"
+      ]
+    },
+    {
+      "claim": "summary:2",
+      "text": "Until about 2022, artificial intelligence appeared as a regular scientific field.",
+      "entailed": true,
+      "evidence": "transcript:33",
+      "top": [
+        "transcript:33",
+        "transcript:242",
+        "transcript:77",
+        "slides:34",
+        "transcript:54",
+        "transcript:34",
+        "slides:31",
+        "transcript:88"
+      ]
+    },
+    {
+      "claim": "summary:3",
+      "text": "Until about 2022, artificial intelligence progress was gradual and stepwise.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:60",
+        "transcript:61",
+        "transcript:34",
+        "slides:34",
+        "transcript:77",
+        "transcript:54",
+        "transcript:28",
+        "slides:31"
+      ]
+    },
+    {
+      "claim": "summary:4",
+      "text": "ChatGPT arrived in late 2022.",
+      "entailed": true,
+      "evidence": "transcript:38",
+      "top": [
+        "transcript:38",
+        "transcript:56",
+        "transcript:39",
+        "transcript:40",
+        "transcript:36",
+        "transcript:177",
+        "transcript:37",
+        "transcript:176"
+      ]
+    },
+    {
+      "claim": "summary:5",
+      "text": "An explosion of large language models (LLMs) occurred in spring 2023.",
+      "entailed": true,
+      "evidence": "transcript:46",
+      "top": [
+        "slides:70",
+        "slides:41",
+        "transcript:46",
+        "transcript:210",
+        "transcript:209",
+        "transcript:211",
+        "transcript:85",
+        "transcript:620"
+      ]
+    },
+    {
+      "claim": "summary:6",
+      "text": "The previous picture of AI as a field with gradual stepwise progress was shattered by the arrival of ChatGPT in late 2022 and the subsequent explosion of large language models in spring 2023.",
+      "entailed": true,
+      "evidence": "transcript:46",
+      "top": [
+        "transcript:34",
+        "transcript:41",
+        "transcript:46",
+        "transcript:56",
+        "transcript:38",
+        "transcript:60",
+        "slides:37",
+        "transcript:53"
+      ]
+    },
+    {
+      "claim": "summary:7",
+      "text": "On 14 March 2023, Google announced the integration of large language models into its workspace.",
+      "entailed": true,
+      "evidence": "transcript:47",
+      "top": [
+        "transcript:47",
+        "slides:70",
+        "transcript:211",
+        "transcript:85",
+        "transcript:250",
+        "transcript:224",
+        "transcript:213",
+        "transcript:181"
+      ]
+    },
+    {
+      "claim": "summary:8",
+      "text": "On 14 March 2023, Anthropic unveiled its Claude models.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:42",
+        "transcript:37",
+        "transcript:36",
+        "transcript:41",
+        "transcript:46",
+        "transcript:53",
+        "transcript:76",
+        "slides:126"
+      ]
+    },
+    {
+      "claim": "summary:9",
+      "text": "On 14 March 2023, OpenAI announced GPT-4.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:50",
+        "transcript:52",
+        "transcript:51",
+        "transcript:622",
+        "transcript:38",
+        "transcript:56",
+        "transcript:86",
+        "transcript:623"
+      ]
+    },
+    {
+      "claim": "summary:10",
+      "text": "Three years ago, it was still plausible that the rapid AI progress was a temporary breakthrough.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:60",
+        "transcript:258",
+        "transcript:35",
+        "transcript:61",
+        "transcript:54",
+        "transcript:63",
+        "transcript:77",
+        "transcript:78"
+      ]
+    },
+    {
+      "claim": "summary:11",
+      "text": "AI progress has not slowed.",
+      "entailed": true,
+      "evidence": "transcript:61",
+      "top": [
+        "transcript:61",
+        "transcript:60",
+        "transcript:63",
+        "transcript:78",
+        "transcript:258",
+        "transcript:35",
+        "transcript:67",
+        "transcript:54"
+      ]
+    },
+    {
+      "claim": "summary:12",
+      "text": "AI progress is accelerating.",
+      "entailed": true,
+      "evidence": "transcript:78",
+      "top": [
+        "transcript:78",
+        "transcript:63",
+        "transcript:35",
+        "transcript:61",
+        "transcript:60",
+        "transcript:258",
+        "transcript:54",
+        "transcript:34"
+      ]
+    },
+    {
+      "claim": "summary:13",
+      "text": "Frontier labs now use their own models to improve their models, edging toward recursive self-improvement.",
+      "entailed": true,
+      "evidence": "transcript:64",
+      "top": [
+        "transcript:64",
+        "transcript:65",
+        "slides:102",
+        "transcript:631",
+        "transcript:180",
+        "slides:104",
+        "slides:80",
+        "transcript:648"
+      ]
+    },
+    {
+      "claim": "summary:14",
+      "text": "A 2018 book surveyed prominent researchers about the timeline for human-level AI.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:74",
+        "transcript:77",
+        "transcript:34",
+        "transcript:76",
+        "transcript:41",
+        "transcript:78",
+        "slides:33",
+        "transcript:33"
+      ]
+    },
+    {
+      "claim": "summary:15",
+      "text": "Ray Kurzweil, in a 2018 survey, predicted that human-level AI would arrive by 2029.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:76",
+        "transcript:77",
+        "transcript:74",
+        "transcript:34",
+        "transcript:41",
+        "transcript:61",
+        "transcript:46",
+        "transcript:75"
+      ]
+    },
+    {
+      "claim": "summary:16",
+      "text": "Most surveyed researchers placed human-level AI around 50 years away.",
+      "entailed": true,
+      "evidence": "transcript:77",
+      "top": [
+        "transcript:77",
+        "transcript:74",
+        "transcript:33",
+        "transcript:28",
+        "transcript:76",
+        "slides:34",
+        "slides:31",
+        "transcript:242"
+      ]
+    },
+    {
+      "claim": "summary:17",
+      "text": "We are living through a phase change in AI.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:35",
+        "transcript:41",
+        "transcript:78",
+        "transcript:27",
+        "transcript:113",
+        "transcript:63",
+        "transcript:74",
+        "transcript:233"
+      ]
+    },
+    {
+      "claim": "summary:18",
+      "text": "Very few people foresaw this phase change.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:68",
+        "transcript:271",
+        "transcript:263",
+        "transcript:61",
+        "transcript:637",
+        "transcript:60",
+        "transcript:179",
+        "transcript:656"
+      ]
+    },
+    {
+      "claim": "summary:19",
+      "text": "The dream of creating artificial beings is ancient.",
+      "entailed": true,
+      "evidence": "transcript:95",
+      "top": [
+        "transcript:89",
+        "transcript:93",
+        "transcript:94",
+        "transcript:92",
+        "transcript:95",
+        "transcript:33",
+        "slides:21",
+        "transcript:54"
+      ]
+    },
+    {
+      "claim": "summary:20",
+      "text": "Many religious traditions describe humans as artificial intelligences fashioned by a deity from clay or other substances.",
+      "entailed": true,
+      "evidence": "transcript:93",
+      "top": [
+        "transcript:93",
+        "transcript:89",
+        "transcript:92",
+        "transcript:113",
+        "transcript:90",
+        "transcript:94",
+        "transcript:233",
+        "transcript:33"
+      ]
+    },
+    {
+      "claim": "summary:21",
+      "text": "Greek mythology includes Hephaestus’ android robots.",
+      "entailed": true,
+      "evidence": "transcript:95",
+      "top": [
+        "transcript:95",
+        "slides:18",
+        "transcript:94",
+        "transcript:96",
+        "transcript:97",
+        "transcript:99",
+        "transcript:132",
+        "transcript:131"
+      ]
+    },
+    {
+      "claim": "summary:22",
+      "text": "Talos was a giant bronze guardian in Greek mythology.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:99",
+        "transcript:101",
+        "transcript:100",
+        "transcript:102",
+        "transcript:97",
+        "transcript:98",
+        "slides:18",
+        "transcript:103"
+      ]
+    },
+    {
+      "claim": "summary:23",
+      "text": "Talos defended Crete by hurling rocks at enemy ships.",
+      "entailed": true,
+      "evidence": "transcript:102",
+      "top": [
+        "transcript:102",
+        "transcript:101",
+        "transcript:100",
+        "transcript:99",
+        "transcript:103",
+        "transcript:98",
+        "transcript:108",
+        "transcript:104"
+      ]
+    },
+    {
+      "claim": "summary:24",
+      "text": "Throwing rocks with accuracy turned out to be much easier to automate than recognising enemy ships.",
+      "entailed": true,
+      "evidence": "transcript:112",
+      "top": [
+        "transcript:108",
+        "transcript:112",
+        "transcript:111",
+        "transcript:103",
+        "transcript:102",
+        "transcript:110",
+        "transcript:109",
+        "transcript:107"
+      ]
+    },
+    {
+      "claim": "summary:25",
+      "text": "Recognising enemy ships is a quintessential computer vision problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:111",
+        "transcript:110",
+        "transcript:108",
+        "transcript:112",
+        "transcript:314",
+        "transcript:10",
+        "transcript:9",
+        "transcript:109"
+      ]
+    },
+    {
+      "claim": "summary:26",
+      "text": "Recognising enemy ships remains a challenging computer vision problem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:111",
+        "transcript:110",
+        "transcript:108",
+        "transcript:112",
+        "transcript:314",
+        "transcript:109",
+        "transcript:10",
+        "transcript:304"
+      ]
+    },
+    {
+      "claim": "summary:27",
+      "text": "Medieval and early-modern automata included a programmable calligrapher and draftsman built by Pierre Jaquet-Droz in the 18th century.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:29",
+        "slides:26",
+        "slides:25",
+        "transcript:131",
+        "transcript:144",
+        "transcript:133",
+        "slides:30",
+        "transcript:132"
+      ]
+    },
+    {
+      "claim": "summary:28",
+      "text": "These automata were purely mechanical.",
+      "entailed": true,
+      "evidence": "slides:30",
+      "top": [
+        "slides:30",
+        "transcript:133",
+        "transcript:132",
+        "slides:25",
+        "transcript:134",
+        "transcript:146",
+        "transcript:147",
+        "slides:29"
+      ]
+    },
+    {
+      "claim": "summary:29",
+      "text": "These automata showed early glimpses of programmability.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:25",
+        "slides:30",
+        "slides:26",
+        "transcript:133",
+        "transcript:146",
+        "slides:29",
+        "transcript:132",
+        "transcript:131"
+      ]
+    },
+    {
+      "claim": "summary:30",
+      "text": "The first real mathematical thinking about artificial intelligence started in the 20th century.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:260",
+        "transcript:386",
+        "slides:34",
+        "transcript:28",
+        "transcript:242",
+        "slides:31",
+        "transcript:157",
+        "transcript:262"
+      ]
+    },
+    {
+      "claim": "summary:31",
+      "text": "Alan Turing’s 1950 essay \"Computing Machinery and Intelligence\" posed the question \"Can machines think?\".",
+      "entailed": true,
+      "evidence": "transcript:159",
+      "top": [
+        "transcript:159",
+        "transcript:158",
+        "transcript:165",
+        "transcript:241",
+        "transcript:160",
+        "transcript:157",
+        "slides:34",
+        "transcript:154"
+      ]
+    },
+    {
+      "claim": "summary:32",
+      "text": "The essay introduced the Turing test.",
+      "entailed": true,
+      "evidence": "transcript:165",
+      "top": [
+        "transcript:165",
+        "transcript:386",
+        "transcript:154",
+        "transcript:225",
+        "transcript:241",
+        "transcript:182",
+        "transcript:239",
+        "transcript:171"
+      ]
+    },
+    {
+      "claim": "summary:33",
+      "text": "In the Turing test, a human judge converses in writing with a human and a machine.",
+      "entailed": true,
+      "evidence": "slides:35",
+      "top": [
+        "transcript:167",
+        "transcript:205",
+        "slides:35",
+        "transcript:225",
+        "transcript:203",
+        "transcript:235",
+        "transcript:237",
+        "transcript:234"
+      ]
+    },
+    {
+      "claim": "summary:34",
+      "text": "The machine passes the Turing test if the judge cannot reliably tell which is which.",
+      "entailed": true,
+      "evidence": "transcript:173",
+      "top": [
+        "transcript:173",
+        "transcript:205",
+        "transcript:206",
+        "transcript:172",
+        "transcript:167",
+        "slides:35",
+        "transcript:225",
+        "transcript:235"
+      ]
+    },
+    {
+      "claim": "summary:35",
+      "text": "The Turing test is probabilistic.",
+      "entailed": true,
+      "evidence": "transcript:174",
+      "top": [
+        "transcript:173",
+        "transcript:174",
+        "transcript:172",
+        "transcript:225",
+        "transcript:166",
+        "transcript:171",
+        "transcript:159",
+        "transcript:203"
+      ]
+    },
+    {
+      "claim": "summary:36",
+      "text": "A single run of the Turing test is meaningless.",
+      "entailed": true,
+      "evidence": "transcript:172",
+      "top": [
+        "transcript:172",
+        "transcript:170",
+        "transcript:226",
+        "transcript:225",
+        "transcript:239",
+        "transcript:166",
+        "slides:42",
+        "transcript:202"
+      ]
+    },
+    {
+      "claim": "summary:37",
+      "text": "In a single run, the judge could just guess with 50% success.",
+      "entailed": true,
+      "evidence": "transcript:172",
+      "top": [
+        "transcript:172",
+        "transcript:616",
+        "transcript:592",
+        "transcript:173",
+        "slides:139",
+        "transcript:714",
+        "slides:146",
+        "transcript:562"
+      ]
+    },
+    {
+      "claim": "summary:38",
+      "text": "The machine must make the judge’s recognition rate indistinguishable from random chance over repeated trials.",
+      "entailed": true,
+      "evidence": "transcript:173",
+      "top": [
+        "transcript:173",
+        "transcript:172",
+        "transcript:205",
+        "transcript:562",
+        "transcript:235",
+        "transcript:592",
+        "transcript:486",
+        "transcript:169"
+      ]
+    },
+    {
+      "claim": "summary:39",
+      "text": "The Turing test has survived the shifting goalposts that plagued other AI milestones.",
+      "entailed": true,
+      "evidence": "transcript:202",
+      "top": [
+        "transcript:175",
+        "transcript:166",
+        "transcript:202",
+        "transcript:241",
+        "transcript:239",
+        "transcript:181",
+        "transcript:183",
+        "transcript:171"
+      ]
+    },
+    {
+      "claim": "summary:40",
+      "text": "When Deep Blue beat Kasparov at chess in 1997, the response was that chess doesn't count because it's just tree search.",
+      "entailed": true,
+      "evidence": "transcript:197",
+      "top": [
+        "transcript:191",
+        "transcript:197",
+        "transcript:192",
+        "transcript:198",
+        "transcript:194",
+        "transcript:187",
+        "transcript:372",
+        "transcript:371"
+      ]
+    },
+    {
+      "claim": "summary:41",
+      "text": "When AlphaGo conquered Go, the goalposts moved again.",
+      "entailed": true,
+      "evidence": "transcript:200",
+      "top": [
+        "transcript:183",
+        "transcript:201",
+        "transcript:199",
+        "transcript:198",
+        "transcript:197",
+        "transcript:104",
+        "transcript:200",
+        "transcript:107"
+      ]
+    },
+    {
+      "claim": "summary:42",
+      "text": "Nobody ever dismissed the Turing test as trivial.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:202",
+        "transcript:226",
+        "slides:42",
+        "transcript:239",
+        "transcript:240",
+        "slides:36",
+        "transcript:231",
+        "transcript:172"
+      ]
+    },
+    {
+      "claim": "summary:43",
+      "text": "Free-form natural language conversation can cover any domain.",
+      "entailed": true,
+      "evidence": "transcript:204",
+      "top": [
+        "transcript:208",
+        "transcript:222",
+        "transcript:204",
+        "transcript:218",
+        "transcript:219",
+        "transcript:221",
+        "transcript:85",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "summary:44",
+      "text": "The domains natural language conversation can cover include computer vision, 3D reasoning, and common sense.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:208",
+        "transcript:219",
+        "transcript:221",
+        "transcript:222",
+        "transcript:218",
+        "transcript:204",
+        "transcript:250",
+        "slides:37"
+      ]
+    },
+    {
+      "claim": "summary:45",
+      "text": "To predict the next token in a text, a system must implicitly learn about the world.",
+      "entailed": true,
+      "evidence": "transcript:214",
+      "top": [
+        "transcript:213",
+        "transcript:212",
+        "transcript:214",
+        "transcript:621",
+        "transcript:211",
+        "transcript:210",
+        "transcript:216",
+        "transcript:224"
+      ]
+    },
+    {
+      "claim": "summary:46",
+      "text": "Predicting the next token is the core task of modern language models.",
+      "entailed": true,
+      "evidence": "transcript:210",
+      "top": [
+        "transcript:213",
+        "transcript:214",
+        "transcript:211",
+        "transcript:212",
+        "transcript:621",
+        "transcript:210",
+        "transcript:224",
+        "transcript:216"
+      ]
+    },
+    {
+      "claim": "summary:47",
+      "text": "Large language models continue to surprise with emergent capabilities.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:224",
+        "slides:70",
+        "transcript:620",
+        "transcript:213",
+        "transcript:624",
+        "transcript:211",
+        "transcript:214",
+        "transcript:215"
+      ]
+    },
+    {
+      "claim": "summary:48",
+      "text": "The Turing test was convincingly passed only in 2025.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:42",
+        "transcript:176",
+        "transcript:181",
+        "slides:43",
+        "transcript:182",
+        "transcript:202",
+        "transcript:240",
+        "transcript:239"
+      ]
+    },
+    {
+      "claim": "summary:49",
+      "text": "The Turing test reigned for 75 years before being passed.",
+      "entailed": true,
+      "evidence": "transcript:182",
+      "top": [
+        "transcript:176",
+        "slides:42",
+        "slides:43",
+        "transcript:182",
+        "transcript:202",
+        "transcript:166",
+        "transcript:181",
+        "transcript:239"
+      ]
+    },
+    {
+      "claim": "summary:50",
+      "text": "Turing’s original formulation of the test required the machine to impersonate a woman.",
+      "entailed": true,
+      "evidence": "transcript:237",
+      "top": [
+        "transcript:237",
+        "slides:35",
+        "transcript:234",
+        "transcript:225",
+        "transcript:165",
+        "transcript:239",
+        "transcript:205",
+        "slides:36"
+      ]
+    },
+    {
+      "claim": "summary:51",
+      "text": "In Turing's original formulation, a man also tried to impersonate a woman.",
+      "entailed": true,
+      "evidence": "transcript:237",
+      "top": [
+        "transcript:237",
+        "transcript:238",
+        "slides:35",
+        "transcript:234",
+        "transcript:167",
+        "transcript:239",
+        "slides:36",
+        "transcript:227"
+      ]
+    },
+    {
+      "claim": "summary:52",
+      "text": "In Turing's original formulation, every participant had to pretend to be somebody else.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:237",
+        "transcript:234",
+        "transcript:235",
+        "transcript:241",
+        "transcript:167",
+        "transcript:225",
+        "transcript:239",
+        "slides:35"
+      ]
+    },
+    {
+      "claim": "summary:53",
+      "text": "The positive, engineering-oriented field of artificial intelligence began in 1956.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:242",
+        "slides:44",
+        "transcript:28",
+        "slides:34",
+        "transcript:27",
+        "transcript:33",
+        "slides:51",
+        "slides:63"
+      ]
+    },
+    {
+      "claim": "summary:54",
+      "text": "The field began at the Dartmouth Summer Research Project.",
+      "entailed": true,
+      "evidence": "slides:44",
+      "top": [
+        "transcript:252",
+        "transcript:243",
+        "slides:44",
+        "transcript:244",
+        "slides:45",
+        "transcript:249",
+        "slides:47",
+        "transcript:251"
+      ]
+    },
+    {
+      "claim": "summary:55",
+      "text": "The Dartmouth Summer Research Project was organized by John McCarthy, Marvin Minsky, Claude Shannon, and Nathaniel Rochester.",
+      "entailed": true,
+      "evidence": "slides:45",
+      "top": [
+        "slides:45",
+        "transcript:244",
+        "transcript:252",
+        "transcript:249",
+        "transcript:243",
+        "slides:47",
+        "transcript:251",
+        "slides:44"
+      ]
+    },
+    {
+      "claim": "summary:56",
+      "text": "The grant proposal for the Dartmouth workshop was astonishingly ambitious.",
+      "entailed": true,
+      "evidence": "slides:46",
+      "top": [
+        "transcript:252",
+        "slides:46",
+        "transcript:249",
+        "slides:45",
+        "transcript:244",
+        "slides:47",
+        "transcript:243",
+        "slides:44"
+      ]
+    },
+    {
+      "claim": "summary:57",
+      "text": "The proposal was for a 2-month study of artificial intelligence.",
+      "entailed": true,
+      "evidence": "transcript:249",
+      "top": [
+        "transcript:249",
+        "slides:47",
+        "transcript:241",
+        "transcript:386",
+        "transcript:74",
+        "transcript:34",
+        "transcript:54",
+        "slides:34"
+      ]
+    },
+    {
+      "claim": "summary:58",
+      "text": "The proposal conjectured that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can simulate it.",
+      "entailed": true,
+      "evidence": "slides:48",
+      "top": [
+        "slides:48",
+        "transcript:648",
+        "transcript:158",
+        "transcript:159",
+        "transcript:250",
+        "transcript:241",
+        "transcript:2",
+        "transcript:171"
+      ]
+    },
+    {
+      "claim": "summary:59",
+      "text": "The proposal stated an attempt to find how to make machines use natural languages.",
+      "entailed": true,
+      "evidence": "transcript:250",
+      "top": [
+        "transcript:250",
+        "slides:49",
+        "slides:41",
+        "transcript:159",
+        "transcript:241",
+        "slides:37",
+        "transcript:219",
+        "transcript:211"
+      ]
+    },
+    {
+      "claim": "summary:60",
+      "text": "The proposal stated an attempt to make machines form abstractions and concepts.",
+      "entailed": true,
+      "evidence": "transcript:250",
+      "top": [
+        "transcript:250",
+        "slides:49",
+        "transcript:249",
+        "transcript:159",
+        "transcript:18",
+        "transcript:158",
+        "transcript:113",
+        "transcript:241"
+      ]
+    },
+    {
+      "claim": "summary:61",
+      "text": "The proposal stated an attempt to make machines solve problems then reserved for humans.",
+      "entailed": true,
+      "evidence": "slides:49",
+      "top": [
+        "transcript:250",
+        "slides:49",
+        "transcript:249",
+        "slides:50",
+        "slides:55",
+        "transcript:241",
+        "transcript:74",
+        "transcript:159"
+      ]
+    },
+    {
+      "claim": "summary:62",
+      "text": "The proposal stated an attempt to make machines improve themselves.",
+      "entailed": true,
+      "evidence": "transcript:250",
+      "top": [
+        "transcript:250",
+        "slides:49",
+        "transcript:251",
+        "transcript:249",
+        "transcript:159",
+        "slides:50",
+        "transcript:598",
+        "transcript:241"
+      ]
+    },
+    {
+      "claim": "summary:63",
+      "text": "The Dartmouth workshop did not solve these problems in one summer.",
+      "entailed": true,
+      "evidence": "transcript:253",
+      "top": [
+        "transcript:253",
+        "transcript:146",
+        "transcript:196",
+        "transcript:147",
+        "transcript:252",
+        "transcript:80",
+        "transcript:6",
+        "transcript:403"
+      ]
+    },
+    {
+      "claim": "summary:64",
+      "text": "The workshop established artificial intelligence as a research field.",
+      "entailed": true,
+      "evidence": "slides:44",
+      "top": [
+        "slides:44",
+        "slides:47",
+        "transcript:249",
+        "transcript:33",
+        "transcript:242",
+        "transcript:88",
+        "transcript:113",
+        "transcript:243"
+      ]
+    },
+    {
+      "claim": "summary:65",
+      "text": "Early successes of AI included Logic Theorist.",
+      "entailed": true,
+      "evidence": "transcript:262",
+      "top": [
+        "transcript:262",
+        "transcript:260",
+        "slides:52",
+        "slides:31",
+        "slides:53",
+        "transcript:157",
+        "transcript:261",
+        "transcript:259"
+      ]
+    },
+    {
+      "claim": "summary:66",
+      "text": "Logic Theorist was a theorem prover.",
+      "entailed": true,
+      "evidence": "transcript:259",
+      "top": [
+        "transcript:259",
+        "slides:53",
+        "transcript:261",
+        "slides:52",
+        "slides:54",
+        "transcript:262",
+        "slides:31",
+        "transcript:260"
+      ]
+    },
+    {
+      "claim": "summary:67",
+      "text": "Logic Theorist re-proved much of Principia Mathematica.",
+      "entailed": true,
+      "evidence": "slides:53",
+      "top": [
+        "slides:53",
+        "transcript:261",
+        "transcript:259",
+        "slides:54",
+        "slides:52",
+        "transcript:262",
+        "slides:31",
+        "transcript:260"
+      ]
+    },
+    {
+      "claim": "summary:68",
+      "text": "Early successes also included the General Problem Solver.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:55",
+        "slides:57",
+        "slides:50",
+        "transcript:387",
+        "transcript:254",
+        "transcript:259",
+        "transcript:512",
+        "transcript:805"
+      ]
+    },
+    {
+      "claim": "summary:69",
+      "text": "These early successes fueled high expectations.",
+      "entailed": true,
+      "evidence": "transcript:262",
+      "top": [
+        "transcript:262",
+        "transcript:255",
+        "slides:66",
+        "slides:51",
+        "transcript:68",
+        "transcript:251",
+        "slides:50",
+        "slides:174"
+      ]
+    },
+    {
+      "claim": "summary:70",
+      "text": "Optimism in AI waned when projects such as machine translation failed to deliver.",
+      "entailed": true,
+      "evidence": "transcript:264",
+      "top": [
+        "transcript:264",
+        "transcript:263",
+        "transcript:60",
+        "transcript:258",
+        "slides:66",
+        "transcript:273",
+        "transcript:267",
+        "transcript:74"
+      ]
+    },
+    {
+      "claim": "summary:71",
+      "text": "The 1970s became the first AI winter.",
+      "entailed": true,
+      "evidence": "transcript:29",
+      "top": [
+        "transcript:29",
+        "transcript:270",
+        "transcript:271",
+        "transcript:274",
+        "transcript:28",
+        "transcript:255",
+        "slides:51",
+        "transcript:41"
+      ]
+    },
+    {
+      "claim": "summary:72",
+      "text": "During the first AI winter, funding dried up.",
+      "entailed": true,
+      "evidence": "transcript:268",
+      "top": [
+        "transcript:271",
+        "transcript:29",
+        "transcript:270",
+        "transcript:268",
+        "transcript:269",
+        "transcript:274",
+        "transcript:60",
+        "transcript:28"
+      ]
+    },
+    {
+      "claim": "summary:73",
+      "text": "During the first AI winter, only a handful of researchers persisted.",
+      "entailed": true,
+      "evidence": "transcript:271",
+      "top": [
+        "transcript:271",
+        "transcript:29",
+        "transcript:274",
+        "transcript:270",
+        "transcript:258",
+        "transcript:41",
+        "transcript:200",
+        "transcript:196"
+      ]
+    },
+    {
+      "claim": "summary:74",
+      "text": "Those researchers mostly worked on expert systems.",
+      "entailed": true,
+      "evidence": "transcript:274",
+      "top": [
+        "transcript:275",
+        "transcript:274",
+        "slides:59",
+        "slides:50",
+        "transcript:74",
+        "transcript:157",
+        "transcript:155",
+        "transcript:156"
+      ]
+    },
+    {
+      "claim": "summary:75",
+      "text": "MYCIN was an expert system.",
+      "entailed": true,
+      "evidence": "transcript:276",
+      "top": [
+        "slides:60",
+        "transcript:276",
+        "slides:61",
+        "slides:62",
+        "slides:59",
+        "transcript:274",
+        "transcript:282",
+        "transcript:275"
+      ]
+    },
+    {
+      "claim": "summary:76",
+      "text": "MYCIN diagnosed blood infections using approximately 450 heuristic rules.",
+      "entailed": true,
+      "evidence": "slides:62",
+      "top": [
+        "slides:62",
+        "transcript:276",
+        "slides:61",
+        "slides:60",
+        "transcript:281",
+        "transcript:282",
+        "transcript:278",
+        "transcript:283"
+      ]
+    },
+    {
+      "claim": "summary:77",
+      "text": "The central challenge of expert systems was combining rules that were fuzzy and overlapping.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:282",
+        "slides:59",
+        "transcript:274",
+        "transcript:275",
+        "transcript:387",
+        "slides:38",
+        "transcript:113",
+        "slides:39"
+      ]
+    },
+    {
+      "claim": "summary:78",
+      "text": "The field learned that pure logic was not enough.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:260",
+        "transcript:262",
+        "slides:31",
+        "slides:52",
+        "transcript:261",
+        "slides:53",
+        "transcript:259",
+        "slides:59"
+      ]
+    },
+    {
+      "claim": "summary:79",
+      "text": "In the 1980s, neural networks re-emerged.",
+      "entailed": true,
+      "evidence": "transcript:30",
+      "top": [
+        "transcript:30",
+        "transcript:285",
+        "transcript:286",
+        "transcript:288",
+        "transcript:291",
+        "transcript:287",
+        "transcript:289",
+        "transcript:292"
+      ]
+    },
+    {
+      "claim": "summary:80",
+      "text": "The re-emerged neural networks included convolutional nets and recurrent nets.",
+      "entailed": true,
+      "evidence": "transcript:286",
+      "top": [
+        "transcript:286",
+        "transcript:837",
+        "transcript:299",
+        "transcript:289",
+        "transcript:285",
+        "transcript:838",
+        "transcript:32",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "summary:81",
+      "text": "These neural networks were hampered by insufficient data and compute.",
+      "entailed": true,
+      "evidence": "transcript:288",
+      "top": [
+        "transcript:288",
+        "transcript:291",
+        "transcript:30",
+        "transcript:285",
+        "transcript:344",
+        "transcript:287",
+        "transcript:292",
+        "transcript:272"
+      ]
+    },
+    {
+      "claim": "summary:82",
+      "text": "The deep learning revolution ignited in the mid-2000s.",
+      "entailed": true,
+      "evidence": "transcript:290",
+      "top": [
+        "slides:69",
+        "transcript:289",
+        "transcript:290",
+        "transcript:32",
+        "transcript:287",
+        "transcript:71",
+        "transcript:299",
+        "slides:71"
+      ]
+    },
+    {
+      "claim": "summary:83",
+      "text": "The deep learning revolution was enabled by larger datasets thanks to the internet.",
+      "entailed": true,
+      "evidence": "transcript:291",
+      "top": [
+        "slides:69",
+        "transcript:32",
+        "transcript:291",
+        "transcript:293",
+        "transcript:289",
+        "transcript:290",
+        "transcript:287",
+        "transcript:627"
+      ]
+    },
+    {
+      "claim": "summary:84",
+      "text": "The deep learning revolution was enabled by faster hardware.",
+      "entailed": true,
+      "evidence": "transcript:293",
+      "top": [
+        "slides:69",
+        "transcript:293",
+        "transcript:32",
+        "transcript:298",
+        "transcript:289",
+        "transcript:71",
+        "transcript:287",
+        "transcript:291"
+      ]
+    },
+    {
+      "claim": "summary:85",
+      "text": "The deep learning revolution was enabled by the switch from CPUs to GPUs.",
+      "entailed": true,
+      "evidence": "transcript:293",
+      "top": [
+        "transcript:293",
+        "transcript:298",
+        "slides:69",
+        "transcript:295",
+        "transcript:32",
+        "transcript:289",
+        "transcript:290",
+        "transcript:287"
+      ]
+    },
+    {
+      "claim": "summary:86",
+      "text": "These factors made training deep networks practical.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:289",
+        "transcript:292",
+        "slides:69",
+        "transcript:299",
+        "transcript:291",
+        "transcript:287",
+        "transcript:294",
+        "transcript:32"
+      ]
+    },
+    {
+      "claim": "summary:87",
+      "text": "Since the mid-2000s, neural methods have become the dominant paradigm across virtually all of machine learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:285",
+        "transcript:299",
+        "transcript:292",
+        "transcript:291",
+        "transcript:30",
+        "transcript:289",
+        "slides:67",
+        "slides:69"
+      ]
+    },
+    {
+      "claim": "summary:88",
+      "text": "A computer program learns with respect to a class of tasks T and a performance measure P, if its performance on T, as measured by P, improves with experience.",
+      "entailed": true,
+      "evidence": "transcript:300",
+      "top": [
+        "transcript:300",
+        "transcript:301",
+        "slides:72",
+        "transcript:22",
+        "slides:96",
+        "transcript:375",
+        "transcript:648",
+        "transcript:18"
+      ]
+    },
+    {
+      "claim": "summary:89",
+      "text": "This definition forces the point that learning requires a numerical performance measure.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:301",
+        "transcript:344",
+        "transcript:300",
+        "transcript:697",
+        "transcript:421",
+        "transcript:648",
+        "transcript:694",
+        "slides:72"
+      ]
+    },
+    {
+      "claim": "summary:90",
+      "text": "The numerical performance measure is called a loss function.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:738",
+        "transcript:739",
+        "transcript:303",
+        "transcript:353",
+        "transcript:301",
+        "transcript:302",
+        "transcript:344",
+        "transcript:449"
+      ]
+    },
+    {
+      "claim": "summary:91",
+      "text": "Designing the right loss function is often half the battle in deep learning.",
+      "entailed": true,
+      "evidence": "transcript:302",
+      "top": [
+        "transcript:302",
+        "transcript:303",
+        "slides:69",
+        "transcript:738",
+        "transcript:299",
+        "transcript:153",
+        "transcript:294",
+        "transcript:343"
+      ]
+    },
+    {
+      "claim": "summary:92",
+      "text": "Minimising the loss function should produce the desired behaviour.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:303",
+        "transcript:352",
+        "transcript:640",
+        "transcript:739",
+        "transcript:343",
+        "transcript:353",
+        "transcript:302",
+        "transcript:548"
+      ]
+    },
+    {
+      "claim": "summary:93",
+      "text": "In supervised learning, the dataset consists of input-output pairs {(x_i, y_i)}.",
+      "entailed": true,
+      "evidence": "transcript:306",
+      "top": [
+        "transcript:306",
+        "transcript:341",
+        "transcript:608",
+        "transcript:307",
+        "slides:78",
+        "transcript:834",
+        "transcript:366",
+        "slides:83"
+      ]
+    },
+    {
+      "claim": "summary:94",
+      "text": "The goal of supervised learning is to learn the conditional distribution p(y | x).",
+      "entailed": true,
+      "evidence": "transcript:309",
+      "top": [
+        "transcript:309",
+        "transcript:363",
+        "transcript:437",
+        "transcript:496",
+        "transcript:438",
+        "transcript:489",
+        "transcript:441",
+        "transcript:307"
+      ]
+    },
+    {
+      "claim": "summary:95",
+      "text": "Classification is a typical supervised learning task where y is a discrete label.",
+      "entailed": true,
+      "evidence": "slides:86",
+      "top": [
+        "slides:86",
+        "slides:77",
+        "transcript:307",
+        "transcript:305",
+        "transcript:306",
+        "slides:95",
+        "transcript:313",
+        "slides:79"
+      ]
+    },
+    {
+      "claim": "summary:96",
+      "text": "Example of classification: distinguishing cat vs dog.",
+      "entailed": true,
+      "evidence": "transcript:305",
+      "top": [
+        "transcript:305",
+        "slides:86",
+        "slides:87",
+        "transcript:332",
+        "transcript:704",
+        "slides:77",
+        "slides:78",
+        "transcript:308"
+      ]
+    },
+    {
+      "claim": "summary:97",
+      "text": "Regression is a typical supervised learning task where y is a continuous value.",
+      "entailed": true,
+      "evidence": "slides:88",
+      "top": [
+        "slides:88",
+        "slides:89",
+        "transcript:307",
+        "transcript:642",
+        "transcript:478",
+        "slides:79",
+        "transcript:306",
+        "transcript:643"
+      ]
+    },
+    {
+      "claim": "summary:98",
+      "text": "Example of regression: temperature prediction.",
+      "entailed": true,
+      "evidence": "slides:89",
+      "top": [
+        "slides:89",
+        "slides:88",
+        "transcript:478",
+        "transcript:642",
+        "slides:79",
+        "transcript:830",
+        "transcript:643",
+        "transcript:807"
+      ]
+    },
+    {
+      "claim": "summary:99",
+      "text": "The model must generalize beyond the training set.",
+      "entailed": true,
+      "evidence": "slides:81",
+      "top": [
+        "slides:83",
+        "slides:81",
+        "transcript:651",
+        "slides:82",
+        "transcript:629",
+        "transcript:212",
+        "transcript:485",
+        "transcript:310"
+      ]
+    },
+    {
+      "claim": "summary:100",
+      "text": "The model must avoid overfitting.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:637",
+        "transcript:646",
+        "slides:82",
+        "transcript:638",
+        "transcript:651",
+        "transcript:212",
+        "transcript:629",
+        "transcript:625"
+      ]
+    },
+    {
+      "claim": "summary:101",
+      "text": "Labelling data is often extremely expensive.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:315",
+        "transcript:314",
+        "transcript:652",
+        "transcript:610",
+        "transcript:313",
+        "transcript:611",
+        "slides:95",
+        "transcript:317"
+      ]
+    },
+    {
+      "claim": "summary:102",
+      "text": "Labelling data is especially expensive for dense tasks like segmentation.",
+      "entailed": true,
+      "evidence": "transcript:315",
+      "top": [
+        "transcript:315",
+        "transcript:314",
+        "transcript:316",
+        "transcript:313",
+        "transcript:610",
+        "transcript:305",
+        "transcript:317",
+        "slides:95"
+      ]
+    },
+    {
+      "claim": "summary:103",
+      "text": "In unsupervised learning, no y is provided.",
+      "entailed": true,
+      "evidence": "transcript:363",
+      "top": [
+        "transcript:342",
+        "transcript:363",
+        "slides:90",
+        "transcript:339",
+        "transcript:366",
+        "slides:83",
+        "transcript:317",
+        "transcript:319"
+      ]
+    },
+    {
+      "claim": "summary:104",
+      "text": "In unsupervised learning, the dataset is just {x_i}.",
+      "entailed": true,
+      "evidence": "slides:90",
+      "top": [
+        "transcript:317",
+        "transcript:319",
+        "slides:90",
+        "transcript:339",
+        "transcript:336",
+        "transcript:366",
+        "transcript:328",
+        "transcript:367"
+      ]
+    },
+    {
+      "claim": "summary:105",
+      "text": "The goal of unsupervised learning is to find structure in p(x).",
+      "entailed": true,
+      "evidence": "transcript:363",
+      "top": [
+        "transcript:363",
+        "transcript:319",
+        "transcript:367",
+        "transcript:336",
+        "transcript:366",
+        "transcript:328",
+        "transcript:496",
+        "slides:90"
+      ]
+    },
+    {
+      "claim": "summary:106",
+      "text": "Dimensionality reduction (representation learning) is a form of unsupervised learning.",
+      "entailed": true,
+      "evidence": "slides:93",
+      "top": [
+        "transcript:319",
+        "slides:93",
+        "transcript:328",
+        "transcript:357",
+        "transcript:327",
+        "transcript:359",
+        "transcript:338",
+        "transcript:317"
+      ]
+    },
+    {
+      "claim": "summary:107",
+      "text": "Dimensionality reduction maps a high-dimensional input into a compact vector that preserves essential information.",
+      "entailed": true,
+      "evidence": "transcript:347",
+      "top": [
+        "transcript:327",
+        "transcript:319",
+        "slides:93",
+        "transcript:338",
+        "transcript:347",
+        "transcript:311",
+        "transcript:340",
+        "transcript:359"
+      ]
+    },
+    {
+      "claim": "summary:108",
+      "text": "A 1-megapixel image corresponds to approximately 3x10^6 numbers.",
+      "entailed": true,
+      "evidence": "transcript:320",
+      "top": [
+        "transcript:320",
+        "transcript:321",
+        "transcript:330",
+        "transcript:322",
+        "transcript:329",
+        "transcript:324",
+        "transcript:323",
+        "transcript:327"
+      ]
+    },
+    {
+      "claim": "summary:109",
+      "text": "An auto-encoder is a canonical deep-learning approach for dimensionality reduction.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:93",
+        "transcript:357",
+        "transcript:327",
+        "transcript:319",
+        "transcript:328",
+        "transcript:338",
+        "slides:94",
+        "transcript:311"
+      ]
+    },
+    {
+      "claim": "summary:110",
+      "text": "In an auto-encoder, an encoder compresses x to a latent z.",
+      "entailed": true,
+      "evidence": "transcript:345",
+      "top": [
+        "transcript:345",
+        "transcript:350",
+        "transcript:365",
+        "transcript:347",
+        "transcript:349",
+        "transcript:337",
+        "transcript:346",
+        "transcript:839"
+      ]
+    },
+    {
+      "claim": "summary:111",
+      "text": "In an auto-encoder, a decoder reconstructs \\hat{x} from z.",
+      "entailed": true,
+      "evidence": "transcript:350",
+      "top": [
+        "transcript:350",
+        "transcript:352",
+        "transcript:345",
+        "transcript:365",
+        "transcript:353",
+        "transcript:351",
+        "transcript:347",
+        "transcript:364"
+      ]
+    },
+    {
+      "claim": "summary:112",
+      "text": "The loss in an auto-encoder is ||\\hat{x} - x||^2.",
+      "entailed": true,
+      "evidence": "transcript:353",
+      "top": [
+        "transcript:353",
+        "transcript:352",
+        "transcript:350",
+        "transcript:345",
+        "transcript:364",
+        "transcript:365",
+        "transcript:303",
+        "transcript:302"
+      ]
+    },
+    {
+      "claim": "summary:113",
+      "text": "This loss forces z to be a meaningful, low-dimensional summary.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:303",
+        "transcript:640",
+        "transcript:346",
+        "transcript:340",
+        "transcript:350",
+        "transcript:738",
+        "transcript:345",
+        "transcript:365"
+      ]
+    },
+    {
+      "claim": "summary:114",
+      "text": "Clustering is a form of unsupervised learning.",
+      "entailed": true,
+      "evidence": "slides:91",
+      "top": [
+        "slides:91",
+        "transcript:357",
+        "transcript:358",
+        "transcript:359",
+        "transcript:328",
+        "transcript:319",
+        "transcript:317",
+        "transcript:336"
+      ]
+    },
+    {
+      "claim": "summary:115",
+      "text": "Clustering partitions data into groups where within-cluster similarity is high and between-cluster similarity is low.",
+      "entailed": true,
+      "evidence": "transcript:358",
+      "top": [
+        "slides:91",
+        "transcript:358",
+        "transcript:359",
+        "slides:92",
+        "transcript:361",
+        "transcript:360",
+        "transcript:362",
+        "transcript:357"
+      ]
+    },
+    {
+      "claim": "summary:116",
+      "text": "Clustering can be seen as an extreme of dimensionality reduction where the latent space is a finite set of labels.",
+      "entailed": true,
+      "evidence": "transcript:359",
+      "top": [
+        "transcript:359",
+        "transcript:360",
+        "slides:91",
+        "transcript:357",
+        "transcript:358",
+        "transcript:361",
+        "slides:93",
+        "transcript:319"
+      ]
+    },
+    {
+      "claim": "summary:117",
+      "text": "In reinforcement learning, an agent interacts with an environment.",
+      "entailed": true,
+      "evidence": "transcript:370",
+      "top": [
+        "transcript:374",
+        "transcript:375",
+        "slides:96",
+        "transcript:373",
+        "transcript:370",
+        "slides:98",
+        "transcript:371",
+        "transcript:369"
+      ]
+    },
+    {
+      "claim": "summary:118",
+      "text": "The agent receives rewards.",
+      "entailed": true,
+      "evidence": "transcript:374",
+      "top": [
+        "transcript:375",
+        "transcript:374",
+        "transcript:373",
+        "slides:96",
+        "slides:99",
+        "transcript:371",
+        "transcript:274",
+        "transcript:372"
+      ]
+    },
+    {
+      "claim": "summary:119",
+      "text": "The agent learns a policy to maximize cumulative reward.",
+      "entailed": true,
+      "evidence": "transcript:375",
+      "top": [
+        "transcript:375",
+        "transcript:374",
+        "slides:96",
+        "transcript:373",
+        "slides:98",
+        "slides:99",
+        "slides:97",
+        "transcript:667"
+      ]
+    },
+    {
+      "claim": "summary:120",
+      "text": "In reinforcement learning, no dataset exists upfront.",
+      "entailed": true,
+      "evidence": "transcript:370",
+      "top": [
+        "transcript:370",
+        "transcript:371",
+        "transcript:372",
+        "transcript:607",
+        "transcript:339",
+        "transcript:635",
+        "transcript:369",
+        "transcript:614"
+      ]
+    },
+    {
+      "claim": "summary:121",
+      "text": "The agent generates its own experience.",
+      "entailed": true,
+      "evidence": "slides:96",
+      "top": [
+        "slides:40",
+        "transcript:375",
+        "slides:96",
+        "transcript:74",
+        "transcript:373",
+        "slides:38",
+        "slides:39",
+        "transcript:113"
+      ]
+    },
+    {
+      "claim": "summary:122",
+      "text": "Classic challenges in reinforcement learning include balancing exploration and exploitation.",
+      "entailed": true,
+      "evidence": "slides:98",
+      "top": [
+        "slides:98",
+        "slides:96",
+        "transcript:374",
+        "transcript:375",
+        "slides:97",
+        "transcript:304",
+        "transcript:388",
+        "transcript:373"
+      ]
+    },
+    {
+      "claim": "summary:123",
+      "text": "Another classic challenge is credit assignment for earlier actions when a reward arrives only at the end.",
+      "entailed": true,
+      "evidence": "slides:99",
+      "top": [
+        "slides:99",
+        "slides:147",
+        "transcript:524",
+        "slides:146",
+        "transcript:227",
+        "transcript:254",
+        "slides:46",
+        "transcript:249"
+      ]
+    },
+    {
+      "claim": "summary:124",
+      "text": "Reinforcement learning is a separate world with its own techniques.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:96",
+        "transcript:374",
+        "transcript:375",
+        "transcript:369",
+        "transcript:304",
+        "transcript:373",
+        "transcript:388",
+        "transcript:667"
+      ]
+    },
+    {
+      "claim": "summary:125",
+      "text": "Reinforcement learning will not be a focus of this course.",
+      "entailed": true,
+      "evidence": "transcript:369",
+      "top": [
+        "transcript:369",
+        "slides:96",
+        "transcript:371",
+        "transcript:666",
+        "transcript:375",
+        "transcript:380",
+        "transcript:343",
+        "transcript:374"
+      ]
+    },
+    {
+      "claim": "summary:126",
+      "text": "Active learning is a paradigm where the model chooses which data to label next.",
+      "entailed": true,
+      "evidence": "slides:100",
+      "top": [
+        "slides:100",
+        "slides:77",
+        "slides:80",
+        "transcript:307",
+        "slides:81",
+        "slides:95",
+        "transcript:305",
+        "transcript:313"
+      ]
+    },
+    {
+      "claim": "summary:127",
+      "text": "Semi-supervised learning is a paradigm where part of the data is labeled.",
+      "entailed": true,
+      "evidence": "slides:95",
+      "top": [
+        "slides:95",
+        "slides:77",
+        "transcript:313",
+        "transcript:305",
+        "transcript:307",
+        "slides:90",
+        "transcript:317",
+        "slides:81"
+      ]
+    },
+    {
+      "claim": "summary:128",
+      "text": "Learning to rank is a paradigm to produce an ordering.",
+      "entailed": true,
+      "evidence": "slides:101",
+      "top": [
+        "slides:101",
+        "slides:194",
+        "transcript:648",
+        "transcript:608",
+        "slides:83",
+        "transcript:450",
+        "transcript:312",
+        "transcript:301"
+      ]
+    },
+    {
+      "claim": "summary:129",
+      "text": "Learning to rank is used for tasks like search results.",
+      "entailed": true,
+      "evidence": "slides:101",
+      "top": [
+        "slides:101",
+        "slides:194",
+        "transcript:301",
+        "transcript:300",
+        "transcript:224",
+        "slides:76",
+        "slides:77",
+        "transcript:307"
+      ]
+    },
+    {
+      "claim": "summary:130",
+      "text": "Bootstrapping is a paradigm where a model improves itself using its own predictions.",
+      "entailed": true,
+      "evidence": "slides:102",
+      "top": [
+        "slides:102",
+        "transcript:497",
+        "transcript:807",
+        "transcript:648",
+        "transcript:485",
+        "transcript:212",
+        "transcript:64",
+        "slides:105"
+      ]
+    },
+    {
+      "claim": "summary:131",
+      "text": "Machine learning is essentially applied probability theory.",
+      "entailed": true,
+      "evidence": "transcript:21",
+      "top": [
+        "transcript:21",
+        "transcript:422",
+        "slides:105",
+        "transcript:421",
+        "transcript:437",
+        "transcript:806",
+        "transcript:393",
+        "transcript:467"
+      ]
+    },
+    {
+      "claim": "summary:132",
+      "text": "The course will not require heavy measure-theoretic machinery like sigma-algebras or Borel sets.",
+      "entailed": true,
+      "evidence": "slides:106",
+      "top": [
+        "slides:106",
+        "transcript:403",
+        "transcript:397",
+        "transcript:398",
+        "transcript:404",
+        "transcript:425",
+        "transcript:443",
+        "transcript:415"
+      ]
+    },
+    {
+      "claim": "summary:133",
+      "text": "The course will cover core intuitions about random variables, densities, and basic rules.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:425",
+        "slides:107",
+        "transcript:22",
+        "slides:106",
+        "transcript:408",
+        "transcript:443",
+        "transcript:397",
+        "transcript:7"
+      ]
+    },
+    {
+      "claim": "summary:134",
+      "text": "A discrete random variable is one where the probabilities of outcomes sum to 1.",
+      "entailed": true,
+      "evidence": "transcript:411",
+      "top": [
+        "transcript:411",
+        "transcript:409",
+        "transcript:428",
+        "transcript:410",
+        "slides:107",
+        "transcript:408",
+        "transcript:527",
+        "transcript:430"
+      ]
+    },
+    {
+      "claim": "summary:135",
+      "text": "A continuous random variable is characterized by a density p(x) >= 0 such that the integral of p(x) over its domain equals 1.",
+      "entailed": true,
+      "evidence": "slides:107",
+      "top": [
+        "transcript:430",
+        "transcript:432",
+        "transcript:431",
+        "transcript:412",
+        "slides:107",
+        "slides:152",
+        "transcript:414",
+        "transcript:419"
+      ]
+    },
+    {
+      "claim": "summary:136",
+      "text": "Joint probability p(x, y) is the probability of two events occurring together.",
+      "entailed": true,
+      "evidence": "slides:108",
+      "top": [
+        "slides:108",
+        "transcript:434",
+        "transcript:427",
+        "transcript:433",
+        "transcript:439",
+        "transcript:448",
+        "transcript:435",
+        "transcript:436"
+      ]
+    },
+    {
+      "claim": "summary:137",
+      "text": "Marginalisation gives p(x) = sum over y of p(x, y) for discrete variables.",
+      "entailed": true,
+      "evidence": "slides:109",
+      "top": [
+        "slides:109",
+        "transcript:435",
+        "transcript:462",
+        "transcript:434",
+        "transcript:444",
+        "transcript:439",
+        "transcript:709",
+        "transcript:448"
+      ]
+    },
+    {
+      "claim": "summary:138",
+      "text": "Marginalisation uses integrals in the continuous case.",
+      "entailed": true,
+      "evidence": "transcript:709",
+      "top": [
+        "slides:109",
+        "transcript:709",
+        "transcript:419",
+        "transcript:461",
+        "transcript:444",
+        "transcript:462",
+        "transcript:430",
+        "transcript:435"
+      ]
+    },
+    {
+      "claim": "summary:139",
+      "text": "Conditional probability satisfies p(x, y) = p(x|y) p(y) = p(y|x) p(x).",
+      "entailed": true,
+      "evidence": "slides:110",
+      "top": [
+        "slides:110",
+        "transcript:441",
+        "transcript:442",
+        "transcript:462",
+        "transcript:438",
+        "transcript:439",
+        "transcript:451",
+        "slides:111"
+      ]
+    },
+    {
+      "claim": "summary:140",
+      "text": "From this, p(x|y) = p(x, y)/p(y).",
+      "entailed": true,
+      "evidence": "transcript:442",
+      "top": [
+        "transcript:451",
+        "slides:111",
+        "transcript:442",
+        "transcript:439",
+        "slides:110",
+        "transcript:441",
+        "transcript:462",
+        "transcript:438"
+      ]
+    },
+    {
+      "claim": "summary:141",
+      "text": "Bayes' theorem states p(y|x) = p(x|y) p(y) / p(x).",
+      "entailed": true,
+      "evidence": "transcript:451",
+      "top": [
+        "slides:111",
+        "transcript:451",
+        "slides:110",
+        "transcript:442",
+        "transcript:438",
+        "transcript:441",
+        "transcript:462",
+        "transcript:439"
+      ]
+    },
+    {
+      "claim": "summary:142",
+      "text": "x and y are independent if p(x, y) = p(x) p(y).",
+      "entailed": true,
+      "evidence": "slides:112",
+      "top": [
+        "slides:112",
+        "transcript:460",
+        "transcript:427",
+        "transcript:448",
+        "transcript:434",
+        "transcript:439",
+        "transcript:461",
+        "transcript:462"
+      ]
+    },
+    {
+      "claim": "summary:143",
+      "text": "If x and y are independent, then p(y|x) = p(y).",
+      "entailed": true,
+      "evidence": "transcript:462",
+      "top": [
+        "transcript:462",
+        "slides:112",
+        "slides:110",
+        "transcript:451",
+        "transcript:441",
+        "slides:111",
+        "transcript:439",
+        "transcript:438"
+      ]
+    },
+    {
+      "claim": "summary:144",
+      "text": "The conditional probability p(y|x) is the central object of supervised learning.",
+      "entailed": true,
+      "evidence": "transcript:309",
+      "top": [
+        "transcript:309",
+        "transcript:437",
+        "transcript:438",
+        "transcript:363",
+        "transcript:442",
+        "slides:110",
+        "transcript:806",
+        "transcript:467"
+      ]
+    },
+    {
+      "claim": "summary:145",
+      "text": "In Bayesian inference, D denotes the dataset (observed data).",
+      "entailed": true,
+      "evidence": "transcript:711",
+      "top": [
+        "transcript:470",
+        "transcript:503",
+        "transcript:491",
+        "transcript:502",
+        "transcript:711",
+        "transcript:483",
+        "transcript:510",
+        "slides:169"
+      ]
+    },
+    {
+      "claim": "summary:146",
+      "text": "In Bayesian inference, θ denotes model parameters (everything we want to learn, such as weights of a network or probability of heads).",
+      "entailed": true,
+      "evidence": "transcript:503",
+      "top": [
+        "slides:167",
+        "slides:168",
+        "transcript:494",
+        "slides:170",
+        "slides:169",
+        "transcript:661",
+        "transcript:503",
+        "transcript:491"
+      ]
+    },
+    {
+      "claim": "summary:147",
+      "text": "Bayes' theorem for model parameters is p(θ|D) = p(D|θ) p(θ) / p(D).",
+      "entailed": true,
+      "evidence": "slides:113",
+      "top": [
+        "slides:113",
+        "transcript:468",
+        "transcript:534",
+        "transcript:517",
+        "transcript:491",
+        "transcript:501",
+        "transcript:503",
+        "transcript:711"
+      ]
+    },
+    {
+      "claim": "summary:148",
+      "text": "Since p(D) does not depend on θ, the posterior is proportional to p(D|θ) p(θ).",
+      "entailed": true,
+      "evidence": "slides:113",
+      "top": [
+        "transcript:501",
+        "transcript:719",
+        "transcript:678",
+        "transcript:711",
+        "transcript:468",
+        "slides:113",
+        "transcript:517",
+        "transcript:491"
+      ]
+    },
+    {
+      "claim": "summary:149",
+      "text": "The likelihood p(D|θ) is how probable the observed data is given a particular setting of the parameters.",
+      "entailed": true,
+      "evidence": "transcript:503",
+      "top": [
+        "transcript:503",
+        "transcript:502",
+        "transcript:661",
+        "transcript:711",
+        "transcript:534",
+        "transcript:491",
+        "transcript:675",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "summary:150",
+      "text": "The likelihood is the part that the model definition directly gives us.",
+      "entailed": true,
+      "evidence": "transcript:545",
+      "top": [
+        "transcript:821",
+        "transcript:506",
+        "transcript:505",
+        "transcript:545",
+        "transcript:503",
+        "transcript:507",
+        "transcript:661",
+        "transcript:502"
+      ]
+    },
+    {
+      "claim": "summary:151",
+      "text": "The prior p(θ) is our belief about the parameters before seeing any data.",
+      "entailed": true,
+      "evidence": "transcript:663",
+      "top": [
+        "transcript:663",
+        "transcript:511",
+        "slides:179",
+        "slides:168",
+        "transcript:510",
+        "slides:185",
+        "transcript:494",
+        "slides:167"
+      ]
+    },
+    {
+      "claim": "summary:152",
+      "text": "The posterior p(θ|D) is our updated belief after incorporating the data.",
+      "entailed": true,
+      "evidence": "transcript:495",
+      "top": [
+        "transcript:495",
+        "transcript:663",
+        "slides:168",
+        "slides:180",
+        "slides:179",
+        "transcript:511",
+        "transcript:534",
+        "transcript:510"
+      ]
+    },
+    {
+      "claim": "summary:153",
+      "text": "The evidence p(D) is the integral of p(D|θ) p(θ) over θ.",
+      "entailed": true,
+      "evidence": "slides:113",
+      "top": [
+        "transcript:719",
+        "transcript:535",
+        "slides:113",
+        "transcript:539",
+        "transcript:711",
+        "transcript:518",
+        "transcript:468",
+        "transcript:502"
+      ]
+    },
+    {
+      "claim": "summary:154",
+      "text": "The evidence normalizes the posterior to integrate to 1.",
+      "entailed": true,
+      "evidence": "transcript:682",
+      "top": [
+        "transcript:690",
+        "transcript:662",
+        "transcript:682",
+        "transcript:784",
+        "transcript:781",
+        "transcript:493",
+        "transcript:785",
+        "transcript:492"
+      ]
+    },
+    {
+      "claim": "summary:155",
+      "text": "Maximum Likelihood (ML) estimation finds θ_ML = argmax_θ p(D|θ).",
+      "entailed": true,
+      "evidence": "slides:114",
+      "top": [
+        "slides:114",
+        "transcript:661",
+        "transcript:503",
+        "transcript:557",
+        "transcript:675",
+        "transcript:502",
+        "transcript:549",
+        "transcript:577"
+      ]
+    },
+    {
+      "claim": "summary:156",
+      "text": "Maximum a Posteriori (MAP) estimation finds θ_MAP = argmax_θ p(θ|D) = argmax_θ p(D|θ) p(θ).",
+      "entailed": true,
+      "evidence": "slides:115",
+      "top": [
+        "slides:115",
+        "transcript:810",
+        "transcript:829",
+        "transcript:692",
+        "transcript:823",
+        "transcript:734",
+        "slides:165",
+        "transcript:522"
+      ]
+    },
+    {
+      "claim": "summary:157",
+      "text": "The denominator p(D) is irrelevant for maximization, so usually only the numerator is used.",
+      "entailed": true,
+      "evidence": "transcript:522",
+      "top": [
+        "transcript:523",
+        "transcript:519",
+        "transcript:522",
+        "transcript:551",
+        "transcript:521",
+        "transcript:517",
+        "transcript:518",
+        "transcript:515"
+      ]
+    },
+    {
+      "claim": "summary:158",
+      "text": "A direct problem in probability is to compute the probability of an event given a fully specified model.",
+      "entailed": true,
+      "evidence": "slides:120",
+      "top": [
+        "slides:120",
+        "transcript:821",
+        "slides:122",
+        "transcript:21",
+        "transcript:422",
+        "transcript:437",
+        "slides:105",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "summary:159",
+      "text": "An example of a direct problem: given an urn with 10 balls, 3 black, what is the chance of drawing a black ball?",
+      "entailed": true,
+      "evidence": "slides:116",
+      "top": [
+        "slides:116",
+        "slides:117",
+        "slides:118",
+        "slides:121",
+        "slides:120",
+        "transcript:563",
+        "transcript:415",
+        "transcript:805"
+      ]
+    },
+    {
+      "claim": "summary:160",
+      "text": "An inverse problem in probability is to infer hidden parameters from observed outcomes.",
+      "entailed": true,
+      "evidence": "slides:150",
+      "top": [
+        "slides:122",
+        "slides:119",
+        "slides:150",
+        "slides:121",
+        "slides:118",
+        "slides:123",
+        "transcript:808",
+        "slides:120"
+      ]
+    },
+    {
+      "claim": "summary:161",
+      "text": "An example of an inverse problem: given a drawn black ball, which urn did it come from?",
+      "entailed": true,
+      "evidence": "slides:118",
+      "top": [
+        "slides:121",
+        "slides:118",
+        "slides:116",
+        "slides:122",
+        "slides:123",
+        "slides:119",
+        "slides:117",
+        "transcript:524"
+      ]
+    },
+    {
+      "claim": "summary:162",
+      "text": "Inverse problems naturally require Bayes' rule.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "slides:119",
+        "slides:122",
+        "slides:123",
+        "slides:118",
+        "transcript:805",
+        "transcript:806",
+        "transcript:508",
+        "slides:121"
+      ]
+    },
+    {
+      "claim": "summary:163",
+      "text": "Classical probability interprets p as a limiting frequency in infinitely repeated experiments.",
+      "entailed": true,
+      "evidence": "slides:124",
+      "top": [
+        "slides:124",
+        "transcript:559",
+        "slides:127",
+        "transcript:560",
+        "slides:125",
+        "slides:129",
+        "transcript:563",
+        "transcript:408"
+      ]
+    },
+    {
+      "claim": "summary:164",
+      "text": "Many real-world questions concern unique, unrepeatable events.",
+      "entailed": true,
+      "evidence": "slides:126",
+      "top": [
+        "transcript:619",
+        "slides:127",
+        "transcript:454",
+        "transcript:455",
+        "slides:126",
+        "transcript:415",
+        "transcript:459",
+        "transcript:75"
+      ]
+    },
+    {
+      "claim": "summary:165",
+      "text": "Examples of such questions: \"Will Spain win the 2026 World Cup?\" and \"Will AGI take over by 2030?\".",
+      "entailed": true,
+      "evidence": "slides:126",
+      "top": [
+        "slides:126",
+        "transcript:75",
+        "transcript:37",
+        "transcript:498",
+        "transcript:36",
+        "transcript:34",
+        "transcript:87",
+        "transcript:181"
+      ]
+    },
+    {
+      "claim": "summary:166",
+      "text": "The Bayesian interpretation treats probabilities as degrees of belief.",
+      "entailed": true,
+      "evidence": "slides:128",
+      "top": [
+        "slides:128",
+        "slides:129",
+        "slides:167",
+        "slides:168",
+        "slides:170",
+        "slides:169",
+        "transcript:660",
+        "transcript:820"
+      ]
+    },
+    {
+      "claim": "summary:167",
+      "text": "The Bayesian interpretation obeys the same mathematical rules as the frequency interpretation.",
+      "entailed": true,
+      "evidence": "slides:129",
+      "top": [
+        "slides:129",
+        "transcript:820",
+        "slides:128",
+        "slides:170",
+        "slides:167",
+        "slides:168",
+        "slides:169",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "summary:168",
+      "text": "Both the frequency and Bayesian viewpoints are valid.",
+      "entailed": true,
+      "evidence": "slides:129",
+      "top": [
+        "transcript:628",
+        "slides:129",
+        "transcript:390",
+        "transcript:508",
+        "transcript:391",
+        "transcript:31",
+        "slides:174",
+        "slides:119"
+      ]
+    },
+    {
+      "claim": "summary:169",
+      "text": "Bayesian reasoning is often more natural for the kinds of problems machine learning solves.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:390",
+        "transcript:391",
+        "transcript:806",
+        "slides:75",
+        "transcript:421",
+        "transcript:489",
+        "transcript:21",
+        "transcript:467"
+      ]
+    },
+    {
+      "claim": "summary:170",
+      "text": "In the biased coin example, θ = p(heads).",
+      "entailed": true,
+      "evidence": "transcript:529",
+      "top": [
+        "transcript:480",
+        "transcript:484",
+        "transcript:670",
+        "transcript:541",
+        "transcript:538",
+        "transcript:529",
+        "transcript:718",
+        "transcript:540"
+      ]
+    },
+    {
+      "claim": "summary:171",
+      "text": "The dataset D consists of n heads and m tails.",
+      "entailed": true,
+      "evidence": "transcript:846",
+      "top": [
+        "transcript:550",
+        "transcript:543",
+        "transcript:483",
+        "transcript:846",
+        "transcript:533",
+        "transcript:544",
+        "transcript:576",
+        "transcript:470"
+      ]
+    },
+    {
+      "claim": "summary:172",
+      "text": "The coin tosses are conditionally independent given θ.",
+      "entailed": true,
+      "evidence": "transcript:538",
+      "top": [
+        "transcript:538",
+        "transcript:480",
+        "transcript:535",
+        "transcript:529",
+        "transcript:540",
+        "transcript:541",
+        "transcript:670",
+        "transcript:484"
+      ]
+    },
+    {
+      "claim": "summary:173",
+      "text": "Given θ, the likelihood is p(D|θ) = θ^n (1-θ)^m.",
+      "entailed": true,
+      "evidence": "transcript:550",
+      "top": [
+        "transcript:550",
+        "transcript:502",
+        "transcript:661",
+        "transcript:503",
+        "transcript:761",
+        "transcript:577",
+        "slides:156",
+        "slides:151"
+      ]
+    },
+    {
+      "claim": "summary:174",
+      "text": "Maximizing this likelihood with respect to θ yields θ_ML = n/(n+m).",
+      "entailed": true,
+      "evidence": "transcript:828",
+      "top": [
+        "transcript:557",
+        "transcript:828",
+        "transcript:761",
+        "transcript:580",
+        "transcript:661",
+        "transcript:577",
+        "slides:159",
+        "transcript:556"
+      ]
+    },
+    {
+      "claim": "summary:175",
+      "text": "θ_ML = n/(n+m) is the intuitive number of heads divided by total tosses.",
+      "entailed": true,
+      "evidence": "transcript:558",
+      "top": [
+        "transcript:557",
+        "transcript:480",
+        "transcript:670",
+        "transcript:484",
+        "transcript:558",
+        "transcript:761",
+        "transcript:541",
+        "transcript:756"
+      ]
+    },
+    {
+      "claim": "summary:176",
+      "text": "For large n+m, θ_ML converges to the true θ.",
+      "entailed": true,
+      "evidence": "transcript:602",
+      "top": [
+        "transcript:557",
+        "transcript:602",
+        "transcript:580",
+        "transcript:553",
+        "transcript:761",
+        "transcript:828",
+        "transcript:577",
+        "slides:159"
+      ]
+    },
+    {
+      "claim": "summary:177",
+      "text": "Suppose only one toss is performed and the result is tails.",
+      "entailed": true,
+      "evidence": "transcript:588",
+      "top": [
+        "transcript:654",
+        "transcript:482",
+        "transcript:575",
+        "transcript:653",
+        "transcript:571",
+        "transcript:525",
+        "transcript:588",
+        "transcript:567"
+      ]
+    },
+    {
+      "claim": "summary:178",
+      "text": "Then the likelihood is p(D|θ) = 1-θ.",
+      "entailed": true,
+      "evidence": "transcript:674",
+      "top": [
+        "transcript:502",
+        "transcript:674",
+        "transcript:532",
+        "transcript:675",
+        "transcript:711",
+        "slides:151",
+        "transcript:503",
+        "transcript:577"
+      ]
+    },
+    {
+      "claim": "summary:179",
+      "text": "This likelihood has no interior maximum.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:586",
+        "transcript:582",
+        "transcript:587",
+        "transcript:580",
+        "transcript:556",
+        "transcript:822",
+        "transcript:597",
+        "transcript:585"
+      ]
+    },
+    {
+      "claim": "summary:180",
+      "text": "Without a constraint, θ_ML would be -∞.",
+      "entailed": true,
+      "evidence": "transcript:580",
+      "top": [
+        "transcript:580",
+        "transcript:582",
+        "transcript:583",
+        "transcript:577",
+        "transcript:585",
+        "transcript:676",
+        "transcript:556",
+        "transcript:578"
+      ]
+    },
+    {
+      "claim": "summary:181",
+      "text": "With the constraint θ ∈ [0,1], θ_ML = 0.",
+      "entailed": true,
+      "evidence": "transcript:585",
+      "top": [
+        "transcript:583",
+        "transcript:582",
+        "transcript:556",
+        "transcript:585",
+        "transcript:578",
+        "transcript:577",
+        "transcript:680",
+        "transcript:747"
+      ]
+    },
+    {
+      "claim": "summary:182",
+      "text": "This ML estimate implies the coin will always land tails.",
+      "entailed": true,
+      "evidence": "transcript:588",
+      "top": [
+        "transcript:588",
+        "transcript:655",
+        "transcript:758",
+        "transcript:532",
+        "transcript:504",
+        "transcript:756",
+        "transcript:558",
+        "transcript:555"
+      ]
+    },
+    {
+      "claim": "summary:183",
+      "text": "This conclusion is absurd after a single trial.",
+      "entailed": true,
+      "evidence": "transcript:595",
+      "top": [
+        "transcript:594",
+        "transcript:595",
+        "transcript:589",
+        "transcript:592",
+        "transcript:596",
+        "slides:140",
+        "slides:139",
+        "slides:135"
+      ]
+    },
+    {
+      "claim": "summary:184",
+      "text": "The mathematics is correct; the missing element is a prior belief about the coin.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:745",
+        "transcript:566",
+        "transcript:657",
+        "transcript:656",
+        "transcript:528",
+        "transcript:570",
+        "transcript:685",
+        "slides:147"
+      ]
+    },
+    {
+      "claim": "summary:185",
+      "text": "A prior is a distribution over θ reflecting beliefs before data.",
+      "entailed": true,
+      "evidence": "transcript:663",
+      "top": [
+        "transcript:663",
+        "transcript:511",
+        "transcript:510",
+        "slides:185",
+        "slides:179",
+        "slides:168",
+        "transcript:753",
+        "transcript:494"
+      ]
+    },
+    {
+      "claim": "summary:186",
+      "text": "A uniform prior p(θ)=1 on [0,1] can be used when there is no strong opinion.",
+      "entailed": true,
+      "evidence": "transcript:679",
+      "top": [
+        "transcript:747",
+        "transcript:679",
+        "slides:153",
+        "transcript:680",
+        "transcript:687",
+        "slides:152",
+        "transcript:677",
+        "transcript:671"
+      ]
+    },
+    {
+      "claim": "summary:187",
+      "text": "With the uniform prior, the posterior (up to normalization) is p(θ|D) ∝ (1-θ).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:711",
+        "transcript:510",
+        "transcript:681",
+        "transcript:682",
+        "transcript:690",
+        "transcript:491",
+        "transcript:678",
+        "transcript:781"
+      ]
+    },
+    {
+      "claim": "summary:188",
+      "text": "After normalization, the posterior is p(θ|D) = 2(1-θ) for θ ∈ [0,1].",
+      "entailed": true,
+      "evidence": "transcript:684",
+      "top": [
+        "transcript:684",
+        "transcript:682",
+        "transcript:677",
+        "transcript:711",
+        "transcript:747",
+        "transcript:680",
+        "transcript:510",
+        "transcript:723"
+      ]
+    },
+    {
+      "claim": "summary:189",
+      "text": "The MAP estimate with the uniform prior is still 0.",
+      "entailed": true,
+      "evidence": "transcript:734",
+      "top": [
+        "transcript:734",
+        "transcript:829",
+        "transcript:716",
+        "transcript:691",
+        "transcript:747",
+        "transcript:690",
+        "transcript:823",
+        "transcript:735"
+      ]
+    },
+    {
+      "claim": "summary:190",
+      "text": "The flat prior does not shift the maximum.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:784",
+        "transcript:785",
+        "transcript:793",
+        "transcript:734",
+        "transcript:823",
+        "transcript:716",
+        "transcript:664",
+        "transcript:662"
+      ]
+    },
+    {
+      "claim": "summary:191",
+      "text": "A crucial difference appears when moving from parameter estimates to predictions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:694",
+        "transcript:807",
+        "transcript:632",
+        "transcript:743",
+        "transcript:808",
+        "transcript:488",
+        "transcript:737",
+        "transcript:713"
+      ]
+    },
+    {
+      "claim": "summary:192",
+      "text": "The ultimate goal of learning is not the parameters θ themselves, but making predictions about future data.",
+      "entailed": true,
+      "evidence": "transcript:694",
+      "top": [
+        "transcript:694",
+        "transcript:472",
+        "transcript:485",
+        "transcript:488",
+        "transcript:807",
+        "transcript:497",
+        "transcript:706",
+        "transcript:499"
+      ]
+    },
+    {
+      "claim": "summary:193",
+      "text": "For a new coin toss, we want p(heads | D).",
+      "entailed": true,
+      "evidence": "transcript:717",
+      "top": [
+        "transcript:717",
+        "transcript:654",
+        "slides:190",
+        "transcript:409",
+        "transcript:544",
+        "transcript:529",
+        "transcript:482",
+        "transcript:653"
+      ]
+    },
+    {
+      "claim": "summary:194",
+      "text": "The probability p(heads | D) is computed by averaging the likelihood over the posterior.",
+      "entailed": true,
+      "evidence": "transcript:733",
+      "top": [
+        "transcript:718",
+        "transcript:717",
+        "transcript:544",
+        "transcript:722",
+        "transcript:733",
+        "transcript:540",
+        "transcript:532",
+        "transcript:711"
+      ]
+    },
+    {
+      "claim": "summary:195",
+      "text": "The formula is: p(heads | D) = ∫_0^1 p(heads | θ) p(θ | D) dθ = ∫_0^1 θ p(θ | D) dθ.",
+      "entailed": true,
+      "evidence": "transcript:717",
+      "top": [
+        "transcript:544",
+        "transcript:722",
+        "transcript:717",
+        "transcript:718",
+        "transcript:543",
+        "transcript:670",
+        "transcript:540",
+        "transcript:468"
+      ]
+    },
+    {
+      "claim": "summary:196",
+      "text": "With the uniform prior and D consisting of a single tail, the integral ∫_0^1 θ p(θ | D) dθ gives 1/3, not 0.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:747",
+        "transcript:677",
+        "transcript:680",
+        "transcript:687",
+        "transcript:705",
+        "transcript:679",
+        "transcript:682",
+        "transcript:720"
+      ]
+    },
+    {
+      "claim": "summary:197",
+      "text": "More generally, after n heads and m tails under a uniform prior, one obtains p(heads | D) = (n+1)/(n+m+2).",
+      "entailed": true,
+      "evidence": "transcript:827",
+      "top": [
+        "transcript:827",
+        "transcript:763",
+        "transcript:544",
+        "transcript:550",
+        "transcript:722",
+        "slides:148",
+        "transcript:720",
+        "transcript:541"
+      ]
+    },
+    {
+      "claim": "summary:198",
+      "text": "This formula is known as Laplace’s rule of succession.",
+      "entailed": true,
+      "evidence": "transcript:728",
+      "top": [
+        "transcript:728",
+        "slides:164",
+        "transcript:730",
+        "transcript:813",
+        "transcript:826",
+        "transcript:827",
+        "transcript:798",
+        "transcript:801"
+      ]
+    },
+    {
+      "claim": "summary:199",
+      "text": "Laplace’s rule of succession is less extreme than the ML estimate when data is scarce.",
+      "entailed": true,
+      "evidence": "transcript:799",
+      "top": [
+        "transcript:799",
+        "transcript:802",
+        "transcript:730",
+        "transcript:728",
+        "transcript:797",
+        "transcript:801",
+        "transcript:798",
+        "transcript:826"
+      ]
+    },
+    {
+      "claim": "summary:200",
+      "text": "Both Laplace’s rule of succession and the ML estimate converge as the number of observations grows.",
+      "entailed": true,
+      "evidence": "transcript:802",
+      "top": [
+        "transcript:802",
+        "transcript:799",
+        "transcript:730",
+        "transcript:728",
+        "transcript:797",
+        "transcript:801",
+        "transcript:798",
+        "transcript:813"
+      ]
+    },
+    {
+      "claim": "summary:201",
+      "text": "Full Bayesian inference – keeping the entire posterior distribution and averaging over it – yields smoothed, more cautious predictions that automatically account for uncertainty in the parameters.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:737",
+        "slides:166",
+        "slides:173",
+        "transcript:809",
+        "slides:167",
+        "slides:168",
+        "slides:170",
+        "slides:169"
+      ]
+    },
+    {
+      "claim": "summary:202",
+      "text": "For a real coin, our intuition is not a uniform prior.",
+      "entailed": true,
+      "evidence": "transcript:685",
+      "top": [
+        "transcript:685",
+        "transcript:686",
+        "transcript:745",
+        "slides:149",
+        "transcript:590",
+        "transcript:746",
+        "transcript:720",
+        "transcript:757"
+      ]
+    },
+    {
+      "claim": "summary:203",
+      "text": "We expect a real coin to be approximately fair (a bell-shaped curve around 0.5).",
+      "entailed": true,
+      "evidence": "transcript:745",
+      "top": [
+        "transcript:590",
+        "transcript:745",
+        "transcript:686",
+        "transcript:685",
+        "slides:147",
+        "transcript:570",
+        "transcript:481",
+        "slides:189"
+      ]
+    },
+    {
+      "claim": "summary:204",
+      "text": "If we used a truncated normal distribution as a prior, the posterior would be a product of an exponential and a polynomial – messy to work with analytically.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:751",
+        "transcript:749",
+        "transcript:500",
+        "transcript:662",
+        "slides:185",
+        "transcript:659",
+        "slides:186",
+        "transcript:684"
+      ]
+    },
+    {
+      "claim": "summary:205",
+      "text": "The key idea is to choose a prior whose functional form looks like the likelihood.",
+      "entailed": true,
+      "evidence": "transcript:753",
+      "top": [
+        "transcript:753",
+        "transcript:754",
+        "transcript:662",
+        "transcript:664",
+        "slides:185",
+        "slides:177",
+        "slides:174",
+        "transcript:760"
+      ]
+    },
+    {
+      "claim": "summary:206",
+      "text": "Choosing such a prior makes multiplication easy.",
+      "entailed": true,
+      "evidence": "transcript:754",
+      "top": [
+        "transcript:754",
+        "transcript:664",
+        "transcript:764",
+        "transcript:753",
+        "slides:174",
+        "transcript:769",
+        "slides:177",
+        "transcript:755"
+      ]
+    },
+    {
+      "claim": "summary:207",
+      "text": "Choosing such a prior ensures the posterior stays in the same family.",
+      "entailed": true,
+      "evidence": "slides:178",
+      "top": [
+        "transcript:664",
+        "transcript:753",
+        "transcript:793",
+        "transcript:662",
+        "slides:178",
+        "transcript:768",
+        "transcript:794",
+        "transcript:755"
+      ]
+    },
+    {
+      "claim": "summary:208",
+      "text": "Priors with these properties are called conjugate priors.",
+      "entailed": true,
+      "evidence": "transcript:768",
+      "top": [
+        "transcript:755",
+        "transcript:768",
+        "slides:187",
+        "transcript:811",
+        "slides:186",
+        "slides:182",
+        "transcript:757",
+        "transcript:765"
+      ]
+    },
+    {
+      "claim": "summary:209",
+      "text": "For Bernoulli trials (coin tosses), the conjugate family is the Beta distribution.",
+      "entailed": true,
+      "evidence": "slides:188",
+      "top": [
+        "slides:188",
+        "transcript:812",
+        "transcript:780",
+        "transcript:768",
+        "slides:182",
+        "transcript:766",
+        "transcript:767",
+        "transcript:757"
+      ]
+    },
+    {
+      "claim": "summary:210",
+      "text": "The Beta distribution is: p(θ | α, β) = θ^(α-1) (1-θ)^(β-1) / B(α,β), for θ ∈ [0,1].",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:775",
+        "transcript:774",
+        "slides:191",
+        "transcript:766",
+        "transcript:777",
+        "transcript:762",
+        "transcript:671",
+        "transcript:781"
+      ]
+    },
+    {
+      "claim": "summary:211",
+      "text": "α and β are hyperparameters that encode our prior belief.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:772",
+        "slides:183",
+        "transcript:766",
+        "transcript:782",
+        "transcript:780",
+        "transcript:663",
+        "transcript:762",
+        "transcript:770"
+      ]
+    },
+    {
+      "claim": "summary:212",
+      "text": "α = 1, β = 1 gives the uniform distribution.",
+      "entailed": true,
+      "evidence": "transcript:775",
+      "top": [
+        "transcript:775",
+        "transcript:777",
+        "transcript:778",
+        "transcript:766",
+        "slides:153",
+        "transcript:774",
+        "transcript:432",
+        "transcript:781"
+      ]
+    },
+    {
+      "claim": "summary:213",
+      "text": "Larger equal values (e.g. α = β = 10) produce a peak at θ = 0.5, reflecting strong belief in fairness.",
+      "entailed": true,
+      "evidence": "transcript:774",
+      "top": [
+        "transcript:774",
+        "transcript:599",
+        "transcript:591",
+        "transcript:663",
+        "transcript:776",
+        "transcript:471",
+        "transcript:777",
+        "transcript:499"
+      ]
+    },
+    {
+      "claim": "summary:214",
+      "text": "If we then observe n heads and m tails, the posterior is also a Beta distribution.",
+      "entailed": true,
+      "evidence": "transcript:763",
+      "top": [
+        "transcript:767",
+        "transcript:763",
+        "transcript:780",
+        "transcript:660",
+        "transcript:781",
+        "transcript:766",
+        "transcript:493",
+        "transcript:770"
+      ]
+    },
+    {
+      "claim": "summary:215",
+      "text": "The posterior is: p(θ | D) = Beta(θ | α + n, β + m).",
+      "entailed": true,
+      "evidence": "transcript:763",
+      "top": [
+        "transcript:711",
+        "transcript:767",
+        "transcript:501",
+        "transcript:491",
+        "transcript:763",
+        "transcript:513",
+        "transcript:534",
+        "transcript:468"
+      ]
+    },
+    {
+      "claim": "summary:216",
+      "text": "The update rule is simply adding the counts to the hyperparameters.",
+      "entailed": true,
+      "evidence": "transcript:770",
+      "top": [
+        "slides:194",
+        "transcript:770",
+        "slides:193",
+        "transcript:844",
+        "transcript:771",
+        "slides:198",
+        "transcript:845",
+        "transcript:794"
+      ]
+    },
+    {
+      "claim": "summary:217",
+      "text": "Bayesian updating with conjugate prior: start with prior Beta(α, β).",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:795",
+        "transcript:812",
+        "transcript:769",
+        "transcript:770",
+        "slides:186",
+        "transcript:794",
+        "transcript:845",
+        "transcript:755"
+      ]
+    },
+    {
+      "claim": "summary:218",
+      "text": "After seeing data, the posterior becomes Beta(α + n, β + m).",
+      "entailed": true,
+      "evidence": "transcript:763",
+      "top": [
+        "transcript:770",
+        "transcript:767",
+        "transcript:763",
+        "transcript:781",
+        "transcript:791",
+        "transcript:790",
+        "transcript:766",
+        "transcript:780"
+      ]
+    },
+    {
+      "claim": "summary:219",
+      "text": "To incorporate further data D', just use this posterior as the new prior and add the new counts.",
+      "entailed": true,
+      "evidence": "transcript:770",
+      "top": [
+        "transcript:792",
+        "transcript:794",
+        "transcript:770",
+        "transcript:845",
+        "transcript:795",
+        "transcript:510",
+        "transcript:793",
+        "transcript:511"
+      ]
+    },
+    {
+      "claim": "summary:220",
+      "text": "The conjugate prior framework naturally connects to regularisation in loss functions.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:811",
+        "slides:186",
+        "slides:187",
+        "transcript:742",
+        "transcript:741",
+        "transcript:755",
+        "transcript:743",
+        "slides:174"
+      ]
+    },
+    {
+      "claim": "summary:221",
+      "text": "Taking logs, log p(θ | D) = log p(D | θ) + log p(θ) + constant.",
+      "entailed": true,
+      "evidence": "transcript:517",
+      "top": [
+        "transcript:468",
+        "transcript:719",
+        "transcript:711",
+        "transcript:539",
+        "transcript:534",
+        "transcript:535",
+        "transcript:517",
+        "transcript:544"
+      ]
+    },
+    {
+      "claim": "summary:222",
+      "text": "The log-prior acts as a regulariser on the parameters.",
+      "entailed": true,
+      "evidence": "transcript:741",
+      "top": [
+        "transcript:741",
+        "transcript:740",
+        "transcript:742",
+        "transcript:753",
+        "transcript:743",
+        "transcript:662",
+        "slides:186",
+        "transcript:754"
+      ]
+    },
+    {
+      "claim": "summary:223",
+      "text": "If we have k categories instead of two (a multinomial distribution with parameters θ_1, ..., θ_k), the conjugate prior is the Dirichlet distribution.",
+      "entailed": true,
+      "evidence": "slides:197",
+      "top": [
+        "slides:197",
+        "slides:186",
+        "transcript:768",
+        "transcript:812",
+        "slides:182",
+        "transcript:755",
+        "transcript:811",
+        "slides:187"
+      ]
+    },
+    {
+      "claim": "summary:224",
+      "text": "The Dirichlet distribution is: p(θ | α) ∝ θ_1^(α_1-1) θ_2^(α_2-1) ... θ_k^(α_k-1).",
+      "entailed": true,
+      "evidence": "slides:197",
+      "top": [
+        "slides:197",
+        "slides:198",
+        "slides:196",
+        "slides:191",
+        "transcript:577",
+        "transcript:775",
+        "transcript:762",
+        "transcript:550"
+      ]
+    },
+    {
+      "claim": "summary:225",
+      "text": "The update for the Dirichlet is: p(θ | x, α) = Dirichlet(θ | α_1 + x_1, ..., α_k + x_k).",
+      "entailed": true,
+      "evidence": "slides:198",
+      "top": [
+        "slides:198",
+        "slides:191",
+        "slides:180",
+        "slides:181",
+        "slides:197",
+        "slides:172",
+        "slides:154",
+        "slides:176"
+      ]
+    },
+    {
+      "claim": "summary:226",
+      "text": "Machine learning is, at its core, probabilistic inference: we update our beliefs about model parameters θ given data D using Bayes’ theorem.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:806",
+        "transcript:393",
+        "transcript:437",
+        "slides:75",
+        "transcript:391",
+        "transcript:390",
+        "transcript:392",
+        "transcript:421"
+      ]
+    },
+    {
+      "claim": "summary:227",
+      "text": "The main objects are the likelihood p(D|θ) (the model), the prior p(θ) (our initial belief), and the posterior p(θ|D) (the updated belief).",
+      "entailed": true,
+      "evidence": "transcript:821",
+      "top": [
+        "slides:168",
+        "transcript:821",
+        "transcript:503",
+        "transcript:534",
+        "transcript:663",
+        "slides:169",
+        "slides:167",
+        "transcript:495"
+      ]
+    },
+    {
+      "claim": "summary:228",
+      "text": "The two standard point estimates are maximum likelihood (θ_ML) and maximum a posteriori (θ_MAP).",
+      "entailed": true,
+      "evidence": "slides:114",
+      "top": [
+        "transcript:810",
+        "slides:114",
+        "transcript:692",
+        "transcript:828",
+        "transcript:829",
+        "transcript:471",
+        "transcript:557",
+        "transcript:661"
+      ]
+    },
+    {
+      "claim": "summary:229",
+      "text": "In practice we rarely have infinite data, so the prior matters.",
+      "entailed": true,
+      "evidence": "transcript:664",
+      "top": [
+        "transcript:607",
+        "transcript:663",
+        "transcript:609",
+        "transcript:664",
+        "transcript:511",
+        "transcript:628",
+        "transcript:848",
+        "transcript:510"
+      ]
+    },
+    {
+      "claim": "summary:230",
+      "text": "The rational way to make predictions is to average over the posterior, yielding the predictive distribution p(x|D) = ∫ p(x|θ) p(θ|D) dθ.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:715",
+        "transcript:731",
+        "slides:165",
+        "slides:171",
+        "slides:170",
+        "slides:175",
+        "slides:167",
+        "transcript:711"
+      ]
+    },
+    {
+      "claim": "summary:231",
+      "text": "Choosing a prior from a conjugate family (like Beta for a coin, Dirichlet for multinomial) makes computation trivial: the posterior has the same form as the prior, with hyperparameters updated by simple addition.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:812",
+        "slides:186",
+        "transcript:795",
+        "transcript:768",
+        "slides:187",
+        "slides:197",
+        "transcript:765",
+        "transcript:757"
+      ]
+    },
+    {
+      "claim": "summary:232",
+      "text": "These ideas (probabilistic inference, priors, posteriors, conjugate families) are the foundation of all machine learning.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:21",
+        "slides:105",
+        "slides:75",
+        "transcript:422",
+        "transcript:392",
+        "transcript:437",
+        "transcript:421",
+        "transcript:390"
+      ]
+    },
+    {
+      "claim": "summary:233",
+      "text": "Even when training neural networks with gradient descent, the loss functions we minimise are essentially negative log-posteriors.",
+      "entailed": false,
+      "evidence": null,
+      "top": [
+        "transcript:739",
+        "transcript:302",
+        "transcript:343",
+        "transcript:303",
+        "transcript:153",
+        "transcript:738",
+        "transcript:344",
+        "transcript:549"
+      ]
+    },
+    {
+      "claim": "summary:234",
+      "text": "Regularisation terms in these loss functions are implicit priors.",
+      "entailed": true,
+      "evidence": "transcript:742",
+      "top": [
+        "transcript:742",
+        "transcript:741",
+        "transcript:753",
+        "transcript:662",
+        "slides:186",
+        "transcript:739",
+        "transcript:743",
+        "transcript:754"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2239 @@
+{
+  "fingerprint": {
+    "version": 3,
+    "stt": "whisper_cpp",
+    "model": "deepseek:deepseek-v4-pro",
+    "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_words": 2000,
+    "top_k": 8,
+    "limit": null,
+    "max_chunks": null,
+    "baseline": true
+  },
+  "slides": [
+    {
+      "text": "The lecture is titled \"Convolutional Architectures and Beyond\"."
+    },
+    {
+      "text": "The lecture is presented by Sergey Nikolenko."
+    },
+    {
+      "text": "The lecture is at Harbour Space University."
+    },
+    {
+      "text": "The lecture date is June 16, 2026."
+    },
+    {
+      "text": "LaMarcus Thompson's Switchback Railway opened at Coney Island on June 16, 1884."
+    },
+    {
+      "text": "The Switchback Railway was the first purpose-built roller coaster."
+    },
+    {
+      "text": "The Switchback Railway ambled along at about six miles per hour."
+    },
+    {
+      "text": "A ride on the Switchback Railway cost a nickel."
+    },
+    {
+      "text": "The Switchback Railway proved profitable enough to spawn an entire industry."
+    },
+    {
+      "text": "On June 16, 1904, James Joyce set the whole action of Ulysses on that date."
+    },
+    {
+      "text": "Ulysses has over seven hundred pages."
+    },
+    {
+      "text": "The action of Ulysses is set on an ordinary Dublin day."
+    },
+    {
+      "text": "James Joyce chose June 16, 1904 because it was the date of his first walk with Nora Barnacle."
+    },
+    {
+      "text": "Readers now retrace the events of Ulysses each Bloomsday in Edwardian dress."
+    },
+    {
+      "text": "On June 16, 1911, the Computing-Tabulating-Recording Company was incorporated in New York."
+    },
+    {
+      "text": "The company merged a scale maker, a time-clock maker, and Herman Hollerith's census tabulating-machine business."
+    },
+    {
+      "text": "The conglomerate was not renamed IBM until 1924."
+    },
+    {
+      "text": "On June 16, 1960, Alfred Hitchcock's Psycho premiered in New York."
+    },
+    {
+      "text": "The premiere had a strict \"no one admitted after the start\" rule."
+    },
+    {
+      "text": "The rule was enforced by Pinkerton guards and life-sized cardboard cutouts of the director."
+    },
+    {
+      "text": "That gimmick is the reason why films have had fixed start times ever since."
+    },
+    {
+      "text": "On June 16, 1963, Valentina Tereshkova became the first woman in space."
+    },
+    {
+      "text": "She was a textile worker and amateur parachutist."
+    },
+    {
+      "text": "She was aboard Vostok 6."
+    },
+    {
+      "text": "She circled the Earth 48 times in just under three days."
+    },
+    {
+      "text": "No other woman would reach orbit for another 19 years."
+    },
+    {
+      "text": "There is a huge number of different models based on the CNN idea."
+    },
+    {
+      "text": "Most CNN-based models are accompanied by code."
+    },
+    {
+      "text": "Many CNN-based models provide models pretrained on the ImageNet or other large standard datasets."
+    },
+    {
+      "text": "These models are usually all based on a few standard ideas."
+    },
+    {
+      "text": "In this lecture, we are going to consider those standard ideas."
+    },
+    {
+      "text": "The VGG (Oxford Visual Geometry Group) approach represents large convolutions as compositions of 3x3 convolutions."
+    },
+    {
+      "text": "Representing large convolutions as compositions of 3x3 convolutions reduces the number of weights and makes the network deeper."
+    },
+    {
+      "text": "The VGG network was used in the ImageNet Large Scale Visual Recognition Competition (ILSVRC-2014)."
+    },
+    {
+      "text": "NVIDIA has been optimizing GPUs especially for 3x3 convolutions."
+    },
+    {
+      "text": "Inception and GoogLeNet are based on the \"network in network\" idea."
+    },
+    {
+      "text": "The \"network in network\" idea is used to reduce the number of weights even further."
+    },
+    {
+      "text": "Another idea in Inception/GoogLeNet is to use additional classifiers, which are additional terms for the objective function."
+    },
+    {
+      "text": "In Inception v2 (Szegedy et al., 2015), n×n convolutions were replaced by n×1 and 1×n convolutions."
+    },
+    {
+      "text": "Filter banks in Inception v2 became wide rather than deep."
+    },
+    {
+      "text": "The same paper (Szegedy et al., 2015) introduced Inception v3."
+    },
+    {
+      "text": "Inception v3 uses RMSProp, factorized 7x7 convolutions, and batchnorm in additional classifiers."
+    },
+    {
+      "text": "In a regular classifier, the softmax is trained with a hard objective q(k) = [k=y]."
+    },
+    {
+      "text": "In the hard objective, the arguments of the softmax function \"want\" to grow unboundedly."
+    },
+    {
+      "text": "As a result, the models overfit and become too certain."
+    },
+    {
+      "text": "A possible solution is label smoothing."
+    },
+    {
+      "text": "In label smoothing, we optimize q'(k) = (1 - ε)[k=y] + ε u(k) for some prior distribution u(k)."
+    },
+    {
+      "text": "An example prior distribution is u(k) = 1/K."
+    },
+    {
+      "text": "Residual learning involves training the differences (residues) between one layer and the next."
+    },
+    {
+      "text": "In residual learning, the gradients will be able to flow with no obstacle."
+    },
+    {
+      "text": "A function implemented by a residual unit is y(k) = F(x(k)) + x(k)."
+    },
+    {
+      "text": "In the residual unit, x(k) is the input vector of layer k."
+    },
+    {
+      "text": "F(x) is the function computed by the layer."
+    },
+    {
+      "text": "y(k) is the output of the residual layer and will become x(k+1) for the next layer."
+    },
+    {
+      "text": "The gradient of y(k) with respect to x(k) is ∂y(k)/∂x(k) = 1 + ∂F(x(k))/∂x(k)."
+    },
+    {
+      "text": "When F becomes saturated, the gradient does not vanish because of the identity term."
+    },
+    {
+      "text": "Residual learning has allowed for very deep networks."
+    },
+    {
+      "text": "Another similar approach is highway networks by Jürgen Schmidhuber."
+    },
+    {
+      "text": "In highway networks, y(k) is represented as C(x(k))x(k) + T(x(k))F(x(k))."
+    },
+    {
+      "text": "C is the carry gate."
+    },
+    {
+      "text": "T is the transform gate."
+    },
+    {
+      "text": "Usually it is a convex combination, with C = 1 - T."
+    },
+    {
+      "text": "Practice shows that the residual connections should be as \"straight\" as possible."
+    },
+    {
+      "text": "ResNeXt, introduced by Xie et al. in 2016, replaces ResNet units with \"split-transform-merge\" units."
+    },
+    {
+      "text": "These units are similar to Inception units."
+    },
+    {
+      "text": "In ResNeXt, the input is divided into blocks with respect to channels, and each block gets its own convolutions."
+    },
+    {
+      "text": "The idea in ResNeXt is similar to group convolutions."
+    },
+    {
+      "text": "Group convolutions were used already in AlexNet for parallelization."
+    },
+    {
+      "text": "ResNeXt units yield a kind of specialization in the results."
+    },
+    {
+      "text": "Another classic paper by Szegedy et al. in 2016 introduced Inception v4 and Inception ResNet."
+    },
+    {
+      "text": "Inception v4 standardizes everything and simplifies the units."
+    },
+    {
+      "text": "Inception v4 has a \"stem\" component first."
+    },
+    {
+      "text": "Inception v4 has three basic blocks named A, B, and C."
+    },
+    {
+      "text": "Inception v4 has special reduction blocks to reduce the dimensions."
+    },
+    {
+      "text": "Inception ResNet adds residual connections to the blocks of Inception v4."
+    },
+    {
+      "text": "Inception ResNet has no pooling but still has reduction blocks."
+    },
+    {
+      "text": "The architectures of Inception v4 and Inception ResNet have become even simpler."
+    },
+    {
+      "text": "There is an Inception ResNet v2."
+    },
+    {
+      "text": "The Inception v4 and Inception ResNet architectures work quite well."
+    },
+    {
+      "text": "SqueezeNet, introduced by Iandola et al. in 2017, is a method to reduce the number of parameters."
+    },
+    {
+      "text": "One technique in SqueezeNet is to replace 3x3 filters with 1x1 filters."
+    },
+    {
+      "text": "Another technique is to reduce the number of inputs for 3x3 convolutions."
+    },
+    {
+      "text": "Another technique is to delay downsampling as late as possible to increase the size of activation maps."
+    },
+    {
+      "text": "SqueezeNet uses a Fire module."
+    },
+    {
+      "text": "The Fire module consists of a squeeze convolutional layer with only 1x1 convolutions."
+    },
+    {
+      "text": "The Fire module also has an expand layer with 1x1 and 3x3 convolutions."
+    },
+    {
+      "text": "SqueezeNet has a general architecture."
+    },
+    {
+      "text": "SqueezeNet achieves 50 times fewer parameters than AlexNet."
+    },
+    {
+      "text": "MobileNet, introduced by Howard et al. in 2017, is a network designed for mobile devices."
+    },
+    {
+      "text": "MobileNet uses depthwise separable convolutions."
+    },
+    {
+      "text": "Depthwise separable convolutions decompose a convolution into a depthwise convolution and a 1x1 convolution."
+    },
+    {
+      "text": "In depthwise separable convolutions, the depthwise convolution has one filter for each channel."
+    },
+    {
+      "text": "With depthwise separable convolutions, the structure of a layer becomes more complex."
+    },
+    {
+      "text": "However, it has fewer weights."
+    },
+    {
+      "text": "The overall MobileNet architecture is not very deep."
+    },
+    {
+      "text": "MobileNet can save a lot of parameters."
+    },
+    {
+      "text": "This comes at the price of a small decrease in quality."
+    },
+    {
+      "text": "EfficientNet was introduced by Tan and Le in 2019."
+    },
+    {
+      "text": "EfficientNet uses neural architecture search."
+    },
+    {
+      "text": "The goal of EfficientNet is to design state-of-the-art networks at a fraction of the cost."
+    },
+    {
+      "text": "EfficientNet involves different kinds of scaling for the models."
+    },
+    {
+      "text": "An important problem in deep neural networks is internal covariate shift."
+    },
+    {
+      "text": "Internal covariate shift occurs because when the weights of a layer change, the distribution of its outputs changes."
+    },
+    {
+      "text": "Due to the changed output distribution, the next layer has to re-train almost from scratch, as it did not expect these outputs."
+    },
+    {
+      "text": "Moreover, neurons in the next layer might have already reached saturation, making quick re-training impossible."
+    },
+    {
+      "text": "Internal covariate shift seriously impedes learning."
+    },
+    {
+      "text": "A characteristic example demonstrates that the distributions in internal covariate shift are very different."
+    },
+    {
+      "text": "One attempt to address internal covariate shift is to normalize (whiten) after every layer."
+    },
+    {
+      "text": "This approach does not work."
+    },
+    {
+      "text": "Consider a layer that simply adds a bias b to its inputs u, and then normalizes: ˆx = x - E[x], where x = u + b."
+    },
+    {
+      "text": "On the next gradient descent step, b is updated to b+Δb."
+    },
+    {
+      "text": "However, ˆx does not change because u + b + Δb - E[u + b + Δb] = u + b - E[u + b]."
+    },
+    {
+      "text": "As a result, the biases will simply increase unboundedly, and the training will not progress."
+    },
+    {
+      "text": "This is not a good outcome."
+    },
+    {
+      "text": "Another approach is to add normalization as a layer: ˆx = Norm(x, X)."
+    },
+    {
+      "text": "This approach requires the entire dataset X."
+    },
+    {
+      "text": "In gradient descent, one would need to compute the partial derivatives ∂Norm/∂x and ∂Norm/∂X."
+    },
+    {
+      "text": "Additionally, one would need to compute the covariance matrix Cov[x] = E[xx^T] - E[x]E[x]^T."
+    },
+    {
+      "text": "This approach definitely does not work."
+    },
+    {
+      "text": "The solution to the normalization problem is batch normalization."
+    },
+    {
+      "text": "In batch normalization, each component is normalized separately over the current mini-batch, not over the whole dataset."
+    },
+    {
+      "text": "After batch normalization, we have ˆxk = (xk - E[xk]) / sqrt(Var[xk])."
+    },
+    {
+      "text": "The statistics E[xk] and Var[xk] are computed over the current mini-batch."
+    },
+    {
+      "text": "One problem with batch normalization is that nonlinearities disappear."
+    },
+    {
+      "text": "For example, after batch normalization, we almost always get into the region where the activation function σ is very close to linear."
+    },
+    {
+      "text": "To fix the disappearance of nonlinearities in batch normalization, we must allow the batchnorm layer enough flexibility to sometimes do nothing with the inputs."
+    },
+    {
+      "text": "This is achieved by introducing additional shift and scale parameters γk and βk."
+    },
+    {
+      "text": "The batch normalization transformation becomes yk = γk ˆxk + βk."
+    },
+    {
+      "text": "γk and βk are new variables that are trained just like the weights."
+    },
+    {
+      "text": "There is a final scheme for batch normalization."
+    },
+    {
+      "text": "The original idea behind batch normalization was to reduce internal covariate shift."
+    },
+    {
+      "text": "It turned out that batch normalization's effectiveness does not really depend on reducing internal covariate shift."
+    },
+    {
+      "text": "Batch normalization helps with regularization."
+    },
+    {
+      "text": "Batch normalization makes dropout unnecessary."
+    },
+    {
+      "text": "One possible reason is that batch normalization smooths the gradients, reducing the Lipschitz constant (Santurkar et al., 2019)."
+    },
+    {
+      "text": "Another reason is that batch normalization decouples the learning of the direction and the length of the weight vectors, which improves training."
+    },
+    {
+      "text": "There are results showing that batch normalization helps achieve linear convergence in ordinary gradient descent."
+    },
+    {
+      "text": "Mini-batch normalization has become essentially the standard normalization method."
+    },
+    {
+      "text": "The idea of normalization has evolved further."
+    },
+    {
+      "text": "Laurent et al. (2016) found that batch normalization does not help recurrent networks."
+    },
+    {
+      "text": "Cooijmans et al. (2016) introduced recurrent batch normalization."
+    },
+    {
+      "text": "Salimans and Kingma (2016) introduced weight normalization to improve training."
+    },
+    {
+      "text": "In weight normalization, the weights are used as h_i = f( γ/||w_i|| w_i^T x + b_i )."
+    },
+    {
+      "text": "Weight normalization rescales the gradient, stabilizes its norm, and brings the gradient's covariance matrix closer to the identity, which improves training."
+    },
+    {
+      "text": "The lecture aims to make sense of the landscape of normalization methods."
+    },
+    {
+      "text": "In general, all normalization methods use the same operations."
+    },
+    {
+      "text": "The normalization methods differ in the set of operations and in the dimensions they are applied over."
+    },
+    {
+      "text": "Batch normalization is applied over the mini-batch dimension and is often used for images."
+    },
+    {
+      "text": "Layer normalization is applied over the channels and spatial dimensions, i.e., over all outputs of a layer."
+    },
+    {
+      "text": "Layer normalization is used mostly for vectors, in particular in transformers."
+    },
+    {
+      "text": "Instance normalization is applied only over the spatial dimensions, dropping the channels."
+    },
+    {
+      "text": "Instance normalization is used, for example, in AdaIN for style transfer."
+    },
+    {
+      "text": "Group normalization splits the channels into groups."
+    },
+    {
+      "text": "Weight standardization standardizes the weights rather than the activations."
+    },
+    {
+      "text": "Weight standardization does this separately for each channel."
+    },
+    {
+      "text": "Weight standardization also normalizes the gradients during backpropagation."
+    },
+    {
+      "text": "Group normalization combined with weight standardization was used in BiT (Big Transfer)."
+    },
+    {
+      "text": "The slide presents a summary of normalization methods."
+    },
+    {
+      "text": "In general, the study of variants is a big science (Huang et al., 2020)."
+    },
+    {
+      "text": "The science of variants is really big."
+    },
+    {
+      "text": "Sequences include financial time series, language, and sound."
+    },
+    {
+      "text": "There are different kinds of sequence-based problems."
+    },
+    {
+      "text": "To apply a neural network to a sequence-based problem, one approach is to use a sliding window."
+    },
+    {
+      "text": "For sequence-based problems, it would be better to have a hidden state and update it."
+    },
+    {
+      "text": "The whole idea of recurrent neural networks (RNN) is to have a hidden state and update it."
+    },
+    {
+      "text": "The state update equation s_i = h(x_i, x_{i+1}, x_{i+2}, s_{i-1}) creates cycles in the computational graph."
+    },
+    {
+      "text": "The computational graph of an RNN can be unrolled, for example y_6 = f(x_3, x_4, x_5, h(x_2, x_3, x_4, h(x_1, x_2, x_3, s_0)))."
+    },
+    {
+      "text": "Formally, there is no problem with backpropagation because the graph can be unrolled."
+    },
+    {
+      "text": "Practically, unrolled RNNs are very deep networks with many shared weights, causing many issues."
+    },
+    {
+      "text": "In a simple RNN, the formal equations are: a_t = b + W s_{t-1} + U x_t, s_t = f(a_t), o_t = c + V s_t, y_t = h(o_t)."
+    },
+    {
+      "text": "f is the recurrent nonlinearity."
+    },
+    {
+      "text": "h is the output function."
+    },
+    {
+      "text": "Simple RNNs have two problems: exploding gradients and vanishing gradients."
+    },
+    {
+      "text": "In RNNs, because we multiply by the same matrix W repeatedly, the norm of the gradient grows or decreases exponentially."
+    },
+    {
+      "text": "When the gradient norm grows exponentially, this is the exploding gradient problem."
+    },
+    {
+      "text": "Exploding gradients can be handled by bounding the gradients from above."
+    },
+    {
+      "text": "There are two versions of gradient clipping: bounding the norm or bounding every value."
+    },
+    {
+      "text": "In Keras, gradient norm clipping can be implemented with optimizers.SGD(lr=0.01, clipnorm=1.)."
+    },
+    {
+      "text": "Alternatively, gradient value clipping can be implemented with optimizers.SGD(lr=0.01, clipvalue=.05)."
+    },
+    {
+      "text": "RNNs have bifurcation points, which explain gaps in the loss surface."
+    },
+    {
+      "text": "For some sequence-processing tasks, context from both directions is needed."
+    },
+    {
+      "text": "In a bidirectional RNN, the forward state is s_t = \\sigma(b + W s_{t-1} + U x_t)."
+    },
+    {
+      "text": "The backward state is s'_t = \\sigma(b' + W' s'_{t+1} + U' x_t)."
+    },
+    {
+      "text": "The output is o_t = c + V s_t + V' s'_t."
+    },
+    {
+      "text": "The final output is y_t = h(o_t)."
+    },
+    {
+      "text": "The concept of bidirectional RNN generalizes to other constructions."
+    },
+    {
+      "text": "In vanilla RNNs, the vanishing gradient problem arises because we have to multiply by W at each time step."
+    },
+    {
+      "text": "Vanishing gradients make it impossible for RNNs to have long-term memory."
+    },
+    {
+      "text": "The basic idea from ResNet is to provide a \"constant error carousel\", which is a shortcut for gradients."
+    },
+    {
+      "text": "The idea for LSTM originated in the mid-1990s by Schmidhuber: to construct RNNs from a more complex unit that has a gradient shortcut and explicit memory control."
+    },
+    {
+      "text": "LSTM stands for long short-term memory."
+    },
+    {
+      "text": "In a vanilla LSTM, c_t is the cell state and h_t is the hidden state."
+    },
+    {
+      "text": "The input gate and forget gate control whether the cell state c_t is changed to the new candidate cell state."
+    },
+    {
+      "text": "The candidate cell state is c'_t = \\tanh(W_{xc} x_t + W_{hc} h_{t-1} + b_{c'})."
+    },
+    {
+      "text": "The input gate is i_t = \\sigma(W_{xi} x_t + W_{hi} h_{t-1} + b_i)."
+    },
+    {
+      "text": "The forget gate is f_t = \\sigma(W_{xf} x_t + W_{hf} h_{t-1} + b_f)."
+    },
+    {
+      "text": "The output gate is o_t = \\sigma(W_{xo} x_t + W_{ho} h_{t-1} + b_o)."
+    },
+    {
+      "text": "The cell state update is c_t = f_t \\odot c_{t-1} + i_t \\odot c'_t."
+    },
+    {
+      "text": "The hidden state is h_t = o_t \\odot \\tanh(c_t)."
+    },
+    {
+      "text": "The LSTM cell controls the cell state using the hidden state and weights."
+    },
+    {
+      "text": "When the forget gate is closed (f_t = 1), the cell state update becomes c_t = c_{t-1} + i_t \\odot c'_t, so the partial derivative \\partial c_t/\\partial c_{t-1} = 1."
+    },
+    {
+      "text": "This identity derivative provides the constant error carousel."
+    },
+    {
+      "text": "LSTM was developed in the mid-1990s by Hochreiter and Schmidhuber, with papers in 1995 and 1997."
+    },
+    {
+      "text": "The modern form of LSTM was completed by Gers and Schmidhuber in 2000."
+    },
+    {
+      "text": "A problem with the early LSTM is that the gates do not have access to the cell state c; they only see h_{t-1} = o_{t-1} \\odot \\tanh(c_{t-1})."
+    },
+    {
+      "text": "If the output gate is closed, the behavior of LSTM does not depend on the cell state at all."
+    },
+    {
+      "text": "This lack of dependence is undesirable."
+    },
+    {
+      "text": "To address the problem, peepholes (additional weight matrices) are added."
+    },
+    {
+      "text": "With peepholes, the input gate becomes i_t = \\sigma(W_{xi} x_t + W_{hi} h_{t-1} + W_{pi} c_{t-1} + b_i)."
+    },
+    {
+      "text": "The forget gate becomes f_t = \\sigma(W_{xf} x_t + W_{hf} h_{t-1} + W_{pf} c_{t-1} + b_f)."
+    },
+    {
+      "text": "The output gate becomes o_t = \\sigma(W_{xo} x_t + W_{ho} h_{t-1} + W_{po} c_{t-1} + b_o)."
+    },
+    {
+      "text": "There are many LSTM variations, allowing removal or addition of gates, peepholes, and activation functions."
+    },
+    {
+      "text": "The question of how to choose among these variations arises."
+    },
+    {
+      "text": "The paper \"LSTM: a Search Space Odyssey\" by Greff et al. (2015) provides an experimental comparison of many LSTM variations."
+    },
+    {
+      "text": "Some significantly simpler architectures, including ones with one less gate, performed comparably to the vanilla LSTM."
+    },
+    {
+      "text": "Gated Recurrent Units (GRU) were developed by Cho et al. in 2014."
+    },
+    {
+      "text": "GRU implements the constant error carousel and is simpler than LSTM."
+    },
+    {
+      "text": "The GRU update gate is u_t = \\sigma(W_{xu} x_t + W_{hu} h_{t-1} + b_u)."
+    },
+    {
+      "text": "The reset gate is r_t = \\sigma(W_{xr} x_t + W_{hr} h_{t-1} + b_r)."
+    },
+    {
+      "text": "The candidate hidden state is h'_t = \\tanh(W_{xh'} x_t + W_{hh'} (r_t \\odot h_{t-1}))."
+    },
+    {
+      "text": "The hidden state update is h_t = (1 - u_t) \\odot h'_t + u_t \\odot h_{t-1}."
+    },
+    {
+      "text": "GRU does not distinguish between cell state and hidden state."
+    },
+    {
+      "text": "GRU uses fewer weight matrices (6) compared to LSTM (8 or 11 with peepholes)."
+    },
+    {
+      "text": "GRU has only very slightly worse performance than LSTM."
+    },
+    {
+      "text": "Due to its simplicity, more GRU units can be used within a given computational budget, potentially leading to better networks."
+    },
+    {
+      "text": "There are additional variations beyond GRU."
+    },
+    {
+      "text": "Józefowicz, Zaremba, and Sutskever (2015) conducted a large experimental comparison of RNN architectures using an evolutionary approach."
+    },
+    {
+      "text": "This study identified three interesting architectures."
+    }
+  ],
+  "transcript": [
+    {
+      "text": "The lecture part of the class is being done online this year."
+    },
+    {
+      "text": "Last time, the lecture ended on convolutional architectures."
+    },
+    {
+      "text": "Specifically, last time the lecture covered how CNNs work."
+    },
+    {
+      "text": "Last time, the lecture covered the main advantage of using convolutions."
+    },
+    {
+      "text": "The main advantage of using convolutions is to reuse the same weights over the entire input and over all intermediate feature tensors."
+    },
+    {
+      "text": "The intermediate feature tensors are outputs of intermediate layers inside the neural network."
+    },
+    {
+      "text": "The processing with reused weights can be done in parallel."
+    },
+    {
+      "text": "Using convolutions can reduce the number of weights by huge factors."
+    },
+    {
+      "text": "Before proceeding with convolutional architectures today, the lecturer understands that the students already started talking about convolutional architectures with Alex."
+    },
+    {
+      "text": "Because the students already started talking about convolutional architectures with Alex, the lecture can skip part of it and get to recurrent networks faster."
+    },
+    {
+      "text": "The lecturer is not sure if the lecture will get to recurrent networks today, but hopefully yes."
+    },
+    {
+      "text": "The lecturer has standard illustrations for CNNs."
+    },
+    {
+      "text": "The students probably don't need these illustrations because they already had practical sessions about CNNs."
+    },
+    {
+      "text": "The lecturer might at least mention a couple of buzzwords that the students can look up."
+    },
+    {
+      "text": "In classical computer vision, before neural networks actually worked, people would still use convolutions, but handmade convolutions."
+    },
+    {
+      "text": "These handmade convolutions were called filters."
+    },
+    {
+      "text": "Sometimes people call learnable convolutions filters as well."
+    },
+    {
+      "text": "There were filter banks for all kinds of purposes."
+    },
+    {
+      "text": "Classical utilities for image processing (like sharpen, blur, add contrast, emboss) are all done with this kind of filters."
+    },
+    {
+      "text": "These filters are small matrices, like convolutions, that are applied in parallel over the image."
+    },
+    {
+      "text": "You can do complicated stuff with these filters, for example, edge detection, which finds where the edges of objects on the image are."
+    },
+    {
+      "text": "In the example shown, the cat itself is pretty messy in terms of edges."
+    },
+    {
+      "text": "There were classical filter banks like Gabor filters."
+    },
+    {
+      "text": "With Gabor filters, you would do something like edge detection, specifically discrete derivatives, finite differences in different directions."
+    },
+    {
+      "text": "This allows directed edge detection: a filter fires if there is a big difference vertically when going vertically from one pixel to another."
+    },
+    {
+      "text": "Another filter fires if a lot changes horizontally from one pixel to another."
+    },
+    {
+      "text": "If you apply pooling as a filter to an actual image, max pooling would look very strange because it would clamp everything to the max brightness."
+    },
+    {
+      "text": "Average pooling applied to an actual image would look better than max pooling."
+    },
+    {
+      "text": "That is not the purpose of pooling."
+    },
+    {
+      "text": "The lecturer has illustrations on real networks."
+    },
+    {
+      "text": "The students already know what ResNets are."
+    },
+    {
+      "text": "The illustrations show the matrices of convolutions (filters) on the first layer of ResNet-18."
+    },
+    {
+      "text": "In these filters, some fire up for lines like diagonal lines or vertical lines."
+    },
+    {
+      "text": "Some filters fire for colors or color gradients."
+    },
+    {
+      "text": "If you input an image and see where these filters activate a lot, you can see that, for example, one filter is looking for something like grass or trees, essentially the color green."
+    },
+    {
+      "text": "Another filter is looking for horizontal edges or vertical edges, activating where there is a horizontal line (like a Gabor filter)."
+    },
+    {
+      "text": "If you go through the network and map what active filters on different layers do for ResNet-18, the map becomes more complicated."
+    },
+    {
+      "text": "For layer one, the inputs are the pixels, and you can see where the filter activates."
+    },
+    {
+      "text": "On subsequent layers, there is not a direct correspondence between pixels and outputs because every picture has a receptive field."
+    },
+    {
+      "text": "You can find which part of the image a filter is looking at, but determining which exact pixels contribute the most requires some math."
+    },
+    {
+      "text": "You can look at what parts of the image even top layer features fire up for."
+    },
+    {
+      "text": "In ResNet-18, the second layer fires for high-frequency stuff throughout the whole image, like stripes and edges."
+    },
+    {
+      "text": "Later layers fire for more salient objects, for example, some filter fires for eyes and the tips of ears."
+    },
+    {
+      "text": "In even later layers, filters become more semantic, so you can see filters for ears and for the head as a whole, though the pictures are blurry and ResNet-18 is not a very good network."
+    },
+    {
+      "text": "You can go back from a deep feature to the pixel level, mapping it back to the original image, to see approximately what it fires on."
+    },
+    {
+      "text": "In ResNet 3.10, on a deep layer, you can find the feature that selects most for cats."
+    },
+    {
+      "text": "Being cat-selective means that ResNet was trained to distinguish classes from ImageNet like cats and dogs."
+    },
+    {
+      "text": "You can find which feature gives the most information regarding a specific class, meaning which feature's activation correlates best with that class."
+    },
+    {
+      "text": "If you look at the cat-selective feature and input an image that is half cat, half dog, it fires up on the cat part."
+    },
+    {
+      "text": "Similarly, the dog-selective feature fires up on the dog part approximately."
+    },
+    {
+      "text": "There are methods for more detailed interpretation of what the network is doing, for example, GradCam."
+    },
+    {
+      "text": "GradCam is not the only method, but it is a good one."
+    },
+    {
+      "text": "GradCam can be run for the network output, like the predicted class, or a single class."
+    },
+    {
+      "text": "Recall that the network's output is a set of probabilities, with every class in a classification network being a separate output."
+    },
+    {
+      "text": "This is convenient because you can look at specific outputs; for example, the Egyptian cat output responds to certain things and obtained its value due to specific pixels."
+    },
+    {
+      "text": "GradCam provides an interpretation of why exactly, due to which pixels, the network chose a particular value for an output, though it is not yet an attention mechanism."
+    },
+    {
+      "text": "You can run GradCam for different classes; for example, with a cat and dog image, the Egyptian cat output will look at the cat, and the Blenheim-Spaniel output will look at the dog."
+    },
+    {
+      "text": "That was a brief remark about the basics of convolutional networks and what they are looking at, which will not be discussed in more detail."
+    },
+    {
+      "text": "The main part of today's lecture is important convolutional architectures."
+    },
+    {
+      "text": "The students have already discussed some of the most important stuff with Alex."
+    },
+    {
+      "text": "The most important convolutional architecture in history is AlexNet."
+    },
+    {
+      "text": "The lecturer hopes that Alex discussed the AlexNet architecture with the students."
+    },
+    {
+      "text": "AlexNet was the first convolutional network that actually worked."
+    },
+    {
+      "text": "AlexNet beat every competing method completely on the ImageNet large-scale visual recognition competition."
+    },
+    {
+      "text": "AlexNet defined the state-of-the-art by an extraordinarily big margin."
+    },
+    {
+      "text": "In 2011 or 2012, when AlexNet participated in the competition, the error rate for all other methods was around 22-23%."
+    },
+    {
+      "text": "AlexNet's error rate was around 13%."
+    },
+    {
+      "text": "That was a huge jump and a huge gap."
+    },
+    {
+      "text": "The next year, the whole leaderboard consisted only of convolutional networks."
+    },
+    {
+      "text": "After AlexNet, nobody ever went back to classical computer vision."
+    },
+    {
+      "text": "This was the revolution in image classification."
+    },
+    {
+      "text": "Technically, the most interesting aspects of AlexNet are two things."
+    },
+    {
+      "text": "AlexNet is a pretty standard convolutional architecture."
+    },
+    {
+      "text": "AlexNet is split in two."
+    },
+    {
+      "text": "That split was the first actual industrial-scale instance of model parallelization."
+    },
+    {
+      "text": "In deep learning, you have huge models and huge data sets, so you need to parallelize and make use of multiple GPUs if available."
+    },
+    {
+      "text": "There are two main ways to parallelize: data parallelization and model parallelization."
+    },
+    {
+      "text": "Data parallelization involves having one mini-batch in GPU 1, another in GPU 2, another in GPU 3, running them in parallel, collecting the results, and doing a single update based on weight updates from all GPUs."
+    },
+    {
+      "text": "With data parallelization, you don't have to change anything in your implementation; the network works as usual."
+    },
+    {
+      "text": "The only difference is that with multiple GPUs in parallel, you are effectively increasing the mini-batch size by splitting the mini-batch across GPUs."
+    },
+    {
+      "text": "There is a lot of work on data parallelization because it can be done in many smart and interesting ways, but the basic idea is simple."
+    },
+    {
+      "text": "Model parallelization is more complicated."
+    },
+    {
+      "text": "In model parallelization, the assumption is that the model does not fit on a single GPU."
+    },
+    {
+      "text": "If the model does not fit on a single GPU, you need to put half of the model on one GPU and the other half on another GPU."
+    },
+    {
+      "text": "AlexNet was doing model parallelization already in 2011 (the paper was in 2012, but the actual network was in 2011)."
+    },
+    {
+      "text": "Implementing model parallelization by hand in 2011 was a huge feat of engineering."
+    },
+    {
+      "text": "Alex Krajewski was a wonderful programmer and implemented all of this by hand."
+    },
+    {
+      "text": "These days, we don't need to implement such things by hand."
+    },
+    {
+      "text": "Cloud codes do not require manual implementation of distributing weight matrices across GPUs."
+    },
+    {
+      "text": "In PyTorch, one can specify that a weight matrix should reside on a particular GPU."
+    },
+    {
+      "text": "PyTorch automatically handles the remaining computation after GPU assignment of weight matrices."
+    },
+    {
+      "text": "When designing a parallel network that spans multiple GPUs, one should minimize communication across GPUs."
+    },
+    {
+      "text": "Communication across GPUs is slower than communication inside a single GPU."
+    },
+    {
+      "text": "In the example parallel network, the two GPUs exchange information only at two places."
+    },
+    {
+      "text": "AlexNet was a breakthrough in deep learning."
+    },
+    {
+      "text": "After AlexNet, the field of convolutional networks grew rapidly."
+    },
+    {
+      "text": "Convolutional networks can be improved significantly using relatively simple ideas."
+    },
+    {
+      "text": "The speaker previously discussed important ideas about convolutional networks with Alex Davidov."
+    },
+    {
+      "text": "AlexNet used 11 by 11 convolutions in its first layer."
+    },
+    {
+      "text": "Modern convolutional networks typically use only 3 by 3 convolutions, or occasionally 5 by 5."
+    },
+    {
+      "text": "The VGG idea allows representing large convolutions as compositions of smaller convolutions."
+    },
+    {
+      "text": "Using compositions of small convolutions reduces the number of weights compared to large convolutions."
+    },
+    {
+      "text": "Composing small convolutions provides additional structural regularization."
+    },
+    {
+      "text": "In a convolutional network, the same processing is applied to different parts of the input, which acts as a form of regularization."
+    },
+    {
+      "text": "This regularization typically improves network performance."
+    },
+    {
+      "text": "The Inception architecture was discussed with Alex Davidov."
+    },
+    {
+      "text": "The Inception idea is related to the concept of 'network in network'."
+    },
+    {
+      "text": "Earlier in the course, the speaker discussed processing image tiles with small neural networks."
+    },
+    {
+      "text": "In those earlier discussions, the small neural networks were extremely simple, consisting of just a single matrix multiplication."
+    },
+    {
+      "text": "A simple small neural network takes the flattened input, multiplies it by a weight matrix, and produces an output vector."
+    },
+    {
+      "text": "The Inception trick and 'network in network' ideas involve replacing the simple convolution with a more complicated network."
+    },
+    {
+      "text": "In the Inception approach, tiles are still processed in parallel with the same small network, but the small network is now more complex."
+    },
+    {
+      "text": "Inception units typically contain multiple parallel processing branches."
+    },
+    {
+      "text": "The presence of multiple parallel branches is intentional and will be discussed further."
+    },
+    {
+      "text": "The third important idea is residual connections, also associated with ResNets."
+    },
+    {
+      "text": "Residual connections are widely used in deep learning, including in transformers."
+    },
+    {
+      "text": "Residual connections were previously discussed with Alex Davidov."
+    },
+    {
+      "text": "In a standard feedforward network without residual connections, a layer computes f(x) from input x."
+    },
+    {
+      "text": "When f(x) saturates, its gradient goes to zero, preventing the layer from changing."
+    },
+    {
+      "text": "Without a residual connection, if a layer's gradient becomes zero, layers below it receive zero gradient and cannot learn."
+    },
+    {
+      "text": "A residual connection adds the input x to the output of the layer, computing f(x) + x."
+    },
+    {
+      "text": "With a residual connection, even if f(x) saturates and its gradient is zero, the gradient can still flow through the identity connection to lower layers."
+    },
+    {
+      "text": "Specifically, when the derivative of f is zero, the overall gradient through the residual block approximates the identity matrix, allowing gradients to propagate."
+    },
+    {
+      "text": "Kaiming He invented ResNets and called it the revolution of depth."
+    },
+    {
+      "text": "After the introduction of residual connections, it became possible to train convolutional networks with hundreds or thousands of layers."
+    },
+    {
+      "text": "AlexNet had 8 trainable layers (excluding pooling layers)."
+    },
+    {
+      "text": "VGG had 19 trainable layers."
+    },
+    {
+      "text": "GoogleNet with its first inception units had 22 layers."
+    },
+    {
+      "text": "ResNet, introduced the next year, had about 150 layers."
+    },
+    {
+      "text": "With residual connections, networks with 200, 300, 500, or even 2000 layers can still be trained."
+    },
+    {
+      "text": "Increasing the depth of ResNets beyond a certain point does not continue to improve performance."
+    },
+    {
+      "text": "Adding new layers is only beneficial as long as they improve results."
+    },
+    {
+      "text": "Practical ResNets typically have up to about 200 layers, beyond which gains diminish."
+    },
+    {
+      "text": "The speaker announces that he will discuss bottleneck layers and the split-transform-merge idea."
+    },
+    {
+      "text": "Bottleneck layers and split-transform-merge are key ideas in convolutional architectures."
+    },
+    {
+      "text": "The VGG idea reduces the number of weights by replacing a large convolution with a sequence of small convolutions."
+    },
+    {
+      "text": "Convolutional layers inherently have far fewer weights than fully connected layers, but further reduction is possible."
+    },
+    {
+      "text": "It is possible to improve convolutional layers by further reducing the number of weights."
+    },
+    {
+      "text": "A standard convolutional layer receives a 3D input tensor of depth D, width W, and height H."
+    },
+    {
+      "text": "The output of a convolutional layer is a vector of features of size D'."
+    },
+    {
+      "text": "The weight tensor of a standard convolutional layer has dimensions D × W × H × D'."
+    },
+    {
+      "text": "The speaker estimates that a convolutional layer with 256 input channels, a 3x3 kernel, and 256 output channels has around 700,000 weights."
+    },
+    {
+      "text": "The bottleneck idea aims to reduce the number of weights in a convolutional layer."
+    },
+    {
+      "text": "The bottleneck idea proposes to first compress the feature depth using a 1x1 convolution before applying the spatial convolution."
+    },
+    {
+      "text": "In a bottleneck layer, the input first passes through a 1x1 convolution that reduces the depth to a smaller value D'' (e.g., from 256 to 32)."
+    },
+    {
+      "text": "The 1x1 convolution does not affect spatial geometry; it only transforms the feature dimension."
+    },
+    {
+      "text": "After depth reduction, a spatial convolution (e.g., 3x3) is applied, operating on the reduced depth D''."
+    },
+    {
+      "text": "If the output depth needs to be D', another 1x1 convolution is used to expand the depth back to D'."
+    },
+    {
+      "text": "The first 1x1 convolution in a bottleneck has D × 1 × 1 × D'' weights."
+    },
+    {
+      "text": "The spatial convolution in a bottleneck has D'' × W × H × D'' weights."
+    },
+    {
+      "text": "The second 1x1 convolution has D'' × 1 × 1 × D' weights."
+    },
+    {
+      "text": "The bottleneck design avoids the large D × D' × W × H product, significantly reducing the total number of weights."
+    },
+    {
+      "text": "In the bottleneck, the spatial convolution multiplies the kernel size (e.g., 9) by (D'')^2 instead of D^2, where D'' is much smaller than D."
+    },
+    {
+      "text": "The bottleneck example uses three convolutions instead of one."
+    },
+    {
+      "text": "Nevertheless, a lot of weights are saved."
+    },
+    {
+      "text": "In the example with three convolutions, the weight count is about 256 times 100."
+    },
+    {
+      "text": "Without the bottleneck, the weight count is about 256 times 2,500."
+    },
+    {
+      "text": "The weight reduction factor is about 25 times."
+    },
+    {
+      "text": "In the bottleneck idea, a vector of 256 features is compressed down to 32 numbers."
+    },
+    {
+      "text": "Decompressing from 32 numbers back to 256 cannot restore the lost information."
+    },
+    {
+      "text": "Geometrically, the bottleneck operates in a high-dimensional feature space (dimension 256) and selects a specific subspace of much smaller dimension."
+    },
+    {
+      "text": "The process reduces long, complicated features to a much smaller dimension."
+    },
+    {
+      "text": "The single bottleneck is equivalent to taking just one view of the features."
+    },
+    {
+      "text": "If the network only needed 32 numbers, the previous layer could directly produce 32 features instead of 256, saving even more weights."
+    },
+    {
+      "text": "The simple bottleneck idea as initially described does not work by itself."
+    },
+    {
+      "text": "The simple bottleneck never appears in practice in that form."
+    },
+    {
+      "text": "The bottleneck becomes useful when multiple copies of the processing pipeline are used in parallel."
+    },
+    {
+      "text": "In practice, multiple copies of the processing pipeline are used, starting from an input tensor of size D x W x H."
+    },
+    {
+      "text": "With D=256, a single pipeline outputs a vector of size 32."
+    },
+    {
+      "text": "To reconstruct a vector of size 256, eight such pipelines are needed, and their outputs are concatenated."
+    },
+    {
+      "text": "Each parallel pipeline learns different weights, implementing different processing."
+    },
+    {
+      "text": "Using eight parallel pipelines reduces the weight savings from 25 times to about 4 times compared to the original single bottleneck."
+    },
+    {
+      "text": "Even with reduced savings, the parallel approach is still a good idea in practice."
+    },
+    {
+      "text": "In the split-transform-merge approach, multiple different projections of the high-dimensional feature space are used."
+    },
+    {
+      "text": "These projections correspond to different viewpoints or snapshots of the feature space."
+    },
+    {
+      "text": "Using multiple learned projections can lead to better performance than processing the original high-dimensional features directly."
+    },
+    {
+      "text": "It is often beneficial to use many random projections of high-dimensional objects."
+    },
+    {
+      "text": "In this architecture, the projections are learned and trained to be useful, which is better than random."
+    },
+    {
+      "text": "The approach is called split, transform, merge."
+    },
+    {
+      "text": "The split, transform, merge pattern is a standard idea in convolutional architectures."
+    },
+    {
+      "text": "ResNeXt provides an example of the split-transform-merge idea."
+    },
+    {
+      "text": "In the ResNeXt example, the 256 channels are split into 32 paths of 4 channels each."
+    },
+    {
+      "text": "This is an extreme projection with several extreme projections, which works better."
+    },
+    {
+      "text": "Inception networks and Inception ResNet networks are important classical convolutional architectures."
+    },
+    {
+      "text": "For a long time, they were the best available backbones for many computer vision tasks."
+    },
+    {
+      "text": "Object detection and segmentation architectures typically cannot be trained from scratch due to limited labeled data."
+    },
+    {
+      "text": "In practice, a backbone network pre-trained on ImageNet for classification is used as a feature extractor."
+    },
+    {
+      "text": "The classification head of the pre-trained network is removed, and the rest is used as the backbone."
+    },
+    {
+      "text": "The Inception ResNet family was one of the most influential backbone families around 2016."
+    },
+    {
+      "text": "The main idea of Inception networks is to use better basic blocks that process inputs, like small neural networks."
+    },
+    {
+      "text": "Progress in Inception networks came from inventing better basic blocks version after version."
+    },
+    {
+      "text": "In Inception networks, pooling layers were replaced with trainable blocks that can reduce dimensions."
+    },
+    {
+      "text": "Strided convolutions are used in these blocks to reduce the spatial geometry."
+    },
+    {
+      "text": "Later Inception networks had reduction blocks that may contain pooling inside."
+    },
+    {
+      "text": "The reduction blocks also follow the split-transform-merge idea with parallel processing lines whose results are merged."
+    },
+    {
+      "text": "Residual connections were added to Inception networks to create Inception ResNet."
+    },
+    {
+      "text": "Inception ResNet V2 was a very influential backbone that was used widely."
+    },
+    {
+      "text": "There are two different objectives when optimizing network architecture: memory and latency."
+    },
+    {
+      "text": "Reducing the number of weights reduces memory, as network size is essentially the number of weights."
+    },
+    {
+      "text": "Latency refers to how quickly the network runs."
+    },
+    {
+      "text": "Real-time applications, like surveillance camera tracking, require the network to process at least 30 frames per second, preferably 60."
+    },
+    {
+      "text": "A smaller network may run faster, but latency primarily depends on the number of layers."
+    },
+    {
+      "text": "Once the network fits in GPU memory, the main factor for latency is the number of processing steps (layers)."
+    },
+    {
+      "text": "The number of weights per layer can affect latency, but the number of layers is the most important component."
+    },
+    {
+      "text": "These two objectives (memory reduction and latency reduction) do not conflict much but are distinct."
+    },
+    {
+      "text": "MobileNet was designed to put computer vision on mobile devices."
+    },
+    {
+      "text": "EfficientNet is the family of CNNs that topped the progress of CNN architectures."
+    },
+    {
+      "text": "EfficientNet is widely used currently."
+    },
+    {
+      "text": "EfficientNet's development followed a similar pattern to that of activation functions."
+    },
+    {
+      "text": "Gradient descent algorithms were not discussed."
+    },
+    {
+      "text": "In EfficientNet, the architecture was found automatically using a neural architecture search."
+    },
+    {
+      "text": "The researchers of EfficientNet investigated how to scale a convolutional network."
+    },
+    {
+      "text": "There are multiple dimensions (knobs) that can be changed when scaling a convolutional network."
+    },
+    {
+      "text": "One scaling dimension is depth, which is the number of layers."
+    },
+    {
+      "text": "Another dimension is width, which is the length of the feature vector."
+    },
+    {
+      "text": "Making the network wider adds more features."
+    },
+    {
+      "text": "Making the network wider requires more weights."
+    },
+    {
+      "text": "Another dimension is resolution, which refers to the number of pixels in the input."
+    },
+    {
+      "text": "The number of weights in the network is determined by taking the product of depth, width, and resolution and exponentiating it."
+    },
+    {
+      "text": "The goal of scaling is to find the perfect balance between depth, width, and resolution."
+    },
+    {
+      "text": "The depth grows exponentially with an exponent alpha."
+    },
+    {
+      "text": "The width grows exponentially with an exponent beta."
+    },
+    {
+      "text": "The resolution grows exponentially with an exponent gamma."
+    },
+    {
+      "text": "There is a natural relation between alpha, beta, and gamma."
+    },
+    {
+      "text": "The researchers performed a large evolutionary search to find the best values of alpha, beta, and gamma."
+    },
+    {
+      "text": "The researchers were successful in finding the optimal scaling hyperparameters."
+    },
+    {
+      "text": "The EfficientNet family achieved state-of-the-art results across the whole field."
+    },
+    {
+      "text": "A plot is described with the x-axis representing the number of parameters."
+    },
+    {
+      "text": "Having more parameters is undesirable for efficiency."
+    },
+    {
+      "text": "The y-axis represents ImageNet top-1 accuracy."
+    },
+    {
+      "text": "Higher accuracy is better."
+    },
+    {
+      "text": "The best networks lie in the top left corner (few parameters, high accuracy)."
+    },
+    {
+      "text": "There is a trade-off: larger networks generally achieve higher accuracy than smaller networks."
+    },
+    {
+      "text": "The Pareto frontier is the set of points where for every size, the best accuracy is achieved and for every accuracy, the smallest network is used."
+    },
+    {
+      "text": "The EfficientNet family succeeded in defining this Pareto frontier everywhere in the plot."
+    },
+    {
+      "text": "Since EfficientNet, there has not been a revolution in convolutional networks."
+    },
+    {
+      "text": "To a large extent, the field switched from convolutional networks to transformers."
+    },
+    {
+      "text": "Transformers will be discussed later in the lecture."
+    },
+    {
+      "text": "In convolutional networks, EfficientNet is still considered the best underlying architecture."
+    },
+    {
+      "text": "For some object detection and segmentation pipelines, EfficientNet is used as the backbone."
+    },
+    {
+      "text": "Batch normalization averages the same feature over spatial dimensions and across mini-batch examples."
+    },
+    {
+      "text": "Layer normalization does not average over the mini-batch; it effectively uses a mini-batch size of one."
+    },
+    {
+      "text": "In layer normalization, averaging is done over the entire tensor of features."
+    },
+    {
+      "text": "Layer normalization provides global statistics for the whole layer."
+    },
+    {
+      "text": "Layer normalization is commonly used in transformers."
+    },
+    {
+      "text": "Transformers are large models that typically cannot use large mini-batches."
+    },
+    {
+      "text": "In transformers, normalization is performed within a single training sample."
+    },
+    {
+      "text": "The field of normalization techniques is large, with many papers and results."
+    },
+    {
+      "text": "Convolutional networks will reappear in practical sessions."
+    },
+    {
+      "text": "The next topic is recurrent neural networks (RNNs)."
+    },
+    {
+      "text": "Until transformers appeared, convolutional networks and recurrent networks were the two main architecture families in deep learning."
+    },
+    {
+      "text": "Recurrent networks are designed for sequence data."
+    },
+    {
+      "text": "Input data often comes as sequences."
+    },
+    {
+      "text": "An image is a two-dimensional structure, not a sequence; CNNs are suited for images."
+    },
+    {
+      "text": "Time series data, such as financial time series, are examples of sequences."
+    },
+    {
+      "text": "Sound is a sequence of amplitude values over time."
+    },
+    {
+      "text": "In classical machine learning and digital signal processing, raw sound sequences are too long to handle directly."
+    },
+    {
+      "text": "To process sound, it is cut into short packets (20-30 milliseconds), and feature extraction is applied per packet, resulting in a sequence of feature vectors."
+    },
+    {
+      "text": "Text is a key example of sequence data."
+    },
+    {
+      "text": "Text is a sequence of tokens, such as words or subwords."
+    },
+    {
+      "text": "Text is inherently one-dimensional."
+    },
+    {
+      "text": "Sequence-to-single-output problems take a sequence as input and produce a single output, e.g., text classification."
+    },
+    {
+      "text": "Classifying news articles into topics (sports, politics, science) is an example of sequence-to-single-output."
+    },
+    {
+      "text": "Single-input-to-sequence problems generate a sequence from a single input, e.g., image captioning."
+    },
+    {
+      "text": "In image captioning, the input is an image and the output is a text sequence that describes the image."
+    },
+    {
+      "text": "Sequence-to-sequence problems have both input and output as sequences, e.g., machine translation."
+    },
+    {
+      "text": "Machine translation converts text from one language to another."
+    },
+    {
+      "text": "Sequence labeling problems involve input and output sequences of the same length, aligned element-wise."
+    },
+    {
+      "text": "Part-of-speech tagging is a sequence labeling task where each word in a sentence gets a part-of-speech tag."
+    },
+    {
+      "text": "Video is a sequence of frames (images)."
+    },
+    {
+      "text": "Adding subtitles to a movie is a sequence-based task."
+    },
+    {
+      "text": "In object tracking, you have a video and you are supposed to follow an object inside the video."
+    },
+    {
+      "text": "Object tracking involves segmentation on a sequence of images to track the same object as it moves."
+    },
+    {
+      "text": "Convolutional networks are not well suited for dealing with sequences."
+    },
+    {
+      "text": "A sliding window can be used along an input sequence to process parts of the sequence."
+    },
+    {
+      "text": "There was a time when convolutional approaches were rivals to recurrent approaches in natural language processing."
+    },
+    {
+      "text": "Transformers changed the landscape of natural language processing."
+    },
+    {
+      "text": "The most important thing for sequence processing is to have a way to recall inputs from long ago."
+    },
+    {
+      "text": "Understanding a whole sentence requires recalling what happened at the beginning."
+    },
+    {
+      "text": "Recurrent neural networks (RNNs) process sequences by updating a hidden state."
+    },
+    {
+      "text": "An RNN has inputs x1, x2, ..., xt."
+    },
+    {
+      "text": "Each input in the sequence is processed separately by a recurrent unit."
+    },
+    {
+      "text": "A recurrent unit takes two inputs: the current input x and a hidden state h."
+    },
+    {
+      "text": "A recurrent unit outputs an updated hidden state h' and optionally an output."
+    },
+    {
+      "text": "The hidden state h is assumed to capture the previous part of the sequence (before x)."
+    },
+    {
+      "text": "A recurrent unit is a function f(x, h) that outputs h'."
+    },
+    {
+      "text": "In an RNN, the hidden state is a vector of numbers that goes along the network and is updated with each new input."
+    },
+    {
+      "text": "In an RNN, the hidden state combines all relevant information from the sequence so far."
+    },
+    {
+      "text": "The hidden state is initialized with some H0."
+    },
+    {
+      "text": "The recurrent network produces outputs H1, H2, ..., Ht, Ht+1, ..."
+    },
+    {
+      "text": "A standard recurrent network uses shared weights across all recurrent cells."
+    },
+    {
+      "text": "In classical recurrent networks, a recurrent cell performs linear transformations: x multiplied by matrix A, h multiplied by matrix B, then the results are added and passed through an activation function G."
+    },
+    {
+      "text": "The update formula for a classical recurrent cell is h' = G(A * x + B * h), where G is an activation function such as hyperbolic tangent or ELU, and A and B are weight matrices."
+    },
+    {
+      "text": "Recurrent networks have been around since the second half of the 1980s."
+    },
+    {
+      "text": "Training recurrent networks was difficult due to limited compute at the time."
+    },
+    {
+      "text": "A unidirectional RNN processes input in only one direction, for example left to right."
+    },
+    {
+      "text": "For classification based on the last hidden state, reading left to right or right to left is acceptable."
+    },
+    {
+      "text": "For sequence labeling tasks such as part-of-speech tagging, a unidirectional RNN only allows looking at previous words, which is problematic."
+    },
+    {
+      "text": "Bidirectional RNNs have two RNNs: one left-to-right and one right-to-left."
+    },
+    {
+      "text": "In a bidirectional RNN, at time t, the left-to-right part captures left context and the right-to-left part captures right context."
+    },
+    {
+      "text": "In a bidirectional RNN, a classification head can merge the results from both directions to output yt, accounting for both left and right context."
+    },
+    {
+      "text": "Bidirectional RNNs should be used unless the problem prohibits it, such as in language modeling where only left context is available."
+    },
+    {
+      "text": "In language modeling, predicting the next word is based only on the left context."
+    },
+    {
+      "text": "In real-time object tracking, the video stream does not allow access to future frames far ahead, so one-sided networks are needed."
+    },
+    {
+      "text": "In many sequence-to-sequence problems, the whole input can be read before making a decision, so bidirectional RNNs are applicable."
+    },
+    {
+      "text": "In a unidirectional RNN with shared weights, the same weight matrix W participates in every recurrent cell."
+    },
+    {
+      "text": "Training separate matrices for each time step is infeasible."
+    },
+    {
+      "text": "In a unidirectional RNN for sequence classification, the whole sequence is read and then classified using a head and a loss function."
+    },
+    {
+      "text": "The loss function compares the predicted answer with the correct answer."
+    },
+    {
+      "text": "In an RNN, the output can be produced at every cell, or only from the last hidden state using a head, depending on the problem."
+    },
+    {
+      "text": "The described recurrent neural network method can process arbitrary sequences of arbitrary length."
+    },
+    {
+      "text": "The same weight matrix W is used for all time steps in this method."
+    },
+    {
+      "text": "Using the same weight matrix W across all time steps leads to problems with gradient flow."
+    },
+    {
+      "text": "Gradients of the loss function flow backward through the network along the sequence during training."
+    },
+    {
+      "text": "The gradient of the loss with respect to a specific weight w is a sum of contributions from each time step because the same weight is used repeatedly."
+    },
+    {
+      "text": "The repeated use of the same weight matrix W is similar to weight sharing in convolutional networks."
+    },
+    {
+      "text": "In convolutional networks, the same weight is used across different spatial locations, enabling parallel processing across the whole image."
+    },
+    {
+      "text": "Weight sharing allows sparse activations and sparse gradients, but the gradients accumulate over the shared weights, so it is not a problem."
+    },
+    {
+      "text": "In recurrent networks, every weight is very important because of the accumulation effect of repeated use."
+    },
+    {
+      "text": "In a simplified recurrent network model without activation functions or inputs, each hidden state H_t is obtained by multiplying the previous hidden state H_{t-1} by the weight matrix W."
+    },
+    {
+      "text": "In the simplified model, H1 equals W times H0."
+    },
+    {
+      "text": "In the simplified model, H2 equals W times H1, which equals W squared times H0."
+    },
+    {
+      "text": "In the simplified model, H_T equals W to the power T times H0."
+    },
+    {
+      "text": "Matrices have a property called the spectral radius."
+    },
+    {
+      "text": "The spectral radius indicates how the matrix scales the length of a vector when multiplied."
+    },
+    {
+      "text": "The norm of h_t is approximately the spectral radius of W times the norm of h_{t-1}."
+    },
+    {
+      "text": "After t applications, the norm of h_t is approximately (spectral radius)^t times the norm of h_0."
+    },
+    {
+      "text": "If the spectral radius of W is greater than 1, the activations explode."
+    },
+    {
+      "text": "Even a spectral radius slightly above 1 (e.g., 1.1 or 1.05) causes exponential growth over long sequences."
+    },
+    {
+      "text": "Exploding activations can cause numerical overflows."
+    },
+    {
+      "text": "Huge activations do not reflect meaningful computations."
+    },
+    {
+      "text": "The same issue occurs in the backward pass because gradients involve multiplications by W (or its transpose)."
+    },
+    {
+      "text": "There are two types of gradient problems: exploding gradients and vanishing gradients."
+    },
+    {
+      "text": "Exploding gradients occur when the spectral radius is greater than 1, causing gradients to grow to infinity."
+    },
+    {
+      "text": "Vanishing gradients occur when the spectral radius is less than 1, causing gradients to shrink to zero."
+    },
+    {
+      "text": "In the case of vanishing gradients, gradients for early sequence elements exponentially decay to zero."
+    },
+    {
+      "text": "Vanishing gradients prevent the network from learning long-term dependencies, effectively limiting long-term memory."
+    },
+    {
+      "text": "The influence of earlier parts of the sequence vanishes quickly due to vanishing gradients."
+    },
+    {
+      "text": "Exploding gradients cause the training to break (e.g., numerical issues)."
+    },
+    {
+      "text": "Vanishing gradients do not cause numerical failure but prevent effective learning."
+    },
+    {
+      "text": "The solution to exploding gradients is gradient clipping."
+    },
+    {
+      "text": "Gradient clipping involves capping the norm of the gradient vector (e.g., projecting back to a unit sphere if it exceeds a threshold)."
+    },
+    {
+      "text": "Gradient clipping is applied repeatedly during training whenever the gradient norm becomes too large."
+    },
+    {
+      "text": "Gradient clipping is a simple approach; it does not require constraining the spectral radius to exactly 1."
+    },
+    {
+      "text": "Both Keras and PyTorch support gradient clipping."
+    },
+    {
+      "text": "There is a paper from 2013 by Pascanu that studied the behavior of recurrent networks."
+    },
+    {
+      "text": "The Pascanu paper contains interesting points about the training dynamics of recurrent networks."
+    },
+    {
+      "text": "The paper is recommended for reading."
+    },
+    {
+      "text": "The paper is not about new architectures or improving performance, but about understanding the space of activations and weights during training."
+    },
+    {
+      "text": "An exploding gradient corresponds to a loss surface that has a region of normal gradients and then a steep wall where the loss increases extremely rapidly, causing huge gradients."
+    },
+    {
+      "text": "Without gradient clipping, optimization would fly away to poor regions after hitting the steep wall."
+    },
+    {
+      "text": "With gradient clipping, after hitting the steep wall, the update direction is projected back to a normal regime, and optimization continues in approximately the desired direction."
+    },
+    {
+      "text": "Clipping gradients is an acceptable transformation that does not harm the optimization direction."
+    },
+    {
+      "text": "In recurrent neural networks, both activations and gradients can blow up or vanish."
+    },
+    {
+      "text": "It is difficult to make the spectral radius exactly 1."
+    },
+    {
+      "text": "Solving the exploding gradients problem is easy (via clipping)."
+    },
+    {
+      "text": "Solving the vanishing gradients problem is more difficult and will be discussed later."
+    },
+    {
+      "text": "The next lecture day is tomorrow."
+    },
+    {
+      "text": "Practical sessions with Alex are on Thursday."
+    },
+    {
+      "text": "There will be a midterm presentation on Friday."
+    },
+    {
+      "text": "The instructor sent Alex a list of papers yesterday evening."
+    },
+    {
+      "text": "The list of papers should be made available today."
+    },
+    {
+      "text": "On Friday, students will present."
+    },
+    {
+      "text": "Tomorrow there are two lectures."
+    }
+  ],
+  "summary": [
+    {
+      "text": "AlexNet, introduced by Krizhevsky, Sutskever, Hinton in 2012, was the first convolutional network to decisively beat classical computer vision methods on ImageNet."
+    },
+    {
+      "text": "AlexNet cut the ImageNet error rate from about 22–23% down to 13%."
+    },
+    {
+      "text": "The improvement by AlexNet was so large that the next year's ImageNet leaderboard consisted entirely of convolutional networks."
+    },
+    {
+      "text": "AlexNet introduced the first industrial-scale instance of model parallelization."
+    },
+    {
+      "text": "The AlexNet model was too large for a single GPU."
+    },
+    {
+      "text": "AlexNet was split into two pipelines that exchanged information only at a couple of points."
+    },
+    {
+      "text": "Model parallelization remains the key idea when a network does not fit on one GPU."
+    },
+    {
+      "text": "In model parallelization, different weight tensors are placed on different devices."
+    },
+    {
+      "text": "PyTorch handles the communication automatically in model parallelization."
+    },
+    {
+      "text": "Data parallelization distributes different mini-batch examples to different GPUs."
+    },
+    {
+      "text": "Data parallelization averages the weight updates from different GPUs."
+    },
+    {
+      "text": "Data parallelization scales the mini-batch size without changing the model."
+    },
+    {
+      "text": "The VGG network established that a stack of several 3x3 convolutions can replace one large convolution."
+    },
+    {
+      "text": "A 3x3 convolution looks at a small neighbourhood."
+    },
+    {
+      "text": "Stacking two 3x3 convolutional layers gives an effective receptive field of 5x5."
+    },
+    {
+      "text": "Stacking three 3x3 convolutional layers gives an effective receptive field of 7x7."
+    },
+    {
+      "text": "A stack of 3x3 convolutions has dramatically fewer weights than a single large filter with the same receptive field."
+    },
+    {
+      "text": "The extra depth from stacking 3x3 convolutions acts as an additional structural regularisation."
+    },
+    {
+      "text": "The extra depth forces the network to process the input in the same way across different locations."
+    },
+    {
+      "text": "Modern specialised GPU primitives are heavily optimised for 3x3 convolutions."
+    },
+    {
+      "text": "This GPU optimisation makes the VGG design of stacking 3x3 convolutions even more practical."
+    },
+    {
+      "text": "An Inception unit runs several parallel convolutional operations (1x1, 3x3, 5x5) and pooling, and concatenates their outputs."
+    },
+    {
+      "text": "An Inception unit treats each spatial tile with a small custom network rather than a single linear filter."
+    },
+    {
+      "text": "Inception v2 and v3 further factorise large filters by replacing an n x n convolution with a sequence of n x 1 and 1 x n convolutions, saving even more parameters."
+    },
+    {
+      "text": "Inception v3 introduced label smoothing, which trains the network with a target distribution q'(k) = (1 - ε)[k=y] + ε u(k), where u(k) is a prior (usually uniform), instead of the hard one-hot target q(k)=[k=y]."
+    },
+    {
+      "text": "Label smoothing prevents the softmax arguments from growing unboundedly and reduces overconfidence."
+    },
+    {
+      "text": "A deep plain network (without skip connections) suffers from vanishing gradients."
+    },
+    {
+      "text": "In a deep plain network, when a layer saturates, its derivative becomes tiny, cutting off gradient flow to all earlier layers."
+    },
+    {
+      "text": "ResNet solves the vanishing gradient problem with a skip-connection that computes the output as y^(k) = F(x^(k)) + x^(k)."
+    },
+    {
+      "text": "The ResNet skip-connection makes the gradient ∂y^(k)/∂x^(k) = 1 + ∂F(x^(k))/∂x^(k), so even when F saturates, the gradient still propagates."
+    },
+    {
+      "text": "Kaiming He called the ResNet skip-connection the 'revolution of depth'."
+    },
+    {
+      "text": "The ResNet skip-connection allowed networks with 150, 200, or more layers to train reliably."
+    },
+    {
+      "text": "ResNets stop improving beyond about 200 layers, but they do not break (training remains stable)."
+    },
+    {
+      "text": "Highway networks use an output that is a convex combination of the input and the transformed signal: y^(k) = C(x^(k)) x^(k) + T(x^(k)) F(x^(k)), where C = 1 - T."
+    },
+    {
+      "text": "Empirical evidence shows that keeping the residual path as straightforward as possible (just addition without gating) works best."
+    },
+    {
+      "text": "A typical convolutional layer with D=256 input channels, D'=256 output channels, and 3x3 filters has about 590,000 parameters."
+    },
+    {
+      "text": "A bottleneck layer reduces parameter count by projecting to a smaller number of channels with a 1x1 convolution, performing the spatial convolution in that low-dimensional space, and then projecting back with another 1x1 convolution."
+    },
+    {
+      "text": "A single bottleneck that compresses a rich feature vector (e.g., 256 channels) to a much smaller number (e.g., 32) loses information that the final expansion cannot recover."
+    },
+    {
+      "text": "If only 32 features were needed, the previous layer could directly produce 32 channels, making a bottleneck unnecessary."
+    },
+    {
+      "text": "A bottleneck makes sense only when replicated several times in parallel."
+    },
+    {
+      "text": "The split-transform-merge paradigm consists of splitting input channels into groups, transforming each group independently, and merging the results (typically by concatenation)."
+    },
+    {
+      "text": "For D=256, using eight parallel pathways that each reduce to 32 channels and then concatenate back to 256 replaces one large weight tensor with eight small ones."
+    },
+    {
+      "text": "In the described parallel split, the weight saving is roughly 4×, compared to a single bottleneck's saving of 25×, and this saving is still substantial."
+    },
+    {
+      "text": "Each parallel pathway in the split-transform-merge approach learns a different projection onto a low-dimensional subspace."
+    },
+    {
+      "text": "The network captures several distinct views of the high-dimensional feature space through parallel pathways."
+    },
+    {
+      "text": "Learning multiple complementary projections often works better than processing the whole feature vector directly."
+    },
+    {
+      "text": "Random projections can also be helpful."
+    },
+    {
+      "text": "In the split-transform-merge approach, the projections are learned and task-driven."
+    },
+    {
+      "text": "ResNeXt uses the split-transform-merge pattern, replacing a ResNet block with parallel convolutional paths (group convolutions) whose outputs are summed."
+    },
+    {
+      "text": "The split-transform-merge pattern is a direct descendant of the Inception unit."
+    },
+    {
+      "text": "The split-transform-merge pattern is closely related to group convolutions."
+    },
+    {
+      "text": "Group convolutions were first used in AlexNet for parallelisation across GPUs."
+    },
+    {
+      "text": "In group convolutions, different groups naturally tend to specialise in different types of features."
+    },
+    {
+      "text": "Later Inception networks (v4 and Inception-ResNet) further simplified and standardised the building blocks."
+    },
+    {
+      "text": "Inception v4 introduced a uniform stem, three basic block types (A, B, C), and dedicated reduction blocks that halve spatial dimensions using strided convolutions and occasional pooling."
+    },
+    {
+      "text": "The reduction blocks in Inception v4 learn how to downsample, instead of using a fixed pooling layer."
+    },
+    {
+      "text": "Inception-ResNet added residual connections inside Inception blocks, resulting in state-of-the-art backbones around 2016."
+    },
+    {
+      "text": "Inception-ResNet-v2 was especially influential."
+    },
+    {
+      "text": "For downstream tasks with scarce labelled data, the standard approach is to use a network pre-trained on ImageNet with its classification head removed as a fixed or fine-tuned feature extractor (backbone)."
+    },
+    {
+      "text": "Inception-ResNet models served as highly effective backbones for years."
+    },
+    {
+      "text": "For practical deployment, memory (total number of parameters) is an important resource, and a smaller footprint is essential for mobile or embedded devices."
+    },
+    {
+      "text": "Latency (forward pass time) is another important resource for practical deployment."
+    },
+    {
+      "text": "Latency depends primarily on the number of layers (sequential steps)."
+    },
+    {
+      "text": "Latency depends secondarily on layer sizes, once the model fits on the accelerator."
+    },
+    {
+      "text": "SqueezeNet uses fire modules, each composed of a squeeze layer (1x1 convolutions that reduce channel count) and an expand layer (a mix of 1x1 and 3x3 convolutions)."
+    },
+    {
+      "text": "SqueezeNet delays spatial downsampling as long as possible to keep activation maps large, helping accuracy despite parameter reduction."
+    },
+    {
+      "text": "SqueezeNet achieves 50 times fewer parameters than AlexNet at comparable accuracy."
+    },
+    {
+      "text": "MobileNet focuses on latency-sensitive mobile applications."
+    },
+    {
+      "text": "MobileNet uses depthwise separable convolutions, which factorise a standard convolution into a depthwise convolution (one filter per input channel) and a pointwise 1x1 convolution."
+    },
+    {
+      "text": "Depthwise separable convolutions provide enormous savings in parameters and FLOPs, with only a small drop in accuracy."
+    },
+    {
+      "text": "EfficientNet was discovered by neural architecture search in 2019 by Tan and Le."
+    },
+    {
+      "text": "EfficientNet's key insight is compound scaling, where a convolutional network is scaled along depth (number of layers), width (channel count), and resolution (input pixel count)."
+    },
+    {
+      "text": "In EfficientNet's compound scaling, if depth scales by α^φ, width by β^φ, resolution by γ^φ, then total parameter count scales approximately as (α·β·γ)^φ."
+    },
+    {
+      "text": "EfficientNet uses an evolutionary search to find optimal α, β, γ for a base model, then scales the model with a single compound coefficient φ."
+    },
+    {
+      "text": "The EfficientNet family defines the Pareto frontier on accuracy versus parameter plots, providing the best accuracy for a given size and the smallest network for a given accuracy."
+    },
+    {
+      "text": "EfficientNet remains the dominant CNN backbone for many tasks, even as transformers have become popular in other areas."
+    },
+    {
+      "text": "During training, each layer’s weight update changes the distribution of its outputs, forcing the next layer to re-adapt."
+    },
+    {
+      "text": "Internal covariate shift slows down learning and can drive neurons into saturated regimes."
+    },
+    {
+      "text": "Naive normalisation of layer outputs using the full dataset or full whitening is computationally prohibitive and interferes with gradient updates (e.g., bias can diverge)."
+    },
+    {
+      "text": "Batch normalisation (BN) normalises each feature over the current mini-batch using x̂_k = (x_k - E[x_k])/√Var[x_k], where the statistics are computed on the mini-batch."
+    },
+    {
+      "text": "To prevent loss of non-linearity, BN introduces learnable scale γ_k and shift β_k to compute y_k = γ_k x̂_k + β_k."
+    },
+    {
+      "text": "When γ_k = √Var[x_k] and β_k = E[x_k], the BN layer can pass the input through unchanged."
+    },
+    {
+      "text": "Although originally motivated by reducing internal covariate shift, later studies showed that BN's benefits do not come from that."
+    },
+    {
+      "text": "BN smooths the loss landscape (reducing Lipschitz constant), decouples direction and length of weight vectors, and often leads to linear convergence of gradient descent."
+    },
+    {
+      "text": "In practice, BN acts as a regulariser, making dropout unnecessary."
+    },
+    {
+      "text": "All modern normalisation methods share the same core operations but differ in the dimensions over which statistics are computed."
+    },
+    {
+      "text": "Batch Normalization normalises over the batch and spatial dimensions (N, H, W) for each channel, and is standard for CNNs."
+    },
+    {
+      "text": "Layer Normalization normalises over all channels and spatial dimensions (C, H, W) per sample, with no mini-batch dependency, and is used extensively in transformers."
+    },
+    {
+      "text": "Instance Normalization normalises over spatial dimensions (H, W) per sample and per channel, and is used in style transfer (e.g., AdaIN)."
+    },
+    {
+      "text": "Group Normalization splits channels into groups and normalises over each group's spatial dimensions, and is used with weight standardisation in Big Transfer (BiT)."
+    },
+    {
+      "text": "Weight Standardisation normalises the weights themselves channel-wise, smoothing gradients during backpropagation."
+    },
+    {
+      "text": "The choice of normalisation method is largely dictated by the architecture and effective batch size."
+    },
+    {
+      "text": "Many real-world inputs are inherently sequential, such as financial time series, sound, video, and text (a sequence of tokens)."
+    },
+    {
+      "text": "In many-to-one problems, a sequence input produces a single output, such as in text classification or sentiment analysis."
+    },
+    {
+      "text": "In one-to-many problems, a single input produces a sequence, such as in image captioning."
+    },
+    {
+      "text": "In sequence-to-sequence problems, both input and output are sequences of possibly different lengths, such as in machine translation."
+    },
+    {
+      "text": "In sequence labelling problems, input and output are aligned sequences of the same length, such as part-of-speech tagging or frame-wise video annotation."
+    },
+    {
+      "text": "A sliding-window convolutional approach can handle sequences to some extent, but lacks a mechanism to remember tokens far from the current window."
+    },
+    {
+      "text": "Understanding a paragraph requires holding information from its beginning."
+    },
+    {
+      "text": "An RNN processes a sequence one element at a time while maintaining a hidden state vector h_t."
+    },
+    {
+      "text": "The hidden state is updated recursively as h_t = f(x_t, h_{t-1})."
+    },
+    {
+      "text": "The same function f and weight matrices are reused for every time step in an RNN."
+    },
+    {
+      "text": "Recurrent weight sharing allows RNNs to handle sequences of arbitrary length."
+    },
+    {
+      "text": "In RNNs, every time step contributes to the gradient of the shared weights, analogous to how a convolutional filter receives gradients from all spatial positions."
+    },
+    {
+      "text": "The simplest recurrent cell is a linear map followed by a non-linearity."
+    },
+    {
+      "text": "In the simplest recurrent cell, $a_t = b + W h_{t-1} + U x_t$."
+    },
+    {
+      "text": "The hidden state update is $h_t = \\phi(a_t)$."
+    },
+    {
+      "text": "$\\phi$ is typically $\\tanh$ or a similar saturating activation function."
+    },
+    {
+      "text": "An output $y_t$ can be produced at every time step or only after the last hidden state, depending on the task."
+    },
+    {
+      "text": "A single-direction RNN only sees the past context."
+    },
+    {
+      "text": "For tasks such as sequence labelling, the prediction at position $t$ should ideally use both left and right context."
+    },
+    {
+      "text": "A bidirectional RNN runs two independent networks: one that processes the sequence left-to-right and one that processes right-to-left."
+    },
+    {
+      "text": "At each step, the bidirectional RNN concatenates (or otherwise merges) the hidden states from the two directions."
+    },
+    {
+      "text": "Concatenating the hidden states gives the predictor access to the full surrounding context."
+    },
+    {
+      "text": "The exception is tasks where future information is genuinely unavailable."
+    },
+    {
+      "text": "Language modelling (predicting the next word) is an example of such an exceptional task."
+    },
+    {
+      "text": "Online object tracking is another example of such an exceptional task."
+    },
+    {
+      "text": "These exceptional tasks must process a live stream without look-ahead."
+    },
+    {
+      "text": "Training an RNN means computing the gradient of a loss $L$ with respect to the shared weight matrices."
+    },
+    {
+      "text": "The loss $L$ can be defined on the final output or on each step."
+    },
+    {
+      "text": "The computational graph is an unrolled chain."
+    },
+    {
+      "text": "At each time step, the same weight matrix $W$ participates both in the forward computation and in the loss."
+    },
+    {
+      "text": "Consequently, the total gradient is a sum over all times: $\\frac{\\partial L}{\\partial W} = \\sum_{t=1}^{T} \\frac{\\partial L}{\\partial h_t} \\frac{\\partial h_t}{\\partial W}$."
+    },
+    {
+      "text": "The total gradient being a sum over all timesteps is the same effect that makes weight sharing effective, because every timestep provides a signal, but it also introduces a serious difficulty."
+    },
+    {
+      "text": "Consider a drastically simplified recurrence where $h_t = W h_{t-1}$, ignoring inputs and non-linearities."
+    },
+    {
+      "text": "In this simplified recurrence, $h_T = W^{\\,T} h_0$."
+    },
+    {
+      "text": "The norm of $h_T$ behaves like $(\\rho)^T \\|h_0\\|$, where $\\rho$ is the spectral radius of $W$."
+    },
+    {
+      "text": "The spectral radius of $W$ is roughly the factor by which multiplying by $W$ scales a vector."
+    },
+    {
+      "text": "The same repeated multiplication occurs during the backward pass because gradients flow through the transpose."
+    },
+    {
+      "text": "If $\\rho > 1$, the activations and gradients explode exponentially."
+    },
+    {
+      "text": "Exploding gradients lead to numerical overflow, chaotic loss surfaces, and non-sensical updates."
+    },
+    {
+      "text": "If $\\rho < 1$, the signals vanish exponentially."
+    },
+    {
+      "text": "Vanishing gradients cause the network to become unable to learn long-range dependencies: the influence of early tokens on the loss quickly approaches zero."
+    },
+    {
+      "text": "Both exploding and vanishing gradient regimes are common in practice."
+    },
+    {
+      "text": "It is very difficult to keep the spectral radius $\\rho$ precisely at $1$ throughout training."
+    },
+    {
+      "text": "The exploding gradient problem has an elegantly simple solution: gradient clipping."
+    },
+    {
+      "text": "In gradient clipping, whenever the norm of a gradient exceeds a predefined threshold, the vector is rescaled to that threshold."
+    },
+    {
+      "text": "There are two common variants of gradient clipping: clipping by norm and clipping by component value."
+    },
+    {
+      "text": "In Keras, an example of clipping by norm is `optimizers.SGD(lr=0.01, clipnorm=1.)`."
+    },
+    {
+      "text": "In Keras, an example of clipping by component value is `optimizers.SGD(lr=0.01, clipvalue=.05)`."
+    },
+    {
+      "text": "Geometrically, exploding gradients correspond to a near-vertical \"wall\" in the loss landscape."
+    },
+    {
+      "text": "Without gradient clipping, an optimiser would bounce off this wall and fly far away."
+    },
+    {
+      "text": "Gradient clipping projects the step back, keeping the search in the well-behaved region and preserving the general direction of the update."
+    },
+    {
+      "text": "Gradient clipping is a standard, harmless component of RNN training."
+    },
+    {
+      "text": "Solving the vanishing gradient problem is more subtle than solving the exploding gradient problem."
+    },
+    {
+      "text": "Solving the vanishing gradient problem requires carefully designed recurrent units with built-in gradient highways."
+    },
+    {
+      "text": "This topic leads directly to LSTM and GRU architectures."
+    },
+    {
+      "text": "LSTM and GRU architectures are to be discussed next."
+    }
+  ]
+}

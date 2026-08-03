@@ -287,12 +287,26 @@ def write_conspect(transcript_md: str, slides_md: str, slide_index: str | None =
 # --- pipeline --------------------------------------------------------------
 
 
-def _read_sources(lecture_dir: Path, stt_provider: str) -> tuple[str, str]:
+def _read_sources(lecture_dir: Path, stt_provider: str, *, baseline: bool = False) -> tuple[str, str]:
     """Load (transcript_md, slides_md) for a lecture directory.
 
     Prefers the LLM-cleaned ``transcription_reconstructed.md`` (see
     ``app.reconstruct_transcript``) over the raw ASR output.
+
+    ``baseline=True`` forces the baseline sources: the raw ASR
+    ``transcription.md`` and the raw extracted ``slides.md``.
     """
+    if baseline:
+        transcript_path = lecture_dir / stt_provider / "transcription.md"
+        if not transcript_path.exists():
+            raise FileNotFoundError(
+                f"No transcript at {transcript_path} — run `python -m app.transcribe {lecture_dir}` first."
+            )
+        slides_path = lecture_dir / "slides_extracted" / "slides.md"
+        if not slides_path.exists():
+            raise FileNotFoundError(f"No raw slides at {slides_path} — run `python -m app.extract_slides` first.")
+        return transcript_path.read_text(encoding="utf-8"), slides_path.read_text(encoding="utf-8")
+
     transcript_path = lecture_dir / stt_provider / "transcription_reconstructed.md"
     if not transcript_path.exists():
         transcript_path = lecture_dir / stt_provider / "transcription.md"
@@ -328,27 +342,32 @@ def process_lecture(
     model: str | None = None,
     provider: str | None = None,
     max_tokens: int = 16_000,
+    baseline: bool = False,
 ) -> Path:
-    transcript_md, slides_md = _read_sources(lecture_dir, stt_provider)
+    """``baseline=True`` rebuilds the low-effort baseline conspect: raw ASR
+    transcript + raw extracted slide text, no slide images, written to
+    ``conspect_baseline.md`` (the main ``conspect.md`` is left untouched)."""
+    transcript_md, slides_md = _read_sources(lecture_dir, stt_provider, baseline=baseline)
 
     # Render slide PNGs (pdftoppm) so the conspect can embed figure-heavy slides.
     slide_index = None
-    try:
-        if render_slide_images(lecture_dir) is not None:
-            slide_index = build_slide_index(lecture_dir)
-    except RuntimeError as e:
-        print(f"           WARNING: slide images skipped ({e})")
+    if not baseline:
+        try:
+            if render_slide_images(lecture_dir) is not None:
+                slide_index = build_slide_index(lecture_dir)
+        except RuntimeError as e:
+            print(f"           WARNING: slide images skipped ({e})")
 
     writer = ConspectWriter(model=model, provider=provider, max_tokens=max_tokens)
     print(
-        f"[{lecture_dir.name}] writing conspect ({writer.provider}:{writer.model}, stt={stt_provider}, "
-        f"images={'yes' if slide_index else 'no'}) …"
+        f"[{lecture_dir.name}] writing {'baseline ' if baseline else ''}conspect "
+        f"({writer.provider}:{writer.model}, stt={stt_provider}, images={'yes' if slide_index else 'no'}) …"
     )
     t0 = time.monotonic()
     conspect = writer.write(transcript_md, slides_md, slide_index)
     dt = time.monotonic() - t0
 
-    out_path = lecture_dir / "conspect.md"
+    out_path = lecture_dir / ("conspect_baseline.md" if baseline else "conspect.md")
     out_path.write_text(conspect, encoding="utf-8")
     print(f"           {dt:.0f}s wall -> {out_path}")
     return out_path
@@ -384,6 +403,11 @@ def main(argv: list[str] | None = None) -> int:
         default=16_000,
         help="Output token limit for the conspect (default: 16000)",
     )
+    parser.add_argument(
+        "--baseline",
+        action="store_true",
+        help="Baseline conspect: raw transcription.md + raw slides.md, no images, -> conspect_baseline.md",
+    )
     args = parser.parse_args(argv)
 
     for lec in args.lectures:
@@ -394,6 +418,7 @@ def main(argv: list[str] | None = None) -> int:
             model=args.model,
             provider=args.provider,
             max_tokens=args.max_tokens,
+            baseline=args.baseline,
         )
 
     print("Done.")
